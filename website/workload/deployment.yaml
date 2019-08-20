@@ -1,0 +1,34 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: websiteinfo
+  namespace: euler
+  labels:
+    app: websiteinfo
+  annotations:
+    flux.weave.works/automated: "true"
+    flux.weave.works/tag.nginxinfod: semver:~1.0
+spec:
+  strategy:
+    rollingUpdate:
+      maxUnavailable: 0
+    type: RollingUpdate
+  selector:
+    matchLabels:
+      app: websiteinfo
+  template:
+    metadata:
+      annotations:
+        prometheus.io/scrape: "true"
+      labels:
+        app: websiteinfo
+    spec:
+      containers:
+      - name: websiteinfod
+        image: swr.cn-north-1.myhuaweicloud.com/openeuler/website:v1.0.201908201746334761
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 80
+          name: http
+          protocol: TCP
