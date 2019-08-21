@@ -1,0 +1,12 @@
+FROM maxking/mailman-web:0.2.3
+
+COPY static /opt/mailman-web/static
+
+EXPOSE 8000 8080
+
+# Use stop signal for uwsgi server
+STOPSIGNAL SIGINT
+
+ENTRYPOINT ["docker-entrypoint.sh"]
+
+CMD ["uwsgi", "--ini", "/opt/mailman-web/uwsgi.ini"]
