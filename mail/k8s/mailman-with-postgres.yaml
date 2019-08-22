@@ -1,5 +1,65 @@
 #Deployment for mailman suit services
 
+## define the sata volume type
+#---
+#allowVolumeExpansion: true
+#apiVersion: storage.k8s.io/v1
+#kind: StorageClass
+#metadata:
+#  name: sata-sc
+#parameters:
+#  kubernetes.io/storagetype: BS
+#  kubernetes.io/volumetype: SATA
+#  kubernetes.io/zone: ap-southeast-1a
+#provisioner: flexvolume-huawei.com/fuxivol
+#reclaimPolicy: Retain
+#volumeBindingMode: Immediate 
+
+## define obs volume tyupe
+#---
+#apiVersion: storage.k8s.io/v1
+#kind: StorageClass
+#metadata:
+#  name: obs-sc
+#parameters:
+#  kubernetes.io/storagetype: OBS
+#  kubernetes.io/volumetype: STANDARD
+#provisioner: flexvolume-huawei.com/fuxiobs
+#reclaimPolicy: Retain
+#volumeBindingMode: Immediate
+
+## define the postgros volume 
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: db-data-vol
+  namespace: default
+spec:
+  accessModes:
+  - ReadWriteMany
+  resources:
+    requests:
+      storage: 10Gi
+  storageClassName: sata
+  volumeMode: Filesystem
+
+## define the config volume for both mail-core & exim4
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: config-vol
+  namespace: default
+spec:
+  accessModes:
+  - ReadWriteMany
+  resources:
+    requests:
+      storage: 100Gi
+  storageClassName: nfs-rw
+  volumeMode: Filesystem
+
 # Headless Service for mailman suit service
 ---
 apiVersion: v1
@@ -35,7 +95,7 @@ spec:
     spec:
       containers:
         - name: mailman-core
-          image: maxking/mailman-core:0.2.3
+          image: swr.cn-north-1.myhuaweicloud.com/openeuler/mail-core:v0.1.0
           imagePullPolicy: "IfNotPresent"
           volumeMounts:
             - mountPath: /opt/mailman/
@@ -52,11 +112,14 @@ spec:
               value: someapikey
             - name: HYPERKITTY_URL
             # NOTE: Please update the HYPERKITTY_URL
-              value: http://mail-web-service::8000/hyperkitty
+              value: http://mailweb.openeuler.io/hyperkitty
+            - name: SMTP_HOST
+              value: mailman-exim4-0.mail-suit-service.default.svc.cluster.local
       #NOTE: Empty dir can't be used in a production dir. Please upgrade it before using.
       volumes:
         - name: mailman-core-volume
-          emptyDir: {}
+          persistentVolumeClaim:
+            claimName: config-vol
 
 # StatefulSet for postgres database service
 ---
@@ -85,6 +148,7 @@ spec:
           volumeMounts:
             - mountPath: /var/lib/postgresql/data
               name: mailman-database-volume
+              subPath: postgres
           env:
             - name: POSTGRES_DB
               value: mailmandb
@@ -92,10 +156,13 @@ spec:
               value: mailman
             - name: POSTGRES_PASSWORD
               value: mailmanpass
+            - name: PGDATA
+              value: /var/lib/postgresql/data/postgres
       #NOTE: Empty dir can't be used in a production dir. Please upgrade it before using.
       volumes:
         - name: mailman-database-volume
-          emptyDir: {}
+          persistentVolumeClaim:
+            claimName: db-data-vol
 
 # configmap for mail exim4 service, these three files are directly read from exim config folder
 ---
@@ -109,12 +176,12 @@ data:
     # Place this file at
     # /etc/exim4/conf.d/main/25_mm3_macros
 
-    domainlist mm3_domains=tommylike.me
+    domainlist mm3_domains=openeuler.io
     MM3_LMTP_HOST=mailman-core-0.mail-suit-service.default.svc.cluster.local
     MM3_LMTP_PORT=8024
     # According to the configuration of: https://mailman.readthedocs.io/en/release-3.0/src/mailman/docs/MTA.html
     # We need updating this, for the purpose of delivering emails to the mailman
-    MM3_HOME=/opt/mailman/core/var
+    MM3_HOME=/opt/mailman/var
 
     ################################################################
     # The configuration below is boilerplate:
@@ -156,7 +223,7 @@ data:
 
   update-exim4-conf.conf: |
     dc_eximconfig_configtype='internet'
-    dc_other_hostnames='tommylike.me;'
+    dc_other_hostnames='openeuler.io;'
     dc_local_interfaces=''
     dc_readhost=''
     # NOTE: wildchart is used here, but it's not safe at all.
@@ -171,23 +238,33 @@ data:
     dc_mailname_in_oh='true'
     dc_localdelivery='mail_spool'
 
-#Service for exim4 pods to export Port 25 via NodePort
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: mail-exim4-service
-  labels:
-    app: mail-suit-service
+  name: mailman-exim4-service
+  namespace: default
+  annotations:
+    kubernetes.io/elb.autocreate: '{"type":"public","bandwidth_name":"bandwidth-536e","bandwidth_chargemode":"traffic","bandwidth_size":5,"bandwidth_sharetype":"PER","eip_type":"5_bgp"}'
+    kubernetes.io/elb.class: union
+    #kubernetes.io/elb.eip-id: 44fe0dfb-f15f-403e-a410-20168d3d0c62
+    #kubernetes.io/elb.id: cbc73fb7-d266-46a7-9d8b-0cce7603cb6e
+    kubernetes.io/elb.lb-algorithm: ROUND_ROBIN
+    kubernetes.io/elb.mark: "3"
+    kubernetes.io/elb.subnet-id: 9cfe1a22-216a-431a-9e79-900fa643c2c1
 spec:
-  type: NodePort
+  clusterIP: 10.247.70.241
+  externalTrafficPolicy: Cluster
+  loadBalancerIP: 159.138.8.220
   ports:
   - port: 25
     name: exim4-port
-    nodePort: 30025
+    nodePort: 30063
+    targetPort: 25
+    protocol: TCP
   selector:
     component: mail-exim4-service
-
+  type: LoadBalancer
 
 # StatefulSet for exim4 services
 ---
@@ -215,7 +292,7 @@ spec:
       containers:
         - name: mailman-exim4
           #NOTE: This image is directly built from our dockerfile located in exim4 folder
-          image: tommylike/mailman-exim4:0.0.1
+          image: swr.cn-north-1.myhuaweicloud.com/openeuler/mail-exim4:v0.1.0
           imagePullPolicy: "IfNotPresent"
           volumeMounts:
             - mountPath: /etc/exim4/conf.d/main/25_mm3_macros
@@ -230,6 +307,8 @@ spec:
             - mountPath: /etc/exim4/update-exim4.conf.conf
               name: mailman-exim4-configmap-volume
               subPath: update-exim4-conf.conf
+            - mountPath: /opt/mailman/
+              name: mailman-core-data
           # NOTE: since we added new configuration files we need reload exim4 and start up
           command:
             - /bin/sh
@@ -242,27 +321,43 @@ spec:
         - name: mailman-exim4-configmap-volume
           configMap:
             name: mailman-exim4-configmap
+        - name: mailman-core-data
+          persistentVolumeClaim:
+            claimName: config-vol 
 
-
-# Service for mail web service to export NodePort
+# Config web service
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: mail-web-service
-  labels:
-    app: mail-suit-service
+  name: mailman-web-service
+  namespace: default
+  annotations:
+    kubernetes.io/elb.autocreate: '{"type":"public","bandwidth_name":"bandwidth-536e","bandwidth_chargemode":"traffic","bandwidth_size":5,"bandwidth_sharetype":"PER","eip_type":"5_bgp"}'
+    kubernetes.io/elb.class: union
+    #kubernetes.io/elb.eip-id: c55dc712-b66a-4456-ae86-a594d9ec86cd
+    #kubernetes.io/elb.id: cbc73fb7-d266-46a7-9d8b-0cce7603cb6e
+    kubernetes.io/elb.lb-algorithm: ROUND_ROBIN
+    kubernetes.io/elb.mark: "3"
+    kubernetes.io/elb.subnet-id: 9cfe1a22-216a-431a-9e79-900fa643c2c1
 spec:
-  type: NodePort
+  clusterIP: 10.247.70.245
+  externalTrafficPolicy: Cluster
+  loadBalancerIP: 159.138.38.212
   ports:
   - port: 8080
     name: website-port-uwsgi
-    nodePort: 30080
-  - port: 8000
+    nodePort: 30060
+    targetPort: 8080
+    protocol: TCP  
+  - port: 80
     name: website-port-http
-    nodePort: 30000
+    nodePort: 30061
+    targetPort: 8000
+    protocol: TCP
   selector:
     component: mail-web-service
+  type: LoadBalancer
 
 # configmap for mail web service
 ---
@@ -289,8 +384,9 @@ data:
         "mailman-core-0.mail-suit-service.default.svc.cluster.local",
         "mailman-web-0.mail-suit-service.default.svc.cluster.local",
         #NOTE: This is the public ip address of the served host
-        "159.138.26.163",
-        "tommylike.me",
+        "159.138.38.212",
+        "newto.co",
+        "mailweb.openeuler.io",
         os.environ.get('SERVE_FROM_DOMAIN'),
         os.environ.get('DJANGO_ALLOWED_HOSTS'),
     ]
@@ -321,7 +417,7 @@ spec:
       containers:
         - name: mailman-web
           # We modified the mail-web image to add static folder.
-          image: tommylike/mailman-web:0.2.3
+          image: maxking/mailman-web:0.2.3
           imagePullPolicy: "IfNotPresent"
           volumeMounts:
             - mountPath: /opt/mailman-web-config
@@ -341,18 +437,18 @@ spec:
               value: community_key
             - name: UWSGI_STATIC_MAP
             # NOTE: This static folder has been added into docker image located at /opt/mailman-web/static
-              value: /static=/opt/mailman-web/static
+              value: /static=/opt/mailman-web-data/static
             - name: MAILMAN_REST_URL
               value: http://mailman-core-0.mail-suit-service.default.svc.cluster.local:8001
             - name: MAILMAN_HOST_IP
               value: mailman-core-0.mail-suit-service.default.svc.cluster.local
             - name: MAILMAN_ADMIN_USER
-              value: tommylike
+              value: openeuler
             - name: MAILMAN_ADMIN_EMAIL
-              value: tommylikehu@gmail.com
+              value: freesky.edward@gmail.com
             #NOTE: this is the domain name that mailman web will serve
             - name: SERVE_FROM_DOMAIN
-              value: tommylike.me
+              value: mailweb.openeuler.io
           #NOTE: Command is overwritten for the purpose of copy config file into dest folder
           command:
             - /bin/sh
