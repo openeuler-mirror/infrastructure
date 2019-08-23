@@ -74,4 +74,25 @@ module "cce" {
   ]  
 }
 
+module "internet" {
+  source = "./internet"
   
+  eips = [
+    {
+      bandwidth-name = "bandwidth-01",
+      size           = "5"
+    },
+    {
+      bandwidth-name = "bandwidth-02",
+      size           = "5"
+    },
+    {
+      bandwidth-name = "bandwidth-03",
+      size           = "5"
+    }, 
+    {
+      bandwidth-name = "bandwidth-04",
+      size           = "5"
+    }
+  ]
+} 
