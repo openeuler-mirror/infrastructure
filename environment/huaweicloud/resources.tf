@@ -103,4 +103,23 @@ module "internet" {
       size           = "5"
     }
   ]
-} 
+}
+
+module "nat" {
+  source = "./nat"
+
+  name = "nat-community"
+  description = "this is a nat gateway to provide the access to internet for node"
+  spec_code = 3
+  router_id = "${module.network.this_vpc_id}"
+  network_id = "${split(",", module.network.this_network_ids)[0]}"
+
+  rules = [
+    {
+      network_id = "${split(",", module.network.this_network_ids)[0]}"
+      eip_id = "${split(",",module.internet.this_eip_ids)[0]}"
+    }
+  ]
+}
+  
+  
