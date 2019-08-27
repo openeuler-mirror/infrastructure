@@ -1,6 +1,6 @@
 # Useage
 
-### Before running 
+### Prerequisites 
 
 - download terraform 
   
