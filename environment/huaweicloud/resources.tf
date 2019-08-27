@@ -40,6 +40,14 @@ module "security_group" {
       port_range_max = "80",
       remote_ip_cidr = "0.0.0.0/0"
     },
+    {
+      direction      = "ingress",
+      ethertype      = "IPv4",
+      protocol       = "tcp",
+      port_range_min = "25",
+      port_range_max = "25",
+      remote_ip_cidr = "0.0.0.0/0"
+    }
   ]
 }
 
