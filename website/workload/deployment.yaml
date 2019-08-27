@@ -32,3 +32,18 @@ spec:
         - containerPort: 80
           name: http
           protocol: TCP
+        - containerPort: 443
+          name: https
+          protocol: TCP
+        volumeMounts:
+        - mountPath: /etc/nginx/ssl
+          name: secret-volume
+        - mountPath: /etc/nginx/conf.d
+          name: configmap-volume
+      volumes:
+      - name: secret-volume
+        secret:
+          secretName: openeulersvcsecret
+      - name: configmap-volume
+        configMap:
+          name: openeulersvcconfigmap
