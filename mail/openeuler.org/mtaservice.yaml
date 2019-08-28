@@ -1,0 +1,81 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: mailman-exim4-service
+  namespace: mail
+  annotations:
+    kubernetes.io/elb.class: union
+    kubernetes.io/elb.id: f4efa65e-8e29-492b-8408-92b8ad20d6aa
+    kubernetes.io/elb.lb-algorithm: ROUND_ROBIN
+spec:
+  externalTrafficPolicy: Cluster
+  loadBalancerIP: 159.138.46.20
+  ports:
+  - port: 25
+    name: exim4-port
+    nodePort: 30063
+    targetPort: 25
+    protocol: TCP
+  selector:
+    component: mail-exim4-service
+  type: LoadBalancer
+
+# StatefulSet for exim4 services
+---
+kind: StatefulSet
+apiVersion: apps/v1beta1
+metadata:
+  name: mailman-exim4
+  namespace: mail
+  labels:
+    app: mail-suit-service
+    component: mail-exim4-service
+spec:
+  serviceName: mail-suit-service
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mail-suit-service
+      component: mail-exim4-service
+  template:
+    metadata:
+      labels:
+        app: mail-suit-service
+        component: mail-exim4-service
+    spec:
+      containers:
+        - name: mailman-exim4
+          #NOTE: This image is directly built from our dockerfile located in exim4 folder
+          image: swr.cn-north-1.myhuaweicloud.com/openeuler/mail-exim4:v0.1.0
+          imagePullPolicy: "IfNotPresent"
+          volumeMounts:
+            - mountPath: /etc/exim4/conf.d/main/25_mm3_macros
+              name: mailman-exim4-configmap-volume
+              subPath: 25_mm3_macros
+            - mountPath: /etc/exim4/conf.d/transport/55_mm3_transport
+              name: mailman-exim4-configmap-volume
+              subPath: 55_mm3_transport
+            - mountPath: /etc/exim4/conf.d/router/455_mm3_router
+              name: mailman-exim4-configmap-volume
+              subPath: 455_mm3_router
+            - mountPath: /etc/exim4/update-exim4.conf.conf
+              name: mailman-exim4-configmap-volume
+              subPath: update-exim4-conf.conf
+            - mountPath: /opt/mailman/
+              name: mailman-core-data
+          # NOTE: since we added new configuration files we need reload exim4 and start up
+          command:
+            - /bin/sh
+            - -c
+            - |
+              sudo update-exim4.conf;
+              tini -- exim -bd -v;
+      #NOTE: Empty dir can't be used in a production dir. Please upgrade it before using.
+      volumes:
+        - name: mailman-exim4-configmap-volume
+          configMap:
+            name: mailman-exim4-configmap
+        - name: mailman-core-data
+          persistentVolumeClaim:
+            claimName: config-vol
