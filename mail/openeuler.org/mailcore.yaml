@@ -39,7 +39,7 @@ spec:
                   key: HYPERKITTY_API_KEY
             - name: HYPERKITTY_URL
             # NOTE: Please update the HYPERKITTY_URL
-              value: http://mailman-web-service.mail.svc.cluster.local:8000/hyperkitty
+              value: http://mailman-web-service.mail.svc.cluster.local/hyperkitty
             - name: SMTP_HOST
               value: mailman-exim4-service.mail.svc.cluster.local
       #NOTE: Empty dir can't be used in a production dir. Please upgrade it before using.
