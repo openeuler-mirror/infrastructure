@@ -105,3 +105,5 @@ data:
         os.environ.get('SERVE_FROM_DOMAIN'),
         os.environ.get('DJANGO_ALLOWED_HOSTS'),
     ]
+
+    COMPRESS_CSS_HASHING_METHOD = 'content'
