@@ -63,7 +63,7 @@ spec:
       containers:
         - name: mailman-web
           # We modified the mail-web image to add static folder.
-          image: xiangxinyong/nginxtest:0.2.7
+          image: xiangxinyong/nginxtest:0.2.6
           imagePullPolicy: "IfNotPresent"
           volumeMounts:
             - mountPath: /opt/mailman-web-config
