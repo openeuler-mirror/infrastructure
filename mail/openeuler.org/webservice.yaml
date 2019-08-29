@@ -13,11 +13,16 @@ spec:
   externalTrafficPolicy: Cluster
   loadBalancerIP: 159.138.132.224
   ports:
+  - port: 8000
+    name: website-port-uwsgi-http
+    nodePort: 30059
+    targetPort: 8000
+    protocol: TCP  
   - port: 8080
     name: website-port-uwsgi
     nodePort: 30060
     targetPort: 8080
-    protocol: TCP  
+    protocol: TCP
   - port: 80
     name: website-port-http
     nodePort: 30061
