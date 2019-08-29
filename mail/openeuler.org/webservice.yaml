@@ -105,7 +105,7 @@ spec:
             - -c
             - |
               cp /opt/mailman-web-config/settings_local.py /opt/mailman-web-data;
-              docker-entrypoint.sh uwsgi --ini /opt/mailman-web/uwsgi.ini;
+              docker-entrypoint.sh nginx && uwsgi --ini /opt/mailman-web/uwsgi.ini;
       #NOTE: Empty dir can't be used in a production dir. Please upgrade it before using.
       volumes:
         - name: mailman-web-volume
