@@ -3,7 +3,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: websiteinfo
-  namespace: euler
+  namespace: website
   labels:
     app: websiteinfo
   annotations:
@@ -43,7 +43,7 @@ spec:
       volumes:
       - name: secret-volume
         secret:
-          secretName: openeulersvcsecret
+          secretName: websitesvcsecret
       - name: configmap-volume
         configMap:
-          name: openeulersvcconfigmap
+          name: websitesvcconfigmap
