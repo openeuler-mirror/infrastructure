@@ -68,6 +68,8 @@ spec:
           volumeMounts:
             - mountPath: /opt/mailman-web-config
               name: mailman-web-configmap-volume
+            - mountPath: /etc/nginx/ssl
+              name: mailman-secret-volume
             - mountPath: /opt/mailman-web-data
               name: mailman-web-volume
           env:
@@ -113,3 +115,6 @@ spec:
         - name: mailman-web-configmap-volume
           configMap:
             name: mailman-web-configmap
+        - name: mailman-secret-volume
+          secret:
+            secretName: mailcertsecret
