@@ -91,6 +91,17 @@ command:
     $ docker exec -it mailman-web python manage.py createsuperuser
 ```
 
+Building with Nginx
+=============
+
+We can use nginx to replace `http-socket` with nginx.
+`http-socket` is provided by the uwsgi server in default.
+The following command can be used to build the image with nginx.
+
+```
+docker build -t swr.cn-north-1.myhuaweicloud.com/openeuler/mailman-web:v1.0.0 -f ./Dockerfile.nginx .
+```
+
 [1]: https://gitlab.com/mailman
 [3]: https://github.com/maxking/docker-mailman/
 [2]: https://github.com/maxking/docker-mailman/blob/master/docker-compose.yaml
