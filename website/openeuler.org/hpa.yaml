@@ -2,7 +2,7 @@ apiVersion: autoscaling/v2beta1
 kind: HorizontalPodAutoscaler
 metadata:
   name: websiteinfo
-  namespace: euler
+  namespace: website
 spec:
   scaleTargetRef:
     apiVersion: apps/v1
