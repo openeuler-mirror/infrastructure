@@ -99,7 +99,7 @@ We can use nginx to replace `http-socket` with nginx.
 The following command can be used to build the image with nginx.
 
 ```
-docker build -t swr.cn-north-1.myhuaweicloud.com/openeuler/mailman-web:v1.0.0 -f ./Dockerfile.nginx .
+docker build -t swr.cn-north-1.myhuaweicloud.com/openeuler/mail-web:v1.0.0 -f ./Dockerfile.nginx .
 ```
 
 [1]: https://gitlab.com/mailman
