@@ -1,0 +1,2 @@
+kubernetes:1.18.3
+gitee:1.1.3
