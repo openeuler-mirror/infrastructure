@@ -3,7 +3,7 @@ output "this_eip_ids" {
   value       = "${join(",",huaweicloud_vpc_eip_v1.this.*.id)}"
 }
 
-output "this_eip_addresses" {
-  description = "List of address of the eips"
-  value       = "${join(",",huaweicloud_vpc_eip_v1.this.*.publicip.ip_address)}"
-}
+#output "this_eip_addresses" {
+#  description = "List of address of the eips"
+#  value       = "${join(",",huaweicloud_vpc_eip_v1.this.*.ip_address)}"
+#}
