@@ -122,4 +122,40 @@ module "nat" {
   ]
 }
   
+ 
+module "dns" {
+  source = "./dns"
   
+  domain = "openeuler.org"
+  email  = "freesky.edward@gmail.com"
+  
+  records = [
+    {
+      domain = "mail"
+      type  =  "A"
+      value = "${split(",", module.internet.this_eip_ids)[1]}"
+    },
+    {
+      domain = "mailweb"
+      type = "A"
+      value = "${split(",", module.internet.this_eip_ids)[2]}"
+    },
+    {
+      domain = "@"
+      type = "MX"
+      value = "mail.openeuler.org"
+    },
+    {
+      domain = "@"
+      type = "TXT"
+      value = "v=spf1 a mx ip4:${split(",", module.internet.this_eip_ids)[0]}  ~all"
+    }
+  ]
+
+  ptrs = [
+    {
+       domain = "openeuler.org"
+       ip     = "${split(",", module.internet.this_eip_ids)[0]}"
+    }
+  ]
+} 
