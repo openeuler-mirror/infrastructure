@@ -121,6 +121,35 @@ module "nat" {
     }
   ]
 }
+
+
+module "elb" {
+  source = "./elb"
+  
+  loadbalancers = [
+    {
+      name  =  "elb-website"
+      description = "The load balancer of website"
+      type = "External"
+      vpc_id = "${module.network.this_vpc_id}"
+      eip    = "${split(",", module.internet.this_eip_addresses)[3]}"
+    },
+    {
+      name  =  "elb-mailweb"
+      description = "The load balancer of mailweb"
+      type = "External"
+      vpc_id = "${module.network.this_vpc_id}"
+      eip    = "${split(",", module.internet.this_eip_addresses)[2]}"
+    },
+    {
+      name  =  "elb-mta"
+      description = "The load balancer of mail MTA"
+      type = "External"
+      vpc_id = "${module.network.this_vpc_id}"
+      eip    = "${split(",", module.internet.this_eip_addresses)[1]}"
+    }
+  ]
+}
   
  
 module "dns" {
@@ -133,12 +162,12 @@ module "dns" {
     {
       domain = "mail"
       type  =  "A"
-      value = "${split(",", module.internet.this_eip_ids)[1]}"
+      value = "${split(",", module.internet.this_eip_addresses)[1]}"
     },
     {
       domain = "mailweb"
       type = "A"
-      value = "${split(",", module.internet.this_eip_ids)[2]}"
+      value = "${split(",", module.internet.this_eip_addresses)[2]}"
     },
     {
       domain = "@"
@@ -148,7 +177,7 @@ module "dns" {
     {
       domain = "@"
       type = "TXT"
-      value = "v=spf1 a mx ip4:${split(",", module.internet.this_eip_ids)[0]}  ~all"
+      value = "v=spf1 a mx ip4:${split(",", module.internet.this_eip_addresses)[0]}  ~all"
     }
   ]
 
