@@ -53,6 +53,9 @@ spec:
             - mountPath: /etc/exim4/conf.d/main/25_mm3_macros
               name: mailman-exim4-configmap-volume
               subPath: 25_mm3_macros
+            - mountPath: /etc/exim4/conf.d/main/00_local_macros
+              name: mailman-exim4-configmap-volume
+              subPath: 00_local_macros
             - mountPath: /etc/exim4/conf.d/transport/55_mm3_transport
               name: mailman-exim4-configmap-volume
               subPath: 55_mm3_transport
@@ -64,6 +67,8 @@ spec:
               subPath: update-exim4-conf.conf
             - mountPath: /opt/mailman/
               name: mailman-core-data
+            - mountPath: /etc/exim4/dkim
+              name: mta-dkim-secret
           # NOTE: since we added new configuration files we need reload exim4 and start up
           command:
             - /bin/sh
@@ -79,3 +84,6 @@ spec:
         - name: mailman-core-data
           persistentVolumeClaim:
             claimName: config-vol
+        - name: mta-dkim-secret
+          secret:
+            secretName: dkimsecret
