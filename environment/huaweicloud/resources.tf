@@ -178,6 +178,16 @@ module "dns" {
       domain = "@"
       type = "TXT"
       value = "v=spf1 a mx ip4:${split(",", module.internet.this_eip_addresses)[0]}  ~all"
+    },
+    {
+      domain = "_dmarc"
+      type = "TXT"
+      value = "v=DMARC1;p=reject;sp=reject;adkim=r;aspf=r;fo=1;rf=afrf;pct=100;ruf=mailto:405121670@qq.com;ri=86400"
+    },
+    {
+      domain = "${var.handler}._domainkey"
+      type = "TXT"
+      value = "v=DKIM1;k=rsa;p=${var.dkim_public_key}"
     }
   ]
 

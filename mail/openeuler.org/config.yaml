@@ -24,6 +24,12 @@ data:
     # The path to the list receipt (used as the required file when
     # matching list addresses)
     MM3_LISTCHK=MM3_HOME/lists/${local_part}.${domain}
+  
+  00_local_macros: |
+    DKIM_CANON = relaxed
+    DKIM_SELECTOR = 20190905
+    DKIM_DOMAIN = openeuler.org
+    DKIM_FILE = /etc/exim4/dkim/openeuler.org-private.pem
 
   55_mm3_transport: |
     # Place this file at
