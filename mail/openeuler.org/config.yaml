@@ -30,6 +30,7 @@ data:
     DKIM_SELECTOR = 20190905
     DKIM_DOMAIN = openeuler.org
     DKIM_FILE = /etc/exim4/dkim/openeuler.org-private.pem
+    DKIM_PRIVATE_KEY=${if exists{DKIM_FILE}{DKIM_FILE}{0}}
 
   55_mm3_transport: |
     # Place this file at
@@ -115,6 +116,7 @@ data:
         "openeuler.org",
         "mailweb.openeuler.org",
         "mail.openeuler.org",
+        "mailman-web",
         SERVICE_IP,
         os.environ.get('SERVE_FROM_DOMAIN'),
         os.environ.get('DJANGO_ALLOWED_HOSTS'),
