@@ -1,7 +1,7 @@
 FROM ubuntu:14.04
 
 LABEL version="1.0.0"
-LABEL maintainer="tommylikehu@gmail.com"
+LABEL maintainer="developer@openeuler.org"
 
 ENV TINI_VERSION v0.14.0
 RUN set -x \
@@ -19,9 +19,6 @@ RUN set -x \
   && apt-get purge --auto-remove -y ca-certificates curl
 
 RUN apt-get update && apt-get install -y exim4 && rm -rf /var/lib/apt/lists/*
-
-ADD update-exim4.conf.conf /etc/exim4/
-RUN sudo update-exim4.conf
 
 EXPOSE 25
 CMD ["tini", "--", "exim", "-bd", "-v"]
