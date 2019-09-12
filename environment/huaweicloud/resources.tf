@@ -49,23 +49,30 @@ module "cce" {
 
 module "internet" {
   source = "./internet"
+ 
+  bandwidths = [
+    {
+      name = "bandwidth-mail"
+      size = "5"
+    },
+    {
+      name = "bandwidth-website"
+      size = "30"
+    }
+  ] 
   
   eips = [
     {
-      bandwidth-name = "bandwidth-01",
-      size           = "5"
+      bandwidth_id = "${split(",", module.internet.this_bandwidth_ids)[0]}"
     },
     {
-      bandwidth-name = "bandwidth-02",
-      size           = "5"
+      bandwidth_id = "${split(",", module.internet.this_bandwidth_ids)[0]}"
     },
     {
-      bandwidth-name = "bandwidth-03",
-      size           = "5"
+      bandwidth_id = "${split(",", module.internet.this_bandwidth_ids)[0]}"
     },
     {
-      bandwidth-name = "bandwidth-04",
-      size           = "5"
+      bandwidth_id = "${split(",", module.internet.this_bandwidth_ids)[1]}"
     } 
   ]
 }
