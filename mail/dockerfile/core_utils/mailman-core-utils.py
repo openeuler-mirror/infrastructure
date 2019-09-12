@@ -154,7 +154,7 @@ def running_templates_server():
         # exit with 0 when sigterm signal received.
         signal.signal(signal.SIGTERM, httpd_signal_handler)
         httpd.serve_forever()
-    except (IndentationError, SignalException):
+    except (InterruptedError, SignalException):
         pass
     print("template server ends")
     httpd.server_close()
