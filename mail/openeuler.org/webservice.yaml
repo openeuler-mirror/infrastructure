@@ -63,7 +63,7 @@ spec:
       containers:
         - name: mailman-web
           # We modified the mail-web image to add static folder.
-          image: swr.cn-north-1.myhuaweicloud.com/openeuler/mail-web:v1.0.0
+          image: swr.cn-north-1.myhuaweicloud.com/openeuler/mail-web:v1.0.1
           imagePullPolicy: "IfNotPresent"
           volumeMounts:
             - mountPath: /opt/mailman-web-config
@@ -75,8 +75,12 @@ spec:
           env:
             - name: DATABASE_TYPE
               value: postgres
-            - name: DATABASE_URL
-              value: postgres://mailman:mailmanpass@mailman-database-0.mail-suit-service.mail.svc.cluster.local/mailmandb
+            - name: DATABASE_URL_PREFIX
+              #NOTE: Replace Postgres-Service-ConnectionURL with real connection info.
+              #For instance postgres://username:password@internal_ip_address:5432
+              value: <Postgres-Service-ConnectionURL>
+            - name: DB_NAME
+              value: mailmandb
             - name: HYPERKITTY_API_KEY
               valueFrom:
                 secretKeyRef:
