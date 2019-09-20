@@ -65,6 +65,7 @@ spec:
             - mountPath: /etc/exim4/update-exim4.conf.conf
               name: mailman-exim4-configmap-volume
               subPath: update-exim4-conf.conf
+              # This file path also used in command option that used as a exim4 log path
             - mountPath: /opt/mailman/
               name: mailman-core-data
             - mountPath: /etc/exim4/dkim
@@ -74,8 +75,9 @@ spec:
             - /bin/sh
             - -c
             - |
+              echo "log_file_path = /opt/mailman/exim_log/%s.%M" >> /etc/exim4/conf.d/main/01_exim4-config_listmacrosdefs;
               sudo update-exim4.conf;
-              tini -- exim -bd -v;
+              exec tini -- exim -bd -v;
       #NOTE: Empty dir can't be used in a production dir. Please upgrade it before using.
       volumes:
         - name: mailman-exim4-configmap-volume
