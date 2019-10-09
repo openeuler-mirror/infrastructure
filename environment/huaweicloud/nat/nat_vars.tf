@@ -22,7 +22,7 @@ variable "network_id" {
 }
 
 variable "rules" {
-  type = list(map(string))
+  type        = list(map(string))
   description = "List of rules in the nat"
   default     = []
 }
