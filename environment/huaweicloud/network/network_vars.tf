@@ -14,7 +14,7 @@ variable "cidr" {
 }
 
 variable "subnets" {
-  type = list(map(string))
+  type        = list(map(string))
   description = "List of subnets in the VPC"
   default     = []
 }
