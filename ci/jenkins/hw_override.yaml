@@ -8,11 +8,11 @@ master:
   # test pod will be created to test the readness of master web UI if enabled.
   testEnabled: false
   # used to specify the Elb ID which used for master service
-  huaweielbID: e0d3b7f2-ee51-426c-81c3-ee8f041a076c
+  huaweielbID: 1b8c18b6-0dd1-411a-b3bc-393bccd8d718
   # used to specify the service type of master service
   serviceType: LoadBalancer
-  # EIP for node balancer
-  loadBalancerIP: 139.159.207.197
+  # EIP for node load balancer
+  loadBalancerIP: 159.138.51.146
   # used to specify the service port for master web UI
   servicePort: 80
   # used to specify the service node port for master web UI
