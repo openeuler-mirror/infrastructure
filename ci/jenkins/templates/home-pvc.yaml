@@ -15,6 +15,7 @@ metadata:
     "app.kubernetes.io/instance": "{{ .Release.Name }}"
     "app.kubernetes.io/component": "{{ .Values.master.componentName }}"
 spec:
+  volumeMode: Filesystem
   accessModes:
     - {{ .Values.persistence.accessMode | quote }}
   resources:
