@@ -16,6 +16,9 @@ metadata:
   annotations:
 {{ toYaml .Values.master.serviceAnnotations | indent 4 }}
 {{- end }}
+    "kubernetes.io/elb.class": union
+    "kubernetes.io/elb.id": "{{ .Values.master.huaweielbID }}"
+    "kubernetes.io/elb.lb-algorithm": ROUND_ROBIN
 spec:
   ports:
     - port: {{.Values.master.servicePort}}

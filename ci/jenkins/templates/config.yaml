@@ -43,24 +43,24 @@ data:
       <myViewsTabBar class="hudson.views.DefaultMyViewsTabBar"/>
       <clouds>
         <org.csanchez.jenkins.plugins.kubernetes.KubernetesCloud plugin="kubernetes@{{ template "jenkins.kubernetes-version" . }}">
-          <name>kubernetes</name>
+          <name>{{ .Values.agent.cloud1.name }}</name>
           <templates>
 {{- if .Values.agent.enabled }}
             <org.csanchez.jenkins.plugins.kubernetes.PodTemplate>
               <inheritFrom></inheritFrom>
-              <name>{{ .Values.agent.podName }}</name>
+              <name>{{ .Values.agent.cloud1.podName }}</name>
               <instanceCap>2147483647</instanceCap>
               <idleMinutes>{{ .Values.agent.idleMinutes }}</idleMinutes>
-              <label>{{ .Release.Name }}-{{ .Values.agent.componentName }} {{ .Values.agent.customJenkinsLabels  | join " " }}</label>
+              <label>{{ .Release.Name }}-{{ .Values.agent.cloud1.componentName }} {{ .Values.agent.customJenkinsLabels  | join " " }}</label>
               <serviceAccount>{{ include "jenkins.serviceAccountAgentName" . }}</serviceAccount>
               <nodeSelector>
                 {{- $local := dict "first" true }}
-                {{- range $key, $value := .Values.agent.nodeSelector }}
+                {{- range $key, $value := .Values.agent.cloud1.nodeSelector }}
                   {{- if not $local.first }},{{- end }}
                   {{- $key }}={{ $value }}
                   {{- $_ := set $local "first" false }}
                 {{- end }}</nodeSelector>
-                <nodeUsageMode>NORMAL</nodeUsageMode>
+                <nodeUsageMode>EXCLUSIVE</nodeUsageMode>
               <volumes>
 {{- range $index, $volume := .Values.agent.volumes }}
                 <org.csanchez.jenkins.plugins.kubernetes.volumes.{{ $volume.type }}Volume>
@@ -74,9 +74,9 @@ data:
                 <org.csanchez.jenkins.plugins.kubernetes.ContainerTemplate>
                   <name>{{ .Values.agent.sideContainerName }}</name>
 {{- if .Values.agent.imageTag }}
-                  <image>{{ .Values.agent.image }}:{{ .Values.agent.imageTag }}</image>
+                  <image>{{ .Values.agent.cloud1.image }}:{{ .Values.agent.cloud1.imageTag }}</image>
 {{- else }}
-                  <image>{{ .Values.agent.image }}:{{ .Values.agent.tag }}</image>
+                  <image>{{ .Values.agent.cloud1.image }}:{{ .Values.agent.cloud1.tag }}</image>
 {{- end }}
 {{- if .Values.agent.privileged }}
                   <privileged>true</privileged>
@@ -95,10 +95,117 @@ data:
                   # Resources configuration is a little hacky. This was to prevent breaking
                   # changes, and should be cleanned up in the future once everybody had
                   # enough time to migrate.
-                  <resourceRequestCpu>{{.Values.agent.resources.requests.cpu}}</resourceRequestCpu>
-                  <resourceRequestMemory>{{.Values.agent.resources.requests.memory}}</resourceRequestMemory>
-                  <resourceLimitCpu>{{.Values.agent.resources.limits.cpu}}</resourceLimitCpu>
-                  <resourceLimitMemory>{{.Values.agent.resources.limits.memory}}</resourceLimitMemory>
+                  <resourceRequestCpu>{{.Values.agent.cloud1.resources.requests.cpu}}</resourceRequestCpu>
+                  <resourceRequestMemory>{{.Values.agent.cloud1.resources.requests.memory}}</resourceRequestMemory>
+                  <resourceLimitCpu>{{.Values.agent.cloud1.resources.limits.cpu}}</resourceLimitCpu>
+                  <resourceLimitMemory>{{.Values.agent.cloud1.resources.limits.memory}}</resourceLimitMemory>
+                  <envVars>
+                    <org.csanchez.jenkins.plugins.kubernetes.ContainerEnvVar>
+                      <key>JENKINS_URL</key>
+                      <value>http://{{ template "jenkins.fullname" . }}.{{ template "jenkins.namespace" . }}.svc.{{.Values.clusterZone}}:{{.Values.master.servicePort}}{{ default "" .Values.master.jenkinsUriPrefix }}</value>
+                    </org.csanchez.jenkins.plugins.kubernetes.ContainerEnvVar>
+                  </envVars>
+                </org.csanchez.jenkins.plugins.kubernetes.ContainerTemplate>
+              </containers>
+              <envVars>
+{{- range $index, $var := .Values.agent.envVars }}
+                <org.csanchez.jenkins.plugins.kubernetes.PodEnvVar>
+                  <key>{{ $var.name }}</key>
+                  <value>{{ $var.value }}</value>
+                </org.csanchez.jenkins.plugins.kubernetes.PodEnvVar>
+{{- end }}
+              </envVars>
+              <annotations/>
+{{- if .Values.agent.imagePullSecretName }}
+              <imagePullSecrets>
+                <org.csanchez.jenkins.plugins.kubernetes.PodImagePullSecret>
+                  <name>{{ .Values.agent.imagePullSecretName }}</name>
+                </org.csanchez.jenkins.plugins.kubernetes.PodImagePullSecret>
+              </imagePullSecrets>
+{{- else }}
+              <imagePullSecrets/>
+{{- end }}
+              <nodeProperties/>
+{{- if .Values.agent.yamlTemplate }}
+              <yaml>{{ tpl .Values.agent.yamlTemplate . | html | indent 4 | trim }}</yaml>
+{{- end }}
+              <podRetention class="org.csanchez.jenkins.plugins.kubernetes.pod.retention.Default"/>
+            </org.csanchez.jenkins.plugins.kubernetes.PodTemplate>
+{{- end -}}
+          </templates>
+          <serverUrl>https://kubernetes.default</serverUrl>
+          <skipTlsVerify>false</skipTlsVerify>
+          <namespace>{{ template "jenkins.master.slaveKubernetesNamespace" . }}</namespace>
+{{- if .Values.master.slaveKubernetesNamespace }}
+          <jenkinsUrl>http://{{ template "jenkins.fullname" . }}.{{ template "jenkins.namespace" . }}:{{.Values.master.servicePort}}{{ default "" .Values.master.jenkinsUriPrefix }}</jenkinsUrl>
+          <jenkinsTunnel>{{ template "jenkins.fullname" . }}-agent.{{ template "jenkins.namespace" . }}:{{ .Values.master.slaveListenerPort }}</jenkinsTunnel>
+{{- else }}
+          <jenkinsUrl>http://{{ template "jenkins.fullname" . }}:{{.Values.master.servicePort}}{{ default "" .Values.master.jenkinsUriPrefix }}</jenkinsUrl>
+          <jenkinsTunnel>{{ template "jenkins.fullname" . }}-agent:{{ .Values.master.slaveListenerPort }}</jenkinsTunnel>
+{{- end }}
+          <containerCap>{{ .Values.agent.containerCap }}</containerCap>
+          <retentionTimeout>5</retentionTimeout>
+          <connectTimeout>0</connectTimeout>
+          <readTimeout>0</readTimeout>
+          <podRetention class="org.csanchez.jenkins.plugins.kubernetes.pod.retention.{{ .Values.agent.podRetention }}"/>
+        </org.csanchez.jenkins.plugins.kubernetes.KubernetesCloud>
+        <org.csanchez.jenkins.plugins.kubernetes.KubernetesCloud plugin="kubernetes@{{ template "jenkins.kubernetes-version" . }}">
+          <name>{{ .Values.agent.cloud2.name }}</name>
+          <templates>
+{{- if .Values.agent.enabled }}
+            <org.csanchez.jenkins.plugins.kubernetes.PodTemplate>
+              <inheritFrom></inheritFrom>
+              <name>{{ .Values.agent.cloud2.podName }}</name>
+              <instanceCap>2147483647</instanceCap>
+              <idleMinutes>{{ .Values.agent.idleMinutes }}</idleMinutes>
+              <label>{{ .Release.Name }}-{{ .Values.agent.cloud2.componentName }} {{ .Values.agent.customJenkinsLabels  | join " " }}</label>
+              <serviceAccount>{{ include "jenkins.serviceAccountAgentName" . }}</serviceAccount>
+              <nodeSelector>
+                {{- $local := dict "first" true }}
+                {{- range $key, $value := .Values.agent.cloud2.nodeSelector }}
+                  {{- if not $local.first }},{{- end }}
+                  {{- $key }}={{ $value }}
+                  {{- $_ := set $local "first" false }}
+                {{- end }}</nodeSelector>
+                <nodeUsageMode>EXCLUSIVE</nodeUsageMode>
+              <volumes>
+{{- range $index, $volume := .Values.agent.volumes }}
+                <org.csanchez.jenkins.plugins.kubernetes.volumes.{{ $volume.type }}Volume>
+{{- range $key, $value := $volume }}{{- if not (eq $key "type") }}
+                  <{{ $key }}>{{ $value }}</{{ $key }}>
+{{- end }}{{- end }}
+                </org.csanchez.jenkins.plugins.kubernetes.volumes.{{ $volume.type }}Volume>
+{{- end }}
+              </volumes>
+              <containers>
+                <org.csanchez.jenkins.plugins.kubernetes.ContainerTemplate>
+                  <name>{{ .Values.agent.sideContainerName }}</name>
+{{- if .Values.agent.imageTag }}
+                  <image>{{ .Values.agent.cloud2.image }}:{{ .Values.agent.cloud2.imageTag }}</image>
+{{- else }}
+                  <image>{{ .Values.agent.cloud2.image }}:{{ .Values.agent.cloud2.tag }}</image>
+{{- end }}
+{{- if .Values.agent.privileged }}
+                  <privileged>true</privileged>
+{{- else }}
+                  <privileged>false</privileged>
+{{- end }}
+                  <alwaysPullImage>{{ .Values.agent.alwaysPullImage }}</alwaysPullImage>
+                  <workingDir>/home/jenkins</workingDir>
+                  <command>{{ .Values.agent.command }}</command>
+{{- if .Values.agent.args }}
+                  <args>{{ .Values.agent.args }}</args>
+{{- else }}
+                  <args>${computer.jnlpmac} ${computer.name}</args>
+{{- end }}
+                  <ttyEnabled>{{ .Values.agent.TTYEnabled }}</ttyEnabled>
+                  # Resources configuration is a little hacky. This was to prevent breaking
+                  # changes, and should be cleanned up in the future once everybody had
+                  # enough time to migrate.
+                  <resourceRequestCpu>{{.Values.agent.cloud2.resources.requests.cpu}}</resourceRequestCpu>
+                  <resourceRequestMemory>{{.Values.agent.cloud2.resources.requests.memory}}</resourceRequestMemory>
+                  <resourceLimitCpu>{{.Values.agent.cloud2.resources.limits.cpu}}</resourceLimitCpu>
+                  <resourceLimitMemory>{{.Values.agent.cloud2.resources.limits.memory}}</resourceLimitMemory>
                   <envVars>
                     <org.csanchez.jenkins.plugins.kubernetes.ContainerEnvVar>
                       <key>JENKINS_URL</key>
