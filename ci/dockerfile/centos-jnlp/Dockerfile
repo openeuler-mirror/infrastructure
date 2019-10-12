@@ -1,22 +1,15 @@
-FROM opensuse/leap:15.1
+FROM centos:7
 MAINTAINER tommylike <tommylikehu@gmail.com>
 
 # Install jdk8 and bunch of build tools
 USER root
 ENV USER root
 
-RUN zypper up -y \
-	&& zypper in -y wget \
-	&& zypper in -y curl \
-	&& zypper in -y git \
-	&& zypper in -y subversion
-
-RUN wget -O jre-8u221-linux-x64.rpm -c --content-disposition "https://javadl.oracle.com/webapps/download/AutoDL?BundleId=239847_230deb18db3e4014bb8e3e8324f81b43" \
-	&& rpm -ivh jre-8u221-linux-x64.rpm \
-	&& rm jre-8u221-linux-x64.rpm
+RUN yum install -y java-1.8.0-openjdk java-1.8.0-openjdk-devel \
+	wget curl git subversion
 
 # Setup java path
-ENV JAVA_HOME /usr/java/default
+ENV JAVA_HOME /etc/alternatives/jre
 ENV PATH $PATH:$JAVA_HOME/bin
 
 # Install jenkins slave
@@ -55,3 +48,5 @@ VOLUME ${AGENT_WORKDIR}
 WORKDIR /home/${user}
 
 ENTRYPOINT ["jenkins-agent"]
+
+
