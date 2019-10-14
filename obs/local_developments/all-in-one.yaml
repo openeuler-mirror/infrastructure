@@ -1,0 +1,154 @@
+# Headless Service for OBS service
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: obs-suit-service
+  labels:
+    app: obs-suit-service
+spec:
+  selector:
+    app: obs-suit-service
+  clusterIP: None
+
+# Base environment for memcached server
+---
+kind: StatefulSet
+apiVersion: apps/v1beta1
+metadata:
+  name: obs-memcached
+  labels:
+    app: obs-suit-service
+spec:
+  serviceName: obs-suit-service
+  replicas: 1
+  selector:
+    matchLabels:
+      app: obs-memcached-component
+  template:
+    metadata:
+      labels:
+        app: obs-memcached-component
+    spec:
+      containers:
+        - name: memcached
+          image: opensuse/leap:15.1
+          imagePullPolicy: "IfNotPresent"
+          #Hold the container used for manually environment setting.
+          command:
+            - /bin/sh
+            - -c
+            - sleep 60*60*24*30;
+# Base environment for mariadb server
+---
+kind: StatefulSet
+apiVersion: apps/v1beta1
+metadata:
+  name: obs-mariadb
+  labels:
+    app: obs-suit-service
+spec:
+  serviceName: obs-suit-service
+  replicas: 1
+  selector:
+    matchLabels:
+      app: obs-mariadb-component
+  template:
+    metadata:
+      labels:
+        app: obs-mariadb-component
+    spec:
+      containers:
+        - name: mariadb
+          image: opensuse/leap:15.1
+          imagePullPolicy: "IfNotPresent"
+          #Hold the container used for manually environment setting.
+          command:
+            - /bin/sh
+            - -c
+            - sleep 60*60*24*30;
+# Base environment for frontend server
+---
+kind: StatefulSet
+apiVersion: apps/v1beta1
+metadata:
+  name: obs-frontend
+  labels:
+    app: obs-suit-service
+spec:
+  serviceName: obs-suit-service
+  replicas: 1
+  selector:
+    matchLabels:
+      app: obs-frontend-component
+  template:
+    metadata:
+      labels:
+        app: obs-frontend-component
+    spec:
+      containers:
+        - name: frontend
+          image: opensuse/leap:15.1
+          imagePullPolicy: "IfNotPresent"
+          #Hold the container used for manually environment setting.
+          command:
+            - /bin/sh
+            - -c
+            - sleep 60*60*24*30;
+# Base environment for backend server
+---
+kind: StatefulSet
+apiVersion: apps/v1beta1
+metadata:
+  name: obs-backend
+  labels:
+    app: obs-suit-service
+spec:
+  serviceName: obs-suit-service
+  replicas: 1
+  selector:
+    matchLabels:
+      app: obs-backend-component
+  template:
+    metadata:
+      labels:
+        app: obs-backend-component
+    spec:
+      containers:
+        - name: backend
+          image: opensuse/leap:15.1
+          imagePullPolicy: "IfNotPresent"
+          #Hold the container used for manually environment setting.
+          command:
+            - /bin/sh
+            - -c
+            - sleep 60*60*24*30;
+
+# Base environment for backend worker
+---
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: obs-worker
+  labels:
+    app: obs-suit-service
+spec:
+  serviceName: obs-suit-service
+  replicas: 2
+  selector:
+    matchLabels:
+      app: obs-worker-component
+  template:
+    metadata:
+      labels:
+        app: obs-worker-component
+    spec:
+      containers:
+        - name: backend
+          image: opensuse/leap:15.1
+          imagePullPolicy: "IfNotPresent"
+          #Hold the container used for manually environment setting.
+          command:
+            - /bin/sh
+            - -c
+            - sleep 60*60*24*30;
