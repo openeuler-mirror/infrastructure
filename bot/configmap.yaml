@@ -1,0 +1,32 @@
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: bot-configmap
+  namespace: bot
+data:
+  config.yaml: |
+    owner: "openeuler-ci-bot"
+    repository: "https://gitee.com/openeuler/website"
+    giteeToken: "******"
+    webhookSecret: "123456789"
+    databaseType: "mysql"
+    databaseHost: "127.0.0.1"
+    databasePort: 3306
+    databaseName: "cibot"
+    databaseUserName: "root"
+    databasePassword: "******"
+  projects.yaml: |
+    projects:
+    # - name: python-tools
+    #   owner:
+    #     - freesky-edward
+    #     - tommylike
+    #   type: private
+    #   description: ""
+    # - name: goclient
+    #   owner:
+    #     - xiangxinyong
+    #     - edisontest
+    #   type: public
+    #   description: "go client"
