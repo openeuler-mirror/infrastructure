@@ -1,5 +1,5 @@
 variable "loadbalancers" {
-  type = list(map(string))
+  type        = list(map(string))
   description = "List of load banlancers"
   default     = []
 }
