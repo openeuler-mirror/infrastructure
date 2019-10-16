@@ -1,6 +1,6 @@
 # Create VPC
 resource "huaweicloud_vpc_v1" "this" {
-  count = "${var.vpc_id=="" ? 1 : 0}"
+  count = "${var.vpc_id == "" ? 1 : 0}"
   name  = "${var.name}"
   cidr  = "${var.cidr}"
 }
@@ -14,5 +14,5 @@ resource "huaweicloud_vpc_subnet_v1" "this" {
   availability_zone = "${lookup(var.subnets[count.index], "availability_zone", null)}"
   primary_dns       = "${lookup(var.subnets[count.index], "primary_dns", null)}"
   secondary_dns     = "${lookup(var.subnets[count.index], "secondary_dns", null)}"
-  vpc_id            = "${var.vpc_id=="" ? join("",huaweicloud_vpc_v1.this.*.id) : var.vpc_id}"
+  vpc_id            = "${var.vpc_id == "" ? join("", huaweicloud_vpc_v1.this.*.id) : var.vpc_id}"
 }

@@ -1,9 +1,9 @@
 resource "huaweicloud_dns_ptrrecord_v2" "this" {
-  count       = "${length(var.ptrs)}"
-  name        = "${lookup(var.ptrs[count.index], "domain", null)}"
-  description = "${lookup(var.ptrs[count.index], "description", "ptr")}"
+  count         = "${length(var.ptrs)}"
+  name          = "${lookup(var.ptrs[count.index], "domain", null)}"
+  description   = "${lookup(var.ptrs[count.index], "description", "ptr")}"
   floatingip_id = "${lookup(var.ptrs[count.index], "ip", null)}"
-  ttl         = "${lookup(var.ptrs[count.index], "ttl", 3000)}"
+  ttl           = "${lookup(var.ptrs[count.index], "ttl", 3000)}"
 }
 
 

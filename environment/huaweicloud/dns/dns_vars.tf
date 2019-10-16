@@ -8,27 +8,27 @@ variable "email" {
 
 variable "ttl" {
   description = "The ttl time"
-  default = 3000
-}  
+  default     = 3000
+}
 
 variable "type" {
   description = "The DNS type, the value would be public or private"
-  default = "public"
+  default     = "public"
 }
 
 variable "description" {
   description = "The dns description string"
-  default = ""
+  default     = ""
 }
 
 variable "records" {
-  type = list(map(string))
+  type        = list(map(string))
   description = "List of each dns records"
-  default = []
+  default     = []
 }
 
 variable "ptrs" {
-  type = list(map(string))
+  type        = list(map(string))
   description = "List of ptr records"
   default     = []
 }
