@@ -28,7 +28,7 @@ variable "subnet_id" {
 }
 
 variable "nodes" {
-  type = list(map(string))
+  type        = list(map(string))
   description = "List of cluster node"
   default     = []
 }
