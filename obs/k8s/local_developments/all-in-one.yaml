@@ -41,6 +41,8 @@ spec:
             - /bin/sh
             - -c
             - sleep 2592000;
+          securityContext:
+            privileged: true
 # Base environment for mariadb server
 ---
 kind: StatefulSet
@@ -71,6 +73,8 @@ spec:
             - /bin/sh
             - -c
             - sleep 2592000;
+          securityContext:
+            privileged: true
 # Base environment for frontend server
 ---
 kind: StatefulSet
@@ -101,6 +105,8 @@ spec:
             - /bin/sh
             - -c
             - sleep 2592000;
+          securityContext:
+            privileged: true
 # Base environment for backend server
 ---
 kind: StatefulSet
@@ -131,6 +137,8 @@ spec:
             - /bin/sh
             - -c
             - sleep 2592000;
+          securityContext:
+            privileged: true
 
 # Base environment for backend worker
 ---
@@ -161,3 +169,5 @@ spec:
             - /bin/sh
             - -c
             - sleep 2592000;
+          securityContext:
+            privileged: true
