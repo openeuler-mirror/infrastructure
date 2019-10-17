@@ -8,8 +8,8 @@ resource "huaweicloud_compute_instance_v2" "this" {
   availability_zone = "${lookup(var.servers[count.index], "az")}"
 
   network {
-    uuid = "${lookup(var.servers[count.index], "network")}"
-    fixed_ip_v4 = "${lookup(var.servers[count.index],"ipv4", "")}"
+    uuid        = "${lookup(var.servers[count.index], "network")}"
+    fixed_ip_v4 = "${lookup(var.servers[count.index], "ipv4", "")}"
   }
 
   block_device {
