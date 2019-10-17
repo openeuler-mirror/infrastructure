@@ -6,5 +6,5 @@ output "this_server_ids" {
 
 output "this_server_ips" {
   description = "List of the ips of the servers"
-  value = "${join(",", huaweicloud_compute_instance_v2.this.*.access_ip_v4)}"
+  value       = "${join(",", huaweicloud_compute_instance_v2.this.*.access_ip_v4)}"
 }
