@@ -1,0 +1,173 @@
+# Headless Service for OBS service
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: obs-suit-service
+  labels:
+    service: obs-suit-service
+spec:
+  selector:
+    service: obs-suit-service
+  clusterIP: None
+
+# Base environment for memcached server
+---
+kind: StatefulSet
+apiVersion: apps/v1beta1
+metadata:
+  name: obs-memcached
+  labels:
+    service: obs-suit-service
+spec:
+  serviceName: obs-suit-service
+  replicas: 1
+  selector:
+    matchLabels:
+      service: obs-suit-service
+      app: obs-memcached-component
+  template:
+    metadata:
+      labels:
+        service: obs-suit-service
+        app: obs-memcached-component
+    spec:
+      containers:
+        - name: memcached
+          image: tommylike/obs-base:0.0.1
+          imagePullPolicy: "IfNotPresent"
+          #Hold the container used for manually environment setting.
+          command:
+            - /bin/sh
+            - -c
+            - sleep 2592000;
+          securityContext:
+            privileged: true
+# Base environment for mariadb server
+---
+kind: StatefulSet
+apiVersion: apps/v1beta1
+metadata:
+  name: obs-mariadb
+  labels:
+    service: obs-suit-service
+spec:
+  serviceName: obs-suit-service
+  replicas: 1
+  selector:
+    matchLabels:
+      service: obs-suit-service
+      app: obs-mariadb-component
+  template:
+    metadata:
+      labels:
+        service: obs-suit-service
+        app: obs-mariadb-component
+    spec:
+      containers:
+        - name: mariadb
+          image: tommylike/obs-base:0.0.1
+          imagePullPolicy: "IfNotPresent"
+          #Hold the container used for manually environment setting.
+          command:
+            - /bin/sh
+            - -c
+            - sleep 2592000;
+          securityContext:
+            privileged: true
+# Base environment for frontend server
+---
+kind: StatefulSet
+apiVersion: apps/v1beta1
+metadata:
+  name: obs-frontend
+  labels:
+    service: obs-suit-service
+spec:
+  serviceName: obs-suit-service
+  replicas: 1
+  selector:
+    matchLabels:
+      service: obs-suit-service
+      app: obs-frontend-component
+  template:
+    metadata:
+      labels:
+        service: obs-suit-service
+        app: obs-frontend-component
+    spec:
+      containers:
+        - name: frontend
+          image: tommylike/obs-base:0.0.1
+          imagePullPolicy: "IfNotPresent"
+          #Hold the container used for manually environment setting.
+          command:
+            - /bin/sh
+            - -c
+            - sleep 2592000;
+          securityContext:
+            privileged: true
+# Base environment for backend server
+---
+kind: StatefulSet
+apiVersion: apps/v1beta1
+metadata:
+  name: obs-backend
+  labels:
+    service: obs-suit-service
+spec:
+  serviceName: obs-suit-service
+  replicas: 1
+  selector:
+    matchLabels:
+      service: obs-suit-service
+      app: obs-backend-component
+  template:
+    metadata:
+      labels:
+        service: obs-suit-service
+        app: obs-backend-component
+    spec:
+      containers:
+        - name: backend
+          image: tommylike/obs-base:0.0.1
+          imagePullPolicy: "IfNotPresent"
+          #Hold the container used for manually environment setting.
+          command:
+            - /bin/sh
+            - -c
+            - sleep 2592000;
+          securityContext:
+            privileged: true
+
+# Base environment for backend worker
+---
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: obs-worker
+  labels:
+    service: obs-suit-service
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      service: obs-suit-service
+      app: obs-worker-component
+  template:
+    metadata:
+      labels:
+        service: obs-suit-service
+        app: obs-worker-component
+    spec:
+      containers:
+        - name: backend
+          image: tommylike/obs-base:0.0.1
+          imagePullPolicy: "IfNotPresent"
+          #Hold the container used for manually environment setting.
+          command:
+            - /bin/sh
+            - -c
+            - sleep 2592000;
+          securityContext:
+            privileged: true
