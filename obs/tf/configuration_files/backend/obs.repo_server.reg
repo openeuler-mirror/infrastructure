@@ -1,0 +1,11 @@
+#############################################################################
+#
+# OpenSLP registration file
+#
+# register OBS repository server
+#
+#############################################################################
+
+service:obs.repo_server:http://192.168.51.51:5252,en,65535
+watch-port-tcp=5252
+description=Open Build Service Repository Server

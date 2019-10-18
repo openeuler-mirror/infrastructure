@@ -27,6 +27,7 @@ systemctl stop obsworker.service &&\
 systemctl stop apache2 &&\
 systemctl stop mysql &&\
 systemctl stop memcached
+systemctl stop obs-api-support.target
 ```
 
 ## memcached
@@ -77,6 +78,7 @@ our $ipaccess = {
 then restart the backend source service
 ```$xslt
 systemctl restart  obssrcserver.service
+systemctl restart  obsdeltastore.service
 ```
 
 ## update the certificate file and content
@@ -101,6 +103,9 @@ SSLCertificateChainFile /srv/obs/certs/chain.pem
 ## restart the apache2
 ```$xslt
 systemctl restart apache2
+systemctl restart obs-api-support.target
+systemctl restart memcached
+systemctl restart mysql
 ``` 
 
 
@@ -129,6 +134,12 @@ OBS_SRC_SERVER="192.168.51.51:5352"  //obs source server
 OBS_REPO_SERVERS="192.168.51.51:5252" //obs repo server
 OBS_WORKER_INSTANCES="20"
 ```
+2. update the slp files
+```bash
+1. /etc/slp.reg.d/obs_repo_server.reg
+2. /etc/slp.reg.d/obs_source_server.reg
+
+```
 2. restart worker service
 ```$xslt
 systemctl start obsstoragesetup.service
@@ -154,6 +165,12 @@ our $ipaccess = {
 our $srcserver = "http://$hostname:5352";
 our $reposerver = "http://<ip address of backend server>:5252";
 our $serviceserver = "http://<ip address of backend server>:5152";
+
+```
+3. update the slp files
+```bash
+1. /etc/slp.reg.d/obs_repo_server.reg
+2. /etc/slp.reg.d/obs_source_server.reg
 
 ```
 
@@ -189,6 +206,27 @@ systemctl start obsdeltastore.service
 ## filesystem configuration
 XFS is the best choice
 ## move the content /srv folder into mounted volume
+
+## update the backend service config
+```bash
+# file: /etc/sysconfig/obs-server
+config needs update
+OBS_RUN_DIR communication directory base /srv/obs/run
+
+OBS_LOG_DIR logging directory /srv/obs/log
+ 
+OBS_BASE_DIR base directory /srv/obs
+# also update the BSconfig file
+
+our $bsdir = '/srv/obs';
+
+```
+## update the slp files
+```bash
+1. /etc/slp.reg.d/obs_repo_server.reg
+2. /etc/slp.reg.d/obs_source_server.reg
+
+```
 
 ## Update scheduler service to remove dependency of 'obsapisetup.service'
 the file file: /usr/lib/systemd/system/obsscheduler.service
