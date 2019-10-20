@@ -1,20 +1,20 @@
 #!/bin/bash
 
 
-if [[ $# -lt 2 ]];then
-    echo "please specify frontend host, source host,usage: ./frontend.sh 117.78.1.88 172.16.1.87"
+if [[ $# -lt 3 ]];then
+    echo "please specify frontend host, source host and backend host, usage: ./source_server.sh 117.78.1.88 172.16.1.87 172.16.1.81"
     exit 1
 fi
 frontend_host=$1
 source_host=$2
+backend_host=$3
 #ensure the system matches
 system_info=`uname -r`
 if [[ ! ${system_info} == '4.12.14-lp151.28.7-default' ]];then
     echo "this script is strictly bound to specific release `4.12.14-lp151.28.7-default`,  please ensure this script works on your system"
     exit 1
 fi
-
-echo "Starting obs api service with source server ${source_host}.."
+echo "Starting obs source service with backend server ${backend_host}.."
 #enable and start sshd service
 echo "Enabling sshd service if not enabled"
 systemctl enable sshd.service
@@ -57,25 +57,20 @@ systemctl stop mysql
 systemctl stop memcached
 systemctl stop obs-api-support.target
 
-# downloading cert files
-cd /srv/obs/certs
-curl -o fullchain.pem https://gitee.com/openeuler/infrastructure/raw/master/obs/tf/configuration_files/frontend/certs/fullchain.pem
-curl -o privkey.pem https://gitee.com/openeuler/infrastructure/raw/master/obs/tf/configuration_files/frontend/certs/privkey.pem
 # update configuration file
-echo "Updating configuration file for apache service"
+echo "Updating configuration file for obs source service"
 
-sed -i "s/source_host: localhost/source_host: ${source_host}/g" /srv/www/obs/api/config/options.yml
-sed -i "s/ServerName api/ServerName build.openeuler.org/g" /etc/apache2/vhosts.d/obs.conf
-sed -i "s/SSLCertificateFile \/srv\/obs\/certs\/server.crt/SSLCertificateFile \/srv\/obs\/certs\/fullchain.pem/g" /etc/apache2/vhosts.d/obs.conf
-sed -i "s/SSLCertificateKeyFile \/srv\/obs\/certs\/server.key/SSLCertificateKeyFile \/srv\/obs\/certs\/privkey.pem/g" /etc/apache2/vhosts.d/obs.conf
+sed -i "s/when you touch hostname or port/when you touch hostname\n\$ipaccess->{'^172\\\.16\\\..*'} = 'rw' ;/g" /usr/lib/obs/server/BSConfig.pm
 
-# configure osc and api hostname
 sed -i "s/our \$srcserver = \"http:\/\/\$hostname:5352\";/our \$srcserver = \"http:\/\/${source_host}:5352\";/g" /usr/lib/obs/server/BSConfig.pm
-hostnamectl set-hostname build.openeuerl.org
+sed -i "s/our \$reposerver = \"http:\/\/\$hostname:5252\";/our \$reposerver = \"http:\/\/${backend_host}:5252\";/g" /usr/lib/obs/server/BSConfig.pm
+sed -i "s/our \$serviceserver = \"http:\/\/\$hostname:5152\";/our \$serviceserver = \"http:\/\/${backend_host}:5152\";/g" /usr/lib/obs/server/BSConfig.pm
 
+sed -i "s/\$HOSTNAME/${backend_host}/g" /etc/slp.reg.d/obs.repo_server.reg
+sed -i "s/\$HOSTNAME/${source_host}/g" /etc/slp.reg.d/obs.source_server.reg
 
 # update hosts info
-if ! grep -q "${frontend_host} build.openeuler.org" /etc/hosts; then
+if ! grep -q "${frontend_host} build.openeuler.org"; then
   echo "${frontend_host} build.openeuler.org" >> /etc/hosts
 fi
 
@@ -91,16 +86,17 @@ if [[ ! -e /root/.config/osc/oscrc ]];then
     curl -o oscrc https://gitee.com/openeuler/infrastructure/raw/master/obs/tf/configuration_files/oscrc
 fi
 
-echo "Restarting frontend service"
+echo "Restarting source service"
 # restart the frontend service
-systemctl enable obs-api-support.target
-systemctl enable mysql
-systemctl enable memcached
-systemctl enable apache2
+systemctl enable obsstoragesetup.service
+systemctl enable obssrcserver.service
+systemctl enable obsdeltastore.service
+systemctl enable obsservicedispatch.service
 
-systemctl start obs-api-support.target
-systemctl start mysql
-systemctl start memcached
-systemctl start apache2
-
-echo "OBS frontend server successfully started"
+systemctl start obsstoragesetup.service
+systemctl start obssrcserver.service
+systemctl start obsdeltastore.service
+systemctl start obsservicedispatch.service
+echo "OBS source server successfully started"
+SOURCE_REPO_ID=`cat /srv/obs/projects/_repoid`
+echo "Important, Please use this ID: ${SOURCE_REPO_ID} to replace the file content of '/srv/obs/projects/_repoid' and '/srv/obs/build/_repoid' in the backend server"

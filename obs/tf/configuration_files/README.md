@@ -169,8 +169,8 @@ our $serviceserver = "http://<ip address of backend server>:5152";
 ```
 3. update the slp files
 ```bash
-1. /etc/slp.reg.d/obs_repo_server.reg
-2. /etc/slp.reg.d/obs_source_server.reg
+1. /etc/slp.reg.d/obs.repo_server.reg
+2. /etc/slp.reg.d/obs.source_server.reg
 
 ```
 
