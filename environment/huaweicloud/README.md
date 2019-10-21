@@ -1,6 +1,6 @@
 # Infrastructure setup
 
-This folder houses  the infrastructure setup. it includes the following resources building:
+This folder houses two parts. The infrastructure setup, it includes the following resources building:
 
 - ***Network***.  setup one vpc and one subnet.
 - ***Nat***.  create a nat gateway to make the k8s node accessible to internet.
@@ -8,6 +8,14 @@ This folder houses  the infrastructure setup. it includes the following resource
 - ***Load balance***.  two LBs, one use for mailman-web. one for mailman-exim4.
 - ***DNS***.  several dns records. for mailman-web and mailman-exim4 sub-domain. dkim and spf authentication.
 - ***CCE***. The K8S cluster on huaweicloud.
+
+which defines in ```resources.tf``` and the ci infrastructure setup with following resources:
+
+- ***Network***. setup one vpc and one subnet.
+- ***Nat***. make all servers internet accessable.
+- ***EIPs***. create 3 EIPs. one for api-servers. one for router. one for nat.
+- ***Servers***. 4 servers with 2 volume attachments.
+- ***SG***. security rules definitions.
 
 ### Usage.
 
@@ -37,7 +45,7 @@ terraform apply -var -var "dkim_public_key=<your-public-key>"
 
 All of the following parameters can be changed according to your environment via ```terraform  -var “name=value”```. but I recommend to use the default if you are not familiar with the whole project.
 
-```dkim_public_key```(required). the public key will register the dns records.    
+```dkim_public_key```(required). the public key will register the dns records, which is used to email dkim authentication.    
  
 ```domain```(optional). the domain name where to publish the mail system endpoints. e.g. newto.me.
 ```email```(optional). the email for domain and system administration.
