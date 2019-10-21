@@ -1,0 +1,28 @@
+production:
+  features: &default
+    image_templates: true
+    kiwi_image_editor: false
+    cloud_upload: false
+    cloud_upload_azure: false
+    bootstrap: true
+
+development:
+  features:
+    <<: *default
+    kiwi_image_editor: true
+    cloud_upload: true
+    cloud_upload_azure: true
+
+test:
+  features:
+    <<: *default
+    kiwi_image_editor: true
+    cloud_upload: true
+    cloud_upload_azure: true
+
+beta:
+  features:
+    <<: *default
+    kiwi_image_editor: true
+    cloud_upload: true
+    cloud_upload_azure: true
