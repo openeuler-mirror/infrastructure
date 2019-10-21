@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-export CURRENT_DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )/..
+export CURRENT_DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
 
 function install-helm {
   echo "checking helm"
