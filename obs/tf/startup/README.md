@@ -1,5 +1,10 @@
 # NOTE
-All script files in this folder used to start up the corresponding service in OBS cluster
+All script files in this folder used to start up the corresponding service in OBS cluster,
+There are some additional setup files (used in startup scripts) which are stored in the huawei object storage:
+```
+https://openeuler.obs.cn-south-1.myhuaweicloud.com:443/infrastructure/<file_name>
+```
+Remember to update them if required.
 
 # Frontend
 ## Requirement
@@ -104,6 +109,19 @@ the output would include:
 var-cache-obs-worker.mount                                                     loaded active mounted   /var/cache/obs/worker
 obsworker.service                                                              loaded active running   LSB: Open Build Service worker
 ```
-
-
-
+# Cluster environment
+```bash
+Frontend:    172.16.1.81
+Source:      172.16.1.89
+Backend:     172.16.1.95
+Worker1:     172.16.1.80
+Worker2:     172.16.1.33
+Worker3:     172.16.1.99
+Worker4:     172.16.1.168
+Worker5:     172.16.1.151
+Worker6:     172.16.1.195
+Worker7:     172.16.1.127
+Worker8:     172.16.1.12
+Worker9:     172.16.1.14
+Worker10:    172.16.1.157
+```
