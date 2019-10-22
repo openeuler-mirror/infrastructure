@@ -69,9 +69,15 @@ systemctl stop obs-api-support.target
 echo "Updating configuration file for apache service"
 
 sed -i "s/source_host: localhost/source_host: source.openeuler.org/g" /srv/www/obs/api/config/options.yml
+#TODO: update this into hostname when we finally has one
+sed -i "s/frontend_host: localhost/frontend_host: ${frontend_host}/g" /srv/www/obs/api/config/options.yml
 sed -i "s/ServerName api/ServerName build.openeuler.org/g" /etc/apache2/vhosts.d/obs.conf
 sed -i "s/SSLCertificateFile \/srv\/obs\/certs\/server.crt/SSLCertificateFile \/srv\/obs\/certs\/fullchain.pem/g" /etc/apache2/vhosts.d/obs.conf
 sed -i "s/SSLCertificateKeyFile \/srv\/obs\/certs\/server.key/SSLCertificateKeyFile \/srv\/obs\/certs\/privkey.pem/g" /etc/apache2/vhosts.d/obs.conf
+
+#Updating the download url to point to backend server
+#TODO: update this into hostname when we finally has one
+sed -i "s/#{download_url}/https:\/\/${backend_host}:82/g" /srv/www/obs/api/app/views/webui2/shared/_download_repository_link.html.haml
 
 # configure osc and api hostname
 sed -i "s/our \$srcserver = \"http:\/\/\$hostname:5352\";/our \$srcserver = \"http:\/\/source.openeuler.org:5352\";/g" /usr/lib/obs/server/BSConfig.pm
@@ -121,6 +127,9 @@ systemctl start obs-api-support.target
 systemctl start mysql
 systemctl start memcached
 systemctl start apache2
+echo "Restarting ts server for textual search engine"
+rake ts:stop --trace RAILS_ENV="production"
+rake ts:start --trace RAILS_ENV="production"
 
 echo "OBS frontend server successfully started"
 echo "Important, please update the administrator (Admin)'s password"
