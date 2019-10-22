@@ -61,6 +61,9 @@ module "ci_internet" {
     },
     {
       bandwidth_id = "${split(",", module.ci_internet.this_bandwidth_ids)[0]}"
+    },
+    {
+      bandwidth_id = "${split(",", module.ci_internet.this_bandwidth_ids)[0]}"
     }
   ]
 }
@@ -248,6 +251,10 @@ module "ci_server_eip_bind" {
     {
       eip_id    = "${split(",", module.ci_internet.this_eip_addresses)[1]}"
       server_id = "${split(",", module.servers.this_server_ids)[2]}"
+    },
+    {
+      eip_id    = "${split(",", module.ci_internet.this_eip_addresses)[2]}"
+      server_id = "${split(",", module.servers.this_server_ids)[0]}"
     }
   ]
 }
