@@ -1,13 +1,14 @@
 #!/bin/bash
 
 
-if [[ $# -lt 3 ]];then
-    echo "please specify frontend host, source host and backend host, usage: ./source_server.sh 117.78.1.88 172.16.1.87 172.16.1.81"
+if [[ $# -lt 4 ]];then
+    echo "please specify frontend host, source host, backend host and data disk, usage: ./source_server.sh 172.16.1.138 172.16.1.87 172.16.1.81 /dev/vdb"
     exit 1
 fi
 frontend_host=$1
 source_host=$2
 backend_host=$3
+data_disk=$4
 #ensure the system matches
 system_info=`uname -r`
 if [[ ! ${system_info} == '4.12.14-lp151.28.7-default' ]];then
@@ -57,23 +58,58 @@ systemctl stop mysql
 systemctl stop memcached
 systemctl stop obs-api-support.target
 
+
+# prepare the disk
+if [[ ! -e ${data_disk} ]];then
+    echo "No data disk found ${data_disk}"
+    exit 1
+fi
+if [[ ! -e  /dev/OBS/server ]];then
+    pvcreate ${data_disk}
+    vgcreate "OBS" ${data_disk}
+    lvcreate  -l 100%FREE  "OBS" -n "server"
+    mkfs.ext3 /dev/OBS/server
+    echo "/dev/mapper/OBS-server /srv  ext3 defaults 0 0" >> /etc/fstab
+    mkdir -p /tmp/srv
+    cp -a /srv/* /tmp/srv
+    mount -a
+    cp -a /tmp/srv/* /srv/
+    rm -rf /tmp/srv
+fi
+
 # update configuration file
 echo "Updating configuration file for obs source service"
 
 sed -i "s/when you touch hostname or port/when you touch hostname\n\$ipaccess->{'^172\\\.16\\\..*'} = 'rw' ;/g" /usr/lib/obs/server/BSConfig.pm
 
-sed -i "s/our \$srcserver = \"http:\/\/\$hostname:5352\";/our \$srcserver = \"http:\/\/${source_host}:5352\";/g" /usr/lib/obs/server/BSConfig.pm
-sed -i "s/our \$reposerver = \"http:\/\/\$hostname:5252\";/our \$reposerver = \"http:\/\/${backend_host}:5252\";/g" /usr/lib/obs/server/BSConfig.pm
-sed -i "s/our \$serviceserver = \"http:\/\/\$hostname:5152\";/our \$serviceserver = \"http:\/\/${backend_host}:5152\";/g" /usr/lib/obs/server/BSConfig.pm
+sed -i "s/our \$srcserver = \"http:\/\/\$hostname:5352\";/our \$srcserver = \"http:\/\/source.openeuler.org:5352\";/g" /usr/lib/obs/server/BSConfig.pm
+sed -i "s/our \$reposerver = \"http:\/\/\$hostname:5252\";/our \$reposerver = \"http:\/\/backend.openeuler.org:5252\";/g" /usr/lib/obs/server/BSConfig.pm
+sed -i "s/our \$serviceserver = \"http:\/\/\$hostname:5152\";/our \$serviceserver = \"http:\/\/backend.openeuler.org:5152\";/g" /usr/lib/obs/server/BSConfig.pm
 
-sed -i "s/\$HOSTNAME/${backend_host}/g" /etc/slp.reg.d/obs.repo_server.reg
-sed -i "s/\$HOSTNAME/${source_host}/g" /etc/slp.reg.d/obs.source_server.reg
+sed -i "s/\$HOSTNAME/backend.openeuler.org/g" /etc/slp.reg.d/obs.repo_server.reg
+sed -i "s/\$HOSTNAME/source.openeuler.org/g" /etc/slp.reg.d/obs.source_server.reg
 
-# update hosts info
-if ! grep -q "${frontend_host} build.openeuler.org"; then
-  echo "${frontend_host} build.openeuler.org" >> /etc/hosts
+echo "Updating the cluster hosts info"
+# update hosts info:
+#    1. <frontend_host> build.openeuler.org
+#    2. <source_host> source.openeuler.org
+#    3. <backend_host> backend.openeuler.org
+hostnamectl set-hostname source.openeuerl.org
+if ! grep -q "build.openeuler.org" /etc/hosts; then
+    echo "${frontend_host} build.openeuler.org" >> /etc/hosts
+else
+    sed -i -e "s/[0-9]\{1,3\}\.[0-9]\{1,3\}\.[0-9]\{1,3\}\.[0-9]\{1,3\} build.openeuler.org/${frontend_host} build.openeuler.org/g" /etc/hosts
 fi
-
+if ! grep -q "source.openeuler.org" /etc/hosts; then
+    echo "${source_host} source.openeuler.org" >> /etc/hosts
+else
+    sed -i -e "s/[0-9]\{1,3\}\.[0-9]\{1,3\}\.[0-9]\{1,3\}\.[0-9]\{1,3\} source.openeuler.org/${source_host} source.openeuler.org/g" /etc/hosts
+fi
+if ! grep -q "backend.openeuler.org" /etc/hosts; then
+    echo "${backend_host} backend.openeuler.org" >> /etc/hosts
+else
+    sed -i -e "s/[0-9]\{1,3\}\.[0-9]\{1,3\}\.[0-9]\{1,3\}\.[0-9]\{1,3\} backend.openeuler.org/${backend_host} backend.openeuler.org/g" /etc/hosts
+fi
 
 echo "updating the osc configuration files"
 #update osc config file
@@ -81,10 +117,11 @@ if [[ ! -d /root/.config/osc ]];then
     mkdir -p  /root/.config/osc
 fi
 
-if [[ ! -e /root/.config/osc/oscrc ]];then
+if [[ -e /root/.config/osc/oscrc ]];then
     rm /root/.config/osc/oscrc
-    curl -o oscrc https://gitee.com/openeuler/infrastructure/raw/master/obs/tf/configuration_files/oscrc
 fi
+cd /root/.config/osc
+curl -o oscrc https://openeuler.obs.cn-south-1.myhuaweicloud.com:443/infrastructure/oscrc
 
 echo "Restarting source service"
 # restart the frontend service
