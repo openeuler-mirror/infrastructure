@@ -65,26 +65,26 @@ module "ci_internet" {
   ]
 }
 
-module "ci_nat" {
-  source = "./nat"
-
-  providers = {
-    huaweicloud = huaweicloud.ci
-  }
-
-  name        = "ci-community"
-  description = "this is a nat gateway to provide the access to internet for node"
-  spec_code   = 3
-  router_id   = "${module.ci_network.this_vpc_id}"
-  network_id  = "${split(",", module.ci_network.this_network_ids)[0]}"
-
-  rules = [
-    {
-      network_id = "${split(",", module.ci_network.this_network_ids)[0]}"
-      eip_id     = "${split(",", module.ci_internet.this_eip_ids)[2]}"
-    }
-  ]
-}
+#module "ci_nat" {
+#  source = "./nat"
+#
+#  providers = {
+#    huaweicloud = huaweicloud.ci
+#  }
+#
+#  name        = "ci-community"
+#  description = "this is a nat gateway to provide the access to internet for node"
+#  spec_code   = 3
+#  router_id   = "${module.ci_network.this_vpc_id}"
+#  network_id  = "${split(",", module.ci_network.this_network_ids)[0]}"
+#
+#  rules = [
+#    {
+#     network_id = "${split(",", module.ci_network.this_network_ids)[0]}"
+#      eip_id     = "${split(",", module.ci_internet.this_eip_ids)[2]}"
+#    }
+#  ]
+#}
 
 module "ci_security_group" {
   source = "./sg/"
@@ -187,7 +187,7 @@ module "servers" {
     },
     {
       name           = "router"
-      image          = "d977ceb3-c9b3-433f-8c04-1aa99981a543"
+      image          = "814c54ce-2128-4e06-88c9-b9c7f392d0b2"
       flavor         = "s6.small.1"
       keypair        = "KeyPair-ci"
       security_group = "${split(",", module.ci_security_group.this_security_group_id)[0]}"
