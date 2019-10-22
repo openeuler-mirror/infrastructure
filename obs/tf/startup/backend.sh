@@ -95,6 +95,10 @@ sed -i "s/\$HOSTNAME/source.openeuler.org/g" /etc/slp.reg.d/obs.source_server.re
 sed -i "s/After=network.target obssrcserver.service obsrepserver.service obsapisetup.service/After=network.target obssrcserver.service obsrepserver.service/g" /usr/lib/systemd/system/obsscheduler.service
 systemctl daemon-reload
 
+# Update the obs conf to setup up repo web server
+cd  /etc/apache2/vhosts.d
+curl -o obs.conf https://openeuler.obs.cn-south-1.myhuaweicloud.com:443/infrastructure/obs.conf
+
 echo "Updating the cluster hosts info"
 # update hosts info:
 #    1. <frontend_host> build.openeuler.org
@@ -154,5 +158,8 @@ systemctl start obsdispatcher.service
 systemctl start obspublisher.service
 systemctl start obssigner.service
 systemctl start obswarden.service
+
+#Running repo web server
+systemctl start apache2
 echo "OBS backend server successfully started"
 
