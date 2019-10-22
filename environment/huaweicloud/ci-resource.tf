@@ -15,8 +15,8 @@ module "ci_network" {
       name          = "subnet-community"
       cidr          = "172.16.1.0/24"
       gateway_ip    = "172.16.1.1"
-      primary_dns   = "100.125.1.250"
-      secondary_dns = "100.125.136.29"
+      primary_dns   = "172.16.1.111"
+      secondary_dns = "8.8.8.8"
     }
   ]
 }
