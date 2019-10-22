@@ -1,18 +1,27 @@
 #!/bin/bash
 
 
-if [[ $# -lt 2 ]];then
-    echo "please specify frontend host, source host,usage: ./frontend.sh 117.78.1.88 172.16.1.87"
+if [[ $# -lt 3 ]];then
+    echo "please specify frontend host, source host and backend host,usage: ./frontend.sh 172.16.1.138 172.16.1.87 172.16.1.81"
     exit 1
 fi
 frontend_host=$1
 source_host=$2
+backend_host=$3
 #ensure the system matches
 system_info=`uname -r`
 if [[ ! ${system_info} == '4.12.14-lp151.28.7-default' ]];then
     echo "this script is strictly bound to specific release `4.12.14-lp151.28.7-default`,  please ensure this script works on your system"
     exit 1
 fi
+
+if [[ ! -e /srv/obs/certs/fullchain.pem ]]; then
+    echo "Please ensure the certificate file '/srv/obs/certs/fullchain.pem' exists"
+fi
+if [[ ! -e /srv/obs/certs/privkey.pem ]]; then
+    echo "Please ensure the certificate file '/srv/obs/certs/privkey.pem' exists"
+fi
+
 
 echo "Starting obs api service with source server ${source_host}.."
 #enable and start sshd service
@@ -57,28 +66,37 @@ systemctl stop mysql
 systemctl stop memcached
 systemctl stop obs-api-support.target
 
-# downloading cert files
-cd /srv/obs/certs
-curl -o fullchain.pem https://gitee.com/openeuler/infrastructure/raw/master/obs/tf/configuration_files/frontend/certs/fullchain.pem
-curl -o privkey.pem https://gitee.com/openeuler/infrastructure/raw/master/obs/tf/configuration_files/frontend/certs/privkey.pem
-# update configuration file
 echo "Updating configuration file for apache service"
 
-sed -i "s/source_host: localhost/source_host: ${source_host}/g" /srv/www/obs/api/config/options.yml
+sed -i "s/source_host: localhost/source_host: source.openeuler.org/g" /srv/www/obs/api/config/options.yml
 sed -i "s/ServerName api/ServerName build.openeuler.org/g" /etc/apache2/vhosts.d/obs.conf
 sed -i "s/SSLCertificateFile \/srv\/obs\/certs\/server.crt/SSLCertificateFile \/srv\/obs\/certs\/fullchain.pem/g" /etc/apache2/vhosts.d/obs.conf
 sed -i "s/SSLCertificateKeyFile \/srv\/obs\/certs\/server.key/SSLCertificateKeyFile \/srv\/obs\/certs\/privkey.pem/g" /etc/apache2/vhosts.d/obs.conf
 
 # configure osc and api hostname
-sed -i "s/our \$srcserver = \"http:\/\/\$hostname:5352\";/our \$srcserver = \"http:\/\/${source_host}:5352\";/g" /usr/lib/obs/server/BSConfig.pm
+sed -i "s/our \$srcserver = \"http:\/\/\$hostname:5352\";/our \$srcserver = \"http:\/\/source.openeuler.org:5352\";/g" /usr/lib/obs/server/BSConfig.pm
+
+echo "Updating the cluster hosts info"
+# update hosts info:
+#    1. <frontend_host> build.openeuler.org
+#    2. <source_host> source.openeuler.org
+#    3. <backend_host> backend.openeuler.org
 hostnamectl set-hostname build.openeuerl.org
-
-
-# update hosts info
-if ! grep -q "${frontend_host} build.openeuler.org" /etc/hosts; then
-  echo "${frontend_host} build.openeuler.org" >> /etc/hosts
+if ! grep -q "build.openeuler.org" /etc/hosts; then
+    echo "${frontend_host} build.openeuler.org" >> /etc/hosts
+else
+    sed -i -e "s/[0-9]\{1,3\}\.[0-9]\{1,3\}\.[0-9]\{1,3\}\.[0-9]\{1,3\} build.openeuler.org/${frontend_host} build.openeuler.org/g" /etc/hosts
 fi
-
+if ! grep -q "source.openeuler.org" /etc/hosts; then
+    echo "${source_host} source.openeuler.org" >> /etc/hosts
+else
+    sed -i -e "s/[0-9]\{1,3\}\.[0-9]\{1,3\}\.[0-9]\{1,3\}\.[0-9]\{1,3\} source.openeuler.org/${source_host} source.openeuler.org/g" /etc/hosts
+fi
+if ! grep -q "backend.openeuler.org" /etc/hosts; then
+    echo "${backend_host} backend.openeuler.org" >> /etc/hosts
+else
+    sed -i -e "s/[0-9]\{1,3\}\.[0-9]\{1,3\}\.[0-9]\{1,3\}\.[0-9]\{1,3\} backend.openeuler.org/${backend_host} backend.openeuler.org/g" /etc/hosts
+fi
 
 echo "updating the osc configuration files"
 #update osc config file
@@ -86,10 +104,11 @@ if [[ ! -d /root/.config/osc ]];then
     mkdir -p  /root/.config/osc
 fi
 
-if [[ ! -e /root/.config/osc/oscrc ]];then
+if [[ -e /root/.config/osc/oscrc ]];then
     rm /root/.config/osc/oscrc
-    curl -o oscrc https://gitee.com/openeuler/infrastructure/raw/master/obs/tf/configuration_files/oscrc
 fi
+cd /root/.config/osc
+curl -o oscrc https://openeuler.obs.cn-south-1.myhuaweicloud.com:443/infrastructure/oscrc
 
 echo "Restarting frontend service"
 # restart the frontend service
@@ -104,3 +123,5 @@ systemctl start memcached
 systemctl start apache2
 
 echo "OBS frontend server successfully started"
+echo "Important, please update the administrator (Admin)'s password"
+
