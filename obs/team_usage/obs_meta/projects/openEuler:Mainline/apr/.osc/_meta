@@ -1,0 +1,8 @@
+<package name="apr" project="openEuler:Mainline">
+  <title/>
+  <description/>
+  <useforbuild>
+    <enable/>
+  </useforbuild>
+</package>
+

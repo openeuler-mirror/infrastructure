@@ -1,0 +1,17 @@
+<services>
+    <service name="tar_scm_repo">
+      <param name="scm">repo</param>
+      <param name="url">next/openEuler/libnetwork</param>
+      <param name="filename">docker</param>
+      <param name="version">proxy</param>
+      <!--param name="exclude">.git<param-->
+    </service>
+      <service name="extract_file">
+      <param name="archive">*docker-proxy.tar</param>
+      <param name="files">script/docker-proxy.spec</param>
+    </service>
+    <service name="recompress">
+      <param name="compression">gz</param>
+    <param name="file">_service:tar_scm_repo:docker-proxy.tar</param>
+  </service>
+</services>
