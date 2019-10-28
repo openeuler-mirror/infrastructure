@@ -1,0 +1,16 @@
+rcmysql restart
+rcapache2 restart
+#rcobsworker restart
+rcobsservice restart
+#rcobssignd restart
+#rcobsapidelayed restart
+#rcobssigner restart
+#rcobsapisetup restart
+rcobsdispatcher restart
+rcobsstoragesetup restart
+rcobspublisher restart
+rcobswarden restart
+rcobssrcserver restart
+rcobsrepserver restart
+rcobspublisher restart
+rcobsscheduler restart

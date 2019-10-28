@@ -1,0 +1,337 @@
+#!/usr/bin/env bash
+
+# downloads files specified in spec files
+
+# config options for this host ?
+[[ -f /etc/obs/services/download_files ]] && . /etc/obs/services/download_files
+
+# config options for this user ?
+[[ -f "$HOME"/.obs/download_files ]] && . "$HOME"/.obs/download_files
+
+DORECOMPRESS=""
+ENFORCELOCAL=""
+ENFORCEUPSTREAM=""
+CHANGES_GENERATE=disable
+CHANGES_AUTHOR=""
+CHANGES_LINES_MAX=30
+while test $# -gt 0; do
+  case $1 in
+    *-recompress)
+      if [[ "$2" == "yes" ]]; then
+        DORECOMPRESS="yes"
+      fi
+      shift
+    ;;
+    *-enforcelocal)
+      if [[ "$2" == "yes" ]]; then
+        ENFORCELOCAL="yes"
+      fi
+      shift
+    ;;
+    *-enforceupstream)
+      if [[ "$2" == "yes" ]]; then
+        ENFORCEUPSTREAM="yes"
+      fi
+      shift
+    ;;
+    *-outdir)
+      MYOUTDIR="$2"
+      shift
+    ;;
+    *-changesgenerate)
+      CHANGES_GENERATE="$2"
+      shift
+    ;;
+    *-changesauthor)
+      CHANGES_AUTHOR="$2"
+      shift
+    ;;
+    *-changeslinesmax)
+      CHANGES_LINES_MAX="$2"
+      shift
+    ;;
+    *)
+      echo "Unknown parameter $1."
+      echo "This service is not accepting parameters currently."
+      exit 1
+    ;;
+  esac
+  shift
+done
+
+if [[ ! -d "${MYOUTDIR}" ]]; then
+  echo "ERROR: output directory \"${MYOUTDIR}\" does not exist"
+  exit 1
+fi
+
+function uncompress_file() {
+  local input=$1
+  local output=$2
+  local uncompress="cat"
+  local basename="${input}"
+
+  if [[ "${input%.gz}" != "${input}" ]]; then
+    uncompress="gunzip -c"
+    basename="${input%.gz}"
+  elif [[ "${input%.tgz}" != "${input}" ]]; then
+    uncompress="gunzip -c"
+    basename="${input%.tgz}.tar"
+  elif [[ "${input%.bz2}" != "${input}" ]]; then
+    uncompress="bunzip2 -c"
+    basename="${input%.bz2}"
+  elif [[ "${FILE%.xz}" != "${input}" ]]; then
+    uncompress="xz -dc"
+    basename="${input%.xz}"
+  fi
+
+  $uncompress "$input" > "$output"
+
+  if [[ $? -gt 0 ]];then
+    echo "Error while uncompress $input"
+    exit 1
+  fi
+
+  echo "$basename"
+}
+
+function find_changes_filename() {
+  local dir=$1
+  local bn=$2
+  # expand
+  for bn in "$dir/"$bn* ; do : ; done
+  tar -tf "$bn" 2>/dev/null | grep -iE "/changelog|/news|/changes" | head -n1
+}
+
+function extract_changes() {
+  local dir=$1
+  local bn=$2
+  local cf=$3
+  local tf=$4
+  # expand
+  for bn in "$dir/"$bn* ; do : ; done
+  tar -xf "$bn" -O -- "$cf" > "$tf"
+}
+
+function write_changes() {
+  local spec_file_name=$1
+  local my_url=$2
+  local bn=${my_url##*/}
+
+  if [ "$spec_file_name" = "PKGBUILD" ] ; then
+    echo "No support for writing PKGBUILD changes"
+    return
+  fi
+
+  # find old changes
+  local oldchangesfile=$(find_changes_filename "$SRCDIR"   "$bn")
+  local newchangesfile=$(find_changes_filename "$MYOUTDIR" "$bn")
+  
+  # they need to exist both
+  if test -z "$oldchangesfile" -o -z "$newchangesfile" ; then
+    return
+  fi
+
+  # they need to be different (why?)
+  if test "$oldchangesfile" = "$newchangesfile" ; then
+    return
+  fi
+
+  # find new version
+  NEW_VERSION=${newchangesfile%%/*}
+  NEW_VERSION=${NEW_VERSION#$bn-}
+
+  # extract em
+  local oldchanges=$(mktemp)
+  local newchanges=$(mktemp)
+  extract_changes "$SRCDIR"   "$bn" "$oldchangesfile" "$oldchanges"
+  extract_changes "$MYOUTDIR" "$bn" "$newchangesfile" "$newchanges"
+
+  # diff
+  lines=$(diff -u $oldchanges $newchanges | grep -E "^\+.*" | grep -vE "^\+\+\+" | head -n "$CHANGES_LINES_MAX" | cut -d"+" -f2-)
+  OLD_IFS="$IFS"
+  IFS=$'\n' CHANGES_LINES=( $lines )
+  IFS="$OLD_IFS"
+
+  # clean up
+  rm -f "$oldchanges" "$newchanges"
+
+  if [ ${#CHANGES_LINES[@]} -eq 0 ] ; then
+    echo "No changes found, skipping changes file generation"
+    return
+  fi
+
+  if [ -z "$CHANGES_AUTHOR" ] ; then
+    OSCRC="$HOME/.oscrc"
+    if [ -f "$OSCRC" ] ; then
+      CHANGES_AUTHOR=$(grep -e '^email.*=' "$OSCRC" | head -n1 | cut -d"=" -f2)
+    else
+      CHANGES_AUTHOR="opensuse-packaging@opensuse.org"
+    fi
+  fi
+
+  change_entry="-------------------------------------------------------------------
+$(LC_ALL=POSIX TZ=UTC date) - ${CHANGES_AUTHOR}
+
+- Update to version $NEW_VERSION:"
+  for change in "${CHANGES_LINES[@]}" ; do
+    # Skip some common boilerplate pattern:
+    case $change in
+      ==*|--*|CHANGES) continue ;;
+    esac
+    change_entry="$change_entry
+  $change"
+  done
+  change_entry="$change_entry
+"
+
+  # Prepend change entry to current changes file
+  changes_file="$SRCDIR/${spec_file_name%".spec"}.changes"
+  tmpfile=$(mktemp)
+  echo "$change_entry" | cat - $changes_file > "$tmpfile" && mv -- "$tmpfile" "$MYOUTDIR/$(basename $changes_file)"
+}
+
+
+default_config="/usr/lib/build/configs/sl12.3.conf"
+[ -e "/usr/lib/build/configs/default.conf" ] && default_config="/usr/lib/build/configs/default.conf"
+
+SRCDIR=$PWD
+
+RETURN=0
+for i in *.spec PKGBUILD; do
+  test -e "$i" || continue
+
+  for url in `perl -I/usr/lib/build -MBuild -e Build::show $default_config "$i" sources` `perl -I/usr/lib/build -MBuild -e Build::show $default_config "$i" patches`; do
+    WGET="/usr/bin/wget -4 --no-check-certificate --timeout=30 -q --tries=2 --no-directories"
+    MYCACHEDIRECTORY="$CACHEDIRECTORY"
+    PROTOCOL="${url%%:*}"
+    SAMEFILEAFTERCOMPRESSION=
+    [[ "${PROTOCOL}" != "http" && "${PROTOCOL}" != "https" && "${PROTOCOL}" != "ftp" ]] && continue
+
+    BN=`basename "$url"`
+      
+    # We do not tell the server that we are an OBS tool by default anymore,
+    # because too many sites just have a white list, but they accept wget
+    # WGET="$WGET -U 'OBS-wget'"
+
+
+    cd "$MYOUTDIR"
+
+    # check local cache if configured
+    HASH=$(echo "$url" | sha256sum | cut -d\  -f 1)
+    if [ -n "$MYCACHEDIRECTORY" -a -f "$MYCACHEDIRECTORY/file/$HASH" ]; then
+      RECOMPRESS=
+      FILE=$(cat "$MYCACHEDIRECTORY/filename/$HASH")
+      FILE="${FILE##*/}"
+      echo "INFO: Taking file from local cache $FILE"
+      cp -a -- "$MYCACHEDIRECTORY/file/$HASH" ./"$FILE"
+    elif [ -z "$DORECOMPRESS" ]; then
+      FILE="${url##*/}"
+      if ! $WGET "$url$urlextension" -O "$FILE"; then
+        echo "ERROR: Failed to download \"$url\""
+        exit 1
+      fi
+      RECOMPRESS=
+    else
+
+      FILE="${url##*/}"
+      FORMAT="${url##*\.}"
+      if $WGET "$url" -O "$FILE"; then
+        RECOMPRESS=
+      elif $WGET "${url%\.$FORMAT}.gz" -O "${FILE%\.$FORMAT}.gz"; then
+        RECOMPRESS="$FORMAT"
+        FILE="${FILE%\.$FORMAT}.gz"
+      elif $WGET "${url%\.$FORMAT}.bz2" -O "${FILE%\.$FORMAT}.bz2"; then
+        RECOMPRESS="$FORMAT"
+        FILE="${FILE%\.$FORMAT}.bz2"
+      elif $WGET "${url%\.$FORMAT}.xz" -O "${FILE%\.$FORMAT}.xz"; then
+        RECOMPRESS="$FORMAT"
+        FILE="${FILE%\.$FORMAT}.xz"
+      else
+        echo "ERROR: Failed to download $url or any other compression format"
+        exit 1
+      fi
+    fi
+
+    # fill local cache, if configured
+    if [[ -n "$MYCACHEDIRECTORY" && ! -f "$MYCACHEDIRECTORY/file/$HASH" ]]; then
+      cp -a -- "$FILE" "$MYCACHEDIRECTORY/file/$HASH" && \
+      echo "$FILE" > "$MYCACHEDIRECTORY/filename/$HASH"
+    fi
+
+    if [ -n "$RECOMPRESS" ]; then
+      tempfile=`mktemp`
+      file_name=`uncompress_file "$FILE" "$tempfile"`
+			SKIP_RECOMPRESS=0
+
+			old_file="$SRCDIR/${url##*/}"
+
+			if [ -f $old_file ];then
+        # uncompress the old file also to compare
+        tempoldfile=`mktemp`
+        uncompress_file "$old_file" "$tempoldfile" > /dev/null
+
+        # do not create new file, if identical
+        if cmp "$tempfile" "$tempoldfile"; then
+          SKIP_RECOMPRESS=1
+        fi
+      fi
+
+      if [[ $SKIP_RECOMPRESS == 0 ]];then
+        if [ "$RECOMPRESS" == "gz" ]; then
+          COMPRESS="gzip -c -"
+          SUFFIX=".gz"
+        elif [ "$RECOMPRESS" == "bz2" ]; then
+          COMPRESS="bzip2 -c -"
+          SUFFIX=".bz2"
+        elif [ "$RECOMPRESS" == "xz" ]; then
+          COMPRESS="xz -c -"
+          SUFFIX=".xz"
+        elif [ "$RECOMPRESS" == "none" ]; then
+          COMPRESS="cat -"
+          SUFFIX=""
+        else
+          echo "ERROR: Unknown compression \"$RECOMPRESS\""
+          RETURN=1
+        fi
+
+        # do the compression
+        cat "$tempfile" | $COMPRESS > "$file_name$SUFFIX" || RETURN=1
+        rm "$FILE" # remove downloaded file
+        FILE="$file_name$SUFFIX"
+      else
+        # original file name
+        FILE="${url##*/}"
+        SAMEFILEAFTERCOMPRESSION=1
+      fi
+
+      # cleanup
+      rm -f -- "$tempfile" "$tempoldfile"
+    fi
+
+    # remove all file files which are indentical to committed files, but not the same instance (when --outdir .)
+    if [ -f "$SRCDIR/$FILE" ]; then
+       if [ ! "$FILE" -ef "$SRCDIR/$FILE" ]; then
+         if [ -z "$SAMEFILEAFTERCOMPRESSION" ]; then
+           if cmp "$FILE" "$SRCDIR/$FILE" 2>/dev/null; then
+              rm "$FILE"
+           elif [ -n "$ENFORCEUPSTREAM" ]; then
+             echo "ERROR: download_files is configured to fail when the upstream file is different than the committed file... this is the case!"
+             exit 1
+           fi
+         fi
+       fi
+    elif [ -n "$ENFORCELOCAL" ]; then
+      echo "ERROR: download_files is configured to fail when the file was not committed... this is the case!"
+      exit 1
+    fi
+
+    if [ "$CHANGES_GENERATE" == "enable" ] ; then
+      write_changes "$i" "$url"
+    fi
+
+    cd - > /dev/null
+  done
+done
+
+exit $RETURN
+

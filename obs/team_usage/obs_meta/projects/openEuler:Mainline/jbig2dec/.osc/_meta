@@ -1,0 +1,8 @@
+<package name="jbig2dec" project="openEuler:Mainline">
+  <title/>
+  <description/>
+  <useforbuild>
+    <enable/>
+  </useforbuild>
+</package>
+

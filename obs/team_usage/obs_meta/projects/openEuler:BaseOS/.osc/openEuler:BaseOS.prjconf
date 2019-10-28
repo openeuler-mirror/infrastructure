@@ -1,0 +1,316 @@
+Support: custom_build_tool-nocheck uname-build-checks obs-env
+Support: rpm-build git python gcc chrpath gcc_secure itstool
+Substitute: redhat-rpm-config openEuler-rpm-config
+
+Prefer: openEuler-rpm-config
+Prefer: openEuler-release
+Prefer: openEuler-logos euleros-logos
+Prefer: openEuler-repos
+Prefer: openEuler-indexhtml
+
+#custom prefer for openEuler
+Prefer: autogen
+Prefer: jbig2dec
+#end
+
+Prefer: java-1.7.0-openjdk-javadoc lxpolkit rubygem-minitest python3-capstone python2-webtest python-mock
+Prefer: sblim-sfcb crda clamav-data java-1.8.0-openjdk-javadoc pkcs11-helper-devel atlas
+Prefer: Lmod
+Prefer: lua
+Prefer: selinux-policy-mls perl-Archive-Extract-Z-Compress-Zlib perl-Archive-Extract-bz2-IO-Uncompress-Bunzip2 
+Prefer: binutils-devel python2-fabric perl-Archive-Extract-gz-Compress-Zlib perl-Archive-Extract-lzma-IO-Uncompress-UnLzma perl-Archive-Extract-zip-Archive-Zip 
+Prefer: perl-Archive-Extract-lzma-IO-Uncompress-UnLzma perl-Archive-Extract-tar-Archive-Tar perl-Archive-Extract-tar-tar perl-Archive-Extract-tar-Archive-Tar 
+Prefer: perl-Archive-Extract-tbz-Archive-Tar-IO-Uncompress-Bunzip2 perl-Archive-Extract-txz-Archive-Tar-IO-Uncompress-UnXz perl-Archive-Extract-xz-IO-Uncompress-UnXz 
+Prefer: postfix
+Prefer: selinux-policy-mls 
+Prefer: libverto-tevent java-1.7.0-openjdk-devel kernel-devel
+Prefer: postfix selinux-policy-minimum
+Prefer: atlas-sse3
+Prefer: python-setuptools
+Prefer: elinks
+Prefer: libverto-libev
+Prefer: lua
+Prefer: kernel
+Prefer: rubygem-rspec
+Prefer: emacs
+Prefer: perl-Archive-Extract-tgz-Archive-Tar-Compress-Zlib
+Prefer: php-symfony3-options-resolver
+Prefer: golang-gopkg-check-devel
+Prefer: kernel-devel
+Prefer: rust-serde_derive-devel
+Prefer: openni-devel
+Prefer: perl-Archive-Extract-tgz-Archive-Tar-Compress-Zlib perl-Archive-Extract-Z-Compress-Zlib perl-Archive-Extract-bz2-IO-Uncompress-Bunzip2
+Prefer: perl-Archive-Extract-gz-Compress-Zlib rubygem-minitest rubygem-rspec gnuplot
+Prefer: perl-Archive-Extract-lzma-IO-Uncompress-UnLzma perl-Archive-Extract-tar-Archive-Tar perl-Archive-Extract-tbz-Archive-Tar-IO-Uncompress-Bunzip2 
+Prefer: perl-Archive-Extract-txz-Archive-Tar-IO-Uncompress-UnXz perl-Archive-Extract-xz-IO-Uncompress-UnXz perl-Archive-Extract-zip-Archive-Zip
+Prefer: gnome-themes-standard
+Prefer: jbigkit-libs
+Prefer: libcdio-paranoia libcdio
+Prefer: java-1.8.0-openjdk
+
+Substitute: /usr/bin/pod2man perl-podlators
+Substitute: %{_bindir}/dtrace systemtap
+Substitute: %{_bindir}/cmake cmake
+Substitute: %{_bindir}/dtrace systemtap-sdt-devel
+Substitute: %{_bindir}/cmake cmake
+Substitute: %{_bindir}/checksec checksec
+Substitute: %{_bindir}/sphinx-build python2-sphinx
+Substitute:  /usr/sbin/sendmail sendmail
+Substitute:  /usr/bin/pod2man perl-podlators
+Substitute:  /usr/bin/pdflatex texlive-latex-bin-bin
+Substitute:  /usr/bin/makeindex texlive-makeindex-bin
+Substitute: /lib/libc.so.6 glibc
+Substitute: /usr/lib/libc.so glibc
+Substitute: /lib64/libc.so.6 glibc
+Substitute: /usr/lib64/libc.so glibc
+Substitute: /usr/bin/xsltproc libxslt
+Substitute: /etc/init.d chkconfig
+Substitute: %{_includedir}/linux/if.h kernel-headers
+Substitute: /usr/bin/yelp-build yelp-tools
+Substitute: /usr/bin/ducktype python3-mallard-ducktype
+Substitute: /usr/bin/chrpath chrpath
+Substitute: /usr/bin/tclsh tcl
+Substitute: /usr/bin/file file
+Substitute: /usr/bin/base64 coreutils
+Substitute: /usr/bin/head coreutils
+Substitute: /usr/bin/sha256sum coreutils
+Substitute: /usr/bin/tr coreutils
+Substitute: /usr/bin/jq jq
+Substitute: %{_bindir}/pkg-config pkgconf-pkg-config
+Substitute: /usr/bin/gtk-update-icon-cache gtk-update-icon-cache
+Substitute: /usr/bin/c++ c++
+Substitute: %{_bindir}/sphinx-build-3 python3-sphinx
+Substitute: /usr/bin/awk gawk
+Substitute: /usr/bin/pathfix.py python3-devel
+Substitute: /usr/bin/doxygen doxygen
+Substitute: /usr/bin/execstack execstack
+Substitute: /usr/bin/g-ir-scanner gobject-introspection-devel
+Substitute: %{_bindir}/phpab php-theseer-autoload
+Substitute: %{_bindir}/phpunit php-phpunit-PHPUnit
+
+Substitute: %{_bindir}/rst2html python3-docutils
+Substitute: %{_bindir}/sphinx-build-2 python2-sphinx
+Substitute: %{_bindir}/valac vala
+
+Substitute: /usr/bin/pygmentize python3-pygments
+Substitute: /usr/bin/perl perl
+Substitute: /usr/bin/iconv glibc-common
+Substitute: %{_bindir}/hostname hostname
+Substitute: %{_bindir}/a2x asciidoc
+Substitute: /usr/bin/certtool gnutls-utils
+Substitute: /usr/bin/socat socat
+Substitute: /usr/sbin/ss iproute
+Substitute: /usr/bin/cmp diffutils
+Substitute: /usr/bin/rename util-linux
+Substitute: /usr/sbin/sysctl procps-ng
+Substitute: %{_bindir}/libgcrypt-config libgcrypt-devel
+Substitute: /usr/bin/man man-db
+Substitute: /usr/bin/dtrace systemtap-sdt-devel
+Substitute: /usr/sbin/ifconfig net-tools
+Substitute: %{_bindir}/sphinx-build python2-sphinx
+Substitute: /usr/include/gnu/stubs-32.h glibc32
+Substitute: /usr/bin/dbus-launch dbus-x11
+Substitute: /usr/bin/2to3 python3-devel
+Substitute: %{_bindir}/xsltproc libxslt
+Substitute: %{_bindir}/sed sed
+Substitute: %{_bindir}/sphinx-build-2 python2-sphinx
+Substitute: %{_bindir}/sphinx-build-3 python3-sphinx
+Substitute: python%{python3_pkgversion}-devel python3-devel
+Substitute: python%{python3_pkgversion}-setuptools python3-setuptools
+Substitute: python%{python3_pkgversion}-chardet python3-chardet
+Substitute: python%{python3_pkgversion}-urllib3 python3-urllib3
+Substitute: python%{python3_pkgversion}-idna python3-idna
+Substitute: python%{python3_pkgversion}-pytest python3-pytest
+Substitute: python%{python3_pkgversion}-pytest-cov python3-pytest-cov
+Substitute: python%{python3_pkgversion}-pytest-httpbin python3-pytest-httpbin
+Substitute: python%{python3_pkgversion}-pytest-mock python3-pytest-mock
+Substitute: python%{python3_pkgversion}-pip python3-pip
+Substitute: python%{python3_pkgversion}-wheel python3-wheel
+Substitute: /usr/bin/dnf dnf
+Substitute: /usr/bin/zip zip
+Substitute: pkgconfig(libsystemd-journal) systemd-devel
+Substitute: %{_prefix}/share/i18n/locales/de_DE glibc-locale-source
+Substitute: /usr/bin/ssh-add openssh-clients
+Substitute: /usr/bin/ssh-agent openssh-clients
+Substitute: /usr/bin/ssh openssh-clients
+Substitute:  /usr/bin/appstream-util libappstream-glib
+Substitute: /usr/bin/xmlto xmlto
+Substitute: /etc/init.d chkconfig 
+Substitute: %{_includedir}/linux/if.h kernel-headers
+Substitute: /usr/bin/dbus-launch dbus-x11
+Substitute: /lib/libc.so.6 glibc32
+Substitute: /usr/lib/libc.so glibc32
+Substitute: /lib64/libc.so.6 glibc
+Substitute: /usr/lib64/libc.so glibc
+Substitute: /usr/bin/qemu-img  qemu
+Substitute: /usr/bin/pod2man perl-podlators
+Substitute:  /usr/bin/appstream-util libappstream-glib
+Substitute:  /usr/bin/xmlto xmlto
+Substitute: /usr/bin/pod2html perl
+Substitute: /usr/sbin/mke2fs e2fsprogs
+Substitute: %{_libdir}/krb5/plugins/kdb/db2.so krb5-libs
+Substitute: /usr/bin/gtk-encode-symbolic-svg gtk3-devel
+Substitute: /usr/bin/dos2unix dos2unix
+Substitute: /usr/bin/unix2dos dos2unix
+Substitute: /usr/bin/which which
+Substitute: /usr/bin/epstopdf texlive-epstopdf
+Substitute: /usr/bin/desktop-file-validate desktop-file-utils
+#Substitute: pkgconfig(libavcodec) ffmpeg-devel
+Substitute: /usr/bin/valac vala
+Substitute: %{_bindir}/xsltproc libxslt
+Substitute: %{_bindir}/desktop-file-validate desktop-file-utils
+Substitute: %{_bindir}/appstream-util libappstream-glib
+Substitute: /usr/bin/ssh-agent openssh-clients
+Substitute: /usr/bin/ssh-add openssh-clients
+Substitute: /usr/bin/2to3 python3-devel
+Substitute: /usr/bin/texi2dvi texinfo-tex
+Substitute: /usr/bin/ssh openssh-clients
+Substitute: %{_bindir}/pod2html perl-podlators
+Substitute: %{_bindir}/pod2man 	perl-podlators
+Substitute: /usr/bin/pod2text perl-podlators
+Substitute: /usr/bin/ping iputils
+Substitute: /usr/bin/wget wget
+Substitute: /usr/bin/qemu-img qemu-img
+Substitute: /usr/bin/kreadconfig5 kf5-kconfig-core
+Substitute: /usr/bin/xmllint libxml2
+Substitute: /usr/bin/nc nmap-ncat
+Substitute: /usr/bin/lsof lsof
+Substitute: /usr/bin/ps procps-ng
+Substitute: %{__perl} perl
+Substitute: /usr/bin/rpcgen rpcgen
+Substitute: %{_bindir}/latex texlive-latex
+Substitute: /usr/bin/sphinx-build python2-sphinx
+Substitute: %{_bindir}/sphinx-build python2-sphinx
+Substitute: %{_bindir}/memcached memcached
+Substitute: /usr/bin/tox python3-tox
+Substitute: %{_bindir}/2to3 python3-devel
+Substitute: %{_bindir}/mongod mongodb-server
+Substitute: %{_bindir}/redis-server redis
+Substitute: %{_bindir}/pkill procps-ng
+Substitute: %{_bindir}/netstat net-tools
+Substitute: %{_bindir}/gpg gnupg
+Substitute: %{__make} make
+Substitute: %{_datadir}/a2ps/afm/phvr.afm a2ps
+Substitute: %{_bindir}/podselect perl-Pod-Parser
+Substitute: /usr/bin/autopoint gettext-devel
+Substitute: %{_bindir}/perl perl
+Substitute: %{_bindir}/openssl openssl
+Substitute: %{_bindir}/man man-db
+Substitute: /usr/bin/zip zip
+Substitute: /usr/bin/c++ gcc
+Substitute: /usr/bin/makeinfo texinfo
+Substitute: %{_includedir}/magic.h file-devel
+Substitute: python2dist(markdown) python2-markdown
+Substitute: %{_bindir}/python python-unversioned-command
+Substitute: %{_includedir}/gnu/stubs-32.h glibc32
+Substitute:  /usr/bin/dnf dnf  
+Substitute: /usr/bin/getopt util-linux
+Substitute: mysql-devel mariadb-connector-c-devel
+Substitute: gnupg gnupg2
+Substitute: audiofile{?_isa} audiofile
+Substitute: /etc/pki/tls/certs/ca-bundle.crt ca-certificates
+
+
+
+Macros:
+%openeuler 1
+%rhel_version 800
+%el8 8
+%el7 8
+%rhel 8
+%fedora 0
+%centos 8
+#%fedora_version 0
+#%fedora 0
+%opensuse_bs 1
+%_specdir %{_topdir}/SOURCES
+%openblas_arches  aarch64  x86_64
+%undefine _annotated_build
+
+%_vendor openEuler
+#%_isa %{?__isa:(%{__isa})}%{!?__isa:%{nil}}
+%vendor HUAWEI TECHNOLOGIES CO.,LTD
+%distribution Huawei openEuler
+%packager http://openeuler.org
+
+##for sign
+#%_signature gpg
+#%_gpg_path /home/abuild/.gnupg
+#%_gpg_name EulerOS (EulerOS 2.0 SP8)
+#%__gpg_sign_cmd         %{__gpg} \
+#    gpg --no-verbose --no-armor \
+#    %{?_gpg_digest_algo:--digest-algo %{_gpg_digest_algo}} \
+#    --batch --pinentry-mode=loopback --passphrase="Huawei@SYS3" \
+#    --no-secmem-warning \
+#    %{?_gpg_sign_cmd_extra_args:%{_gpg_sign_cmd_extra_args}} \
+#    -u "%{_gpg_name}" -sbo %{__signature_filename} %{__plaintext_filename}
+
+#From RedHat buildsys-macros package
+
+%kernel_module_package_buildreqs kernel-devel redhat-rpm-config
+
+%with_python3 1
+%with_python2 1
+%python3_pkgversion 3
+#%__os_install_post %{nil}
+%python3_pkgversion 3
+%golang_arches %{ix86} x86_64 %{arm} aarch64 ppc64le s390x
+%efi_arch aa64
+%efi_vendor openEuler
+%efi aarch64 x86_64
+%unsignedaa64 shim-unsigned-aarch64
+%unsignedx64 shim-unsigned-x64
+%unsignedia32 shim-unsigned-ia32
+%shimveraa64 15
+%shimverx64 15
+%shimveria32 15
+%valgrind_arches %{ix86} x86_64 %{arm} aarch64 ppc64le s390x
+%mono_arches %{ix86} x86_64 %{arm} aarch64 ppc64le s390x
+%openblas_arches %{ix86} x86_64 %{arm} aarch64 ppc64le s390x
+%with_ocaml 1
+%dist .oe1
+
+%ext_info .gz
+%ext_man .gz
+#%_unpackaged_files_terminate_build 0
+
+%info_add(:-:) test -x /sbin/install-info -a -f %{?2}%{?!2:%{_infodir}}/%{1}%ext_info && /sbin/install-info --info-dir=%{?2}%{?!2:%{_infodir}} %{?2}%{?!2:%{_infodir}}/%{1}%ext_info \
+%{nil}
+
+%info_del(:-:) test -x /sbin/install-info -a ! -f %{?2}%{?!2:%{_infodir}}/%{1}%ext_info && /sbin/install-info --quiet --delete --info-dir=%{?2}%{?!2:%{_infodir}} %{?2}%{?!2:%{_infodir}}/%{1}%ext_info \
+%{nil}
+
+%gcc_secure_exclude gcc.spec|docker-engine-openeuler.spec|runc-openeuler.spec|kata-containers.spec|dyninst.spec|ipxe.spec|tboot.spec|syslinux.spec|gcc-libraries.spec|kpatch.spec|gdb.spec|xorg-x11-server.spec|xorg-x11-drv-fbdev.spec|xorg-x11-drv-vesa.spec|xorg-x11-drv-ati.spec|xorg-x11-drv-dummy.spec|xorg-x11-drv-intel.spec|xorg-x11-drv-nouveau.spec|xorg-x11-drv-qxl.spec|xorg-x11-drv-v4l.spec|xorg-x11-drv-vmware.spec|xorg-x11-drv-evdev.spec|xorg-x11-drv-synaptics.spec|xorg-x11-drv-vmmouse.spec|xorg-x11-drv-void.spec|xorg-x11-drv-wacom.spec|hivex.spec|gimp.spec|memstomp.spec|supermin.spec|system-config-firewall.spec|isdn4k-utils.spec|emacs.spec|graphviz.spec
+
+
+#custom macros
+%openEuler 1
+%disable_rpath \
+sed -i 's|^hardcode_libdir_flag_spec=.*|hardcode_libdir_flag_spec=""|g' libtool \
+sed -i 's|^runpath_var=LD_RUN_PATH|runpath_var=DIE_RPATH_DIE|g' libtool
+
+%delete_la_and_a \
+find $RPM_BUILD_ROOT -type f -name "*.la" -delete \
+find $RPM_BUILD_ROOT -type f -name "*.a" -delete
+
+%delete_la  find $RPM_BUILD_ROOT -type f -name "*.la" -delete 
+
+%chrpath_delete find $RPM_BUILD_ROOT/ -type f -exec file {} ';' | grep "\<ELF\>" | awk -F ':' '{print $1}' | xargs -i chrpath --delete {}
+
+%package_help        \
+%package        help \
+Summary:        Documents for %{name} \
+Buildarch:      noarch \
+Requires:		man info \
+\
+%description help \
+Man pages and other related documents for %{name}. 
+
+#%sbin_installinfo_rm bc.info
+#%sbin_installinfo_rm bc.info.gz
+
+%install_info() \
+/sbin/install-info %1 %{_infodir}/dir || :
+
+%install_info_rm() \
+/sbin/install-info --remove %1 %{_infodir}/dir || :

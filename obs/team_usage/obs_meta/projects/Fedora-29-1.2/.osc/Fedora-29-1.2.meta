@@ -1,0 +1,8 @@
+<project name="Fedora-29-1.2">
+  <title/>
+  <description>归档了Fedora-29-1.2的一些二进制包，只用于编译依赖</description>
+  <repository name="standard">
+    <arch>x86_64</arch>
+    <arch>aarch64</arch>
+  </repository>
+</project>
