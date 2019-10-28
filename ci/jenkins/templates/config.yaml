@@ -62,7 +62,7 @@ data:
                 {{- end }}</nodeSelector>
                 <nodeUsageMode>EXCLUSIVE</nodeUsageMode>
               <volumes>
-{{- range $index, $volume := .Values.agent.volumes }}
+{{- range $index, $volume := .Values.agent.cloud1.volumes }}
                 <org.csanchez.jenkins.plugins.kubernetes.volumes.{{ $volume.type }}Volume>
 {{- range $key, $value := $volume }}{{- if not (eq $key "type") }}
                   <{{ $key }}>{{ $value }}</{{ $key }}>
@@ -97,8 +97,6 @@ data:
                   # enough time to migrate.
                   <resourceRequestCpu>{{.Values.agent.cloud1.resources.requests.cpu}}</resourceRequestCpu>
                   <resourceRequestMemory>{{.Values.agent.cloud1.resources.requests.memory}}</resourceRequestMemory>
-                  <resourceLimitCpu>{{.Values.agent.cloud1.resources.limits.cpu}}</resourceLimitCpu>
-                  <resourceLimitMemory>{{.Values.agent.cloud1.resources.limits.memory}}</resourceLimitMemory>
                   <envVars>
                     <org.csanchez.jenkins.plugins.kubernetes.ContainerEnvVar>
                       <key>JENKINS_URL</key>
@@ -108,7 +106,7 @@ data:
                 </org.csanchez.jenkins.plugins.kubernetes.ContainerTemplate>
               </containers>
               <envVars>
-{{- range $index, $var := .Values.agent.envVars }}
+{{- range $index, $var := .Values.agent.cloud1.envVars }}
                 <org.csanchez.jenkins.plugins.kubernetes.PodEnvVar>
                   <key>{{ $var.name }}</key>
                   <value>{{ $var.value }}</value>
@@ -169,7 +167,7 @@ data:
                 {{- end }}</nodeSelector>
                 <nodeUsageMode>EXCLUSIVE</nodeUsageMode>
               <volumes>
-{{- range $index, $volume := .Values.agent.volumes }}
+{{- range $index, $volume := .Values.agent.cloud2.volumes }}
                 <org.csanchez.jenkins.plugins.kubernetes.volumes.{{ $volume.type }}Volume>
 {{- range $key, $value := $volume }}{{- if not (eq $key "type") }}
                   <{{ $key }}>{{ $value }}</{{ $key }}>
@@ -204,8 +202,6 @@ data:
                   # enough time to migrate.
                   <resourceRequestCpu>{{.Values.agent.cloud2.resources.requests.cpu}}</resourceRequestCpu>
                   <resourceRequestMemory>{{.Values.agent.cloud2.resources.requests.memory}}</resourceRequestMemory>
-                  <resourceLimitCpu>{{.Values.agent.cloud2.resources.limits.cpu}}</resourceLimitCpu>
-                  <resourceLimitMemory>{{.Values.agent.cloud2.resources.limits.memory}}</resourceLimitMemory>
                   <envVars>
                     <org.csanchez.jenkins.plugins.kubernetes.ContainerEnvVar>
                       <key>JENKINS_URL</key>
@@ -215,7 +211,7 @@ data:
                 </org.csanchez.jenkins.plugins.kubernetes.ContainerTemplate>
               </containers>
               <envVars>
-{{- range $index, $var := .Values.agent.envVars }}
+{{- range $index, $var := .Values.agent.cloud2.envVars }}
                 <org.csanchez.jenkins.plugins.kubernetes.PodEnvVar>
                   <key>{{ $var.name }}</key>
                   <value>{{ $var.value }}</value>
