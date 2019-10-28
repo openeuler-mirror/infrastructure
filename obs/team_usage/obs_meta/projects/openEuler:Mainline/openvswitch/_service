@@ -1,0 +1,11 @@
+<services>
+    <service name="tar_scm_kernel_repo">
+      <param name="scm">repo</param>
+      <param name="url">next/openEuler/openvswitch</param>
+      <param name="exclude">openvswitch-kmod.spec</param>
+    </service>
+    <service name="extract_file">
+        <param name="archive">*.tar.gz</param>
+            <param name="files">*/rhel/openvswitch.spec</param>
+    </service>
+</services>

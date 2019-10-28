@@ -1,0 +1,7 @@
+<package name="lxc" project="openEuler:Mainline">
+  <title/>
+  <description/>
+  <useforbuild>
+    <enable/>
+  </useforbuild>
+</package>

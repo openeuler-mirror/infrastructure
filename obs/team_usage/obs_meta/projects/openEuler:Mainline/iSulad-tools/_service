@@ -1,0 +1,17 @@
+<services>     
+    <service name="tar_scm_repo_docker">
+      <param name="scm">repo</param>
+      <param name="url">next/openEuler/iSulad-tools</param>
+      <param name="filename">isulad-tools</param>
+      <param name="version">src</param>
+   </service>
+    <service name="extract_file">
+        <param name="archive">*.tar</param>
+        <param name="files">hack/isulad-tools.spec</param>
+        <param name="outfilename">isulad-tools.spec</param>
+    </service>
+   <service name="recompress">
+      <param name="compression">gz</param>
+      <param name="file">*.tar</param>
+   </service>
+</services>
