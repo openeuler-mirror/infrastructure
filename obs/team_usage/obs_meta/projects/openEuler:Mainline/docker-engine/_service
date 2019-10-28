@@ -1,0 +1,28 @@
+<services>
+    <service name="tar_scm_repo_docker">
+      <param name="scm">repo</param>
+      <param name="url">next/openEuler/docker</param>
+      <param name="filename">docker</param>
+      <param name="version">engine</param>
+    </service>
+    <service name="tar_scm_repo_docker">
+      <param name="scm">repo</param>
+      <param name="url">next/openEuler/containerd</param>
+      <param name="filename">containerd</param>
+      <param name="version">1.2.0</param>
+    </service>
+    <service name="tar_scm_repo_docker">
+      <param name="scm">repo</param>
+      <param name="url">next/openEuler/runc</param>
+      <param name="filename">runc</param>
+      <param name="version">1.0.0</param>
+    </service>
+     <service name="extract_file">
+      <param name="archive">*docker-engine*.tar</param>
+      <param name="files">docker-engine-openeuler.spec</param>
+    </service>
+    <service name="recompress">
+      <param name="compression">gz</param>
+    <param name="file">*.tar</param>
+   </service>
+</services> 

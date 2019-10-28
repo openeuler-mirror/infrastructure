@@ -1,0 +1,11 @@
+<services>
+    <service name="tar_scm_kernel_repo">
+      <param name="scm">repo</param>
+      <param name="url">next/openEuler/kiwi-template-openEuler</param>
+      <param name="filename">kiwi-template-openEuler</param>
+    </service>
+  <service name="recompress">
+    <param name="compression">bz2</param>
+    <param name="file">*.tar</param>
+  </service>  
+</services> 

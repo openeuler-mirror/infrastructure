@@ -1,0 +1,45 @@
+<configuration>
+  <title>Open Build Service</title>
+  <description>  &lt;p class=&quot;description&quot;&gt;
+    The &lt;a href=&quot;http://openbuildservice.org&quot;&gt;Open Build Service (OBS)&lt;/a&gt;
+    is an open and complete distribution development platform that provides a transparent
+    infrastructure for development of Linux distributions, used by openSUSE, MeeGo and other distributions.
+    Supporting also Fedora, Debian, Ubuntu, RedHat and other Linux distributions.
+  &lt;/p&gt;
+  &lt;p class=&quot;description&quot;&gt;
+    The OBS is developed under the umbrella of the &lt;a href=&quot;http://www.opensuse.org&quot;&gt;openSUSE project&lt;/a&gt;.
+    Please find further informations on the
+    &lt;a href=&quot;http://wiki.opensuse.org/openSUSE:Build_Service&quot;&gt;openSUSE Project wiki pages&lt;/a&gt;.
+  &lt;/p&gt;
+
+  &lt;p class=&quot;description&quot;&gt;
+    The Open Build Service developer team is greeting you. In case you use your OBS productive in your facility,
+    please do us a favor and add yourself at
+    &lt;a href=&quot;http://wiki.opensuse.org/openSUSE:Build_Service_installations&quot;&gt;this wiki page&lt;/a&gt;.
+    Have fun and fast build times!
+  &lt;/p&gt;
+</description>
+  <name>private</name>
+  <anonymous>on</anonymous>
+  <registration>allow</registration>
+  <default_access_disabled>off</default_access_disabled>
+  <allow_user_to_create_home_project>on</allow_user_to_create_home_project>
+  <disallow_group_creation>off</disallow_group_creation>
+  <change_password>on</change_password>
+  <hide_private_options>off</hide_private_options>
+  <gravatar>on</gravatar>
+  <enforce_project_keys>off</enforce_project_keys>
+  <download_on_demand>on</download_on_demand>
+  <obs_url>https://unconfigured.openbuildservice.org</obs_url>
+  <admin_email>unconfigured@openbuildservice.org</admin_email>
+  <cleanup_empty_projects>on</cleanup_empty_projects>
+  <disable_publish_for_branches>on</disable_publish_for_branches>
+  <schedulers>
+    <arch>aarch64</arch>
+    <arch>i586</arch>
+    <arch>x86_64</arch>
+    <arch>i686</arch>
+  </schedulers>
+  <unlisted_projects_filter>^home:.+</unlisted_projects_filter>
+  <unlisted_projects_filter_description>home projects</unlisted_projects_filter_description>
+</configuration>

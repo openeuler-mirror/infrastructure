@@ -1,0 +1,8 @@
+<package name="docker-engine" project="openEuler:Mainline">
+  <title/>
+  <description/>
+  <build>
+    <disable repository="standard_i686"/>
+  </build>
+</package>
+

@@ -1,0 +1,8 @@
+<package name="grpc" project="openEuler:Mainline">
+  <title/>
+  <description/>
+  <useforbuild>
+    <enable/>
+  </useforbuild>
+</package>
+
