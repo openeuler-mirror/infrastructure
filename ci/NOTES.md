@@ -13,3 +13,7 @@ resources into kubernetes cluster.
 ```$xslt
 helm template ./jenkins --namespace jenkins-system -f jenkins/values.yaml -f jenkins/hw_override.yaml --name openeuler
 ```
+
+# Node Notes
+jenkins slave's working dir will be put at the path of `/jenkins_agent_dir` therefore it's required to make the folder ready
+before assign any pods into that nodes.
