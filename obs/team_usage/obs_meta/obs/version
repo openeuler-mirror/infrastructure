@@ -1,0 +1,4 @@
+<version name="openEuler_1">
+<project name="Fedora-29-1.2" config="yes" source="yes" />
+<project name="openEuler:BaseOS" config="yes" source="yes" />
+<project name="openEuler:Mainline" config="yes" source="yes" />
