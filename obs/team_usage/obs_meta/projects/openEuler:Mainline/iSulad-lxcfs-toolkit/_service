@@ -1,0 +1,16 @@
+<services>
+     <service name="tar_scm_repo_docker">
+       <param name="scm">repo</param>
+       <param name="url">next/openEuler/iSulad-lxcfs-toolkit</param>
+       <param name="filename">isulad-lxcfs</param>
+       <param name="version">toolkit</param>
+    </service>
+    <service name="extract_file">
+      <param name="archive">*.tar</param>
+      <param name="files"> hack/isulad-lxcfs-toolkit.spec</param>
+    </service>
+    <service name="recompress">
+      <param name="compression">gz</param>
+      <param name="file">*.tar</param>
+    </service>
+</services>

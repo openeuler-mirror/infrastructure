@@ -1,0 +1,8 @@
+<package name="libevhtp" project="openEuler:Mainline">
+  <title/>
+  <description/>
+  <useforbuild>
+    <enable/>
+  </useforbuild>
+</package>
+

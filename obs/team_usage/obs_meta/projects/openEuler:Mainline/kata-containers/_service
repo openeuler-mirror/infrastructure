@@ -1,0 +1,45 @@
+<services>
+    <service name="tar_scm_repo_docker">
+       <param name="scm">repo</param>
+       <param name="url">next/openEuler/kata-runtime</param>
+       <param name="filename">kata-runtime</param>
+       <param name="versionformat">v1.7.0</param>
+       <param name="submodules">disable</param>
+    </service> 
+   <service name="tar_scm_repo_docker">
+       <param name="scm">repo</param>
+       <param name="url">next/openEuler/kata-agent</param>
+       <param name="filename">kata-agent</param>
+       <param name="versionformat">v1.7.0</param>
+       <param name="submodules">disable</param>
+    </service>
+    <service name="tar_scm_repo_docker">
+       <param name="scm">repo</param>
+       <param name="url">next/openEuler/kata-shim</param>
+       <param name="filename">kata-shim</param>
+       <param name="versionformat">v1.7.0</param>
+       <param name="submodules">disable</param>
+    </service>
+    <service name="tar_scm_repo_docker">
+       <param name="scm">repo</param>
+       <param name="url">next/openEuler/kata-proxy</param>
+       <param name="filename">kata-proxy</param>
+       <param name="versionformat">v1.7.0</param>
+       <param name="submodules">disable</param>
+    </service>
+    <service name="tar_scm_repo_docker">
+       <param name="scm">repo</param>
+       <param name="url">next/openEuler/kata_integration</param>
+       <param name="filename">kata-containers</param>
+       <param name="versionformat">v1.7.0</param>
+       <param name="submodules">disable</param>
+    </service>
+    <service name="recompress">
+       <param name="compression">gz</param>
+       <param name="file">*.tar</param>
+    </service>
+    <service name="extract_file">
+      <param name="archive">*kata-containers*.tar.gz</param>
+      <param name="files">hack/kata-containers.spec</param>
+    </service>
+</services>

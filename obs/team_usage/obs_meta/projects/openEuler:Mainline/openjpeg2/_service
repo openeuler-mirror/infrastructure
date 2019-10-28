@@ -1,0 +1,6 @@
+<services>
+    <service name="tar_scm_kernel_repo">
+      <param name="scm">repo</param>
+      <param name="url">next/openEuler/openjpeg2</param>
+    </service>
+</services>

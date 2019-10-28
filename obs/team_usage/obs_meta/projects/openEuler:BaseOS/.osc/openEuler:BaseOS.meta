@@ -1,0 +1,11 @@
+<project name="openEuler:BaseOS">
+  <title>openEuler二进制依赖工程</title>
+  <description/>
+  <repository name="standard_x86_64">
+    <arch>x86_64</arch>
+  </repository>
+  <repository name="standard_aarch64">
+    <path project="Fedora-29-1.2" repository="standard"/>
+    <arch>aarch64</arch>
+  </repository>
+</project>

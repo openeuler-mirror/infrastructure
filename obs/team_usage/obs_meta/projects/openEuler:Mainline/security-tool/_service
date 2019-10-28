@@ -1,0 +1,11 @@
+<services>
+    <service name="tar_scm_kernel_repo">
+      <param name="scm">repo</param>
+      <param name="url">next/openEuler/security-tool</param>
+      <param name="filename">security-tool</param>
+    </service>
+  <service name="recompress">
+    <param name="compression">bz2</param>
+    <param name="file">*.tar</param>
+  </service>
+</services>

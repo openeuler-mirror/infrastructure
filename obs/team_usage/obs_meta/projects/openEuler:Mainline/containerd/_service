@@ -1,0 +1,16 @@
+<services>
+    <service name="tar_scm_repo_docker">
+      <param name="scm">repo</param>
+      <param name="url">next/openEuler/containerd</param>
+      <param name="filename">containerd</param>
+      <param name="version">1.2.0</param>
+    </service>
+   <service name="extract_file">
+      <param name="archive">*containerd*.tar</param>
+      <param name="files">containerd.spec</param>
+    </service>
+    <service name="recompress">
+      <param name="compression">gz</param>
+    <param name="file">_service:tar_scm_repo_docker:containerd*.tar</param>
+   </service> 
+</services>
