@@ -1,7 +1,7 @@
 # Usage: move this file into the destination folder you used for downloading.
 import os.path
 
-RPMFILE = "rpmlist"
+RPMFILE = "package_lists"
 try:
     results = []
     # Read to plain object
@@ -15,15 +15,17 @@ try:
                     full_url = "https://dl.fedoraproject.org/pub/" \
                                "fedora/linux/releases/29/Everything/" \
                                "aarch64/os/Packages/"+package_name[0]+"/"+package_name
-                    results.append("echo 'starting to download {0}: {1}'".format(str(count), package_name))
                     results.append("curl -o {0} {1}".format(package_name, full_url))
                     count = count+1
             content = rpmlist.readline()
 
-    with open("results.sh", "w") as result_file:
+    with open("download.sh", "w") as result_file:
         result_file.write("#!/bin/bash\n")
         result_file.write("echo 'starting to download full packages : {0}'\n".format(len(results)))
+        count = 1
         for item in results:
+            results.append("echo 'starting to download {0}/{1}'".format(count, len(results)))
             result_file.write("%s\n" % item)
+            count = count+1
 except Exception as e:
     print(e)

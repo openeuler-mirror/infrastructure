@@ -84,7 +84,8 @@ sed -i "s/when you touch hostname or port/when you touch hostname\n\$ipaccess->{
 
 sed -i "s/our \$srcserver = \"http:\/\/\$hostname:5352\";/our \$srcserver = \"http:\/\/source.openeuler.org:5352\";/g" /usr/lib/obs/server/BSConfig.pm
 sed -i "s/our \$reposerver = \"http:\/\/\$hostname:5252\";/our \$reposerver = \"http:\/\/backend.openeuler.org:5252\";/g" /usr/lib/obs/server/BSConfig.pm
-sed -i "s/our \$serviceserver = \"http:\/\/\$hostname:5152\";/our \$serviceserver = \"http:\/\/backend.openeuler.org:5152\";/g" /usr/lib/obs/server/BSConfig.pm
+sed -i "s/our \$serviceserver = \"http:\/\/\$hostname:5152\";/our \$serviceserver = \"http:\/\/source.openeuler.org:5152\";/g" /usr/lib/obs/server/BSConfig.pm
+sed -i "s/our \$bsserviceuser = 'obsservicerun';/our \$bsserviceuser = 'obsrun';/g" /usr/lib/obs/server/BSConfig.pm
 
 sed -i "s/\$HOSTNAME/backend.openeuler.org/g" /etc/slp.reg.d/obs.repo_server.reg
 sed -i "s/\$HOSTNAME/source.openeuler.org/g" /etc/slp.reg.d/obs.source_server.reg
@@ -123,13 +124,26 @@ fi
 cd /root/.config/osc
 curl -o oscrc https://openeuler.obs.cn-south-1.myhuaweicloud.com:443/infrastructure/oscrc
 
+# update cache folder for scm service
+echo CACHEDIRECTORY="/srv/cache/obs/tar_scm" > /etc/obs/services/tar_scm
+
+# copy service files into
+cp ../service/* /usr/lib/obs/service/
+cp ../build-pkg-rpm /usr/lib/build/build-pkg-rpm
+mkdir -p /usr/lib/obs/source_md5
+chmod 777 /usr/lib/obs/source_md5
+mkdir -p /srv/cache/obs/tar_scm/{incoming,repo,repourl}
+mkdir -p /srv/cache/obs/tar_scm/repo/euleros-version
+
 echo "Restarting source service"
 # restart the frontend service
 systemctl enable obsstoragesetup.service
 systemctl enable obssrcserver.service
 systemctl enable obsdeltastore.service
 systemctl enable obsservicedispatch.service
+systemctl enable obsservice.service
 
+systemctl start obsservice.service
 systemctl start obsstoragesetup.service
 systemctl start obssrcserver.service
 systemctl start obsdeltastore.service
