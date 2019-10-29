@@ -87,7 +87,9 @@ sed -i "s/when you touch hostname or port/when you touch hostname\n\$ipaccess->{
 
 sed -i "s/our \$srcserver = \"http:\/\/\$hostname:5352\";/our \$srcserver = \"http:\/\/source.openeuler.org:5352\";/g" /usr/lib/obs/server/BSConfig.pm
 sed -i "s/our \$reposerver = \"http:\/\/\$hostname:5252\";/our \$reposerver = \"http:\/\/backend.openeuler.org:5252\";/g" /usr/lib/obs/server/BSConfig.pm
-sed -i "s/our \$serviceserver = \"http:\/\/\$hostname:5152\";/our \$serviceserver = \"http:\/\/backend.openeuler.org:5152\";/g" /usr/lib/obs/server/BSConfig.pm
+sed -i "s/our \$serviceserver = \"http:\/\/\$hostname:5152\";/our \$serviceserver = \"http:\/\/source.openeuler.org:5152\";/g" /usr/lib/obs/server/BSConfig.pm
+# user used by obs source service
+sed -i "s/our \$bsserviceuser = 'obsservicerun';/our \$bsserviceuser = 'obsrun';/g" /usr/lib/obs/server/BSConfig.pm
 
 sed -i "s/\$HOSTNAME/backend.openeuler.org/g" /etc/slp.reg.d/obs.repo_server.reg
 sed -i "s/\$HOSTNAME/source.openeuler.org/g" /etc/slp.reg.d/obs.source_server.reg
@@ -140,7 +142,6 @@ echo ${repo_id} -en > /srv/obs/projects/_repoid
 echo "Restarting backend service"
 # restart the frontend service
 systemctl enable obsrepserver.service
-systemctl enable obsservice.service
 systemctl enable obsdodup.service
 systemctl enable obssignd.service
 systemctl enable obsscheduler.service
@@ -150,7 +151,6 @@ systemctl enable obssigner.service
 systemctl enable obswarden.service
 
 systemctl start obsrepserver.service
-systemctl start obsservice.service
 systemctl start obsdodup.service
 systemctl start obssignd.service
 systemctl start obsscheduler.service
