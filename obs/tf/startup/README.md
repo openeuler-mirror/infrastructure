@@ -131,3 +131,9 @@ please see the document in folder `download_fedora_packages`
 
 ## prepare gitee projects
 please see the document in folder `download_package_codes`
+
+## when everything is ok
+please trigger service rerun to create tar file for packages
+```$xslt
+for rpmn in `osc ls openEuler:Mainline`;do osc service remoterun openEuler:Mainline $rpmn;done
+```
