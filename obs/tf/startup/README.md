@@ -125,3 +125,9 @@ Worker8:     172.16.1.12
 Worker9:     172.16.1.14
 Worker10:    172.16.1.157
 ```
+
+## download full fedora packages
+please see the document in folder `download_fedora_packages`
+
+## prepare gitee projects
+please see the document in folder `download_package_codes`
