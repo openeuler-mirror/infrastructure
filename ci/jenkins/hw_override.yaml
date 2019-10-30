@@ -8,11 +8,11 @@ master:
   # test pod will be created to test the readness of master web UI if enabled.
   testEnabled: false
   # used to specify the Elb ID which used for master service
-  huaweielbID: 1b8c18b6-0dd1-411a-b3bc-393bccd8d718
+  huaweielbID: e1bb61d2-6101-419f-97d8-c76b1020a0c1
   # used to specify the service type of master service
   serviceType: LoadBalancer
   # EIP for node load balancer
-  loadBalancerIP: 159.138.51.146
+  loadBalancerIP: 114.116.250.98
   # used to specify the service port for master web UI
   servicePort: 80
   # used to specify the service node port for master web UI
@@ -23,7 +23,7 @@ master:
   # request resource for master pod
   resources:
     requests:
-      cpu: "4000m"
+      cpu: "8000m"
       memory: "8192Mi"
     limits:
       cpu: "8000m"
@@ -64,13 +64,17 @@ agent:
     # Resource request for cloud 1 agents.
     resources:
       requests:
-        cpu: "8000m"
-        memory: "8192Mi"
-      limits:
-        cpu: "8000m"
-        memory: "8192Mi"
+        cpu: "2000m"
+        memory: "4096Mi"
     #Used in job to specify which kind of agent to use for example arm or x86
     componentName: "jenkins-slave-x86"
+    envVars:
+      - name: JENKINS_AGENT_WORKDIR
+        value: /home/jenkins/agent-working-dir
+    volumes:
+      - type: HostPath
+        mountPath: /home/jenkins/agent-working-dir
+        hostPath: /jenkins_agent_dir
   #Configure option for cloud 2 provider
   cloud2:
     name: kubernetes-arm-cluster
@@ -82,13 +86,17 @@ agent:
     # Resource request for cloud 2 agents.
     resources:
       requests:
-        cpu: "8000m"
-        memory: "8192Mi"
-      limits:
-        cpu: "8000m"
-        memory: "8192Mi"
+        cpu: "2000m"
+        memory: "4096Mi"
     #Used in job to specify which kind of agent to use for example arm or x86
     componentName: "jenkins-slave-arm"
+    envVars:
+      - name: JENKINS_AGENT_WORKDIR
+        value: /home/jenkins/agent-working-dir
+    volumes:
+      - type: HostPath
+        mountPath: /home/jenkins/agent-working-dir
+        hostPath: /jenkins_agent_dir
 
 persistence:
   # Whether to enable persistent volume
