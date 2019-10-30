@@ -143,11 +143,11 @@ systemctl enable obsdeltastore.service
 systemctl enable obsservicedispatch.service
 systemctl enable obsservice.service
 
-systemctl start obsservice.service
 systemctl start obsstoragesetup.service
 systemctl start obssrcserver.service
 systemctl start obsdeltastore.service
 systemctl start obsservicedispatch.service
+systemctl start obsservice.service
 echo "OBS source server successfully started"
 SOURCE_REPO_ID=`cat /srv/obs/projects/_repoid`
 echo "Important, Please use this ID: ${SOURCE_REPO_ID} to replace the file content of '/srv/obs/projects/_repoid' and '/srv/obs/build/_repoid' in the backend server"
