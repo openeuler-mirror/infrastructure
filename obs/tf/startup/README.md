@@ -123,7 +123,7 @@ Worker6:     172.16.1.195
 Worker7:     172.16.1.127
 Worker8:     172.16.1.12
 Worker9:     172.16.1.14
-Worker10:    172.16.1.157
+Worker10:    172.16.1.57
 ```
 
 ## download full fedora packages
