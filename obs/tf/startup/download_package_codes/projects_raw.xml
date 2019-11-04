@@ -657,7 +657,7 @@
     <project path="openEuler/perl-Text-Balanced"	name="euleros/third_party/open_source/userspace/perl-Text-Balanced" revision=""/>
     <project path="openEuler/perl-Text-Diff"	name="euleros/third_party/open_source/userspace/perl-Text-Diff" revision=""/>
     <project path="openEuler/perl-Text-ParseWords"	name="euleros/third_party/open_source/userspace/perl-Text-ParseWords" revision=""/>
-    <project path="openEuler/perl-Text-Tabs+Wrap"	name="euleros/third_party/open_source/userspace/perl-Text-Tabs+Wrap" revision=""/>
+    <project path="openEuler/perl-Text-Tabs-Wrap"	name="euleros/third_party/open_source/userspace/perl-Text-Tabs+Wrap" revision=""/>
     <project path="openEuler/perl-Thread-Queue"	name="euleros/third_party/open_source/userspace/perl-Thread-Queue" revision=""/>
     <project path="openEuler/perl-threads"	name="euleros/third_party/open_source/userspace/perl-threads" revision=""/>
     <project path="openEuler/perl-threads-shared"	name="euleros/third_party/open_source/userspace/perl-threads-shared" revision=""/>
