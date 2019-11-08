@@ -12,9 +12,9 @@ chmod +x download.sh
 nohup ./download.sh > result.log 2>&1 &
 ```  
 when all packages has been downloaded, we need refresh the project via command (assume we
-create the project named openEuler:BaseOS)
+create the project named Fedora-29-1.2)
 ```$xslt
-cd /srv/obs/build/openEuler:BaseOS/standard_aarch64/aarch64
+cd /srv/obs/build/Fedora-29-1.2/standard/aarch64
 chown -R obsrun:obsrun .
-obs_admin --rescan-repository openEuler:BaseOS standard_aarch64 aarch64
+obs_admin --rescan-repository Fedora-29-1.2 standard aarch64
 ```
