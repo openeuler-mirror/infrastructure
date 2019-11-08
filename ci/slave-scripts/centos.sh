@@ -22,6 +22,9 @@ sudo yum install -y java-1.8.0-openjdk
 sudo yum install -y git
 sudo yum install -y expect
 sudo yum install -y osc
+sudo yum install -y 'perl(XML::Parser)'
+sudo yum install -y 'perl(Data::Dumper)'
+sudo yum install -y build
 
 #update osc config file
 if [[ ! -d /root/.config/osc ]];then
