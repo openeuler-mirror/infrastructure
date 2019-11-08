@@ -19,6 +19,9 @@ zypper install -y java-1_8_0-openjdk
 zypper install -y git
 zypper install -y osc
 zypper install -y expect
+zypper install -y 'perl(XML::Parser)'
+zypper install -y 'perl(Data::Dumper)'
+zypper install -y build
 
 #update osc config file
 if [[ ! -d /root/.config/osc ]];then
