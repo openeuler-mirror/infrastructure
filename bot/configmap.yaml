@@ -16,17 +16,8 @@ data:
     databaseName: "cibot"
     databaseUserName: "root"
     databasePassword: "******"
-  projects.yaml: |
-    projects:
-    # - name: python-tools
-    #   owner:
-    #     - freesky-edward
-    #     - tommylike
-    #   type: private
-    #   description: ""
-    # - name: goclient
-    #   owner:
-    #     - xiangxinyong
-    #     - edisontest
-    #   type: public
-    #   description: "go client"
+    watchProjectFileOwner: openeuler
+    watchprojectFileRepo: ci-bot
+    watchprojectFilePath: projects.yaml
+    watchProjectFileRef: master
+    watchProjectFileDuration: 60
