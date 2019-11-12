@@ -17,7 +17,7 @@ data:
     databaseUserName: "root"
     databasePassword: "******"
     watchProjectFileOwner: openeuler
-    watchprojectFileRepo: ci-bot
-    watchprojectFilePath: projects.yaml
+    watchprojectFileRepo: infrastructure
+    watchprojectFilePath: repository/projects.yaml
     watchProjectFileRef: master
     watchProjectFileDuration: 60
