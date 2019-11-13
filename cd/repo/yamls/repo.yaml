@@ -1,0 +1,179 @@
+# Namespace for repo server
+apiVersion: v1
+kind: Namespace
+metadata:
+  labels:
+    name: repo
+  name: repo
+
+# Service for repo nginx deployment
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: repo-nginx-service
+  namespace: repo
+  annotations:
+    kubernetes.io/elb.class: union
+    kubernetes.io/elb.id: f3c0cba6-7b7b-4bb5-a1ee-4ea1e78ff214
+    kubernetes.io/elb.lb-algorithm: ROUND_ROBIN
+spec:
+  #externalTrafficPolicy: Cluster
+  #loadBalancerIP: 159.138.132.224
+  ports:
+    - port: 80
+      name: nginx-repo-http
+      nodePort: 30080
+      targetPort: 80
+  selector:
+    app: repo-nginx-pod
+  type: NodePort
+
+
+# Configmap for nginx repo server
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: repo-nginx-configmap
+  namespace: repo
+data:
+  default.conf: |
+    server {
+        listen       80;
+        server_name  localhost;
+
+        #charset koi8-r;
+        #access_log  /var/log/nginx/host.access.log  main;
+
+
+
+        # repo config for openeuler
+        location /repository {
+            root   /repo/openeuler;
+            autoindex   on;
+        }
+
+        #error_page  404              /404.html;
+
+        # redirect server error pages to the static page /50x.html
+        #
+        error_page   500 502 503 504  /50x.html;
+        location = /50x.html {
+            root   /usr/share/nginx/html;
+        }
+
+        # proxy the PHP scripts to Apache listening on 127.0.0.1:80
+        #
+        #location ~ \.php$ {
+        #    proxy_pass   http://127.0.0.1;
+        #}
+
+        # pass the PHP scripts to FastCGI server listening on 127.0.0.1:9000
+        #
+        #location ~ \.php$ {
+        #    root           html;
+        #    fastcgi_pass   127.0.0.1:9000;
+        #    fastcgi_index  index.php;
+        #    fastcgi_param  SCRIPT_FILENAME  /scripts$fastcgi_script_name;
+        #    include        fastcgi_params;
+        #}
+
+        # deny access to .htaccess files, if Apache's document root
+        # concurs with nginx's one
+        #
+        #location ~ /\.ht {
+        #    deny  all;
+        #}
+    }
+
+  nginx.conf: |
+    user  root;
+    worker_processes  1;
+
+    error_log  /var/log/nginx/error.log warn;
+    pid        /var/run/nginx.pid;
+
+
+    events {
+        worker_connections  1024;
+    }
+
+
+    http {
+        include       /etc/nginx/mime.types;
+        default_type  application/octet-stream;
+
+        log_format  main  '$remote_addr - $remote_user [$time_local] "$request" '
+                          '$status $body_bytes_sent "$http_referer" '
+                          '"$http_user_agent" "$http_x_forwarded_for"';
+
+        access_log  /var/log/nginx/access.log  main;
+
+        sendfile        on;
+        #tcp_nopush     on;
+
+        keepalive_timeout  65;
+
+        #gzip  on;
+
+        include /etc/nginx/conf.d/*.conf;
+    }
+
+#PVC for repo server
+
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: repo-data-volume
+  namespace: repo
+spec:
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: 200Mi
+  storageClassName: local-nfs
+
+# Deployment for repo service
+---
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: repo-nginx-server
+  namespace: repo
+  labels:
+    app: repo-nginx-server
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: repo-nginx-pod
+  template:
+    metadata:
+      labels:
+        app: repo-nginx-pod
+    spec:
+      containers:
+        - name: repo-nginx
+          image: nginx:1.17.5
+          imagePullPolicy: "IfNotPresent"
+          volumeMounts:
+            - mountPath: /etc/nginx/nginx.conf
+              name: repo-nginx-configmap-volume
+              subPath: nginx.conf
+            - mountPath: /etc/nginx/conf.d/default.conf
+              name: repo-nginx-configmap-volume
+              subPath: default.conf
+            - mountPath: /repo/openeuler
+              name: repo-data-volume
+              readOnly: true
+      volumes:
+        - name: repo-nginx-configmap-volume
+          configMap:
+            name: repo-nginx-configmap
+        - name: repo-data-volume
+          persistentVolumeClaim:
+            claimName: repo-data-volume
+
