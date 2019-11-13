@@ -3174,3 +3174,14 @@ repositories:
   - name: manifest
     description: ""
     type: private
+  - name: atune
+    description: ""
+    type: private
+    managers:
+      - zhuchunyi
+      - overweight
+    developers:
+      - xiezhipeng1
+    viewers:
+      - hawl29
+      - zcylp
