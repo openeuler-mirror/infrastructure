@@ -3180,8 +3180,9 @@ repositories:
     managers:
       - zhuchunyi
       - overweight
-    developers:
       - xiezhipeng1
+    developers:
+      - igorkorkin
     viewers:
       - hawl29
       - zcylp
