@@ -36,6 +36,7 @@ community:
     - pansh
     - yangxuan8282
     - smilebob
+    - scutech
 repositories:
   - name: openeuler-jenkins
     description: ""
