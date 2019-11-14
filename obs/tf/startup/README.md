@@ -114,6 +114,7 @@ obsworker.service                                                              l
 Frontend:    172.16.1.81
 Source:      172.16.1.89
 Backend:     172.16.1.95
+# arm worker (small disks)
 Worker1:     172.16.1.80
 Worker2:     172.16.1.33
 Worker3:     172.16.1.99
@@ -124,6 +125,11 @@ Worker7:     172.16.1.127
 Worker8:     172.16.1.12
 Worker9:     172.16.1.14
 Worker10:    172.16.1.57
+#x86 worker
+Worker101:   172.16.1.42
+Worker102:   172.16.1.110
+Worker103:   172.16.1.242
+
 ```
 
 ## download full fedora packages
