@@ -1,0 +1,70 @@
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: {{ .Release.Name }}-data-volume
+  namespace: {{ .Release.Namespace }}
+spec:
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: {{ .Values.storage.size }}
+  storageClassName: {{ .Values.storage.className }}
+
+# Deployment for repo service
+---
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: {{ .Release.Name }}
+  namespace: {{ .Release.Namespace }}
+  labels:
+    app: repo-nginx-server
+spec:
+  replicas: {{ .Values.deployment.replicaCount }}
+  selector:
+    matchLabels:
+      app: repo-nginx-pod
+  template:
+    metadata:
+      labels:
+        app: repo-nginx-pod
+    spec:
+      initContainers:
+        - name: repo-prepare-tool
+          image: {{ .Values.deployment.initImage }}
+          env:
+            # key and cert file used for nginx tls
+            - name: KEY_FILE
+              value: {{ .Values.deployment.keyFile }}
+            - name: CERT_FILE
+              value: {{ .Values.deployment.certFile }}
+          args: ["prepare", "$(KEY_FILE)", "$(CERT_FILE)"]
+          volumeMounts:
+            - mountPath: /etc/nginx/ssl
+              name: repo-nginx-tls-volume
+      containers:
+        - name: repo-nginx
+          image: {{ .Values.deployment.image }}
+          imagePullPolicy: "IfNotPresent"
+          volumeMounts:
+            - mountPath: /etc/nginx/ssl
+              name: repo-nginx-tls-volume
+            - mountPath: /etc/nginx/nginx.conf
+              name: repo-nginx-configmap-volume
+              subPath: nginx.conf
+            - mountPath: /etc/nginx/conf.d/default.conf
+              name: repo-nginx-configmap-volume
+              subPath: default.conf
+            - mountPath: /repo/openeuler
+              name: repo-data-volume
+      volumes:
+        - name: repo-nginx-tls-volume
+          emptyDir: {}
+        - name: repo-nginx-configmap-volume
+          configMap:
+            name: {{ .Release.Name }}-configmap
+        - name: repo-data-volume
+          persistentVolumeClaim:
+            claimName: {{ .Release.Name }}-data-volume
