@@ -10,11 +10,13 @@ metadata:
 spec:
   externalTrafficPolicy: Cluster
   ports:
-    - port: {{ .Values.service.port }}
-      name: nginx-repo-http
-      nodePort: {{ .Values.service.nodePort }}
-      targetPort: {{ .Values.service.targetPort }}
+    - port: 443
+      name: nginx-repo-https
+      targetPort: 443
+    - port: 80
+      name: nginx-repo-listener-http
+      targetPort: 80
   selector:
     app: repo-nginx-pod
-  type: {{ .Values.service.type }}
+  type: LoadBalancer
   loadBalancerIP: {{ .Values.service.loadBalancerIP }}
