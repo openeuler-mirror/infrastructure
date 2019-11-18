@@ -1,20 +1,19 @@
 service:
   elbID: 7597fc1d-b0e4-4b81-80b1-e85825fc8aff
   loadBalancerIP: 119.8.39.193
-  type: LoadBalancer
-  port: 443
-  nodePort: 30082
-  targetPort: 443
 
 deployment:
   replicaCount: 2
-  initImage: tommylike/repo-tools:0.0.2
+  initImage: tommylike/repo-tools:0.1.5
   keyFile: "please update this with correct key file url"
-  certFile: "please update this with correct cert file url"
+  certFile:  "please update this with correct key file url"
   image: nginx:1.17.5
+  listenerImage: tommylike/repo-listener:0.1.2
+  listenerUsername: openeuler
+  listenerPassword: openeuler
   nginxConfig: config/nginx.conf
   defaultConfig: config/default.conf
 
 storage:
-  size: 100Gi
+  size: 1000Gi
   className: ssd
