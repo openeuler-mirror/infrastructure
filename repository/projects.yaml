@@ -3389,3 +3389,231 @@ repositories:
   - name: obs-env
     description: ""
     type: private
+- name: OpenEXR
+    description: ""
+    type: private
+  - name: open-isns
+    description: ""
+    type: private
+  - name: openscap
+    description: ""
+    type: private
+  - name: openvpn
+    description: ""
+    type: private
+  - name: openvswitch-kmod
+    description: ""
+    type: private
+  - name: pam_krb5
+    description: ""
+    type: private
+  - name: pax
+    description: ""
+    type: private
+  - name: perl-Digest-HMAC
+    description: ""
+    type: private
+  - name: perl-File-Listing
+    description: ""
+    type: private
+  - name: perl-HTML-Parser
+    description: ""
+    type: private
+  - name: perl-HTML-Tagset
+    description: ""
+    type: private
+  - name: perl-HTTP-Cookies
+    description: ""
+    type: private
+  - name: perl-HTTP-Date
+    description: ""
+    type: private
+  - name: perl-HTTP-Message
+    description: ""
+    type: private
+  - name: perl-HTTP-Negotiate
+    description: ""
+    type: private
+  - name: perl-IO-HTML
+    description: ""
+    type: private
+  - name: perl-JSON
+    description: ""
+    type: private
+  - name: perl-LWP-MediaTypes
+    description: ""
+    type: private
+  - name: perl-LWP-Protocol-https
+    description: ""
+    type: private
+  - name: perl-Net-HTTP
+    description: ""
+    type: private
+  - name: perl-NTLM
+    description: ""
+    type: private
+  - name: perl-Sub-Install
+    description: ""
+    type: private
+  - name: perl-TimeDate
+    description: ""
+    type: private
+  - name: perl-Try-Tiny
+    description: ""
+    type: private
+  - name: perl-WWW-RobotRules
+    description: ""
+    type: private
+  - name: pinfo
+    description: ""
+    type: private
+  - name: pkcs11-helper
+    description: ""
+    type: private
+  - name: portreserve
+    description: ""
+    type: private
+  - name: pptp
+    description: ""
+    type: private
+  - name: prefetch_tunning
+    description: ""
+    type: private
+  - name: psacct
+    description: ""
+    type: private
+  - name: pygobject2
+    description: ""
+    type: private
+  - name: pygtk2
+    description: ""
+    type: private
+  - name: python-aniso8601
+    description: ""
+    type: private
+  - name: python-augeas
+    description: ""
+    type: private
+  - name: python-bcrypt
+    description: ""
+    type: private
+  - name: python-click
+    description: ""
+    type: private
+  - name: python-configshell
+    description: ""
+    type: private
+  - name: python-cycler
+    description: ""
+    type: private
+  - name: python-dict2xml
+    description: ""
+    type: private
+  - name: python-flask
+    description: ""
+    type: private
+  - name: python-flask-restful
+    description: ""
+    type: private
+  - name: python-funcsigs
+    description: ""
+    type: private
+  - name: python-futures
+    description: ""
+    type: private
+  - name: python-h5py
+    description: ""
+    type: private
+  - name: python-httplib2
+    description: ""
+    type: private
+  - name: python-itsdangerous
+    description: ""
+    type: private
+  - name: python-jmespath
+    description: ""
+    type: private
+  - name: python-joblib
+    description: ""
+    type: private
+  - name: python-Keras
+    description: ""
+    type: private
+  - name: python-keras-applications
+    description: ""
+    type: private
+  - name: python-Keras_Preprocessing
+    description: ""
+    type: private
+  - name: python-kiwisolver
+    description: ""
+    type: private
+  - name: python-mock
+    description: ""
+    type: private
+  - name: python-pandas
+    description: ""
+    type: private
+  - name: python-paramiko
+    description: ""
+    type: private
+  - name: python-pasta
+    description: ""
+    type: private
+  - name: python-pexpect
+    description: ""
+    type: private
+  - name: python-pkgconfig
+    description: ""
+    type: private
+  - name: python-pyaml
+    description: ""
+    type: private
+  - name: python-pyasn1
+    description: ""
+    type: private
+  - name: python-pymongo
+    description: ""
+    type: private
+  - name: python-pynacl
+    description: ""
+    type: private
+  - name: python-scikit-learn
+    description: ""
+    type: private
+  - name: python-scikit-optimize
+    description: ""
+    type: private
+  - name: python-sphinx
+    description: ""
+    type: private
+  - name: python-sphinx_rtd_theme
+    description: ""
+    type: private
+  - name: python-threadpoolctl
+    description: ""
+    type: private
+  - name: python-urlgrabber
+    description: ""
+    type: private
+  - name: python-werkzeug
+    description: ""
+    type: private
+  - name: python-xgboost
+    description: ""
+    type: private
+  - name: qt5-qtbase
+    description: ""
+    type: private
+  - name: qt5-qtdeclarative
+    description: ""
+    type: private
+  - name: qt5-qtsvg
+    description: ""
+    type: private
+  - name: qt5-qtx11extras
+    description: ""
+    type: private
+  - name: qt5-qtxmlpatterns
+    description: ""
+    type: private
