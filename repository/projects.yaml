@@ -3188,3 +3188,204 @@ repositories:
       - hawl29
       - zcylp
       - isrc-iscas
+  - name: bcm283x-firmware
+    description: ""
+    type: private
+  - name: celt051
+    description: ""
+    type: private
+  - name: crda
+    description: ""
+    type: private
+  - name: cvs
+    description: ""
+    type: private
+  - name: Cython
+    description: ""
+    type: private
+  - name: docker-engine
+    description: ""
+    type: private
+  - name: docker-proxy
+    description: ""
+    type: private
+  - name: docker-runc
+    description: ""
+    type: private
+  - name: enchant2
+    description: ""
+    type: private
+  - name: environment-modules
+    description: ""
+    type: private
+  - name: file-roller
+    description: ""
+    type: private
+  - name: firefox
+    description: ""
+    type: private
+  - name: fprintd
+    description: ""
+    type: private
+  - name: gcc
+    description: ""
+    type: private
+  - name: gnome-keyring
+    description: ""
+    type: private
+  - name: google-roboto-slab-fonts
+    description: ""
+    type: private
+  - name: gssdp
+    description: ""
+    type: private
+  - name: gstreamer
+    description: ""
+    type: private
+  - name: gstreamer1-plugins-bad-free
+    description: ""
+    type: private
+  - name: gupnp
+    description: ""
+    type: private
+  - name: gupnp-igd
+    description: ""
+    type: private
+  - name: hdf5
+    description: ""
+    type: private
+  - name: help2man
+    description: ""
+    type: private
+  - name: ibus-m17n
+    description: ""
+    type: private
+  - name: ilmbase
+    description: ""
+    type: private
+  - name: intltool
+    description: ""
+    type: private
+  - name: ipvsadm
+    description: ""
+    type: private
+  - name: isulad-tools-v0.9
+    description: ""
+    type: private
+  - name: java
+    description: ""
+    type: private
+  - name: jimtcl
+    description: ""
+    type: private
+  - name: kata-containers-v1.7.0
+    description: ""
+    type: private
+  - name: kernel
+    description: ""
+    type: private
+  - name: ladspa
+    description: ""
+    type: private
+  - name: lapack
+    description: ""
+    type: private
+  - name: libaec
+    description: ""
+    type: private
+  - name: libavc1394
+    description: ""
+    type: private
+  - name: libdv
+    description: ""
+    type: private
+  - name: libdvdnav
+    description: ""
+    type: private
+  - name: libdvdread
+    description: ""
+    type: private
+  - name: libdwarf
+    description: ""
+    type: private
+  - name: libgnome-keyring
+    description: ""
+    type: private
+  - name: libiec61883
+    description: ""
+    type: private
+  - name: libmpcdec
+    description: ""
+    type: private
+  - name: libnice
+    description: ""
+    type: private
+  - name: libofa
+    description: ""
+    type: private
+  - name: LibRaw
+    description: ""
+    type: private
+  - name: libraw1394
+    description: ""
+    type: private
+  - name: libreswan
+    description: ""
+    type: private
+  - name: libshout
+    description: ""
+    type: private
+  - name: libsodium
+    description: ""
+    type: private
+  - name: libsrtp
+    description: ""
+    type: private
+  - name: libstoragemgmt
+    description: ""
+    type: private
+  - name: libvpx
+    description: ""
+    type: private
+  - name: libXScrnSaver
+    description: ""
+    type: private
+  - name: libzip
+    description: ""
+    type: private
+  - name: logwatch
+    description: ""
+    type: private
+  - name: lrzsz
+    description: ""
+    type: private
+  - name: lshw-B.02.18
+    description: ""
+    type: private
+  - name: m2crypto
+    description: ""
+    type: private
+  - name: mainline.list
+    description: ""
+    type: private
+  - name: mesa-demos
+    description: ""
+    type: private
+  - name: meson
+    description: ""
+    type: private
+  - name: neon
+    description: ""
+    type: private
+  - name: new.list
+    description: ""
+    type: private
+  - name: nss-mdns
+    description: ""
+    type: private
+  - name: numpy
+    description: ""
+    type: private
+  - name: obs-env
+    description: ""
+    type: private
