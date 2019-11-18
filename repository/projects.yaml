@@ -3617,3 +3617,90 @@ repositories:
   - name: qt5-qtxmlpatterns
     description: ""
     type: private
+  - name: rdate
+    description: ""
+    type: private
+  - name: rpmdevtools
+    description: ""
+    type: private
+  - name: scap-security-guide
+    description: ""
+    type: private
+  - name: scipy
+    description: ""
+    type: private
+  - name: scl-utils
+    description: ""
+    type: private
+  - name: SDL
+    description: ""
+    type: private
+  - name: setuptool
+    description: ""
+    type: private
+  - name: sos-collector
+    description: ""
+    type: private
+  - name: soundtouch
+    description: ""
+    type: private
+  - name: stix-fonts
+    description: ""
+    type: private
+  - name: strongswan
+    description: ""
+    type: private
+  - name: system-config-firewall
+    description: ""
+    type: private
+  - name: tclx
+    description: ""
+    type: private
+  - name: ttembed
+    description: ""
+    type: private
+  - name: unixODBC
+    description: ""
+    type: private
+  - name: usb_modeswitch
+    description: ""
+    type: private
+  - name: usb_modeswitch-data
+    description: ""
+    type: private
+  - name: v4l-utils
+    description: ""
+    type: private
+  - name: varnish
+    description: ""
+    type: private
+  - name: vte291
+    description: ""
+    type: private
+  - name: wavpack
+    description: ""
+    type: private
+  - name: xcb-util-image
+    description: ""
+    type: private
+  - name: xcb-util-keysyms
+    description: ""
+    type: private
+  - name: xcb-util-renderutil
+    description: ""
+    type: private
+  - name: xcb-util-wm
+    description: ""
+    type: private
+  - name: xdg-user-dirs
+    description: ""
+    type: private
+  - name: xdg-utils
+    description: ""
+    type: private
+  - name: xorg-x11-xinit
+    description: ""
+    type: private
+  - name: yum-metadata-parser
+    description: ""
+    type: private
