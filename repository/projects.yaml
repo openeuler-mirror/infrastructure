@@ -3389,7 +3389,7 @@ repositories:
   - name: obs-env
     description: ""
     type: private
-- name: OpenEXR
+  - name: OpenEXR
     description: ""
     type: private
   - name: open-isns
