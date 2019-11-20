@@ -1828,6 +1828,10 @@ repositories:
   - name: openvswitch
     description: ""
     type: private
+    managers:
+      - openeuler-net
+    developers:
+      - openeuler-netdev
   - name: opus
     description: ""
     type: private
@@ -3404,6 +3408,10 @@ repositories:
   - name: openvswitch-kmod
     description: ""
     type: private
+    managers:
+      - openeuler-net
+    developers:
+      - openeuler-netdev
   - name: pam_krb5
     description: ""
     type: private
