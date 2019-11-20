@@ -3277,9 +3277,6 @@ repositories:
   - name: Cython
     description: ""
     type: private
-  - name: docker-engine
-    description: ""
-    type: private
   - name: docker-proxy
     description: ""
     type: private

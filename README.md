@@ -7,10 +7,11 @@ This repository houses the scripts for community infrastructure, you are welcome
 ### Structure
 ```
 |__environment --house the scripts of basic infrastructure. 
-|__mail        --house the scripts of mail list system
-|__website     --house the scripts of CD system
-|__docs        --house the design docs
+|__mail        --house the scripts of mail list system.
+|__website     --house the scripts of CD system.
+|__docs        --house the design docs.
 |__assets      --house the basic assets, e.g. images.
+|__repository  --house the repository maintenance yaml.
 ```
 
 
