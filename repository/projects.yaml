@@ -3343,13 +3343,6 @@ repositories:
   - name: jimtcl
     description: ""
     type: private
-  - name: kata-containers
-    description: ""
-    type: private
-    managers:
-      - isulamaster
-    developers:
-      - openeulerisula
   - name: kernel
     description: ""
     type: private
