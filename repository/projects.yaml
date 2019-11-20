@@ -37,6 +37,12 @@ community:
     - yangxuan8282
     - smilebob
     - scutech
+    - huang_rong
+    - lu_jia_jia
+    - lemon-higgins
+    - hu_jin_wei
+    - hu_ya_hui
+    - wang_zhi_shun
 repositories:
   - name: openeuler-jenkins
     description: ""
