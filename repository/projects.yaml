@@ -3209,9 +3209,6 @@ repositories:
   - name: docker-proxy
     description: ""
     type: private
-  - name: docker-runc
-    description: ""
-    type: private
   - name: enchant2
     description: ""
     type: private
@@ -3267,9 +3264,6 @@ repositories:
     description: ""
     type: private
   - name: ipvsadm
-    description: ""
-    type: private
-  - name: isulad-tools-v0.9
     description: ""
     type: private
   - name: java
