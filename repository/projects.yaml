@@ -37,6 +37,12 @@ community:
     - yangxuan8282
     - smilebob
     - scutech
+    - huang_rong
+    - lu_jia_jia
+    - lemon-higgins
+    - hu_jin_wei
+    - hu_ya_hui
+    - wang_zhi_shun
 repositories:
   - name: openeuler-jenkins
     description: ""
@@ -132,15 +138,31 @@ repositories:
   - name: iSulad-kit
     description: ""
     type: private
+    managers:
+      - isulamaster
+    developers:
+      - openeulerisula
   - name: clibcni
     description: ""
     type: private
+    managers:
+      - isulamaster
+    developers:
+      - openeulerisula
   - name: authz
     description: ""
     type: private
+    managers:
+      - isulamaster
+    developers:
+      - openeulerisula
   - name: lcr
     description: ""
     type: private
+    managers:
+      - isulamaster
+    developers:
+      - openeulerisula
   - name: iSulad-tools
     description: ""
     type: private
@@ -156,6 +178,10 @@ repositories:
   - name: runc
     description: ""
     type: private
+    managers:
+      - isulamaster
+    developers:
+      - openeulerisula
   - name: kata-runtime
     description: ""
     type: private
@@ -174,6 +200,10 @@ repositories:
   - name: libnetwork
     description: ""
     type: private
+    managers:
+      - isulamaster
+    developers:
+      - openeulerisula
   - name: linux-4.19
     description: ""
     type: private
@@ -363,6 +393,10 @@ repositories:
   - name: busybox
     description: ""
     type: private
+    managers:
+      - isulamaster
+    developers:
+      - openeulerisula
   - name: bzip2
     description: ""
     type: private
@@ -802,6 +836,10 @@ repositories:
   - name: golang
     description: ""
     type: private
+    managers:
+      - isulamaster
+    developers:
+      - openeulerisula
   - name: google-droid-fonts
     description: ""
     type: private
@@ -1093,6 +1131,10 @@ repositories:
   - name: libcgroup
     description: ""
     type: private
+    managers:
+      - isulamaster
+    developers:
+      - openeulerisula
   - name: libcomps
     description: ""
     type: private
@@ -1789,6 +1831,10 @@ repositories:
   - name: oci-systemd-hook
     description: ""
     type: private
+    managers:
+      - isulamaster
+    developers:
+      - openeulerisula
   - name: oddjob
     description: ""
     type: private
@@ -1822,6 +1868,10 @@ repositories:
   - name: openvswitch
     description: ""
     type: private
+    managers:
+      - openeuler-net
+    developers:
+      - openeuler-netdev
   - name: opus
     description: ""
     type: private
@@ -2239,6 +2289,10 @@ repositories:
   - name: protobuf
     description: ""
     type: private
+    managers:
+      - isulamaster
+    developers:
+      - openeulerisula
   - name: psmisc
     description: ""
     type: private
@@ -2539,6 +2593,10 @@ repositories:
   - name: skopeo
     description: ""
     type: private
+    managers:
+      - isulamaster
+    developers:
+      - openeulerisula
   - name: slang
     description: ""
     type: private
@@ -2881,6 +2939,10 @@ repositories:
   - name: lxc
     description: ""
     type: private
+    managers:
+      - isulamaster
+    developers:
+      - openeulerisula
   - name: net-snmp
     description: ""
     type: private
@@ -2929,9 +2991,17 @@ repositories:
   - name: container-selinux
     description: ""
     type: private
+    managers:
+      - isulamaster
+    developers:
+      - openeulerisula
   - name: docker-anaconda-addon
     description: ""
     type: private
+    managers:
+      - isulamaster
+    developers:
+      - openeulerisula
   - name: dump
     description: ""
     type: private
@@ -2998,6 +3068,10 @@ repositories:
   - name: lxcfs
     description: ""
     type: private
+    managers:
+      - isulamaster
+    developers:
+      - openeulerisula
   - name: lxsession
     description: ""
     type: private
@@ -3272,6 +3346,10 @@ repositories:
   - name: kernel
     description: ""
     type: private
+    managers:
+      - openeuler_kernel
+    developers:
+      - openeuler_hulk
   - name: ladspa
     description: ""
     type: private
@@ -3392,6 +3470,10 @@ repositories:
   - name: openvswitch-kmod
     description: ""
     type: private
+    managers:
+      - openeuler-net
+    developers:
+      - openeuler-netdev
   - name: pam_krb5
     description: ""
     type: private
