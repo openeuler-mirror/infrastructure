@@ -3272,7 +3272,7 @@ repositories:
   - name: jimtcl
     description: ""
     type: private
-  - name: kata-containers-v1.7.0
+  - name: kata-containers
     description: ""
     type: private
   - name: kernel
