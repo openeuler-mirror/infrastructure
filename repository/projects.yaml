@@ -3288,6 +3288,10 @@ repositories:
   - name: kernel
     description: ""
     type: private
+    managers:
+      - openeuler_kernel
+    developers:
+      - openeuler_hulk
   - name: ladspa
     description: ""
     type: private
