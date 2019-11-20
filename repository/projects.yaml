@@ -3269,9 +3269,6 @@ repositories:
   - name: jimtcl
     description: ""
     type: private
-  - name: kata-containers
-    description: ""
-    type: private
   - name: kernel
     description: ""
     type: private
