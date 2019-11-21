@@ -3784,3 +3784,55 @@ repositories:
   - name: yum-metadata-parser
     description: ""
     type: private
+    managers:
+      - zhuchunyi
+      - overweight
+    developers:
+      - igorkorkin
+      - fly123fly
+      - qingguopi
+      - guanyanjie
+      - yanglijin
+      - AlexZ11
+      - catastrowings
+      - dogsheng
+      - wangyiru826
+      - eric14chan
+      - yanzh_h
+      - Charlie_li
+      - xhming
+      - guojianxing
+      - imjoey
+    viewers:
+      - isrc-iscas
+      - jianminw
+      - jimmy_hero
+      - isoft-linux
+      - cmss_dx
+      - taoziyaoyao
+      - tom0392
+      - gogoxiaoxiao
+      - ranygu
+      - weimingjiang
+      - zhangshengju
+      - moyang1994
+      - pansh
+      - yangxuan8282
+      - smilebob
+      - scutech
+      - huang_rong
+      - lu_jia_jia
+      - lemon-higgins
+      - hu_jin_wei
+      - hu_ya_hui
+      - wang_zhi_shun
+      - openeulerinnodev
+      - openeulerinnomtn
+      - openeuler-compute
+      - openeulercomputecommitter
+      - openeuler-basic
+      - openeulersystem
+      - openeulernet
+      - openeulernetwork
+      - eulerstorage
+      - eulerstorage_maintainer 
