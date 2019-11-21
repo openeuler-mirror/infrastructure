@@ -1,3 +1,4 @@
+# Persistent volume claim for deployment
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
@@ -11,6 +12,38 @@ spec:
     requests:
       storage: {{ .Values.storage.size }}
   storageClassName: {{ .Values.storage.className }}
+
+# ServiceAccount for deployment
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: {{ .Release.Name }}-listener
+  namespace: {{ .Release.Namespace }}
+---
+kind: ClusterRole
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: {{ .Release.Name }}-listener
+rules:
+  - apiGroups: ["batch", "extensions"]
+    resources: ["jobs"]
+    verbs: ["get", "list", "watch", "create", "update", "patch", "delete"]
+
+---
+kind: ClusterRoleBinding
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: {{ .Release.Name }}-listener
+subjects:
+  - kind: ServiceAccount
+    name: {{ .Release.Name }}-listener
+    namespace: {{ .Release.Namespace }}
+roleRef:
+  kind: ClusterRole
+  name: {{ .Release.Name }}-listener
+  apiGroup: rbac.authorization.k8s.io
+
 
 # Deployment for repo service
 ---
@@ -31,6 +64,7 @@ spec:
       labels:
         app: repo-nginx-pod
     spec:
+      serviceAccount: {{ .Release.Name }}-listener
       initContainers:
         - name: repo-prepare-tool
           image: {{ .Values.deployment.initImage }}
@@ -40,7 +74,7 @@ spec:
               value: {{ .Values.deployment.keyFile }}
             - name: CERT_FILE
               value: {{ .Values.deployment.certFile }}
-          args: ["prepare", "$(KEY_FILE)", "$(CERT_FILE)"]
+          args: ["--key-file", "$(KEY_FILE)","--cert-file", "$(CERT_FILE)", "prepare"]
           volumeMounts:
             - mountPath: /etc/nginx/ssl
               name: repo-nginx-tls-volume
@@ -59,6 +93,21 @@ spec:
               subPath: default.conf
             - mountPath: /repo/openeuler
               name: repo-data-volume
+        - name: repo-update-listener
+          image: {{ .Values.deployment.listenerImage }}
+          env:
+              # base auth for repo listener
+            - name: BASIC_AUTH_USERNAME
+              value: {{ .Values.deployment.listenerUsername }}
+            - name: BASIC_AUTH_PASSWORD
+              value: {{ .Values.deployment.listenerPassword }}
+            - name: K8S_NAMESPACE
+              value: {{ .Release.Namespace }}
+          imagePullPolicy: "IfNotPresent"
+          volumeMounts:
+            - mountPath: /etc/repo-update/update-repo-job.yaml
+              name: repo-nginx-configmap-volume
+              subPath: update-repo-job.yaml
       volumes:
         - name: repo-nginx-tls-volume
           emptyDir: {}
