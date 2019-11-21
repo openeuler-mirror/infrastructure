@@ -43,6 +43,16 @@ community:
     - hu_jin_wei
     - hu_ya_hui
     - wang_zhi_shun
+    - openeulerinnodev
+    - openeulerinnomtn
+    - openeuler-compute
+    - openeulercomputecommitter
+    - openeuler-basic
+    - openeulersystem
+    - openeulernet
+    - openeulernetwork
+    - eulerstorage
+    - eulerstorage_maintainer 
 repositories:
   - name: openeuler-jenkins
     description: ""
