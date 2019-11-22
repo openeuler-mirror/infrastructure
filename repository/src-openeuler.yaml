@@ -40,18 +40,18 @@ community:
     - jianminw
     - jimmy_hero
     - moyang1994
-    - openeulerinnodev
-    - openeulerinnomtn
+    - openeuler-basic
     - openeuler-compute
     - openeulercomputecommitter
-    - openeuler-basic
-    - openeulersystem
+    - openeulerinnodev
+    - openeulerinnomtn
     - openeulernet
     - openeulernetwork
+    - openeulersystem
     - pansh
     - ranygu
-    - smilebob
     - scutech
+    - smilebob
     - taoziyaoyao
     - tom0392
     - weimingjiang
@@ -130,6 +130,12 @@ repositories:
   - name: alsa-tools
     description: ""
     type: private
+  - name: anaconda
+    description: ""
+    type: private
+  - name: anaconda-user-help
+    description: ""
+    type: private
   - name: apr
     description: ""
     type: private
@@ -154,6 +160,9 @@ repositories:
   - name: atk
     description: ""
     type: private
+  - name: atmel-firmware
+    description: ""
+    type: private
   - name: at-spi2-atk
     description: ""
     type: private
@@ -163,6 +172,20 @@ repositories:
   - name: attr
     description: ""
     type: private
+  - name: atune
+    description: ""
+    type: private
+    managers:
+      - overweight
+      - xiezhipeng1
+      - zhuchunyi
+    developers:
+      - dogsheng
+      - igorkorkin
+    viewers:
+      - hawl29
+      - isrc-iscas
+      - zcylp
   - name: audiofile
     description: ""
     type: private
@@ -189,7 +212,16 @@ repositories:
     developers:
       - dogsheng
       - openeulerisula
+  - name: autoconf
+    description: ""
+    type: private
   - name: autogen
+    description: ""
+    type: private
+  - name: automake
+    description: ""
+    type: private
+  - name: autotune
     description: ""
     type: private
   - name: avahi
@@ -278,6 +310,9 @@ repositories:
   - name: cairo
     description: ""
     type: private
+  - name: capstone
+    description: ""
+    type: private
   - name: c-ares
     description: ""
     type: private
@@ -302,6 +337,9 @@ repositories:
   - name: chrony
     description: ""
     type: private
+  - name: chrpath
+    description: ""
+    type: private
   - name: ci_check
     description: ""
     type: private
@@ -312,6 +350,9 @@ repositories:
       - dogsheng
       - zhaoshangjie
   - name: cifs-utils
+    description: ""
+    type: private
+  - name: cjkuni-ukai-fonts
     description: ""
     type: private
   - name: clevis
@@ -389,6 +430,17 @@ repositories:
     description: ""
     type: private
   - name: comps-extras
+    description: ""
+    type: private
+  - name: container-selinux
+    description: ""
+    type: private
+    managers:
+      - isulamaster
+    developers:
+      - dogsheng
+      - openeulerisula
+  - name: containerd
     description: ""
     type: private
   - name: coreutils
@@ -499,6 +551,20 @@ repositories:
   - name: docbook-style-xsl
     description: ""
     type: private
+  - name: docker
+    description: ""
+    type: private
+  - name: docker-anaconda-addon
+    description: ""
+    type: private
+    managers:
+      - isulamaster
+    developers:
+      - dogsheng
+      - openeulerisula
+  - name: docker-proxy
+    description: ""
+    type: private
   - name: dos2unix
     description: ""
     type: private
@@ -511,7 +577,13 @@ repositories:
   - name: dropwatch
     description: ""
     type: private
+  - name: drpm
+    description: ""
+    type: private
   - name: dtc
+    description: ""
+    type: private
+  - name: dump
     description: ""
     type: private
   - name: dwz
@@ -568,6 +640,9 @@ repositories:
   - name: expect
     description: ""
     type: private
+  - name: fcoe-utils
+    description: ""
+    type: private
   - name: file
     description: ""
     type: private
@@ -598,10 +673,16 @@ repositories:
   - name: fontpackages
     description: ""
     type: private
+  - name: fpaste
+    description: ""
+    type: private
   - name: freetype
     description: ""
     type: private
   - name: fribidi
+    description: ""
+    type: private
+  - name: fros
     description: ""
     type: private
   - name: ftp
@@ -680,6 +761,9 @@ repositories:
   - name: gjs
     description: ""
     type: private
+  - name: glade
+    description: ""
+    type: private
   - name: glib2
     description: ""
     type: private
@@ -731,8 +815,8 @@ repositories:
     managers:
       - isulamaster
     developers:
-      - openeulerisula
       - dogsheng
+      - openeulerisula
   - name: google-droid-fonts
     description: ""
     type: private
@@ -936,10 +1020,19 @@ repositories:
   - name: jasper
     description: ""
     type: private
+  - name: java
+    description: ""
+    type: private
   - name: jbig2dec
     description: ""
     type: private
   - name: jbigkit
+    description: ""
+    type: private
+  - name: jfsutils
+    description: ""
+    type: private
+  - name: jimtcl
     description: ""
     type: private
   - name: jose
@@ -991,6 +1084,9 @@ repositories:
     description: ""
     type: private
   - name: langpacks
+    description: ""
+    type: private
+  - name: langtable
     description: ""
     type: private
   - name: latrace
@@ -1047,6 +1143,9 @@ repositories:
     description: ""
     type: private
   - name: libbytesize
+    description: ""
+    type: private
+  - name: libcacard
     description: ""
     type: private
   - name: libcanberra
@@ -1118,6 +1217,9 @@ repositories:
     description: ""
     type: private
   - name: libestr
+    description: ""
+    type: private
+  - name: libev
     description: ""
     type: private
   - name: libevdev
@@ -1383,6 +1485,9 @@ repositories:
   - name: libtalloc
     description: ""
     type: private
+  - name: libtar
+    description: ""
+    type: private
   - name: libtasn1
     description: ""
     type: private
@@ -1404,7 +1509,16 @@ repositories:
   - name: libtiff
     description: ""
     type: private
+  - name: libtimezonemap
+    description: ""
+    type: private
   - name: libtirpc
+    description: ""
+    type: private
+  - name: libtomcrypt
+    description: ""
+    type: private
+  - name: libtommath
     description: ""
     type: private
   - name: libtool
@@ -1569,6 +1683,9 @@ repositories:
   - name: linux-firmware
     description: ""
     type: private
+  - name: lldpad
+    description: ""
+    type: private
   - name: llvm
     description: ""
     type: private
@@ -1582,6 +1699,9 @@ repositories:
     description: ""
     type: private
   - name: logrotate
+    description: ""
+    type: private
+  - name: lorax
     description: ""
     type: private
   - name: lshw
@@ -1617,6 +1737,25 @@ repositories:
   - name: lvm2
     description: ""
     type: private
+  - name: lxc
+    description: ""
+    type: private
+    managers:
+      - isulamaster
+    developers:
+      - dogsheng
+      - openeulerisula
+  - name: lxcfs
+    description: ""
+    type: private
+    managers:
+      - isulamaster
+    developers:
+      - dogsheng
+      - openeulerisula
+  - name: lxsession
+    description: ""
+    type: private
   - name: lz4
     description: ""
     type: private
@@ -1644,6 +1783,9 @@ repositories:
   - name: man-pages
     description: ""
     type: private
+  - name: manifest
+    description: ""
+    type: private
   - name: mariadb
     description: ""
     type: private
@@ -1669,6 +1811,9 @@ repositories:
     description: ""
     type: private
   - name: metacity
+    description: ""
+    type: private
+  - name: mkeuleros
     description: ""
     type: private
   - name: mlocate
@@ -1704,6 +1849,9 @@ repositories:
   - name: mtools
     description: ""
     type: private
+  - name: mtr
+    description: ""
+    type: private
   - name: mutter
     description: ""
     type: private
@@ -1719,10 +1867,16 @@ repositories:
   - name: ndctl
     description: ""
     type: private
-  - name: netcf
+  - name: net-snmp
     description: ""
     type: private
   - name: net-tools
+    description: ""
+    type: private
+  - name: netcf
+    description: ""
+    type: private
+  - name: nettle
     description: ""
     type: private
   - name: NetworkManager
@@ -1747,6 +1901,9 @@ repositories:
     description: ""
     type: private
   - name: nmap
+    description: ""
+    type: private
+  - name: notification-daemon
     description: ""
     type: private
   - name: npth
@@ -1834,13 +1991,16 @@ repositories:
   - name: orc
     description: ""
     type: private
+  - name: os-prober
+    description: ""
+    type: private
   - name: osinfo-db
     description: ""
     type: private
   - name: osinfo-db-tools
     description: ""
     type: private
-  - name: os-prober
+  - name: ostree
     description: ""
     type: private
   - name: p11-kit
@@ -2463,7 +2623,13 @@ repositories:
   - name: redhat-menus
     description: ""
     type: private
+  - name: repo
+    description: ""
+    type: private
   - name: rest
+    description: ""
+    type: private
+  - name: rng-tools
     description: ""
     type: private
   - name: rootfiles
@@ -2473,6 +2639,9 @@ repositories:
     description: ""
     type: private
   - name: rpm
+    description: ""
+    type: private
+  - name: rpm-ostree
     description: ""
     type: private
   - name: rpmrebuild
@@ -2498,6 +2667,9 @@ repositories:
   - name: samba
     description: ""
     type: private
+  - name: satyr
+    description: ""
+    type: private
   - name: sbc
     description: ""
     type: private
@@ -2505,6 +2677,9 @@ repositories:
     description: ""
     type: private
   - name: sdparm
+    description: ""
+    type: private
+  - name: securec
     description: ""
     type: private
   - name: security-tool
@@ -2546,6 +2721,9 @@ repositories:
   - name: shadow
     description: ""
     type: private
+  - name: shadow-utils
+    description: ""
+    type: private
   - name: shared-mime-info
     description: ""
     type: private
@@ -2553,6 +2731,9 @@ repositories:
     description: ""
     type: private
   - name: shim
+    description: ""
+    type: private
+  - name: shim-unsigned-aarch64
     description: ""
     type: private
   - name: skopeo
@@ -2590,6 +2771,12 @@ repositories:
   - name: speexdsp
     description: ""
     type: private
+  - name: spice
+    description: ""
+    type: private
+  - name: spice-vdagent
+    description: ""
+    type: private
   - name: sqlite
     description: ""
     type: private
@@ -2603,6 +2790,9 @@ repositories:
     description: ""
     type: private
   - name: sssd
+    description: ""
+    type: private
+  - name: star
     description: ""
     type: private
   - name: startup-notification
@@ -2636,6 +2826,9 @@ repositories:
     description: ""
     type: private
   - name: taglib
+    description: ""
+    type: private
+  - name: taglist-enable
     description: ""
     type: private
   - name: tar
@@ -2686,10 +2879,16 @@ repositories:
   - name: tk
     description: ""
     type: private
+  - name: tmux
+    description: ""
+    type: private
   - name: tokyocabinet
     description: ""
     type: private
   - name: totem-pl-parser
+    description: ""
+    type: private
+  - name: tpm2-abrmd
     description: ""
     type: private
   - name: tpm2-tools
@@ -2719,10 +2918,16 @@ repositories:
   - name: tzdata
     description: ""
     type: private
+  - name: uboot-tools
+    description: ""
+    type: private
   - name: udisks2
     description: ""
     type: private
   - name: unbound
+    description: ""
+    type: private
+  - name: unique
     description: ""
     type: private
   - name: unzip
@@ -2753,6 +2958,9 @@ repositories:
     description: ""
     type: private
   - name: util-linux
+    description: ""
+    type: private
+  - name: vconfig
     description: ""
     type: private
   - name: vim
@@ -2809,6 +3017,9 @@ repositories:
   - name: xcb-util
     description: ""
     type: private
+  - name: xfsdump
+    description: ""
+    type: private
   - name: xfsprogs
     description: ""
     type: private
@@ -2818,348 +3029,13 @@ repositories:
   - name: xkeyboard-config
     description: ""
     type: private
+  - name: xmlrpc-c
+    description: ""
+    type: private
   - name: xmlsec1
     description: ""
     type: private
   - name: xmlto
-    description: ""
-    type: private
-  - name: xorg-x11-fonts
-    description: ""
-    type: private
-  - name: xorg-x11-font-utils
-    description: ""
-    type: private
-  - name: xorg-x11-server-utils
-    description: ""
-    type: private
-  - name: xorg-x11-xkb-utils
-    description: ""
-    type: private
-  - name: xterm
-    description: ""
-    type: private
-  - name: xvattr
-    description: ""
-    type: private
-  - name: xz
-    description: ""
-    type: private
-  - name: yajl
-    description: ""
-    type: private
-  - name: ypbind
-    description: ""
-    type: private
-  - name: ypserv
-    description: ""
-    type: private
-  - name: yp-tools
-    description: ""
-    type: private
-  - name: yum-utils
-    description: ""
-    type: private
-  - name: zenity
-    description: ""
-    type: private
-  - name: zip
-    description: ""
-    type: private
-  - name: zlib
-    description: ""
-    type: private
-  - name: zsh
-    description: ""
-    type: private
-  - name: zstd
-    description: ""
-    type: private
-  - name: zziplib
-    description: ""
-    type: private
-  - name: chrpath
-    description: ""
-    type: private
-  - name: cjkuni-ukai-fonts
-    description: ""
-    type: private
-  - name: drpm
-    description: ""
-    type: private
-  - name: libatasmart
-    description: ""
-    type: private
-  - name: libgweather
-    description: ""
-    type: private
-  - name: libnetfilter_queue
-    description: ""
-    type: private
-  - name: libsoup
-    description: ""
-    type: private
-  - name: libssh2
-    description: ""
-    type: private
-  - name: lxc
-    description: ""
-    type: private
-    managers:
-      - isulamaster
-    developers:
-      - openeulerisula
-      - dogsheng
-  - name: net-snmp
-    description: ""
-    type: private
-  - name: nettle
-    description: ""
-    type: private
-  - name: python-beautifulsoup4
-    description: ""
-    type: private
-  - name: shim-unsigned-aarch64
-    description: ""
-    type: private
-  - name: tpm2-abrmd
-    description: ""
-    type: private
-  - name: google-noto-cjk-fonts
-    description: ""
-    type: private
-  - name: anaconda
-    description: ""
-    type: private
-  - name: anaconda-user-help
-    description: ""
-    type: private
-  - name: atmel-firmware
-    description: ""
-    type: private
-  - name: autoconf
-    description: ""
-    type: private
-  - name: automake
-    description: ""
-    type: private
-  - name: autotune
-    description: ""
-    type: private
-  - name: b43-openfwwf
-    description: ""
-    type: private
-  - name: blivet-gui
-    description: ""
-    type: private
-  - name: capstone
-    description: ""
-    type: private
-  - name: container-selinux
-    description: ""
-    type: private
-    managers:
-      - isulamaster
-    developers:
-      - dogsheng
-      - openeulerisula
-  - name: containerd
-    description: ""
-    type: private
-  - name: docker
-    description: ""
-    type: private
-  - name: docker-anaconda-addon
-    description: ""
-    type: private
-    managers:
-      - isulamaster
-    developers:
-      - openeulerisula
-      - dogsheng
-  - name: dump
-    description: ""
-    type: private
-  - name: fcoe-utils
-    description: ""
-    type: private
-  - name: fpaste
-    description: ""
-    type: private
-  - name: fros
-    description: ""
-    type: private
-  - name: hcc
-    description: ""
-    type: private
-  - name: glade
-    description: ""
-    type: private
-  - name: hexedit
-    description: ""
-    type: private
-  - name: icfg
-    description: ""
-    type: private
-  - name: isomd5sum
-    description: ""
-    type: private
-  - name: jfsutils
-    description: ""
-    type: private
-  - name: kdump-anaconda-addon
-    description: ""
-    type: private
-  - name: keybinder3
-    description: ""
-    type: private
-  - name: langtable
-    description: ""
-    type: private
-  - name: libcacard
-    description: ""
-    type: private
-  - name: libev
-    description: ""
-    type: private
-  - name: libtar
-    description: ""
-    type: private
-  - name: libtimezonemap
-    description: ""
-    type: private
-  - name: libtomcrypt
-    description: ""
-    type: private
-  - name: libtommath
-    description: ""
-    type: private
-  - name: lldpad
-    description: ""
-    type: private
-  - name: lorax
-    description: ""
-    type: private
-  - name: lxcfs
-    description: ""
-    type: private
-    managers:
-      - isulamaster
-    developers:
-      - openeulerisula
-      - dogsheng
-  - name: lxsession
-    description: ""
-    type: private
-  - name: mkeuleros
-    description: ""
-    type: private
-  - name: mtr
-    description: ""
-    type: private
-  - name: notification-daemon
-    description: ""
-    type: private
-  - name: ostree
-    description: ""
-    type: private
-  - name: pykickstart
-    description: ""
-    type: private
-  - name: pyparted
-    description: ""
-    type: private
-  - name: python-beaker
-    description: ""
-    type: private
-  - name: python-blivet
-    description: ""
-    type: private
-  - name: python-coverage
-    description: ""
-    type: private
-  - name: python-crypto
-    description: ""
-    type: private
-  - name: python-mako
-    description: ""
-    type: private
-  - name: python-meh
-    description: ""
-    type: private
-  - name: python-ntplib
-    description: ""
-    type: private
-  - name: python-ordered-set
-    description: ""
-    type: private
-  - name: python-paste
-    description: ""
-    type: private
-  - name: python-pid
-    description: ""
-    type: private
-  - name: python-productmd
-    description: ""
-    type: private
-  - name: python-pydbus
-    description: ""
-    type: private
-  - name: python-requests-file
-    description: ""
-    type: private
-  - name: python-requests-ftp
-    description: ""
-    type: private
-  - name: python-simpleline
-    description: ""
-    type: private
-  - name: python-tempita
-    description: ""
-    type: private
-  - name: rng-tools
-    description: ""
-    type: private
-  - name: rpm-ostree
-    description: ""
-    type: private
-  - name: satyr
-    description: ""
-    type: private
-  - name: securec
-    description: ""
-    type: private
-  - name: shadow-utils
-    description: ""
-    type: private
-  - name: spice
-    description: ""
-    type: private
-  - name: spice-vdagent
-    description: ""
-    type: private
-  - name: star
-    description: ""
-    type: private
-  - name: taglist-enable
-    description: ""
-    type: private
-  - name: tmux
-    description: ""
-    type: private
-  - name: uboot-tools
-    description: ""
-    type: private
-  - name: unique
-    description: ""
-    type: private
-  - name: vconfig
-    description: ""
-    type: private
-  - name: xfsdump
-    description: ""
-    type: private
-  - name: xmlrpc-c
     description: ""
     type: private
   - name: xorg-x11-drivers
@@ -3189,10 +3065,34 @@ repositories:
   - name: xorg-x11-drv-wacom
     description: ""
     type: private
+  - name: xorg-x11-fonts
+    description: ""
+    type: private
+  - name: xorg-x11-font-utils
+    description: ""
+    type: private
   - name: xorg-x11-server
     description: ""
     type: private
+  - name: xorg-x11-server-utils
+    description: ""
+    type: private
   - name: xorg-x11-xauth
+    description: ""
+    type: private
+  - name: xorg-x11-xkb-utils
+    description: ""
+    type: private
+  - name: xterm
+    description: ""
+    type: private
+  - name: xvattr
+    description: ""
+    type: private
+  - name: xz
+    description: ""
+    type: private
+  - name: yajl
     description: ""
     type: private
   - name: yelp
@@ -3201,45 +3101,49 @@ repositories:
   - name: yelp-xsl
     description: ""
     type: private
+  - name: ypbind
+    description: ""
+    type: private
+  - name: ypserv
+    description: ""
+    type: private
+  - name: yp-tools
+    description: ""
+    type: private
   - name: yum-langpacks
+    description: ""
+    type: private
+  - name: yum-utils
+    description: ""
+    type: private
+  - name: zenity
     description: ""
     type: private
   - name: zd1211-firmware
     description: ""
     type: private
-  - name: huaweijdk
+  - name: zip
     description: ""
     type: private
-  - name: kiwi-dlimage
+  - name: zlib
     description: ""
     type: private
-  - name: openEuler_chroot
+  - name: zsh
     description: ""
     type: private
-  - name: openEuler-latest-release
+  - name: zstd
     description: ""
     type: private
-  - name: repo
+  - name: zziplib
     description: ""
     type: private
-  - name: manifest
+  - name: b43-openfwwf
     description: ""
     type: private
-  - name: atune
-    description: ""
-    type: private
-    managers:
-      - zhuchunyi
-      - overweight
-      - xiezhipeng1
-    developers:
-      - igorkorkin
-      - dogsheng
-    viewers:
-      - hawl29
-      - zcylp
-      - isrc-iscas
   - name: bcm283x-firmware
+    description: ""
+    type: private
+  - name: blivet-gui
     description: ""
     type: private
   - name: celt051
@@ -3252,9 +3156,6 @@ repositories:
     description: ""
     type: private
   - name: Cython
-    description: ""
-    type: private
-  - name: docker-proxy
     description: ""
     type: private
   - name: enchant2
@@ -3275,6 +3176,9 @@ repositories:
   - name: gnome-keyring
     description: ""
     type: private
+  - name: google-noto-cjk-fonts
+    description: ""
+    type: private
   - name: google-roboto-slab-fonts
     description: ""
     type: private
@@ -3293,13 +3197,25 @@ repositories:
   - name: gupnp-igd
     description: ""
     type: private
+  - name: hcc
+    description: ""
+    type: private
   - name: hdf5
     description: ""
     type: private
   - name: help2man
     description: ""
     type: private
+  - name: hexedit
+    description: ""
+    type: private
+  - name: huaweijdk
+    description: ""
+    type: private
   - name: ibus-m17n
+    description: ""
+    type: private
+  - name: icfg
     description: ""
     type: private
   - name: ilmbase
@@ -3311,10 +3227,10 @@ repositories:
   - name: ipvsadm
     description: ""
     type: private
-  - name: java
+  - name: isomd5sum
     description: ""
     type: private
-  - name: jimtcl
+  - name: kdump-anaconda-addon
     description: ""
     type: private
   - name: kernel
@@ -3323,8 +3239,14 @@ repositories:
     managers:
       - openeuler_kernel
     developers:
-      - openeuler_hulk
       - dogsheng
+      - openeuler_hulk
+  - name: keybinder3
+    description: ""
+    type: private
+  - name: kiwi-dlimage
+    description: ""
+    type: private
   - name: ladspa
     description: ""
     type: private
@@ -3332,6 +3254,9 @@ repositories:
     description: ""
     type: private
   - name: libaec
+    description: ""
+    type: private
+  - name: libatasmart
     description: ""
     type: private
   - name: libavc1394
@@ -3352,10 +3277,16 @@ repositories:
   - name: libgnome-keyring
     description: ""
     type: private
+  - name: libgweather
+    description: ""
+    type: private
   - name: libiec61883
     description: ""
     type: private
   - name: libmpcdec
+    description: ""
+    type: private
+  - name: libnetfilter_queue
     description: ""
     type: private
   - name: libnice
@@ -3379,7 +3310,13 @@ repositories:
   - name: libsodium
     description: ""
     type: private
+  - name: libsoup
+    description: ""
+    type: private
   - name: libsrtp
+    description: ""
+    type: private
+  - name: libssh2
     description: ""
     type: private
   - name: libstoragemgmt
@@ -3436,10 +3373,21 @@ repositories:
     developers:
       - dogsheng
       - zhaoshangjie
+  - name: obs-build
+    description: ""
+    type: private
+    developers:
+      - catastrowings
   - name: obs-env
     description: ""
     type: private
+  - name: openEuler_chroot
+    description: ""
+    type: private
   - name: openEuler-indexhtml
+    description: ""
+    type: private
+  - name: openEuler-latest-release
     description: ""
     type: private
   - name: openEuler-logos
@@ -3472,8 +3420,13 @@ repositories:
     managers:
       - openeuler-net
     developers:
-      - openeuler-netdev
       - dogsheng
+      - openeuler-netdev
+  - name: osc
+    description: ""
+    type: private
+    developers:
+      - catastrowings
   - name: pam_krb5
     description: ""
     type: private
@@ -3558,6 +3511,12 @@ repositories:
   - name: pygtk2
     description: ""
     type: private
+  - name: pykickstart
+    description: ""
+    type: private
+  - name: pyparted
+    description: ""
+    type: private
   - name: python-aniso8601
     description: ""
     type: private
@@ -3567,10 +3526,25 @@ repositories:
   - name: python-bcrypt
     description: ""
     type: private
+  - name: python-beaker
+    description: ""
+    type: private
+  - name: python-beautifulsoup4
+    description: ""
+    type: private
+  - name: python-blivet
+    description: ""
+    type: private
   - name: python-click
     description: ""
     type: private
   - name: python-configshell
+    description: ""
+    type: private
+  - name: python-coverage
+    description: ""
+    type: private
+  - name: python-crypto
     description: ""
     type: private
   - name: python-cycler
@@ -3618,7 +3592,19 @@ repositories:
   - name: python-kiwisolver
     description: ""
     type: private
+  - name: python-mako
+    description: ""
+    type: private
+  - name: python-meh
+    description: ""
+    type: private
   - name: python-mock
+    description: ""
+    type: private
+  - name: python-ntplib
+    description: ""
+    type: private
+  - name: python-ordered-set
     description: ""
     type: private
   - name: python-pandas
@@ -3630,10 +3616,19 @@ repositories:
   - name: python-pasta
     description: ""
     type: private
+  - name: python-paste
+    description: ""
+    type: private
   - name: python-pexpect
     description: ""
     type: private
+  - name: python-pid
+    description: ""
+    type: private
   - name: python-pkgconfig
+    description: ""
+    type: private
+  - name: python-productmd
     description: ""
     type: private
   - name: python-pyaml
@@ -3642,10 +3637,19 @@ repositories:
   - name: python-pyasn1
     description: ""
     type: private
+  - name: python-pydbus
+    description: ""
+    type: private
   - name: python-pymongo
     description: ""
     type: private
   - name: python-pynacl
+    description: ""
+    type: private
+  - name: python-requests-file
+    description: ""
+    type: private
+  - name: python-requests-ftp
     description: ""
     type: private
   - name: python-scikit-learn
@@ -3654,10 +3658,16 @@ repositories:
   - name: python-scikit-optimize
     description: ""
     type: private
+  - name: python-simpleline
+    description: ""
+    type: private
   - name: python-sphinx
     description: ""
     type: private
   - name: python-sphinx_rtd_theme
+    description: ""
+    type: private
+  - name: python-tempita
     description: ""
     type: private
   - name: python-threadpoolctl
@@ -3726,6 +3736,11 @@ repositories:
   - name: tclx
     description: ""
     type: private
+  - name: thx
+    description: ""
+    type: private
+    developers:
+      - catastrowings
   - name: ttembed
     description: ""
     type: private
@@ -3771,73 +3786,58 @@ repositories:
   - name: xorg-x11-xinit
     description: ""
     type: private
-  - name: osc
-    description: ""
-    type: private
-    developers:
-      - catastrowings
-  - name: thx
-    description: ""
-    type: private
-    developers:
-      - catastrowings
-  - name: obs-build
-    description: ""
-    type: private
-    developers:
-      - catastrowings
   - name: yum-metadata-parser
     description: ""
     type: private
     managers:
-      - zhuchunyi
       - overweight
+      - zhuchunyi
     developers:
-      - igorkorkin
-      - fly123fly
-      - qingguopi
-      - guanyanjie
-      - yanglijin
       - AlexZ11
       - catastrowings
-      - dogsheng
-      - wangyiru826
-      - eric14chan
-      - yanzh_h
       - Charlie_li
-      - xhming
+      - dogsheng
+      - eric14chan
+      - fly123fly
+      - guanyanjie
       - guojianxing
+      - igorkorkin
       - imjoey
+      - qingguopi
+      - wangyiru826
+      - xhming
+      - yanglijin
+      - yanzh_h
     viewers:
+      - cmss_dx
+      - eulerstorage
+      - eulerstorage_maintainer
+      - gogoxiaoxiao
+      - hu_jin_wei
+      - hu_ya_hui
+      - huang_rong
       - isrc-iscas
       - jianminw
       - jimmy_hero
       - isoft-linux
-      - cmss_dx
-      - taoziyaoyao
-      - tom0392
-      - gogoxiaoxiao
-      - ranygu
-      - weimingjiang
-      - zhangshengju
-      - moyang1994
-      - pansh
-      - yangxuan8282
-      - smilebob
-      - scutech
-      - huang_rong
-      - lu_jia_jia
       - lemon-higgins
-      - hu_jin_wei
-      - hu_ya_hui
-      - wang_zhi_shun
-      - openeulerinnodev
-      - openeulerinnomtn
+      - lu_jia_jia
+      - moyang1994
+      - openeuler-basic
       - openeuler-compute
       - openeulercomputecommitter
-      - openeuler-basic
-      - openeulersystem
+      - openeulerinnodev
+      - openeulerinnomtn
       - openeulernet
       - openeulernetwork
-      - eulerstorage
-      - eulerstorage_maintainer
+      - openeulersystem
+      - pansh
+      - ranygu
+      - scutech
+      - smilebob
+      - taoziyaoyao
+      - tom0392
+      - wang_zhi_shun
+      - weimingjiang
+      - yangxuan8282
+      - zhangshengju
