@@ -1,58 +1,45 @@
 community:
   name: src-openeuler
   managers:
-    - zhuchunyi
+    - cynthia_xh
     - overweight
     - qingguopi
-    - cynthia_xh
     - Ronnie_Jiang
     - solarhu
+    - zhuchunyi
   developers:
-    - igorkorkin
-    - fly123fly
-    - qingguopi
-    - guanyanjie
-    - yanglijin
     - AlexZ11
     - catastrowings
-    - dogsheng
-    - wangyiru826
-    - eric14chan
-    - yanzh_h
     - Charlie_li
-    - zaiwangli
-    - xhming
-    - street_dust
-    - lu_jia_jia
-    - lemon-higgins
+    - dogsheng
+    - eric14chan
+    - fly123fly
+    - guanyanjie
     - hu_jin_wei
-    - wang_zhi_shun
     - hu_ya_hui
+    - igorkorkin
+    - lemon-higgins
+    - lu_jia_jia
+    - street_dust
+    - wang_zhi_shun
+    - wangyiru826
+    - yanglijin
+    - yanzh_h
+    - xhming
+    - zaiwangli
   viewers:
+    - cmss_dx
+    - eulerstorage
+    - eulerstorage_maintainer
+    - gogoxiaoxiao
+    - guojianxing
+    - huang_rong
+    - imjoey
+    - isoft-linux
     - isrc-iscas
     - jianminw
     - jimmy_hero
-    - isoft-linux
-    - cmss_dx
-    - taoziyaoyao
-    - tom0392
-    - gogoxiaoxiao
-    - ranygu
-    - weimingjiang
-    - zhangshengju
     - moyang1994
-    - guojianxing
-    - imjoey
-    - pansh
-    - yangxuan8282
-    - smilebob
-    - scutech
-    - huang_rong
-    - lu_jia_jia
-    - lemon-higgins
-    - hu_jin_wei
-    - hu_ya_hui
-    - wang_zhi_shun
     - openeulerinnodev
     - openeulerinnomtn
     - openeuler-compute
@@ -61,8 +48,15 @@ community:
     - openeulersystem
     - openeulernet
     - openeulernetwork
-    - eulerstorage
-    - eulerstorage_maintainer 
+    - pansh
+    - ranygu
+    - smilebob
+    - scutech
+    - taoziyaoyao
+    - tom0392
+    - weimingjiang
+    - yangxuan8282
+    - zhangshengju
 repositories:
   - name: ci_check
     description: ""
@@ -3300,9 +3294,6 @@ repositories:
     description: ""
     type: private
   - name: fprintd
-    description: ""
-    type: private
-  - name: gcc
     description: ""
     type: private
   - name: gnome-keyring
