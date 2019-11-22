@@ -1,34 +1,77 @@
 community:
   name: openeuler
   managers:
-    - zhuchunyi
     - overweight
     - rudy_tan
+    - zhuchunyi
   developers:
-    - igorkorkin
     - dogsheng
+    - igorkorkin
 repositories:
   - name: ci-bot
-    description: ""
-    type: public
-  - name: website
-    description: ""
-    type: public
-  - name: go-gitee
     description: ""
     type: public
   - name: community
     description: ""
     type: public
+  - name: community-issue
+    description: "The public issue repo which only accept issue that doesn't belong to any source repo"
+    type: public
+    managers:
+      - freesky-edward
+      - TommyLike
+      - xiangxinyong
+  - name: discussion
+    description: ""
+    type: private
+    managers:
+      - xiangxinyong
+      - yangli69393
+    developers:
+      - Charlie_li
+      - dogsheng
+      - igorkorkin
+      - initlove
+      - Ronnie_Jiang
   - name: docs
     description: ""
     type: public
   - name: gitbook-theme-hugo
     description: ""
     type: public
+  - name: go-gitee
+    description: ""
+    type: public
   - name: infrastructure
     description: ""
     type: public
+  - name: integration-test
+    description: ""
+    type: private
+    managers:
+      - Charlie_li
+      - TommyLike
+      - xiangxinyong
+      - zerodefect
+    developers:
+      - air9
+      - dogsheng
+      - heruxiao
+      - jimmy_hero
+      - wangyiru826
+      - wubodong
+      - zhang_liu_yan
+  - name: kylintrial
+    description: ""
+    type: private
+    managers:
+      - zerodefect
+    developers:
+      - Charlie_li
+      - dogsheng
+      - igorkorkin
+      - initlove
+      - Ronnie_Jiang
   - name: openeuler-jenkins
     description: ""
     type: private
@@ -36,49 +79,6 @@ repositories:
       - xiangxinyong
     developers:
       - dogsheng
-  - name: integration-test
+  - name: website
     description: ""
-    type: private
-    managers:
-      - Charlie_li
-      - TommyLike
-      - zerodefect
-      - xiangxinyong
-    developers:
-      - zhang_liu_yan
-      - wubodong
-      - air9
-      - jimmy_hero
-      - heruxiao
-      - dogsheng
-      - wangyiru826
-  - name: discussion
-    description: ""
-    type: private
-    managers:
-      - yangli69393
-      - xiangxinyong
-    developers:
-      - igorkorkin
-      - initlove
-      - Ronnie_Jiang
-      - Charlie_li
-      - dogsheng
-  - name: kylintrial
-    description: ""
-    type: private
-    managers:
-      - zerodefect
-    developers:
-      - igorkorkin
-      - initlove
-      - Ronnie_Jiang
-      - Charlie_li
-      - dogsheng
-  - name: community-issue
-    description: "The public issue repo which only accept issue that doesn't belong to any source repo"
     type: public
-    managers:
-      - freesky-edward
-      - xiangxinyong
-      - TommyLike
