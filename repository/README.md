@@ -1,8 +1,8 @@
 # repository
 
 The infrastucture team have built a mechanism to simplify the repository maintenance.
-All of the repositories and repository members are addressed in
-[projects.yaml](projects.yaml).
+The repositories and repository members about openEuler are addressed in [openeuler.yaml](openeuler.yaml),
+meanwhile the repositories and repository members about src-openEuler are addressed in [src-openeuler.yaml](src-openeuler.yaml).
 
 If you want to ```create a repository```, ```add members for a repository```
 and ```remove members from a repository```,
