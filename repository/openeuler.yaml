@@ -1,0 +1,77 @@
+community:
+  name: openeuler
+  managers:
+    - zhuchunyi
+    - overweight
+    - rudy_tan
+  developers:
+    - igorkorkin
+    - dogsheng
+repositories:
+  - name: ci-bot
+    description: ""
+    type: public
+  - name: website
+    description: ""
+    type: public
+  - name: go-gitee
+    description: ""
+    type: public
+  - name: community
+    description: ""
+    type: public
+  - name: docs
+    description: ""
+    type: public
+  - name: gitbook-theme-hugo
+    description: ""
+    type: public
+  - name: infrastructure
+    description: ""
+    type: public
+  - name: openeuler-jenkins
+    description: ""
+    type: private
+    managers:
+      - xiangxinyong
+    developers:
+      - dogsheng
+  - name: integration-test
+    description: ""
+    type: private
+    managers:
+      - Charlie_li
+      - TommyLike
+      - zerodefect
+      - xiangxinyong
+    developers:
+      - zhang_liu_yan
+      - wubodong
+      - air9
+      - jimmy_hero
+      - heruxiao
+      - dogsheng
+      - wangyiru826
+  - name: discussion
+    description: ""
+    type: private
+    managers:
+      - yangli69393
+      - xiangxinyong
+    developers:
+      - igorkorkin
+      - initlove
+      - Ronnie_Jiang
+      - Charlie_li
+      - dogsheng
+  - name: kylintrial
+    description: ""
+    type: private
+    managers:
+      - zerodefect
+    developers:
+      - igorkorkin
+      - initlove
+      - Ronnie_Jiang
+      - Charlie_li
+      - dogsheng
