@@ -3,6 +3,10 @@ community:
   managers:
     - zhuchunyi
     - overweight
+    - qingguopi
+    - cynthia_xh
+    - Ronnie_Jiang
+    - solarhu
   developers:
     - igorkorkin
     - fly123fly
@@ -18,6 +22,12 @@ community:
     - Charlie_li
     - zaiwangli
     - xhming
+    - street_dust
+    - lu_jia_jia
+    - lemon-higgins
+    - hu_jin_wei
+    - wang_zhi_shun
+    - hu_ya_hui
   viewers:
     - isrc-iscas
     - jianminw
@@ -72,6 +82,13 @@ repositories:
     developers:
       - zhaoshangjie
       - dogsheng
+  - name: gcc
+    description: ""
+    type: private
+    managers:
+      - haijianzhang
+      - drjgitee
+      - eastb233
   - name: obs_meta
     description: ""
     type: private
