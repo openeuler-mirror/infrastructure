@@ -23,9 +23,9 @@ community:
     - street_dust
     - wang_zhi_shun
     - wangyiru826
+    - xhming
     - yanglijin
     - yanzh_h
-    - xhming
     - zaiwangli
   viewers:
     - cmss_dx
@@ -58,144 +58,6 @@ community:
     - yangxuan8282
     - zhangshengju
 repositories:
-  - name: ci_check
-    description: ""
-    type: private
-    managers:
-      - zhuchunyi
-      - TommyLike
-    developers:
-      - zhaoshangjie
-      - dogsheng
-  - name: build
-    description: ""
-    type: private
-    managers:
-      - zhuchunyi
-      - TommyLike
-    developers:
-      - zhaoshangjie
-      - dogsheng
-  - name: gcc
-    description: ""
-    type: private
-    managers:
-      - haijianzhang
-      - drjgitee
-      - eastb233
-  - name: obs_meta
-    description: ""
-    type: private
-    managers:
-      - zhuchunyi
-      - TommyLike
-    developers:
-      - zhaoshangjie
-      - dogsheng
-  - name: openEuler-indexhtml
-    description: ""
-    type: private
-  - name: openEuler-logos
-    description: ""
-    type: private
-  - name: openEuler-release
-    description: ""
-    type: private
-  - name: openEuler-repos
-    description: ""
-    type: private
-  - name: kiwi-template-openEuler
-    description: ""
-    type: private
-  - name: openEuler-rpm-config
-    description: ""
-    type: private
-  - name: security-tool
-    description: ""
-    type: private
-  - name: kata_integration
-    description: ""
-    type: private
-  - name: iSulad
-    description: ""
-    type: private
-  - name: iSulad-kit
-    description: ""
-    type: private
-    managers:
-      - isulamaster
-    developers:
-      - openeulerisula
-      - dogsheng
-  - name: clibcni
-    description: ""
-    type: private
-    managers:
-      - isulamaster
-    developers:
-      - openeulerisula
-  - name: authz
-    description: ""
-    type: private
-    managers:
-      - isulamaster
-    developers:
-      - openeulerisula
-      - dogsheng
-  - name: lcr
-    description: ""
-    type: private
-    managers:
-      - isulamaster
-    developers:
-      - openeulerisula
-      - dogsheng
-  - name: iSulad-tools
-    description: ""
-    type: private
-  - name: iSulad-lxcfs-toolkit
-    description: ""
-    type: private
-  - name: docker
-    description: ""
-    type: private
-  - name: containerd
-    description: ""
-    type: private
-  - name: runc
-    description: ""
-    type: private
-    managers:
-      - isulamaster
-    developers:
-      - openeulerisula
-      - dogsheng
-  - name: kata-runtime
-    description: ""
-    type: private
-  - name: kata-agent
-    description: ""
-    type: private
-  - name: kata-proxy
-    description: ""
-    type: private
-  - name: kata-shim
-    description: ""
-    type: private
-  - name: libevhtp
-    description: ""
-    type: private
-  - name: libnetwork
-    description: ""
-    type: private
-    managers:
-      - isulamaster
-    developers:
-      - openeulerisula
-      - dogsheng
-  - name: linux-4.19
-    description: ""
-    type: private
   - name: abattis-cantarell-fonts
     description: ""
     type: private
@@ -203,41 +65,41 @@ repositories:
     description: ""
     type: private
     managers:
-      - zhuchunyi
-      - overweight
       - dogsheng
+      - overweight
+      - zhuchunyi
     developers:
-      - igorkorkin
-      - fly123fly
-      - qingguopi
-      - guanyanjie
-      - yanglijin
       - AlexZ11
       - catastrowings
-      - wangyiru826
-      - eric14chan
-      - yanzh_h
       - Charlie_li
-      - zaiwangli
+      - eric14chan
+      - fly123fly
+      - guanyanjie
+      - igorkorkin
+      - qingguopi
+      - wangyiru826
       - xhming
+      - yanglijin
+      - yanzh_h
+      - zaiwangli
     viewers:
+      - cmss_dx
+      - gogoxiaoxiao
+      - guojianxing
+      - imjoey
+      - isoft-linux
       - isrc-iscas
       - jianminw
       - jimmy_hero
-      - isoft-linux
-      - cmss_dx
+      - moyang1994
+      - pansh
+      - ranygu
+      - smilebob
       - taoziyaoyao
       - tom0392
-      - gogoxiaoxiao
-      - ranygu
       - weimingjiang
-      - zhangshengju
-      - moyang1994
-      - guojianxing
-      - imjoey
-      - pansh
       - yangxuan8282
-      - smilebob
+      - zhangshengju
   - name: acl
     description: ""
     type: private
@@ -319,6 +181,14 @@ repositories:
   - name: authselect
     description: ""
     type: private
+  - name: authz
+    description: ""
+    type: private
+    managers:
+      - isulamaster
+    developers:
+      - dogsheng
+      - openeulerisula
   - name: autogen
     description: ""
     type: private
@@ -379,6 +249,15 @@ repositories:
   - name: bubblewrap
     description: ""
     type: private
+  - name: build
+    description: ""
+    type: private
+    managers:
+      - TommyLike
+      - zhuchunyi
+    developers:
+      - dogsheng
+      - zhaoshangjie
   - name: busybox
     description: ""
     type: private
@@ -423,52 +302,68 @@ repositories:
   - name: chrony
     description: ""
     type: private
+  - name: ci_check
+    description: ""
+    type: private
+    managers:
+      - TommyLike
+      - zhuchunyi
+    developers:
+      - dogsheng
+      - zhaoshangjie
   - name: cifs-utils
     description: ""
     type: private
   - name: clevis
     description: ""
     type: private
+  - name: clibcni
+    description: ""
+    type: private
+    managers:
+      - isulamaster
+    developers:
+      - openeulerisula
   - name: cloud-init
     description: ""
     type: private
     managers:
-      - zhuchunyi
-      - overweight
       - dogsheng
+      - overweight
+      - zhuchunyi
     developers:
-      - igorkorkin
-      - zhaoshangjie
-      - fly123fly
-      - qingguopi
-      - guanyanjie
-      - yanglijin
       - AlexZ11
       - catastrowings
-      - wangyiru826
-      - eric14chan
-      - yanzh_h
       - Charlie_li
-      - zaiwangli
+      - eric14chan
+      - fly123fly
+      - guanyanjie
+      - igorkorkin
+      - qingguopi
+      - wangyiru826
       - xhming
+      - yanglijin
+      - yanzh_h
+      - zaiwangli
+      - zhaoshangjie
     viewers:
+      - cmss_dx
+      - gogoxiaoxiao
+      - guojianxing
+      - imjoey
+      - isoft-linux
       - isrc-iscas
       - jianminw
       - jimmy_hero
-      - isoft-linux
-      - cmss_dx
+      - moyang1994
+      - pansh
+      - ranygu
+      - smilebob
       - taoziyaoyao
       - tom0392
-      - gogoxiaoxiao
-      - ranygu
       - weimingjiang
-      - zhangshengju
-      - moyang1994
-      - guojianxing
-      - imjoey
-      - pansh
       - yangxuan8282
-      - smilebob
+      - zhangshengju
   - name: clutter
     description: ""
     type: private
@@ -727,6 +622,13 @@ repositories:
   - name: gc
     description: ""
     type: private
+  - name: gcc
+    description: ""
+    type: private
+    managers:
+      - drjgitee
+      - eastb233
+      - haijianzhang
   - name: GConf2
     description: ""
     type: private
@@ -1005,6 +907,23 @@ repositories:
   - name: iso-codes
     description: ""
     type: private
+  - name: iSulad
+    description: ""
+    type: private
+  - name: iSulad-kit
+    description: ""
+    type: private
+    managers:
+      - isulamaster
+    developers:
+      - dogsheng
+      - openeulerisula
+  - name: iSulad-lxcfs-toolkit
+    description: ""
+    type: private
+  - name: iSulad-tools
+    description: ""
+    type: private
   - name: ivtv-firmware
     description: ""
     type: private
@@ -1032,6 +951,21 @@ repositories:
   - name: json-glib
     description: ""
     type: private
+  - name: kata_integration
+    description: ""
+    type: private
+  - name: kata-agent
+    description: ""
+    type: private
+  - name: kata-proxy
+    description: ""
+    type: private
+  - name: kata-runtime
+    description: ""
+    type: private
+  - name: kata-shim
+    description: ""
+    type: private
   - name: kbd
     description: ""
     type: private
@@ -1039,6 +973,9 @@ repositories:
     description: ""
     type: private
   - name: keyutils
+    description: ""
+    type: private
+  - name: kiwi-template-openEuler
     description: ""
     type: private
   - name: kiwi
@@ -1062,6 +999,14 @@ repositories:
   - name: lcms2
     description: ""
     type: private
+  - name: lcr
+    description: ""
+    type: private
+    managers:
+      - isulamaster
+    developers:
+      - dogsheng
+      - openeulerisula
   - name: ldns
     description: ""
     type: private
@@ -1125,8 +1070,8 @@ repositories:
     managers:
       - isulamaster
     developers:
-      - openeulerisula
       - dogsheng
+      - openeulerisula
   - name: libcomps
     description: ""
     type: private
@@ -1179,6 +1124,9 @@ repositories:
     description: ""
     type: private
   - name: libevent
+    description: ""
+    type: private
+  - name: libevhtp
     description: ""
     type: private
   - name: libexif
@@ -1319,6 +1267,14 @@ repositories:
   - name: libnetfilter_conntrack
     description: ""
     type: private
+  - name: libnetwork
+    description: ""
+    type: private
+    managers:
+      - isulamaster
+    developers:
+      - dogsheng
+      - openeulerisula
   - name: libnfnetlink
     description: ""
     type: private
@@ -1607,6 +1563,9 @@ repositories:
   - name: libyaml
     description: ""
     type: private
+  - name: linux-4.19
+    description: ""
+    type: private
   - name: linux-firmware
     description: ""
     type: private
@@ -1826,8 +1785,8 @@ repositories:
     managers:
       - isulamaster
     developers:
-      - openeulerisula
       - dogsheng
+      - openeulerisula
   - name: oddjob
     description: ""
     type: private
@@ -1864,8 +1823,8 @@ repositories:
     managers:
       - openeuler-net
     developers:
-      - openeuler-netdev
       - dogsheng
+      - openeuler-netdev
   - name: opus
     description: ""
     type: private
@@ -2286,8 +2245,8 @@ repositories:
     managers:
       - isulamaster
     developers:
-      - openeulerisula
       - dogsheng
+      - openeulerisula
   - name: psmisc
     description: ""
     type: private
@@ -2528,6 +2487,14 @@ repositories:
   - name: rtkit
     description: ""
     type: private
+  - name: runc
+    description: ""
+    type: private
+    managers:
+      - isulamaster
+    developers:
+      - dogsheng
+      - openeulerisula
   - name: samba
     description: ""
     type: private
@@ -2538,6 +2505,9 @@ repositories:
     description: ""
     type: private
   - name: sdparm
+    description: ""
+    type: private
+  - name: security-tool
     description: ""
     type: private
   - name: sed
@@ -2591,8 +2561,8 @@ repositories:
     managers:
       - isulamaster
     developers:
-      - openeulerisula
       - dogsheng
+      - openeulerisula
   - name: slang
     description: ""
     type: private
@@ -2991,8 +2961,14 @@ repositories:
     managers:
       - isulamaster
     developers:
-      - openeulerisula
       - dogsheng
+      - openeulerisula
+  - name: containerd
+    description: ""
+    type: private
+  - name: docker
+    description: ""
+    type: private
   - name: docker-anaconda-addon
     description: ""
     type: private
@@ -3451,7 +3427,31 @@ repositories:
   - name: numpy
     description: ""
     type: private
+  - name: obs_meta
+    description: ""
+    type: private
+    managers:
+      - TommyLike
+      - zhuchunyi
+    developers:
+      - dogsheng
+      - zhaoshangjie
   - name: obs-env
+    description: ""
+    type: private
+  - name: openEuler-indexhtml
+    description: ""
+    type: private
+  - name: openEuler-logos
+    description: ""
+    type: private
+  - name: openEuler-release
+    description: ""
+    type: private
+  - name: openEuler-repos
+    description: ""
+    type: private
+  - name: openEuler-rpm-config
     description: ""
     type: private
   - name: OpenEXR
