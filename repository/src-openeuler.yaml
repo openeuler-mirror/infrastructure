@@ -76,6 +76,13 @@ repositories:
     developers:
       - zhaoshangjie
       - dogsheng
+  - name: gcc
+    description: ""
+    type: private
+    managers:
+      - haijianzhang
+      - drjgitee
+      - eastb233
   - name: obs_meta
     description: ""
     type: private
