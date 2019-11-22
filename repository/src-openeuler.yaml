@@ -3780,6 +3780,21 @@ repositories:
   - name: xorg-x11-xinit
     description: ""
     type: private
+  - name: osc
+    description: ""
+    type: private
+    developers:
+      - catastrowings
+  - name: thx
+    description: ""
+    type: private
+    developers:
+      - catastrowings
+  - name: obs-build
+    description: ""
+    type: private
+    developers:
+      - catastrowings
   - name: yum-metadata-parser
     description: ""
     type: private
