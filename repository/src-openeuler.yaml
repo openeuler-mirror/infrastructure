@@ -377,6 +377,7 @@ repositories:
       - isulamaster
     developers:
       - openeulerisula
+      - dogsheng
   - name: cloud-init
     description: ""
     type: private
@@ -2176,6 +2177,7 @@ repositories:
     description: ""
     type: private
     developers:
+      - dogsheng
       - catastrowings
   - name: obs-env
     description: ""
@@ -2283,6 +2285,7 @@ repositories:
     description: ""
     type: private
     developers:
+      - dogsheng
       - catastrowings
   - name: osinfo-db
     description: ""
@@ -3467,6 +3470,7 @@ repositories:
     description: ""
     type: private
     developers:
+      - dogsheng
       - catastrowings
   - name: tigervnc
     description: ""
