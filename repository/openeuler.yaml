@@ -82,3 +82,23 @@ repositories:
   - name: website
     description: ""
     type: public
+  - name: iSulad
+    description: ""
+    type: private
+    managers:
+      - dogsheng
+  - name: lcr
+    description: ""
+    type: private
+    managers:
+      - dogsheng
+  - name: iSulad-kit
+    description: ""
+    type: private
+    managers:
+      - dogsheng
+  - name: clibcni
+    description: ""
+    type: private
+    managers:
+      - dogsheng
