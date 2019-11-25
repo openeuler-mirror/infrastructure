@@ -7,8 +7,15 @@ community:
   developers:
     - dogsheng
     - igorkorkin
+    - solarhu
 repositories:
+  - name: atune
+    description: ""
+    type: public
   - name: ci-bot
+    description: ""
+    type: public
+  - name: clibcni
     description: ""
     type: public
   - name: community
@@ -61,6 +68,15 @@ repositories:
       - wangyiru826
       - wubodong
       - zhang_liu_yan
+  - name: iSulad
+    description: ""
+    type: public
+  - name: iSulad-kit
+    description: ""
+    type: public
+  - name: kae_driver
+    description: ""
+    type: private
   - name: kylintrial
     description: ""
     type: private
@@ -72,6 +88,18 @@ repositories:
       - igorkorkin
       - initlove
       - Ronnie_Jiang
+  - name: lcr
+    description: ""
+    type: public
+  - name: libkae
+    description: ""
+    type: public
+  - name: libwd
+    description: ""
+    type: public
+  - name: linux-4.19
+    description: ""
+    type: public
   - name: openeuler-jenkins
     description: ""
     type: private
@@ -79,26 +107,9 @@ repositories:
       - xiangxinyong
     developers:
       - dogsheng
+  - name: prefetch_tunning
+    description: ""
+    type: public
   - name: website
     description: ""
     type: public
-  - name: iSulad
-    description: ""
-    type: private
-    managers:
-      - dogsheng
-  - name: lcr
-    description: ""
-    type: private
-    managers:
-      - dogsheng
-  - name: iSulad-kit
-    description: ""
-    type: private
-    managers:
-      - dogsheng
-  - name: clibcni
-    description: ""
-    type: private
-    managers:
-      - dogsheng
