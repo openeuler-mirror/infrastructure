@@ -11,13 +11,13 @@ community:
 repositories:
   - name: atune
     description: ""
-    type: public
+    type: private
   - name: ci-bot
     description: ""
     type: public
   - name: clibcni
     description: ""
-    type: public
+    type: private
   - name: community
     description: ""
     type: public
@@ -70,10 +70,10 @@ repositories:
       - zhang_liu_yan
   - name: iSulad
     description: ""
-    type: public
+    type: private
   - name: iSulad-kit
     description: ""
-    type: public
+    type: private
   - name: kae_driver
     description: ""
     type: private
@@ -90,16 +90,16 @@ repositories:
       - Ronnie_Jiang
   - name: lcr
     description: ""
-    type: public
+    type: private
   - name: libkae
     description: ""
-    type: public
+    type: private
   - name: libwd
     description: ""
-    type: public
+    type: private
   - name: linux-4.19
     description: ""
-    type: public
+    type: private
   - name: openeuler-jenkins
     description: ""
     type: private
@@ -109,7 +109,7 @@ repositories:
       - dogsheng
   - name: prefetch_tunning
     description: ""
-    type: public
+    type: private
   - name: website
     description: ""
     type: public
