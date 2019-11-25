@@ -462,6 +462,10 @@ repositories:
   - name: cpio
     description: ""
     type: private
+  - name: cppcheck
+    description: ""
+    type: private
+    managers: dogsheng
   - name: cracklib
     description: ""
     type: private
@@ -647,6 +651,11 @@ repositories:
   - name: enchant2
     description: ""
     type: private
+  - name: enscript
+    description: ""
+    type: private
+    managers:
+      - dogsheng
   - name: environment-modules
     description: ""
     type: private
@@ -822,6 +831,11 @@ repositories:
   - name: gnome-autoar
     description: ""
     type: private
+  - name: gnome-bluetooth
+    description: ""
+    type: private
+    managers:
+      - dogsheng
   - name: gnome-control-center
     description: ""
     type: private
@@ -834,6 +848,11 @@ repositories:
   - name: gnome-online-accounts
     description: ""
     type: private
+  - name: gnome-user-docs
+    description: ""
+    type: private
+    managers:
+      - dogsheng
   - name: gnome-themes-standard
     description: ""
     type: private
@@ -1432,6 +1451,11 @@ repositories:
   - name: libgxps
     description: ""
     type: private
+  - name: libhangul
+    description: ""
+    type: private
+    managers:
+      - dogsheng
   - name: libhugetlbfs
     description: ""
     type: private
@@ -2032,6 +2056,11 @@ repositories:
   - name: mkeuleros
     description: ""
     type: private
+  - name: mksh
+    description: ""
+    type: private
+    managers:
+      - dogsheng
   - name: mlocate
     description: ""
     type: private
@@ -2820,6 +2849,18 @@ repositories:
   - name: pyserial
     description: ""
     type: private
+  - name: python-construct
+    description: ""
+    type: private
+    managers: dogsheng
+  - name: python-netaddr
+    description: ""
+    type: private
+    managers: dogsheng
+  - name: python-iso8601
+    description: ""
+    type: private
+    managers: dogsheng
   - name: python2
     description: ""
     type: private
@@ -3529,6 +3570,10 @@ repositories:
   - name: tzdata
     description: ""
     type: private
+  - name: u2f-hidraw-policy
+    description: ""
+    type: private
+    managers: dogsheng
   - name: uboot-tools
     description: ""
     type: private
@@ -3541,6 +3586,10 @@ repositories:
   - name: unique
     description: ""
     type: private
+  - name: units
+    description: ""
+    type: private
+    managers: dogsheng
   - name: unixODBC
     description: ""
     type: private
