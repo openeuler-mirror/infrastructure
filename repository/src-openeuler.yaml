@@ -492,8 +492,6 @@ repositories:
   - name: cppcheck
     description: ""
     type: private
-    managers:
-      - dogsheng
   - name: cracklib
     description: ""
     type: private
@@ -682,8 +680,6 @@ repositories:
   - name: enscript
     description: ""
     type: private
-    managers:
-      - dogsheng
   - name: environment-modules
     description: ""
     type: private
@@ -862,8 +858,6 @@ repositories:
   - name: gnome-bluetooth
     description: ""
     type: private
-    managers:
-      - dogsheng
   - name: gnome-control-center
     description: ""
     type: private
@@ -879,8 +873,6 @@ repositories:
   - name: gnome-user-docs
     description: ""
     type: private
-    managers:
-      - dogsheng
   - name: gnome-themes-standard
     description: ""
     type: private
@@ -953,6 +945,9 @@ repositories:
     description: ""
     type: private
   - name: gsm
+    description: ""
+    type: private
+  - name: gspell
     description: ""
     type: private
   - name: gssdp
@@ -1482,8 +1477,6 @@ repositories:
   - name: libhangul
     description: ""
     type: private
-    managers:
-      - dogsheng
   - name: libhugetlbfs
     description: ""
     type: private
@@ -2087,8 +2080,6 @@ repositories:
   - name: mksh
     description: ""
     type: private
-    managers:
-      - dogsheng
   - name: mlocate
     description: ""
     type: private
@@ -2185,6 +2176,9 @@ repositories:
   - name: notification-daemon
     description: ""
     type: private
+  - name: nototools
+    description: ""
+    type: private
   - name: npth
     description: ""
     type: private
@@ -2233,9 +2227,6 @@ repositories:
   - name: obs-build
     description: ""
     type: private
-    developers:
-      - dogsheng
-      - catastrowings
   - name: obs-env
     description: ""
     type: private
@@ -2341,9 +2332,6 @@ repositories:
   - name: osc
     description: ""
     type: private
-    developers:
-      - dogsheng
-      - catastrowings
   - name: osinfo-db
     description: ""
     type: private
@@ -2435,6 +2423,9 @@ repositories:
     description: ""
     type: private
   - name: perl-CPAN-Meta-YAML
+    description: ""
+    type: private
+  - name: perl-Crypt-OpenSSL-RSA
     description: ""
     type: private
   - name: perl-Data-Dumper
@@ -2662,6 +2653,9 @@ repositories:
   - name: perl-podlators
     description: ""
     type: private
+  - name: perl-Pod-Markdown
+    description: ""
+    type: private
   - name: perl-Pod-Parser
     description: ""
     type: private
@@ -2850,6 +2844,9 @@ repositories:
   - name: pycairo
     description: ""
     type: private
+  - name: pyflakes
+    description: ""
+    type: private
   - name: pygobject2
     description: ""
     type: private
@@ -2880,18 +2877,15 @@ repositories:
   - name: python-construct
     description: ""
     type: private
-    managers:
-      - dogsheng
+  - name: python-genshi
+    description: ""
+    type: private
   - name: python-netaddr
     description: ""
     type: private
-    managers:
-      - dogsheng
   - name: python-iso8601
     description: ""
     type: private
-    managers:
-      - dogsheng
   - name: python2
     description: ""
     type: private
@@ -3541,9 +3535,6 @@ repositories:
   - name: thx
     description: ""
     type: private
-    developers:
-      - dogsheng
-      - catastrowings
   - name: tigervnc
     description: ""
     type: private
@@ -3551,6 +3542,9 @@ repositories:
     description: ""
     type: private
   - name: timedatex
+    description: ""
+    type: private
+  - name: tinyxml2
     description: ""
     type: private
   - name: tipcutils
@@ -3604,8 +3598,6 @@ repositories:
   - name: u2f-hidraw-policy
     description: ""
     type: private
-    managers:
-      - dogsheng
   - name: uboot-tools
     description: ""
     type: private
@@ -3621,8 +3613,6 @@ repositories:
   - name: units
     description: ""
     type: private
-    managers:
-      - dogsheng
   - name: unixODBC
     description: ""
     type: private
