@@ -1,111 +1,109 @@
 community:
   name: openeuler
-  managers:
-    - overweight
-    - rudy_tan
-    - zhuchunyi
   developers:
-    - dogsheng
-    - igorkorkin
-    - solarhu
+  - dogsheng
+  - igorkorkin
+  - overweight
+  - rudy_tan
+  - solarhu
+  - zhuchunyi
 repositories:
-  - name: A-Tune
-    description: ""
-    type: private
-  - name: ci-bot
-    description: ""
-    type: public
-  - name: clibcni
-    description: ""
-    type: private
-  - name: community
-    description: ""
-    type: public
-  - name: community-issue
-    description: "The public issue repo which only accept issue that doesn't belong to any source repo"
-    type: public
-    managers:
-      - freesky-edward
-      - TommyLike
-      - xiangxinyong
-  - name: discussion
-    description: ""
-    type: private
-    managers:
-      - xiangxinyong
-      - yangli69393
-    developers:
-      - Charlie_li
-      - dogsheng
-      - igorkorkin
-      - initlove
-      - Ronnie_Jiang
-  - name: docs
-    description: ""
-    type: public
-  - name: gitbook-theme-hugo
-    description: ""
-    type: public
-  - name: go-gitee
-    description: ""
-    type: public
-  - name: infrastructure
-    description: ""
-    type: public
-  - name: integration-test
-    description: ""
-    type: private
-    managers:
-      - Charlie_li
-      - TommyLike
-      - xiangxinyong
-      - zerodefect
-    developers:
-      - air9
-      - dogsheng
-      - heruxiao
-      - jimmy_hero
-      - wangyiru826
-      - wubodong
-      - zhang_liu_yan
-  - name: iSulad
-    description: ""
-    type: private
-  - name: iSulad-kit
-    description: ""
-    type: private
-  - name: kae_driver
-    description: ""
-    type: private
-  - name: kylintrial
-    description: ""
-    type: private
-    managers:
-      - zerodefect
-    developers:
-      - Charlie_li
-      - dogsheng
-      - igorkorkin
-      - initlove
-      - Ronnie_Jiang
-  - name: lcr
-    description: ""
-    type: private
-  - name: libkae
-    description: ""
-    type: private
-  - name: libwd
-    description: ""
-    type: private
-  - name: linux-4.19
-    description: ""
-    type: private
-  - name: openeuler-jenkins
-    description: ""
-    type: public
-  - name: prefetch_tunning
-    description: ""
-    type: private
-  - name: website
-    description: ""
-    type: public
+- name: A-Tune
+  description: ""
+  type: private
+- name: ci-bot
+  description: ""
+  type: public
+- name: clibcni
+  description: ""
+  type: private
+- name: community
+  description: ""
+  type: public
+- name: community-issue
+  description: The public issue repo which only accept issue that doesn't belong to
+    any source repo
+  type: public
+  developers:
+  - freesky-edward
+  - TommyLike
+  - xiangxinyong
+- name: discussion
+  description: ""
+  type: private
+  developers:
+  - Charlie_li
+  - dogsheng
+  - igorkorkin
+  - initlove
+  - Ronnie_Jiang
+  - xiangxinyong
+  - yangli69393
+- name: docs
+  description: ""
+  type: public
+- name: gitbook-theme-hugo
+  description: ""
+  type: public
+- name: go-gitee
+  description: ""
+  type: public
+- name: infrastructure
+  description: ""
+  type: public
+- name: integration-test
+  description: ""
+  type: private
+  developers:
+  - air9
+  - Charlie_li
+  - dogsheng
+  - heruxiao
+  - jimmy_hero
+  - TommyLike
+  - wangyiru826
+  - wubodong
+  - xiangxinyong
+  - zerodefect
+  - zhang_liu_yan
+- name: iSulad
+  description: ""
+  type: private
+- name: iSulad-kit
+  description: ""
+  type: private
+- name: kae_driver
+  description: ""
+  type: private
+- name: kylintrial
+  description: ""
+  type: private
+  developers:
+  - Charlie_li
+  - dogsheng
+  - igorkorkin
+  - initlove
+  - Ronnie_Jiang
+  - zerodefect
+- name: lcr
+  description: ""
+  type: private
+- name: libkae
+  description: ""
+  type: private
+- name: libwd
+  description: ""
+  type: private
+- name: linux-4.19
+  description: ""
+  type: private
+- name: openeuler-jenkins
+  description: ""
+  type: public
+- name: prefetch_tunning
+  description: ""
+  type: private
+- name: website
+  description: ""
+  type: public
+
