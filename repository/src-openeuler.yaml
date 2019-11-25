@@ -2761,6 +2761,9 @@ repositories:
   - name: perl-XML-Writer
     description: ""
     type: private
+  - name: perl-YAML-Tiny
+    description: ""
+    type: private
   - name: pigz
     description: ""
     type: private
@@ -2991,6 +2994,9 @@ repositories:
   - name: python-html5lib
     description: ""
     type: private
+  - name: python-httpretty
+    description: ""
+    type: private
   - name: python-httplib2
     description: ""
     type: private
@@ -3168,6 +3174,9 @@ repositories:
   - name: python-simpleline
     description: ""
     type: private
+  - name: python-singledispatch
+    description: ""
+    type: private
   - name: python-slip
     description: ""
     type: private
@@ -3181,6 +3190,9 @@ repositories:
     description: ""
     type: private
   - name: python-tempita
+    description: ""
+    type: private
+  - name: python-testscenarios
     description: ""
     type: private
   - name: python-threadpoolctl
