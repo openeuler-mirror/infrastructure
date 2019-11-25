@@ -1180,6 +1180,9 @@ repositories:
   - name: json-glib
     description: ""
     type: private
+  - name: kae_driver
+    description: ""
+    type: private
   - name: kata_integration
     description: ""
     type: private
@@ -1516,6 +1519,9 @@ repositories:
   - name: libjpeg-turbo
     description: ""
     type: private
+  - name: libkae
+    description: ""
+    type: private
   - name: libkcapi
     description: ""
     type: private
@@ -1792,6 +1798,9 @@ repositories:
     description: ""
     type: private
   - name: libvpx
+    description: ""
+    type: private
+  - name: libwd
     description: ""
     type: private
   - name: libwacom
