@@ -465,7 +465,8 @@ repositories:
   - name: cppcheck
     description: ""
     type: private
-    managers: dogsheng
+    managers:
+      - dogsheng
   - name: cracklib
     description: ""
     type: private
@@ -2852,15 +2853,18 @@ repositories:
   - name: python-construct
     description: ""
     type: private
-    managers: dogsheng
+    managers:
+      - dogsheng
   - name: python-netaddr
     description: ""
     type: private
-    managers: dogsheng
+    managers:
+      - dogsheng
   - name: python-iso8601
     description: ""
     type: private
-    managers: dogsheng
+    managers:
+      - dogsheng
   - name: python2
     description: ""
     type: private
@@ -3573,7 +3577,8 @@ repositories:
   - name: u2f-hidraw-policy
     description: ""
     type: private
-    managers: dogsheng
+    managers:
+      - dogsheng
   - name: uboot-tools
     description: ""
     type: private
@@ -3589,7 +3594,8 @@ repositories:
   - name: units
     description: ""
     type: private
-    managers: dogsheng
+    managers:
+      - dogsheng
   - name: unixODBC
     description: ""
     type: private
