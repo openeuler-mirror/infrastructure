@@ -646,6 +646,9 @@ repositories:
   - name: efivar
     description: ""
     type: private
+  - name: eglexternalplatform
+    description: ""
+    type: private
   - name: elfutils
     description: ""
     type: private
@@ -1347,6 +1350,9 @@ repositories:
     description: ""
     type: private
   - name: libedit
+    description: ""
+    type: private
+  - name: libell
     description: ""
     type: private
   - name: libepoxy
@@ -2888,10 +2894,16 @@ repositories:
   - name: python-dict2xml
     description: ""
     type: private
+  - name: python-distro
+    description: ""
+    type: private
   - name: python-dmidecode
     description: ""
     type: private
   - name: python-enum34
+    description: ""
+    type: private
+  - name: python-entrypoints
     description: ""
     type: private
   - name: python-ethtool
@@ -3116,6 +3128,9 @@ repositories:
   - name: python-testscenarios
     description: ""
     type: private
+  - name: python-testtools
+    description: ""
+    type: private
   - name: python-threadpoolctl
     description: ""
     type: private
@@ -3132,6 +3147,9 @@ repositories:
     description: ""
     type: private
   - name: python-webencodings
+    description: ""
+    type: private
+  - name: python2-typing
     description: ""
     type: private
   - name: pytz
@@ -3534,6 +3552,9 @@ repositories:
     description: ""
     type: private
   - name: udisks2
+    description: ""
+    type: private
+  - name: uid_wrapper
     description: ""
     type: private
   - name: unbound
