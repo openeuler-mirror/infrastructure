@@ -1,6 +1,7 @@
 community:
   name: openeuler
   developers:
+  - Charlie_li
   - dogsheng
   - igorkorkin
   - overweight
@@ -102,6 +103,9 @@ repositories:
 - name: openeuler-jenkins
   description: ""
   type: public
+- name: os-autoinst-distri-openEuler
+  description: ""
+  type: private
 - name: prefetch_tunning
   description: ""
   type: private
