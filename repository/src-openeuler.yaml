@@ -85,6 +85,7 @@ community:
   - tom0392
   - weimingjiang
   - yangxuan8282
+  - zhang_wei5630
   - zhangshengju
 repositories:
 - name: A-Tune
@@ -353,6 +354,9 @@ repositories:
 - name: ceph
   description: ""
   type: private
+- name: cgdcbxd
+  description: ""
+  type: private
 - name: checkpolicy
   description: ""
   type: private
@@ -518,6 +522,9 @@ repositories:
 - name: Cython
   description: ""
   type: private
+- name: dblatex
+  description: ""
+  type: private
 - name: dbus
   description: ""
   type: private
@@ -596,6 +603,9 @@ repositories:
 - name: dosfstools
   description: ""
   type: private
+- name: dotconf
+  description: ""
+  type: private
 - name: dracut
   description: ""
   type: private
@@ -659,6 +669,9 @@ repositories:
 - name: environment-modules
   description: ""
   type: private
+- name: eog
+  description: ""
+  type: private
 - name: ethtool
   description: ""
   type: private
@@ -677,7 +690,13 @@ repositories:
 - name: expect
   description: ""
   type: private
+- name: fcitx
+  description: ""
+  type: private
 - name: fcoe-utils
+  description: ""
+  type: private
+- name: fftw
   description: ""
   type: private
 - name: file
@@ -777,6 +796,9 @@ repositories:
 - name: gdk-pixbuf2
   description: ""
   type: private
+- name: gdm
+  description: ""
+  type: private
 - name: geoclue2
   description: ""
   type: private
@@ -805,6 +827,9 @@ repositories:
   description: ""
   type: private
 - name: gjs
+  description: ""
+  type: private
+- name: gl-manpages
   description: ""
   type: private
 - name: glade
@@ -930,6 +955,12 @@ repositories:
 - name: gstreamer
   description: ""
   type: private
+- name: gstreamer-plugins-base
+  description: ""
+  type: private
+- name: gstreamer-plugins-good
+  description: ""
+  type: private
 - name: gstreamer1
   description: ""
   type: private
@@ -1026,6 +1057,9 @@ repositories:
 - name: ibus
   description: ""
   type: private
+- name: ibus-libzhuyin
+  description: ""
+  type: private
 - name: ibus-m17n
   description: ""
   type: private
@@ -1039,6 +1073,9 @@ repositories:
   description: ""
   type: private
 - name: ima-evm-utils
+  description: ""
+  type: private
+- name: initial-setup
   description: ""
   type: private
 - name: initscripts
@@ -1222,6 +1259,9 @@ repositories:
   description: ""
   type: private
 - name: ldns
+  description: ""
+  type: private
+- name: ledmon
   description: ""
   type: private
 - name: less
@@ -1437,6 +1477,9 @@ repositories:
 - name: libhugetlbfs
   description: ""
   type: private
+- name: libibmad
+  description: ""
+  type: private
 - name: libical
   description: ""
   type: private
@@ -1453,6 +1496,9 @@ repositories:
   description: ""
   type: private
 - name: libiec61883
+  description: ""
+  type: private
+- name: libieee1284
   description: ""
   type: private
 - name: libijs
@@ -1558,6 +1604,9 @@ repositories:
   description: ""
   type: private
 - name: libosinfo
+  description: ""
+  type: private
+- name: libotf
   description: ""
   type: private
 - name: libpaper
@@ -1902,6 +1951,21 @@ repositories:
 - name: logwatch
   description: ""
   type: private
+- name: lohit-bengali-fonts
+  description: ""
+  type: private
+- name: lohit-gujarati-fonts
+  description: ""
+  type: private
+- name: lohit-gurmukhi-fonts
+  description: ""
+  type: private
+- name: lohit-kannada-fonts
+  description: ""
+  type: private
+- name: lohit-nepali-fonts
+  description: ""
+  type: private
 - name: lorax
   description: ""
   type: private
@@ -2022,6 +2086,9 @@ repositories:
 - name: metacity
   description: ""
   type: private
+- name: mikmod
+  description: ""
+  type: private
 - name: mkeuleros
   description: ""
   type: private
@@ -2032,6 +2099,9 @@ repositories:
   description: ""
   type: private
 - name: mobile-broadband-provider-info
+  description: ""
+  type: private
+- name: mod_fcgid
   description: ""
   type: private
 - name: mod_http2
@@ -2062,6 +2132,9 @@ repositories:
   description: ""
   type: private
 - name: mtr
+  description: ""
+  type: private
+- name: mtx
   description: ""
   type: private
 - name: mutter
@@ -2116,6 +2189,9 @@ repositories:
   description: ""
   type: private
 - name: nghttp2
+  description: ""
+  type: private
+- name: ninja-build
   description: ""
   type: private
 - name: nmap
@@ -2279,6 +2355,9 @@ repositories:
 - name: PackageKit
   description: ""
   type: private
+- name: paktype-tehreer-fonts
+  description: ""
+  type: private
 - name: pam
   description: ""
   type: private
@@ -2336,10 +2415,16 @@ repositories:
 - name: perl-Carp
   description: ""
   type: private
+- name: perl-Carp-Clan
+  description: ""
+  type: private
 - name: perl-Compress-Raw-Bzip2
   description: ""
   type: private
 - name: perl-Compress-Raw-Zlib
+  description: ""
+  type: private
+- name: perl-Config-AutoConf
   description: ""
   type: private
 - name: perl-Config-Perl-V
@@ -2361,6 +2446,9 @@ repositories:
   description: ""
   type: private
 - name: perl-Data-Dumper
+  description: ""
+  type: private
+- name: perl-Data-UUID
   description: ""
   type: private
 - name: perl-DB_File
@@ -2627,6 +2715,9 @@ repositories:
 - name: perl-Test-Harness
   description: ""
   type: private
+- name: perl-Test-Needs
+  description: ""
+  type: private
 - name: perl-Test-Simple
   description: ""
   type: private
@@ -2735,6 +2826,9 @@ repositories:
 - name: postfix
   description: ""
   type: private
+- name: postgresql
+  description: ""
+  type: private
 - name: powertop
   description: ""
   type: private
@@ -2754,6 +2848,9 @@ repositories:
   description: ""
   type: private
 - name: protobuf
+  description: ""
+  type: private
+- name: protobuf-c
   description: ""
   type: private
 - name: psacct
@@ -2858,6 +2955,9 @@ repositories:
 - name: python-cryptography
   description: ""
   type: private
+- name: python-cryptography-vectors
+  description: ""
+  type: private
 - name: python-cycler
   description: ""
   type: private
@@ -2883,6 +2983,12 @@ repositories:
   description: ""
   type: private
 - name: python-ethtool
+  description: ""
+  type: private
+- name: python-extras
+  description: ""
+  type: private
+- name: python-fixtures
   description: ""
   type: private
 - name: python-flask
@@ -2913,6 +3019,9 @@ repositories:
   description: ""
   type: private
 - name: python-idna
+  description: ""
+  type: private
+- name: python-imagesize
   description: ""
   type: private
 - name: python-iniparse
@@ -2999,6 +3108,9 @@ repositories:
 - name: python-ordered-set
   description: ""
   type: private
+- name: python-packaging
+  description: ""
+  type: private
 - name: python-pandas
   description: ""
   type: private
@@ -3030,6 +3142,9 @@ repositories:
   description: ""
   type: private
 - name: python-productmd
+  description: ""
+  type: private
+- name: python-psutil
   description: ""
   type: private
 - name: python-pyaml
@@ -3083,6 +3198,9 @@ repositories:
 - name: python-scikit-optimize
   description: ""
   type: private
+- name: python-SecretStorage
+  description: ""
+  type: private
 - name: python-setuptools
   description: ""
   type: private
@@ -3096,6 +3214,9 @@ repositories:
   description: ""
   type: private
 - name: python-slip
+  description: ""
+  type: private
+- name: python-snowballstemmer
   description: ""
   type: private
 - name: python-sphinx
@@ -3164,6 +3285,9 @@ repositories:
 - name: qt5-qtbase
   description: ""
   type: private
+- name: qt5-qtcanvas3d
+  description: ""
+  type: private
 - name: qt5-qtdeclarative
   description: ""
   type: private
@@ -3212,6 +3336,9 @@ repositories:
 - name: rest
   description: ""
   type: private
+- name: rhnsd
+  description: ""
+  type: private
 - name: rng-tools
   description: ""
   type: private
@@ -3228,6 +3355,9 @@ repositories:
   description: ""
   type: private
 - name: rpmdevtools
+  description: ""
+  type: private
+- name: rpmlint
   description: ""
   type: private
 - name: rpmrebuild
@@ -3503,6 +3633,9 @@ repositories:
 - name: totem-pl-parser
   description: ""
   type: private
+- name: tpm-quote-tools
+  description: ""
+  type: private
 - name: tpm2-abrmd
   description: ""
   type: private
@@ -3596,6 +3729,9 @@ repositories:
 - name: util-linux
   description: ""
   type: private
+- name: uuid
+  description: ""
+  type: private
 - name: v4l-utils
   description: ""
   type: private
@@ -3612,6 +3748,9 @@ repositories:
   description: ""
   type: private
 - name: virglrenderer
+  description: ""
+  type: private
+- name: virt-top
   description: ""
   type: private
 - name: virt-what
@@ -3642,6 +3781,9 @@ repositories:
   description: ""
   type: private
 - name: which
+  description: ""
+  type: private
+- name: wireshark
   description: ""
   type: private
 - name: woff2
@@ -3870,6 +4012,7 @@ repositories:
   - tom0392
   - weimingjiang
   - yangxuan8282
+  - zhang_wei5630
   - zhangshengju
 - name: yum-utils
   description: ""
