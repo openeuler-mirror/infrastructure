@@ -29,10 +29,13 @@ community:
     - hu_jin_wei
     - hu_ya_hui
     - igorkorkin
+    - isulamaster
     - jackie_wu123
     - lemon-higgins
     - lkx690
     - lu_jia_jia
+    - openeuler_kernel
+    - openeuler-net
     - pretty2019
     - putao66
     - qiegewala
@@ -70,9 +73,12 @@ community:
     - openeuler-basic
     - openeuler-compute
     - openeulercomputecommitter
+    - openeuler_hulk
     - openeulerinnodev
     - openeulerinnomtn
+    - openeulerisula
     - openeulernet
+    - openeuler-netdev
     - openeulernetwork
     - openeulersystem
     - pansh
@@ -199,7 +205,7 @@ repositories:
   - name: attr
     description: ""
     type: private
-  - name: atune
+  - name: A-Tune
     description: ""
     type: private
     managers:
@@ -234,11 +240,6 @@ repositories:
   - name: authz
     description: ""
     type: private
-    managers:
-      - isulamaster
-    developers:
-      - dogsheng
-      - openeulerisula
   - name: autoconf
     description: ""
     type: private
@@ -329,11 +330,6 @@ repositories:
   - name: busybox
     description: ""
     type: private
-    managers:
-      - isulamaster
-    developers:
-      - openeulerisula
-      - dogsheng
   - name: bzip2
     description: ""
     type: private
@@ -400,11 +396,6 @@ repositories:
   - name: clibcni
     description: ""
     type: private
-    managers:
-      - isulamaster
-    developers:
-      - openeulerisula
-      - dogsheng
   - name: cloud-init
     description: ""
     type: private
@@ -475,11 +466,6 @@ repositories:
   - name: container-selinux
     description: ""
     type: private
-    managers:
-      - isulamaster
-    developers:
-      - dogsheng
-      - openeulerisula
   - name: containerd
     description: ""
     type: private
@@ -609,11 +595,6 @@ repositories:
   - name: docker-anaconda-addon
     description: ""
     type: private
-    managers:
-      - isulamaster
-    developers:
-      - dogsheng
-      - openeulerisula
   - name: docker-proxy
     description: ""
     type: private
@@ -891,11 +872,6 @@ repositories:
   - name: golang
     description: ""
     type: private
-    managers:
-      - isulamaster
-    developers:
-      - dogsheng
-      - openeulerisula
   - name: google-droid-fonts
     description: ""
     type: private
@@ -1133,11 +1109,6 @@ repositories:
   - name: iSulad-kit
     description: ""
     type: private
-    managers:
-      - isulamaster
-    developers:
-      - dogsheng
-      - openeulerisula
   - name: iSulad-lxcfs-toolkit
     description: ""
     type: private
@@ -1207,11 +1178,6 @@ repositories:
   - name: kernel
     description: ""
     type: private
-    managers:
-      - openeuler_kernel
-    developers:
-      - dogsheng
-      - openeuler_hulk
   - name: kexec-tools
     description: ""
     type: private
@@ -1260,11 +1226,6 @@ repositories:
   - name: lcr
     description: ""
     type: private
-    managers:
-      - isulamaster
-    developers:
-      - dogsheng
-      - openeulerisula
   - name: ldns
     description: ""
     type: private
@@ -1337,11 +1298,6 @@ repositories:
   - name: libcgroup
     description: ""
     type: private
-    managers:
-      - isulamaster
-    developers:
-      - dogsheng
-      - openeulerisula
   - name: libcomps
     description: ""
     type: private
@@ -1576,11 +1532,6 @@ repositories:
   - name: libnetwork
     description: ""
     type: private
-    managers:
-      - isulamaster
-    developers:
-      - dogsheng
-      - openeulerisula
   - name: libnfnetlink
     description: ""
     type: private
@@ -1998,19 +1949,9 @@ repositories:
   - name: lxc
     description: ""
     type: private
-    managers:
-      - isulamaster
-    developers:
-      - dogsheng
-      - openeulerisula
   - name: lxcfs
     description: ""
     type: private
-    managers:
-      - isulamaster
-    developers:
-      - dogsheng
-      - openeulerisula
   - name: lxsession
     description: ""
     type: private
@@ -2242,11 +2183,6 @@ repositories:
   - name: oci-systemd-hook
     description: ""
     type: private
-    managers:
-      - isulamaster
-    developers:
-      - dogsheng
-      - openeulerisula
   - name: oddjob
     description: ""
     type: private
@@ -2313,19 +2249,9 @@ repositories:
   - name: openvswitch
     description: ""
     type: private
-    managers:
-      - openeuler-net
-    developers:
-      - dogsheng
-      - openeuler-netdev
   - name: openvswitch-kmod
     description: ""
     type: private
-    managers:
-      - openeuler-net
-    developers:
-      - dogsheng
-      - openeuler-netdev
   - name: opus
     description: ""
     type: private
@@ -2833,11 +2759,6 @@ repositories:
   - name: protobuf
     description: ""
     type: private
-    managers:
-      - isulamaster
-    developers:
-      - dogsheng
-      - openeulerisula
   - name: psacct
     description: ""
     type: private
@@ -3315,11 +3236,6 @@ repositories:
   - name: runc
     description: ""
     type: private
-    managers:
-      - isulamaster
-    developers:
-      - dogsheng
-      - openeulerisula
   - name: samba
     description: ""
     type: private
@@ -3410,11 +3326,6 @@ repositories:
   - name: skopeo
     description: ""
     type: private
-    managers:
-      - isulamaster
-    developers:
-      - dogsheng
-      - openeulerisula
   - name: slang
     description: ""
     type: private
