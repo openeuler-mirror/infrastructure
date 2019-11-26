@@ -102,11 +102,7 @@ repositories:
     type: private
   - name: openeuler-jenkins
     description: ""
-    type: private
-    managers:
-      - xiangxinyong
-    developers:
-      - dogsheng
+    type: public
   - name: prefetch_tunning
     description: ""
     type: private
