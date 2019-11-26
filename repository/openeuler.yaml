@@ -9,7 +9,7 @@ community:
     - igorkorkin
     - solarhu
 repositories:
-  - name: atune
+  - name: A-Tune
     description: ""
     type: private
   - name: ci-bot
