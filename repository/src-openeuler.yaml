@@ -15,6 +15,7 @@ community:
     - byeX012
     - catastrowings
     - Charlie_li
+    - Classicriver_jia
     - compile_success
     - daidai_is_here
     - damian_2012
@@ -26,14 +27,11 @@ community:
     - gnaygnil
     - gu-gu-gu
     - guanyanjie
-    - hu_jin_wei
-    - hu_ya_hui
     - igorkorkin
     - isulamaster
     - jackie_wu123
     - lemon-higgins
     - lkx690
-    - lu_jia_jia
     - openeuler_kernel
     - openeuler-net
     - pretty2019
@@ -46,7 +44,6 @@ community:
     - sugarfillet
     - tubalu
     - ultra_planet
-    - wang_zhi_shun
     - wangyiru826
     - wanjk19
     - wisdoman
@@ -3795,45 +3792,81 @@ repositories:
     description: ""
     type: private
     managers:
+      - cynthia_xh
       - overweight
+      - qingguopi
+      - Ronnie_Jiang
+      - solarhu
       - zhuchunyi
     developers:
       - AlexZ11
+      - anne_zhu
+      - baizhilaoda
+      - bingo2008
+      - byeX012
       - catastrowings
       - Charlie_li
+      - Classicriver_jia
+      - compile_success
+      - daidai_is_here
+      - damian_2012
       - dogsheng
+      - duyyb
       - eric14chan
       - fly123fly
+      - fun_yang
+      - gnaygnil
+      - gu-gu-gu
       - guanyanjie
       - guojianxing
       - igorkorkin
       - imjoey
-      - qingguopi
+      - isulamaster
+      - jackie_wu123
+      - lemon-higgins
+      - lkx690
+      - openeuler_kernel
+      - openeuler-net
+      - pretty2019
+      - putao66
+      - qiegewala
+      - seki099
+      - sherlock2010
+      - si-gui
+      - street_dust
+      - sugarfillet
+      - tubalu
+      - ultra_planet
       - wangyiru826
+      - wanjk19
+      - wisdoman
       - xhming
+      - xiangshuaizhx
       - yanglijin
       - yanzh_h
+      - yeah_wang
+      - yiyurain
+      - zaiwangli
     viewers:
       - cmss_dx
       - eulerstorage
       - eulerstorage_maintainer
       - gogoxiaoxiao
-      - hu_jin_wei
-      - hu_ya_hui
       - huang_rong
+      - isoft-linux
       - isrc-iscas
       - jianminw
       - jimmy_hero
-      - isoft-linux
-      - lemon-higgins
-      - lu_jia_jia
       - moyang1994
       - openeuler-basic
       - openeuler-compute
       - openeulercomputecommitter
+      - openeuler_hulk
       - openeulerinnodev
       - openeulerinnomtn
+      - openeulerisula
       - openeulernet
+      - openeuler-netdev
       - openeulernetwork
       - openeulersystem
       - pansh
@@ -3842,7 +3875,6 @@ repositories:
       - smilebob
       - taoziyaoyao
       - tom0392
-      - wang_zhi_shun
       - weimingjiang
       - yangxuan8282
       - zhangshengju
