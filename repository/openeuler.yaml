@@ -99,6 +99,7 @@ repositories:
   developers:
   - anne_zhu
   - baizhilaoda
+  - Charlie_li
   - Classicriver_jia
   - damian_2012
   - heruxiao
@@ -107,7 +108,6 @@ repositories:
   - street_dust
   - wubodong
   - zhang_liu_yan
-  - zhangwenhao8
 - name: prefetch_tunning
   description: ""
   type: private
