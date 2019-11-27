@@ -883,6 +883,9 @@ repositories:
 - name: gnome-online-accounts
   description: ""
   type: private
+- name: gnome-settings-daemon
+  description: ""
+  type: private
 - name: gnome-themes-standard
   description: ""
   type: private
@@ -989,6 +992,9 @@ repositories:
   description: ""
   type: private
 - name: gtest
+  description: ""
+  type: private
+- name: gtk+
   description: ""
   type: private
 - name: gtk2
@@ -2053,6 +2059,9 @@ repositories:
 - name: lua-expat
   description: ""
   type: private
+- name: lua-filesystem
+  description: ""
+  type: private
 - name: lua-json
   description: ""
   type: private
@@ -2198,6 +2207,9 @@ repositories:
   description: ""
   type: private
 - name: mutter
+  description: ""
+  type: private
+- name: mvapich2
   description: ""
   type: private
 - name: nautilus
@@ -3021,6 +3033,9 @@ repositories:
 - name: python-beautifulsoup4
   description: ""
   type: private
+- name: python-blinker
+  description: ""
+  type: private
 - name: python-blivet
   description: ""
   type: private
@@ -3303,6 +3318,9 @@ repositories:
 - name: python-scikit-optimize
   description: ""
   type: private
+- name: python-scons
+  description: ""
+  type: private
 - name: python-SecretStorage
   description: ""
   type: private
@@ -3583,6 +3601,9 @@ repositories:
   description: ""
   type: private
 - name: snappy
+  description: ""
+  type: private
+- name: socket_wrapper
   description: ""
   type: private
 - name: softhsm
