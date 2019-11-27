@@ -2292,6 +2292,9 @@ repositories:
 - name: open-isns
   description: ""
   type: private
+- name: openal-soft
+  description: ""
+  type: private
 - name: openEuler-indexhtml
   description: ""
   type: private
