@@ -465,6 +465,9 @@ repositories:
 - name: containerd
   description: ""
   type: private
+- name: copy-jdk-configs
+  description: ""
+  type: private
 - name: coreutils
   description: ""
   type: private
@@ -589,6 +592,9 @@ repositories:
   description: ""
   type: private
 - name: docbook-style-xsl
+  description: ""
+  type: private
+- name: docbook-utils
   description: ""
   type: private
 - name: docker
@@ -866,6 +872,9 @@ repositories:
   description: ""
   type: private
 - name: gnome-desktop3
+  description: ""
+  type: private
+- name: gnome-doc-utils
   description: ""
   type: private
 - name: gnome-keyring
@@ -2361,6 +2370,9 @@ repositories:
 - name: openslp
   description: ""
   type: private
+- name: opensp
+  description: ""
+  type: private
 - name: openssh
   description: ""
   type: private
@@ -2431,6 +2443,9 @@ repositories:
   description: ""
   type: private
 - name: patch
+  description: ""
+  type: private
+- name: patchutils
   description: ""
   type: private
 - name: pax
@@ -2670,6 +2685,9 @@ repositories:
 - name: perl-LWP-Protocol-https
   description: ""
   type: private
+- name: perl-MailTools
+  description: ""
+  type: private
 - name: perl-Math-BigInt
   description: ""
   type: private
@@ -2802,6 +2820,9 @@ repositories:
 - name: perl-Text-Tabs-Wrap
   description: ""
   type: private
+- name: perl-Text-Unidecode
+  description: ""
+  type: private
 - name: perl-Thread-Queue
   description: ""
   type: private
@@ -2848,6 +2869,9 @@ repositories:
   description: ""
   type: private
 - name: perl-YAML-Tiny
+  description: ""
+  type: private
+- name: pesign
   description: ""
   type: private
 - name: pigz
@@ -3156,6 +3180,9 @@ repositories:
 - name: python-linux-procfs
   description: ""
   type: private
+- name: python-lit
+  description: ""
+  type: private
 - name: python-lxml
   description: ""
   type: private
@@ -3454,6 +3481,9 @@ repositories:
   description: ""
   type: private
 - name: samba
+  description: ""
+  type: private
+- name: sanlock
   description: ""
   type: private
 - name: satyr
@@ -3924,6 +3954,9 @@ repositories:
 - name: xmlto
   description: ""
   type: private
+- name: xmltoman
+  description: ""
+  type: private
 - name: xorg-x11-drivers
   description: ""
   type: private
@@ -3955,6 +3988,9 @@ repositories:
   description: ""
   type: private
 - name: xorg-x11-fonts
+  description: ""
+  type: private
+- name: xorg-x11-proto-devel
   description: ""
   type: private
 - name: xorg-x11-server
