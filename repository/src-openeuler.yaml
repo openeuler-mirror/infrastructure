@@ -1738,6 +1738,9 @@ repositories:
 - name: libsoup
   description: ""
   type: private
+- name: libspectre
+  description: ""
+  type: private
 - name: libsrtp
   description: ""
   type: private
