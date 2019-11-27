@@ -2688,6 +2688,9 @@ repositories:
 - name: perl-PathTools
   description: ""
   type: private
+- name: perl-Path-Tiny
+  description: ""
+  type: private
 - name: perl-Perl-OSType
   description: ""
   type: private
