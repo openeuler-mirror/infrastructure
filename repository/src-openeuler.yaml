@@ -238,6 +238,9 @@ repositories:
 - name: autoconf
   description: ""
   type: private
+- name: autofs
+  description: ""
+  type: private
 - name: autogen
   description: ""
   type: private
@@ -1603,6 +1606,9 @@ repositories:
 - name: libmetalink
   description: ""
   type: private
+- name: libmikmod
+  description: ""
+  type: private
 - name: libmng
   description: ""
   type: private
@@ -1709,6 +1715,9 @@ repositories:
   description: ""
   type: private
 - name: libraw1394
+  description: ""
+  type: private
+- name: librelp
   description: ""
   type: private
 - name: librepo
@@ -3630,6 +3639,9 @@ repositories:
 - name: spice
   description: ""
   type: private
+- name: spice-gtk
+  description: ""
+  type: private
 - name: spice-vdagent
   description: ""
   type: private
@@ -3661,6 +3673,9 @@ repositories:
   description: ""
   type: private
 - name: strongswan
+  description: ""
+  type: private
+- name: stunnel
   description: ""
   type: private
 - name: subscription-manager
