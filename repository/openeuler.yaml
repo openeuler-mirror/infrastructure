@@ -78,16 +78,6 @@ repositories:
 - name: kae_driver
   description: ""
   type: private
-- name: kylintrial
-  description: ""
-  type: private
-  developers:
-  - Charlie_li
-  - dogsheng
-  - igorkorkin
-  - initlove
-  - Ronnie_Jiang
-  - zerodefect
 - name: lcr
   description: ""
   type: private
