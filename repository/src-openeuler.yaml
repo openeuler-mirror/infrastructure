@@ -1081,6 +1081,9 @@ repositories:
 - name: initscripts
   description: ""
   type: private
+- name: integration-test
+  description: "used for openeuler integration test"
+  type: private
 - name: intltool
   description: ""
   type: private
@@ -1166,6 +1169,9 @@ repositories:
   description: ""
   type: private
 - name: jbigkit
+  description: ""
+  type: private
+- name: jenkins_project
   description: ""
   type: private
 - name: jfsutils
