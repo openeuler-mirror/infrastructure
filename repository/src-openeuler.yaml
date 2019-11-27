@@ -1087,6 +1087,7 @@ repositories:
   developers:
   - anne_zhu
   - baizhilaoda
+  - Charlie_li
   - Classicriver_jia
   - damian_2012
   - heruxiao
@@ -1095,7 +1096,6 @@ repositories:
   - street_dust
   - wubodong
   - zhang_liu_yan
-  - zhangwenhao8
 - name: intltool
   description: ""
   type: private
@@ -1189,6 +1189,7 @@ repositories:
   developers:
   - anne_zhu
   - baizhilaoda
+  - Charlie_li
   - Classicriver_jia
   - damian_2012
   - heruxiao
@@ -1197,7 +1198,6 @@ repositories:
   - street_dust
   - wubodong
   - zhang_liu_yan
-  - zhangwenhao8
 - name: jfsutils
   description: ""
   type: private
