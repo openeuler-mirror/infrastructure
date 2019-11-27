@@ -582,6 +582,9 @@ repositories:
 - name: dnsmasq
   description: ""
   type: private
+- name: docbook2X
+  description: ""
+  type: private
 - name: docbook-dtds
   description: ""
   type: private
@@ -892,6 +895,9 @@ repositories:
 - name: golang
   description: ""
   type: private
+- name: golang-github-cpuguy83-go-md2man
+  description: ""
+  type: private
 - name: google-droid-fonts
   description: ""
   type: private
@@ -968,6 +974,9 @@ repositories:
   description: ""
   type: private
 - name: gstreamer1-plugins-base
+  description: ""
+  type: private
+- name: gtest
   description: ""
   type: private
 - name: gtk2
@@ -1208,6 +1217,9 @@ repositories:
   description: ""
   type: private
 - name: json-c
+  description: ""
+  type: private
+- name: jsoncpp
   description: ""
   type: private
 - name: json-glib
@@ -2763,6 +2775,9 @@ repositories:
 - name: perl-TermReadKey
   description: ""
   type: private
+- name: perl-Test-FailWarnings
+  description: ""
+  type: private
 - name: perl-Test-Harness
   description: ""
   type: private
@@ -2809,6 +2824,9 @@ repositories:
   description: ""
   type: private
 - name: perl-Unicode-Normalize
+  description: ""
+  type: private
+- name: perl-Unicode-UTF8
   description: ""
   type: private
 - name: perl-URI
@@ -2979,6 +2997,9 @@ repositories:
 - name: python-blivet
   description: ""
   type: private
+- name: python-bottle
+  description: ""
+  type: private
 - name: python-cffi
   description: ""
   type: private
@@ -3142,6 +3163,9 @@ repositories:
   description: ""
   type: private
 - name: python-meh
+  description: ""
+  type: private
+- name: python-mimeparse
   description: ""
   type: private
 - name: python-mock
