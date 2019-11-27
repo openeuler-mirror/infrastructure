@@ -889,6 +889,9 @@ repositories:
 - name: gnutls
   description: ""
   type: private
+- name: gnu-efi
+  description: ""
+  type: private
 - name: gobject-introspection
   description: ""
   type: private
