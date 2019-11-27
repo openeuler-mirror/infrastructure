@@ -546,6 +546,9 @@ repositories:
 - name: dconf
   description: ""
   type: private
+- name: dejavu-fonts
+  description: ""
+  type: private
 - name: deltarpm
   description: ""
   type: private
