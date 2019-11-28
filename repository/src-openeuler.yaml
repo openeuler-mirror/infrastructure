@@ -507,6 +507,9 @@ repositories:
 - name: crash
   description: ""
   type: private
+- name: crash-trace-command
+  description: ""
+  type: private
 - name: crda
   description: ""
   type: private
@@ -613,6 +616,9 @@ repositories:
   description: ""
   type: private
 - name: dnsmasq
+  description: ""
+  type: private
+- name: dnssec-trigger
   description: ""
   type: private
 - name: docbook2X
@@ -787,6 +793,9 @@ repositories:
   description: ""
   type: private
 - name: fprintd
+  description: ""
+  type: private
+- name: freerdp 
   description: ""
   type: private
 - name: freetds
@@ -1133,6 +1142,9 @@ repositories:
   description: ""
   type: private
 - name: ibus
+  description: ""
+  type: private
+- name: ibus-kkc
   description: ""
   type: private
 - name: ibus-libzhuyin
@@ -3559,6 +3571,9 @@ repositories:
   description: ""
   type: private
 - name: qt5-qtdeclarative
+  description: ""
+  type: private
+- name: qt5-qtlocation
   description: ""
   type: private
 - name: qt5-qtquickcontrols2
