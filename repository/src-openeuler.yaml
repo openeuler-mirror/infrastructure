@@ -3900,6 +3900,9 @@ repositories:
 - name: virt-top
   description: ""
   type: private
+- name: virt-viewer
+  description: ""
+  type: private
 - name: virt-what
   description: ""
   type: private
