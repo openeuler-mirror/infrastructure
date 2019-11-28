@@ -2424,6 +2424,9 @@ repositories:
 - name: openal-soft
   description: ""
   type: private
+- name: openblas
+  description: ""
+  type: private
 - name: openEuler-indexhtml
   description: ""
   type: private
