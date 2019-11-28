@@ -256,6 +256,9 @@ repositories:
 - name: b43-openfwwf
   description: ""
   type: private
+- name: b43-tools
+  description: ""
+  type: private
 - name: babel
   description: ""
   type: private
@@ -522,6 +525,9 @@ repositories:
 - name: cvs
   description: ""
   type: private
+- name: cyrus-imapd
+  description: ""
+  type: private
 - name: cyrus-sasl
   description: ""
   type: private
@@ -544,6 +550,9 @@ repositories:
   description: ""
   type: private
 - name: dconf
+  description: ""
+  type: private
+- name: dejavu-fonts
   description: ""
   type: private
 - name: deltarpm
@@ -702,6 +711,9 @@ repositories:
 - name: expect
   description: ""
   type: private
+- name: fakechroot
+  description: ""
+  type: private
 - name: fcitx
   description: ""
   type: private
@@ -721,6 +733,9 @@ repositories:
   description: ""
   type: private
 - name: findutils
+  description: ""
+  type: private
+- name: fio
   description: ""
   type: private
 - name: fipscheck
@@ -827,6 +842,9 @@ repositories:
   description: ""
   type: private
 - name: gettext
+  description: ""
+  type: private
+- name: gflags
   description: ""
   type: private
 - name: ghostscript
@@ -998,9 +1016,6 @@ repositories:
   description: ""
   type: private
 - name: gtest
-  description: ""
-  type: private
-- name: gtk+
   description: ""
   type: private
 - name: gtk2
@@ -2008,6 +2023,9 @@ repositories:
 - name: linux-firmware
   description: ""
   type: private
+- name: lklug-fonts
+  description: ""
+  type: private
 - name: lldpad
   description: ""
   type: private
@@ -2044,6 +2062,9 @@ repositories:
 - name: lohit-nepali-fonts
   description: ""
   type: private
+- name: lohit-tmail-fonts
+  description: ""
+  type: private
 - name: lorax
   description: ""
   type: private
@@ -2060,6 +2081,9 @@ repositories:
   description: ""
   type: private
 - name: lsscsi
+  description: ""
+  type: private
+- name: ltrace
   description: ""
   type: private
 - name: lttng-ust
@@ -2108,6 +2132,9 @@ repositories:
   description: ""
   type: private
 - name: lzop
+  description: ""
+  type: private
+- name: m17n-lib
   description: ""
   type: private
 - name: m2crypto
@@ -2162,6 +2189,9 @@ repositories:
   description: ""
   type: private
 - name: mesa-libGLU
+  description: ""
+  type: private
+- name: mesa-libGLw
   description: ""
   type: private
 - name: meson
@@ -2994,6 +3024,9 @@ repositories:
 - name: pycairo
   description: ""
   type: private
+- name: pyelftools
+  description: ""
+  type: private
 - name: pyflakes
   description: ""
   type: private
@@ -3033,6 +3066,9 @@ repositories:
 - name: python-augeas
   description: ""
   type: private
+- name: python-atomicwrites
+  description: ""
+  type: private
 - name: python-backports
   description: ""
   type: private
@@ -3067,6 +3103,9 @@ repositories:
   description: ""
   type: private
 - name: python-configobj
+  description: ""
+  type: private
+- name: python-configparser
   description: ""
   type: private
 - name: python-configshell
@@ -3126,6 +3165,9 @@ repositories:
 - name: python-flask-restful
   description: ""
   type: private
+- name: python-fonttools
+  description: ""
+  type: private
 - name: python-freezegun
   description: ""
   type: private
@@ -3148,6 +3190,9 @@ repositories:
   description: ""
   type: private
 - name: python-httpretty
+  description: ""
+  type: private
+- name: python-hypothesis
   description: ""
   type: private
 - name: python-idna
@@ -3208,6 +3253,9 @@ repositories:
   description: ""
   type: private
 - name: python-kmod
+  description: ""
+  type: private
+- name: python-linecache2
   description: ""
   type: private
 - name: python-linux-procfs
@@ -3393,6 +3441,9 @@ repositories:
 - name: python-werkzeug
   description: ""
   type: private
+- name: python-whoosh
+  description: ""
+  type: private
 - name: python-xgboost
   description: ""
   type: private
@@ -3430,6 +3481,9 @@ repositories:
   description: ""
   type: private
 - name: qt5-qtdeclarative
+  description: ""
+  type: private
+- name: qt5-qtquickcontrols2
   description: ""
   type: private
 - name: qt5-qtsvg
@@ -3771,6 +3825,9 @@ repositories:
 - name: timedatex
   description: ""
   type: private
+- name: tinycdb
+  description: ""
+  type: private
 - name: tinyxml2
   description: ""
   type: private
@@ -3907,6 +3964,9 @@ repositories:
   description: ""
   type: private
 - name: virt-top
+  description: ""
+  type: private
+- name: virt-viewer
   description: ""
   type: private
 - name: virt-what
