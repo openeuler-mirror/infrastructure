@@ -253,6 +253,9 @@ repositories:
 - name: b43-openfwwf
   description: ""
   type: private
+- name: b43-tools
+  description: ""
+  type: private
 - name: babel
   description: ""
   type: private
@@ -519,6 +522,9 @@ repositories:
 - name: cvs
   description: ""
   type: private
+- name: cyrus-imapd
+  description: ""
+  type: private
 - name: cyrus-sasl
   description: ""
   type: private
@@ -718,6 +724,9 @@ repositories:
   description: ""
   type: private
 - name: findutils
+  description: ""
+  type: private
+- name: fio
   description: ""
   type: private
 - name: fipscheck
@@ -1996,6 +2005,9 @@ repositories:
 - name: linux-firmware
   description: ""
   type: private
+- name: lklug-fonts
+  description: ""
+  type: private
 - name: lldpad
   description: ""
   type: private
@@ -2030,6 +2042,9 @@ repositories:
   description: ""
   type: private
 - name: lohit-nepali-fonts
+  description: ""
+  type: private
+- name: lohit-tmail-fonts
   description: ""
   type: private
 - name: lorax
@@ -2979,6 +2994,9 @@ repositories:
 - name: pycairo
   description: ""
   type: private
+- name: pyelftools
+  description: ""
+  type: private
 - name: pyflakes
   description: ""
   type: private
@@ -3111,6 +3129,9 @@ repositories:
 - name: python-flask-restful
   description: ""
   type: private
+- name: python-fonttools
+  description: ""
+  type: private
 - name: python-funcsigs
   description: ""
   type: private
@@ -3130,6 +3151,9 @@ repositories:
   description: ""
   type: private
 - name: python-httpretty
+  description: ""
+  type: private
+- name: python-hypothesis
   description: ""
   type: private
 - name: python-idna
@@ -3412,6 +3436,9 @@ repositories:
   description: ""
   type: private
 - name: qt5-qtdeclarative
+  description: ""
+  type: private
+- name: qt5-qtquickcontrols2
   description: ""
   type: private
 - name: qt5-qtsvg
