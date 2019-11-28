@@ -1000,9 +1000,6 @@ repositories:
 - name: gtest
   description: ""
   type: private
-- name: gtk+
-  description: ""
-  type: private
 - name: gtk2
   description: ""
   type: private
