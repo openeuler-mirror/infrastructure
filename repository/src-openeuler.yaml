@@ -30,6 +30,7 @@ community:
   - jdkboy
   - lemon-higgins
   - lkx690
+  - openeuler-compute
   - openeuler-net
   - openeuler_kernel
   - openeulervirtreview
@@ -72,7 +73,6 @@ community:
   - jimmy_hero
   - moyang1994
   - openeuler-basic
-  - openeuler-compute
   - openeuler-netdev
   - openeuler_hulk
   - openeulercomputecommitter
@@ -4216,6 +4216,7 @@ repositories:
   - jackie_wu123
   - lemon-higgins
   - lkx690
+  - openeuler-compute
   - openeuler-net
   - openeuler_kernel
   - overweight
@@ -4255,7 +4256,6 @@ repositories:
   - jimmy_hero
   - moyang1994
   - openeuler-basic
-  - openeuler-compute
   - openeuler-netdev
   - openeuler_hulk
   - openeulercomputecommitter
