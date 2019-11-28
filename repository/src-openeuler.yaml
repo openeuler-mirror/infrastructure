@@ -339,6 +339,9 @@ repositories:
   - TommyLike
   - zhaoshangjie
   - zhuchunyi
+- name: bullet
+  description: ""
+  type: private
 - name: busybox
   description: ""
   type: private
@@ -1388,6 +1391,9 @@ repositories:
   description: ""
   type: private
 - name: libart_lgpl
+  description: ""
+  type: private
+- name: libass
   description: ""
   type: private
 - name: libassuan
@@ -2979,6 +2985,9 @@ repositories:
 - name: pesign
   description: ""
   type: private
+- name: phonon
+  description: ""
+  type: private
 - name: pigz
   description: ""
   type: private
@@ -3561,6 +3570,9 @@ repositories:
 - name: qt5-qtxmlpatterns
   description: ""
   type: private
+- name: qt5-qtwebengine
+  description: ""
+  type: private
 - name: quota
   description: ""
   type: private
@@ -3730,6 +3742,9 @@ repositories:
   description: ""
   type: private
 - name: shim-unsigned-aarch64
+  description: ""
+  type: private
+- name: sip
   description: ""
   type: private
 - name: skopeo
@@ -3946,6 +3961,9 @@ repositories:
   description: ""
   type: private
 - name: trousers
+  description: ""
+  type: private
+- name: tslib
   description: ""
   type: private
 - name: ttembed
