@@ -847,6 +847,9 @@ repositories:
 - name: glade
   description: ""
   type: private
+- name: glib
+  description: ""
+  type: private
 - name: glib-networking
   description: ""
   type: private
@@ -2077,6 +2080,9 @@ repositories:
 - name: lua-lpeg
   description: ""
   type: private
+- name: lua-posix
+  description: ""
+  type: private
 - name: lua-socket
   description: ""
   type: private
@@ -3120,6 +3126,9 @@ repositories:
 - name: python-flask-restful
   description: ""
   type: private
+- name: python-freezegun
+  description: ""
+  type: private
 - name: python-funcsigs
   description: ""
   type: private
@@ -3478,6 +3487,9 @@ repositories:
   description: ""
   type: private
 - name: rpcbind
+  description: ""
+  type: private
+- name: rpcsvc-proto
   description: ""
   type: private
 - name: rpm
@@ -3991,6 +4003,9 @@ repositories:
   description: ""
   type: private
 - name: xmltoman
+  description: ""
+  type: private
+- name: xmms
   description: ""
   type: private
 - name: xorg-x11-drivers
