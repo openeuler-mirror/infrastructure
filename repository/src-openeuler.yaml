@@ -3264,6 +3264,9 @@ repositories:
 - name: python-markupsafe
   description: ""
   type: private
+- name: python-markdown
+  description: ""
+  type: private
 - name: python-meh
   description: ""
   type: private
@@ -3418,6 +3421,9 @@ repositories:
   description: ""
   type: private
 - name: python-threadpoolctl
+  description: ""
+  type: private
+- name: python-unittest2
   description: ""
   type: private
 - name: python-urlgrabber
