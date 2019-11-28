@@ -2077,6 +2077,9 @@ repositories:
 - name: lsscsi
   description: ""
   type: private
+- name: ltrace
+  description: ""
+  type: private
 - name: lttng-ust
   description: ""
   type: private
@@ -2120,6 +2123,9 @@ repositories:
   description: ""
   type: private
 - name: lzop
+  description: ""
+  type: private
+- name: m17n-lib
   description: ""
   type: private
 - name: m2crypto
@@ -2174,6 +2180,9 @@ repositories:
   description: ""
   type: private
 - name: mesa-libGLU
+  description: ""
+  type: private
+- name: mesa-libGLw
   description: ""
   type: private
 - name: meson
