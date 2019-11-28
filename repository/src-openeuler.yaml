@@ -964,6 +964,9 @@ repositories:
 - name: gnu-efi
   description: ""
   type: private
+- name: gnu-free-fonts
+  description: ""
+  type: private
 - name: gobject-introspection
   description: ""
   type: private
@@ -2095,6 +2098,9 @@ repositories:
 - name: logwatch
   description: ""
   type: private
+- name: lohit-assamese-fonts
+  description: ""
+  type: private
 - name: lohit-bengali-fonts
   description: ""
   type: private
@@ -2108,6 +2114,9 @@ repositories:
   description: ""
   type: private
 - name: lohit-nepali-fonts
+  description: ""
+  type: private
+- name: lohit-telugu-fonts
   description: ""
   type: private
 - name: lohit-tmail-fonts
@@ -2261,6 +2270,9 @@ repositories:
   description: ""
   type: private
 - name: mobile-broadband-provider-info
+  description: ""
+  type: private
+- name: mod_auth_gssapi
   description: ""
   type: private
 - name: mod_fcgid
@@ -2578,6 +2590,9 @@ repositories:
   description: ""
   type: private
 - name: pcsc-lite-ccid
+  description: ""
+  type: private
+- name: perftest
   description: ""
   type: private
 - name: perl
@@ -3582,6 +3597,9 @@ repositories:
 - name: qt5-qtsvg
   description: ""
   type: private
+- name: qt5-qttranslations
+  description: ""
+  type: private
 - name: qt5-qtx11extras
   description: ""
   type: private
@@ -3760,6 +3778,9 @@ repositories:
   description: ""
   type: private
 - name: shim-unsigned-aarch64
+  description: ""
+  type: private
+- name: sil-abyssinica-fonts
   description: ""
   type: private
 - name: sip
@@ -3955,6 +3976,9 @@ repositories:
   description: ""
   type: private
 - name: tpm-quote-tools
+  description: ""
+  type: private
+- name: tpm-tools
   description: ""
   type: private
 - name: tpm2-abrmd
