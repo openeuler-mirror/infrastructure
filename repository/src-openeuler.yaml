@@ -705,6 +705,9 @@ repositories:
 - name: expect
   description: ""
   type: private
+- name: fakechroot
+  description: ""
+  type: private
 - name: fcitx
   description: ""
   type: private
@@ -3199,6 +3202,9 @@ repositories:
   description: ""
   type: private
 - name: python-kmod
+  description: ""
+  type: private
+- name: python-linecache2
   description: ""
   type: private
 - name: python-linux-procfs
