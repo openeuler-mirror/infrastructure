@@ -2362,6 +2362,9 @@ repositories:
 - name: numpy
   description: ""
   type: private
+- name: nvmetcli
+  description: ""
+  type: private
 - name: obs-build
   description: ""
   type: private
@@ -2730,6 +2733,9 @@ repositories:
 - name: perl-libnet
   description: ""
   type: private
+- name: perl-libxml-perl
+  description: ""
+  type: private
 - name: perl-List-MoreUtils
   description: ""
   type: private
@@ -2839,6 +2845,9 @@ repositories:
   description: ""
   type: private
 - name: perl-Socket
+  description: ""
+  type: private
+- name: perl-Socket6
   description: ""
   type: private
 - name: perl-Storable
@@ -3609,6 +3618,9 @@ repositories:
 - name: screen
   description: ""
   type: private
+- name: scrub
+  description: ""
+  type: private
 - name: SDL
   description: ""
   type: private
@@ -3820,6 +3832,9 @@ repositories:
   description: ""
   type: private
 - name: texinfo
+  description: ""
+  type: private
+- name: texlive
   description: ""
   type: private
 - name: tftp
