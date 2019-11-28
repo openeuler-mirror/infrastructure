@@ -844,6 +844,9 @@ repositories:
 - name: gettext
   description: ""
   type: private
+- name: gflags
+  description: ""
+  type: private
 - name: ghostscript
   description: ""
   type: private
@@ -3057,6 +3060,9 @@ repositories:
 - name: python-augeas
   description: ""
   type: private
+- name: python-atomicwrites
+  description: ""
+  type: private
 - name: python-backports
   description: ""
   type: private
@@ -3091,6 +3097,9 @@ repositories:
   description: ""
   type: private
 - name: python-configobj
+  description: ""
+  type: private
+- name: python-configparser
   description: ""
   type: private
 - name: python-configshell
@@ -3421,6 +3430,9 @@ repositories:
   description: ""
   type: private
 - name: python-werkzeug
+  description: ""
+  type: private
+- name: python-whoosh
   description: ""
   type: private
 - name: python-xgboost
@@ -3799,6 +3811,9 @@ repositories:
   description: ""
   type: private
 - name: timedatex
+  description: ""
+  type: private
+- name: tinycdb
   description: ""
   type: private
 - name: tinyxml2
