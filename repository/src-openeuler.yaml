@@ -459,6 +459,9 @@ repositories:
 - name: clutter-gtk
   description: ""
   type: private
+- name: cmocka
+  description: ""
+  type: private
 - name: cockpit
   description: ""
   type: private
@@ -781,6 +784,9 @@ repositories:
   description: ""
   type: private
 - name: fprintd
+  description: ""
+  type: private
+- name: freetds
   description: ""
   type: private
 - name: freetype
@@ -1640,6 +1646,9 @@ repositories:
   description: ""
   type: private
 - name: libmediaart
+  description: ""
+  type: private
+- name: libmemcached
   description: ""
   type: private
 - name: libmetalink
@@ -3204,6 +3213,9 @@ repositories:
 - name: python-flask-restful
   description: ""
   type: private
+- name: python-flit
+  description: ""
+  type: private
 - name: python-fonttools
   description: ""
   type: private
@@ -3351,6 +3363,9 @@ repositories:
 - name: python-paste
   description: ""
   type: private
+- name: python-pbr
+  description: ""
+  type: private
 - name: python-pexpect
   description: ""
   type: private
@@ -3454,6 +3469,12 @@ repositories:
   description: ""
   type: private
 - name: python-sphinx_rtd_theme
+  description: ""
+  type: private
+- name: python-sphinx-theme-alabaster
+  description: ""
+  type: private
+- name: python-sphinxcontrib-websupport
   description: ""
   type: private
 - name: python-systemd
@@ -3793,6 +3814,9 @@ repositories:
   description: ""
   type: private
 - name: subscription-manager
+  description: ""
+  type: private
+- name: subunit
   description: ""
   type: private
 - name: subversion
