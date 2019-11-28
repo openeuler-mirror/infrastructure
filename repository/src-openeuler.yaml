@@ -184,6 +184,9 @@ repositories:
 - name: anaconda-user-help
   description: ""
   type: private
+- name: apache-commons-logging
+  description: ""
+  type: private
 - name: apr
   description: ""
   type: private
@@ -200,6 +203,9 @@ repositories:
   description: ""
   type: private
 - name: asciidoc
+  description: ""
+  type: private
+- name: aspell
   description: ""
   type: private
 - name: at
@@ -678,6 +684,9 @@ repositories:
 - name: eglexternalplatform
   description: ""
   type: private
+- name: elinks
+  description: ""
+  type: private
 - name: elfutils
   description: ""
   type: private
@@ -869,6 +878,9 @@ repositories:
   description: ""
   type: private
 - name: glade
+  description: ""
+  type: private
+- name: glew
   description: ""
   type: private
 - name: glib
@@ -2338,6 +2350,9 @@ repositories:
 - name: nss
   description: ""
   type: private
+- name: nss_wrapper
+  description: ""
+  type: private
 - name: nss-mdns
   description: ""
   type: private
@@ -2596,6 +2611,9 @@ repositories:
   description: ""
   type: private
 - name: perl-Data-UUID
+  description: ""
+  type: private
+- name: perl-Devel-CheckLib
   description: ""
   type: private
 - name: perl-DB_File
@@ -4056,6 +4074,9 @@ repositories:
 - name: Xaw3d
   description: ""
   type: private
+- name: xcb-proto
+  description: ""
+  type: private
 - name: xcb-util
   description: ""
   type: private
@@ -4102,6 +4123,9 @@ repositories:
   description: ""
   type: private
 - name: xmms
+  description: ""
+  type: private
+- name: xorg-x11-apps
   description: ""
   type: private
 - name: xorg-x11-drivers
