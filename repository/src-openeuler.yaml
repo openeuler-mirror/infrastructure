@@ -199,9 +199,9 @@ repositories:
   description: ""
   type: public
   developers:
-    - solarhu
-    - xhming
-    - catastrowings
+  - catastrowings
+  - solarhu
+  - xhming
 - name: apr
   description: ""
   type: private
@@ -385,9 +385,9 @@ repositories:
   description: ""
   type: public
   developers:
-    - solarhu
-    - xhming
-    - catastrowings
+  - catastrowings
+  - solarhu
+  - xhming
 - name: capstone
   description: ""
   type: private
@@ -620,9 +620,9 @@ repositories:
   description: ""
   type: public
   developers:
-    - solarhu
-    - xhming
-    - catastrowings  
+  - catastrowings  
+  - solarhu
+  - xhming
 - name: device-mapper-persistent-data
   description: ""
   type: private
@@ -904,9 +904,9 @@ repositories:
   description: ""
   type: public
   developers:
-    - solarhu
-    - xhming
-    - catastrowings
+  - catastrowings
+  - solarhu
+  - xhming
 - name: geoclue2
   description: ""
   type: private
@@ -1169,9 +1169,9 @@ repositories:
   description: ""
   type: public
   developers:
-    - solarhu
-    - xhming
-    - catastrowings
+  - catastrowings
+  - solarhu
+  - xhming
 - name: hostname
   description: ""
   type: private
@@ -1398,9 +1398,9 @@ repositories:
   description: ""
   type: public
   developers:
-    - solarhu
-    - xhming
-    - catastrowings
+  - catastrowings
+  - solarhu
+  - xhming
 - name: kexec-tools
   description: ""
   type: private
@@ -1813,9 +1813,9 @@ repositories:
   description: ""
   type: public
   developers:
-    - solarhu
-    - xhming
-    - catastrowings
+  - catastrowings
+  - solarhu
+  - xhming
 - name: libosinfo
   description: ""
   type: private
@@ -1835,9 +1835,9 @@ repositories:
   description: ""
   type: public
   developers:
-    - solarhu
-    - xhming
-    - catastrowings
+  - catastrowings
+  - solarhu
+  - xhming
 - name: libpipeline
   description: ""
   type: private
@@ -2160,9 +2160,9 @@ repositories:
   description: ""
   type: public
   developers:
-    - solarhu
-    - xhming
-    - catastrowings
+  - solarhu
+  - xhming
+  - catastrowings
 - name: lldpad
   description: ""
   type: private
@@ -2350,9 +2350,9 @@ repositories:
   description: ""
   type: public
   developers:
-    - solarhu
-    - xhming
-    - catastrowings
+  - catastrowings
+  - solarhu
+  - xhming
 - name: mkeuleros
   description: ""
   type: private
@@ -2396,9 +2396,9 @@ repositories:
   description: ""
   type: public
   developers:
-    - solarhu
-    - xhming
-    - catastrowings
+  - catastrowings
+  - solarhu
+  - xhming
 - name: mtdev
   description: ""
   type: private
@@ -2735,9 +2735,9 @@ repositories:
   description: ""
   type: public
   developers:
-    - solarhu
-    - xhming
-    - catastrowings
+  - catastrowings
+  - solarhu
+  - xhming
 - name: perl-Compress-Raw-Bzip2
   description: ""
   type: private
@@ -2853,9 +2853,9 @@ repositories:
   description: ""
   type: public
   developers:
-    - solarhu
-    - xhming
-    - catastrowings
+  - catastrowings
+  - solarhu
+  - xhming
 - name: perl-File-Temp
   description: ""
   type: private
@@ -2989,9 +2989,9 @@ repositories:
   description: ""
   type: public
   developers:
-    - solarhu
-    - xhming
-    - catastrowings 
+  - catastrowings 
+  - solarhu
+  - xhming
 - name: perl-Params-Check
   description: ""
   type: private
@@ -3152,9 +3152,9 @@ repositories:
   description: ""
   type: public
   developers:
-    - solarhu
-    - xhming
-    - catastrowings
+  - catastrowings
+  - solarhu
+  - xhming
 - name: pigz
   description: ""
   type: private
@@ -3789,9 +3789,9 @@ repositories:
   description: ""
   type: public
   developers:
-    - solarhu
-    - xhming
-    - catastrowings
+  - catastrowings
+  - solarhu
+  - xhming
 - name: repo
   description: ""
   type: private
@@ -3832,9 +3832,9 @@ repositories:
   description: ""
   type: public
   developers:
-    - solarhu
-    - xhming
-    - catastrowings
+  - catastrowings
+  - solarhu
+  - xhming
 - name: rsync
   description: ""
   type: private
@@ -4187,9 +4187,9 @@ repositories:
   description: ""
   type: public
   developers:
-    - solarhu
-    - xhming
-    - catastrowings
+  - catastrowings
+  - solarhu
+  - xhming
 - name: tzdata
   description: ""
   type: private
@@ -4335,9 +4335,9 @@ repositories:
   description: ""
   type: public
   developers:
-    - solarhu
-    - xhming
-    - catastrowings
+  - catastrowings
+  - solarhu
+  - xhming
 - name: Xaw3d
   description: ""
   type: private
@@ -4453,9 +4453,9 @@ repositories:
   description: ""
   type: public
   developers:
-    - solarhu
-    - xhming
-    - catastrowings
+  - catastrowings
+  - solarhu
+  - xhming
 - name: xterm
   description: ""
   type: private
