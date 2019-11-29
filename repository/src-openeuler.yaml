@@ -1372,7 +1372,7 @@ repositories:
 - name: kernel
   description: ""
   type: private
-- name: khmeros-fonts 5.0-26
+- name: khmeros-fonts
   description: ""
   type: private
 - name: kexec-tools
