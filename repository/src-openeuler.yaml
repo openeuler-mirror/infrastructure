@@ -3387,6 +3387,9 @@ repositories:
 - name: python-mock
   description: ""
   type: private
+- name: python-more-itertools
+  description: ""
+  type: private
 - name: python-netaddr
   description: ""
   type: private
