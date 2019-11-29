@@ -2362,6 +2362,9 @@ repositories:
 - name: netcf
   description: ""
   type: private
+- name: netpbm
+  description: ""
+  type: private
 - name: nettle
   description: ""
   type: private
@@ -2638,6 +2641,9 @@ repositories:
   description: ""
   type: private
 - name: perl-bignum
+  description: ""
+  type: private
+- name: perl-Bit-Vector
   description: ""
   type: private
 - name: perl-Carp
@@ -3235,6 +3241,9 @@ repositories:
   description: ""
   type: private
 - name: python-cryptography-vectors
+  description: ""
+  type: private
+- name: python-cups
   description: ""
   type: private
 - name: python-cycler
@@ -3933,6 +3942,9 @@ repositories:
 - name: tar
   description: ""
   type: private
+- name: targetcli
+  description: ""
+  type: private
 - name: tcl
   description: ""
   type: private
@@ -4240,6 +4252,9 @@ repositories:
   description: ""
   type: private
 - name: xorg-x11-apps
+  description: ""
+  type: private
+- name: xorg-x11-docs
   description: ""
   type: private
 - name: xorg-x11-drivers
