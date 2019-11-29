@@ -1,5 +1,7 @@
 community:
   name: openeuler
+  protected_branches:
+  - master
   developers:
   - Charlie_li
   - cynthia_xh
