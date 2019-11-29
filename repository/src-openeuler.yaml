@@ -195,7 +195,11 @@ repositories:
   type: private
 - name: apache-commons-pool
   description: ""
-  type: private
+  type: public
+  managers:
+    - solarhu
+    - xhming
+    - catastrowings
 - name: apr
   description: ""
   type: private
@@ -375,9 +379,13 @@ repositories:
 - name: cairo
   description: ""
   type: private
-- name: cairomn
+- name: cairomm
   description: ""
-  type: private
+  type: public
+  managers:
+    - solarhu
+    - xhming
+    - catastrowings
 - name: capstone
   description: ""
   type: private
@@ -608,7 +616,11 @@ repositories:
   type: private
 - name: devhelp
   description: ""
-  type: private
+  type: public
+  managers:
+    - solarhu
+    - xhming
+    - catastrowings  
 - name: device-mapper-persistent-data
   description: ""
   type: private
@@ -888,7 +900,11 @@ repositories:
   type: private
 - name: gedit
   description: ""
-  type: private
+  type: public
+  managers:
+    - solarhu
+    - xhming
+    - catastrowings
 - name: geoclue2
   description: ""
   type: private
@@ -1149,7 +1165,11 @@ repositories:
   type: private
 - name: hivex
   description: ""
-  type: private
+  type: public
+  managers:
+    - solarhu
+    - xhming
+    - catastrowings
 - name: hostname
   description: ""
   type: private
@@ -1374,7 +1394,11 @@ repositories:
   type: private
 - name: khmeros-fonts
   description: ""
-  type: private
+  type: public
+  managers:
+    - solarhu
+    - xhming
+    - catastrowings
 - name: kexec-tools
   description: ""
   type: private
@@ -1785,7 +1809,11 @@ repositories:
   type: private
 - name: libomp
   description: ""
-  type: private
+  type: public
+  managers:
+    - solarhu
+    - xhming
+    - catastrowings
 - name: libosinfo
   description: ""
   type: private
@@ -1803,7 +1831,11 @@ repositories:
   type: private
 - name: libpfm
   description: ""
-  type: private
+  type: public
+  managers:
+    - solarhu
+    - xhming
+    - catastrowings
 - name: libpipeline
   description: ""
   type: private
@@ -2124,7 +2156,11 @@ repositories:
   type: private
 - name: lksctp-tools
   description: ""
-  type: private
+  type: public
+  managers:
+    - solarhu
+    - xhming
+    - catastrowings
 - name: lldpad
   description: ""
   type: private
@@ -2310,7 +2346,11 @@ repositories:
   type: private
 - name: minicom
   description: ""
-  type: private
+  type: public
+  managers:
+    - solarhu
+    - xhming
+    - catastrowings
 - name: mkeuleros
   description: ""
   type: private
@@ -2352,7 +2392,11 @@ repositories:
   type: private
 - name: mpg123
   description: ""
-  type: private
+  type: public
+  managers:
+    - solarhu
+    - xhming
+    - catastrowings
 - name: mtdev
   description: ""
   type: private
@@ -2687,7 +2731,11 @@ repositories:
   type: private
 - name: perl-Class-Inspector
   description: ""
-  type: private
+  type: public
+  managers:
+    - solarhu
+    - xhming
+    - catastrowings
 - name: perl-Compress-Raw-Bzip2
   description: ""
   type: private
@@ -2801,7 +2849,11 @@ repositories:
   type: private
 - name: perl-File-ShareDir
   description: ""
-  type: private
+  type: public
+  managers:
+    - solarhu
+    - xhming
+    - catastrowings
 - name: perl-File-Temp
   description: ""
   type: private
@@ -2933,7 +2985,11 @@ repositories:
   type: private
 - name: perl-Package-Generator
   description: ""
-  type: private
+  type: public
+  managers:
+    - solarhu
+    - xhming
+    - catastrowings 
 - name: perl-Params-Check
   description: ""
   type: private
@@ -3092,7 +3148,11 @@ repositories:
   type: private
 - name: phonon-backend-gstreamer
   description: ""
-  type: private
+  type: public
+  managers:
+    - solarhu
+    - xhming
+    - catastrowings
 - name: pigz
   description: ""
   type: private
@@ -3722,7 +3782,11 @@ repositories:
   type: private
 - name: redland
   description: ""
-  type: private
+  type: public
+  managers:
+    - solarhu
+    - xhming
+    - catastrowings
 - name: repo
   description: ""
   type: private
@@ -3761,7 +3825,11 @@ repositories:
   type: private
 - name: rrdtool
   description: ""
-  type: private
+  type: public
+  managers:
+    - solarhu
+    - xhming
+    - catastrowings
 - name: rsync
   description: ""
   type: private
@@ -4109,7 +4177,11 @@ repositories:
   type: private
 - name: twolame
   description: ""
-  type: private
+  type: public
+  managers:
+    - solarhu
+    - xhming
+    - catastrowings
 - name: tzdata
   description: ""
   type: private
@@ -4253,7 +4325,11 @@ repositories:
   type: private
 - name: wsmancli
   description: ""
-  type: private
+  type: public
+  managers:
+    - solarhu
+    - xhming
+    - catastrowings
 - name: Xaw3d
   description: ""
   type: private
@@ -4367,7 +4443,11 @@ repositories:
   type: private
 - name: xrestop
   description: ""
-  type: private
+  type: public
+  managers:
+    - solarhu
+    - xhming
+    - catastrowings
 - name: xterm
   description: ""
   type: private
