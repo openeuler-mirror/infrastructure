@@ -187,6 +187,12 @@ repositories:
 - name: apache-commons-logging
   description: ""
   type: private
+- name: apache-commons-daemon
+  description: ""
+  type: private
+- name: apache-commons-dbcp
+  description: ""
+  type: private
 - name: apr
   description: ""
   type: private
@@ -248,6 +254,9 @@ repositories:
   description: ""
   type: private
 - name: autoconf
+  description: ""
+  type: private
+- name: autoconf-archive
   description: ""
   type: private
 - name: autofs
@@ -316,6 +325,9 @@ repositories:
 - name: boost
   description: ""
   type: private
+- name: brasero
+  description: ""
+  type: private
 - name: bridge-utils
   description: ""
   type: private
@@ -358,6 +370,9 @@ repositories:
   description: ""
   type: private
 - name: cairo
+  description: ""
+  type: private
+- name: cairomn
   description: ""
   type: private
 - name: capstone
@@ -505,6 +520,9 @@ repositories:
   description: ""
   type: private
 - name: crash
+  description: ""
+  type: private
+- name: crash-gcore-command
   description: ""
   type: private
 - name: crash-trace-command
@@ -741,6 +759,9 @@ repositories:
 - name: fakechroot
   description: ""
   type: private
+- name: fakeroot
+  description: ""
+  type: private
 - name: fcitx
   description: ""
   type: private
@@ -859,6 +880,9 @@ repositories:
 - name: gdm
   description: ""
   type: private
+- name: gedit
+  description: ""
+  type: private
 - name: geoclue2
   description: ""
   type: private
@@ -944,6 +968,9 @@ repositories:
   description: ""
   type: private
 - name: gnome-settings-daemon
+  description: ""
+  type: private
+- name: gnome-shell-extensions
   description: ""
   type: private
 - name: gnome-themes-standard
@@ -1112,6 +1139,9 @@ repositories:
   description: ""
   type: private
 - name: hicolor-icon-theme
+  description: ""
+  type: private
+- name: hivex
   description: ""
   type: private
 - name: hostname
@@ -1336,6 +1366,9 @@ repositories:
 - name: kernel
   description: ""
   type: private
+- name: khmeros-fonts 5.0-26
+  description: ""
+  type: private
 - name: kexec-tools
   description: ""
   type: private
@@ -1400,6 +1433,9 @@ repositories:
   description: ""
   type: private
 - name: libaio
+  description: ""
+  type: private
+- name: libappstream-glib
   description: ""
   type: private
 - name: libarchive
@@ -1741,6 +1777,9 @@ repositories:
 - name: libogg
   description: ""
   type: private
+- name: libomp
+  description: ""
+  type: private
 - name: libosinfo
   description: ""
   type: private
@@ -1754,6 +1793,9 @@ repositories:
   description: ""
   type: private
 - name: libpciaccess
+  description: ""
+  type: private
+- name: libpfm
   description: ""
   type: private
 - name: libpipeline
@@ -2068,9 +2110,6 @@ repositories:
 - name: libzip
   description: ""
   type: private
-- name: linux-4.19
-  description: ""
-  type: private
 - name: linux-firmware
   description: ""
   type: private
@@ -2260,6 +2299,9 @@ repositories:
 - name: mikmod
   description: ""
   type: private
+- name: minicom
+  description: ""
+  type: private
 - name: mkeuleros
   description: ""
   type: private
@@ -2339,6 +2381,9 @@ repositories:
   description: ""
   type: private
 - name: netcf
+  description: ""
+  type: private
+- name: netpbm
   description: ""
   type: private
 - name: nettle
@@ -2526,6 +2571,9 @@ repositories:
 - name: orc
   description: ""
   type: private
+- name: orca
+  description: ""
+  type: private
 - name: os-prober
   description: ""
   type: private
@@ -2614,6 +2662,9 @@ repositories:
   description: ""
   type: private
 - name: perl-bignum
+  description: ""
+  type: private
+- name: perl-Bit-Vector
   description: ""
   type: private
 - name: perl-Carp
@@ -2860,6 +2911,9 @@ repositories:
   description: ""
   type: private
 - name: perl-NTLM
+  description: ""
+  type: private
+- name: perl-Package-Generator
   description: ""
   type: private
 - name: perl-Params-Check
@@ -3213,6 +3267,9 @@ repositories:
 - name: python-cryptography-vectors
   description: ""
   type: private
+- name: python-cups
+  description: ""
+  type: private
 - name: python-cycler
   description: ""
   type: private
@@ -3373,6 +3430,9 @@ repositories:
   description: ""
   type: private
 - name: python-mock
+  description: ""
+  type: private
+- name: python-more-itertools
   description: ""
   type: private
 - name: python-netaddr
@@ -3639,6 +3699,9 @@ repositories:
 - name: redhat-menus
   description: ""
   type: private
+- name: redland
+  description: ""
+  type: private
 - name: repo
   description: ""
   type: private
@@ -3673,6 +3736,9 @@ repositories:
   description: ""
   type: private
 - name: rpmrebuild
+  description: ""
+  type: private
+- name: rrdtool
   description: ""
   type: private
 - name: rsync
@@ -3906,6 +3972,9 @@ repositories:
 - name: tar
   description: ""
   type: private
+- name: targetcli
+  description: ""
+  type: private
 - name: tcl
   description: ""
   type: private
@@ -3970,6 +4039,9 @@ repositories:
   description: ""
   type: private
 - name: tokyocabinet
+  description: ""
+  type: private
+- name: tomcat-native
   description: ""
   type: private
 - name: totem-pl-parser
@@ -4155,6 +4227,9 @@ repositories:
 - name: wqy-zenhei-fonts
   description: ""
   type: private
+- name: wsmancli
+  description: ""
+  type: private
 - name: Xaw3d
   description: ""
   type: private
@@ -4212,6 +4287,9 @@ repositories:
 - name: xorg-x11-apps
   description: ""
   type: private
+- name: xorg-x11-docs
+  description: ""
+  type: private
 - name: xorg-x11-drivers
   description: ""
   type: private
@@ -4261,6 +4339,9 @@ repositories:
   description: ""
   type: private
 - name: xorg-x11-xkb-utils
+  description: ""
+  type: private
+- name: xrestop
   description: ""
   type: private
 - name: xterm

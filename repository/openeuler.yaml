@@ -93,9 +93,6 @@ repositories:
 - name: libwd
   description: ""
   type: private
-- name: linux-4.19
-  description: ""
-  type: private
 - name: openeuler-jenkins
   description: ""
   type: public
