@@ -59,9 +59,10 @@ repositories:
 - name: infrastructure
   description: ""
   type: public
+  developpers:
   - freesky-edward
-  - xiangxinyong
   - TommyLike
+  - xiangxinyong
 - name: integration-test
   description: ""
   type: private
