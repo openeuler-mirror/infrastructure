@@ -747,6 +747,9 @@ repositories:
 - name: fakechroot
   description: ""
   type: private
+- name: fakeroot
+  description: ""
+  type: private
 - name: fcitx
   description: ""
   type: private
