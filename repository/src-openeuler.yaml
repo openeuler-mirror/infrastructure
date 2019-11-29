@@ -256,6 +256,9 @@ repositories:
 - name: autoconf
   description: ""
   type: private
+- name: autoconf-archive
+  description: ""
+  type: private
 - name: autofs
   description: ""
   type: private
@@ -320,6 +323,9 @@ repositories:
   description: ""
   type: private
 - name: boost
+  description: ""
+  type: private
+- name: brasero
   description: ""
   type: private
 - name: bridge-utils
@@ -511,6 +517,9 @@ repositories:
   description: ""
   type: private
 - name: crash
+  description: ""
+  type: private
+- name: crash-gcore-command
   description: ""
   type: private
 - name: crash-trace-command
@@ -953,6 +962,9 @@ repositories:
   description: ""
   type: private
 - name: gnome-settings-daemon
+  description: ""
+  type: private
+- name: gnome-shell-extensions
   description: ""
   type: private
 - name: gnome-themes-standard
@@ -1409,6 +1421,9 @@ repositories:
   description: ""
   type: private
 - name: libaio
+  description: ""
+  type: private
+- name: libappstream-glib
   description: ""
   type: private
 - name: libarchive
