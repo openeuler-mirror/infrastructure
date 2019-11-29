@@ -2,9 +2,12 @@ community:
   name: openeuler
   developers:
   - Charlie_li
+  - cynthia_xh
   - dogsheng
   - igorkorkin
   - overweight
+  - qingguopi
+  - Ronnie_Jiang
   - rudy_tan
   - solarhu
   - zhuchunyi
@@ -54,6 +57,9 @@ repositories:
 - name: infrastructure
   description: ""
   type: public
+  - freesky-edward
+  - xiangxinyong
+  - TommyLike
 - name: integration-test
   description: ""
   type: private
