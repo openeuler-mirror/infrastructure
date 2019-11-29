@@ -196,7 +196,7 @@ repositories:
 - name: apache-commons-pool
   description: ""
   type: public
-  managers:
+  developers:
     - solarhu
     - xhming
     - catastrowings
@@ -382,7 +382,7 @@ repositories:
 - name: cairomm
   description: ""
   type: public
-  managers:
+  developers:
     - solarhu
     - xhming
     - catastrowings
@@ -617,7 +617,7 @@ repositories:
 - name: devhelp
   description: ""
   type: public
-  managers:
+  developers:
     - solarhu
     - xhming
     - catastrowings  
@@ -901,7 +901,7 @@ repositories:
 - name: gedit
   description: ""
   type: public
-  managers:
+  developers:
     - solarhu
     - xhming
     - catastrowings
@@ -1166,7 +1166,7 @@ repositories:
 - name: hivex
   description: ""
   type: public
-  managers:
+  developers:
     - solarhu
     - xhming
     - catastrowings
@@ -1395,7 +1395,7 @@ repositories:
 - name: khmeros-fonts
   description: ""
   type: public
-  managers:
+  developers:
     - solarhu
     - xhming
     - catastrowings
@@ -1810,7 +1810,7 @@ repositories:
 - name: libomp
   description: ""
   type: public
-  managers:
+  developers:
     - solarhu
     - xhming
     - catastrowings
@@ -1832,7 +1832,7 @@ repositories:
 - name: libpfm
   description: ""
   type: public
-  managers:
+  developers:
     - solarhu
     - xhming
     - catastrowings
@@ -2157,7 +2157,7 @@ repositories:
 - name: lksctp-tools
   description: ""
   type: public
-  managers:
+  developers:
     - solarhu
     - xhming
     - catastrowings
@@ -2347,7 +2347,7 @@ repositories:
 - name: minicom
   description: ""
   type: public
-  managers:
+  developers:
     - solarhu
     - xhming
     - catastrowings
@@ -2393,7 +2393,7 @@ repositories:
 - name: mpg123
   description: ""
   type: public
-  managers:
+  developers:
     - solarhu
     - xhming
     - catastrowings
@@ -2732,7 +2732,7 @@ repositories:
 - name: perl-Class-Inspector
   description: ""
   type: public
-  managers:
+  developers:
     - solarhu
     - xhming
     - catastrowings
@@ -2850,7 +2850,7 @@ repositories:
 - name: perl-File-ShareDir
   description: ""
   type: public
-  managers:
+  developers:
     - solarhu
     - xhming
     - catastrowings
@@ -2986,7 +2986,7 @@ repositories:
 - name: perl-Package-Generator
   description: ""
   type: public
-  managers:
+  developers:
     - solarhu
     - xhming
     - catastrowings 
@@ -3149,7 +3149,7 @@ repositories:
 - name: phonon-backend-gstreamer
   description: ""
   type: public
-  managers:
+  developers:
     - solarhu
     - xhming
     - catastrowings
@@ -3786,7 +3786,7 @@ repositories:
 - name: redland
   description: ""
   type: public
-  managers:
+  developers:
     - solarhu
     - xhming
     - catastrowings
@@ -3829,7 +3829,7 @@ repositories:
 - name: rrdtool
   description: ""
   type: public
-  managers:
+  developers:
     - solarhu
     - xhming
     - catastrowings
@@ -4184,7 +4184,7 @@ repositories:
 - name: twolame
   description: ""
   type: public
-  managers:
+  developers:
     - solarhu
     - xhming
     - catastrowings
@@ -4332,7 +4332,7 @@ repositories:
 - name: wsmancli
   description: ""
   type: public
-  managers:
+  developers:
     - solarhu
     - xhming
     - catastrowings
@@ -4450,7 +4450,7 @@ repositories:
 - name: xrestop
   description: ""
   type: public
-  managers:
+  developers:
     - solarhu
     - xhming
     - catastrowings
