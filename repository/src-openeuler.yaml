@@ -187,6 +187,12 @@ repositories:
 - name: apache-commons-logging
   description: ""
   type: private
+- name: apache-commons-daemon
+  description: ""
+  type: private
+- name: apache-commons-dbcp
+  description: ""
+  type: private
 - name: apr
   description: ""
   type: private
@@ -2526,6 +2532,9 @@ repositories:
 - name: orc
   description: ""
   type: private
+- name: orca
+  description: ""
+  type: private
 - name: os-prober
   description: ""
   type: private
@@ -3970,6 +3979,9 @@ repositories:
   description: ""
   type: private
 - name: tokyocabinet
+  description: ""
+  type: private
+- name: tomcat-native
   description: ""
   type: private
 - name: totem-pl-parser
