@@ -1,5 +1,7 @@
 community:
   name: src-openeuler
+  protected_branches:
+  - master
   developers:
   - AlexZ11
   - anne_zhu
