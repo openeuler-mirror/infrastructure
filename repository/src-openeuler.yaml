@@ -372,6 +372,9 @@ repositories:
 - name: cairo
   description: ""
   type: private
+- name: cairomn
+  description: ""
+  type: private
 - name: capstone
   description: ""
   type: private
@@ -877,6 +880,9 @@ repositories:
 - name: gdm
   description: ""
   type: private
+- name: gedit
+  description: ""
+  type: private
 - name: geoclue2
   description: ""
   type: private
@@ -1133,6 +1139,9 @@ repositories:
   description: ""
   type: private
 - name: hicolor-icon-theme
+  description: ""
+  type: private
+- name: hivex
   description: ""
   type: private
 - name: hostname
@@ -1766,6 +1775,9 @@ repositories:
   description: ""
   type: private
 - name: libogg
+  description: ""
+  type: private
+- name: libomp
   description: ""
   type: private
 - name: libosinfo
@@ -2899,6 +2911,9 @@ repositories:
   description: ""
   type: private
 - name: perl-NTLM
+  description: ""
+  type: private
+- name: perl-Package-Generator
   description: ""
   type: private
 - name: perl-Params-Check
@@ -4324,6 +4339,9 @@ repositories:
   description: ""
   type: private
 - name: xorg-x11-xkb-utils
+  description: ""
+  type: private
+- name: xrestop
   description: ""
   type: private
 - name: xterm
