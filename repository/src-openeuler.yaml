@@ -193,6 +193,9 @@ repositories:
 - name: apache-commons-dbcp
   description: ""
   type: private
+- name: apache-commons-pool
+  description: ""
+  type: private
 - name: apr
   description: ""
   type: private
@@ -601,6 +604,9 @@ repositories:
   description: ""
   type: private
 - name: device-mapper-multipath
+  description: ""
+  type: private
+- name: devhelp
   description: ""
   type: private
 - name: device-mapper-persistent-data
@@ -2116,6 +2122,9 @@ repositories:
 - name: lklug-fonts
   description: ""
   type: private
+- name: lksctp-tools
+  description: ""
+  type: private
 - name: lldpad
   description: ""
   type: private
@@ -2339,6 +2348,9 @@ repositories:
   description: ""
   type: private
 - name: mpfr
+  description: ""
+  type: private
+- name: mpg123
   description: ""
   type: private
 - name: mtdev
@@ -2673,6 +2685,9 @@ repositories:
 - name: perl-Carp-Clan
   description: ""
   type: private
+- name: perl-Class-Inspector
+  description: ""
+  type: private
 - name: perl-Compress-Raw-Bzip2
   description: ""
   type: private
@@ -2782,6 +2797,9 @@ repositories:
   description: ""
   type: private
 - name: perl-File-Path
+  description: ""
+  type: private
+- name: perl-File-ShareDir
   description: ""
   type: private
 - name: perl-File-Temp
@@ -3070,6 +3088,9 @@ repositories:
   description: ""
   type: private
 - name: phonon
+  description: ""
+  type: private
+- name: phonon-backend-gstreamer
   description: ""
   type: private
 - name: pigz
@@ -4084,6 +4105,9 @@ repositories:
   description: ""
   type: private
 - name: tuned
+  description: ""
+  type: private
+- name: twolame
   description: ""
   type: private
 - name: tzdata
