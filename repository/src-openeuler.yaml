@@ -1357,6 +1357,9 @@ repositories:
 - name: kernel
   description: ""
   type: private
+- name: khmeros-fonts 5.0-26
+  description: ""
+  type: private
 - name: kexec-tools
   description: ""
   type: private
@@ -1778,6 +1781,9 @@ repositories:
   description: ""
   type: private
 - name: libpciaccess
+  description: ""
+  type: private
+- name: libpfm
   description: ""
   type: private
 - name: libpipeline
@@ -2279,6 +2285,9 @@ repositories:
   description: ""
   type: private
 - name: mikmod
+  description: ""
+  type: private
+- name: minicom
   description: ""
   type: private
 - name: mkeuleros
@@ -3675,6 +3684,9 @@ repositories:
 - name: redhat-menus
   description: ""
   type: private
+- name: redland
+  description: ""
+  type: private
 - name: repo
   description: ""
   type: private
@@ -3709,6 +3721,9 @@ repositories:
   description: ""
   type: private
 - name: rpmrebuild
+  description: ""
+  type: private
+- name: rrdtool
   description: ""
   type: private
 - name: rsync
@@ -4195,6 +4210,9 @@ repositories:
   description: ""
   type: private
 - name: wqy-zenhei-fonts
+  description: ""
+  type: private
+- name: wsmancli
   description: ""
   type: private
 - name: Xaw3d
