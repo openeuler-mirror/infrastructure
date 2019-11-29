@@ -3597,6 +3597,9 @@ repositories:
 - name: python-sphinxcontrib-websupport
   description: ""
   type: private
+- name: python-sure
+  description: ""
+  type: private
 - name: python-systemd
   description: ""
   type: private
@@ -3964,6 +3967,9 @@ repositories:
   description: ""
   type: private
 - name: sudo
+  description: ""
+  type: private
+- name: switcheroo-control
   description: ""
   type: private
 - name: symlinks
