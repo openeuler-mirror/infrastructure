@@ -1319,6 +1319,9 @@ repositories:
 - name: iw
   description: ""
   type: private
+- name: jack-audio-connection-kit
+  description: ""
+  type: private
 - name: jansson
   description: ""
   type: private
@@ -1753,6 +1756,9 @@ repositories:
   description: ""
   type: private
 - name: libmodman
+  description: ""
+  type: private
+- name: libmodplug
   description: ""
   type: private
 - name: libmodulemd
@@ -3155,6 +3161,9 @@ repositories:
   - catastrowings
   - solarhu
   - xhming
+- name: physfs
+  description: ""
+  type: private
 - name: pigz
   description: ""
   type: private
