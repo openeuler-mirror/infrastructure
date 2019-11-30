@@ -1,5 +1,7 @@
 community:
   name: src-openeuler
+  protected_branches:
+  - master
   developers:
   - AlexZ11
   - anne_zhu
@@ -14,20 +16,26 @@ community:
   - daidai_is_here
   - damian_2012
   - dogsheng
+  - drjgitee
   - duyyb
+  - eastb233
   - eric14chan
   - fly123fly
   - fun_yang
   - gnaygnil
   - gu-gu-gu
   - guanyanjie
+  - haijianzhang
   - igorkorkin
   - isulamaster
   - jackie_wu123
+  - jdkboy
   - lemon-higgins
   - lkx690
+  - openeuler-compute
   - openeuler-net
   - openeuler_kernel
+  - openeulervirtreview
   - overweight
   - pretty2019
   - putao66
@@ -67,7 +75,6 @@ community:
   - jimmy_hero
   - moyang1994
   - openeuler-basic
-  - openeuler-compute
   - openeuler-netdev
   - openeuler_hulk
   - openeulercomputecommitter
@@ -77,6 +84,7 @@ community:
   - openeulernet
   - openeulernetwork
   - openeulersystem
+  - openeulervirt 
   - pansh
   - ranygu
   - scutech
@@ -178,6 +186,22 @@ repositories:
 - name: anaconda-user-help
   description: ""
   type: private
+- name: apache-commons-logging
+  description: ""
+  type: private
+- name: apache-commons-daemon
+  description: ""
+  type: private
+- name: apache-commons-dbcp
+  description: ""
+  type: private
+- name: apache-commons-pool
+  description: ""
+  type: public
+  developers:
+  - catastrowings
+  - solarhu
+  - xhming
 - name: apr
   description: ""
   type: private
@@ -194,6 +218,9 @@ repositories:
   description: ""
   type: private
 - name: asciidoc
+  description: ""
+  type: private
+- name: aspell
   description: ""
   type: private
 - name: at
@@ -238,6 +265,9 @@ repositories:
 - name: autoconf
   description: ""
   type: private
+- name: autoconf-archive
+  description: ""
+  type: private
 - name: autofs
   description: ""
   type: private
@@ -254,6 +284,9 @@ repositories:
   description: ""
   type: private
 - name: b43-openfwwf
+  description: ""
+  type: private
+- name: b43-tools
   description: ""
   type: private
 - name: babel
@@ -301,6 +334,9 @@ repositories:
 - name: boost
   description: ""
   type: private
+- name: brasero
+  description: ""
+  type: private
 - name: bridge-utils
   description: ""
   type: private
@@ -324,6 +360,9 @@ repositories:
   - TommyLike
   - zhaoshangjie
   - zhuchunyi
+- name: bullet
+  description: ""
+  type: private
 - name: busybox
   description: ""
   type: private
@@ -342,6 +381,13 @@ repositories:
 - name: cairo
   description: ""
   type: private
+- name: cairomm
+  description: ""
+  type: public
+  developers:
+  - catastrowings
+  - solarhu
+  - xhming
 - name: capstone
   description: ""
   type: private
@@ -444,6 +490,9 @@ repositories:
 - name: clutter-gtk
   description: ""
   type: private
+- name: cmocka
+  description: ""
+  type: private
 - name: cockpit
   description: ""
   type: private
@@ -486,6 +535,12 @@ repositories:
 - name: crash
   description: ""
   type: private
+- name: crash-gcore-command
+  description: ""
+  type: private
+- name: crash-trace-command
+  description: ""
+  type: private
 - name: crda
   description: ""
   type: private
@@ -520,6 +575,9 @@ repositories:
   description: ""
   type: private
 - name: cvs
+  description: ""
+  type: private
+- name: cyrus-imapd
   description: ""
   type: private
 - name: cyrus-sasl
@@ -558,6 +616,13 @@ repositories:
 - name: device-mapper-multipath
   description: ""
   type: private
+- name: devhelp
+  description: ""
+  type: public
+  developers:
+  - catastrowings  
+  - solarhu
+  - xhming
 - name: device-mapper-persistent-data
   description: ""
   type: private
@@ -589,6 +654,9 @@ repositories:
   description: ""
   type: private
 - name: dnsmasq
+  description: ""
+  type: private
+- name: dnssec-trigger
   description: ""
   type: private
 - name: docbook2X
@@ -666,6 +734,9 @@ repositories:
 - name: eglexternalplatform
   description: ""
   type: private
+- name: elinks
+  description: ""
+  type: private
 - name: elfutils
   description: ""
   type: private
@@ -705,6 +776,12 @@ repositories:
 - name: expect
   description: ""
   type: private
+- name: fakechroot
+  description: ""
+  type: private
+- name: fakeroot
+  description: ""
+  type: private
 - name: fcitx
   description: ""
   type: private
@@ -724,6 +801,9 @@ repositories:
   description: ""
   type: private
 - name: findutils
+  description: ""
+  type: private
+- name: fio
   description: ""
   type: private
 - name: fipscheck
@@ -754,6 +834,12 @@ repositories:
   description: ""
   type: private
 - name: fprintd
+  description: ""
+  type: private
+- name: freerdp 
+  description: ""
+  type: private
+- name: freetds
   description: ""
   type: private
 - name: freetype
@@ -814,6 +900,13 @@ repositories:
 - name: gdm
   description: ""
   type: private
+- name: gedit
+  description: ""
+  type: public
+  developers:
+  - catastrowings
+  - solarhu
+  - xhming
 - name: geoclue2
   description: ""
   type: private
@@ -832,6 +925,9 @@ repositories:
 - name: gettext
   description: ""
   type: private
+- name: gflags
+  description: ""
+  type: private
 - name: ghostscript
   description: ""
   type: private
@@ -848,6 +944,12 @@ repositories:
   description: ""
   type: private
 - name: glade
+  description: ""
+  type: private
+- name: glew
+  description: ""
+  type: private
+- name: glib
   description: ""
   type: private
 - name: glib-networking
@@ -892,6 +994,9 @@ repositories:
 - name: gnome-settings-daemon
   description: ""
   type: private
+- name: gnome-shell-extensions
+  description: ""
+  type: private
 - name: gnome-themes-standard
   description: ""
   type: private
@@ -908,6 +1013,9 @@ repositories:
   description: ""
   type: private
 - name: gnu-efi
+  description: ""
+  type: private
+- name: gnu-free-fonts
   description: ""
   type: private
 - name: gobject-introspection
@@ -932,6 +1040,9 @@ repositories:
   description: ""
   type: private
 - name: google-roboto-slab-fonts
+  description: ""
+  type: private
+- name: go-compilers
   description: ""
   type: private
 - name: gperftools
@@ -1057,6 +1168,13 @@ repositories:
 - name: hicolor-icon-theme
   description: ""
   type: private
+- name: hivex
+  description: ""
+  type: public
+  developers:
+  - catastrowings
+  - solarhu
+  - xhming
 - name: hostname
   description: ""
   type: private
@@ -1088,6 +1206,9 @@ repositories:
   description: ""
   type: private
 - name: ibus
+  description: ""
+  type: private
+- name: ibus-kkc
   description: ""
   type: private
 - name: ibus-libzhuyin
@@ -1201,6 +1322,9 @@ repositories:
 - name: iw
   description: ""
   type: private
+- name: jack-audio-connection-kit
+  description: ""
+  type: private
 - name: jansson
   description: ""
   type: private
@@ -1276,6 +1400,13 @@ repositories:
 - name: kernel
   description: ""
   type: private
+- name: khmeros-fonts
+  description: ""
+  type: public
+  developers:
+  - catastrowings
+  - solarhu
+  - xhming
 - name: kexec-tools
   description: ""
   type: private
@@ -1342,10 +1473,16 @@ repositories:
 - name: libaio
   description: ""
   type: private
+- name: libappstream-glib
+  description: ""
+  type: private
 - name: libarchive
   description: ""
   type: private
 - name: libart_lgpl
+  description: ""
+  type: private
+- name: libass
   description: ""
   type: private
 - name: libassuan
@@ -1606,6 +1743,9 @@ repositories:
 - name: libmediaart
   description: ""
   type: private
+- name: libmemcached
+  description: ""
+  type: private
 - name: libmetalink
   description: ""
   type: private
@@ -1619,6 +1759,9 @@ repositories:
   description: ""
   type: private
 - name: libmodman
+  description: ""
+  type: private
+- name: libmodplug
   description: ""
   type: private
 - name: libmodulemd
@@ -1675,6 +1818,13 @@ repositories:
 - name: libogg
   description: ""
   type: private
+- name: libomp
+  description: ""
+  type: public
+  developers:
+  - catastrowings
+  - solarhu
+  - xhming
 - name: libosinfo
   description: ""
   type: private
@@ -1690,6 +1840,13 @@ repositories:
 - name: libpciaccess
   description: ""
   type: private
+- name: libpfm
+  description: ""
+  type: public
+  developers:
+  - catastrowings
+  - solarhu
+  - xhming
 - name: libpipeline
   description: ""
   type: private
@@ -1706,6 +1863,9 @@ repositories:
   description: ""
   type: private
 - name: libpwquality
+  description: ""
+  type: private
+- name: libqmi
   description: ""
   type: private
 - name: libquvi
@@ -2002,12 +2162,19 @@ repositories:
 - name: libzip
   description: ""
   type: private
-- name: linux-4.19
-  description: ""
-  type: private
 - name: linux-firmware
   description: ""
   type: private
+- name: lklug-fonts
+  description: ""
+  type: private
+- name: lksctp-tools
+  description: ""
+  type: public
+  developers:
+  - solarhu
+  - xhming
+  - catastrowings
 - name: lldpad
   description: ""
   type: private
@@ -2029,6 +2196,9 @@ repositories:
 - name: logwatch
   description: ""
   type: private
+- name: lohit-assamese-fonts
+  description: ""
+  type: private
 - name: lohit-bengali-fonts
   description: ""
   type: private
@@ -2042,6 +2212,12 @@ repositories:
   description: ""
   type: private
 - name: lohit-nepali-fonts
+  description: ""
+  type: private
+- name: lohit-telugu-fonts
+  description: ""
+  type: private
+- name: lohit-tmail-fonts
   description: ""
   type: private
 - name: lorax
@@ -2062,6 +2238,9 @@ repositories:
 - name: lsscsi
   description: ""
   type: private
+- name: ltrace
+  description: ""
+  type: private
 - name: lttng-ust
   description: ""
   type: private
@@ -2078,6 +2257,9 @@ repositories:
   description: ""
   type: private
 - name: lua-lpeg
+  description: ""
+  type: private
+- name: lua-posix
   description: ""
   type: private
 - name: lua-socket
@@ -2105,6 +2287,9 @@ repositories:
   description: ""
   type: private
 - name: lzop
+  description: ""
+  type: private
+- name: m17n-lib
   description: ""
   type: private
 - name: m2crypto
@@ -2149,6 +2334,9 @@ repositories:
 - name: mdadm
   description: ""
   type: private
+- name: memcached
+  description: ""
+  name: private
 - name: mercurial
   description: ""
   type: private
@@ -2161,6 +2349,9 @@ repositories:
 - name: mesa-libGLU
   description: ""
   type: private
+- name: mesa-libGLw
+  description: ""
+  type: private
 - name: meson
   description: ""
   type: private
@@ -2170,6 +2361,13 @@ repositories:
 - name: mikmod
   description: ""
   type: private
+- name: minicom
+  description: ""
+  type: public
+  developers:
+  - catastrowings
+  - solarhu
+  - xhming
 - name: mkeuleros
   description: ""
   type: private
@@ -2180,6 +2378,9 @@ repositories:
   description: ""
   type: private
 - name: mobile-broadband-provider-info
+  description: ""
+  type: private
+- name: mod_auth_gssapi
   description: ""
   type: private
 - name: mod_fcgid
@@ -2206,6 +2407,13 @@ repositories:
 - name: mpfr
   description: ""
   type: private
+- name: mpg123
+  description: ""
+  type: public
+  developers:
+  - catastrowings
+  - solarhu
+  - xhming
 - name: mtdev
   description: ""
   type: private
@@ -2246,6 +2454,9 @@ repositories:
   description: ""
   type: private
 - name: netcf
+  description: ""
+  type: private
+- name: netpbm
   description: ""
   type: private
 - name: nettle
@@ -2296,6 +2507,9 @@ repositories:
 - name: nss
   description: ""
   type: private
+- name: nss_wrapper
+  description: ""
+  type: private
 - name: nss-mdns
   description: ""
   type: private
@@ -2323,6 +2537,9 @@ repositories:
 - name: numpy
   description: ""
   type: private
+- name: nvmetcli
+  description: ""
+  type: private
 - name: obs-build
   description: ""
   type: private
@@ -2347,6 +2564,9 @@ repositories:
   description: ""
   type: private
 - name: openal-soft
+  description: ""
+  type: private
+- name: openblas
   description: ""
   type: private
 - name: openEuler-indexhtml
@@ -2424,6 +2644,9 @@ repositories:
 - name: orc
   description: ""
   type: private
+- name: orca
+  description: ""
+  type: private
 - name: os-prober
   description: ""
   type: private
@@ -2490,6 +2713,9 @@ repositories:
 - name: pcsc-lite-ccid
   description: ""
   type: private
+- name: perftest
+  description: ""
+  type: private
 - name: perl
   description: ""
   type: private
@@ -2502,6 +2728,9 @@ repositories:
 - name: perl-Archive-Zip
   description: ""
   type: private
+- name: perl-Authen-SASL
+  description: ""
+  type: private
 - name: perl-autodie
   description: ""
   type: private
@@ -2511,12 +2740,22 @@ repositories:
 - name: perl-bignum
   description: ""
   type: private
+- name: perl-Bit-Vector
+  description: ""
+  type: private
 - name: perl-Carp
   description: ""
   type: private
 - name: perl-Carp-Clan
   description: ""
   type: private
+- name: perl-Class-Inspector
+  description: ""
+  type: public
+  developers:
+  - catastrowings
+  - solarhu
+  - xhming
 - name: perl-Compress-Raw-Bzip2
   description: ""
   type: private
@@ -2551,6 +2790,9 @@ repositories:
   description: ""
   type: private
 - name: perl-Data-UUID
+  description: ""
+  type: private
+- name: perl-Devel-CheckLib
   description: ""
   type: private
 - name: perl-DB_File
@@ -2625,6 +2867,13 @@ repositories:
 - name: perl-File-Path
   description: ""
   type: private
+- name: perl-File-ShareDir
+  description: ""
+  type: public
+  developers:
+  - catastrowings
+  - solarhu
+  - xhming
 - name: perl-File-Temp
   description: ""
   type: private
@@ -2691,6 +2940,9 @@ repositories:
 - name: perl-libnet
   description: ""
   type: private
+- name: perl-libxml-perl
+  description: ""
+  type: private
 - name: perl-List-MoreUtils
   description: ""
   type: private
@@ -2751,6 +3003,13 @@ repositories:
 - name: perl-NTLM
   description: ""
   type: private
+- name: perl-Package-Generator
+  description: ""
+  type: public
+  developers:
+  - catastrowings 
+  - solarhu
+  - xhming
 - name: perl-Params-Check
   description: ""
   type: private
@@ -2802,6 +3061,9 @@ repositories:
 - name: perl-Socket
   description: ""
   type: private
+- name: perl-Socket6
+  description: ""
+  type: private
 - name: perl-Storable
   description: ""
   type: private
@@ -2830,6 +3092,9 @@ repositories:
   description: ""
   type: private
 - name: perl-Test-Simple
+  description: ""
+  type: private
+- name: perl-Test-Warnings
   description: ""
   type: private
 - name: perl-Text-Balanced
@@ -2896,6 +3161,19 @@ repositories:
   description: ""
   type: private
 - name: pesign
+  description: ""
+  type: private
+- name: phonon
+  description: ""
+  type: private
+- name: phonon-backend-gstreamer
+  description: ""
+  type: public
+  developers:
+  - catastrowings
+  - solarhu
+  - xhming
+- name: physfs
   description: ""
   type: private
 - name: pigz
@@ -2991,6 +3269,9 @@ repositories:
 - name: pycairo
   description: ""
   type: private
+- name: pyelftools
+  description: ""
+  type: private
 - name: pyflakes
   description: ""
   type: private
@@ -3030,6 +3311,9 @@ repositories:
 - name: python-augeas
   description: ""
   type: private
+- name: python-atomicwrites
+  description: ""
+  type: private
 - name: python-backports
   description: ""
   type: private
@@ -3066,6 +3350,9 @@ repositories:
 - name: python-configobj
   description: ""
   type: private
+- name: python-configparser
+  description: ""
+  type: private
 - name: python-configshell
   description: ""
   type: private
@@ -3082,6 +3369,9 @@ repositories:
   description: ""
   type: private
 - name: python-cryptography-vectors
+  description: ""
+  type: private
+- name: python-cups
   description: ""
   type: private
 - name: python-cycler
@@ -3123,6 +3413,15 @@ repositories:
 - name: python-flask-restful
   description: ""
   type: private
+- name: python-flit
+  description: ""
+  type: private
+- name: python-fonttools
+  description: ""
+  type: private
+- name: python-freezegun
+  description: ""
+  type: private
 - name: python-funcsigs
   description: ""
   type: private
@@ -3142,6 +3441,9 @@ repositories:
   description: ""
   type: private
 - name: python-httpretty
+  description: ""
+  type: private
+- name: python-hypothesis
   description: ""
   type: private
 - name: python-idna
@@ -3204,6 +3506,9 @@ repositories:
 - name: python-kmod
   description: ""
   type: private
+- name: python-linecache2
+  description: ""
+  type: private
 - name: python-linux-procfs
   description: ""
   type: private
@@ -3219,6 +3524,9 @@ repositories:
 - name: python-markupsafe
   description: ""
   type: private
+- name: python-markdown
+  description: ""
+  type: private
 - name: python-meh
   description: ""
   type: private
@@ -3226,6 +3534,9 @@ repositories:
   description: ""
   type: private
 - name: python-mock
+  description: ""
+  type: private
+- name: python-more-itertools
   description: ""
   type: private
 - name: python-netaddr
@@ -3253,6 +3564,9 @@ repositories:
   description: ""
   type: private
 - name: python-paste
+  description: ""
+  type: private
+- name: python-pbr
   description: ""
   type: private
 - name: python-pexpect
@@ -3360,6 +3674,15 @@ repositories:
 - name: python-sphinx_rtd_theme
   description: ""
   type: private
+- name: python-sphinx-theme-alabaster
+  description: ""
+  type: private
+- name: python-sphinxcontrib-websupport
+  description: ""
+  type: private
+- name: python-sure
+  description: ""
+  type: private
 - name: python-systemd
   description: ""
   type: private
@@ -3378,6 +3701,9 @@ repositories:
 - name: python-traceback2
   description: ""
   type: private
+- name: python-unittest2
+  description: ""
+  type: private
 - name: python-urlgrabber
   description: ""
   type: private
@@ -3388,6 +3714,9 @@ repositories:
   description: ""
   type: private
 - name: python-werkzeug
+  description: ""
+  type: private
+- name: python-whoosh
   description: ""
   type: private
 - name: python-xgboost
@@ -3429,13 +3758,25 @@ repositories:
 - name: qt5-qtdeclarative
   description: ""
   type: private
+- name: qt5-qtlocation
+  description: ""
+  type: private
+- name: qt5-qtquickcontrols2
+  description: ""
+  type: private
 - name: qt5-qtsvg
+  description: ""
+  type: private
+- name: qt5-qttranslations
   description: ""
   type: private
 - name: qt5-qtx11extras
   description: ""
   type: private
 - name: qt5-qtxmlpatterns
+  description: ""
+  type: private
+- name: qt5-qtwebengine
   description: ""
   type: private
 - name: quota
@@ -3468,6 +3809,13 @@ repositories:
 - name: redhat-menus
   description: ""
   type: private
+- name: redland
+  description: ""
+  type: public
+  developers:
+  - catastrowings
+  - solarhu
+  - xhming
 - name: repo
   description: ""
   type: private
@@ -3486,6 +3834,9 @@ repositories:
 - name: rpcbind
   description: ""
   type: private
+- name: rpcsvc-proto
+  description: ""
+  type: private
 - name: rpm
   description: ""
   type: private
@@ -3501,6 +3852,13 @@ repositories:
 - name: rpmrebuild
   description: ""
   type: private
+- name: rrdtool
+  description: ""
+  type: public
+  developers:
+  - catastrowings
+  - solarhu
+  - xhming
 - name: rsync
   description: ""
   type: private
@@ -3514,6 +3872,9 @@ repositories:
   description: ""
   type: private
 - name: samba
+  description: ""
+  type: private
+- name: sane-backends
   description: ""
   type: private
 - name: sanlock
@@ -3535,6 +3896,9 @@ repositories:
   description: ""
   type: private
 - name: screen
+  description: ""
+  type: private
+- name: scrub
   description: ""
   type: private
 - name: SDL
@@ -3601,6 +3965,12 @@ repositories:
   description: ""
   type: private
 - name: shim-unsigned-aarch64
+  description: ""
+  type: private
+- name: sil-abyssinica-fonts
+  description: ""
+  type: private
+- name: sip
   description: ""
   type: private
 - name: skopeo
@@ -3687,10 +4057,16 @@ repositories:
 - name: subscription-manager
   description: ""
   type: private
+- name: subunit
+  description: ""
+  type: private
 - name: subversion
   description: ""
   type: private
 - name: sudo
+  description: ""
+  type: private
+- name: switcheroo-control
   description: ""
   type: private
 - name: symlinks
@@ -3718,6 +4094,9 @@ repositories:
   description: ""
   type: private
 - name: tar
+  description: ""
+  type: private
+- name: targetcli
   description: ""
   type: private
 - name: tcl
@@ -3750,6 +4129,9 @@ repositories:
 - name: texinfo
   description: ""
   type: private
+- name: texlive
+  description: ""
+  type: private
 - name: tftp
   description: ""
   type: private
@@ -3763,6 +4145,9 @@ repositories:
   description: ""
   type: private
 - name: timedatex
+  description: ""
+  type: private
+- name: tinycdb
   description: ""
   type: private
 - name: tinyxml2
@@ -3780,10 +4165,16 @@ repositories:
 - name: tokyocabinet
   description: ""
   type: private
+- name: tomcat-native
+  description: ""
+  type: private
 - name: totem-pl-parser
   description: ""
   type: private
 - name: tpm-quote-tools
+  description: ""
+  type: private
+- name: tpm-tools
   description: ""
   type: private
 - name: tpm2-abrmd
@@ -3810,12 +4201,22 @@ repositories:
 - name: trousers
   description: ""
   type: private
+- name: tslib
+  description: ""
+  type: private
 - name: ttembed
   description: ""
   type: private
 - name: tuned
   description: ""
   type: private
+- name: twolame
+  description: ""
+  type: public
+  developers:
+  - catastrowings
+  - solarhu
+  - xhming
 - name: tzdata
   description: ""
   type: private
@@ -3850,6 +4251,9 @@ repositories:
   description: ""
   type: private
 - name: urw-base35-fonts
+  description: ""
+  type: private
+- name: usbmuxd
   description: ""
   type: private
 - name: usb_modeswitch
@@ -3954,7 +4358,17 @@ repositories:
 - name: wqy-zenhei-fonts
   description: ""
   type: private
+- name: wsmancli
+  description: ""
+  type: public
+  developers:
+  - catastrowings
+  - solarhu
+  - xhming
 - name: Xaw3d
+  description: ""
+  type: private
+- name: xcb-proto
   description: ""
   type: private
 - name: xcb-util
@@ -4000,6 +4414,15 @@ repositories:
   description: ""
   type: private
 - name: xmltoman
+  description: ""
+  type: private
+- name: xmms
+  description: ""
+  type: private
+- name: xorg-x11-apps
+  description: ""
+  type: private
+- name: xorg-x11-docs
   description: ""
   type: private
 - name: xorg-x11-drivers
@@ -4053,6 +4476,13 @@ repositories:
 - name: xorg-x11-xkb-utils
   description: ""
   type: private
+- name: xrestop
+  description: ""
+  type: public
+  developers:
+  - catastrowings
+  - solarhu
+  - xhming
 - name: xterm
   description: ""
   type: private
@@ -4114,6 +4544,7 @@ repositories:
   - jackie_wu123
   - lemon-higgins
   - lkx690
+  - openeuler-compute
   - openeuler-net
   - openeuler_kernel
   - overweight
@@ -4153,7 +4584,6 @@ repositories:
   - jimmy_hero
   - moyang1994
   - openeuler-basic
-  - openeuler-compute
   - openeuler-netdev
   - openeuler_hulk
   - openeulercomputecommitter
