@@ -1862,6 +1862,9 @@ repositories:
 - name: libpwquality
   description: ""
   type: private
+- name: libqmi
+  description: ""
+  type: private
 - name: libquvi
   description: ""
   type: private
@@ -2328,6 +2331,9 @@ repositories:
 - name: mdadm
   description: ""
   type: private
+- name: memcached
+  description: ""
+  name: private
 - name: mercurial
   description: ""
   type: private
