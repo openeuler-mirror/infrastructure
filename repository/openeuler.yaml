@@ -1,10 +1,15 @@
 community:
   name: openeuler
+  protected_branches:
+  - master
   developers:
   - Charlie_li
+  - cynthia_xh
   - dogsheng
   - igorkorkin
   - overweight
+  - qingguopi
+  - Ronnie_Jiang
   - rudy_tan
   - solarhu
   - zhuchunyi
@@ -54,6 +59,10 @@ repositories:
 - name: infrastructure
   description: ""
   type: public
+  developpers:
+  - freesky-edward
+  - TommyLike
+  - xiangxinyong
 - name: integration-test
   description: ""
   type: private
@@ -78,6 +87,9 @@ repositories:
 - name: kae_driver
   description: ""
   type: private
+- name: kernel
+  description: ""
+  type: private
 - name: lcr
   description: ""
   type: private
@@ -85,9 +97,6 @@ repositories:
   description: ""
   type: private
 - name: libwd
-  description: ""
-  type: private
-- name: linux-4.19
   description: ""
   type: private
 - name: openeuler-jenkins
