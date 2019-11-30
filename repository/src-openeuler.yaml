@@ -1027,6 +1027,9 @@ repositories:
 - name: golang-github-cpuguy83-go-md2man
   description: ""
   type: private
+- name: golang-github-russross-blackfriday
+  description: ""
+  type: private
 - name: google-droid-fonts
   description: ""
   type: private
@@ -3693,6 +3696,9 @@ repositories:
   description: ""
   type: private
 - name: python-threadpoolctl
+  description: ""
+  type: private
+- name: python-traceback2
   description: ""
   type: private
 - name: python-unittest2
