@@ -3100,7 +3100,7 @@ repositories:
 - name: perl-Text-Balanced
   description: ""
   type: private
-- name: perl-Text-Charwidth
+- name: perl-Text-CharWidth
   description: ""
   type: private
 - name: perl-Text-Diff
