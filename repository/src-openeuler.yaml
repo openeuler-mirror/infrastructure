@@ -2683,6 +2683,9 @@ repositories:
 - name: papi
   description: ""
   type: private
+- name: paratype-pt-sans-fonts
+  description: ""
+  type: private
 - name: parted
   description: ""
   type: private
@@ -3098,6 +3101,9 @@ repositories:
   description: ""
   type: private
 - name: perl-Text-Balanced
+  description: ""
+  type: private
+- name: perl-Text-CharWidth
   description: ""
   type: private
 - name: perl-Text-Diff
@@ -3797,6 +3803,9 @@ repositories:
 - name: rdma-core
   description: ""
   type: private
+- name: re2
+  description: ""
+  type: private
 - name: readline
   description: ""
   type: private
@@ -4389,6 +4398,9 @@ repositories:
 - name: xdg-user-dirs
   description: ""
   type: private
+- name: xdg-user-dirs-gtk
+  description: ""
+  type: private
 - name: xdg-utils
   description: ""
   type: private
@@ -4444,6 +4456,9 @@ repositories:
   description: ""
   type: private
 - name: xorg-x11-drv-nouveau
+  description: ""
+  type: private
+- name: xorg-x11-drv-qxl
   description: ""
   type: private
 - name: xorg-x11-drv-v4l
