@@ -2336,7 +2336,7 @@ repositories:
   type: private
 - name: memcached
   description: ""
-  name: private
+  type: private
 - name: mercurial
   description: ""
   type: private
