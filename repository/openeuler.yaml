@@ -22,20 +22,40 @@ repositories:
 - name: ci-bot
   description: ""
   type: public
+  developers:
+  - dogsheng
+  - edisonxiang
+  - freesky-edward
+  - imjoey
+  - tommyhusheng
+  - xiangxinyong
+  - zerodefect
 - name: clibcni
   description: ""
   type: private
 - name: community
   description: ""
   type: public
+  developers:
+  - dogsheng
+  - edisonxiang
+  - freesky-edward
+  - imjoey
+  - tommyhusheng
+  - xiangxinyong
+  - zerodefect
 - name: community-issue
   description: The public issue repo which only accept issue that doesn't belong to
     any source repo
   type: public
   developers:
+  - dogsheng
+  - edisonxiang
   - freesky-edward
-  - TommyLike
+  - imjoey
+  - tommyhusheng
   - xiangxinyong
+  - zerodefect
 - name: discussion
   description: ""
   type: private
@@ -56,13 +76,25 @@ repositories:
 - name: go-gitee
   description: ""
   type: public
+  developers:
+  - dogsheng
+  - edisonxiang
+  - freesky-edward
+  - imjoey
+  - tommyhusheng
+  - xiangxinyong
+  - zerodefect
 - name: infrastructure
   description: ""
   type: public
   developpers:
+  - dogsheng
+  - edisonxiang
   - freesky-edward
-  - TommyLike
+  - imjoey
+  - tommyhusheng
   - xiangxinyong
+  - zerodefect
 - name: integration-test
   description: ""
   type: private
@@ -123,4 +155,12 @@ repositories:
 - name: website
   description: ""
   type: public
+  developers:
+  - dogsheng
+  - edisonxiang
+  - freesky-edward
+  - imjoey
+  - tommyhusheng
+  - xiangxinyong
+  - zerodefect
 
