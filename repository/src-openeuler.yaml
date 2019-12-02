@@ -598,6 +598,9 @@ repositories:
 - name: dbus-python
   description: ""
   type: private
+- name: dbusmenu-qt
+  description: ""
+  type: private
 - name: dbxtool
   description: ""
   type: private
@@ -1115,6 +1118,9 @@ repositories:
   description: ""
   type: private
 - name: gtest
+  description: ""
+  type: private
+- name: gtk
   description: ""
   type: private
 - name: gtk2
@@ -4003,6 +4009,9 @@ repositories:
 - name: snappy
   description: ""
   type: private
+- name: sni-qt
+  description: ""
+  type: private
 - name: socket_wrapper
   description: ""
   type: private
@@ -4019,6 +4028,9 @@ repositories:
   description: ""
   type: private
 - name: source-highlight
+  description: ""
+  type: private
+- name: spamassassin
   description: ""
   type: private
 - name: speech-dispatcher
