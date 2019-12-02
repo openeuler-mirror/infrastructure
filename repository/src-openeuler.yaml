@@ -2566,6 +2566,7 @@ repositories:
   - TommyLike
   - zhaoshangjie
   - zhuchunyi
+  - yanzh_h
 - name: oci-systemd-hook
   description: ""
   type: private
