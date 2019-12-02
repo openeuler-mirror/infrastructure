@@ -3076,6 +3076,9 @@ repositories:
 - name: perl-Storable
   description: ""
   type: private
+- name : perl-Sub-Exporter-Progressive
+  description: ""
+  type: private
 - name: perl-Sub-Install
   description: ""
   type: private
