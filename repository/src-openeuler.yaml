@@ -4015,6 +4015,9 @@ repositories:
 - name: source-highlight
   description: ""
   type: private
+- name: speech-dispatcher
+  description: ""
+  type: private
 - name: speex
   description: ""
   type: private
