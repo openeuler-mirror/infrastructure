@@ -1111,6 +1111,9 @@ repositories:
 - name: gstreamer1-plugins-base
   description: ""
   type: private
+- name: gstreamer1-plugins-good
+  description: ""
+  type: private
 - name: gtest
   description: ""
   type: private
@@ -1615,6 +1618,9 @@ repositories:
   description: ""
   type: private
 - name: libfastjson
+  description: ""
+  type: private
+- name: libffado
   description: ""
   type: private
 - name: libffi
@@ -4160,6 +4166,9 @@ repositories:
   description: ""
   type: private
 - name: tinycdb
+  description: ""
+  type: private
+- name: tinyxml
   description: ""
   type: private
 - name: tinyxml2
