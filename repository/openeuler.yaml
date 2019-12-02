@@ -24,7 +24,6 @@ repositories:
   type: public
   developers:
   - dogsheng
-  - edisonxiang
   - freesky-edward
   - imjoey
   - tommyhusheng
@@ -38,7 +37,6 @@ repositories:
   type: public
   developers:
   - dogsheng
-  - edisonxiang
   - freesky-edward
   - imjoey
   - tommyhusheng
@@ -50,7 +48,6 @@ repositories:
   type: public
   developers:
   - dogsheng
-  - edisonxiang
   - freesky-edward
   - imjoey
   - tommyhusheng
@@ -78,7 +75,6 @@ repositories:
   type: public
   developers:
   - dogsheng
-  - edisonxiang
   - freesky-edward
   - imjoey
   - tommyhusheng
@@ -89,7 +85,6 @@ repositories:
   type: public
   developpers:
   - dogsheng
-  - edisonxiang
   - freesky-edward
   - imjoey
   - tommyhusheng
@@ -157,7 +152,6 @@ repositories:
   type: public
   developers:
   - dogsheng
-  - edisonxiang
   - freesky-edward
   - imjoey
   - tommyhusheng
