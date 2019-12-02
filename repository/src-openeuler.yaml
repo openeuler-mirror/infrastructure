@@ -3926,6 +3926,9 @@ repositories:
 - name: SDL
   description: ""
   type: private
+- name: SDL_sound
+  description: ""
+  type: private
 - name: sdparm
   description: ""
   type: private
