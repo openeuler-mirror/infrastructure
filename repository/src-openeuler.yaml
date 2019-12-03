@@ -186,6 +186,12 @@ repositories:
 - name: anaconda-user-help
   description: ""
   type: private
+- name: apache-commons-codec
+  description: ""
+  type: private
+- name: apache-commons-lang3
+  description: ""
+  type: private
 - name: apache-commons-logging
   description: ""
   type: private
@@ -3255,6 +3261,12 @@ repositories:
 - name: plexus-classworlds
   description: ""
   type: private
+- name: plexus-i18n
+  description: ""
+  type: private
+- name: plexus-interpolation 
+  description: ""
+  type: private
 - name: plymouth
   description: ""
   type: private
@@ -4428,6 +4440,9 @@ repositories:
 - name: which
   description: ""
   type: private
+- name: wildmidi
+  description: ""
+  type: private
 - name: wireshark
   description: ""
   type: private
@@ -4719,6 +4734,9 @@ repositories:
   description: ""
   type: private
 - name: zstd
+  description: ""
+  type: private
+- name: zvbi
   description: ""
   type: private
 - name: zziplib
