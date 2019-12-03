@@ -3267,6 +3267,9 @@ repositories:
 - name: popt
   description: ""
   type: private
+- name: portaudio
+  description: ""
+  type: private
 - name: portreserve
   description: ""
   type: private
