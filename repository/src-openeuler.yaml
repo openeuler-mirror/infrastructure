@@ -3034,6 +3034,9 @@ repositories:
 - name: perl-Net-HTTP
   description: ""
   type: private
+- name: perl-Net-SMTP-SSL
+  description: ""
+  type: private
 - name: perl-Net-SSLeay
   description: ""
   type: private
