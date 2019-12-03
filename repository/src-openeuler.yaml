@@ -2917,6 +2917,13 @@ repositories:
   - catastrowings
   - solarhu
   - xhming
+- name: perl-File-ShareDir-Install
+  description: ""
+  type: public
+  developers:
+  - catastrowings
+  - solarhu
+  - xhming
 - name: perl-File-Temp
   description: ""
   type: private
