@@ -481,6 +481,9 @@ repositories:
   - weimingjiang
   - yangxuan8282
   - zhangshengju
+- name: clucene
+  description: ""
+  type: private
 - name: clutter
   description: ""
   type: private
@@ -746,6 +749,9 @@ repositories:
 - name: emacs
   description: ""
   type: private
+- name: emacs-auctex
+  description: ""
+  type: private
 - name: enchant
   description: ""
   type: private
@@ -777,6 +783,9 @@ repositories:
   description: ""
   type: private
 - name: expect
+  description: ""
+  type: private
+- name: extlinux-bootloader
   description: ""
   type: private
 - name: fakechroot
@@ -837,6 +846,9 @@ repositories:
   description: ""
   type: private
 - name: fprintd
+  description: ""
+  type: private
+- name: freeradius
   description: ""
   type: private
 - name: freerdp 
@@ -2301,6 +2313,9 @@ repositories:
 - name: lzop
   description: ""
   type: private
+- name: m17n-db
+  description: ""
+  type: private
 - name: m17n-lib
   description: ""
   type: private
@@ -2649,6 +2664,9 @@ repositories:
   description: ""
   type: private
 - name: opus
+  description: ""
+  type: private
+- name: opusfile
   description: ""
   type: private
 - name: ORBit2
@@ -3050,6 +3068,9 @@ repositories:
 - name: perl-Pod-Checker
   description: ""
   type: private
+- name: perl-Pod-Coverage
+  description: ""
+  type: private
 - name: perl-Pod-Escapes
   description: ""
   type: private
@@ -3099,6 +3120,9 @@ repositories:
   description: ""
   type: private
 - name: perl-TermReadKey
+  description: ""
+  type: private
+- name: perl-Test-CPAN-Meta
   description: ""
   type: private
 - name: perl-Test-FailWarnings
@@ -3177,6 +3201,9 @@ repositories:
   description: ""
   type: private
 - name: perl-XML-Writer
+  description: ""
+  type: private
+- name: perl-XML-XPath
   description: ""
   type: private
 - name: perl-YAML-Tiny
@@ -3771,6 +3798,9 @@ repositories:
 - name: qt5
   description: ""
   type: private
+- name: qt5-doc
+  description: ""
+  type: private
 - name: qt5-qtbase
   description: ""
   type: private
@@ -3783,10 +3813,16 @@ repositories:
 - name: qt5-qtlocation
   description: ""
   type: private
+- name: qt5-qtquickcontrols
+  description: ""
+  type: private
 - name: qt5-qtquickcontrols2
   description: ""
   type: private
 - name: qt5-qtsvg
+  description: ""
+  type: private
+- name: qt5-qttools
   description: ""
   type: private
 - name: qt5-qttranslations
