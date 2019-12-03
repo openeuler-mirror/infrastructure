@@ -767,6 +767,9 @@ repositories:
 - name: eog
   description: ""
   type: private
+- name: espeak-ng
+  description: ""
+  type: private
 - name: ethtool
   description: ""
   type: private
@@ -3246,6 +3249,12 @@ repositories:
 - name: pkgconf
   description: ""
   type: private
+- name: plexus-build-api
+  description: ""
+  type: private
+- name: plexus-classworlds
+  description: ""
+  type: private
 - name: plymouth
   description: ""
   type: private
@@ -4559,6 +4568,9 @@ repositories:
   description: ""
   type: private
 - name: xorg-x11-xkb-utils
+  description: ""
+  type: private
+- name: xpp3
   description: ""
   type: private
 - name: xrestop
