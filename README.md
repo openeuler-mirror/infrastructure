@@ -15,7 +15,7 @@ This repository houses the scripts for community infrastructure, you are welcome
 ```
 
 
-Currently, all systems are running in HuaweiCloud CCE engine as container, we appreciate anyone who is will to contribute your infrastructure resource into our community. thanks.
+Currently, all systems are running in HuaweiCloud CCE engine as container, we appreciate anyone who is will to contribute your infrastructure resource into our community. thank you.
 
 ### Mail
 
