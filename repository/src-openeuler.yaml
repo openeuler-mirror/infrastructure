@@ -421,6 +421,9 @@ repositories:
 - name: chkconfig
   description: ""
   type: private
+- name: chromaprint
+  description: ""
+  type: private
 - name: chrony
   description: ""
   type: private
@@ -600,6 +603,9 @@ repositories:
   description: ""
   type: private
 - name: dbus
+  description: ""
+  type: private
+- name: dbus-cpp
   description: ""
   type: private
 - name: dbus-glib
@@ -1356,6 +1362,9 @@ repositories:
 - name: jack-audio-connection-kit
   description: ""
   type: private
+- name: jansi
+  description: ""
+  type: private
 - name: jansson
   description: ""
   type: private
@@ -1757,6 +1766,9 @@ repositories:
   description: ""
   type: private
 - name: libkae
+  description: ""
+  type: private
+- name: libkate
   description: ""
   type: private
 - name: libkcapi
@@ -2575,6 +2587,9 @@ repositories:
   description: ""
   type: private
 - name: nvmetcli
+  description: ""
+  type: private
+- name: objectweb-asm
   description: ""
   type: private
 - name: obs-build
@@ -4536,6 +4551,9 @@ repositories:
 - name: xmms
   description: ""
   type: private
+- name: xmvn
+  description: ""
+  type: private
 - name: xorg-x11-apps
   description: ""
   type: private
@@ -4727,6 +4745,9 @@ repositories:
   - zhang_wei5630
   - zhangshengju
 - name: yum-utils
+  description: ""
+  type: private
+- name: zbar
   description: ""
   type: private
 - name: zd1211-firmware
