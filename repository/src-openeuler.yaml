@@ -867,6 +867,9 @@ repositories:
 - name: fluidsynth
   description: ""
   type: private
+- name: fluid-soundfont
+  description: ""
+  type: private
 - name: fltk
   description: ""
   type: private
