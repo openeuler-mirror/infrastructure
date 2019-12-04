@@ -2341,6 +2341,9 @@ repositories:
 - name: lua-lpeg
   description: ""
   type: private
+- name: lua-lunit
+  description: ""
+  type: private
 - name: lua-posix
   description: ""
   type: private
@@ -3482,6 +3485,9 @@ repositories:
 - name: python-backports
   description: ""
   type: private
+- name: python-backports_abc
+  description: ""
+  type: private
 - name: python-backports-ssl_match_hostname
   description: ""
   type: private
@@ -4091,6 +4097,9 @@ repositories:
   description: ""
   type: private
 - name: SDL
+  description: ""
+  type: private
+- name: SDL2
   description: ""
   type: private
 - name: SDL_sound
