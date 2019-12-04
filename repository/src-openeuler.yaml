@@ -112,6 +112,9 @@ repositories:
 - name: abattis-cantarell-fonts
   description: ""
   type: private
+- name: abrt
+  description: ""
+  type: private
 - name: accountsservice
   description: ""
   type: private
@@ -184,6 +187,9 @@ repositories:
   description: ""
   type: private
 - name: anaconda-user-help
+  description: ""
+  type: private
+- name: aopalliance
   description: ""
   type: private
 - name: apache-commons-codec
@@ -397,6 +403,9 @@ repositories:
 - name: capstone
   description: ""
   type: private
+- name: cdi-api
+  description: ""
+  type: private
 - name: cdparanoia
   description: ""
   type: private
@@ -522,6 +531,9 @@ repositories:
   description: ""
   type: private
 - name: container-selinux
+  description: ""
+  type: private
+- name: containernetworking-plugins
   description: ""
   type: private
 - name: containerd
@@ -700,6 +712,9 @@ repositories:
   description: ""
   type: private
 - name: dotconf
+  description: ""
+  type: private
+- name: dovecot
   description: ""
   type: private
 - name: dracut
@@ -1169,6 +1184,9 @@ repositories:
 - name: gzip
   description: ""
   type: private
+- name: hamcrest
+  description: ""
+  type: private
 - name: hardlink
   description: ""
   type: private
@@ -1402,6 +1420,9 @@ repositories:
   description: ""
   type: private
 - name: json-glib
+  description: ""
+  type: private
+- name: jzlib
   description: ""
   type: private
 - name: kae_driver
@@ -2664,6 +2685,9 @@ repositories:
 - name: openssl-pkcs11
   description: ""
   type: private
+- name: opentest4j
+  description: ""
+  type: private
 - name: openvpn
   description: ""
   type: private
@@ -3010,6 +3034,9 @@ repositories:
   description: ""
   type: private
 - name: perl-LWP-Protocol-https
+  description: ""
+  type: private
+- name: perl-Mail-SPF
   description: ""
   type: private
 - name: perl-MailTools
@@ -4174,6 +4201,9 @@ repositories:
 - name: sudo
   description: ""
   type: private
+- name: swig
+  description: ""
+  type: private
 - name: switcheroo-control
   description: ""
   type: private
@@ -4519,6 +4549,9 @@ repositories:
   description: ""
   type: private
 - name: xkeyboard-config
+  description: ""
+  type: private
+- name: xml-commons-resolver
   description: ""
   type: private
 - name: xmlrpc-c
