@@ -885,6 +885,9 @@ repositories:
 - name: fxload
   description: ""
   type: private
+- name: game-music-emu
+  description: ""
+  type: private
 - name: gamin
   description: ""
   type: private
@@ -3800,6 +3803,9 @@ repositories:
 - name: python-werkzeug
   description: ""
   type: private
+- name: python-wheel
+  description: ""
+  type: private
 - name: python-whoosh
   description: ""
   type: private
@@ -4277,6 +4283,9 @@ repositories:
   description: ""
   type: private
 - name: tomcat-native
+  description: ""
+  type: private
+- name: tomcat-taglibs-standard
   description: ""
   type: private
 - name: totem-pl-parser
