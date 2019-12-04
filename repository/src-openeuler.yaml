@@ -2959,6 +2959,9 @@ repositories:
 - name: perl-Exporter-Tiny
   description: ""
   type: private
+- name: perl-ExtUtils-CBuilder
+  description: ""
+  type: private
 - name: perl-ExtUtils-Install
   description: ""
   type: private
@@ -3848,6 +3851,9 @@ repositories:
 - name: python-sphinxcontrib-websupport
   description: ""
   type: private
+- name: python-sqlalchemy
+  description: ""
+  type: private
 - name: python-sure
   description: ""
   type: private
@@ -3936,6 +3942,9 @@ repositories:
   description: ""
   type: private
 - name: qt5-qtlocation
+  description: ""
+  type: private
+- name: qt5-qtmultimedia
   description: ""
   type: private
 - name: qt5-qtquickcontrols
