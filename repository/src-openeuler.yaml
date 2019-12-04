@@ -4439,7 +4439,7 @@ repositories:
 - name: vconfig
   description: ""
   type: private
-- name: velovity
+- name: velocity
   description: ""
   type: private
 - name: vim
