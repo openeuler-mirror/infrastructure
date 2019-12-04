@@ -1037,9 +1037,6 @@ repositories:
 - name: gnome-desktop3
   description: ""
   type: private
-- name: gnome-doc-utils
-  description: ""
-  type: private
 - name: gnome-keyring
   description: ""
   type: private
