@@ -1151,6 +1151,9 @@ repositories:
 - name: gtk3
   description: ""
   type: private
+- name: gtkmm24
+  description: ""
+  type: private
 - name: guile
   description: ""
   type: private
@@ -2142,6 +2145,9 @@ repositories:
 - name: libxklavier
   description: ""
   type: private
+- name: libxm
+  description: ""
+  type: private
 - name: libxml2
   description: ""
   type: private
@@ -2360,6 +2366,24 @@ repositories:
   description: ""
   type: private
 - name: mariadb-connector-c
+  description: ""
+  type: private
+- name: maven
+  description: ""
+  type: private
+- name: maven-compiler-plugin
+  description: ""
+  type: private
+- name: maven-jar-plugin
+  description: ""
+  type: private
+- name: maven-resolver
+  description: ""
+  type: private
+- name: maven-resources-plugin
+  description: ""
+  type: private
+- name: maven-wagon
   description: ""
   type: private
 - name: mcpp
@@ -3272,10 +3296,16 @@ repositories:
 - name: plexus-classworlds
   description: ""
   type: private
+- name: plexus-component-api
+  description: ""
+  type: private
 - name: plexus-i18n
   description: ""
   type: private
 - name: plexus-interpolation 
+  description: ""
+  type: private
+- name: plexus-velocity 
   description: ""
   type: private
 - name: plymouth
@@ -3411,6 +3441,9 @@ repositories:
   description: ""
   type: private
 - name: python-beautifulsoup4
+  description: ""
+  type: private
+- name: python-behave
   description: ""
   type: private
 - name: python-blinker
@@ -4404,6 +4437,9 @@ repositories:
   description: ""
   type: private
 - name: vconfig
+  description: ""
+  type: private
+- name: velovity
   description: ""
   type: private
 - name: vim
