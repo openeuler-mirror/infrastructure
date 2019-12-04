@@ -2145,7 +2145,7 @@ repositories:
 - name: libxklavier
   description: ""
   type: private
-- name: libxm
+- name: libxml
   description: ""
   type: private
 - name: libxml2
