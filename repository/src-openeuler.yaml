@@ -849,6 +849,9 @@ repositories:
 - name: flex
   description: ""
   type: private
+- name: fluidsynth
+  description: ""
+  type: private
 - name: fltk
   description: ""
   type: private
@@ -3860,6 +3863,9 @@ repositories:
 - name: qt5-qtdeclarative
   description: ""
   type: private
+- name: qt5-qtenginio
+  description: ""
+  type: private
 - name: qt5-qtlocation
   description: ""
   type: private
@@ -3882,6 +3888,9 @@ repositories:
   description: ""
   type: private
 - name: qt5-qtxmlpatterns
+  description: ""
+  type: private
+- name: qt5-qtwebkit
   description: ""
   type: private
 - name: qt5-qtwebengine
