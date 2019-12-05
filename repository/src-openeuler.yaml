@@ -1855,6 +1855,9 @@ repositories:
 - name: libmetalink
   description: ""
   type: private
+- name: libmicrohttpd
+  description: ""
+  type: private
 - name: libmikmod
   description: ""
   type: private
