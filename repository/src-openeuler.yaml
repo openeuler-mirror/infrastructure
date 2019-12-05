@@ -204,6 +204,9 @@ repositories:
 - name: apache-commons-compress
   description: ""
   type: private
+- name: apache-commons-lang
+  description: ""
+  type: private
 - name: apache-commons-lang3
   description: ""
   type: private
