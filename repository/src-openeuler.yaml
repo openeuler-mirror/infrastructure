@@ -4674,6 +4674,12 @@ repositories:
 - name: xcb-util-wm
   description: ""
   type: private
+- name: xdg-desktop-portal
+  description: ""
+  type: private
+- name: xdg-desktop-portal-gtk
+  description: ""
+  type: private
 - name: xdg-user-dirs
   description: ""
   type: private
