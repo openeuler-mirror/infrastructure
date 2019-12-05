@@ -226,13 +226,13 @@ repositories:
   - catastrowings
   - solarhu
   - xhming
-- name: aqute-bnd
-  description: ""
-  type: private
 - name: apr
   description: ""
   type: private
 - name: apr-util
+  description: ""
+  type: private
+- name: aqute-bnd
   description: ""
   type: private
 - name: argon2
