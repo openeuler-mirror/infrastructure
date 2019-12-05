@@ -189,10 +189,19 @@ repositories:
 - name: anaconda-user-help
   description: ""
   type: private
+- name: antlr
+  description: ""
+  type: private
 - name: aopalliance
   description: ""
   type: private
 - name: apache-commons-codec
+  description: ""
+  type: private
+- name: apache-commons-collections
+  description: ""
+  type: private
+- name: apache-commons-compress
   description: ""
   type: private
 - name: apache-commons-lang3
@@ -205,6 +214,9 @@ repositories:
   description: ""
   type: private
 - name: apache-commons-dbcp
+  description: ""
+  type: private
+- name: apache-commons-net
   description: ""
   type: private
 - name: apache-commons-pool
@@ -1001,6 +1013,9 @@ repositories:
 - name: glade
   description: ""
   type: private
+- name: glassfish-el
+  description: ""
+  type: private
 - name: glew
   description: ""
   type: private
@@ -1208,6 +1223,9 @@ repositories:
 - name: harfbuzz
   description: ""
   type: private
+- name: hawtjni
+  description: ""
+  type: private
 - name: haveged
   description: ""
   type: private
@@ -1245,6 +1263,9 @@ repositories:
 - name: http-parser
   description: ""
   type: private
+- name: httpcomponents-client
+  description: ""
+  type: private
 - name: httpd
   description: ""
   type: private
@@ -1279,6 +1300,9 @@ repositories:
   description: ""
   type: private
 - name: ibus-m17n
+  description: ""
+  type: private
+- name: ibus-table-array30
   description: ""
   type: private
 - name: icfg
@@ -3365,6 +3389,9 @@ repositories:
 - name: plymouth
   description: ""
   type: private
+- name: podman
+  description: ""
+  type: private
 - name: policycoreutils
   description: ""
   type: private
@@ -3932,6 +3959,9 @@ repositories:
 - name: qt5-doc
   description: ""
   type: private
+- name: qt5-qt3d
+  description: ""
+  type: private
 - name: qt5-qtbase
   description: ""
   type: private
@@ -4184,6 +4214,9 @@ repositories:
   description: ""
   type: private
 - name: slang
+  description: ""
+  type: private
+- name: slf4j
   description: ""
   type: private
 - name: smartmontools
@@ -4464,6 +4497,9 @@ repositories:
   description: ""
   type: private
 - name: units
+  description: ""
+  type: private
+- name: univocity-parsers
   description: ""
   type: private
 - name: unixODBC
