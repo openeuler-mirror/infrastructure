@@ -900,6 +900,9 @@ repositories:
 - name: fprintd
   description: ""
   type: private
+- name: freeipmi
+  description: ""
+  type: private
 - name: freeradius
   description: ""
   type: private
