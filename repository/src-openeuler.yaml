@@ -864,6 +864,9 @@ repositories:
 - name: fipscheck
   description: ""
   type: private
+- name: firebird
+  description: ""
+  type: private
 - name: firefox
   description: ""
   type: private
@@ -3947,6 +3950,9 @@ repositories:
 - name: pyxattr
   description: ""
   type: private
+- name: pyxdg
+  description: ""
+  type: private
 - name: PyYAML
   description: ""
   type: private
@@ -4054,6 +4060,9 @@ repositories:
   description: ""
   type: private
 - name: rest
+  description: ""
+  type: private
+- name: rhash
   description: ""
   type: private
 - name: rhnsd
@@ -4328,6 +4337,9 @@ repositories:
   description: ""
   type: private
 - name: sysfsutils
+  description: ""
+  type: private
+- name: syslinux-tftpboot
   description: ""
   type: private
 - name: sysstat
