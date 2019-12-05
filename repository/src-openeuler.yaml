@@ -226,6 +226,9 @@ repositories:
   - catastrowings
   - solarhu
   - xhming
+- name: aqute-bnd
+  description: ""
+  type: private
 - name: apr
   description: ""
   type: private
