@@ -900,6 +900,9 @@ repositories:
 - name: fprintd
   description: ""
   type: private
+- name: freeipmi
+  description: ""
+  type: private
 - name: freeradius
   description: ""
   type: private
@@ -1853,6 +1856,9 @@ repositories:
   description: ""
   type: private
 - name: libmetalink
+  description: ""
+  type: private
+- name: libmicrohttpd
   description: ""
   type: private
 - name: libmikmod
