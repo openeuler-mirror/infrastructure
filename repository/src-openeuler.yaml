@@ -195,6 +195,9 @@ repositories:
 - name: aopalliance
   description: ""
   type: private
+- name: apache-commons-cli
+  description: ""
+  type: private
 - name: apache-commons-codec
   description: ""
   type: private
@@ -257,6 +260,9 @@ repositories:
   description: ""
   type: private
 - name: at-spi2-core
+  description: ""
+  type: private
+- name: atinject
   description: ""
   type: private
 - name: atk
@@ -999,6 +1005,9 @@ repositories:
   description: ""
   type: private
 - name: geolite2
+  description: ""
+  type: private
+- name: geronimo-annotation
   description: ""
   type: private
 - name: gettext
@@ -2296,6 +2305,9 @@ repositories:
   - solarhu
   - xhming
   - catastrowings
+- name: lldb
+  description: ""
+  type: private
 - name: lldpad
   description: ""
   type: private
@@ -3963,6 +3975,9 @@ repositories:
   description: ""
   type: private
 - name: pytz
+  description: ""
+  type: private
+- name: pywbem
   description: ""
   type: private
 - name: pyxattr
