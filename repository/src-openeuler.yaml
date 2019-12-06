@@ -3376,6 +3376,9 @@ repositories:
 - name: perl-XML-Parser
   description: ""
   type: private
+- name: perl-XML-Simple
+  description: ""
+  type: private
 - name: perl-XML-Writer
   description: ""
   type: private
