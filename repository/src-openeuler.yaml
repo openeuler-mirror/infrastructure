@@ -942,6 +942,9 @@ repositories:
 - name: fuse
   description: ""
   type: private
+- name: fwupdate
+  description: ""
+  type: private
 - name: fxload
   description: ""
   type: private
