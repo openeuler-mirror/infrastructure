@@ -238,6 +238,9 @@ repositories:
 - name: apr-util
   description: ""
   type: private
+- name: aqute-bnd
+  description: ""
+  type: private
 - name: argon2
   description: ""
   type: private
