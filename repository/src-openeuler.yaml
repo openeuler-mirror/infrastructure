@@ -796,6 +796,9 @@ repositories:
 - name: efivar
   description: ""
   type: private
+- name: efl
+  description: ""
+  type: private
 - name: eglexternalplatform
   description: ""
   type: private
