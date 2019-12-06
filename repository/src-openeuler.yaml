@@ -346,6 +346,9 @@ repositories:
 - name: bcm283x-firmware
   description: ""
   type: private
+- name: beust-jcommander
+  description: ""
+  type: private
 - name: bind
   description: ""
   type: private
@@ -2727,6 +2730,9 @@ repositories:
 - name: oddjob
   description: ""
   type: private
+- name: ongres-scram
+  description: ""
+  type: private
 - name: open-isns
   description: ""
   type: private
@@ -3740,6 +3746,9 @@ repositories:
 - name: python-Keras_Preprocessing
   description: ""
   type: private
+- name: python-keyring
+  description: ""
+  type: private
 - name: python-kiwisolver
   description: ""
   type: private
@@ -4148,6 +4157,9 @@ repositories:
   description: ""
   type: private
 - name: rtkit
+  description: ""
+  type: private
+- name: ruby
   description: ""
   type: private
 - name: runc
