@@ -2832,6 +2832,9 @@ repositories:
 - name: osc
   description: ""
   type: private
+- name: osgi-core
+  description: ""
+  type: private
 - name: osinfo-db
   description: ""
   type: private
@@ -3190,6 +3193,9 @@ repositories:
   description: ""
   type: private
 - name: perl-Net-Daemon
+  description: ""
+  type: private
+- name: perl-Net-DNS
   description: ""
   type: private
 - name: perl-Net-HTTP
