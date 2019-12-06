@@ -1134,6 +1134,9 @@ repositories:
 - name: google-droid-fonts
   description: ""
   type: private
+- name: google-guice
+  description: ""
+  type: private
 - name: google-noto-cjk-fonts
   description: ""
   type: private
