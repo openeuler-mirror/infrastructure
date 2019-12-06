@@ -2974,6 +2974,9 @@ repositories:
 - name: perl-Data-UUID
   description: ""
   type: private
+- name: perl-Date-Manip
+  description: ""
+  type: private
 - name: perl-Devel-CheckLib
   description: ""
   type: private
