@@ -23,6 +23,7 @@ repositories:
   description: ""
   type: public
   developers:
+  - cynthia_xh
   - dogsheng
   - freesky-edward
   - imjoey
@@ -36,6 +37,7 @@ repositories:
   description: ""
   type: public
   developers:
+  - cynthia_xh
   - dogsheng
   - freesky-edward
   - imjoey
@@ -47,6 +49,7 @@ repositories:
     any source repo
   type: public
   developers:
+  - cynthia_xh
   - dogsheng
   - freesky-edward
   - imjoey
@@ -58,6 +61,7 @@ repositories:
   type: private
   developers:
   - Charlie_li
+  - cynthia_xh
   - dogsheng
   - igorkorkin
   - initlove
@@ -74,6 +78,7 @@ repositories:
   description: ""
   type: public
   developers:
+  - cynthia_xh
   - dogsheng
   - freesky-edward
   - imjoey
@@ -84,6 +89,7 @@ repositories:
   description: ""
   type: public
   developpers:
+  - cynthia_xh
   - dogsheng
   - freesky-edward
   - imjoey
@@ -96,6 +102,7 @@ repositories:
   developers:
   - air9
   - Charlie_li
+  - cynthia_xh
   - dogsheng
   - heruxiao
   - jimmy_hero
@@ -137,6 +144,7 @@ repositories:
   - baizhilaoda
   - Charlie_li
   - Classicriver_jia
+  - cynthia_xh
   - damian_2012
   - heruxiao
   - jimmy_hero
@@ -151,6 +159,7 @@ repositories:
   description: ""
   type: public
   developers:
+  - cynthia_xh
   - dogsheng
   - freesky-edward
   - imjoey
