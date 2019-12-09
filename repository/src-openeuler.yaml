@@ -2499,6 +2499,9 @@ repositories:
 - name: maven
   description: ""
   type: private
+- name: maven-artifact-transfer
+  description: ""
+  type: private
 - name: maven2
   description: ""
   type: private
