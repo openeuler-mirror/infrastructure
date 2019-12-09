@@ -1357,6 +1357,9 @@ repositories:
 - name: icu
   description: ""
   type: private
+- name: iio-sensor-proxy
+  description: ""
+  type: private
 - name: ilmbase
   description: ""
   type: private
