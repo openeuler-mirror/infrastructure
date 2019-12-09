@@ -1236,6 +1236,9 @@ repositories:
 - name: gtkmm24
   description: ""
   type: private
+- name: guava20
+  description: ""
+  type: private
 - name: guile
   description: ""
   type: private
@@ -4030,6 +4033,9 @@ repositories:
   description: ""
   type: private
 - name: PyYAML
+  description: ""
+  type: private
+- name: qdox
   description: ""
   type: private
 - name: qemu
