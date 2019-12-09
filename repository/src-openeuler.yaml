@@ -184,6 +184,9 @@ repositories:
 - name: alsa-tools
   description: ""
   type: private
+- name: alsa-utils
+  description: ""
+  type: private
 - name: anaconda
   description: ""
   type: private
