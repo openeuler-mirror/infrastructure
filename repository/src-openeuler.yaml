@@ -1077,6 +1077,9 @@ repositories:
 - name: gnome-autoar
   description: ""
   type: private
+- name: gnome-abrt
+  description: ""
+  type: private
 - name: gnome-bluetooth
   description: ""
   type: private
@@ -1868,6 +1871,9 @@ repositories:
 - name: libkcapi
   description: ""
   type: private
+- name: libkkc
+  description: ""
+  type: private
 - name: libksba
   description: ""
   type: private
@@ -2483,10 +2489,16 @@ repositories:
 - name: maven
   description: ""
   type: private
+- name: maven2
+  description: ""
+  type: private
 - name: maven-compiler-plugin
   description: ""
   type: private
 - name: maven-jar-plugin
+  description: ""
+  type: private
+- name: maven-shared-utils
   description: ""
   type: private
 - name: maven-resolver
@@ -3900,6 +3912,9 @@ repositories:
 - name: python-pyudev
   description: ""
   type: private
+- name: python-reportlab
+  description: ""
+  type: private
 - name: python-requests
   description: ""
   type: private
@@ -4191,6 +4206,9 @@ repositories:
   description: ""
   type: private
 - name: runc
+  description: ""
+  type: private
+- name: rust
   description: ""
   type: private
 - name: samba
@@ -4722,6 +4740,9 @@ repositories:
 - name: wsmancli
   description: ""
   type: public
+- name: wxGTK3
+  description: ""
+  type: private
   developers:
   - catastrowings
   - solarhu
