@@ -923,6 +923,9 @@ repositories:
 - name: fprintd
   description: ""
   type: private
+- name: freeglut
+  description: ""
+  type: private
 - name: freeipmi
   description: ""
   type: private
@@ -4019,6 +4022,9 @@ repositories:
   description: ""
   type: private
 - name: python-urllib3
+  description: ""
+  type: private
+- name: python-urwid
   description: ""
   type: private
 - name: python-webencodings
