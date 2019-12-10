@@ -2756,6 +2756,9 @@ repositories:
   - zhaoshangjie
   - zhuchunyi
   - yanzh_h
+- name: ocaml-curses
+  description: ""
+  type: private
 - name: oci-systemd-hook
   description: ""
   type: private
