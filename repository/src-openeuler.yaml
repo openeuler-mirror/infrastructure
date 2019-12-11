@@ -1482,6 +1482,9 @@ repositories:
 - name: iSulad-tools
   description: ""
   type: private
+- name: itstool
+  description: ""
+  type: private
 - name: ivtv-firmware
   description: ""
   type: private
