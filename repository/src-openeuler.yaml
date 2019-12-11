@@ -1123,6 +1123,9 @@ repositories:
 - name: gnome-getting-started-docs
   description: ""
   type: private
+- name: gnome-icon-theme-extras
+  description: ""
+  type: private
 - name: gnome-keyring
   description: ""
   type: private
