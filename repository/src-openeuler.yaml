@@ -1097,6 +1097,9 @@ repositories:
 - name: gnome-bluetooth
   description: ""
   type: private
+- name: gnome-clocks
+  description: ""
+  type: private
 - name: gnome-control-center
   description: ""
   type: private
@@ -4873,6 +4876,9 @@ repositories:
   description: ""
   type: private
 - name: xorg-x11-drivers
+  description: ""
+  type: private
+- name: xorg-x11-drv-armsoc
   description: ""
   type: private
 - name: xorg-x11-drv-ati
