@@ -1938,6 +1938,9 @@ repositories:
 - name: libmaxminddb
   description: ""
   type: private
+- name: libmbim
+  description: ""
+  type: private
 - name: libmediaart
   description: ""
   type: private
@@ -2321,6 +2324,9 @@ repositories:
 - name: libXmu
   description: ""
   type: private
+- name: libXp
+  description: ""
+  type: private
 - name: libXpm
   description: ""
   type: private
@@ -2657,6 +2663,9 @@ repositories:
   - catastrowings
   - solarhu
   - xhming
+- name: mstflint
+  description: ""
+  type: private
 - name: mtdev
   description: ""
   type: private
@@ -2940,6 +2949,9 @@ repositories:
   description: ""
   type: private
 - name: pango
+  description: ""
+  type: private
+- name: pangomm
   description: ""
   type: private
 - name: papi
@@ -4118,6 +4130,9 @@ repositories:
   description: ""
   type: private
 - name: qemu
+  description: ""
+  type: private
+- name: qpdf
   description: ""
   type: private
 - name: qrencode
