@@ -1141,6 +1141,9 @@ repositories:
 - name: gnome-online-accounts
   description: ""
   type: private
+- name: gnome-python2
+  description: ""
+  type: private
 - name: gnome-screenshot
   description: ""
   type: private
