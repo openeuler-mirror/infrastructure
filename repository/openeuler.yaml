@@ -15,11 +15,27 @@ community:
   - solarhu
   - zhuchunyi
   viewers:
+  - tongyuanos
   - zhang_wei5630
 repositories:
 - name: A-Tune
   description: ""
   type: private
+  developers:
+  - Charlie_li
+  - cynthia_xh
+  - dogsheng
+  - igorkorkin
+  - kuhnchen18
+  - overweight
+  - qingguopi
+  - Ronnie_Jiang
+  - rudy_tan
+  - solarhu
+  - xiezhipeng1
+  - zhuchunyi
+  viewers:
+  - zhang_wei5630
 - name: ci-bot
   description: ""
   type: public
