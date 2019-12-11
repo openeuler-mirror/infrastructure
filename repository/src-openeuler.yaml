@@ -93,6 +93,7 @@ community:
   - smilebob
   - taoziyaoyao
   - tom0392
+  - tongyuanos
   - weimingjiang
   - yangxuan8282
   - zhang_wei5630
@@ -478,6 +479,7 @@ repositories:
   type: private
   developers:
   - dogsheng
+  - jacobstrive
   - imjoey
   - TommyLike
   - zhaoshangjie
@@ -1097,6 +1099,9 @@ repositories:
 - name: gnome-bluetooth
   description: ""
   type: private
+- name: gnome-clocks
+  description: ""
+  type: private
 - name: gnome-color-manager
   description: ""
   type: private
@@ -1109,13 +1114,25 @@ repositories:
 - name: gnome-desktop3
   description: ""
   type: private
+- name: gnome-dictionary
+  description: ""
+  type: private
+- name: gnome-disk-utility
+  description: ""
+  type: private
 - name: gnome-doc-utils
+  description: ""
+  type: private
+- name: gnome-font-viewer
   description: ""
   type: private
 - name: gnome-getting-started-docs
   description: ""
   type: private
 - name: gnome-keyring
+  description: ""
+  type: private
+- name: gnome-logs
   description: ""
   type: private
 - name: gnome-online-accounts
@@ -1480,6 +1497,9 @@ repositories:
   description: ""
   type: private
 - name: iSulad-tools
+  description: ""
+  type: private
+- name: itstool
   description: ""
   type: private
 - name: ivtv-firmware
@@ -1924,6 +1944,9 @@ repositories:
 - name: libmaxminddb
   description: ""
   type: private
+- name: libmbim
+  description: ""
+  type: private
 - name: libmediaart
   description: ""
   type: private
@@ -2307,6 +2330,9 @@ repositories:
 - name: libXmu
   description: ""
   type: private
+- name: libXp
+  description: ""
+  type: private
 - name: libXpm
   description: ""
   type: private
@@ -2643,6 +2669,9 @@ repositories:
   - catastrowings
   - solarhu
   - xhming
+- name: mstflint
+  description: ""
+  type: private
 - name: mtdev
   description: ""
   type: private
@@ -2926,6 +2955,9 @@ repositories:
   description: ""
   type: private
 - name: pango
+  description: ""
+  type: private
+- name: pangomm
   description: ""
   type: private
 - name: papi
@@ -4106,6 +4138,9 @@ repositories:
 - name: qemu
   description: ""
   type: private
+- name: qpdf
+  description: ""
+  type: private
 - name: qrencode
   description: ""
   type: private
@@ -4879,6 +4914,9 @@ repositories:
   description: ""
   type: private
 - name: xorg-x11-drivers
+  description: ""
+  type: private
+- name: xorg-x11-drv-armsoc
   description: ""
   type: private
 - name: xorg-x11-drv-ati
