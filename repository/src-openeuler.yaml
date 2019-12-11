@@ -1109,6 +1109,9 @@ repositories:
 - name: gnome-doc-utils
   description: ""
   type: private
+- name: gnome-font-viewer
+  description: ""
+  type: private
 - name: gnome-getting-started-docs
   description: ""
   type: private
