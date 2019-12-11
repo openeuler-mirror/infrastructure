@@ -1097,6 +1097,12 @@ repositories:
 - name: gnome-bluetooth
   description: ""
   type: private
+- name: gnome-color-manager
+  description: ""
+  type: private
+- name: gnome-contacts
+  description: ""
+  type: private
 - name: gnome-control-center
   description: ""
   type: private
