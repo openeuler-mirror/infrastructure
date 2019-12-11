@@ -15,6 +15,7 @@ community:
   - solarhu
   - zhuchunyi
   viewers:
+  - tongyuanos
   - zhang_wei5630
 repositories:
 - name: A-Tune
