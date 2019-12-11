@@ -1107,6 +1107,12 @@ repositories:
 - name: gnome-desktop3
   description: ""
   type: private
+- name: gnome-dictionary
+  description: ""
+  type: private
+- name: gnome-disk-utility
+  description: ""
+  type: private
 - name: gnome-doc-utils
   description: ""
   type: private
