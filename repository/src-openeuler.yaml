@@ -4177,6 +4177,9 @@ repositories:
 - name: python-scons
   description: ""
   type: private
+- name: python-scour
+  description: ""
+  type: private
 - name: python-SecretStorage
   description: ""
   type: private
