@@ -405,6 +405,9 @@ repositories:
 - name: bsf
   description: ""
   type: private
+- name: bsh
+  description: ""
+  type: private
 - name: btrfs-progs
   description: ""
   type: private
@@ -1625,6 +1628,9 @@ repositories:
 - name: json-glib
   description: ""
   type: private
+- name: junit
+  description: ""
+  type: private
 - name: jzlib
   description: ""
   type: private
@@ -1918,6 +1924,9 @@ repositories:
   description: ""
   type: private
 - name: libgnomekbd
+  description: ""
+  type: private
+- name: libgovirt
   description: ""
   type: private
 - name: libgpg-error
@@ -3652,6 +3661,9 @@ repositories:
 - name: plexus-io
   description: ""
   type: private
+- name: plexus-resources
+  description: ""
+  type: private
 - name: plexus-utils
   description: ""
   type: private
@@ -3659,6 +3671,9 @@ repositories:
   description: ""
   type: private
 - name: plymouth
+  description: ""
+  type: private
+- name: pngquant
   description: ""
   type: private
 - name: podman
