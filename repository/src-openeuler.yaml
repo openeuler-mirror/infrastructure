@@ -2276,6 +2276,9 @@ repositories:
 - name: libwebsockets
   description: ""
   type: private
+- name: libwmf
+  description: ""
+  type: private
 - name: libwnck3
   description: ""
   type: private
@@ -3937,6 +3940,9 @@ repositories:
 - name: python-oauthlib
   description: ""
   type: private
+- name: python-olefile
+  description: ""
+  type: private
 - name: python-ordered-set
   description: ""
   type: private
@@ -3965,6 +3971,9 @@ repositories:
   description: ""
   type: private
 - name: python-pip
+  description: ""
+  type: private
+- name: python-pillow
   description: ""
   type: private
 - name: python-pkgconfig
