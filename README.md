@@ -12,6 +12,7 @@ This repository houses the scripts for community infrastructure, you are welcome
 |__docs        --house the design docs.
 |__assets      --house the basic assets, e.g. images.
 |__repository  --house the repository maintenance yaml.
+|__meetbot     --house the meetbot dockerfile and deployment yaml
 ```
 
 
