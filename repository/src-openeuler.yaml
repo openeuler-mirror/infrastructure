@@ -896,6 +896,9 @@ repositories:
 - name: fcoe-utils
   description: ""
   type: private
+- name: felix-bundlerepository
+  description: ""
+  type: private
 - name: felix-utils
   description: ""
   type: private
@@ -1687,6 +1690,9 @@ repositories:
   description: ""
   type: private
 - name: krb5
+  description: ""
+  type: private
+- name: kxml
   description: ""
   type: private
 - name: ladspa
@@ -2643,10 +2649,22 @@ repositories:
 - name: maven-jar-plugin
   description: ""
   type: private
+- name: maven-plugin-bundle
+  description: ""
+  type: private
 - name: maven-shared-io
   description: ""
   type: private
 - name: maven-shared-utils
+  description: ""
+  type: private
+- name: maven-source-plugin
+  description: ""
+  type: private
+- name: maven-remote-resources-plugin
+  description: ""
+  type: private
+- name: maven-reporting-impl
   description: ""
   type: private
 - name: maven-resolver
