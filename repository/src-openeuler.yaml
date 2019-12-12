@@ -547,6 +547,9 @@ repositories:
 - name: clutter-gtk
   description: ""
   type: private
+- name: cmake
+  description: ""
+  type: private
 - name: cmocka
   description: ""
   type: private
