@@ -240,6 +240,9 @@ repositories:
   - catastrowings
   - solarhu
   - xhming
+- name: apache-resource-bundles
+  description: ""
+  type: private
 - name: apr
   description: ""
   type: private
@@ -394,6 +397,9 @@ repositories:
   description: ""
   type: private
 - name: brotli
+  description: ""
+  type: private
+- name: bsf
   description: ""
   type: private
 - name: btrfs-progs
@@ -794,6 +800,9 @@ repositories:
 - name: ebtables
   description: ""
   type: private
+- name: eclipse-jgit
+  description: ""
+  type: private
 - name: ed
   description: ""
   type: private
@@ -882,6 +891,9 @@ repositories:
   description: ""
   type: private
 - name: fcoe-utils
+  description: ""
+  type: private
+- name: felix-utils
   description: ""
   type: private
 - name: fftw
@@ -1551,6 +1563,9 @@ repositories:
   description: ""
   type: private
 - name: java
+  description: ""
+  type: private
+- name: javaewah
   description: ""
   type: private
 - name: jbig2dec
@@ -2602,6 +2617,9 @@ repositories:
   description: ""
   type: private
 - name: maven-jar-plugin
+  description: ""
+  type: private
+- name: maven-shared-io
   description: ""
   type: private
 - name: maven-shared-utils
