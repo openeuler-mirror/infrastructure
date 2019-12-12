@@ -471,6 +471,9 @@ repositories:
 - name: cgdcbxd
   description: ""
   type: private
+- name: cglib
+  description: ""
+  type: private
 - name: checkpolicy
   description: ""
   type: private
@@ -801,6 +804,9 @@ repositories:
   description: ""
   type: private
 - name: e2fsprogs
+  description: ""
+  type: private
+- name: easymock
   description: ""
   type: private
 - name: ebtables
@@ -1607,6 +1613,9 @@ repositories:
   - street_dust
   - wubodong
   - zhang_liu_yan
+- name: jemalloc
+  description: ""
+  type: private
 - name: jfsutils
   description: ""
   type: private
@@ -1984,6 +1993,9 @@ repositories:
   description: ""
   type: private
 - name: libijs
+  description: ""
+  type: private
+- name: libimagequant
   description: ""
   type: private
 - name: libimobiledevice
