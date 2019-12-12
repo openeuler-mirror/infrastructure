@@ -1144,6 +1144,9 @@ repositories:
 - name: gnome-logs
   description: ""
   type: private
+- name: gnome-menus
+  description: ""
+  type: private
 - name: gnome-online-accounts
   description: ""
   type: private
