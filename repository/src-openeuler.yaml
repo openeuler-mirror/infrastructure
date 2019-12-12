@@ -806,6 +806,9 @@ repositories:
 - name: e2fsprogs
   description: ""
   type: private
+- name: easymock
+  description: ""
+  type: private
 - name: ebtables
   description: ""
   type: private
