@@ -73,6 +73,9 @@ module "internet" {
     },
     {
       bandwidth_id = "${split(",", module.internet.this_bandwidth_ids)[1]}"
+    },
+    { 
+      bandwidth_id = "${split(",", module.internet.this_bandwidth_ids)[0]}"
     }
   ]
 }
@@ -117,6 +120,12 @@ module "elb" {
       subnet_id   = "${split(",", module.network.this_subnet_ids)[0]}"
       eip         = "${split(",", module.internet.this_eip_addresses)[3]}"
     },
+    {
+      name        = "elb-meetbot"
+      description = "The load balancer of meetbot"
+      subnet_id   = "${split(",", module.network.this_subnet_ids)[0]}"
+      eip         = "${split(",", module.internet.this_eip_addresses)[4]}"
+    }
   ]
 }
 
@@ -162,6 +171,11 @@ module "dns" {
       domain = "${var.selector}._domainkey.${var.domain}."
       type   = "TXT"
       value  = "\"v=DKIM1;k=rsa;p=${var.dkim_public_key}\""
+    },
+    {
+      domain = "${var.domain}."
+      type   = "meetings"
+      value  = "${split(",", module.internet.this_eip_addresses)[4]}"
     }
   ]
 
