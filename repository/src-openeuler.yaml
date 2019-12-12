@@ -4855,6 +4855,9 @@ repositories:
 - name: uboot-tools
   description: ""
   type: private
+- name: ucs-miscfixed-fonts
+  description: ""
+  type: private
 - name: udisks2
   description: ""
   type: private
