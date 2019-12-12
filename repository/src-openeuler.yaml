@@ -1129,6 +1129,9 @@ repositories:
 - name: gnome-bluetooth
   description: ""
   type: private
+- name: gnome-characters
+  description: ""
+  type: private
 - name: gnome-clocks
   description: ""
   type: private
