@@ -1992,6 +1992,9 @@ repositories:
 - name: libijs
   description: ""
   type: private
+- name: libimagequant
+  description: ""
+  type: private
 - name: libimobiledevice
   description: ""
   type: private
