@@ -1135,6 +1135,9 @@ repositories:
 - name: gnome-icon-theme-extras
   description: ""
   type: private
+- name: gnome-icon-theme-symbolic
+  description: ""
+  type: private
 - name: gnome-keyring
   description: ""
   type: private
