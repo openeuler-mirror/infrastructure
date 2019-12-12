@@ -1415,6 +1415,9 @@ repositories:
 - name: hwinfo
   description: ""
   type: private
+- name: hwloc
+  description: ""
+  type: private
 - name: hyphen
   description: ""
   type: private
