@@ -2309,6 +2309,9 @@ repositories:
 - name: libvisual
   description: ""
   type: private
+- name: libvoikko
+  description: ""
+  type: private
 - name: libvorbis
   description: ""
   type: private
@@ -2605,6 +2608,9 @@ repositories:
   description: ""
   type: private
 - name: make
+  description: ""
+  type: private
+- name: malaga-suomi-voikko
   description: ""
   type: private
 - name: man-db
@@ -4793,6 +4799,9 @@ repositories:
   description: ""
   type: private
 - name: unbound
+  description: ""
+  type: private
+- name: uniconvertor
   description: ""
   type: private
 - name: unique
