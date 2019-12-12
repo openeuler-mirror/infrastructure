@@ -1481,6 +1481,9 @@ repositories:
 - name: initscripts
   description: ""
   type: private
+- name: inkscape
+  description: ""
+  type: private
 - name: integration-test
   description: "used for openeuler integration test"
   type: private
