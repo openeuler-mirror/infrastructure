@@ -236,6 +236,9 @@ repositories:
 - name: apache-commons-pool
   description: ""
   type: public
+- name: apache-parent
+  description: ""
+  type: public
   developers:
   - catastrowings
   - solarhu
@@ -1580,6 +1583,9 @@ repositories:
 - name: jenkins_project
   description: ""
   type: private
+- name: jdom2
+  description: ""
+  type: private
   developers:
   - anne_zhu
   - baizhilaoda
@@ -1599,6 +1605,12 @@ repositories:
   description: ""
   type: private
 - name: jose
+  description: ""
+  type: private
+- name: jsch
+  description: ""
+  type: private
+- name: jsch-agent-proxy
   description: ""
   type: private
 - name: json-c
@@ -1632,6 +1644,9 @@ repositories:
   description: ""
   type: private
 - name: kbd
+  description: ""
+  type: private
+- name: kde-settings
   description: ""
   type: private
 - name: kdump-anaconda-addon
@@ -3596,6 +3611,9 @@ repositories:
   description: ""
   type: private
 - name: plexus-classworlds
+  description: ""
+  type: private
+- name: plexus-cli
   description: ""
   type: private
 - name: plexus-component-api
