@@ -11,6 +11,7 @@ data:
   irc_channels: "#openeuler-meeting #openeuler-meeting-1"
   url_info: https://openeuler.org/en/meetings.html
   log_url_prefix: http://meetings.openeuler.org/
+  log_pattern: "%(channel)s/%%Y/%(meetingname)s/%%F-%%H.%%M"
   nginx.conf: |
     user  root;
     worker_processes  1;
