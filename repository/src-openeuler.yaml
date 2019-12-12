@@ -339,6 +339,9 @@ repositories:
 - name: babeltrace
   description: ""
   type: private
+- name: baobab
+  description: ""
+  type: private
 - name: basesystem
   description: ""
   type: private
@@ -1099,6 +1102,9 @@ repositories:
 - name: gnome-abrt
   description: ""
   type: private
+- name: gnome-backgrounds
+  description: ""
+  type: private
 - name: gnome-bluetooth
   description: ""
   type: private
@@ -1153,6 +1159,9 @@ repositories:
 - name: gnome-python2
   description: ""
   type: private
+- name: gnome-remote-desktop
+  description: ""
+  type: private
 - name: gnome-screenshot
   description: ""
   type: private
@@ -1160,6 +1169,9 @@ repositories:
   description: ""
   type: private
 - name: gnome-shell-extensions
+  description: ""
+  type: private
+- name: gnome-software
   description: ""
   type: private
 - name: gnome-themes-standard
@@ -1175,6 +1187,9 @@ repositories:
   description: ""
   type: private
 - name: gnutls
+  description: ""
+  type: private
+- name: gnome-video-effects
   description: ""
   type: private
 - name: gnu-efi
@@ -2123,6 +2138,9 @@ repositories:
 - name: libsamplerate
   description: ""
   type: private
+- name: libsane-hpaio
+  description: ""
+  type: private
 - name: libseccomp
   description: ""
   type: private
@@ -2668,6 +2686,9 @@ repositories:
 - name: mokutil
   description: ""
   type: private
+- name: mousetweaks
+  description: ""
+  type: private
 - name: mozilla-filesystem
   description: ""
   type: private
@@ -2709,6 +2730,9 @@ repositories:
   description: ""
   type: private
 - name: nautilus
+  description: ""
+  type: private
+- name: nautilus-sendto
   description: ""
   type: private
 - name: ncompress
@@ -3000,6 +3024,9 @@ repositories:
   description: ""
   type: private
 - name: pciutils
+  description: ""
+  type: private
+- name: pcp
   description: ""
   type: private
 - name: pcre
@@ -4539,6 +4566,9 @@ repositories:
 - name: sudo
   description: ""
   type: private
+- name: sushi
+  description: ""
+  type: private
 - name: swig
   description: ""
   type: private
@@ -4611,6 +4641,9 @@ repositories:
 - name: texlive
   description: ""
   type: private
+- name: texlive-base
+  description: ""
+  type: private
 - name: tftp
   description: ""
   type: private
@@ -4651,6 +4684,9 @@ repositories:
   description: ""
   type: private
 - name: tomcat-taglibs-standard
+  description: ""
+  type: private
+- name: totem
   description: ""
   type: private
 - name: totem-pl-parser
