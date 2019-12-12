@@ -2303,6 +2303,9 @@ repositories:
 - name: libtool
   description: ""
   type: private
+- name: libuninameslist
+  description: ""
+  type: private
 - name: libunistring
   description: ""
   type: private
@@ -3309,6 +3312,9 @@ repositories:
   description: ""
   type: private
 - name: perl-Filter-Simple
+  description: ""
+  type: private
+- name: perl-Font-TTF
   description: ""
   type: private
 - name: perl-Getopt-Long
