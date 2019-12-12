@@ -2369,6 +2369,9 @@ repositories:
 - name: libwnck3
   description: ""
   type: private
+- name: libwpg
+  description: ""
+  type: private
 - name: libX11
   description: ""
   type: private
