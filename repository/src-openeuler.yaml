@@ -5015,6 +5015,9 @@ repositories:
   - catastrowings
   - solarhu
   - xhming
+- name: xapian-core
+  description: ""
+  type: private
 - name: Xaw3d
   description: ""
   type: private
