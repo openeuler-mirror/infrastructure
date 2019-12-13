@@ -1342,6 +1342,9 @@ repositories:
 - name: gtkmm24
   description: ""
   type: private
+- name: gtkspell
+  description: ""
+  type: private
 - name: guava20
   description: ""
   type: private
