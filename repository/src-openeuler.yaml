@@ -3371,6 +3371,9 @@ repositories:
 - name: perl-IO-HTML
   description: ""
   type: private
+- name: perl-IO-Multiplex
+  description: ""
+  type: private
 - name: perl-IO-Socket-IP
   description: ""
   type: private
@@ -4567,6 +4570,9 @@ repositories:
   description: ""
   type: private
 - name: shadow-utils
+  description: ""
+  type: private
+- name: shapelib
   description: ""
   type: private
 - name: shared-mime-info
