@@ -55,6 +55,11 @@ spec:
             configMapKeyRef:
               name: meetbot-config
               key: log_url_prefix
+        - name: LOG_PATTERN
+          valueFrom:
+            configMapKeyRef:
+              name: meetbot-config
+              key: log_pattern
         ports:
         - containerPort: 80
           name: http
