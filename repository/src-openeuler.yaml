@@ -1481,6 +1481,9 @@ repositories:
 - name: initscripts
   description: ""
   type: private
+- name: inkscape
+  description: ""
+  type: private
 - name: integration-test
   description: "used for openeuler integration test"
   type: private
@@ -2367,6 +2370,9 @@ repositories:
   description: ""
   type: private
 - name: libwnck3
+  description: ""
+  type: private
+- name: libwpg
   description: ""
   type: private
 - name: libX11
@@ -4174,6 +4180,9 @@ repositories:
 - name: python-scons
   description: ""
   type: private
+- name: python-scour
+  description: ""
+  type: private
 - name: python-SecretStorage
   description: ""
   type: private
@@ -4844,6 +4853,9 @@ repositories:
   description: ""
   type: private
 - name: uboot-tools
+  description: ""
+  type: private
+- name: ucs-miscfixed-fonts
   description: ""
   type: private
 - name: udisks2
