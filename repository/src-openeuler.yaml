@@ -2213,6 +2213,40 @@ repositories:
 - name: libreswan
   description: ""
   type: private
+- name: librevenge
+  description: ""
+  type: private
+- name: librsvg2
+  description: ""
+  type: private
+- name: libsamplerate
+  description: ""
+  type: private
+- name: libsane-hpaio
+  description: ""
+  type: private
+- name: libseccomp
+  description: ""
+  type: private
+- name: libsecret
+  description: ""
+  type: private
+- name: libselinux
+  description: ""
+  type: private
+- name: libsemanage
+  description: ""
+  type: private
+- name: libsepol
+  description: ""
+  type: private
+- name: libserf
+  description: ""
+  type: private
+- name: libsexy
+  description: ""
+  type: private
+- name: libshout
 - name: librsvg2
   description: ""
   type: private
