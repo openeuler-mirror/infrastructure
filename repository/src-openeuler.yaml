@@ -330,6 +330,9 @@ repositories:
 - name: automake
   description: ""
   type: private
+- name: autotrace
+  description: ""
+  type: private
 - name: autotune
   description: ""
   type: private
@@ -1186,6 +1189,9 @@ repositories:
 - name: gnome-icon-theme-symbolic
   description: ""
   type: private
+- name: gnome-initial-setup
+  description: ""
+  type: private
 - name: gnome-keyring
   description: ""
   type: private
@@ -1485,6 +1491,9 @@ repositories:
   description: ""
   type: private
 - name: ima-evm-utils
+  description: ""
+  type: private
+- name: ImageMagick
   description: ""
   type: private
 - name: infiniband-diags
@@ -2402,6 +2411,9 @@ repositories:
 - name: libwnck3
   description: ""
   type: private
+- name: libwpd
+  description: ""
+  type: private
 - name: libwpg
   description: ""
   type: private
@@ -2551,6 +2563,9 @@ repositories:
   description: ""
   type: private
 - name: lockdev
+  description: ""
+  type: private
+- name: log4j12
   description: ""
   type: private
 - name: logrotate
