@@ -1351,7 +1351,16 @@ repositories:
 - name: gtkmm24
   description: ""
   type: private
+- name: gtkmm30
+  description: ""
+  type: private
 - name: gtkspell
+  description: ""
+  type: private
+- name: gtkspell3
+  description: ""
+  type: private
+- name: gtkspellmm30
   description: ""
   type: private
 - name: guava20
@@ -1599,6 +1608,9 @@ repositories:
   description: ""
   type: private
 - name: java
+  description: ""
+  type: private
+- name: java-base64
   description: ""
   type: private
 - name: javaewah
@@ -2364,6 +2376,9 @@ repositories:
   description: ""
   type: private
 - name: libvisual
+  description: ""
+  type: private
+- name: libvoikko
   description: ""
   type: private
 - name: libvoikko
@@ -3835,6 +3850,9 @@ repositories:
 - name: pyparted
   description: ""
   type: private
+- name: PyQt4
+  description: ""
+  type: private
 - name: pyserial
   description: ""
   type: private
@@ -4668,6 +4686,9 @@ repositories:
 - name: sscg
   description: ""
   type: private
+- name: sshj
+  description: ""
+  type: private
 - name: sssd
   description: ""
   type: private
@@ -4852,6 +4873,9 @@ repositories:
   description: ""
   type: private
 - name: tree
+  description: ""
+  type: private
+- name: trilead-ssh2
   description: ""
   type: private
 - name: trousers
