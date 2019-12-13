@@ -509,6 +509,9 @@ repositories:
 - name: cjkuni-ukai-fonts
   description: ""
   type: private
+- name: clamav
+  description: ""
+  type: private
 - name: clevis
   description: ""
   type: private
@@ -1114,6 +1117,9 @@ repositories:
 - name: glibc
   description: ""
   type: private
+- name: glibmm24
+  description: ""
+  type: private
 - name: glusterfs
   description: ""
   type: private
@@ -1716,6 +1722,9 @@ repositories:
 - name: ladspa
   description: ""
   type: private
+- name: lame
+  description: ""
+  type: private
 - name: langpacks
   description: ""
   type: private
@@ -2034,6 +2043,9 @@ repositories:
 - name: liblouis
   description: ""
   type: private
+- name: libmad
+  description: ""
+  type: private
 - name: libmaxminddb
   description: ""
   type: private
@@ -2226,6 +2238,9 @@ repositories:
   description: ""
   type: private
 - name: libshout
+  description: ""
+  type: private
+- name: libsigcpp20
   description: ""
   type: private
 - name: libsigsegv
