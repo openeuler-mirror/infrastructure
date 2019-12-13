@@ -1604,9 +1604,6 @@ repositories:
 - name: jenkins_project
   description: ""
   type: private
-- name: jdom2
-  description: ""
-  type: private
   developers:
   - anne_zhu
   - baizhilaoda
@@ -1619,6 +1616,9 @@ repositories:
   - street_dust
   - wubodong
   - zhang_liu_yan
+- name: jdom2
+  description: ""
+  type: private
 - name: jemalloc
   description: ""
   type: private
