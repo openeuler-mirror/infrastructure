@@ -512,6 +512,9 @@ repositories:
 - name: clamav
   description: ""
   type: private
+- name: clamav-unofficial-sigs
+  description: ""
+  type: private
 - name: clevis
   description: ""
   type: private
