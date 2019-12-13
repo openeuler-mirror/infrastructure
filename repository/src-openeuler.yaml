@@ -518,6 +518,9 @@ repositories:
 - name: clamav
   description: ""
   type: private
+- name: clamav-unofficial-sigs
+  description: ""
+  type: private
 - name: clevis
   description: ""
   type: private
@@ -1360,7 +1363,16 @@ repositories:
 - name: gtkmm24
   description: ""
   type: private
+- name: gtkmm30
+  description: ""
+  type: private
 - name: gtkspell
+  description: ""
+  type: private
+- name: gtkspell3
+  description: ""
+  type: private
+- name: gtkspellmm30
   description: ""
   type: private
 - name: guava20
@@ -1611,6 +1623,9 @@ repositories:
   description: ""
   type: private
 - name: java
+  description: ""
+  type: private
+- name: java-base64
   description: ""
   type: private
 - name: javaewah
@@ -2387,6 +2402,9 @@ repositories:
 - name: libvoikko
   description: ""
   type: private
+- name: libvoikko
+  description: ""
+  type: private
 - name: libvorbis
   description: ""
   type: private
@@ -2692,6 +2710,9 @@ repositories:
   description: ""
   type: private
 - name: make
+  description: ""
+  type: private
+- name: malaga-suomi-voikko
   description: ""
   type: private
 - name: malaga-suomi-voikko
@@ -3817,6 +3838,9 @@ repositories:
 - name: procps-ng
   description: ""
   type: private
+- name: proj
+  description: ""
+  type: private
 - name: protobuf
   description: ""
   type: private
@@ -3869,6 +3893,9 @@ repositories:
   description: ""
   type: private
 - name: pyparted
+  description: ""
+  type: private
+- name: PyQt4
   description: ""
   type: private
 - name: pyserial
@@ -4710,6 +4737,9 @@ repositories:
 - name: sscg
   description: ""
   type: private
+- name: sshj
+  description: ""
+  type: private
 - name: sssd
   description: ""
   type: private
@@ -4894,6 +4924,9 @@ repositories:
   description: ""
   type: private
 - name: tree
+  description: ""
+  type: private
+- name: trilead-ssh2
   description: ""
   type: private
 - name: trousers
