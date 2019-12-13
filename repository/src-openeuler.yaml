@@ -270,6 +270,9 @@ repositories:
 - name: aspell
   description: ""
   type: private
+- name: assimp
+  description: ""
+  type: private
 - name: at
   description: ""
   type: private
@@ -599,6 +602,9 @@ repositories:
   description: ""
   type: private
 - name: containerd
+  description: ""
+  type: private
+- name: container-exception-logger
   description: ""
   type: private
 - name: convmv
@@ -2040,6 +2046,9 @@ repositories:
 - name: libkkc
   description: ""
   type: private
+- name: libkkc-data
+  description: ""
+  type: private
 - name: libksba
   description: ""
   type: private
@@ -2685,6 +2694,9 @@ repositories:
 - name: mariadb-connector-c
   description: ""
   type: private
+- name: marisa
+  description: ""
+  type: private
 - name: maven
   description: ""
   type: private
@@ -2990,6 +3002,9 @@ repositories:
 - name: openblas
   description: ""
   type: private
+- name: opencc
+  description: ""
+  type: private
 - name: openEuler-indexhtml
   description: ""
   type: private
@@ -3252,6 +3267,9 @@ repositories:
 - name: perl-Devel-PPPort
   description: ""
   type: private
+- name: perl-Devel-Symdump
+  description: ""
+  type: private
 - name: perl-Digest
   description: ""
   type: private
@@ -3342,6 +3360,9 @@ repositories:
   description: ""
   type: private
 - name: perl-Getopt-Long
+  description: ""
+  type: private
+- name: perl-GSSAPI
   description: ""
   type: private
 - name: perl-HTML-Parser
@@ -3752,6 +3773,9 @@ repositories:
   description: ""
   type: private
 - name: postgresql
+  description: ""
+  type: private
+- name: potrace
   description: ""
   type: private
 - name: powertop
@@ -4587,6 +4611,9 @@ repositories:
 - name: sip
   description: ""
   type: private
+- name: skkdic
+  description: ""
+  type: private
 - name: skopeo
   description: ""
   type: private
@@ -4985,6 +5012,9 @@ repositories:
   description: ""
   type: private
 - name: wayland
+  description: ""
+  type: private
+- name: web-assets
   description: ""
   type: private
 - name: webkit2gtk3
