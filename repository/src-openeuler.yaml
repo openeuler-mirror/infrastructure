@@ -363,6 +363,9 @@ repositories:
 - name: avahi
   description: ""
   type: private
+- name: avalon-logkit
+  description: ""
+  type: private
 - name: avalon-framework
   description: ""
   type: private
@@ -3107,6 +3110,9 @@ repositories:
 - name: maven-compiler-plugin
   description: ""
   type: private
+- name: maven-dependency-tree
+  description: ""
+  type: private
 - name: maven-enforcer
   description: ""
   type: private
@@ -3651,6 +3657,9 @@ repositories:
   description: ""
   type: private
 - name: pax
+  description: ""
+  type: private
+- name: pcaudiolib
   description: ""
   type: private
 - name: pciutils
