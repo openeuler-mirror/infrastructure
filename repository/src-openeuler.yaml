@@ -1397,7 +1397,22 @@ repositories:
 - name: golang-github-cpuguy83-go-md2man
   description: ""
   type: private
+- name: golang-github-d2g-dhcp4
+  description: ""
+  type: private
+- name: golang-github-golang-sys
+  description: ""
+  type: private
+- name: golang-github-onsi-ginkgo
+  description: ""
+  type: private
+- name: golang-github-onsi-gomega
+  description: ""
+  type: private
 - name: golang-github-russross-blackfriday
+  description: ""
+  type: private
+- name: golang-googlecode-goprotobuf
   description: ""
   type: private
 - name: google-droid-fonts
@@ -1428,6 +1443,9 @@ repositories:
   description: ""
   type: private
 - name: gpm
+  description: ""
+  type: private
+- name: gradle
   description: ""
   type: private
 - name: GraphicsMagick
@@ -1769,6 +1787,9 @@ repositories:
 - name: irqbalance
   description: ""
   type: private
+- name: irrlicht
+  description: ""
+  type: private
 - name: iscsi-initiator-utils
   description: ""
   type: private
@@ -1991,6 +2012,9 @@ repositories:
 - name: kxml
   description: ""
   type: private
+- name: kyotocabinet
+  description: ""
+  type: private
 - name: ladspa
   description: ""
   type: private
@@ -2031,6 +2055,9 @@ repositories:
   description: ""
   type: private
 - name: libaec
+  description: ""
+  type: private
+- name: libaesgm
   description: ""
   type: private
 - name: libaio
@@ -3077,6 +3104,9 @@ repositories:
 - name: maven-enforcer
   description: ""
   type: private
+- name: maven-file-management
+  description: ""
+  type: private
 - name: maven-jar-plugin
   description: ""
   type: private
@@ -3084,6 +3114,9 @@ repositories:
   description: ""
   type: private
 - name: maven-plugin-bundle
+  description: ""
+  type: private
+- name: maven-plugin-testing
   description: ""
   type: private
 - name: maven-remote-resources-plugin
@@ -3096,6 +3129,9 @@ repositories:
   description: ""
   type: private
 - name: maven-resources-plugin
+  description: ""
+  type: private
+- name: maven-scm
   description: ""
   type: private
 - name: maven-shared-io
@@ -4325,6 +4361,9 @@ repositories:
 - name: polkit-pkla-compat
   description: ""
   type: private
+- name: poly2tri
+  description: ""
+  type: private
 - name: poppler
   description: ""
   type: private
@@ -4734,6 +4773,12 @@ repositories:
   description: ""
   type: private
 - name: python-paramiko
+  description: ""
+  type: private
+- name: python-parse
+  description: ""
+  type: private
+- name: python-parse_type
   description: ""
   type: private
 - name: python-pasta
@@ -5500,6 +5545,9 @@ repositories:
   description: ""
   type: private
 - name: tcsh
+  description: ""
+  type: private
+- name: teckit
   description: ""
   type: private
 - name: telepathy-filesystem
