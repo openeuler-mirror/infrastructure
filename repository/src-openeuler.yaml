@@ -1598,9 +1598,6 @@ repositories:
 - name: hawtjni
   description: ""
   type: private
-- name: hcc
-  description: ""
-  type: private
 - name: hdf5
   description: ""
   type: private
@@ -2871,9 +2868,6 @@ repositories:
   description: ""
   type: private
 - name: libzip
-  description: ""
-  type: private
-- name: linux-4.19
   description: ""
   type: private
 - name: linuxconsoletools
