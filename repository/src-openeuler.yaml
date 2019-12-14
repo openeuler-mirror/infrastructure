@@ -1919,6 +1919,9 @@ repositories:
 - name: jsch-agent-proxy
   description: ""
   type: private
+- name: js-jquery
+  description: ""
+  type: private
 - name: json-c
   description: ""
   type: private
