@@ -4229,6 +4229,9 @@ repositories:
 - name: perl-Unicode-UTF8
   description: ""
   type: private
+- name: perl-Unix-Syslog
+  description: ""
+  type: private
 - name: perl-URI
   description: ""
   type: private
