@@ -2184,6 +2184,9 @@ repositories:
 - name: libogg
   description: ""
   type: private
+- name: liboggz
+  description: ""
+  type: private
 - name: libomp
   description: ""
   type: public
@@ -3791,6 +3794,9 @@ repositories:
   description: ""
   type: private
 - name: plexus-io
+  description: ""
+  type: private
+- name: plexus-pom
   description: ""
   type: private
 - name: plexus-resources
