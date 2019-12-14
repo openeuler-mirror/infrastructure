@@ -1241,6 +1241,9 @@ repositories:
 - name: gl-manpages
   description: ""
   type: private
+- name: glassfish-servlet-api
+  description: ""
+  type: private
 - name: glusterfs
   description: ""
   type: private
