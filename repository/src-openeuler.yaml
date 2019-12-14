@@ -1294,6 +1294,9 @@ repositories:
 - name: gpm
   description: ""
   type: private
+- name: GraphicsMagick
+  description: ""
+  type: private
 - name: graphite2
   description: ""
   type: private
