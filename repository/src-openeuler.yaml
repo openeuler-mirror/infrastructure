@@ -905,7 +905,7 @@ repositories:
 - name: dump
   description: ""
   type: private
-- name: dvd+rw-tools
+- name: dvdplusrw-tools
   description: ""
   type: private
 - name: dwz
