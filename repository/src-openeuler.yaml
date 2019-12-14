@@ -342,6 +342,9 @@ repositories:
 - name: avahi
   description: ""
   type: private
+- name: avalon-framework
+  description: ""
+  type: private
 - name: b43-openfwwf
   description: ""
   type: private
@@ -1214,6 +1217,9 @@ repositories:
   description: ""
   type: private
 - name: gnome-online-accounts
+  description: ""
+  type: private
+- name: gnome-packagekit
   description: ""
   type: private
 - name: gnome-python2
@@ -3464,6 +3470,9 @@ repositories:
 - name: perl-IO-Socket-SSL
   description: ""
   type: private
+- name: perl-IO-String
+  description: ""
+  type: private
 - name: perl-IPC-Cmd
   description: ""
   type: private
@@ -3546,6 +3555,9 @@ repositories:
   description: ""
   type: private
 - name: perl-Net-HTTP
+  description: ""
+  type: private
+- name: perl-Net-Server
   description: ""
   type: private
 - name: perl-Net-SMTP-SSL
