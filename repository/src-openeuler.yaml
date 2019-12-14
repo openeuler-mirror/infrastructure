@@ -983,6 +983,9 @@ repositories:
 - name: fontconfig
   description: ""
   type: private
+- name: fontforge
+  description: ""
+  type: private
 - name: fontpackages
   description: ""
   type: private
@@ -1932,6 +1935,9 @@ repositories:
 - name: libell
   description: ""
   type: private
+- name: libEMF
+  description: ""
+  type: private
 - name: libepoxy
   description: ""
   type: private
@@ -1969,6 +1975,9 @@ repositories:
   description: ""
   type: private
 - name: libfontenc
+  description: ""
+  type: private
+- name: libfprint
   description: ""
   type: private
 - name: libgcrypt
@@ -2325,6 +2334,9 @@ repositories:
   description: ""
   type: private
 - name: libspectre
+  description: ""
+  type: private
+- name: libspiro
   description: ""
   type: private
 - name: libsrtp
