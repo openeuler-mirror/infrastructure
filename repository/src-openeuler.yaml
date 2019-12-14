@@ -962,6 +962,9 @@ repositories:
 - name: flex
   description: ""
   type: private
+- name: flite
+  description: ""
+  type: private
 - name: fluidsynth
   description: ""
   type: private
@@ -1184,6 +1187,9 @@ repositories:
   description: ""
   type: private
 - name: gnome-getting-started-docs
+  description: ""
+  type: private
+- name: gnome-icon-theme
   description: ""
   type: private
 - name: gnome-icon-theme-extras
@@ -2739,6 +2745,9 @@ repositories:
 - name: maven
   description: ""
   type: private
+- name: maven-artifact-resolver
+  description: ""
+  type: private
 - name: maven-artifact-transfer
   description: ""
   type: private
@@ -2748,7 +2757,13 @@ repositories:
 - name: maven-compiler-plugin
   description: ""
   type: private
+- name: maven-enforcer
+  description: ""
+  type: private
 - name: maven-jar-plugin
+  description: ""
+  type: private
+- name: maven-parent
   description: ""
   type: private
 - name: maven-plugin-bundle
@@ -3758,6 +3773,9 @@ repositories:
   description: ""
   type: private
 - name: plexus-component-api
+  description: ""
+  type: private
+- name: plexus-containers
   description: ""
   type: private
 - name: plexus-i18n
