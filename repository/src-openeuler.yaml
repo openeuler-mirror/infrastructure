@@ -4619,9 +4619,6 @@ repositories:
 - name: python-flask-restful
   description: ""
   type: private
-- name: python-Flask-RESTful
-  description: ""
-  type: private
 - name: python-flit
   description: ""
   type: private
