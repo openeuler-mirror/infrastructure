@@ -1913,6 +1913,9 @@ repositories:
 - name: jline
   description: ""
   type: private
+- name: jna
+  description: ""
+  type: private
 - name: joda-time
   description: ""
   type: private
