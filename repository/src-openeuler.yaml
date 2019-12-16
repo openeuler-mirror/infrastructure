@@ -2945,10 +2945,10 @@ repositories:
 - name: lohit-odia-fonts
   description: ""
   type: private
-- name: lohit-telugu-fonts
+- name: lohit-tamil-fonts
   description: ""
   type: private
-- name: lohit-tmail-fonts
+- name: lohit-telugu-fonts
   description: ""
   type: private
 - name: lorax
