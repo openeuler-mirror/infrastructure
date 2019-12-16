@@ -1421,6 +1421,9 @@ repositories:
 - name: golang-github-russross-blackfriday
   description: ""
   type: private
+- name: golang-github-vishvananda-netlink
+  description: ""
+  type: private
 - name: golang-googlecode-goprotobuf
   description: ""
   type: private
