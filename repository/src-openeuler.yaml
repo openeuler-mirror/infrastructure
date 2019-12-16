@@ -1400,6 +1400,9 @@ repositories:
 - name: golang
   description: ""
   type: private
+- name: golang-github-coreos-go-iptables
+  description: ""
+  type: private
 - name: golang-github-cpuguy83-go-md2man
   description: ""
   type: private
