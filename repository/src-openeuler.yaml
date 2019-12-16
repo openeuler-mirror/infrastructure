@@ -3116,6 +3116,9 @@ repositories:
 - name: maven-dependency-tree
   description: ""
   type: private
+- name: maven-doxia
+  description: ""
+  type: private
 - name: maven-enforcer
   description: ""
   type: private
@@ -4364,6 +4367,9 @@ repositories:
 - name: plexus-velocity
   description: ""
   type: private
+- name: plotutils
+  description: ""
+  type: private
 - name: plymouth
   description: ""
   type: private
@@ -4446,6 +4452,9 @@ repositories:
   description: ""
   type: private
 - name: psmisc
+  description: ""
+  type: private
+- name: pstoedit
   description: ""
   type: private
 - name: psutils
