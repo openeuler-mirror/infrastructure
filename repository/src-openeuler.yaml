@@ -58,6 +58,8 @@ community:
   - si-gui
   - solarhu
   - street_dust
+  - eulerstorage
+  - eulerstorage_maintainer
   - sugarfillet
   - small_leek
   - tubalu
@@ -74,8 +76,6 @@ community:
   - zhuchunyi
   viewers:
   - cmss_dx
-  - eulerstorage
-  - eulerstorage_maintainer
   - gogoxiaoxiao
   - guojianxing
   - huang_rong
@@ -6596,8 +6596,6 @@ repositories:
   - zhuchunyi
   viewers:
   - cmss_dx
-  - eulerstorage
-  - eulerstorage_maintainer
   - gogoxiaoxiao
   - huang_rong
   - isoft-linux
