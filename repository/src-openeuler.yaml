@@ -3941,9 +3941,6 @@ repositories:
 - name: pam_krb5
   description: ""
   type: private
-- name: pandas
-  description: ""
-  type: private
 - name: pango
   description: ""
   type: private
@@ -3966,9 +3963,6 @@ repositories:
   description: ""
   type: private
 - name: passwd
-  description: ""
-  type: private
-- name: pasta
   description: ""
   type: private
 - name: patch
@@ -4803,9 +4797,6 @@ repositories:
   description: ""
   type: private
 - name: pulseaudio
-  description: ""
-  type: private
-- name: pyaml
   description: ""
   type: private
 - name: pyatspi
