@@ -1776,9 +1776,6 @@ repositories:
 - name: httpcomponents-client
   description: ""
   type: private
-- name: httpcomponents-core
-  description: ""
-  type: private
 - name: httpd
   description: ""
   type: private
