@@ -420,6 +420,9 @@ repositories:
 - name: batik
   description: ""
   type: private
+- name: batik
+  description: ""
+  type: private
 - name: bc
   description: ""
   type: private
@@ -1103,6 +1106,9 @@ repositories:
   description: ""
   type: private
 - name: festival
+  description: ""
+  type: private
+- name: festival-freebsoft-utils
   description: ""
   type: private
 - name: festival-freebsoft-utils
@@ -3380,6 +3386,9 @@ repositories:
   description: ""
   type: private
 - name: maven-remote-resources-plugin
+  description: ""
+  type: private
+- name: maven-reporting-api
   description: ""
   type: private
 - name: maven-reporting-api
