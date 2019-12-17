@@ -3,12 +3,19 @@ community:
   protected_branches:
   - master
   developers:
+  - BenchMarkFather
   - Charlie_li
+  - chen_daguan
   - cynthia_xh
   - dogsheng
   - igorkorkin
+  - jiuhanjiu
   - kuhnchen18
+  - openeuler-basic
+  - openeuler-net
+  - openeulerisula
   - overweight
+  - panny060
   - qingguopi
   - Ronnie_Jiang
   - rudy_tan
