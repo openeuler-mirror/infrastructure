@@ -1774,6 +1774,9 @@ repositories:
 - name: http-parser
   description: ""
   type: private
+- name: httpcomponents-core
+  description: ""
+  type: private
 - name: huaweijdk
   description: ""
   type: private
