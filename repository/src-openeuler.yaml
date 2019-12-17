@@ -38,9 +38,12 @@ community:
   - lkx690
   - openeuler-basic
   - openeuler-compute
-  - openeulernet
   - openeuler_kernel
+  - openeulercomputecommitter
   - openeulerisula
+  - openeulernet
+  - openeulernetwork
+  - openeulersystem
   - openeulervirtreview
   - overweight
   - panny060
@@ -84,13 +87,10 @@ community:
   - moyang1994
   - openeuler-netdev
   - openeuler_hulk
-  - openeulercomputecommitter
   - openeulerinnodev
   - openeulerinnomtn
   - openeulerisula
   - openeulernet
-  - openeulernetwork
-  - openeulersystem
   - openeulervirt 
   - pansh
   - ranygu
