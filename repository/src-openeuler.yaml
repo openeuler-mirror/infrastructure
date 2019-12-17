@@ -2034,6 +2034,9 @@ repositories:
 - name: javaewah
   description: ""
   type: private
+- name: javapackages-tools
+  description: ""
+  type: private
 - name: javassist
   description: ""
   type: private
