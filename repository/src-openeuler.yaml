@@ -2054,7 +2054,7 @@ repositories:
 - name: jboss-interceptors-1.2-api
   description: ""
   type: private
-- name: jboss-jacc
+- name: jboss-jacc-1.4-api
   description: ""
   type: private
 - name: jboss-logging
