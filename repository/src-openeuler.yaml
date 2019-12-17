@@ -42,6 +42,8 @@ community:
   - openeulercomputecommitter
   - openeulerisula
   - openeulernet
+  - openeulernetwork
+  - openeulersystem
   - openeulervirtreview
   - overweight
   - panny060
@@ -89,8 +91,6 @@ community:
   - openeulerinnomtn
   - openeulerisula
   - openeulernet
-  - openeulernetwork
-  - openeulersystem
   - openeulervirt 
   - pansh
   - ranygu
