@@ -2150,7 +2150,7 @@ repositories:
 - name: jsoup
   description: ""
   type: private
-- name: jsr
+- name: jsr-305
   description: ""
   type: private
 - name: julietaula-montserrat-fonts
