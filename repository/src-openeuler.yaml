@@ -33,6 +33,7 @@ community:
   - kuhnchen18
   - lemon-higgins
   - lkx690
+  - openeuler-basic
   - openeuler-compute
   - openeuler-net
   - openeuler_kernel
@@ -76,7 +77,6 @@ community:
   - jianminw
   - jimmy_hero
   - moyang1994
-  - openeuler-basic
   - openeuler-netdev
   - openeuler_hulk
   - openeulercomputecommitter
