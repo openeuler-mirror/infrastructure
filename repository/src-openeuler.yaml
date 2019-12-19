@@ -1759,6 +1759,9 @@ repositories:
 - name: hexedit
   description: ""
   type: private
+- name: hfsplus-tools
+  description: ""
+  type: private
 - name: hibernate
   description: ""
   type: private
@@ -2620,6 +2623,9 @@ repositories:
 - name: libldb
   description: ""
   type: private
+- name: libldm
+  description: ""
+  type: private
 - name: liblouis
   description: ""
   type: private
@@ -2627,6 +2633,9 @@ repositories:
   description: ""
   type: private
 - name: libmaxminddb
+  description: ""
+  type: private
+- name: libmypaint
   description: ""
   type: private
 - name: libmbim
@@ -6635,6 +6644,9 @@ repositories:
   description: ""
   type: private
 - name: zenity
+  description: ""
+  type: private
+- name: zerofree
   description: ""
   type: private
 - name: zip
