@@ -4284,6 +4284,9 @@ repositories:
 - name: perl-libnet
   description: ""
   type: private
+- name: perl-libwww-perl
+  description: ""
+  type: private
 - name: perl-libxml-perl
   description: ""
   type: private
