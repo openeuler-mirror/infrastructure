@@ -1060,6 +1060,12 @@ repositories:
 - name: egl-wayland
   description: ""
   type: private
+- name: ehcache-parent
+  description: ""
+  type: private
+- name: ehcache-sizeof-agent
+  description: ""
+  type: private
 - name: elfutils
   description: ""
   type: private
@@ -2114,6 +2120,9 @@ repositories:
   description: ""
   type: private
 - name: jboss-logging-tools
+  description: ""
+  type: private
+- name: jboss-marshalling
   description: ""
   type: private
 - name: jboss-servlet-3.0-api
