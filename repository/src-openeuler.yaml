@@ -2710,6 +2710,9 @@ repositories:
 - name: libmtp
   description: ""
   type: private
+- name: libmypaint
+  description: ""
+  type: private
 - name: libndp
   description: ""
   type: private
