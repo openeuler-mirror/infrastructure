@@ -4365,6 +4365,9 @@ repositories:
 - name: perl-Mail-DKIM
   description: ""
   type: private
+- name: perl-Mail-Sender
+  description: ""
+  type: private
 - name: perl-Mail-SPF
   description: ""
   type: private
