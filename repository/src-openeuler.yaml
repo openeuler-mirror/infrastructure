@@ -852,9 +852,6 @@ repositories:
 - name: dbus
   description: ""
   type: private
-- name: dbus
-  description: ""
-  type: private
 - name: dbus-cpp
   description: ""
   type: private
