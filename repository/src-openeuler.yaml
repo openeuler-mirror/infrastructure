@@ -540,6 +540,9 @@ repositories:
 - name: bytelist
   description: ""
   type: private
+- name: byteman
+  description: ""
+  type: private
 - name: bzip2
   description: ""
   type: private
