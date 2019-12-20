@@ -2365,6 +2365,9 @@ repositories:
 - name: leveldb
   description: ""
   type: private
+- name: leveldbjni
+  description: ""
+  type: private
 - name: lftp
   description: ""
   type: private
