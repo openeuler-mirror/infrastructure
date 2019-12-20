@@ -2116,6 +2116,9 @@ repositories:
 - name: jboss-servlet-3.0-api
   description: ""
   type: private
+- name: jboss-transaction
+  description: ""
+  type: private
 - name: jcifs
   description: ""
   type: private
