@@ -109,6 +109,9 @@ community:
   - zhang_wei5630
   - zhangshengju
 repositories:
+- name: aalto-xml
+  description: ""
+  type: private
 - name: abattis-cantarell-fonts
   description: ""
   type: private
