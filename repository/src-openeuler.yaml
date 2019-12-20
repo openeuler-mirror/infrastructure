@@ -2119,6 +2119,9 @@ repositories:
 - name: jboss-servlet-3.0-api
   description: ""
   type: private
+- name: jboss-transaction
+  description: ""
+  type: private
 - name: jcifs
   description: ""
   type: private
@@ -2129,6 +2132,9 @@ repositories:
   description: ""
   type: private
 - name: jcsp
+  description: ""
+  type: private
+- name: jctools
   description: ""
   type: private
 - name: jdeparser
@@ -2162,6 +2168,9 @@ repositories:
   description: ""
   type: private
 - name: jfsutils
+  description: ""
+  type: private
+- name: jgroups
   description: ""
   type: private
 - name: jimtcl
