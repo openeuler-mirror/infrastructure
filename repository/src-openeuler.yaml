@@ -2167,6 +2167,9 @@ repositories:
 - name: jfsutils
   description: ""
   type: private
+- name: jgroups
+  description: ""
+  type: private
 - name: jimtcl
   description: ""
   type: private
