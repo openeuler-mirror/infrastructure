@@ -2365,6 +2365,9 @@ repositories:
 - name: leveldb
   description: ""
   type: private
+- name: leveldb-java
+  description: ""
+  type: private
 - name: leveldbjni
   description: ""
   type: private
