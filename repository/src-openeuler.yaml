@@ -109,6 +109,9 @@ community:
   - zhang_wei5630
   - zhangshengju
 repositories:
+- name: aalto-xml
+  description: ""
+  type: private
 - name: abattis-cantarell-fonts
   description: ""
   type: private
@@ -173,6 +176,9 @@ repositories:
 - name: adwaita-icon-theme
   description: ""
   type: private
+- name: aesh
+  description: ""
+  type: private
 - name: aide
   description: ""
   type: private
@@ -210,6 +216,9 @@ repositories:
   description: ""
   type: private
 - name: antlr
+  description: ""
+  type: private
+- name: antlr3
   description: ""
   type: private
 - name: aopalliance
@@ -265,6 +274,9 @@ repositories:
   - solarhu
   - xhming
 - name: apache-resource-bundles
+  description: ""
+  type: private
+- name: appstream-data
   description: ""
   type: private
 - name: apr
@@ -484,6 +496,9 @@ repositories:
 - name: brasero
   description: ""
   type: private
+- name: breeze-icon-theme
+  description: ""
+  type: private
 - name: bridge-utils
   description: ""
   type: private
@@ -523,6 +538,9 @@ repositories:
   description: ""
   type: private
 - name: bytelist
+  description: ""
+  type: private
+- name: byteman
   description: ""
   type: private
 - name: bzip2
@@ -816,6 +834,9 @@ repositories:
 - name: cvs
   description: ""
   type: private
+- name: cvsps
+  description: ""
+  type: private
 - name: cyrus-imapd
   description: ""
   type: private
@@ -902,6 +923,9 @@ repositories:
   description: ""
   type: private
 - name: ding-libs
+  description: ""
+  type: private
+- name: djvulibre
   description: ""
   type: private
 - name: dkms
@@ -1096,6 +1120,9 @@ repositories:
 - name: extra166y
   description: ""
   type: private
+- name: f29-backgrounds
+  description: ""
+  type: private
 - name: fakechroot
   description: ""
   type: private
@@ -1184,6 +1211,9 @@ repositories:
   description: ""
   type: private
 - name: fluidsynth
+  description: ""
+  type: private
+- name: folks
   description: ""
   type: private
 - name: fontawesome-fonts
@@ -1633,6 +1663,9 @@ repositories:
 - name: gsm
   description: ""
   type: private
+- name: gsound
+  description: ""
+  type: private
 - name: gspell
   description: ""
   type: private
@@ -1775,6 +1808,9 @@ repositories:
   description: ""
   type: private
 - name: hicolor-icon-theme
+  description: ""
+  type: private
+- name: HikariCP
   description: ""
   type: private
 - name: hivex
@@ -2305,6 +2341,9 @@ repositories:
 - name: less
   description: ""
   type: private
+- name: leveldb
+  description: ""
+  type: private
 - name: lftp
   description: ""
   type: private
@@ -2408,6 +2447,9 @@ repositories:
   description: ""
   type: private
 - name: libdbi
+  description: ""
+  type: private
+- name: libdbusmenu
   description: ""
   type: private
 - name: libdmx
@@ -2596,6 +2638,9 @@ repositories:
 - name: libimobiledevice
   description: ""
   type: private
+- name: libindicator
+  description: ""
+  type: private
 - name: libinput
   description: ""
   type: private
@@ -2690,6 +2735,9 @@ repositories:
   description: ""
   type: private
 - name: libmtp
+  description: ""
+  type: private
+- name: libmypaint
   description: ""
   type: private
 - name: libndp
@@ -4104,6 +4152,9 @@ repositories:
 - name: perl-CPAN-Meta-YAML
   description: ""
   type: private
+- name: perl-Crypt-OpenSSL-Bignum
+  description: ""
+  type: private
 - name: perl-Crypt-OpenSSL-Random
   description: ""
   type: private
@@ -4345,6 +4396,9 @@ repositories:
   description: ""
   type: private
 - name: perl-Mail-DKIM
+  description: ""
+  type: private
+- name: perl-Mail-Sender
   description: ""
   type: private
 - name: perl-Mail-SPF
@@ -4888,6 +4942,9 @@ repositories:
   description: ""
   type: private
 - name: pyOpenSSL
+  description: ""
+  type: private
+- name: pyorbit
   description: ""
   type: private
 - name: pyparsing
@@ -5645,6 +5702,9 @@ repositories:
   description: ""
   type: private
 - name: rpm
+  description: ""
+  type: private
+- name: rpm-mpi-hooks
   description: ""
   type: private
 - name: rpmdevtools
