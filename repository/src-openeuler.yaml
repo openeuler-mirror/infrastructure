@@ -4872,6 +4872,9 @@ repositories:
 - name: pyOpenSSL
   description: ""
   type: private
+- name: pyorbit
+  description: ""
+  type: private
 - name: pyparsing
   description: ""
   type: private
