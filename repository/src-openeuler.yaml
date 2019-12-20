@@ -816,6 +816,9 @@ repositories:
 - name: cvs
   description: ""
   type: private
+- name: cvsps
+  description: ""
+  type: private
 - name: cyrus-imapd
   description: ""
   type: private
