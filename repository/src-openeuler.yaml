@@ -2623,6 +2623,9 @@ repositories:
 - name: libimobiledevice
   description: ""
   type: private
+- name: libindicator
+  description: ""
+  type: private
 - name: libinput
   description: ""
   type: private
