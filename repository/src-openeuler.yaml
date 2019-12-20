@@ -2224,6 +2224,9 @@ repositories:
 - name: jsr-305
   description: ""
   type: private
+- name: jsr-311
+  description: ""
+  type: private
 - name: julietaula-montserrat-fonts
   description: ""
   type: private
