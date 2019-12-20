@@ -910,6 +910,9 @@ repositories:
 - name: ding-libs
   description: ""
   type: private
+- name: djvulibre
+  description: ""
+  type: private
 - name: dkms
   description: ""
   type: private
