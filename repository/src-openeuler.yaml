@@ -218,6 +218,9 @@ repositories:
 - name: antlr
   description: ""
   type: private
+- name: antlr3
+  description: ""
+  type: private
 - name: aopalliance
   description: ""
   type: private
