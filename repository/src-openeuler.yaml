@@ -5653,6 +5653,9 @@ repositories:
 - name: rpm
   description: ""
   type: private
+- name: rpm-mpi-hooks
+  description: ""
+  type: private
 - name: rpmdevtools
   description: ""
   type: private
