@@ -176,6 +176,9 @@ repositories:
 - name: adwaita-icon-theme
   description: ""
   type: private
+- name: aesh
+  description: ""
+  type: private
 - name: aide
   description: ""
   type: private
