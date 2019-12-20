@@ -3400,9 +3400,6 @@ repositories:
 - name: mariadb-connector-c
   description: ""
   type: private
-- name: mariadb-connector-c
-  description: ""
-  type: private
 - name: marisa
   description: ""
   type: private
