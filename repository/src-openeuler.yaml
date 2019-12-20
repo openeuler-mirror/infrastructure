@@ -1891,6 +1891,9 @@ repositories:
 - name: imake
   description: ""
   type: private
+- name: imsettings
+  description: ""
+  type: private
 - name: indent
   description: ""
   type: private
