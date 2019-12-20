@@ -546,6 +546,9 @@ repositories:
 - name: bzip2
   description: ""
   type: private
+- name: c3p0
+  description: ""
+  type: private
 - name: ca-certificates
   description: ""
   type: private
@@ -1909,7 +1912,7 @@ repositories:
 - name: imake
   description: ""
   type: private
-- name: imsettings
+- name: imlib2
   description: ""
   type: private
 - name: indent
@@ -2674,6 +2677,9 @@ repositories:
 - name: libldm
   description: ""
   type: private
+- name: liblognorm
+  description: ""
+  type: private
 - name: liblouis
   description: ""
   type: private
@@ -2843,6 +2849,9 @@ repositories:
   description: ""
   type: private
 - name: libraw1394
+  description: ""
+  type: private
+- name: librdkafka
   description: ""
   type: private
 - name: librelp
@@ -3655,6 +3664,9 @@ repositories:
 - name: nano
   description: ""
   type: private
+- name: narayana
+  description: ""
+  type: private
 - name: nasm
   description: ""
   type: private
@@ -3814,6 +3826,9 @@ repositories:
 - name: objectweb-asm
   description: ""
   type: private
+- name: objectweb-asm3
+  description: ""
+  type: private
 - name: objenesis
   description: ""
   type: private
@@ -3850,6 +3865,9 @@ repositories:
   description: ""
   type: private
 - name: openblas
+  description: ""
+  type: private
+- name: openbox
   description: ""
   type: private
 - name: opencc
@@ -4143,6 +4161,9 @@ repositories:
 - name: perl-Crypt-OpenSSL-RSA
   description: ""
   type: private
+- name: perl-Data-Dump
+  description: ""
+  type: private
 - name: perl-Data-Dumper
   description: ""
   type: private
@@ -4195,6 +4216,9 @@ repositories:
   description: ""
   type: private
 - name: perl-Encode
+  description: ""
+  type: private
+- name: perl-Encode-Detect
   description: ""
   type: private
 - name: perl-Encode-Locale
@@ -4623,6 +4647,9 @@ repositories:
 - name: perl-Time-Local
   description: ""
   type: private
+- name: perl-Tk
+  description: ""
+  type: private
 - name: perl-Try-Tiny
   description: ""
   type: private
@@ -4858,6 +4885,15 @@ repositories:
   description: ""
   type: private
 - name: protobuf-c
+  description: ""
+  type: private
+- name: protoparser
+  description: ""
+  type: private
+- name: protostream
+  description: ""
+  type: private
+- name: proxool
   description: ""
   type: private
 - name: psacct
@@ -5103,6 +5139,9 @@ repositories:
 - name: python-humanize
   description: ""
   type: private
+- name: python-hwdata
+  description: ""
+  type: private
 - name: python-hypothesis
   description: ""
   type: private
@@ -5161,6 +5200,9 @@ repositories:
   description: ""
   type: private
 - name: python-keyring
+  description: ""
+  type: private
+- name: python-kitchen
   description: ""
   type: private
 - name: python-kiwisolver
@@ -5583,6 +5625,9 @@ repositories:
 - name: radvd
   description: ""
   type: private
+- name: raptor2
+  description: ""
+  type: private
 - name: rarian
   description: ""
   type: private
@@ -5726,6 +5771,9 @@ repositories:
   description: ""
   type: private
 - name: sblim-sfcc
+  description: ""
+  type: private
+- name: sblim-sfcCommon
   description: ""
   type: private
 - name: scala
@@ -5923,6 +5971,9 @@ repositories:
 - name: spice-vdagent
   description: ""
   type: private
+- name: springframework
+  description: ""
+  type: private
 - name: sqlite
   description: ""
   type: private
@@ -5947,10 +5998,16 @@ repositories:
 - name: startup-notification
   description: ""
   type: private
+- name: stax2-api
+  description: ""
+  type: private
 - name: stix-fonts
   description: ""
   type: private
 - name: strace
+  description: ""
+  type: private
+- name: stream-lib
   description: ""
   type: private
 - name: strongswan
@@ -6364,6 +6421,9 @@ repositories:
 - name: which
   description: ""
   type: private
+- name: wildfly-common
+  description: ""
+  type: private
 - name: wildmidi
   description: ""
   type: private
@@ -6398,6 +6458,9 @@ repositories:
   description: ""
   type: private
 - name: xapian-core
+  description: ""
+  type: private
+- name: xapool
   description: ""
   type: private
 - name: Xaw3d
@@ -6454,6 +6517,12 @@ repositories:
 - name: xgboost
   description: ""
   type: private
+- name: xhtml1-dtds
+  description: ""
+  type: private
+- name: xhtml2fo-style-xsl
+  description: ""
+  type: private
 - name: xinetd
   description: ""
   type: private
@@ -6488,6 +6557,9 @@ repositories:
   description: ""
   type: private
 - name: xmvn
+  description: ""
+  type: private
+- name: xnio
   description: ""
   type: private
 - name: xorg-x11-apps
