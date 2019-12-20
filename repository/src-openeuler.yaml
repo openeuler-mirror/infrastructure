@@ -2299,6 +2299,9 @@ repositories:
 - name: less
   description: ""
   type: private
+- name: leveldb
+  description: ""
+  type: private
 - name: lftp
   description: ""
   type: private
