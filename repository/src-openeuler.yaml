@@ -484,6 +484,9 @@ repositories:
 - name: brasero
   description: ""
   type: private
+- name: breeze-icon-theme
+  description: ""
+  type: private
 - name: bridge-utils
   description: ""
   type: private
