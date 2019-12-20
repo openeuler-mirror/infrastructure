@@ -267,6 +267,9 @@ repositories:
 - name: apache-resource-bundles
   description: ""
   type: private
+- name: appstream-data
+  description: ""
+  type: private
 - name: apr
   description: ""
   type: private
