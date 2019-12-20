@@ -2434,6 +2434,9 @@ repositories:
 - name: libdbi
   description: ""
   type: private
+- name: libdbusmenu
+  description: ""
+  type: private
 - name: libdmx
   description: ""
   type: private
