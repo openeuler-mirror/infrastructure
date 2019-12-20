@@ -1798,6 +1798,9 @@ repositories:
 - name: hicolor-icon-theme
   description: ""
   type: private
+- name: HikariCP
+  description: ""
+  type: private
 - name: hivex
   description: ""
   type: private
