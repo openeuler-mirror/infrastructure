@@ -1549,6 +1549,9 @@ repositories:
 - name: gnu-free-fonts
   description: ""
   type: private
+- name: gnu-getopt
+  description: ""
+  type: private
 - name: gnupg2
   description: ""
   type: private
@@ -1811,6 +1814,9 @@ repositories:
   description: ""
   type: private
 - name: hibernate-jpa-2.1-api
+  description: ""
+  type: private
+- name: hibernate3
   description: ""
   type: private
 - name: hicolor-icon-theme
@@ -2576,6 +2582,9 @@ repositories:
   description: ""
   type: private
 - name: libgdata
+  description: ""
+  type: private
+- name: libgdither
   description: ""
   type: private
 - name: libgee
