@@ -3496,6 +3496,9 @@ repositories:
 - name: maven-parent
   description: ""
   type: private
+- name: maven-plugin-build-helper
+  description: ""
+  type: private
 - name: maven-plugin-bundle
   description: ""
   type: private
@@ -4483,6 +4486,9 @@ repositories:
   description: ""
   type: private
 - name: perl-NetAddr-IP
+  description: ""
+  type: private
+- name: perl-Net-CIDR-Lite
   description: ""
   type: private
 - name: perl-Net-Daemon
