@@ -2068,6 +2068,9 @@ repositories:
 - name: jakarta-commons-httpclient
   description: ""
   type: private
+- name: jakarta-oro
+  description: ""
+  type: private
 - name: jandex
   description: ""
   type: private
@@ -2093,6 +2096,9 @@ repositories:
   description: ""
   type: private
 - name: javaewah
+  description: ""
+  type: private
+- name: javamail
   description: ""
   type: private
 - name: javapackages-tools
@@ -3260,6 +3266,9 @@ repositories:
   description: ""
   type: private
 - name: lockdev
+  description: ""
+  type: private
+- name: log4j
   description: ""
   type: private
 - name: log4j12
