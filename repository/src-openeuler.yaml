@@ -1936,6 +1936,9 @@ repositories:
 - name: infiniband-diags
   description: ""
   type: private
+- name: infinispan
+  description: ""
+  type: private
 - name: initial-setup
   description: ""
   type: private
@@ -2048,6 +2051,9 @@ repositories:
   description: ""
   type: private
 - name: jack-audio-connection-kit
+  description: ""
+  type: private
+- name: jackson
   description: ""
   type: private
 - name: jackson-annotations
