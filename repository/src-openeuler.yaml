@@ -1261,6 +1261,9 @@ repositories:
 - name: freetype
   description: ""
   type: private
+- name: frei0r-plugins
+  description: ""
+  type: private
 - name: fribidi
   description: ""
   type: private
@@ -1286,6 +1289,9 @@ repositories:
   description: ""
   type: private
 - name: gamin
+  description: ""
+  type: private
+- name: gavl
   description: ""
   type: private
 - name: gawk
