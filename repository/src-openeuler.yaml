@@ -2599,6 +2599,9 @@ repositories:
 - name: libgnomekbd
   description: ""
   type: private
+- name: libgnomeui
+  description: ""
+  type: private
 - name: libgnome-keyring
   description: ""
   type: private
