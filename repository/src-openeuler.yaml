@@ -3103,6 +3103,9 @@ repositories:
 - name: libvma
   description: ""
   type: private
+- name: libvncserver
+  description: ""
+  type: private
 - name: libvoikko
   description: ""
   type: private
@@ -4182,6 +4185,9 @@ repositories:
 - name: perl-Bit-Vector
   description: ""
   type: private
+- name: perl-BSD-Resource
+  description: ""
+  type: private
 - name: perl-Capture-Tiny
   description: ""
   type: private
@@ -4614,6 +4620,9 @@ repositories:
 - name: perl-Storable
   description: ""
   type: private
+- name: perl-String-CRC32
+  description: ""
+  type: private
 - name: perl-String-ShellQuote
   description: ""
   type: private
@@ -4834,6 +4843,9 @@ repositories:
   description: ""
   type: private
 - name: plexus-component-api
+  description: ""
+  type: private
+- name: plexus-components-pom
   description: ""
   type: private
 - name: plexus-containers
@@ -6095,6 +6107,9 @@ repositories:
   description: ""
   type: private
 - name: sudo
+  description: ""
+  type: private
+- name: suitesparse
   description: ""
   type: private
 - name: supermin
