@@ -2119,6 +2119,9 @@ repositories:
 - name: java-base64
   description: ""
   type: private
+- name: java-cup
+  description: ""
+  type: private
 - name: javaewah
   description: ""
   type: private
