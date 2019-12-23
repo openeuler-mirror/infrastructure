@@ -2155,6 +2155,9 @@ repositories:
 - name: jboss-marshalling
   description: ""
   type: private
+- name: jboss-remoting-jmx
+  description: ""
+  type: private
 - name: jboss-sasl
   description: ""
   type: private
