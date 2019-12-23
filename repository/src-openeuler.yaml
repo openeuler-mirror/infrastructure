@@ -2155,6 +2155,9 @@ repositories:
 - name: jboss-marshalling
   description: ""
   type: private
+- name: jboss-sasl
+  description: ""
+  type: private
 - name: jboss-servlet-3.0-api
   description: ""
   type: private
