@@ -3418,6 +3418,9 @@ repositories:
 - name: lua-socket
   description: ""
   type: private
+- name: lucene
+  description: ""
+  type: private
 - name: luksmeta
   description: ""
   type: private
