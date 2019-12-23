@@ -3523,6 +3523,9 @@ repositories:
 - name: maven-jar-plugin
   description: ""
   type: private
+- name: maven-javadoc-plugin
+  description: ""
+  type: private
 - name: maven-parent
   description: ""
   type: private
