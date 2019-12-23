@@ -1540,6 +1540,12 @@ repositories:
 - name: gnome-themes-standard
   description: ""
   type: private
+- name: gnome-tweaks
+  description: ""
+  type: private
+- name: gnome-tweaks
+  description: ""
+  type: private
 - name: gnome-user-docs
   description: ""
   type: private
@@ -2147,6 +2153,15 @@ repositories:
   description: ""
   type: private
 - name: jboss-marshalling
+  description: ""
+  type: private
+- name: jboss-remoting
+  description: ""
+  type: private
+- name: jboss-remoting-jmx
+  description: ""
+  type: private
+- name: jboss-sasl
   description: ""
   type: private
 - name: jboss-servlet-3.0-api
@@ -3521,6 +3536,9 @@ repositories:
   description: ""
   type: private
 - name: maven-jar-plugin
+  description: ""
+  type: private
+- name: maven-javadoc-plugin
   description: ""
   type: private
 - name: maven-parent
