@@ -747,6 +747,9 @@ repositories:
 - name: comps-extras
   description: ""
   type: private
+- name: conmon
+  description: ""
+  type: private
 - name: console-setup
   description: ""
   type: private
