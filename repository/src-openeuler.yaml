@@ -2458,6 +2458,9 @@ repositories:
 - name: libbs2b
   description: ""
   type: private
+- name: libburn
+  description: ""
+  type: private
 - name: libbytesize
   description: ""
   type: private
@@ -2708,6 +2711,9 @@ repositories:
   description: ""
   type: private
 - name: libiscsi
+  description: ""
+  type: private
+- name: libisofs
   description: ""
   type: private
 - name: libjpeg-turbo
@@ -5041,6 +5047,9 @@ repositories:
   description: ""
   type: private
 - name: python-aniso8601
+  description: ""
+  type: private
+- name: python-argcomplete
   description: ""
   type: private
 - name: python-asn1crypto
