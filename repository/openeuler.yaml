@@ -70,6 +70,8 @@ repositories:
 - name: community
   description: ""
   type: public
+  managers:
+  - myeuler
   developers:
   - cynthia_xh
   - dogsheng
