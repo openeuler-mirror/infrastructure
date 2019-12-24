@@ -1297,9 +1297,6 @@ repositories:
 - name: gamin
   description: ""
   type: private
-- name: gavl
-  description: ""
-  type: private
 - name: gawk
   description: ""
   type: private
