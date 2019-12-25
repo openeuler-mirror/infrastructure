@@ -1,0 +1,45 @@
+
+#
+# Ansible managed
+#
+[Unit]
+Description=Prometheus Alertmanager
+After=network-online.target
+StartLimitInterval=0
+StartLimitIntervalSec=0
+
+[Service]
+Type=simple
+PIDFile=/var/run/alertmanager.pid
+User=alertmanager
+Group=alertmanager
+ExecReload=/bin/kill -HUP $MAINPID
+ExecStart=/usr/local/bin/alertmanager \
+  --cluster.listen-address= \
+  --config.file=/etc/alertmanager/alertmanager.yml \
+  --storage.path=/var/lib/alertmanager \
+  --web.listen-address=0.0.0.0:9093 \
+  --web.external-url=http://121.36.2.159:9093/
+SyslogIdentifier=alertmanager
+Restart=always
+RestartSec=5
+
+CapabilityBoundingSet=CAP_SET_UID
+LockPersonality=true
+NoNewPrivileges=true
+MemoryDenyWriteExecute=true
+PrivateTmp=true
+ProtectHome=true
+ReadWriteDirectories=/var/lib/alertmanager
+RemoveIPC=true
+RestrictSUIDSGID=true
+
+PrivateUsers=true
+ProtectControlGroups=true
+ProtectKernelModules=true
+ProtectKernelTunables=yes
+ProtectSystem=strict
+
+[Install]
+WantedBy=multi-user.target
+
