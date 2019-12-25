@@ -156,9 +156,6 @@ repositories:
 - name: kae_driver
   description: ""
   type: private
-- name: kernel
-  description: ""
-  type: private
 - name: lcr
   description: ""
   type: private
