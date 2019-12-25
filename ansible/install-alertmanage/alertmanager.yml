@@ -1,0 +1,34 @@
+
+global:
+  resolve_timeout: 5m
+  smtp_smarthost: 'smtp.qq.com:465'
+  smtp_from: 'xxxxxxxx@qq.com'
+  smtp_auth_username: 'xxxxxx@qq.com'
+  smtp_auth_password: 'xxxxxxx'
+  smtp_require_tls: false
+
+route:
+  group_by: ['alertname']
+  group_wait: 10s
+  group_interval: 10s
+  repeat_interval: 40m
+  receiver: 'default-receiver'
+  routes:   # 可以指定哪些组接手哪些消息
+  - receiver: 'default-receiver'
+    continue: true
+    group_wait: 10s
+  - receiver: 'fping-receiver'
+    group_wait: 10s
+    match_re:  #根据标签分组，匹配标签dest=szjf的为fping-receiver组
+      job: jenkins
+
+receivers:
+- name: 'default-receiver'
+  email_configs:
+  - to: 'jun.zhongjun@huawei.com'
+  - to: 'operation@openeuler.org'
+- name: "fping-receiver"
+  webhook_configs:
+  - url: 'http://127.0.0.1:9095/dingtalk'
+    send_resolved: true
+

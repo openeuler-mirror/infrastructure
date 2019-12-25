@@ -1,0 +1,140 @@
+
+---
+- hosts: prometheus
+  vars:
+    - prometheus_db_dir: "/var/lib/prometheus"
+    - prometheus_version: "2.15.0"
+    - prometheus_config_dir: "/etc/prometheus"
+    - prometheus_binary_local_dir: ""
+    - go_arch: "386"
+  tasks:
+  - name: create prometheus system group
+    group:
+      name: prometheus
+      system: true
+      state: present
+
+  - name: create prometheus system user
+    user:
+      name: prometheus
+      system: true
+      shell: "/sbin/nologin"
+      group: prometheus
+      createhome: false
+      home: "{{ prometheus_db_dir }}"
+
+  - name: create prometheus data directory
+    file:
+      path: "{{ prometheus_db_dir }}"
+      state: directory
+      owner: prometheus
+      group: prometheus
+      mode: 0755
+
+  - name: create prometheus configuration directories
+    file:
+      path: "{{ item }}"
+      state: directory
+      owner: root
+      group: prometheus
+      mode: 0770
+    with_items:
+      - "{{ prometheus_config_dir }}"
+      - "{{ prometheus_config_dir }}/conf.d"
+      - "{{ prometheus_config_dir }}/file_sd"
+      - "{{ prometheus_config_dir }}/rules"
+
+  - name: configure prometheus
+    template:
+      src: "prometheus.yml"
+      dest: "{{ prometheus_config_dir }}/prometheus.yml"
+      force: true
+      owner: root
+      group: prometheus
+      mode: 0640
+    notify:
+      - reload prometheus
+
+  - name: copy prometheus custom static targets
+    template:
+      src: "{{item}}"
+      dest: "{{ prometheus_config_dir }}/file_sd/"
+      force: true
+      owner: root
+      group: prometheus
+      mode: 0640
+    with_fileglob:
+      - /etc/ansible/file_config/*
+
+  - name: copy prometheus custom static rules
+    copy:
+      src: "{{item}}"
+      dest: "{{ prometheus_config_dir }}/rules/"
+      force: true
+      owner: root
+      group: prometheus
+      mode: 0640
+    with_fileglob:
+      - /etc/ansible/rule_config/*
+    notify:
+      - restart prometheus
+
+  - block:
+      - name: unpack prometheus binaries
+        become: false
+        unarchive:
+          src: "prometheus-{{ prometheus_version }}.linux-{{ go_arch }}.tar.gz"
+          dest: "/tmp"
+          creates: "/tmp/prometheus-{{ prometheus_version }}.linux-{{ go_arch }}/prometheus"
+        delegate_to: localhost
+        check_mode: false
+
+      - name: propagate official prometheus and promtool binaries
+        copy:
+          src: "/tmp/prometheus-{{ prometheus_version }}-rc.0.linux-{{ go_arch }}/{{ item }}"
+          dest: "/usr/local/bin/{{ item }}"
+          mode: 0755
+          owner: root
+          group: root
+        with_items:
+          - prometheus
+        notify:
+          - restart prometheus
+
+    when: prometheus_binary_local_dir | length == 0
+
+  - name: propagate locally distributed prometheus and promtool binaries
+    copy:
+      src: "{{ prometheus_binary_local_dir }}/{{ item }}"
+      dest: "/usr/local/bin/{{ item }}"
+      mode: 0755
+      owner: root
+      group: root
+    with_items:
+      - prometheus
+    when: prometheus_binary_local_dir | length > 0
+    notify:
+      - restart prometheus
+
+  - name: create systemd service unit
+    template:
+      src: prometheus.service
+      dest: /etc/systemd/system/prometheus.service
+      owner: root
+      group: root
+      mode: 0644
+    notify:
+      - restart prometheus
+  handlers:
+  - name: restart prometheus
+    become: true
+    systemd:
+      daemon_reload: true
+      name: prometheus
+      state: restarted
+
+  - name: reload prometheus
+    become: true
+    systemd:
+      name: prometheus
+      state: reloaded
