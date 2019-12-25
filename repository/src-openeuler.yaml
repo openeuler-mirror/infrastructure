@@ -461,9 +461,6 @@ repositories:
 - name: beust-jcommander
   description: ""
   type: private
-- name: bind
-  description: ""
-  type: private
 - name: bind-dyndb-ldap
   description: ""
   type: private
@@ -936,9 +933,6 @@ repositories:
   description: ""
   type: private
 - name: dmidecode
-  description: ""
-  type: private
-- name: dmraid
   description: ""
   type: private
 - name: dnf
@@ -2332,12 +2326,6 @@ repositories:
 - name: Keras
   description: ""
   type: private
-- name: kernel
-  description: ""
-  type: private
-- name: kexec-tools
-  description: ""
-  type: private
 - name: keybinder3
   description: ""
   type: private
@@ -2363,9 +2351,6 @@ repositories:
   description: ""
   type: private
 - name: kmod-kvdo
-  description: ""
-  type: private
-- name: kpatch
   description: ""
   type: private
 - name: krb5
@@ -2513,9 +2498,6 @@ repositories:
   description: ""
   type: private
 - name: libcdio-paranoia
-  description: ""
-  type: private
-- name: libcgroup
   description: ""
   type: private
 - name: libcomps
@@ -3233,9 +3215,6 @@ repositories:
   description: ""
   type: private
 - name: libxklavier
-  description: ""
-  type: private
-- name: libxml2
   description: ""
   type: private
 - name: libxmlb
@@ -3993,16 +3972,10 @@ repositories:
 - name: openEuler_chroot
   description: ""
   type: private
-- name: openEuler-indexhtml
-  description: ""
-  type: private
 - name: openEuler-latest-release
   description: ""
   type: private
 - name: openEuler-logos
-  description: ""
-  type: private
-- name: openEuler-release
   description: ""
   type: private
 - name: openEuler-repos
@@ -4030,9 +4003,6 @@ repositories:
   description: ""
   type: private
 - name: openjpeg2
-  description: ""
-  type: private
-- name: openldap
   description: ""
   type: private
 - name: openmpi
@@ -4123,9 +4093,6 @@ repositories:
   description: ""
   type: private
 - name: p11-kit
-  description: ""
-  type: private
-- name: PackageKit
   description: ""
   type: private
 - name: paktype-naqsh-fonts
@@ -4932,9 +4899,6 @@ repositories:
 - name: plotutils
   description: ""
   type: private
-- name: plymouth
-  description: ""
-  type: private
 - name: pngquant
   description: ""
   type: private
@@ -4945,9 +4909,6 @@ repositories:
   description: ""
   type: private
 - name: podman
-  description: ""
-  type: private
-- name: policycoreutils
   description: ""
   type: private
 - name: polkit
@@ -5002,9 +4963,6 @@ repositories:
   description: ""
   type: private
 - name: procmail
-  description: ""
-  type: private
-- name: procps-ng
   description: ""
   type: private
 - name: proj
@@ -5496,9 +5454,6 @@ repositories:
 - name: python-reportlab
   description: ""
   type: private
-- name: python-requests
-  description: ""
-  type: private
 - name: python-requests-file
   description: ""
   type: private
@@ -5947,9 +5902,6 @@ repositories:
 - name: securec
   description: ""
   type: private
-- name: security-tool
-  description: ""
-  type: private
 - name: sed
   description: ""
   type: private
@@ -5984,9 +5936,6 @@ repositories:
   description: ""
   type: private
 - name: sgpio
-  description: ""
-  type: private
-- name: shadow
   description: ""
   type: private
 - name: shadow-utils
@@ -6026,9 +5975,6 @@ repositories:
   description: ""
   type: private
 - name: skkdic
-  description: ""
-  type: private
-- name: skopeo
   description: ""
   type: private
 - name: slang
