@@ -1,0 +1,51 @@
+
+[
+  {
+    targets: ["172.16.1.42:9256", "172.16.1.42:9100" ],
+    labels: {"host": "obs-worker-101"}
+  },
+  {
+    targets: ["172.16.1.80:9100"],
+    labels: {"host": "obs-worker-001"}
+  },
+  {
+    targets: ["172.16.1.33:9100"],
+    labels: {"host": "obs-worker-002"}
+  },
+  {
+    targets: ["172.16.1.99:9100"],
+    labels: {"host": "obs-worker-003"}
+  },
+  {
+    targets: ["172.16.1.68:9100"],
+    labels: {"host": "obs-worker-004"}
+  },
+  {
+    targets: ["172.16.1.51:9100"],
+    labels: {"host": "obs-worker-005"}
+  },
+  {
+    targets: ["172.16.1.96:9100"],
+    labels: {"host": "obs-worker-006"}
+  },
+  {
+    targets: ["172.16.1.27:9100"],
+    labels: {"host": "obs-worker-007"}
+  },
+  {
+    targets: ["172.16.1.12:9100"],
+    labels: {"host": "obs-worker-008"}
+  },
+  {
+    targets: ["172.16.1.14:9100"],
+    labels: {"host": "obs-worker-009"}
+  },
+  {
+    targets: ["172.16.1.57:9100"],
+    labels: {"host": "obs-worker-0010"}
+  },
+  {
+    targets: ["172.16.1.110:9100"],
+    labels: {"host": "obs-worker-102"}
+  }
+]

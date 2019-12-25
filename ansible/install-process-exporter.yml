@@ -1,0 +1,4 @@
+
+- hosts: obs-worker-101
+  roles:
+    - cloudalchemy.process_exporter
