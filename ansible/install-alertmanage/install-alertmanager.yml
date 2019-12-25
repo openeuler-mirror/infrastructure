@@ -1,0 +1,115 @@
+
+
+---
+- hosts: prometheus
+  vars:
+    - alertmanager_db_dir: "/var/lib/alertmanager"
+    - alertmanager_version: "0.20.0"
+    - alertmanager_config_dir: "/etc/alertmanager"
+    - alertmanager_binary_local_dir: ""
+    - go_arch: "386"
+  tasks:
+  - name: create alertmanager system group
+    group:
+      name: alertmanager
+      system: true
+      state: present
+
+  - name: create alertmanager system user
+    user:
+      name: alertmanager
+      system: true
+      shell: "/sbin/nologin"
+      group: alertmanager
+      createhome: false
+
+  - name: create alertmanager data directory
+    file:
+      path: "{{ alertmanager_db_dir }}"
+      state: directory
+      owner: alertmanager
+      group: alertmanager
+      mode: 0755
+
+  - name: create alertmanager configuration directories
+    file:
+      path: "{{ item }}"
+      state: directory
+      owner: root
+      group: alertmanager
+      mode: 0770
+    with_items:
+      - "{{ alertmanager_config_dir }}"
+      - "{{ alertmanager_config_dir }}/templates"
+
+  - name: configure alertmanager
+    template:
+      src: "alertmanager.yml"
+      dest: "{{ alertmanager_config_dir }}/alertmanager.yml"
+      force: true
+      owner: root
+      group: alertmanager
+      mode: 0640
+    notify:
+      - reload alertmanager
+
+  - block:
+      - name: unpack alertmanager binaries
+        become: false
+        unarchive:
+          src: "alertmanager-{{ alertmanager_version }}.linux-{{ go_arch }}.tar.gz"
+          dest: "/tmp"
+          creates: "/tmp/alertmanager-{{ alertmanager_version }}.linux-{{ go_arch }}/alertmanager"
+        delegate_to: localhost
+        check_mode: false
+
+      - name: propagate official alertmanager and promtool binaries
+        copy:
+          src: "/tmp/alertmanager-{{ alertmanager_version }}.linux-{{ go_arch }}/{{ item }}"
+          dest: "/usr/local/bin/{{ item }}"
+          mode: 0755
+          owner: root
+          group: root
+        with_items:
+          - alertmanager
+        notify:
+          - restart alertmanager
+
+    when: alertmanager_binary_local_dir | length == 0
+
+  - name: propagate locally distributed alertmanager and promtool binaries
+    copy:
+      src: "{{ alertmanager_binary_local_dir }}/{{ item }}"
+      dest: "/usr/local/bin/{{ item }}"
+      mode: 0755
+      owner: root
+      group: root
+    with_items:
+      - alertmanager
+    when: alertmanager_binary_local_dir | length > 0
+    notify:
+      - restart alertmanager
+
+  - name: create systemd service unit
+    template:
+      src: alertmanager.service
+      dest: /etc/systemd/system/alertmanager.service
+      owner: root
+      group: root
+      mode: 0644
+    notify:
+      - restart alertmanager
+  handlers:
+  - name: restart alertmanager
+    become: true
+    systemd:
+      daemon_reload: true
+      name: alertmanager
+      state: restarted
+
+  - name: reload alertmanager
+    become: true
+    systemd:
+      name: alertmanager
+      state: reloaded
+

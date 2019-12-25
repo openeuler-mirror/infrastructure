@@ -1,0 +1,15 @@
+
+[
+  {
+    targets: ["172.16.1.81:9100", "172.16.1.81:9256"],
+    labels: {"host": "obs-api-server"}
+  },
+  {
+    targets: ["172.16.1.95:9100", "172.16.1.95:9256"],
+    labels: {"host": "obs-backend-server"}
+  },
+  {
+    targets: ["172.16.1.89:9100", "172.16.1.89:9256"],
+    labels: {"host": "obs-source-server"}
+  }
+]
