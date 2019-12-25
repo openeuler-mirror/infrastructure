@@ -1037,6 +1037,9 @@ repositories:
 - name: eclipse-jgit
   description: ""
   type: private
+- name: eclipselink-persistence-api
+  description: ""
+  type: private
 - name: ed
   description: ""
   type: private
@@ -1062,6 +1065,9 @@ repositories:
   description: ""
   type: private
 - name: egl-wayland
+  description: ""
+  type: private
+- name: ehcache-core
   description: ""
   type: private
 - name: ehcache-parent
