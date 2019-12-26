@@ -6097,9 +6097,6 @@ repositories:
 - name: spice-vdagent
   description: ""
   type: private
-- name: springframework
-  description: ""
-  type: private
 - name: sqlite
   description: ""
   type: private
