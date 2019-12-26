@@ -1862,6 +1862,9 @@ repositories:
 - name: httpcomponents-client
   description: ""
   type: private
+- name: httpd
+  description: ""
+  type: private
 - name: http-parser
   description: ""
   type: private
@@ -2327,6 +2330,9 @@ repositories:
   description: ""
   type: private
 - name: kernel
+  description: ""
+  type: private
+- name: kexec-tools
   description: ""
   type: private
 - name: keybinder3
@@ -6482,6 +6488,9 @@ repositories:
   description: ""
   type: private
 - name: velocity
+  description: ""
+  type: private
+- name: vim
   description: ""
   type: private
 - name: vinagre
