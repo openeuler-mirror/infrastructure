@@ -2329,9 +2329,6 @@ repositories:
 - name: kernel
   description: ""
   type: private
-- name: kexec-tools
-  description: ""
-  type: private
 - name: keybinder3
   description: ""
   type: private
