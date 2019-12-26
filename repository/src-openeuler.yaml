@@ -1862,16 +1862,10 @@ repositories:
 - name: httpcomponents-client
   description: ""
   type: private
-- name: httpd
-  description: ""
-  type: private
 - name: http-parser
   description: ""
   type: private
 - name: httpcomponents-core
-  description: ""
-  type: private
-- name: huaweijdk
   description: ""
   type: private
 - name: hunspell
@@ -5818,9 +5812,6 @@ repositories:
 - name: rhnlib
   description: ""
   type: private
-- name: rhnsd
-  description: ""
-  type: private
 - name: rng-tools
   description: ""
   type: private
@@ -6494,9 +6485,6 @@ repositories:
   description: ""
   type: private
 - name: velocity
-  description: ""
-  type: private
-- name: vim
   description: ""
   type: private
 - name: vinagre
