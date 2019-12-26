@@ -4005,6 +4005,9 @@ repositories:
 - name: openEuler-repos
   description: ""
   type: private
+- name: openEuler-rpm-config
+  description: ""
+  type: private
 - name: OpenEXR
   description: ""
   type: private
