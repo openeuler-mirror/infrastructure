@@ -2281,6 +2281,9 @@ repositories:
 - name: jsr-311
   description: ""
   type: private
+- name: jtidy
+  description: ""
+  type: private
 - name: julietaula-montserrat-fonts
   description: ""
   type: private
