@@ -40,6 +40,7 @@ community:
   - lkx690
   - openeuler-basic
   - openeuler-compute
+  - openeuler-netdev
   - openeuler_kernel
   - openeulercomputecommitter
   - openeulerisula
@@ -91,7 +92,6 @@ community:
   - jianminw
   - jimmy_hero
   - moyang1994
-  - openeuler-netdev
   - openeuler_hulk
   - openeulerinnodev
   - openeulerinnomtn
