@@ -75,6 +75,7 @@ community:
   - tubalu
   - ultra_planet
   - upper_code
+  - victorjin
   - wangshuai94
   - wanjk19
   - wisdoman
@@ -744,9 +745,6 @@ repositories:
   description: ""
   type: private
 - name: compat-libgfortran
-  description: ""
-  type: private
-- name: compat-openssl10
   description: ""
   type: private
 - name: compiler-rt
@@ -4008,9 +4006,6 @@ repositories:
 - name: openEuler-logos
   description: ""
   type: private
-- name: openEuler-release
-  description: ""
-  type: private
 - name: openEuler-repos
   description: ""
   type: private
@@ -4570,9 +4565,6 @@ repositories:
   description: ""
   type: private
 - name: perl-Net-DNS
-  description: ""
-  type: private
-- name: perl-Net-HTTP
   description: ""
   type: private
 - name: perl-Net-Server
