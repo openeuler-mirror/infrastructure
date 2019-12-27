@@ -48,6 +48,7 @@ community:
   - openeuler-basic
   - openeuler-compute
   - openeuler-netdev
+  - openeuler-net
   - openeuler_kernel
   - openeulercomputecommitter
   - openeulerisula
