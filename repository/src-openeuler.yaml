@@ -33,6 +33,8 @@ community:
   - gu-gu-gu
   - guanyanjie
   - haijianzhang
+  - hands2333
+  - hfutsdd
   - heruxiao
   - igorkorkin
   - isulamaster
@@ -40,6 +42,7 @@ community:
   - jdkboy
   - jiuhanjiu
   - kuhnchen18
+  - kang_jiang_bo
   - lemon-higgins
   - lkx690
   - openeuler-basic
@@ -92,6 +95,7 @@ community:
   - zhu_li_ying
   - zhuchunyi
   - zyp-wiken
+  - zhanggaiyan
   viewers:
   - cmss_dx
   - gogoxiaoxiao
@@ -1990,11 +1994,15 @@ repositories:
   - Classicriver_jia
   - damian_2012
   - heruxiao
+  - hands2333
+  - hfutsdd
+  - kang_jiang_bo
   - jimmy_hero
   - lemon-higgins
   - street_dust
   - wubodong
   - zhang_liu_yan
+  - zhanggaiyan
 - name: intel-cmt-cat
   description: ""
   type: private
@@ -2232,11 +2240,15 @@ repositories:
   - Classicriver_jia
   - damian_2012
   - heruxiao
+  - hands2333
+  - hfutsdd
   - jimmy_hero
+  - kang_jiang_bo
   - lemon-higgins
   - street_dust
   - wubodong
   - zhang_liu_yan
+  - zhanggaiyan
 - name: jetty
   description: ""
   type: private
