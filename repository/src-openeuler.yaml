@@ -4,6 +4,7 @@ community:
   - master
   developers:
   - AlexZ11
+  - air9
   - anne_zhu
   - baizhilaoda
   - caorj
@@ -1975,6 +1976,7 @@ repositories:
   description: ""
   type: private
   developers:
+  - air9
   - anne_zhu
   - baizhilaoda
   - caorj
@@ -2216,6 +2218,7 @@ repositories:
   description: ""
   type: private
   developers:
+  - air9
   - anne_zhu
   - baizhilaoda
   - caorj
