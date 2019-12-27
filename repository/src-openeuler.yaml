@@ -4,6 +4,7 @@ community:
   - master
   developers:
   - AlexZ11
+  - air9
   - anne_zhu
   - baizhilaoda
   - caorj
@@ -466,9 +467,6 @@ repositories:
   description: ""
   type: private
 - name: beust-jcommander
-  description: ""
-  type: private
-- name: bind
   description: ""
   type: private
 - name: bind-dyndb-ldap
@@ -1836,9 +1834,6 @@ repositories:
 - name: hexedit
   description: ""
   type: private
-- name: hfsplus-tools
-  description: ""
-  type: private
 - name: hibernate
   description: ""
   type: private
@@ -1981,6 +1976,7 @@ repositories:
   description: ""
   type: private
   developers:
+  - air9
   - anne_zhu
   - baizhilaoda
   - caorj
@@ -2222,6 +2218,7 @@ repositories:
   description: ""
   type: private
   developers:
+  - air9
   - anne_zhu
   - baizhilaoda
   - caorj
@@ -4039,9 +4036,6 @@ repositories:
 - name: openjpeg2
   description: ""
   type: private
-- name: openldap
-  description: ""
-  type: private
 - name: openmpi
   description: ""
   type: private
@@ -4132,9 +4126,6 @@ repositories:
 - name: p11-kit
   description: ""
   type: private
-- name: PackageKit
-  description: ""
-  type: private
 - name: paktype-naqsh-fonts
   description: ""
   type: private
@@ -4181,9 +4172,6 @@ repositories:
   description: ""
   type: private
 - name: pax
-  description: ""
-  type: private
-- name: pcaudiolib
   description: ""
   type: private
 - name: pciutils
@@ -4939,9 +4927,6 @@ repositories:
 - name: plotutils
   description: ""
   type: private
-- name: plymouth
-  description: ""
-  type: private
 - name: pngquant
   description: ""
   type: private
@@ -5501,9 +5486,6 @@ repositories:
   description: ""
   type: private
 - name: python-reportlab
-  description: ""
-  type: private
-- name: python-requests
   description: ""
   type: private
 - name: python-requests-file
@@ -6291,9 +6273,6 @@ repositories:
   description: ""
   type: private
 - name: timedatex
-  description: ""
-  type: private
-- name: tinycdb
   description: ""
   type: private
 - name: tinyxml
