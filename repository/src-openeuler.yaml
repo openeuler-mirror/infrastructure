@@ -4012,6 +4012,9 @@ repositories:
 - name: openEuler-logos
   description: ""
   type: private
+- name: openEuler-release
+  description: ""
+  type: private
 - name: openEuler-repos
   description: ""
   type: private
@@ -4580,6 +4583,9 @@ repositories:
   description: ""
   type: private
 - name: perl-Net-DNS
+  description: ""
+  type: private
+- name: perl-Net-HTTP
   description: ""
   type: private
 - name: perl-Net-Server
