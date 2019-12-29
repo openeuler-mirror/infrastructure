@@ -2,131 +2,6 @@ community:
   name: src-openeuler
   protected_branches:
   - master
-  developers:
-  - AlexZ11
-  - air9
-  - anne_zhu
-  - baizhilaoda
-  - caorj
-  - BenchMarkFather
-  - bingo2008
-  - byeX012
-  - catastrowings
-  - Charlie_li
-  - chen_daguan
-  - chenholmes
-  - Classicriver_jia
-  - Clergy97
-  - compile_success
-  - cynthia_xh
-  - daidai_is_here
-  - damian_2012
-  - dogsheng
-  - drjgitee
-  - duyyb
-  - eastb233
-  - eric14chan
-  - fly123fly
-  - fun_yang
-  - giteeRuby
-  - gnaygnil
-  - gu-gu-gu
-  - guanyanjie
-  - haijianzhang
-  - hands2333
-  - hfutsdd
-  - heruxiao
-  - igorkorkin
-  - isulamaster
-  - jackie_wu123
-  - jdkboy
-  - jiuhanjiu
-  - kuhnchen18
-  - kang_jiang_bo
-  - lemon-higgins
-  - lkx690
-  - openeuler-basic
-  - openeuler-compute
-  - openeuler-netdev
-  - openeuler-net
-  - openeuler_kernel
-  - openeulercomputecommitter
-  - openeulerisula
-  - openeulernet
-  - openeulernetwork
-  - openeulersystem
-  - openeulervirtreview
-  - openeuler_hulk
-  - overweight
-  - ow_wo
-  - panny060
-  - pretty2019
-  - putao66
-  - qiegewala
-  - qingguopi
-  - randy-wangx
-  - Ronnie_Jiang
-  - ruebb
-  - seki099
-  - sherlock2010
-  - si-gui
-  - solarhu
-  - street_dust
-  - eulerstorage
-  - eulerstorage_maintainer
-  - sugarfillet
-  - small_leek
-  - SupMario
-  - tubalu
-  - ultra_planet
-  - upper_code
-  - victorjin
-  - w00403592
-  - wangshuai94
-  - wanjk19
-  - wisdoman
-  - wubodong
-  - wsf0824
-  - xhming
-  - xiangshuaizhx
-  - xdzt1986 
-  - yanglijin
-  - yanzh_h
-  - yeah_wang
-  - yiyurain
-  - zhang_liu_yan
-  - zhu_li_ying
-  - zhuchunyi
-  - zyp-wiken
-  - zhanggaiyan
-  viewers:
-  - cmss_dx
-  - gogoxiaoxiao
-  - guojianxing
-  - huang_rong
-  - imjoey
-  - isoft-linux
-  - isrc-iscas
-  - jianminw
-  - jimmy_hero
-  - moyang1994
-  - openeuler_hulk
-  - openeulerinnodev
-  - openeulerinnomtn
-  - openeulerisula
-  - openeulernet
-  - openeulervirt 
-  - pansh
-  - ranygu
-  - scutech
-  - smilebob
-  - taoziyaoyao
-  - tom0392
-  - tongyuanos
-  - weimingjiang
-  - yangxuan8282
-  - zhang_wei5630
-  - zhangshengju
 repositories:
 - name: aalto-xml
   description: ""
@@ -140,40 +15,6 @@ repositories:
 - name: accountsservice
   description: ""
   type: private
-  developers:
-  - AlexZ11
-  - catastrowings
-  - Charlie_li
-  - dogsheng
-  - eric14chan
-  - fly123fly
-  - guanyanjie
-  - igorkorkin
-  - overweight
-  - qingguopi
-  - xhming
-  - yanglijin
-  - yanzh_h
-  - zaiwangli
-  - zhuchunyi
-  viewers:
-  - cmss_dx
-  - gogoxiaoxiao
-  - guojianxing
-  - imjoey
-  - isoft-linux
-  - isrc-iscas
-  - jianminw
-  - jimmy_hero
-  - moyang1994
-  - pansh
-  - ranygu
-  - smilebob
-  - taoziyaoyao
-  - tom0392
-  - weimingjiang
-  - yangxuan8282
-  - zhangshengju
 - name: acl
   description: ""
   type: private
@@ -288,10 +129,6 @@ repositories:
 - name: apache-parent
   description: ""
   type: public
-  developers:
-  - catastrowings
-  - solarhu
-  - xhming
 - name: apache-resource-bundles
   description: ""
   type: private
@@ -358,16 +195,6 @@ repositories:
 - name: A-Tune
   description: ""
   type: private
-  developers:
-  - dogsheng
-  - igorkorkin
-  - overweight
-  - xiezhipeng1
-  - zhuchunyi
-  viewers:
-  - hawl29
-  - isrc-iscas
-  - zcylp
 - name: audiofile
   description: ""
   type: private
@@ -542,11 +369,6 @@ repositories:
 - name: build
   description: ""
   type: private
-  developers:
-  - dogsheng
-  - TommyLike
-  - zhaoshangjie
-  - zhuchunyi
 - name: bullet
   description: ""
   type: private
@@ -580,10 +402,6 @@ repositories:
 - name: cairomm
   description: ""
   type: public
-  developers:
-  - catastrowings
-  - solarhu
-  - xhming
 - name: capstone
   description: ""
   type: private
@@ -638,15 +456,6 @@ repositories:
 - name: ci_check
   description: ""
   type: private
-  developers:
-  - dogsheng
-  - jacobstrive
-  - imjoey
-  - ruebb
-  - TommyLike
-  - yanglijin
-  - zhaoshangjie
-  - zhuchunyi
 - name: cifs-utils
   description: ""
   type: private
@@ -683,41 +492,6 @@ repositories:
 - name: cloud-init
   description: ""
   type: private
-  developers:
-  - AlexZ11
-  - catastrowings
-  - Charlie_li
-  - dogsheng
-  - eric14chan
-  - fly123fly
-  - guanyanjie
-  - igorkorkin
-  - overweight
-  - qingguopi
-  - xhming
-  - yanglijin
-  - yanzh_h
-  - zaiwangli
-  - zhaoshangjie
-  - zhuchunyi
-  viewers:
-  - cmss_dx
-  - gogoxiaoxiao
-  - guojianxing
-  - imjoey
-  - isoft-linux
-  - isrc-iscas
-  - jianminw
-  - jimmy_hero
-  - moyang1994
-  - pansh
-  - ranygu
-  - smilebob
-  - taoziyaoyao
-  - tom0392
-  - weimingjiang
-  - yangxuan8282
-  - zhangshengju
 - name: clucene
   description: ""
   type: private
@@ -916,10 +690,6 @@ repositories:
 - name: devhelp
   description: ""
   type: public
-  developers:
-  - catastrowings
-  - solarhu
-  - xhming
 - name: device-mapper-multipath
   description: ""
   type: private
@@ -1988,24 +1758,6 @@ repositories:
 - name: integration-test
   description: ""
   type: private
-  developers:
-  - air9
-  - anne_zhu
-  - baizhilaoda
-  - caorj
-  - Charlie_li
-  - Classicriver_jia
-  - damian_2012
-  - heruxiao
-  - hands2333
-  - hfutsdd
-  - kang_jiang_bo
-  - jimmy_hero
-  - lemon-higgins
-  - street_dust
-  - wubodong
-  - zhang_liu_yan
-  - zhanggaiyan
 - name: intel-cmt-cat
   description: ""
   type: private
@@ -2234,24 +1986,6 @@ repositories:
 - name: jenkins_project
   description: ""
   type: private
-  developers:
-  - air9
-  - anne_zhu
-  - baizhilaoda
-  - caorj
-  - Charlie_li
-  - Classicriver_jia
-  - damian_2012
-  - heruxiao
-  - hands2333
-  - hfutsdd
-  - jimmy_hero
-  - kang_jiang_bo
-  - lemon-higgins
-  - street_dust
-  - wubodong
-  - zhang_liu_yan
-  - zhanggaiyan
 - name: jetty
   description: ""
   type: private
@@ -3983,11 +3717,6 @@ repositories:
 - name: obs_meta
   description: ""
   type: private
-  developers:
-  - dogsheng
-  - TommyLike
-  - zhaoshangjie
-  - zhuchunyi
 - name: ocaml
   description: ""
   type: private
@@ -5818,10 +5547,6 @@ repositories:
 - name: redland
   description: ""
   type: public
-  developers:
-  - catastrowings
-  - solarhu
-  - xhming
 - name: reflectasm
   description: ""
   type: private
@@ -6842,91 +6567,6 @@ repositories:
 - name: yum-metadata-parser
   description: ""
   type: private
-  developers:
-  - AlexZ11
-  - anne_zhu
-  - baizhilaoda
-  - caorj
-  - bingo2008
-  - byeX012
-  - catastrowings
-  - Charlie_li
-  - Classicriver_jia
-  - compile_success
-  - cynthia_xh
-  - daidai_is_here
-  - damian_2012
-  - dogsheng
-  - duyyb
-  - eric14chan
-  - fly123fly
-  - fun_yang
-  - gnaygnil
-  - gu-gu-gu
-  - guanyanjie
-  - guojianxing
-  - igorkorkin
-  - imjoey
-  - isulamaster
-  - jackie_wu123
-  - lemon-higgins
-  - lkx690
-  - openeuler-compute
-  - openeuler-net
-  - openeuler_kernel
-  - overweight
-  - pretty2019
-  - putao66
-  - qiegewala
-  - qingguopi
-  - Ronnie_Jiang
-  - seki099
-  - sherlock2010
-  - si-gui
-  - solarhu
-  - street_dust
-  - sugarfillet
-  - tubalu
-  - ultra_planet
-  - wanjk19
-  - wisdoman
-  - xhming
-  - xiangshuaizhx
-  - yanglijin
-  - yanzh_h
-  - yeah_wang
-  - yiyurain
-  - zaiwangli
-  - zhuchunyi
-  viewers:
-  - cmss_dx
-  - gogoxiaoxiao
-  - huang_rong
-  - isoft-linux
-  - isrc-iscas
-  - jianminw
-  - jimmy_hero
-  - moyang1994
-  - openeuler-basic
-  - openeuler-netdev
-  - openeuler_hulk
-  - openeulercomputecommitter
-  - openeulerinnodev
-  - openeulerinnomtn
-  - openeulerisula
-  - openeulernet
-  - openeulernetwork
-  - openeulersystem
-  - pansh
-  - ranygu
-  - scutech
-  - smilebob
-  - taoziyaoyao
-  - tom0392
-  - weimingjiang
-  - yangxuan8282
-  - zhang_wei5630
-  - zhangshengju
 - name: yum-utils
   description: ""
   type: private
