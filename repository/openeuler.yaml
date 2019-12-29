@@ -2,113 +2,26 @@ community:
   name: openeuler
   protected_branches:
   - master
-  developers:
-  - BenchMarkFather
-  - Charlie_li
-  - chen_daguan
-  - cynthia_xh
-  - dogsheng
-  - eulerstorage
-  - eulerstorage_maintainer
-  - igorkorkin
-  - jdkboy
-  - jiuhanjiu
-  - kuhnchen18
-  - openeuler-basic
-  - openeuler_hulk
-  - openeuler_kernel
-  - openeulercomputecommitter
-  - openeulerisula
-  - openeulernet
-  - openeulernetwork
-  - openeulersystem
-  - openeulervirt
-  - openeulervirtreview
-  - overweight
-  - panny060
-  - qingguopi
-  - Ronnie_Jiang
-  - rudy_tan
-  - solarhu
-  - victorjin
-  - w00403592
-  - zhuchunyi
-  - zyp-wiken
-  viewers:
-  - tongyuanos
-  - zhang_wei5630
 repositories:
 - name: A-Tune
   description: ""
   type: private
-  developers:
-  - Charlie_li
-  - cynthia_xh
-  - dogsheng
-  - igorkorkin
-  - ISRC-ISCAS
-  - kuhnchen18
-  - overweight
-  - qingguopi
-  - Ronnie_Jiang
-  - rudy_tan
-  - shanshishi
-  - solarhu
-  - xiezhipeng1
-  - zhuchunyi
-  viewers:
-  - zhang_wei5630
 - name: ci-bot
   description: ""
   type: public
-  developers:
-  - cynthia_xh
-  - dogsheng
-  - freesky-edward
-  - imjoey
-  - tommyhusheng
-  - xiangxinyong
-  - zerodefect
 - name: clibcni
   description: ""
   type: private
 - name: community
   description: ""
   type: public
-  managers:
-  - myeuler
-  developers:
-  - cynthia_xh
-  - dogsheng
-  - freesky-edward
-  - imjoey
-  - tommyhusheng
-  - xiangxinyong
-  - zerodefect
 - name: community-issue
   description: The public issue repo which only accept issue that doesn't belong to
     any source repo
   type: public
-  developers:
-  - cynthia_xh
-  - dogsheng
-  - freesky-edward
-  - imjoey
-  - tommyhusheng
-  - xiangxinyong
-  - zerodefect
 - name: discussion
   description: ""
   type: private
-  developers:
-  - Charlie_li
-  - cynthia_xh
-  - dogsheng
-  - igorkorkin
-  - initlove
-  - Ronnie_Jiang
-  - xiangxinyong
-  - yangli69393
 - name: docs
   description: ""
   type: public
@@ -118,40 +31,12 @@ repositories:
 - name: go-gitee
   description: ""
   type: public
-  developers:
-  - cynthia_xh
-  - dogsheng
-  - freesky-edward
-  - imjoey
-  - tommyhusheng
-  - xiangxinyong
-  - zerodefect
 - name: infrastructure
   description: ""
   type: public
-  developpers:
-  - cynthia_xh
-  - dogsheng
-  - freesky-edward
-  - imjoey
-  - tommyhusheng
-  - xiangxinyong
-  - zerodefect
 - name: integration-test
   description: ""
   type: private
-  developers:
-  - air9
-  - Charlie_li
-  - cynthia_xh
-  - dogsheng
-  - heruxiao
-  - jimmy_hero
-  - TommyLike
-  - wubodong
-  - xiangxinyong
-  - zerodefect
-  - zhang_liu_yan
 - name: iSulad
   description: ""
   type: private
@@ -179,20 +64,6 @@ repositories:
 - name: os-autoinst-distri-openEuler
   description: ""
   type: private
-  developers:
-  - anne_zhu
-  - baizhilaoda
-  - caorj
-  - Charlie_li
-  - Classicriver_jia
-  - cynthia_xh
-  - damian_2012
-  - heruxiao
-  - jimmy_hero
-  - lemon-higgins
-  - street_dust
-  - wubodong
-  - zhang_liu_yan
 - name: prefetch_tunning
   description: ""
   type: private
@@ -202,12 +73,3 @@ repositories:
 - name: website
   description: ""
   type: public
-  developers:
-  - cynthia_xh
-  - dogsheng
-  - freesky-edward
-  - imjoey
-  - tommyhusheng
-  - xiangxinyong
-  - zerodefect
-
