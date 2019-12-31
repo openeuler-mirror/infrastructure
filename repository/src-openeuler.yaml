@@ -636,9 +636,6 @@ repositories:
 - name: curl
   description: ""
   type: private
-- name: custom_build_tool
-  description: ""
-  type: private
 - name: cvs
   description: ""
   type: private
@@ -694,9 +691,6 @@ repositories:
   description: ""
   type: private
 - name: dejavu-fonts
-  description: ""
-  type: private
-- name: dejavu-sans-mono-fonts
   description: ""
   type: private
 - name: deltarpm
@@ -1935,9 +1929,6 @@ repositories:
 - name: java
   description: ""
   type: private
-- name: java-1.8.0-openjdk
-  description: ""
-  type: private
 - name: java-base64
   description: ""
   type: private
@@ -1948,9 +1939,6 @@ repositories:
   description: ""
   type: private
 - name: javamail
-  description: ""
-  type: private
-- name: javapackages-tools
   description: ""
   type: private
 - name: javapackages-tools
@@ -2191,6 +2179,9 @@ repositories:
   description: ""
   type: private
 - name: kyotocabinet
+  description: ""
+  type: private
+- name: kyua
   description: ""
   type: private
 - name: ladspa
@@ -2808,6 +2799,9 @@ repositories:
 - name: libsane-hpaio
   description: ""
   type: private
+- name: libsass
+  description: ""
+  type: private
 - name: libseccomp
   description: ""
   type: private
@@ -3265,6 +3259,9 @@ repositories:
   description: ""
   type: private
 - name: luksmeta
+  description: ""
+  type: private
+- name: lutok
   description: ""
   type: private
 - name: lvm2
