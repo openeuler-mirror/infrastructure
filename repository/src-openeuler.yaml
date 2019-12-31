@@ -2181,6 +2181,9 @@ repositories:
 - name: kyotocabinet
   description: ""
   type: private
+- name: kyua
+  description: ""
+  type: private
 - name: ladspa
   description: ""
   type: private
@@ -2796,6 +2799,9 @@ repositories:
 - name: libsane-hpaio
   description: ""
   type: private
+- name: libsass
+  description: ""
+  type: private
 - name: libseccomp
   description: ""
   type: private
@@ -3253,6 +3259,9 @@ repositories:
   description: ""
   type: private
 - name: luksmeta
+  description: ""
+  type: private
+- name: lutok
   description: ""
   type: private
 - name: lvm2
