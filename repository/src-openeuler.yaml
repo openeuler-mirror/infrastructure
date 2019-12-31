@@ -18,6 +18,9 @@ repositories:
 - name: acl
   description: ""
   type: private
+- name: acpica-tools
+  description: ""
+  type: private
 - name: acpid
   description: ""
   type: private
@@ -150,6 +153,9 @@ repositories:
 - name: args4j
   description: ""
   type: private
+- name: arm-trusted-firmware
+  description: ""
+  type: private
 - name: arptables
   description: ""
   type: private
@@ -166,6 +172,9 @@ repositories:
   description: ""
   type: private
 - name: at
+  description: ""
+  type: private
+- name: atf
   description: ""
   type: private
 - name: atinject
@@ -540,6 +549,9 @@ repositories:
 - name: conmon
   description: ""
   type: private
+- name: conntrack-tools
+  description: ""
+  type: private
 - name: console-setup
   description: ""
   type: private
@@ -624,6 +636,9 @@ repositories:
 - name: curl
   description: ""
   type: private
+- name: custom_build_tool
+  description: ""
+  type: private
 - name: cvs
   description: ""
   type: private
@@ -679,6 +694,9 @@ repositories:
   description: ""
   type: private
 - name: dejavu-fonts
+  description: ""
+  type: private
+- name: dejavu-sans-mono-fonts
   description: ""
   type: private
 - name: deltarpm
@@ -886,6 +904,9 @@ repositories:
   description: ""
   type: private
 - name: eog
+  description: ""
+  type: private
+- name: epydoc
   description: ""
   type: private
 - name: esc
@@ -1317,6 +1338,9 @@ repositories:
 - name: gnome-session
   description: ""
   type: private
+- name: gnome-session-wayland-session
+  description: ""
+  type: private
 - name: gnome-settings-daemon
   description: ""
   type: private
@@ -1360,6 +1384,9 @@ repositories:
   description: ""
   type: private
 - name: gnu-getopt
+  description: ""
+  type: private
+- name: gnulib
   description: ""
   type: private
 - name: gnupg2
@@ -1435,6 +1462,9 @@ repositories:
   description: ""
   type: private
 - name: gpgme
+  description: ""
+  type: private
+- name: gphoto2
   description: ""
   type: private
 - name: gpm
@@ -1635,6 +1665,9 @@ repositories:
 - name: HikariCP
   description: ""
   type: private
+- name: hiredis
+  description: ""
+  type: private
 - name: hivex
   description: ""
   type: private
@@ -1657,6 +1690,9 @@ repositories:
   description: ""
   type: private
 - name: hunspell
+  description: ""
+  type: private
+- name: hunspell-de
   description: ""
   type: private
 - name: hunspell-en
@@ -1899,6 +1935,9 @@ repositories:
 - name: java
   description: ""
   type: private
+- name: java-1.8.0-openjdk
+  description: ""
+  type: private
 - name: java-base64
   description: ""
   type: private
@@ -1909,6 +1948,9 @@ repositories:
   description: ""
   type: private
 - name: javamail
+  description: ""
+  type: private
+- name: javapackages-tools
   description: ""
   type: private
 - name: javapackages-tools
@@ -2013,6 +2055,9 @@ repositories:
 - name: jose
   description: ""
   type: private
+- name: jq
+  description: ""
+  type: private
 - name: jsch
   description: ""
   type: private
@@ -2041,6 +2086,9 @@ repositories:
   description: ""
   type: private
 - name: jtidy
+  description: ""
+  type: private
+- name: Judy
   description: ""
   type: private
 - name: julietaula-montserrat-fonts
@@ -2131,6 +2179,9 @@ repositories:
   description: ""
   type: private
 - name: kryo
+  description: ""
+  type: private
+- name: ksh
   description: ""
   type: private
 - name: kurdit-unikurd-web-fonts
@@ -2277,6 +2328,9 @@ repositories:
 - name: libcgroup
   description: ""
   type: private
+- name: libclc
+  description: ""
+  type: private
 - name: libcomps
   description: ""
   type: private
@@ -2398,6 +2452,12 @@ repositories:
   description: ""
   type: private
 - name: libgexiv2
+  description: ""
+  type: private
+- name: libgit2
+  description: ""
+  type: private
+- name: libgit2-glib
   description: ""
   type: private
 - name: libglade2
@@ -2607,6 +2667,12 @@ repositories:
 - name: libnetfilter_conntrack
   description: ""
   type: private
+- name: libnetfilter_cthelper
+  description: ""
+  type: private
+- name: libnetfilter_cttimeout
+  description: ""
+  type: private
 - name: libnetfilter_queue
   description: ""
   type: private
@@ -2614,6 +2680,9 @@ repositories:
   description: ""
   type: private
 - name: libnfnetlink
+  description: ""
+  type: private
+- name: libnfs
   description: ""
   type: private
 - name: libnftnl
@@ -2644,6 +2713,9 @@ repositories:
   description: ""
   type: private
 - name: libomp
+  description: ""
+  type: private
+- name: libomxil-bellagio
   description: ""
   type: private
 - name: libosinfo
