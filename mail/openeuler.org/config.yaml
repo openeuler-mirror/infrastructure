@@ -67,11 +67,11 @@ data:
     dc_other_hostnames='openeuler.org;'
     dc_local_interfaces=''
     dc_readhost=''
-    # NOTE: wildchart is used here, but it's not safe at all.
-    dc_relay_domains='*'
+    # NOTE: Do not used wildchart here, use `dc_relay_nets` to control which IP is valid.
+    dc_relay_domains=''
     dc_minimaldns='false'
-    # NOTE: wildchart is used here, but it's not safe at all.
-    dc_relay_nets='*'
+    # NOTE: Please update this into the correct CIDR of the cluster pods.
+    dc_relay_nets='172.17.0.0/16'
     dc_smarthost=''
     CFILEMODE='644'
     dc_use_split_config='true'
