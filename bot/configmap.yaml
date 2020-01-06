@@ -21,3 +21,5 @@ data:
     watchprojectFilePath: repository/projects.yaml
     watchProjectFileRef: master
     watchProjectFileDuration: 60
+    gitee_oauth2_secret_en: "**********"
+    gitee_oauth2_secret_zh: "**********"
