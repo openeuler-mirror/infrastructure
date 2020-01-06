@@ -28,6 +28,19 @@ spec:
       - name: botinfod
         image: swr.cn-south-1.myhuaweicloud.com/openeuler/bot:v1.0.201911121050334277
         imagePullPolicy: IfNotPresent
+        env:
+        - name: GITEE_OAUTH2_SECRET_ZH
+          valueFrom:
+            configMapKeyRef:
+              name: bot-configmap
+              key: gitee_oauth2_secret_zh
+        - name: GITEE_OAUTH2_SECRET_EN
+          valueFrom:
+            configMapKeyRef:
+              name: bot-configmap
+              key: gitee_oauth2_secret_en
+        - name: WEBSITE_URL
+          value: https://openeuler.org
         ports:
         - containerPort: 8888
           name: http
