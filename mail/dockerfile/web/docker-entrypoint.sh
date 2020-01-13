@@ -3,52 +3,85 @@ set -e
 
 
 function wait_for_postgres () {
-	# Check if the default postgres database is up and accepting connections before
+	# Check if the postgres database is up and accepting connections before
 	# moving forward.
 	# TODO: Use python's psycopg2 module to do this in python instead of
 	# installing postgres-client in the image.
-	until psql $DEFAULT_URL -c '\l'; do
+	until psql $DATABASE_URL -c '\l'; do
 		>&2 echo "Postgres is unavailable - sleeping"
 		sleep 1
 	done
 	>&2 echo "Postgres is up - continuing"
 }
 
-function create_default_database() {
-    if [[ "$( psql $DEFAULT_URL -tAc "SELECT 1 FROM pg_database WHERE datname='$DB_NAME'" )" = '1' ]]; then
-        echo "Database already exists, skipping creating"
-    else
-        echo "creating new database for mailman web"
-        psql $DEFAULT_URL -c "CREATE DATABASE $DB_NAME;"
-    fi
+function wait_for_mysql () {
+	# Check if MySQL is up and accepting connections.
+	HOSTNAME=$(python3 <<EOF
+try:
+    from urllib.parse import urlparse
+except ImportError:
+    from urlparse import urlparse
+o = urlparse('$DATABASE_URL')
+print(o.hostname)
+EOF
+)
+	until mysqladmin ping --host "$HOSTNAME" --silent; do
+		>&2 echo "MySQL is unavailable - sleeping"
+		sleep 1
+	done
+	>&2 echo "MySQL is up - continuing"
 }
 
+
+function check_or_create () {
+	# Check if the path exists, if not, create the directory.
+	if [[ ! -e dir ]]; then
+		echo "$1 does not exist, creating ..."
+		mkdir "$1"
+	fi
+}
+
+# function postgres_ready(){
+# python << END
+# import sys
+# import psycopg2
+# try:
+#     conn = psycopg2.connect(dbname="$POSTGRES_DB", user="$POSTGRES_USER", password="$POSTGRES_PASSWORD", host="postgres")
+# except psycopg2.OperationalError:
+#     sys.exit(-1)
+# sys.exit(0)
+# END
+# }
+
+# Check if $SECRET_KEY is defined, if not, bail out.
 if [[ ! -v SECRET_KEY ]]; then
 	echo "SECRET_KEY is not defined. Aborting."
 	exit 1
 fi
 
-if [[ ! -v DATABASE_URL_PREFIX ]]; then
-	echo "DATABASE_URL_PREFIX is not defined. Aborting..."
-	exit 1
-fi
+# Check if $DATABASE_URL is defined, if not, use a standard sqlite database.
+#
+# If the $DATABASE_URL is defined and is postgres, check if it is available
+# yet. Do not start the container before the postgresql boots up.
+#
+# If the $DATABASE_URL is defined and is mysql, check if the database is
+# available before the container boots up.
+#
+# TODO: Check the database type and detect if it is up based on that. For now,
+# assume that postgres is being used if DATABASE_URL is defined.
 
-if [[ ! -v DB_NAME ]]; then
-	echo "DB_NAME is not defined. Aborting..."
-	exit 1
+if [[ ! -v DATABASE_URL ]]; then
+	echo "DATABASE_URL is not defined. Using sqlite database..."
+	export DATABASE_URL=sqlite://mailmanweb.db
+	export DATABASE_TYPE='sqlite'
 fi
-
-export DATABASE_URL="$DATABASE_URL_PREFIX/$DB_NAME"
-# this is the default database that will exist on a new created Postgres service on huaweicloud.
-export DEFAULT_URL="$DATABASE_URL_PREFIX/postgres"
 
 if [[ "$DATABASE_TYPE" = 'postgres' ]]
 then
 	wait_for_postgres
-	create_default_database
-else
-	echo "Entrypoint.sh only support postgres, please check and update"
-	exit 1
+elif [[ "$DATABASE_TYPE" = 'mysql' ]]
+then
+	wait_for_mysql
 fi
 
 # Check if we are in the correct directory before running commands.
