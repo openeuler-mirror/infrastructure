@@ -140,6 +140,8 @@ lmtp_host: $MM_HOSTNAME
 lmtp_port: 8024
 smtp_host: $SMTP_HOST
 smtp_port: $SMTP_PORT
+smtp_user: $EMAIL_HOST_USER
+smtp_pass: $EMAIL_HOST_PASSWORD
 configuration: python:mailman.config.exim4
 
 EOF
@@ -161,6 +163,8 @@ lmtp_host: $MM_HOSTNAME
 lmtp_port: 8024
 smtp_host: $SMTP_HOST
 smtp_port: $SMTP_PORT
+smtp_user: $EMAIL_HOST_USER
+smtp_pass: $EMAIL_HOST_PASSWORD
 configuration: /etc/postfix-mailman.cfg
 
 EOF
