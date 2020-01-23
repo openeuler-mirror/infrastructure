@@ -1,0 +1,221 @@
+# Source: repo-chart/templates/config.yaml
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: openeuler-configmap
+  namespace: repo2
+data:
+  rsyncd.secrets: |
+    root:openeuler@!234
+  rsyncd.conf: |
+    log file = /dev/stdout
+    use chroot = yes
+    uid = root
+    gid = root
+    max connections = 10
+    timeout = 600
+    read only = yes
+
+    [openeuler]
+            path = /repo/openeuler
+            comment = openeuler repo folder
+            read only = true
+            auth users = root
+            secrets file = /etc/rsyncd.secrets
+            ignore nonreadable = yes
+            refuse options = checksum
+            dont compress = *
+  default.conf: |
+    server {
+        listen 443 ssl;
+
+        access_log  /var/log/nginx/host.access.log  main;
+
+        server_name repo.openeuler.org;
+        ssl on;
+        ssl_certificate /etc/nginx/ssl/fullchain.pem;
+        ssl_certificate_key  /etc/nginx/ssl/privkey.pem;
+
+        location / {
+            root   /repo/openeuler;
+            autoindex   on;
+        }
+
+        error_page   500 502 503 504  /50x.html;
+
+        location = /50x.html {
+            root   /usr/share/nginx/html;
+        }
+    }
+
+  nginx.conf: |-
+    user  root;
+    worker_processes  1;
+
+    error_log  /var/log/nginx/error.log warn;
+    pid        /var/run/nginx.pid;
+
+
+    events {
+        worker_connections  1024;
+    }
+
+
+    http {
+        include       /etc/nginx/mime.types;
+        default_type  application/octet-stream;
+
+        log_format  main  '$remote_addr - $remote_user [$time_local] "$request" '
+                          '$status $body_bytes_sent "$http_referer" '
+                          '"$http_user_agent" "$http_x_forwarded_for"';
+
+        access_log  /var/log/nginx/access.log  main;
+
+        sendfile        on;
+        #tcp_nopush     on;
+
+        keepalive_timeout  65;
+
+        #gzip  on;
+
+        include /etc/nginx/conf.d/*.conf;
+    }
+
+
+
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: openeuler-data-volume
+  namespace: repo2
+spec:
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: 4000Gi
+  storageClassName: ssd
+# Deployment for repo service
+---
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: openeuler
+  namespace: repo2
+  labels:
+    app: repo-nginx-server
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: repo-nginx-pod
+  template:
+    metadata:
+      labels:
+        app: repo-nginx-pod
+    spec:
+      containers:
+        - name: repo-nginx
+          image: swr.cn-north-4.myhuaweicloud.com/openeuler/nginx:1.17.5
+          imagePullPolicy: "IfNotPresent"
+          volumeMounts:
+            - name: website-secrets-volume
+              mountPath: /etc/nginx/ssl/fullchain.pem
+              subPath: fullchain.pem
+            - name: website-secrets-volume
+              mountPath: /etc/nginx/ssl/privkey.pem
+              subPath: privkey.pem
+            - mountPath: /etc/nginx/nginx.conf
+              name: repo-nginx-configmap-volume
+              subPath: nginx.conf
+            - mountPath: /etc/nginx/conf.d/default.conf
+              name: repo-nginx-configmap-volume
+              subPath: default.conf
+            - mountPath: /repo/openeuler
+              name: openeuler-data-volume
+          resources:
+            requests:
+              cpu: 8000m
+              memory: 8000Mi
+        - name: rsync-server
+          image: swr.cn-north-4.myhuaweicloud.com/openeuler/rsyncd:0.0.4
+          imagePullPolicy: "IfNotPresent"
+          volumeMounts:
+            - mountPath: /etc/rsyncd.conf
+              name: repo-nginx-configmap-volume
+              subPath: rsyncd.conf
+            - mountPath: /etc/rsyncd.secrets.ro
+              name: repo-nginx-configmap-volume
+              subPath: rsyncd.secrets
+            - mountPath: /repo/openeuler
+              name: openeuler-data-volume
+          resources:
+            requests:
+              cpu: 4000m
+              memory: 8000Mi
+          command:
+            - /bin/sh
+            - -c
+            - |
+              cp /etc/rsyncd.secrets.ro /etc/rsyncd.secrets;
+              chmod 0400 /etc/rsyncd.secrets;
+              exec /usr/bin/rsync --no-detach --daemon --config /etc/rsyncd.conf;
+        - name: rsync-client
+          image: swr.cn-north-4.myhuaweicloud.com/openeuler/rsyncd:0.0.4
+          imagePullPolicy: "IfNotPresent"
+          volumeMounts:
+            - mountPath: /etc/rsyncd.conf
+              name: repo-nginx-configmap-volume
+              subPath: rsyncd.conf
+            - mountPath: /etc/rsyncd.secrets
+              name: repo-nginx-configmap-volume
+              subPath: rsyncd.secrets
+            - mountPath: /repo/openeuler
+              name: openeuler-data-volume
+          command:
+            - /bin/sh
+            - -c
+            - |
+              /usr/sbin/sshd &
+              tail -f /dev/null;
+      volumes:
+        - name: repo-nginx-configmap-volume
+          configMap:
+            name: openeuler-configmap
+        - name: openeuler-data-volume
+          persistentVolumeClaim:
+            claimName: openeuler-data-volume
+        - name: website-secrets-volume
+          secret:
+            secretName: website-secrets
+            defaultMode: 400
+
+---
+# Source: repo-chart/templates/service.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: openeuler-service
+  namespace: repo2
+  annotations:
+    kubernetes.io/elb.class: union
+    kubernetes.io/elb.id:
+    kubernetes.io/elb.lb-algorithm: ROUND_ROBIN
+spec:
+  externalTrafficPolicy: Cluster
+  ports:
+    - port: 443
+      name: nginx-repo-https
+      targetPort: 443
+    - port: 873
+      name: rsync-server-port
+      targetPort: 873
+    - port: 22
+      name: rsync-ssh-server-port
+      targetPort: 22
+  selector:
+    app: repo-nginx-pod
+  type: LoadBalancer
+  loadBalancerIP:
