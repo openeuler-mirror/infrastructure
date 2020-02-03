@@ -1,19 +1,20 @@
 service:
-  elbID: 7597fc1d-b0e4-4b81-80b1-e85825fc8aff
-  loadBalancerIP: 119.8.39.193
+  elbID: 161185be-1794-452b-82ca-647db0e9c5b1
+  loadBalancerIP: 121.36.97.194
 
 deployment:
-  replicaCount: 2
-  initImage: tommylike/repo-tools:0.1.5
-  keyFile: "please update this with correct key file url"
-  certFile:  "please update this with correct key file url"
-  image: nginx:1.17.5
+  replicaCount: 1 #only support 1 now
+  rsyncdImage: swr.cn-north-4.myhuaweicloud.com/openeuler/rsyncd:0.0.5
+  image: swr.cn-north-4.myhuaweicloud.com/openeuler/nginx:1.17.5
   listenerImage: tommylike/repo-listener:0.1.2
   listenerUsername: openeuler
   listenerPassword: openeuler
   nginxConfig: config/nginx.conf
   defaultConfig: config/default.conf
+  rsyncdConfig: config/rsyncd.conf
+  rsyncSecrets: config/rsyncd.secrets
+  sshPublicKey: config/ssh.pub
 
 storage:
-  size: 1000Gi
+  size: 4000Gi
   className: ssd

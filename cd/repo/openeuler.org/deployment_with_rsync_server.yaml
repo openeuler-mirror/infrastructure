@@ -189,7 +189,7 @@ metadata:
   namespace: repo2
   annotations:
     kubernetes.io/elb.class: union
-    kubernetes.io/elb.id: b0fa0739-f69c-4abd-bcbf-840c8dd1b44e
+    kubernetes.io/elb.id: 161185be-1794-452b-82ca-647db0e9c5b1
     kubernetes.io/elb.lb-algorithm: ROUND_ROBIN
 spec:
   externalTrafficPolicy: Cluster
@@ -206,4 +206,4 @@ spec:
   selector:
     app: repo-nginx-pod
   type: LoadBalancer
-  loadBalancerIP: 114.116.245.239
+  loadBalancerIP: 121.36.97.194
