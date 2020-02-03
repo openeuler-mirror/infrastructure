@@ -1,4 +1,3 @@
-# Source: repo-chart/templates/config.yaml
 ---
 apiVersion: v1
 kind: ConfigMap
@@ -7,7 +6,9 @@ metadata:
   namespace: repo2
 data:
   rsyncd.secrets: |
-    root:openeuler@!234
+    root:openeuler@1234
+  ssh.pub: |
+    ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQChSk+/FF79F8ut0hpNuYQ4uhAgUSY4hzRIPvQ2uVTukP0B0A99NYPfDNICp7gLa6e7yzaj+bvCpgWZoZCNAWTBWkq+zHTgDDHrLtUE4zPC1guzuR+Gz3yeIzSt0iAzi9uG2p+qh7jUfl8QAwNOs3wosNenoZj7NmgsCF9M1o85msimRc8Roxnn5caao1RtdNkDHDqhw5QiS9doSUjoxT+esD0CI7RHAyMgMCfSlXXl/phpdSU2hVJSFXsHVBTiymkuMQe8Ylmls+OEmCe8Cy7lIqE/Q+56l62Pxv4UJpOWs9T/SrOEr5vtEPGghZzgo5ViewzAs3dGMaODSO25XhrIiRZ7hjBK9tjLOX7ZXfAsb4DpJljq2aPCrlEaGJsHc2laixKIOKogDbqFffM3eXwgEAxPUevX/mYnuyhAVrsRUl8HXIQnTuVIEeYVdmn2MA8I/y6MPWdN5VbLR5gOiNLOuSVhCq3sQLpTZ9CONF+zq+1layCoaGMIZw5JwYgWCQgCGNclbx8eMVY3+J3slH6VjzE/05Eys18HtpuAMCivBLGgpBGeCVdpQqkHodTn5ZjNZEBAgzHypiOgR/txMHhkTi4+1ZvTmSRWs9hggv4/IcDQFaj1f2JVds6lxGvJyOnoy9k1VUC0q4N6sptpJ/n+ElCJ4UaHE48La3Mu79R6+Q== openeuler_hosts
   rsyncd.conf: |
     log file = /dev/stdout
     use chroot = yes
@@ -137,11 +138,11 @@ spec:
               name: openeuler-data-volume
           resources:
             requests:
-              cpu: 8000m
+              cpu: 4000m
               memory: 8000Mi
         - name: rsync-server
-          image: swr.cn-north-4.myhuaweicloud.com/openeuler/rsyncd:0.0.4
-          imagePullPolicy: "IfNotPresent"
+          image: swr.cn-north-4.myhuaweicloud.com/openeuler/rsyncd:0.0.5
+          imagePullPolicy: "Always"
           volumeMounts:
             - mountPath: /etc/rsyncd.conf
               name: repo-nginx-configmap-volume
@@ -151,35 +152,24 @@ spec:
               subPath: rsyncd.secrets
             - mountPath: /repo/openeuler
               name: openeuler-data-volume
+            - mountPath: /root/.ssh/authorized_keys.ro
+              name: repo-nginx-configmap-volume
+              subPath: ssh.pub
           resources:
             requests:
               cpu: 4000m
-              memory: 8000Mi
+              memory: 6000Mi
           command:
             - /bin/sh
             - -c
             - |
-              cp /etc/rsyncd.secrets.ro /etc/rsyncd.secrets;
-              chmod 0400 /etc/rsyncd.secrets;
-              exec /usr/bin/rsync --no-detach --daemon --config /etc/rsyncd.conf;
-        - name: rsync-client
-          image: swr.cn-north-4.myhuaweicloud.com/openeuler/rsyncd:0.0.4
-          imagePullPolicy: "IfNotPresent"
-          volumeMounts:
-            - mountPath: /etc/rsyncd.conf
-              name: repo-nginx-configmap-volume
-              subPath: rsyncd.conf
-            - mountPath: /etc/rsyncd.secrets
-              name: repo-nginx-configmap-volume
-              subPath: rsyncd.secrets
-            - mountPath: /repo/openeuler
-              name: openeuler-data-volume
-          command:
-            - /bin/sh
-            - -c
-            - |
+              cp /etc/rsyncd.secrets.ro /etc/rsyncd.secrets
+              chmod 0400 /etc/rsyncd.secrets
+              cp /root/.ssh/authorized_keys.ro /root/.ssh/authorized_keys
+              chmod 0400 /root/.ssh/authorized_keys
+              chown root:root /root/.ssh/authorized_keys
               /usr/sbin/sshd &
-              tail -f /dev/null;
+              exec /usr/bin/rsync --no-detach --daemon --config /etc/rsyncd.conf;
       volumes:
         - name: repo-nginx-configmap-volume
           configMap:
@@ -190,10 +180,8 @@ spec:
         - name: website-secrets-volume
           secret:
             secretName: website-secrets
-            defaultMode: 400
 
 ---
-# Source: repo-chart/templates/service.yaml
 apiVersion: v1
 kind: Service
 metadata:
@@ -201,7 +189,7 @@ metadata:
   namespace: repo2
   annotations:
     kubernetes.io/elb.class: union
-    kubernetes.io/elb.id:
+    kubernetes.io/elb.id: b0fa0739-f69c-4abd-bcbf-840c8dd1b44e
     kubernetes.io/elb.lb-algorithm: ROUND_ROBIN
 spec:
   externalTrafficPolicy: Cluster
@@ -218,4 +206,4 @@ spec:
   selector:
     app: repo-nginx-pod
   type: LoadBalancer
-  loadBalancerIP:
+  loadBalancerIP: 114.116.245.239
