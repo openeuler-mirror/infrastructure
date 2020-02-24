@@ -2,13 +2,14 @@
 
 
 if [[ $# -lt 4 ]];then
-    echo "please specify frontend host, source host, backend host and data disk, usage: ./source_server.sh 172.16.1.138 172.16.1.87 172.16.1.81 /dev/vdb"
+    echo "please specify frontend host, source host, backend host and data disk, usage: ./source_server.sh 172.16.1.81 172.16.1.89 172.16.1.95 172.16.1.84 /dev/vdb"
     exit 1
 fi
 frontend_host=$1
 source_host=$2
 backend_host=$3
-data_disk=$4
+home_backend_host=$4
+data_disk=$5
 #ensure the system matches
 system_info=`uname -r`
 if [[ ! ${system_info} == '4.12.14-lp151.28.7-default' ]];then
@@ -110,6 +111,11 @@ if ! grep -q "backend.openeuler.org" /etc/hosts; then
     echo "${backend_host} backend.openeuler.org" >> /etc/hosts
 else
     sed -i -e "s/[0-9]\{1,3\}\.[0-9]\{1,3\}\.[0-9]\{1,3\}\.[0-9]\{1,3\} backend.openeuler.org/${backend_host} backend.openeuler.org/g" /etc/hosts
+fi
+if ! grep -q "home-backend.openeuler.org" /etc/hosts; then
+    echo "${home_backend_host} home-backend.openeuler.org" >> /etc/hosts
+else
+    sed -i -e "s/[0-9]\{1,3\}\.[0-9]\{1,3\}\.[0-9]\{1,3\}\.[0-9]\{1,3\} home-backend.openeuler.org/${home_backend_host} home-backend.openeuler.org/g" /etc/hosts
 fi
 
 echo "updating the osc configuration files"
