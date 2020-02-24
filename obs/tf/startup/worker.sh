@@ -44,7 +44,7 @@ function fn_config_disk()
 }
 
 if [[ $# -lt 4 ]];then
-    echo "please specify frontend host, source host and backend host and worker disk name, for instance: ./worker.sh 172.16.1.138 172.16.1.87 172.16.1.81 /dev/vdb"
+    echo "please specify frontend host, source host and backend host and worker disk name, for instance: ./worker.sh 172.16.1.81 172.16.1.89 172.16.1.95 /dev/vdb"
     exit 1
 fi
 frontend_host=$1

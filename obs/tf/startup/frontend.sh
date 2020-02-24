@@ -2,12 +2,13 @@
 
 
 if [[ $# -lt 3 ]];then
-    echo "please specify frontend host, source host and backend host,usage: ./frontend.sh 172.16.1.138 172.16.1.87 172.16.1.81"
+    echo "please specify frontend host, source host, backend host and home-backend,usage: ./frontend.sh 172.16.1.81 172.16.1.89 172.16.1.95 172.16.1.84"
     exit 1
 fi
 frontend_host=$1
 source_host=$2
 backend_host=$3
+home_backend_host=$4
 #ensure the system matches
 system_info=`uname -r`
 if [[ ! ${system_info} == '4.12.14-lp151.28.7-default' ]];then
@@ -75,7 +76,7 @@ sed -i "s/ServerName api/ServerName build.openeuler.org/g" /etc/apache2/vhosts.d
 sed -i "s/SSLCertificateFile \/srv\/obs\/certs\/server.crt/SSLCertificateFile \/srv\/obs\/certs\/fullchain.pem/g" /etc/apache2/vhosts.d/obs.conf
 sed -i "s/SSLCertificateKeyFile \/srv\/obs\/certs\/server.key/SSLCertificateKeyFile \/srv\/obs\/certs\/privkey.pem/g" /etc/apache2/vhosts.d/obs.conf
 
-#Updating the download url to point to backend server
+#Updating the download url to point to backend server172.16.1.84
 #TODO: update this into hostname when we finally has one
 sed -i "s/#{download_url}/https:\/\/${backend_host}:82/g" /srv/www/obs/api/app/views/webui2/shared/_download_repository_link.html.haml
 
@@ -102,6 +103,11 @@ if ! grep -q "backend.openeuler.org" /etc/hosts; then
     echo "${backend_host} backend.openeuler.org" >> /etc/hosts
 else
     sed -i -e "s/[0-9]\{1,3\}\.[0-9]\{1,3\}\.[0-9]\{1,3\}\.[0-9]\{1,3\} backend.openeuler.org/${backend_host} backend.openeuler.org/g" /etc/hosts
+fi
+if ! grep -q "home-backend.openeuler.org" /etc/hosts; then
+    echo "${home_backend_host} home-backend.openeuler.org" >> /etc/hosts
+else
+    sed -i -e "s/[0-9]\{1,3\}\.[0-9]\{1,3\}\.[0-9]\{1,3\}\.[0-9]\{1,3\} home-backend.openeuler.org/${home_backend_host} home-backend.openeuler.org/g" /etc/hosts
 fi
 
 echo "updating the osc configuration files"
