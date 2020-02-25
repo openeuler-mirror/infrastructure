@@ -44,13 +44,14 @@ function fn_config_disk()
 }
 
 if [[ $# -lt 4 ]];then
-    echo "please specify frontend host, source host and backend host and worker disk name, for instance: ./worker.sh 172.16.1.81 172.16.1.89 172.16.1.95 /dev/vdb"
+    echo "please specify frontend host, source host and backend host and worker disk name, for instance: ./worker.sh 172.16.1.81 172.16.1.89 172.16.1.95 172.16.1.84 /dev/vdb"
     exit 1
 fi
 frontend_host=$1
 source_host=$2
 backend_host=$3
-disk_name=$4
+home_backend_host=$4
+disk_name=$5
 echo "Updating yum packages sources"
 if [[ ! -e /etc/yum.repos.d/EulerOS-base.repo ]]; then
    mkdir -p /etc/yum.repos.d/repo_bak/
@@ -95,11 +96,21 @@ else
     sed -i -e "s/[0-9]\{1,3\}\.[0-9]\{1,3\}\.[0-9]\{1,3\}\.[0-9]\{1,3\} backend.openeuler.org/${backend_host} backend.openeuler.org/g" /etc/hosts
 fi
 
+if ! grep -q "home-backend.openeuler.org" /etc/hosts; then
+    echo "${home_backend_host} home-backend.openeuler.org" >> /etc/hosts
+else
+    sed -i -e "s/[0-9]\{1,3\}\.[0-9]\{1,3\}\.[0-9]\{1,3\}\.[0-9]\{1,3\} home-backend.openeuler.org/${home_backend_host} home-backend.openeuler.org/g" /etc/hosts
+fi
+
+
 echo "configure disks"
 if [[ ! -d /var/cache/obs/worker/ ]];then
     mkdir -p  /var/cache/obs/worker/
 fi
-fn_config_disk
+if [[ "str${disk_name}" != "${disk_name}" ]]; then
+    fn_config_disk
+fi
+
 
 echo "unmask config"
 sed -i s'/umask 0077/umask 0022/g' /etc/bashrc
