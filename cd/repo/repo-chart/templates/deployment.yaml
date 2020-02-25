@@ -13,38 +13,6 @@ spec:
       storage: {{ .Values.storage.size }}
   storageClassName: {{ .Values.storage.className }}
 
-# ServiceAccount for deployment
----
-apiVersion: v1
-kind: ServiceAccount
-metadata:
-  name: {{ .Release.Name }}-listener
-  namespace: {{ .Release.Namespace }}
----
-kind: ClusterRole
-apiVersion: rbac.authorization.k8s.io/v1
-metadata:
-  name: {{ .Release.Name }}-listener
-rules:
-  - apiGroups: ["batch", "extensions"]
-    resources: ["jobs"]
-    verbs: ["get", "list", "watch", "create", "update", "patch", "delete"]
-
----
-kind: ClusterRoleBinding
-apiVersion: rbac.authorization.k8s.io/v1
-metadata:
-  name: {{ .Release.Name }}-listener
-subjects:
-  - kind: ServiceAccount
-    name: {{ .Release.Name }}-listener
-    namespace: {{ .Release.Namespace }}
-roleRef:
-  kind: ClusterRole
-  name: {{ .Release.Name }}-listener
-  apiGroup: rbac.authorization.k8s.io
-
-
 # Deployment for repo service
 ---
 kind: Deployment
@@ -64,27 +32,17 @@ spec:
       labels:
         app: repo-nginx-pod
     spec:
-      serviceAccount: {{ .Release.Name }}-listener
-      initContainers:
-        - name: repo-prepare-tool
-          image: {{ .Values.deployment.initImage }}
-          env:
-            # key and cert file used for nginx tls
-            - name: KEY_FILE
-              value: {{ .Values.deployment.keyFile }}
-            - name: CERT_FILE
-              value: {{ .Values.deployment.certFile }}
-          args: ["--key-file", "$(KEY_FILE)","--cert-file", "$(CERT_FILE)", "prepare"]
-          volumeMounts:
-            - mountPath: /etc/nginx/ssl
-              name: repo-nginx-tls-volume
       containers:
         - name: repo-nginx
           image: {{ .Values.deployment.image }}
           imagePullPolicy: "IfNotPresent"
           volumeMounts:
-            - mountPath: /etc/nginx/ssl
-              name: repo-nginx-tls-volume
+            - name: website-secrets-volume
+              mountPath: /etc/nginx/ssl/fullchain.pem
+              subPath: fullchain.pem
+            - name: website-secrets-volume
+              mountPath: /etc/nginx/ssl/privkey.pem
+              subPath: privkey.pem
             - mountPath: /etc/nginx/nginx.conf
               name: repo-nginx-configmap-volume
               subPath: nginx.conf
@@ -92,28 +50,48 @@ spec:
               name: repo-nginx-configmap-volume
               subPath: default.conf
             - mountPath: /repo/openeuler
-              name: repo-data-volume
-        - name: repo-update-listener
-          image: {{ .Values.deployment.listenerImage }}
-          env:
-              # base auth for repo listener
-            - name: BASIC_AUTH_USERNAME
-              value: {{ .Values.deployment.listenerUsername }}
-            - name: BASIC_AUTH_PASSWORD
-              value: {{ .Values.deployment.listenerPassword }}
-            - name: K8S_NAMESPACE
-              value: {{ .Release.Namespace }}
-          imagePullPolicy: "IfNotPresent"
+              name: openeuler-data-volume
+          resources:
+            requests:
+              cpu: 4000m
+              memory: 8000Mi
+        - name: rsync-server
+          image: {{ .Values.deployment.rsyncdImage }}
+          imagePullPolicy: "Always"
           volumeMounts:
-            - mountPath: /etc/repo-update/update-repo-job.yaml
+            - mountPath: /etc/rsyncd.conf
               name: repo-nginx-configmap-volume
-              subPath: update-repo-job.yaml
+              subPath: rsyncd.conf
+            - mountPath: /etc/rsyncd.secrets.ro
+              name: repo-nginx-configmap-volume
+              subPath: rsyncd.secrets
+            - mountPath: /repo/openeuler
+              name: openeuler-data-volume
+            - mountPath: /root/.ssh/authorized_keys.ro
+              name: repo-nginx-configmap-volume
+              subPath: ssh.pub
+          resources:
+            requests:
+              cpu: 4000m
+              memory: 6000Mi
+          command:
+            - /bin/sh
+            - -c
+            - |
+              cp /etc/rsyncd.secrets.ro /etc/rsyncd.secrets
+              chmod 0400 /etc/rsyncd.secrets
+              cp /root/.ssh/authorized_keys.ro /root/.ssh/authorized_keys
+              chmod 0400 /root/.ssh/authorized_keys
+              chown root:root /root/.ssh/authorized_keys
+              /usr/sbin/sshd &
+              exec /usr/bin/rsync --no-detach --daemon --config /etc/rsyncd.conf;
       volumes:
-        - name: repo-nginx-tls-volume
-          emptyDir: {}
         - name: repo-nginx-configmap-volume
           configMap:
             name: {{ .Release.Name }}-configmap
-        - name: repo-data-volume
+        - name: openeuler-data-volume
           persistentVolumeClaim:
             claimName: {{ .Release.Name }}-data-volume
+        - name: website-secrets-volume
+          secret:
+            secretName: website-secrets
