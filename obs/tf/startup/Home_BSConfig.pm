@@ -53,7 +53,7 @@ our $serviceserver = "http://source.openeuler.org:5152";
 our $clouduploadserver = "http://$hostname:5452";
 
 
-our $partition = 'main';
+our $partition = 'home';
 our $partitioning = [
     'home:' => 'home',
     '.*'    => 'main',
@@ -65,7 +65,7 @@ our $partitionservers = {
     };
 
 
-our $reposerver = "http://backend.openeuler.org:5252";
+our $reposerver = "http://home-backend.openeuler.org:5252";
 
 our @reposervers = ("
     http://home-backend.openeuler.org:5252,

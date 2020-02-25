@@ -81,12 +81,7 @@ fi
 # update configuration file
 echo "Updating configuration file for obs source service"
 
-sed -i "s/when you touch hostname or port/when you touch hostname\n\$ipaccess->{'^172\\\.16\\\..*'} = 'rw' ;/g" /usr/lib/obs/server/BSConfig.pm
-
-sed -i "s/our \$srcserver = \"http:\/\/\$hostname:5352\";/our \$srcserver = \"http:\/\/source.openeuler.org:5352\";/g" /usr/lib/obs/server/BSConfig.pm
-sed -i "s/our \$reposerver = \"http:\/\/\$hostname:5252\";/our \$reposerver = \"http:\/\/backend.openeuler.org:5252\";/g" /usr/lib/obs/server/BSConfig.pm
-sed -i "s/our \$serviceserver = \"http:\/\/\$hostname:5152\";/our \$serviceserver = \"http:\/\/source.openeuler.org:5152\";/g" /usr/lib/obs/server/BSConfig.pm
-sed -i "s/our \$bsserviceuser = 'obsservicerun';/our \$bsserviceuser = 'obsrun';/g" /usr/lib/obs/server/BSConfig.pm
+curl https://openeuler.obs.cn-south-1.myhuaweicloud.com:443/infrastructure/BSConfig.pm -o /usr/lib/obs/server/BSConfig.pm
 
 sed -i "s/\$HOSTNAME/backend.openeuler.org/g" /etc/slp.reg.d/obs.repo_server.reg
 sed -i "s/\$HOSTNAME/source.openeuler.org/g" /etc/slp.reg.d/obs.source_server.reg

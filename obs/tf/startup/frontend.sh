@@ -76,7 +76,7 @@ sed -i "s/ServerName api/ServerName build.openeuler.org/g" /etc/apache2/vhosts.d
 sed -i "s/SSLCertificateFile \/srv\/obs\/certs\/server.crt/SSLCertificateFile \/srv\/obs\/certs\/fullchain.pem/g" /etc/apache2/vhosts.d/obs.conf
 sed -i "s/SSLCertificateKeyFile \/srv\/obs\/certs\/server.key/SSLCertificateKeyFile \/srv\/obs\/certs\/privkey.pem/g" /etc/apache2/vhosts.d/obs.conf
 
-#Updating the download url to point to backend server172.16.1.84
+#Updating the download url to point to backend server
 #TODO: update this into hostname when we finally has one
 sed -i "s/#{download_url}/https:\/\/${backend_host}:82/g" /srv/www/obs/api/app/views/webui2/shared/_download_repository_link.html.haml
 
