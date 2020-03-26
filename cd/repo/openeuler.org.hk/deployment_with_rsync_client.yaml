@@ -13,11 +13,13 @@ data:
     server {
         listen 80;
 
-        access_log  /var/log/nginx/host.access.log  main;
+        access_log  /var/log/nginx/repp.access.log  main;
         server_name repo.openeuler.org;
 
         location / {
             root   /repo/openeuler;
+            fancyindex on;
+            fancyindex_exact_size off;
             autoindex   on;
         }
         location = /favicon.ico {
@@ -28,15 +30,17 @@ data:
     server {
         listen 443 ssl;
 
-        access_log  /var/log/nginx/host.access.log  main;
+        access_log  /var/log/nginx/repo.access.log  main;
 
         server_name repo.openeuler.org;
         ssl on;
-        ssl_certificate /etc/nginx/ssl/fullchain.pem;
-        ssl_certificate_key  /etc/nginx/ssl/privkey.pem;
+        ssl_certificate /etc/nginx/conf/ssl/fullchain.pem;
+        ssl_certificate_key  /etc/nginx/conf/ssl/privkey.pem;
 
         location / {
             root   /repo/openeuler;
+            fancyindex on;
+            fancyindex_exact_size off;
             autoindex   on;
         }
 
@@ -60,7 +64,7 @@ data:
 
 
     http {
-        include       /etc/nginx/mime.types;
+        include       /etc/nginx/conf/mime.types;
         default_type  application/octet-stream;
 
         log_format  main  '$remote_addr - $remote_user [$time_local] "$request" '
@@ -76,7 +80,7 @@ data:
 
         #gzip  on;
 
-        include /etc/nginx/conf.d/*.conf;
+        include /etc/nginx/conf/conf.d/*.conf;
     }
 
 
@@ -115,19 +119,19 @@ spec:
     spec:
       containers:
         - name: repo-nginx
-          image: swr.cn-north-4.myhuaweicloud.com/openeuler/nginx:1.17.5
+          image: mindspore/nginx-extras:1.10.3
           imagePullPolicy: "IfNotPresent"
           volumeMounts:
             - name: website-secrets-volume
-              mountPath: /etc/nginx/ssl/fullchain.pem
+              mountPath: /etc/nginx/conf/ssl/fullchain.pem
               subPath: fullchain.pem
             - name: website-secrets-volume
-              mountPath: /etc/nginx/ssl/privkey.pem
+              mountPath: /etc/nginx/conf/ssl/privkey.pem
               subPath: privkey.pem
-            - mountPath: /etc/nginx/nginx.conf
+            - mountPath: /etc/nginx/conf/nginx.conf
               name: repo-nginx-configmap-volume
               subPath: nginx.conf
-            - mountPath: /etc/nginx/conf.d/default.conf
+            - mountPath: /etc/nginx/conf/conf.d/default.conf
               name: repo-nginx-configmap-volume
               subPath: default.conf
             - mountPath: /repo/openeuler
@@ -163,7 +167,7 @@ spec:
               chmod 0400 /root/.ssh/authorized_keys
               chown root:root /root/.ssh/authorized_keys
               /usr/sbin/sshd &
-              while :; do echo "Starting to sync repos @ $(date)"; rsync -avz --partial --progress --password-file=/etc/rsyncd.secrets  rsync://root@121.36.97.194/openeuler  /repo/openeuler; sleep 43200; done
+              while :; do echo "Starting to sync repos @ $(date)"; rsync -av --partial --progress --password-file=/etc/rsyncd.secrets  rsync://root@121.36.97.194/openeuler  /repo/openeuler; sleep 86400; done
       volumes:
         - name: repo-nginx-configmap-volume
           configMap:
