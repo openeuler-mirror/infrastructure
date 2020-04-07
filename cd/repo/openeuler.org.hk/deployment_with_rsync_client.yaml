@@ -5,16 +5,20 @@ metadata:
   name: openeuler-configmap
   namespace: repo-mirror
 data:
-  rsyncd.secrets: |
-    openeuler@1234
   ssh.pub: |
     ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQChSk+/FF79F8ut0hpNuYQ4uhAgUSY4hzRIPvQ2uVTukP0B0A99NYPfDNICp7gLa6e7yzaj+bvCpgWZoZCNAWTBWkq+zHTgDDHrLtUE4zPC1guzuR+Gz3yeIzSt0iAzi9uG2p+qh7jUfl8QAwNOs3wosNenoZj7NmgsCF9M1o85msimRc8Roxnn5caao1RtdNkDHDqhw5QiS9doSUjoxT+esD0CI7RHAyMgMCfSlXXl/phpdSU2hVJSFXsHVBTiymkuMQe8Ylmls+OEmCe8Cy7lIqE/Q+56l62Pxv4UJpOWs9T/SrOEr5vtEPGghZzgo5ViewzAs3dGMaODSO25XhrIiRZ7hjBK9tjLOX7ZXfAsb4DpJljq2aPCrlEaGJsHc2laixKIOKogDbqFffM3eXwgEAxPUevX/mYnuyhAVrsRUl8HXIQnTuVIEeYVdmn2MA8I/y6MPWdN5VbLR5gOiNLOuSVhCq3sQLpTZ9CONF+zq+1layCoaGMIZw5JwYgWCQgCGNclbx8eMVY3+J3slH6VjzE/05Eys18HtpuAMCivBLGgpBGeCVdpQqkHodTn5ZjNZEBAgzHypiOgR/txMHhkTi4+1ZvTmSRWs9hggv4/IcDQFaj1f2JVds6lxGvJyOnoy9k1VUC0q4N6sptpJ/n+ElCJ4UaHE48La3Mu79R6+Q== openeuler_hosts
   default.conf: |
     server {
         listen 80;
 
-        access_log  /var/log/nginx/repp.access.log  main;
-        server_name repo.openeuler.org;
+        if ($time_iso8601 ~ "^(\d{4})-(\d{2})-(\d{2})") {
+               set $year $1;
+               set $month $2;
+               set $day $3;
+        }
+        access_log /var/log/nginx/access.log.$year$month$day main;
+
+        server_name *.openeuler.org;
 
         location / {
             root   /repo/openeuler;
@@ -28,11 +32,17 @@ data:
         }
     }
     server {
+
+        if ($time_iso8601 ~ "^(\d{4})-(\d{2})-(\d{2})") {
+                set $year $1;
+                set $month $2;
+                set $day $3;
+        }
+        access_log /var/log/nginx/access.log.$year$month$day main;
+
         listen 443 ssl;
 
-        access_log  /var/log/nginx/repo.access.log  main;
-
-        server_name repo.openeuler.org;
+        server_name *.openeuler.org;
         ssl on;
         ssl_certificate /etc/nginx/conf/ssl/fullchain.pem;
         ssl_certificate_key  /etc/nginx/conf/ssl/privkey.pem;
@@ -67,14 +77,30 @@ data:
         include       /etc/nginx/conf/mime.types;
         default_type  application/octet-stream;
 
-        log_format  main  '$remote_addr - $remote_user [$time_local] "$request" '
-                          '$status $body_bytes_sent "$http_referer" '
-                          '"$http_user_agent" "$http_x_forwarded_for"';
+        # used for geoip2
+        geoip2 /etc/nginx/geoip/country/GeoLite2-Country.mmdb {
+            $geoip2_metadata_country_build metadata build_epoch;
+            $geoip2_data_country_code default=US source=$remote_addr country iso_code;
+            $geoip2_data_country_name country names en;
+        }
 
-        access_log  /var/log/nginx/access.log  main;
+        geoip2 /etc/nginx/geoip/city/GeoLite2-City.mmdb {
+            $geoip2_data_city_name default=ShenZhen city names en;
+            $geoip2_data_location_latitude location latitude;
+            $geoip2_data_location_longitude location longitude;
+        }
+
+        # the cidr used for elb cluster
+        set_real_ip_from 100.125.0.0/16;
+        real_ip_recursive on;
+        real_ip_header X-Forwarded-For;
+
+        log_format  main  '$remote_addr <$geoip2_data_country_code, $geoip2_data_country_name, $geoip2_data_city_name, $geoip2_data_location_latitude, $geoip2_data_location_longitude> '
+                          '[$time_local] "$request" $status $body_bytes_sent "$http_referer" '
+                          '"$http_user_agent" $request_filename';
 
         sendfile        on;
-        #tcp_nopush     on;
+        tcp_nopush      on;
 
         keepalive_timeout  65;
 
@@ -82,8 +108,6 @@ data:
 
         include /etc/nginx/conf/conf.d/*.conf;
     }
-
-
 
 ---
 apiVersion: v1
@@ -119,8 +143,8 @@ spec:
     spec:
       containers:
         - name: repo-nginx
-          image: mindspore/nginx-extras:1.10.3
-          imagePullPolicy: "IfNotPresent"
+          image: swr.cn-north-1.myhuaweicloud.com/mindspore/nginx-extras:1.10.3
+          imagePullPolicy: "Always"
           volumeMounts:
             - name: website-secrets-volume
               mountPath: /etc/nginx/conf/ssl/fullchain.pem
@@ -136,6 +160,11 @@ spec:
               subPath: default.conf
             - mountPath: /repo/openeuler
               name: openeuler-data-volume
+            - mountPath: /var/log/nginx
+              name: openeuler-log-volume
+          env:
+            - name: TZ
+              value: Asia/Shanghai
           resources:
             requests:
               cpu: 4000m
@@ -145,8 +174,8 @@ spec:
           imagePullPolicy: "Always"
           volumeMounts:
             - mountPath: /etc/rsyncd.secrets.ro
-              name: repo-nginx-configmap-volume
-              subPath: rsyncd.secrets
+              name: website-secrets-volume
+              subPath: rsyncd_secrets
             - mountPath: /repo/openeuler
               name: openeuler-data-volume
             - mountPath: /root/.ssh/authorized_keys.ro
@@ -175,6 +204,9 @@ spec:
         - name: openeuler-data-volume
           persistentVolumeClaim:
             claimName: openeuler-data-volume
+        - name: openeuler-log-volume
+          persistentVolumeClaim:
+            claimName: cce-obs-import-openeuler-repo-mirror
         - name: website-secrets-volume
           secret:
             secretName: website-secrets
@@ -190,7 +222,8 @@ metadata:
     kubernetes.io/elb.id: eb5f0ba1-4472-45e0-ab8e-9aa38dc82705
     kubernetes.io/elb.lb-algorithm: ROUND_ROBIN
 spec:
-  externalTrafficPolicy: Cluster
+  #We need set this into 'Local' since we need get the client IP of elb.
+  externalTrafficPolicy: Local
   ports:
     - port: 443
       name: nginx-repo-https
