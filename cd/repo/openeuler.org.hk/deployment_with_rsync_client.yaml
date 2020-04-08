@@ -3,54 +3,46 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: openeuler-configmap
-  namespace: repo2
+  namespace: repo-mirror
 data:
-  rsyncd.secrets: |
-    root:openeuler@1234
   ssh.pub: |
     ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQChSk+/FF79F8ut0hpNuYQ4uhAgUSY4hzRIPvQ2uVTukP0B0A99NYPfDNICp7gLa6e7yzaj+bvCpgWZoZCNAWTBWkq+zHTgDDHrLtUE4zPC1guzuR+Gz3yeIzSt0iAzi9uG2p+qh7jUfl8QAwNOs3wosNenoZj7NmgsCF9M1o85msimRc8Roxnn5caao1RtdNkDHDqhw5QiS9doSUjoxT+esD0CI7RHAyMgMCfSlXXl/phpdSU2hVJSFXsHVBTiymkuMQe8Ylmls+OEmCe8Cy7lIqE/Q+56l62Pxv4UJpOWs9T/SrOEr5vtEPGghZzgo5ViewzAs3dGMaODSO25XhrIiRZ7hjBK9tjLOX7ZXfAsb4DpJljq2aPCrlEaGJsHc2laixKIOKogDbqFffM3eXwgEAxPUevX/mYnuyhAVrsRUl8HXIQnTuVIEeYVdmn2MA8I/y6MPWdN5VbLR5gOiNLOuSVhCq3sQLpTZ9CONF+zq+1layCoaGMIZw5JwYgWCQgCGNclbx8eMVY3+J3slH6VjzE/05Eys18HtpuAMCivBLGgpBGeCVdpQqkHodTn5ZjNZEBAgzHypiOgR/txMHhkTi4+1ZvTmSRWs9hggv4/IcDQFaj1f2JVds6lxGvJyOnoy9k1VUC0q4N6sptpJ/n+ElCJ4UaHE48La3Mu79R6+Q== openeuler_hosts
-  rsyncd.conf: |
-    log file = /dev/stdout
-    use chroot = yes
-    uid = root
-    gid = root
-    max connections = 10
-    timeout = 600
-    read only = yes
-
-    [openeuler]
-            path = /repo/openeuler
-            comment = openeuler repo folder
-            read only = true
-            auth users = root
-            secrets file = /etc/rsyncd.secrets
-            ignore nonreadable = yes
-            refuse options = checksum
-            dont compress = *
   default.conf: |
     server {
-            listen 80;
+        listen 80;
 
-            access_log  /var/log/nginx/host.access.log  main;
-            server_name openeuler-repo.huawei.com;
+        if ($time_iso8601 ~ "^(\d{4})-(\d{2})-(\d{2})") {
+               set $year $1;
+               set $month $2;
+               set $day $3;
+        }
+        access_log /var/log/nginx/access.log.$year$month$day main;
 
-            location / {
-                root   /repo/openeuler;
-                fancyindex on;
-                fancyindex_exact_size off;
-                autoindex   on;
-            }
-            location = /favicon.ico {
-                      log_not_found off;
-                      access_log off;
-            }
+        server_name *.openeuler.org;
+
+        location / {
+            root   /repo/openeuler;
+            fancyindex on;
+            fancyindex_exact_size off;
+            autoindex   on;
+        }
+        location = /favicon.ico {
+          log_not_found off;
+          access_log off;
+        }
     }
     server {
+
+        if ($time_iso8601 ~ "^(\d{4})-(\d{2})-(\d{2})") {
+                set $year $1;
+                set $month $2;
+                set $day $3;
+        }
+        access_log /var/log/nginx/access.log.$year$month$day main;
+
         listen 443 ssl;
 
-        access_log  /var/log/nginx/host.access.log  main;
-
-        server_name openeuler-repo.huawei.com;
+        server_name *.openeuler.org;
         ssl on;
         ssl_certificate /etc/nginx/conf/ssl/fullchain.pem;
         ssl_certificate_key  /etc/nginx/conf/ssl/privkey.pem;
@@ -63,14 +55,14 @@ data:
         }
 
         location = /favicon.ico {
-                   log_not_found off;
-                   access_log off;
+                      log_not_found off;
+                      access_log off;
         }
     }
 
   nginx.conf: |-
     user  root;
-    worker_processes  6;
+    worker_processes  4;
 
     error_log  /var/log/nginx/error.log warn;
     pid        /var/run/nginx.pid;
@@ -85,14 +77,30 @@ data:
         include       /etc/nginx/conf/mime.types;
         default_type  application/octet-stream;
 
-        log_format  main  '$remote_addr - $remote_user [$time_local] "$request" '
-                          '$status $body_bytes_sent "$http_referer" '
-                          '"$http_user_agent" "$http_x_forwarded_for"';
+        # used for geoip2
+        geoip2 /etc/nginx/geoip/country/GeoLite2-Country.mmdb {
+            $geoip2_metadata_country_build metadata build_epoch;
+            $geoip2_data_country_code default=US source=$remote_addr country iso_code;
+            $geoip2_data_country_name country names en;
+        }
 
-        access_log  /var/log/nginx/access.log  main;
+        geoip2 /etc/nginx/geoip/city/GeoLite2-City.mmdb {
+            $geoip2_data_city_name default=ShenZhen city names en;
+            $geoip2_data_location_latitude location latitude;
+            $geoip2_data_location_longitude location longitude;
+        }
+
+        # the cidr used for elb cluster
+        set_real_ip_from 100.125.0.0/16;
+        real_ip_recursive on;
+        real_ip_header X-Forwarded-For;
+
+        log_format  main  '$remote_addr <$geoip2_data_country_code, $geoip2_data_country_name, $geoip2_data_city_name, $geoip2_data_location_latitude, $geoip2_data_location_longitude> '
+                          '[$time_local] "$request" $status $body_bytes_sent "$http_referer" '
+                          '"$http_user_agent" $request_filename';
 
         sendfile        on;
-        #tcp_nopush     on;
+        tcp_nopush      on;
 
         keepalive_timeout  65;
 
@@ -101,14 +109,12 @@ data:
         include /etc/nginx/conf/conf.d/*.conf;
     }
 
-
-
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   name: openeuler-data-volume
-  namespace: repo2
+  namespace: repo-mirror
 spec:
   accessModes:
     - ReadWriteMany
@@ -122,7 +128,7 @@ kind: Deployment
 apiVersion: apps/v1
 metadata:
   name: openeuler
-  namespace: repo2
+  namespace: repo-mirror
   labels:
     app: repo-nginx-server
 spec:
@@ -137,8 +143,8 @@ spec:
     spec:
       containers:
         - name: repo-nginx
-          image: swr.cn-north-1.myhuaweicloud.com/hwstaff_h00223369/nginx-extras:1.10.3
-          imagePullPolicy: "IfNotPresent"
+          image: swr.cn-north-1.myhuaweicloud.com/mindspore/nginx-extras:1.10.3
+          imagePullPolicy: "Always"
           volumeMounts:
             - name: website-secrets-volume
               mountPath: /etc/nginx/conf/ssl/fullchain.pem
@@ -154,20 +160,22 @@ spec:
               subPath: default.conf
             - mountPath: /repo/openeuler
               name: openeuler-data-volume
+            - mountPath: /var/log/nginx
+              name: openeuler-log-volume
+          env:
+            - name: TZ
+              value: Asia/Shanghai
           resources:
             requests:
-              cpu: 6000m
-              memory: 8000Mi
-        - name: rsync-server
+              cpu: 4000m
+              memory: 6000Mi
+        - name: rsync-client
           image: swr.cn-north-4.myhuaweicloud.com/openeuler/rsyncd:0.0.5
           imagePullPolicy: "Always"
           volumeMounts:
-            - mountPath: /etc/rsyncd.conf
-              name: repo-nginx-configmap-volume
-              subPath: rsyncd.conf
             - mountPath: /etc/rsyncd.secrets.ro
-              name: repo-nginx-configmap-volume
-              subPath: rsyncd.secrets
+              name: website-secrets-volume
+              subPath: rsyncd_secrets
             - mountPath: /repo/openeuler
               name: openeuler-data-volume
             - mountPath: /root/.ssh/authorized_keys.ro
@@ -175,8 +183,9 @@ spec:
               subPath: ssh.pub
           resources:
             requests:
-              cpu: 6000m
+              cpu: 2000m
               memory: 6000Mi
+          # Use the combination of sync & sleep to sync the repo from main repo periodically
           command:
             - /bin/sh
             - -c
@@ -187,7 +196,7 @@ spec:
               chmod 0400 /root/.ssh/authorized_keys
               chown root:root /root/.ssh/authorized_keys
               /usr/sbin/sshd &
-              exec /usr/bin/rsync --no-detach --daemon --config /etc/rsyncd.conf;
+              while :; do echo "Starting to sync repos @ $(date)"; rsync -av --partial --progress --password-file=/etc/rsyncd.secrets  rsync://root@121.36.97.194/openeuler  /repo/openeuler; sleep 86400; done
       volumes:
         - name: repo-nginx-configmap-volume
           configMap:
@@ -195,6 +204,9 @@ spec:
         - name: openeuler-data-volume
           persistentVolumeClaim:
             claimName: openeuler-data-volume
+        - name: openeuler-log-volume
+          persistentVolumeClaim:
+            claimName: cce-obs-import-openeuler-repo-mirror
         - name: website-secrets-volume
           secret:
             secretName: website-secrets
@@ -204,13 +216,14 @@ apiVersion: v1
 kind: Service
 metadata:
   name: openeuler-service
-  namespace: repo2
+  namespace: repo-mirror
   annotations:
     kubernetes.io/elb.class: union
-    kubernetes.io/elb.id: 161185be-1794-452b-82ca-647db0e9c5b1
+    kubernetes.io/elb.id: eb5f0ba1-4472-45e0-ab8e-9aa38dc82705
     kubernetes.io/elb.lb-algorithm: ROUND_ROBIN
 spec:
-  externalTrafficPolicy: Cluster
+  #We need set this into 'Local' since we need get the client IP of elb.
+  externalTrafficPolicy: Local
   ports:
     - port: 443
       name: nginx-repo-https
@@ -218,13 +231,13 @@ spec:
     - port: 873
       name: rsync-server-port
       targetPort: 873
-    - port: 80
-      name: nginx-repo-http
-      targetPort: 80
     - port: 22
       name: rsync-ssh-server-port
       targetPort: 22
+    - port: 80
+      name: nginx-repo-http
+      targetPort: 80
   selector:
     app: repo-nginx-pod
   type: LoadBalancer
-  loadBalancerIP: 121.36.97.194
+  loadBalancerIP: 119.8.119.83
