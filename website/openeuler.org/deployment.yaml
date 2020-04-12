@@ -26,7 +26,7 @@ spec:
     spec:
       containers:
       - name: websiteinfod
-        image: swr.cn-south-1.myhuaweicloud.com/openeuler/website:v1.0.202004091611532826
+        image: swr.cn-south-1.myhuaweicloud.com/openeuler/website:v1.0.202004121055245043
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 80
