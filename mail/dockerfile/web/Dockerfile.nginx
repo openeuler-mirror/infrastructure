@@ -4,7 +4,7 @@ MAINTAINER Abhilash Raj
 
 RUN apk update && \
     apk add --no-cache ca-certificates && \
-    apk add --no-cache curl bash tree tzdata && \
+    apk add --no-cache curl bash tree tzdata pcre && \
     cp -rf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
  
 ENV NGINX_VERSION 1.16.1
