@@ -2,7 +2,7 @@
 
 
 if [[ $# -lt 5 ]];then
-    echo "please specify frontend host, source host. backend host, repo ID of source server and data disk usage: ./backend.sh 172.16.1.81 172.16.1.89 172.16.1.95 172.16.1.84 361466436 /dev/vdb"
+    echo "please specify frontend host, source host. backend host, repo ID of source server and data disk usage: ./home-backend.sh 172.16.1.81 172.16.1.89 172.16.1.95 172.16.1.84 361466436 /dev/vdb"
     exit 1
 fi
 frontend_host=$1
@@ -84,9 +84,9 @@ fi
 # update configuration file
 echo "Updating configuration file for obs backend service"
 
-curl https://openeuler.obs.cn-south-1.myhuaweicloud.com:443/infrastructure/BSConfig.pm -o /usr/lib/obs/server/BSConfig.pm
+curl https://openeuler.obs.cn-south-1.myhuaweicloud.com:443/infrastructure/Home_BSConfig.pm -o /usr/lib/obs/server/BSConfig.pm
 
-sed -i "s/\$HOSTNAME/backend.openeuler.org/g" /etc/slp.reg.d/obs.repo_server.reg
+sed -i "s/\$HOSTNAME/home-backend.openeuler.org/g" /etc/slp.reg.d/obs.repo_server.reg
 sed -i "s/\$HOSTNAME/source.openeuler.org/g" /etc/slp.reg.d/obs.source_server.reg
 
 sed -i "s/After=network.target obssrcserver.service obsrepserver.service obsapisetup.service/After=network.target obssrcserver.service obsrepserver.service/g" /usr/lib/systemd/system/obsscheduler.service
@@ -101,7 +101,7 @@ echo "Updating the cluster hosts info"
 #    1. <frontend_host> build.openeuler.org
 #    2. <source_host> source.openeuler.org
 #    3. <backend_host> backend.openeuler.org
-hostnamectl set-hostname backend.openeuerl.org
+hostnamectl set-hostname home-backend.openeuerl.org
 if ! grep -q "build.openeuler.org" /etc/hosts; then
     echo "${frontend_host} build.openeuler.org" >> /etc/hosts
 else
