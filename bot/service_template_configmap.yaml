@@ -1,0 +1,14 @@
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: bot-service-configmap
+  namespace: bot
+data:
+  _service: |
+    <services>
+        <service name="tar_scm_kernel_repo">
+          <param name="scm">repo</param>
+          <param name="url">next/openEuler/#projectname#</param>
+        </service>
+    </services>
