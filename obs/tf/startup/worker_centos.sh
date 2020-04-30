@@ -44,7 +44,7 @@ function fn_config_disk()
 }
 
 if [[ $# -lt 4 ]];then
-    echo "please specify frontend host, source host and backend host and worker disk name, for instance: ./worker.sh 172.16.1.81 172.16.1.89 172.16.1.95 172.16.1.84 /dev/vdb"
+    echo "please specify frontend host, source host and backend host and worker disk name, for instance: ./worker_centos.sh 172.16.1.81 172.16.1.89 172.16.1.95 172.16.1.84 /dev/vdb"
     exit 1
 fi
 frontend_host=$1
@@ -57,6 +57,10 @@ echo "Starting obs worker service with backend server ${backend_host}.."
 #enable and start sshd service
 echo "Enabling sshd service if not enabled"
 systemctl enable sshd.service
+
+echo "change yum source address"
+mv /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo.backup
+curl -o /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-6.repo
 
 echo "installing requirement packages"
 yum install -y ntpdate vim cpio curl perl-Compress-Zlib perl-TimeDate perl-Data-Dumper perl-XML-Parser screen psmisc bash binutils bsdtar lzma util-linux openslp lvm2 perl-Digest-MD5 git screen tmux wget expect
