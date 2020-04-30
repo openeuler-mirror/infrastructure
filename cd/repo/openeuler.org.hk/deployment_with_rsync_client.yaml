@@ -76,6 +76,7 @@ data:
     http {
         include       /etc/nginx/conf/mime.types;
         default_type  application/octet-stream;
+        server_tokens off;
 
         # used for geoip2
         geoip2 /etc/nginx/geoip/country/GeoLite2-Country.mmdb {
