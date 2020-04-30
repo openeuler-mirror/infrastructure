@@ -2,13 +2,14 @@
 
 
 if [[ $# -lt 4 ]];then
-    echo "please specify frontend host, source host, backend host and data disk, usage: ./source_server.sh 172.16.1.138 172.16.1.87 172.16.1.81 /dev/vdb"
+    echo "please specify frontend host, source host, backend host and data disk, usage: ./source_server.sh 172.16.1.81 172.16.1.89 172.16.1.95 172.16.1.84 /dev/vdb"
     exit 1
 fi
 frontend_host=$1
 source_host=$2
 backend_host=$3
-data_disk=$4
+home_backend_host=$4
+data_disk=$5
 #ensure the system matches
 system_info=`uname -r`
 if [[ ! ${system_info} == '4.12.14-lp151.28.7-default' ]];then
@@ -80,12 +81,7 @@ fi
 # update configuration file
 echo "Updating configuration file for obs source service"
 
-sed -i "s/when you touch hostname or port/when you touch hostname\n\$ipaccess->{'^172\\\.16\\\..*'} = 'rw' ;/g" /usr/lib/obs/server/BSConfig.pm
-
-sed -i "s/our \$srcserver = \"http:\/\/\$hostname:5352\";/our \$srcserver = \"http:\/\/source.openeuler.org:5352\";/g" /usr/lib/obs/server/BSConfig.pm
-sed -i "s/our \$reposerver = \"http:\/\/\$hostname:5252\";/our \$reposerver = \"http:\/\/backend.openeuler.org:5252\";/g" /usr/lib/obs/server/BSConfig.pm
-sed -i "s/our \$serviceserver = \"http:\/\/\$hostname:5152\";/our \$serviceserver = \"http:\/\/source.openeuler.org:5152\";/g" /usr/lib/obs/server/BSConfig.pm
-sed -i "s/our \$bsserviceuser = 'obsservicerun';/our \$bsserviceuser = 'obsrun';/g" /usr/lib/obs/server/BSConfig.pm
+curl https://openeuler.obs.cn-south-1.myhuaweicloud.com:443/infrastructure/BSConfig.pm -o /usr/lib/obs/server/BSConfig.pm
 
 sed -i "s/\$HOSTNAME/backend.openeuler.org/g" /etc/slp.reg.d/obs.repo_server.reg
 sed -i "s/\$HOSTNAME/source.openeuler.org/g" /etc/slp.reg.d/obs.source_server.reg
@@ -110,6 +106,11 @@ if ! grep -q "backend.openeuler.org" /etc/hosts; then
     echo "${backend_host} backend.openeuler.org" >> /etc/hosts
 else
     sed -i -e "s/[0-9]\{1,3\}\.[0-9]\{1,3\}\.[0-9]\{1,3\}\.[0-9]\{1,3\} backend.openeuler.org/${backend_host} backend.openeuler.org/g" /etc/hosts
+fi
+if ! grep -q "home-backend.openeuler.org" /etc/hosts; then
+    echo "${home_backend_host} home-backend.openeuler.org" >> /etc/hosts
+else
+    sed -i -e "s/[0-9]\{1,3\}\.[0-9]\{1,3\}\.[0-9]\{1,3\}\.[0-9]\{1,3\} home-backend.openeuler.org/${home_backend_host} home-backend.openeuler.org/g" /etc/hosts
 fi
 
 echo "updating the osc configuration files"
