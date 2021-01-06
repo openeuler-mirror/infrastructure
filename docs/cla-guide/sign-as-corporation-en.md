@@ -72,11 +72,11 @@
 </li>
 <li>
 <p>You will then receive an email titled “Enterprise CLA Signing”. The attachment of this email is a PDF file containing the Contributor License Agreement and the information you submitted.。<br>
-<img src="./img/pdf_emal.png" width="600" height="1000" alt="sign email"></p>
+<img src="./img/pdf_email.png" width="600" height="1000" alt="sign email"></p>
 </li>
 <li>
 <p>You need to download and print the PDF file and sign on the last page. Scan the signed file and save it as a PDF file, and reply to the email titled “Enterprise CLA Signing” with the PDF file as the attachment.<br>
-<img src="./img/howtosign.png" width="600" height="410" alt="how to sign"></p>
+<img src="./img/sign.png" width="600" height="410" alt="how to sign"></p>
 </li>
 <li>
 <p><em>By the community administrator：The community administrator receives your reply email and reviews the PDF file in the attachment. After the application is approved, the community administrator uploads the attachment to the CLA signing platform and creates an administrator account for your enterprise. The administrator account can be used to log in to the management platform. The account and password will be sent to you by email.</em></p>
