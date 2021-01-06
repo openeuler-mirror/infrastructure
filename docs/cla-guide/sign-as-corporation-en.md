@@ -76,7 +76,7 @@
 </li>
 <li>
 <p>You need to download and print the PDF file and sign on the last page. Scan the signed file and save it as a PDF file, and reply to the email titled “Enterprise CLA Signing” with the PDF file as the attachment.<br>
-<img src="./img/sign.png" width="600" height="410" alt="how to sign"></p>
+<img src="./img/sign.png" width="600" height="390" alt="how to sign"></p>
 </li>
 <li>
 <p><em>By the community administrator：The community administrator receives your reply email and reviews the PDF file in the attachment. After the application is approved, the community administrator uploads the attachment to the CLA signing platform and creates an administrator account for your enterprise. The administrator account can be used to log in to the management platform. The account and password will be sent to you by email.</em></p>
