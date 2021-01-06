@@ -101,7 +101,7 @@
 </li>
 <li>
 <p>As a super administrator, you have the right to add or delete an administrator. At least one administrator is required to ensure that employees can sign the agreement. You can specify a maximum of five administrators. When you add an administrator, the system generates a random password and sends an email to notify the administrator.<br>
-<img src="./img/9.png" width="600" height="350" alt="CLA manage" align="center"></p>
+<img src="./img/9-en.png" width="600" height="350" alt="CLA manage" align="center"></p>
 </li>
 <li>
 <p>The administrator authorization is completed. You can dynamically adjust the administrator list based on enterprise requirements.</p>
