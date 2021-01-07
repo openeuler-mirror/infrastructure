@@ -85,7 +85,7 @@
 <p>If you receive an email titled “CLA Administrator Account of XX Enterprise in XX Community”, it indicates that the community has approved your CLA signing. The signing is completed.</p>
 </li>
 </ol>
-<h3 id="how-can-i-specify-an-authorized-administrator-for-an-enterprise">How Can I Specify an Authorized Administrator for an Enterprise?</h3>
+<h3 id="how-can-i-specify-an-authorized-administrator-for-an-enterprise">How Can I Specify an Authorized Manager for an Enterprise?</h3>
 <ol>
 <li>
 <p>Click <strong>Signing CLA Guide for Corporation</strong> on the <a href="https://clasign.osinfra.cn/corporationManagerLogin">Signing Page</a> and drag down to the bottom to click Administrator platform to go to the <a href="https://clasign.osinfra.cn/corporationManagerLogin">login page of the CLA management system</a><br>
@@ -104,7 +104,7 @@
 <img src="./img/9-en.png" width="600" height="350" alt="CLA manage" align="center"></p>
 </li>
 <li>
-<p>The administrator authorization is completed. You can dynamically adjust the administrator list based on enterprise requirements.</p>
+<p>The process of specifying a manager is complete. You can dynamically adjust the manager aacouont list based on enterprise requirements.</p>
 </li>
 </ol>
 
