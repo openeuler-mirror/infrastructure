@@ -100,11 +100,11 @@
 <img src="./img/8.png" width="600" height="350" alt="modify psw" align="center"></p>
 </li>
 <li>
-<p>As a super administrator, you have the right to add or delete a manager account. At least one manager account is required to authorize the CLA signing from your employees. You can specify a maximum of five manager accounts. When you add an administrator, the system generates a random password and sends an email to notify the administrator.<br>
+<p>As a super administrator, you have the right to add or delete a manager account. At least one manager account is required to authorize the CLA signing from your employees. You can specify a maximum of five manager accounts. When you add a manager, the system generates a random password and sends an email to notify the manager.<br>
 <img src="./img/9-en.png" width="600" height="350" alt="CLA manage" align="center"></p>
 </li>
 <li>
-<p>The administrator authorization is completed. You can adjust the manager account list based on enterprise requirements at any time.</p>
+<p>The process of speccifying a manager is complete. You can adjust the manager account list based on enterprise requirements at any time.</p>
 </li>
 </ol>
 
