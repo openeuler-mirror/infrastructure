@@ -85,7 +85,7 @@
 <p>If you receive an email titled “CLA Administrator Account of XX Enterprise in XX Community”, it indicates that the community has approved your CLA signing. The signing is completed.</p>
 </li>
 </ol>
-<h3 id="how-can-i-specify-an-authorized-administrator-for-an-enterprise">How Can I Specify an Authorized Manager for an Enterprise?</h3>
+<h3 id="how-can-i-specify-an-authorized-administrator-for-an-enterprise">How Can I Specify an Authorized Administrator for an Enterprise?</h3>
 <ol>
 <li>
 <p>Click <strong>Signing CLA Guide for Corporation</strong> on the <a href="https://clasign.osinfra.cn/corporationManagerLogin">Signing Page</a> and drag down to the bottom to click Administrator platform to go to the <a href="https://clasign.osinfra.cn/corporationManagerLogin">login page of the CLA management system</a><br>
@@ -100,11 +100,11 @@
 <img src="./img/8.png" width="600" height="350" alt="modify psw" align="center"></p>
 </li>
 <li>
-<p>As a super administrator, you have the right to add or delete manager accounts. At least one manager acccount is required to manage the validity of the CLA signed by employee. You can specify a maximum of five managers. When you add a manager, the system generates a random password and sends an email to notify the manager.<br>
+<p>As a super administrator, you have the right to add or delete a manager account. At least one manager account is required to authorize the CLA signing from your employees. You can specify a maximum of five manager accounts. When you add an administrator, the system generates a random password and sends an email to notify the administrator.<br>
 <img src="./img/9-en.png" width="600" height="350" alt="CLA manage" align="center"></p>
 </li>
 <li>
-<p>The process of specifying a manager is complete. You can dynamically adjust the manager aacouont list based on enterprise requirements.</p>
+<p>The administrator authorization is completed. You can adjust the manager account list based on enterprise requirements at any time.</p>
 </li>
 </ol>
 
