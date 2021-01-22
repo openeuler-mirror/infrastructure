@@ -551,7 +551,7 @@ companies:
   - domains:
       - vip.qq.com
       - qq.com
-    company_name: tencent
+    company_name: qq
     aliases:
       - qq
   - domains:
