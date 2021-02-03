@@ -1,0 +1,20 @@
+# config suffixes and categories to moderate text and images
+# text_categories is according to: https://support.huaweicloud.com/api-moderation/moderation_03_0018.html
+# image_categories is according to: https://support.huaweicloud.com/api-moderation/moderation_03_0019.html
+# sensitive_words: customized category
+
+text_suffixes:
+  ['yaml', 'md', 'txt']
+
+text_categories:
+  ["ad", "politics", "abuse", "porn", "contraband", "flood", "sensitive_words"]
+
+image_suffixes:
+  ['jpg', 'png', 'jpeg', 'gif', 'bmp']
+
+image_categories:
+  ["politics", "terrorism", "porn"]
+
+image_ad_categories:
+  ["qr_code", "politics", "abuse", "porn", "ad", "contraband", "sensitive_words"]
+
