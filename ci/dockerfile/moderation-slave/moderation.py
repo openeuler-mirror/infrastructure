@@ -6,6 +6,7 @@ import requests
 import sys
 import yaml
 from prettytable import PrettyTable
+from multiprocessing import Pool
 
 
 def get_token():
@@ -117,12 +118,41 @@ def deal_with_text(file_name, s, pt, error):
     while len(s) > 0:
         pieces.append(s[:5000])
         s = s[5000:]
-    for piece in pieces:
-        res = moderate_text(piece)
-        if res['result']['suggestion'] != 'pass':
-            sensities = res['result']['detail']['sensitive_words']
-            pt.add_row([file_name, "counts of sensitive words: {}".format({x: sensities.count(x) for x in sensities})])
-            error += 1
+    pool = Pool()
+    r = pool.map(moderate_text, pieces)
+    pool.close()
+    pool.join()
+    sensitive_words = []
+    politics = []
+    ad = []
+    abuse = []
+    porn = []
+    contraband = []
+    flood = []
+    for i in r:
+        sensitive_words.extend(i['result']['detail'].get('sensitive_words', []))
+        politics.extend(i['result']['detail'].get('politics', []))
+        ad.extend(i['result']['detail'].get('ad', []))
+        abuse.extend(i['result']['detail'].get('abuse', []))
+        porn.extend(i['result']['detail'].get('porn', []))
+        contraband.extend(i['result']['detail'].get('contraband', []))
+        flood.extend(i['result']['detail'].get('flood', []))
+    dic = {
+        'sensitive_words': {x: sensitive_words.count(x) for x in sensitive_words},
+        'politics': {x: politics.count(x) for x in politics},
+        'ad': {x: ad.count(x) for x in ad},
+        'abuse': {x: abuse.count(x) for x in abuse},
+        'porn': {x: porn.count(x) for x in porn},
+        'contraband': {x: contraband.count(x) for x in contraband},
+        'flood': {x: flood.count(x) for x in flood}
+    }
+    attentions = []
+    for i in dic.keys():
+        if dic[i]:
+            attentions.append("counts of {}:{}".format(i, dic[i]))
+    if sensitive_words or politics or ad or abuse or porn or contraband or flood:
+        pt.add_row([file_name, "\n".join(attentions)])
+        error += 1
     return error
 
 
@@ -237,9 +267,9 @@ if __name__ == '__main__':
                 print('Invalid category in image_ad_categories: {}'.format(category))
                 sys.exit(1)
 
-    fp = open('infrastructure/ci/jenkins/ci/categories.yaml', 'r')
+    fp = open('categories.yaml', 'r')
     content = yaml.load(fp.read(), Loader=yaml.Loader)
-    text_suffixes = content['text_  suffixes']
+    text_suffixes = content['text_suffixes']
     image_suffixes = content['image_suffixes']
     if not text_categories:
         text_categories = content['text_categories']
@@ -249,7 +279,7 @@ if __name__ == '__main__':
         image_ad_categories = content['image_ad_categories']
     fp.close()
 
-    account_username = os.getenv('_ACCOUNT_USERNAME', '')
+    account_username = os.getenv('ACCOUNT_USERNAME', '')
     region = os.getenv('REGION', '')
     iam_username = os.getenv('IAM_USERNAME', '')
     iam_password = os.getenv('IAM_PASSWORD', '')
