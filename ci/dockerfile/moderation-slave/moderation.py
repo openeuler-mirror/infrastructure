@@ -283,7 +283,9 @@ if __name__ == '__main__':
     region = os.getenv('REGION', '')
     iam_username = os.getenv('IAM_USERNAME', '')
     iam_password = os.getenv('IAM_PASSWORD', '')
-
+    if not (account_username and region and iam_username and iam_password):
+        print('Warning! Can not get token. account_username, region, iam_username and iam_password are all required.')
+        sys.exit(1)
     err = main(owner, repo, number)
     if err != 0:
         sys.exit(1)

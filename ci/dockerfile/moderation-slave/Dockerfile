@@ -12,7 +12,7 @@ RUN apt update \
 	&& apt install -y default-jre
 
 # Setup java path
-ENV JAVA_HOME /usr/lib/jvm/java-8-openjdk-amd64/jre
+ENV JAVA_HOME /usr/lib/jvm/java-11-openjdk-amd64
 ENV PATH $PATH:$JAVA_HOME/bin
 
 # Install jenkins slave
