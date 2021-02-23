@@ -168,9 +168,9 @@ def deal_with_image(file_name, pt, error, owner, repo, number):
     :return: error
     """
     r = requests.get('https://gitee.com/api/v5/repos/{}/{}/pulls/{}'.format(owner, repo, number))
-    giteeid = r.json()['user']['login']
-    branch = r.json()['head']['ref']
-    image_url = 'https://gitee.com/{}/{}/raw/{}/{}'.format(giteeid, repo, branch, file_name)
+    source_owner = r.json()['head']['repo']['full_name'].split('/')[0]
+    source_branch = r.json()['head']['ref']
+    image_url = 'https://gitee.com/{}/{}/raw/{}/{}'.format(source_owner, repo, source_branch, file_name)
     res = moderate_image(image_url)
     print(res)
     pt.add_row([file_name, "detail: {}".format(res['result']['category_suggestions'])])
