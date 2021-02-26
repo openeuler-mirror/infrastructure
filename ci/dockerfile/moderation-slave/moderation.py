@@ -118,7 +118,7 @@ def deal_with_text(file_name, s, pt, error):
     while len(s) > 0:
         pieces.append(s[:5000])
         s = s[5000:]
-    pool = Pool()
+    pool = Pool(4)
     r = pool.map(moderate_text, pieces)
     pool.close()
     pool.join()
