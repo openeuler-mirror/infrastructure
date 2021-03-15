@@ -1,0 +1,2036 @@
+<!DOCTYPE html>
+<html lang='zh-CN'>
+<head>
+<title>056c3f13de67a26ffb2a30598a6d066d3413.gif · nicliuqi/daily - Gitee.com</title>
+<link href="https://assets.gitee.com/assets/favicon-9007bd527d8a7851c8330e783151df58.ico" rel="shortcut icon" type="image/vnd.microsoft.icon" />
+<link href="https://gitee.com/nicliuqi/daily" rel="canonical" />
+<meta content='gitee.com/nicliuqi/daily git https://gitee.com/nicliuqi/daily.git' name='go-import'>
+<meta charset='utf-8'>
+<meta content='always' name='referrer'>
+<meta content='Gitee' property='og:site_name'>
+<meta content='Object' property='og:type'>
+<meta content='http://gitee.com/nicliuqi/daily/blob/137d4820e79321346fbe015da9925c09daaac5b1/056c3f13de67a26ffb2a30598a6d066d3413.gif' property='og:url'>
+<meta content='https://gitee.com/static/images/logo_themecolor.png' itemprop='image' property='og:image'>
+<meta content='056c3f13de67a26ffb2a30598a6d066d3413.gif · nicliuqi/daily - Gitee.com' itemprop='name' property='og:title'>
+<meta content='Gitee.com 是 OSCHINA.NET 推出的代码托管平台，支持 Git 和 SVN，提供免费的私有仓库托管。目前已有超过 600 万的开发者选择 Gitee。' property='og:description'>
+<meta content='码云,Gitee,代码托管,Git,Git@OSC,Gitee.com,开源,内源,项目管理,版本控制,开源代码,代码分享,项目协作,开源项目托管,免费代码托管,Git代码托管,Git托管服务' name='Keywords'>
+<meta content='Gitee.com 是 OSCHINA.NET 推出的代码托管平台，支持 Git 和 SVN，提供免费的私有仓库托管。目前已有超过 600 万的开发者选择 Gitee。' itemprop='description' name='Description'>
+
+<meta content="IE=edge" http-equiv="X-UA-Compatible" />
+<meta content="authenticity_token" name="csrf-param" />
+<meta content="F8mRdh2/fg4Gq6oFhx0Fx6HBltROz3OCkELcoyDYGr4=" name="csrf-token" />
+
+<link href="https://assets.gitee.com/assets/application-c0b0a7a513cddb519b0fba4c111374c7.css" media="all" rel="stylesheet" />
+<script>
+//<![CDATA[
+window.gon = {};gon.locale="zh-CN";gon.sentry_dsn=null;gon.baidu_register_hm_push=null;gon.sensor={"server_url":"https://haveaniceday.gitee.com:3443/sa?project=production","page_type":"其他"};gon.info={"controller_path":"blob","action_name":"show","current_user":false};gon.tour_env={"current_user":null,"action_name":"show","original_url":"http://gitee.com/nicliuqi/daily/blob/137d4820e79321346fbe015da9925c09daaac5b1/056c3f13de67a26ffb2a30598a6d066d3413.gif","controller_path":"blob"};gon.http_clone="https://gitee.com/nicliuqi/daily.git";gon.user_project="nicliuqi/daily";gon.manage_branch="管理分支";gon.manage_tag="管理标签";gon.enterprise_id=0;gon.create_reaction_path="/nicliuqi/daily/reactions";gon.ref="137d4820e79321346fbe015da9925c09daaac5b1";
+//]]>
+</script>
+<script src="https://assets.gitee.com/assets/static/sensor-5984a2e9c24e9047ba28a1ddc8442b67.js"></script>
+<script src="https://assets.gitee.com/assets/static/sentry-5.1.0-a823fb0be1b61c5d7ca4a89f0536cb0a.js"></script>
+<script src="https://assets.gitee.com/assets/application-4e48b6252e36773c29be9d8df2ea8de5.js"></script>
+<script src="https://assets.gitee.com/assets/lib/jquery.timeago.zh-CN-e93952bad5c42e4dfe9ae639803e42e2.js"></script>
+
+<link href="https://assets.gitee.com/assets/projects/application-6889ef1b1e62fff81035e0ded3ac9c74.css" media="all" rel="stylesheet" />
+<script src="https://assets.gitee.com/assets/projects/app-f980286d28eb503c6c20d3a91f1b4722.js"></script>
+
+<script src="//res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+<script>
+  var title = document.title.replace(/( - Gitee| - 码云)$/, '')
+      imgUrl = '';
+  
+  document.addEventListener('DOMContentLoaded', function(event) {
+    var imgUrlEl = document.querySelector('.readme-box .markdown-body > img, .readme-box .markdown-body :not(a) > img');
+    imgUrl = imgUrlEl && imgUrlEl.getAttribute('src');
+  
+    if (!imgUrl) {
+      imgUrlEl = document.querySelector('meta[itemprop=image]');
+      imgUrl = imgUrlEl && imgUrlEl.getAttribute('content'); 
+      imgUrl = imgUrl || "https://gitee.com/static/images/logo_themecolor.png";
+    }
+  
+    wx.config({
+      debug: false,
+      appId: "wxff219d611a159737",
+      timestamp: "1614591137",
+      nonceStr: "1b08e4173e19e0ad774c641aa7ae293b",
+      signature: "8301909968837b50252eeba87eb09d7b21a050b3",
+      jsApiList: [
+        'onMenuShareTimeline',
+        'onMenuShareAppMessage'
+      ]
+    });
+  
+    wx.ready(function () {
+      wx.onMenuShareTimeline({
+        title: title, // 分享标题
+        link: "https://gitee.com/nicliuqi/daily/blob/137d4820e79321346fbe015da9925c09daaac5b1/056c3f13de67a26ffb2a30598a6d066d3413.gif", // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+        imgUrl: imgUrl // 分享图标
+      });
+      wx.onMenuShareAppMessage({
+        title: title, // 分享标题
+        link: "https://gitee.com/nicliuqi/daily/blob/137d4820e79321346fbe015da9925c09daaac5b1/056c3f13de67a26ffb2a30598a6d066d3413.gif", // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+        desc: document.querySelector('meta[name=Description]').getAttribute('content'),
+        imgUrl: imgUrl // 分享图标
+      });
+    });
+    wx.error(function(res){
+      console.error('err', res)
+    });
+  })
+</script>
+
+<script type='text/x-mathjax-config'>
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [["$$","$$"],["\\[","\\]"]],
+    processEscapes: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+    ignoreClass: "container|files",
+    processClass: "markdown-body"
+  }
+});
+</script>
+<script src="https://assets.gitee.com/uploads/resources/MathJax-2.7.2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<script>
+  (function () {
+    var messages = {
+      'zh-CN': {
+        addResult: '增加 <b>{term}</b>',
+        count: '已选择 {count}',
+        maxSelections: '最多 {maxCount} 个选择',
+        noResults: '未找到结果',
+        serverError: '连接服务器时发生错误'
+      },
+      'zh-TW': {
+        addResult: '增加 <b>{term}</b>',
+        count: '已選擇 {count}',
+        maxSelections: '最多 {maxCount} 個選擇',
+        noResults: '未找到結果',
+        serverError: '連接服務器時發生錯誤'
+      }
+    }
+  
+    if (messages[gon.locale]) {
+      $.fn.dropdown.settings.message = messages[gon.locale]
+    }
+  }());
+</script>
+
+<script>
+  var userAgent = navigator.userAgent;
+  var isLessIE11 = userAgent.indexOf('compatible') > -1 && userAgent.indexOf('MSIE') > -1;
+  if(isLessIE11){
+    var can_access = ""
+    if (can_access != "true"){
+      window.location.href = "/incompatible.html";
+    }
+  }
+</script>
+</head>
+
+<body class='git-project lang-zh-CN large'>
+<header class='common-header fixed noborder' id='git-header-nav'>
+<div class='ui container'>
+<div class='ui menu header-menu'>
+<div class='git-nav-expand-bar'>
+<i class='iconfont icon-mode-table'></i>
+</div>
+<div class='gitee-nav__sidebar'>
+<div class='gitee-nav__sidebar-container'>
+<div class='gitee-nav__sidebar-top'>
+<div class='gitee-nav__avatar-box'></div>
+<div class='gitee-nav__buttons-box'>
+<a class="ui button small fluid orange" href="/login">登录</a>
+<a class="ui button small fluid basic is-register" href="/signup">注册</a>
+</div>
+</div>
+<div class='gitee-nav__sidebar-middle'>
+<div class='gitee-nav__sidebar-list'>
+<ul>
+<li class='gitee-nav__sidebar-item'>
+<a href="/explore"><i class='iconfont icon-ic-discover'></i>
+<span class='gitee-nav__sidebar-name'>开源软件</span>
+</a></li>
+<li class='gitee-nav__sidebar-item'>
+<a href="/enterprises"><i class='iconfont icon-ic-enterprise'></i>
+<span class='gitee-nav__sidebar-name'>企业版</span>
+</a></li>
+<li class='gitee-nav__sidebar-item'>
+<a href="/education"><i class='iconfont icon-ic-education'></i>
+<span class='gitee-nav__sidebar-name'>高校版</span>
+</a></li>
+<li class='gitee-nav__sidebar-item split-line'></li>
+<li class='gitee-nav__sidebar-item'>
+<a href="/search"><i class='iconfont icon-ic-search'></i>
+<span class='gitee-nav__sidebar-name'>搜索</span>
+</a></li>
+<li class='gitee-nav__sidebar-item'>
+<a href="/help"><i class='iconfont icon-help-circle'></i>
+<span class='gitee-nav__sidebar-name'>帮助中心</span>
+</a></li>
+<li class='gitee-nav__sidebar-item'>
+<a href="/terms"><i class='iconfont icon-file'></i>
+<span class='gitee-nav__sidebar-name'>使用条款</span>
+</a></li>
+<li class='gitee-nav__sidebar-item'>
+<a href="/about_us"><i class='iconfont icon-issuepx'></i>
+<span class='gitee-nav__sidebar-name'>关于我们</span>
+</a></li>
+</ul>
+</div>
+</div>
+<div class='gitee-nav__sidebar-bottom'>
+<div class='gitee-nav__sidebar-close-button'>
+<i class='fa fa-angle-double-left'></i>
+</div>
+</div>
+</div>
+</div>
+
+<div class='item gitosc-logo'>
+<a href="/"><img alt='Gitee — 基于 Git 的代码托管和研发协作平台' class='ui inline image' height='28' src='/static/images/logo.svg?t=158106664' title='Gitee — 基于 Git 的代码托管和研发协作平台' width='95'>
+<img alt='Gitee — 基于 Git 的代码托管和研发协作平台' class='ui inline black image' height='28' src='/static/images/logo-black.svg?t=158106664' title='Gitee — 基于 Git 的代码托管和研发协作平台' width='95'>
+</a></div>
+<a class="item " href="/explore" title="开源软件">开源软件
+</a><a class="item " href="/enterprises" title="企业版">企业版
+<sup class='ui red label'>
+特惠
+</sup>
+</a><a class="item " href="/education" title="高校版">高校版
+</a><a class="item" href="https://blog.gitee.com/" id="gitee-blog" target="_blank" title="博客">博客
+</a><div class='center responsive-logo'>
+<a href="/"><img alt='Gitee — 基于 Git 的代码托管和研发协作平台' class='ui inline image' height='24' src='/static/images/logo.svg?t=158106664' title='Gitee — 基于 Git 的代码托管和研发协作平台' width='85'>
+<img alt='Gitee — 基于 Git 的代码托管和研发协作平台' class='ui inline black image' height='24' src='/static/images/logo-black.svg?t=158106664' title='Gitee — 基于 Git 的代码托管和研发协作平台' width='85'>
+</a></div>
+<div class='right menu userbar' id='git-nav-user-bar'>
+<form accept-charset="UTF-8" action="/search" class="ui item" data-text-filter="搜索格式不正确" data-text-require="搜索关键字不能少于1个" id="navbar-search-form" method="get"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /></div>
+<input id="navbar-search-type" name="type" type="hidden" />
+<input id="fork_filter" name="fork_filter" type="hidden" value="on" />
+<div class='ui search'>
+<input class="prompt" id="navbar-search-input" name="q" placeholder="搜开源" type="text" value="" />
+</div>
+</form>
+
+<script>
+  var can_search_in_repo = 1,
+      repo = "VFZSSk0wOUVTWHBOUkU1b1RucFplbHBuUFQxaE56WXpaZz09YTc2M2Y=",
+      reponame = "nicliuqi/daily";
+  
+  $(function() {
+    var $search = $('#navbar-search-form .ui.search');
+    $search.search({
+      apiSettings: {
+        url: '/search/relative_project?q={query}',
+        onResponse: function (res) {
+          if (res && res.status === 200 && res.data) {
+            var query = htmlSafe($search.search('get value'));
+  
+            res.data.map(function (item) {
+              item.path_ns = '/' + item.path_ns;
+              item.icon = 'iconfont icon-project-public';
+            });
+            res.data.unshift({
+              name_ns: "在全站搜索 <b class='hl'>" + query +"</b> 相关项目",
+              path_ns: '/search?fork_filter=on&q=' + query,
+              icon: 'iconfont icon-search'
+            });
+            if(can_search_in_repo == 1) {
+              res.data.unshift({
+                name_ns: "在当前仓库搜索 <b class='hl'>" + query +"</b> 相关代码",
+                path_ns: '/search?type=code&q=' + query + '&repo=' + repo + '&reponame=' + reponame,
+                icon: 'iconfont icon-search'
+              });
+            }
+            return res;
+          } else {
+            return { data: [] };
+          }
+        }
+      },
+      fields: {
+        results: 'data',
+        description: 'name_ns',
+        url: 'path_ns',
+        icon: 'icon'
+      },
+      minCharacters: 1,
+      maxResults: 10,
+      searchDelay: 250,
+      showNoResults: false,
+      transition: 'fade'
+    });
+  });
+</script>
+
+<a class="item git-nav-user__login-item" href="/login" sa_evt="login_show" sa_referrer_action="站导航右上角-登录按钮" sa_referrer_type="其他" sa_referrer_url="">登录
+</a><a class="item git-nav-user__register-item" href="/signup" sa_evt="register_show" sa_referrer_action="站导航右上角-注册按钮" sa_referrer_type="其他" sa_referrer_url="">注册
+</a><script>
+  $('.destroy-user-session').on('click', function() {
+    $.cookie('access_token', null, { path: '/' });
+  })
+</script>
+
+</div>
+</div>
+</div>
+</header>
+<script>
+  Gitee.initNavbar()
+  Gitee.initRepoRemoteWay()
+</script>
+
+<script>
+  var userAgent = navigator.userAgent;
+  var isLessIE11 = userAgent.indexOf('compatible') > -1 && userAgent.indexOf('MSIE') > -1;
+  if(isLessIE11){
+    var can_access = ""
+    if (can_access != "true"){
+      window.location.href = "/incompatible.html";
+    }
+  }
+</script>
+
+<div class='fixed-notice-infos'>
+<div class='all-messages'>
+</div>
+<div class='ui container'>
+<div class='flash-messages' id='messages-container'></div>
+</div>
+<script>
+  (function() {
+    $(function() {
+      var $error_box, alertTip, notify_content, notify_options, template;
+      template = '<div data-notify="container" class="ui {0} message" role="alert">' + '<i data-notify="dismiss" class="close icon"></i>' + '<span data-notify="message">{2}</span>' + '</div>';
+      notify_content = null;
+      notify_options = {};
+      alertTip = '';
+      $error_box = $(".flash_error.flash_error_box");
+      if (notify_options.type === 'error' && $error_box.length > 0 && !$.isEmptyObject(notify_content.message)) {
+        if (notify_content.message === 'captcha_fail') {
+          alertTip = "验证码不正确";
+        } else if (notify_content.message === 'captcha_expired') {
+          alertTip = "验证码已过期，请点击刷新";
+        } else if (notify_content.message === 'not_found_in_database') {
+          alertTip = "帐号或者密码错误";
+        } else if (notify_content.message === 'not_found_and_show_captcha') {
+          alertTip = "帐号或者密码错误";
+        } else if (notify_content.message === 'phone_captcha_fail') {
+          alertTip = "手机验证码不通过";
+        } else {
+          alertTip = notify_content.message;
+        }
+        return $error_box.html(alertTip).show();
+      } else if (notify_content) {
+        if ("show" === 'third_party_binding') {
+          return $('#third_party_binding-message').html(notify_content.message).addClass('ui message red');
+        }
+        notify_options.delay = 3000;
+        notify_options.template = template;
+        notify_options.offset = {
+          x: 10,
+          y: 30
+        };
+        notify_options.element = '#messages-container';
+        return $.notify(notify_content, notify_options);
+      }
+    });
+  
+  }).call(this);
+</script>
+
+</div>
+<script>
+  (function() {
+    $(function() {
+      var setCookie;
+      setCookie = function(name, value) {
+        $.cookie(name, value, {
+          path: '/',
+          expires: 365
+        });
+      };
+      $('#remove-bulletin, #remove-bulletin-dashboard').on('click', function() {
+        setCookie('remove_bulletin', "gitee-maintain-1613614848");
+        $('#git-bulletin').hide();
+      });
+      $('#remove-member-bulletin').on('click', function() {
+        setCookie('remove_member_bulletin', "gitee_member_bulletin");
+        $(this).parent().hide();
+      });
+      return $('#remove-gift-bulletin').on('click', function() {
+        setCookie('remove_gift_bulletin', "gitee-gift-bulletin");
+        $(this).parent().hide();
+      });
+    });
+  
+  }).call(this);
+</script>
+<script>
+  function closeMessageBanner(pthis, type, val) {
+    var json = {}
+  
+    val = typeof val === 'undefined' ? null : val
+    $(pthis).parent().remove()
+    if (type === 'out_of_enterprise_member') {
+      json = {type: type, data: val}
+    } else if (type === 'enterprise_overdue') {
+      json = {type: type, data: val}
+    }
+    $.post('/profile/close_flash_tip', json)
+  }
+</script>
+
+<div class='site-content'>
+<div class='git-project-header'>
+<div class='fixed-notice-infos'>
+<div class='ui info icon floating message green' id='fetch-ok' style='display: none'>
+<div class='content'>
+<div class='header status-title'>
+<i class='info icon status-icon'></i>
+代码拉取完成，页面将自动刷新
+</div>
+</div>
+</div>
+<div class='ui info icon floating message error' id='fetch-error' style='display: none'>
+<div class='content'>
+<div class='header status-title'>
+<i class='info icon status-icon'></i>
+<span class='error_msg'></span>
+</div>
+</div>
+</div>
+</div>
+<div class='ui container'>
+
+<div class='git-project-header-details'>
+<div class='git-project-header-container'>
+<div class='git-project-header-actions'>
+<div class='ui tiny modal project-donate-modal' id='project-donate-modal'>
+<i class='iconfont icon-close close'></i>
+<div class='header'>捐赠</div>
+<div class='content'>
+捐赠前请先登录
+</div>
+<div class='actions'>
+<a class='ui blank button cancel'>取消</a>
+<a class='ui orange ok button' href='/login'>前往登录</a>
+</div>
+</div>
+<div class='ui small modal wepay-qrcode'>
+<i class='iconfont icon-close close'></i>
+<div class='header'>
+扫描微信二维码支付
+<span class='wepay-cash'></span>
+</div>
+<div class='content weqcode-center'>
+<img id='wepay-qrcode' src=''>
+</div>
+<div class='actions'>
+<div class='ui cancel blank button'>取消</div>
+<div class='ui ok orange button'>
+支付完成
+</div>
+</div>
+</div>
+<div class='ui mini modal' id='confirm-alipay-modal'>
+<div class='header'>支付提示</div>
+<div class='content'>
+将跳转至支付宝完成支付
+</div>
+<div class='actions'>
+<div class='ui approve orange button'>
+确定
+</div>
+<div class='ui blank cancel button'>
+取消
+</div>
+</div>
+</div>
+
+<span class='ui buttons basic watch-container'>
+<div class='ui dropdown button js-project-watch' data-watch-type='unwatch'>
+<input type='hidden' value=''>
+<i class='iconfont icon-watch'></i>
+<div class='text'>
+Watch
+</div>
+<i class='dropdown icon'></i>
+<div class='menu'>
+<a class="item" data-method="post" data-value="unwatch" href="/nicliuqi/daily/unwatch" rel="nofollow" sa_evt="loginInform_show" sa_referrer_action="Watch" sa_referrer_type="其他" sa_referrer_url=""><i class='iconfont icon-msg-read'></i>
+不关注
+</a><a class="item" data-method="post" data-value="watching" href="/nicliuqi/daily/watch" rel="nofollow" sa_evt="loginInform_show" sa_referrer_action="Watch" sa_referrer_type="其他" sa_referrer_url=""><i class='iconfont icon-msg-read'></i>
+关注所有动态
+</a><a class="disabled item" data-method="post" data-value="releases_only" href="/nicliuqi/daily/release_only_watch" rel="nofollow" sa_evt="loginInform_show" sa_referrer_action="Watch" sa_referrer_type="其他" sa_referrer_url=""><i class='iconfont icon-msg-read'></i>
+仅关注版本发行动态
+</a><a class="item" data-method="post" data-value="ignoring" href="/nicliuqi/daily/ignoring_watch" rel="nofollow" sa_evt="loginInform_show" sa_referrer_action="Watch" sa_referrer_type="其他" sa_referrer_url=""><i class='iconfont icon-msg-read'></i>
+关注但不提醒动态
+</a></div>
+</div>
+<style>
+  .js-project-watch .text .iconfont {
+    display: none; }
+  .js-project-watch a, .js-project-watch a:hover {
+    color: #000; }
+  .js-project-watch .item > .iconfont {
+    visibility: hidden;
+    margin-left: -10px; }
+  .js-project-watch .selected .iconfont {
+    visibility: visible; }
+  .js-project-watch .menu {
+    margin-top: 4px !important; }
+</style>
+<script>
+  $('.js-project-watch').dropdown({
+    action: 'select',
+    onChange: function(value, text, $selectedItem) {
+      var type = value === 'unwatch' ? 'Watch' : 'Watching';
+      $(this).children('.text').text(type);
+      $(this).dropdown('set selected', value)
+    }
+  });
+</script>
+
+<a class="ui button action-social-count" href="/nicliuqi/daily/watchers" title="1">1
+</a></span>
+<span class='basic buttons star-container ui'>
+<a class="ui button star" href="/login" sa_evt="loginInform_show" sa_referrer_action="Star" sa_referrer_type="其他" sa_referrer_url=""><i class='iconfont icon-star'></i>
+Star
+</a><a class="ui button action-social-count " href="/nicliuqi/daily/stargazers" title="0">0
+</a></span>
+<span class='ui basic buttons fork-container' title='无权 Fork 此仓库'>
+<a class="ui button fork" href="/login" sa_evt="loginInform_show" sa_referrer_action="Fork" sa_referrer_type="其他" sa_referrer_url="" title="你必须登录后才可以fork一个仓库"><i class='iconfont icon-fork'></i>
+Fork
+</a><a class="ui button action-social-count disabled-style" href="/nicliuqi/daily/members" title="2">2
+</a></span>
+</div>
+<h2 class='git-project-title'>
+<span class="project-title"><i class="project-icon iconfont icon-project-public" title="这是一个公开仓库"></i> <a class="author" href="/nicliuqi" title="nicliuqi">nicliuqi</a> / <a class="repository" href="/nicliuqi/daily" sa_evt="repoClick" sa_location="其他" sa_repo_id="12782303" sa_url="" style="padding-bottom: 0px" target="" title="daily">daily</a></span><span class="project-badges"><style>
+  .gitee-modal {
+    width: 500px !important; }
+</style>
+</span>
+<input id="project_title" name="project_title" type="hidden" value="nicliuqi/daily" />
+</h2>
+</div>
+</div>
+</div>
+<script>
+  var title_import_url = "false";
+  var title_post_url = "/nicliuqi/daily/update_import";
+  var title_fork_url = "/nicliuqi/daily/sync_fork";
+  var title_project_path = "daily";
+  var title_p_name = "daily";
+  var title_p_id= "12782303";
+  var title_description = "";
+  var title_form_authenticity_token = "F8mRdh2/fg4Gq6oFhx0Fx6HBltROz3OCkELcoyDYGr4=";
+  var watch_type = "unwatch";
+  
+  $('.js-project-watch').dropdown('set selected', watch_type);
+  $('.checkbox.sync-wiki').checkbox();
+</script>
+<style>
+  i.loading {
+    -webkit-animation: icon-loading 1.2s linear infinite;
+    animation: icon-loading 1.2s linear infinite;
+  }
+  .qrcode_cs {
+    float: left;
+  }
+  .check-sync-wiki {
+    float: left;
+    height: 28px;
+    line-height: 28px;
+  }
+  .sync-wiki-warn {
+    color: #e28560;
+  }
+</style>
+
+<div class='git-project-nav'>
+<div class='ui container'>
+<div class='ui secondary pointing menu'>
+<a class="item active" href="/nicliuqi/daily/tree/137d4820e79321346fbe015da9925c09daaac5b1"><i class='iconfont icon-code'></i>
+代码
+</a><a class="item " href="/nicliuqi/daily/issues"><i class='iconfont icon-task'></i>
+Issues
+<span class='ui mini circular label'>
+0
+</span>
+</a><a class="item big-wide " href="/nicliuqi/daily/pulls"><i class='iconfont icon-pull-request'></i>
+Pull Requests
+<span class='ui mini circular label'>
+2
+</span>
+</a><a class="item " href="/nicliuqi/daily/wikis"><i class='iconfont icon-wiki'></i>
+Wiki
+</a><a class="item  " href="/nicliuqi/daily/graph/master"><i class='iconfont icon-statistics'></i>
+统计
+</a><div class='item project-devops-item'>
+<div class='ui pointing top right dropdown project-devops-dropdown'>
+<div class='text'>
+<i class='iconfont icon-devops'></i>
+DevOps
+</div>
+<i class='dropdown icon'></i>
+<div class='menu' style='display:none'>
+<a class="item" href="/nicliuqi/daily/gitee_go"><img alt="Giteego" src="https://assets.gitee.com/assets/giteego-7ec42270742374f05850d0d3ad09e303.png" />
+<div class='item-title'>
+Gitee Go
+</div>
+</a><a class="item" href="https://gitee.com/help/articles/4285" target="_blank"><img alt="Baidu efficiency cloud" src="https://assets.gitee.com/assets/baidu_efficiency_cloud-81a98c2eb67fac83b1453ca3d2feb326.svg" />
+<div class='item-title'>
+百度效率云
+</div>
+</a><a class="item" href="https://gitee.com/help/articles/4318" target="_blank"><img alt="Cloudbase" src="https://assets.gitee.com/assets/cloudbase-1197b95ea3398aff1df7fe17c65a6d42.png?20200925" />
+<div class='item-title'>
+腾讯云托管
+</div>
+</a><a class="item" href="https://gitee.com/help/articles/4330" target="_blank"><img alt="Cloud serverless" src="https://assets.gitee.com/assets/cloud_serverless-686cf926ced5d6d2f1d6e606d270b81e.png" />
+<div class='item-title'>
+腾讯云 Serverless
+</div>
+</a><a class="item" href="https://gitee.com/help/articles/4193" target="_blank"><img alt="Jenkins for gitee" src="https://assets.gitee.com/assets/jenkins_for_gitee-554ec65c490d0f1f18de632c48acc4e7.png" />
+<div class='item-title'>
+Jenkins for Gitee
+</div>
+</a></div>
+</div>
+</div>
+<div class='item'>
+<div class='ui pointing top right dropdown git-project-service'>
+<div class='text'>
+<i class='iconfont icon-service'></i>
+服务
+</div>
+<i class='dropdown icon'></i>
+<div class='menu' style='display:none'>
+<a class="item" href="/nicliuqi/daily/pages"><img alt="Logo en" src="/static/images/logo-en.svg" />
+<div class='item-title'>
+Gitee Pages
+</div>
+</a><a class="item" href="/nicliuqi/daily/quality_analyses?platform=sonar_qube"><img alt="Sonar mini" src="https://assets.gitee.com/assets/sonar_mini-5e1b54bb9f6c951d97fb778ef623afea.png" />
+<div class='item-title'>
+质量分析
+</div>
+</a><a class="item" href="/nicliuqi/daily/quality_analyses?platform=codesafe"><img alt="Codesafe mini" src="https://assets.gitee.com/assets/codesafe_mini-accbe1e555e9864c552620240d10e4de.png" width="100%" />
+<div class='item-title'>
+奇安信代码卫士
+</div>
+</a><a class="item" href="/nicliuqi/daily/gitee_scans"><img alt="Giteescan" src="https://assets.gitee.com/assets/giteescan-cd9ab4076bd751faf7e30888eb10f782.png" />
+<div class='item-title'>Gitee Scan</div>
+</a><button class='ui orange basic button quit-button' id='quiting-button'>
+我知道了，不再自动展开
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<script>
+  $('.git-project-nav .ui.dropdown').dropdown({ action: 'nothing' });
+</script>
+<style>
+  .git-project-nav i.checkmark.icon {
+    color: green;
+  }
+  #quiting-button {
+    display: none;
+  }
+  
+  .git-project-nav .dropdown .menu.hidden:after {
+    visibility: hidden !important;
+  }
+</style>
+<script>
+  isSignIn = false
+  isClickGuide = false
+  $('#git-versions.dropdown').dropdown();
+  $.ajax({
+    url:"/nicliuqi/daily/access/add_access_log",
+    type:"GET"
+  });
+  $('#quiting-button').on('click',function() {
+    $('.git-project-service').click();
+    if (isSignIn) {
+      $.post("/projects/set_service_guide")
+    }
+    $.cookie("Serve_State", true, { expires: 3650, path: '/'})
+    $('#quiting-button').hide();
+  });
+  if (!(isClickGuide || $.cookie("Serve_State") == 'true')) {
+    $('.git-project-service').click()
+    $('#quiting-button').show()
+  }
+</script>
+
+</div>
+<div class='ui container'>
+<div class='register-guide'>
+<div class='register-container'>
+<div class='regist'>
+加入 Gitee
+</div>
+<div class='description'>
+与超过 600 万 开发者一起发现、参与优秀开源项目，私有仓库也完全免费 ：）
+</div>
+<a class="ui orange button free-registion" href="/signup?from=project-guide" sa_evt="register_show" sa_referrer_action="免费加入" sa_referrer_type="其他" sa_referrer_url="">免费加入</a>
+<div class='login'>
+已有帐号？
+<a href="/login?from=project-guide">立即登录</a>
+</div>
+</div>
+</div>
+
+<div class='git-project-content-wrapper'>
+<div class='ui grid' id='project-wrapper'>
+<div class='sixteen wide column'>
+<div class='git-project-content' id='git-project-content'>
+<div class='row'>
+<div class='git-project-desc-wrapper'>
+<script>
+  if (false) {
+    gon.project_new_blob_path = "/nicliuqi/daily/new/137d4820e79321346fbe015da9925c09daaac5b1/056c3f13de67a26ffb2a30598a6d066d3413.gif"
+    bindShowModal({
+      el: $('.no-license .project-license__create'),
+      complete: function(data, modal) {
+        if (!data.haveNoChoice && !data.data) {
+          Flash.show('请选择一项开源许可证')
+        } else {
+          location.href = gon.project_new_blob_path + '?license=' + data.data
+        }
+      },
+      skip: function () {
+        location.href = gon.project_new_blob_path + '?license'
+      }
+    });
+  }
+  
+  $('i.help.circle.icon').popup({
+    popup: '.no-license .ui.popup',
+    position: 'right center'
+  });
+  
+  $('#remove-no-license-message').on('click', function() {
+    $.cookie("skip_repo_no_license_message_12782303", 'hide', { expires: 365 });
+    $('#user-no-license-message').hide();
+    return;
+  });
+</script>
+</div>
+
+</div>
+<div class='git-project-bread' id='git-project-bread'>
+<div class='ui horizontal list mr-1'>
+<div class='item git-project-branch-item'>
+<input id="path" name="path" type="hidden" value="056c3f13de67a26ffb2a30598a6d066d3413.gif" />
+<div class='ui top left pointing dropdown gradient button dropdown-has-tabs' id='git-project-branch'>
+<input id="ref" name="ref" type="hidden" value="137d4820e79321346fbe015da9925c09daaac5b1" />
+<div class='default text'>
+137d482
+</div>
+<i class='dropdown icon'></i>
+<div class='menu'>
+<div class='ui left icon search input'>
+<i class='iconfont icon-search'></i>
+<input class='search-branch' placeholder='搜索分支' type='text'>
+</div>
+<div class='tab-menu'>
+<div class='tab-menu-action' data-tab='branches'>
+<a class="ui link button" href="/nicliuqi/daily/branches">管理</a>
+</div>
+<div class='tab-menu-action' data-tab='tags'>
+<a class="ui link button" href="/nicliuqi/daily/tags">管理</a>
+</div>
+<div class='tab-menu-item' data-placeholder='搜索分支' data-tab='branches'>
+分支 (2)
+</div>
+<div class='tab-menu-item' data-placeholder='搜索提交' data-tab='commits'>
+提交
+</div>
+</div>
+<div class='tab scrolling menu' data-tab='branches'>
+<div class="item" data-value="jenkins-test"><span>jenkins-test</span></div>
+<div class="item" data-value="master"><span>master</span></div>
+</div>
+<div class='tab scrolling menu' data-tab='commits'>
+<div class='item' data-value='137d4820e79321346fbe015da9925c09daaac5b1'>
+137d482
+</div>
+</div>
+</div>
+</div>
+<style>
+  .iconfont.icon-shieldlock {
+    color: #8c92a4;
+  }
+</style>
+
+<script>
+  $(function () {
+    Gitee.initTabsInDropdown($('#git-project-branch').dropdown({
+      fullTextSearch: true,
+      selectOnKeydown: true,
+      action: function (text,value,el) {
+        var oItemOrInitObject = el[0] || el
+        var isNotSelect = oItemOrInitObject.dataset.tab && oItemOrInitObject.dataset.tab === 'branches'
+        if(isNotSelect){
+          console.warn("You didn't choose a branch")
+          return
+        } 
+        var path = $('#path').val();
+        var href = ['/nicliuqi/daily/tree', encodeURIComponent(value), path].join('/');
+        window.location.href = href;
+        return true
+      },
+      onNoResults: function (searchTerm) {
+        //未找到结果
+        return true
+      },
+    }));
+    $('.protected-branch-popup').popup()
+  })
+</script>
+
+</div>
+</div>
+<div class='git-project-right-actions pull-right'>
+<div class='ui orange button' id='btn-dl-or-clone'>
+克隆/下载
+<i class='dropdown icon'></i>
+</div>
+<div class='git-project-download-panel for-project ui bottom right popup'>
+<div class='ui small secondary pointing menu'>
+<a class='item active' data-text='' data-type='http' data-url='https://gitee.com/nicliuqi/daily.git'>HTTPS</a>
+<a class='item' data-text='' data-type='ssh' data-url='git@gitee.com:nicliuqi/daily.git'>SSH</a>
+<a class='item' data-text="该仓库未启用SVN访问，请仓库管理员前往【&lt;a target='_blank' href=/nicliuqi/daily/settings&gt;仓库设置&lt;/a&gt;】开启。" data-type='svn' data-url=''>SVN</a>
+<a class='item' data-text="该仓库未启用SVN访问，请仓库管理员前往【&lt;a target='_blank' href=/nicliuqi/daily/settings&gt;仓库设置&lt;/a&gt;】开启。" data-type='svn_ssh' data-url=''>SVN+SSH</a>
+</div>
+<div class='ui fluid right labeled small input download-url-panel'>
+<input id="project_clone_url" name="project_clone_url" onclick="focus();select()" readonly="readonly" type="text" value="https://gitee.com/nicliuqi/daily.git" />
+<div class='ui basic label'>
+<div class='ui small basic orange button' data-clipboard-target='#project_clone_url' id='btn-copy-clone-url'>
+复制
+</div>
+</div>
+</div>
+<div class='ui fluid right labeled warning-text forbid-warning-text'>
+
+</div>
+<hr>
+<a class="ui fluid download link button" href="javascript:void(0);" sa_evt="loginInform_show" sa_referrer_action="克隆/下载" sa_referrer_type="其他" sa_referrer_url=""><i class='icon download'></i>
+下载ZIP
+</a><div class='download_repository_zip form modal tiny ui' id='unlanding-complaint-modal'>
+<i class='iconfont icon-close close'></i>
+<div class='header'>
+登录提示
+</div>
+<div class='container actions'>
+<div class='content'>
+该操作需登录 Gitee 帐号，请先登录后再操作。
+</div>
+<div class='ui orange icon large button ok'>
+立即登录
+</div>
+<div class='ui button blank cancel'>
+没有帐号，去注册
+</div>
+</div>
+</div>
+<script>
+  var $elm = $('.download');
+  
+  $elm.on('click', function() {
+    var modals = $("#unlanding-complaint-modal.download_repository_zip");
+    if (modals.length > 1) {
+      modals.eq(0).modal('show');
+    } else {
+      modals.modal('show');
+    }
+  })
+  $("#unlanding-complaint-modal.download_repository_zip").modal({
+    onDeny: function() {
+      window.location.href = "/signup?from=download_repository_zip";
+    },
+    onApprove: function() {
+      window.location.href = "/login?from=download_repository_zip";
+    }
+  })
+</script>
+
+</div>
+<script>
+  (function() {
+    var $btnClone, $btnCopy, $input, $panel;
+  
+    $btnClone = $('#btn-dl-or-clone');
+  
+    $panel = $('.git-project-download-panel');
+  
+    $input = $('#project_clone_url');
+  
+    $btnCopy = $('#btn-copy-clone-url');
+  
+    $btnClone.popup({
+      on: 'click',
+      hoverable: true,
+      position: 'bottom center'
+    });
+  
+    $panel.find('.menu > .item').on('click', function(e) {
+      var $item, dataUrl;
+      $item = $(this).addClass('active');
+      $item.siblings().removeClass('active');
+      dataUrl = $item.attr('data-url');
+      if (dataUrl) {
+        $panel.find('.download-url-panel').show();
+        $input.val(dataUrl);
+        $panel.find('.forbid-warning-text').html('');
+      } else {
+        $panel.find('.download-url-panel').hide();
+        $panel.find('.forbid-warning-text').html($item.attr('data-text') || '');
+      }
+      return $.cookie('remote_way', $item.attr('data-type'), {
+        expires: 365,
+        path: '/'
+      });
+    }).filter('[data-type="http"]').trigger('click');
+  
+    new Clipboard($btnCopy[0]).on('success', function() {
+      $btnCopy.popup({
+        content: '已复制',
+        position: 'right center',
+        onHidden: function() {
+          return $btnCopy.popup('destroy');
+        }
+      });
+      return $btnCopy.popup('show');
+    });
+  
+  }).call(this);
+</script>
+
+</div>
+<div class='d-inline pull-right' id='git-project-root-actions'>
+<script>
+  $('.disabled-upload-readonly').popup({
+    content: "只读目录不允许上传文件",
+    className: {
+      popup: 'ui popup',
+    },
+    position: 'bottom center',
+  })
+  $('.disabled-create-folder').popup({
+    content: "只读目录不允许创建目录",
+    className: {
+      popup: 'ui popup',
+    },
+    position: 'bottom center',
+  })
+  $('.disabled-create-file').popup({
+    content: "只读目录不允许创建文件",
+    className: {
+      popup: 'ui popup',
+    },
+    position: 'bottom center',
+  })
+  $('.disabled-upload-readonly').click(function() {
+    return false
+  })
+  $('.disabled-create-folder').click(function() {
+    return false
+  })
+  $('.disabled-create-file').click(function() {
+    return false
+  })
+</script>
+<style>
+  .disabled-upload-readonly, .disabled-create-file, .disabled-create-folder {
+    background-color: #dcddde !important;
+    color: rgba(0, 0, 0, 0.4) !important;
+    opacity: 0.3 !important;
+    background-image: none !important;
+    -webkit-box-shadow: none !important;
+            box-shadow: none !important; }
+</style>
+
+
+</div>
+<div class='breadcrumb_path path-breadcrumb-contrainer' id='git-project-breadcrumb'>
+<div class='ui breadcrumb path project-path-breadcrumb' id='path-breadcrumb'>
+<a class="section repo-name" data-direction="back" href="/nicliuqi/daily/tree/137d4820e79321346fbe015da9925c09daaac5b1" style="font-weight: bold">daily
+</a><div class='divider'>
+/
+</div>
+<strong>
+056c3f13de67a26ffb2a30598a6d066d3413.gif
+</strong>
+<i class='iconfont icon-clone' data-clipboard-text='056c3f13de67a26ffb2a30598a6d066d3413.gif' id='btn-copy-file-path'></i>
+</div>
+<style>
+  #btn-copy-file-path {
+    vertical-align: middle;
+    cursor: pointer;
+  }
+</style>
+<script>
+  $btnCopy = $('#btn-copy-file-path')
+  $btnCopy.popup({
+    content: '复制路径'
+  })
+  
+  if ($btnCopy[0]) {
+    new Clipboard($btnCopy[0]).on('success', function() {
+      $btnCopy.popup('destroy').popup({
+        content: '已复制',
+        on: 'manual'
+      }).popup('show');
+      setTimeout(function () {
+        $btnCopy.popup('destroy').popup({
+          content: '复制路径'
+        });
+      }, 2000)
+    });
+  }
+</script>
+
+
+</div>
+<div class='ui horizontal list repo-action-list' style='display: none;'>
+<div class='item'>
+<a class="ui blank button" href="/nicliuqi/daily/branches"><i class='iconfont icon-branches'></i>
+分支 2
+</a></div>
+<div class='item mr-3'>
+<a class="ui blank button" href="/nicliuqi/daily/tags"><i class='iconfont icon-tag'></i>
+标签 0
+</a></div>
+</div>
+</div>
+
+<style>
+  .ui.dropdown .menu > .header {
+    text-transform: none; }
+</style>
+<script>
+  $(function () {
+    var $tip = $('#apk-download-tip');
+    if (!$tip.length) {
+      return;
+    }
+    $tip.find('.btn-close').on('click', function () {
+      $tip.hide();
+    });
+  });
+  (function(){
+    function pathAutoRender() {
+      var $parent = $('#git-project-bread'),
+          $child = $('#git-project-bread').children('.ui.horizontal.list'),
+          mainWidth = 0;
+      $child.each(function (i,item) {
+        mainWidth += $(item).width()
+      });
+      $('.breadcrumb.path.fork-path').remove();
+      if (mainWidth > 995) {
+        $('#path-breadcrumb').hide();
+        $parent.append('<div class="ui breadcrumb path fork-path">' + $('#path-breadcrumb').html() + '<div/>')
+      } else {
+        $('#path-breadcrumb').show();
+      }
+    }
+    window.pathAutoRender = pathAutoRender;
+    pathAutoRender();
+  })();
+</script>
+
+<div class='row column tree-holder' id='tree-holder'>
+<div class='tree-content-holder' id='tree-content-holder'>
+<div class='file_holder'>
+<div class='file_title'>
+<div class='blob-header-title'>
+<div class='blob-description'>
+<i class="iconfont icon-file"></i>
+<span class='file_name' title='056c3f13de67a26ffb2a30598a6d066d3413.gif'>
+056c3f13de67a26ffb2a30598a6d066d3413.gif
+</span>
+<small>41.72 KB</small>
+</div>
+<div class='options'><div class='ui mini buttons basic'>
+<a class="ui button edit-raw" href="/nicliuqi/daily/raw/137d4820e79321346fbe015da9925c09daaac5b1/056c3f13de67a26ffb2a30598a6d066d3413.gif" target="_blank">原始数据</a>
+<a class="ui button edit-history" href="/nicliuqi/daily/commits/137d4820e79321346fbe015da9925c09daaac5b1/056c3f13de67a26ffb2a30598a6d066d3413.gif">历史</a>
+</div>
+<script>
+  "use strict";
+  try {
+    if((gon.wait_fork!=undefined && gon.wait_fork==true) || (gon.wait_fetch!=undefined && gon.wait_fetch==true)){
+      $('.edit-blob').popup({content:"当前仓库正在后台处理中,暂时无法编辑", on: 'hover', delay: { show: 200, hide: 200 }});
+      $('.edit-blob').click(function(e){
+        e.preventDefault();
+      })
+    }
+  
+    var setUrl = function() {
+      var params = window.location.search
+      if (params==undefined || $.trim(params).length==0) return;
+      $('span.options').children('.basic').find('a').each(function(index,ele){
+        var origin_href = $(ele).attr('href');
+        if (origin_href!="#" && origin_href.indexOf('?') == -1){
+          $(ele).attr('href',origin_href+params);
+        }
+      });
+    }
+  
+    setUrl();
+  
+    var clipboard = null,
+        $btncopy  = $("#copy-text");
+  
+    clipboard = new Clipboard("#copy-text", {
+      text: function(trigger) {
+        return $("#blob_raw").val();
+      }
+    })
+  
+    clipboard.on('success', function(e) {
+      $btncopy.popup('hide');
+      $btncopy.popup('destroy');
+      $btncopy.popup({content: '已复制', position: 'bottom center'});
+      $btncopy.popup('show');
+    })
+  
+    clipboard.on('error', function(e) {
+      var giteeModal = new GiteeModalHelper({okText: '确定'});
+      giteeModal.alert("一键复制", '复制失败，请手动复制');
+    })
+  
+    $(function() {
+      $btncopy.popup({
+        content: '点击复制',
+        position: 'bottom center'
+      })
+    })
+  
+  } catch (error) {
+    console.log('blob/action error:' + error);
+  }
+  
+  $('.disabled-edit-readonly').popup({
+    content: "只读文件不可编辑",
+    className: {
+      popup: 'ui popup',
+    },
+    position: 'bottom center',
+  })
+  $('.disabled-edit-readonly').click(function() {
+    return false
+  })
+</script>
+<style>
+  .disabled-edit-readonly {
+    background-color: #dcddde !important;
+    color: rgba(0, 0, 0, 0.4) !important;
+    opacity: 0.3 !important;
+    background-image: none !important;
+    -webkit-box-shadow: none !important;
+            box-shadow: none !important; }
+</style>
+</div>
+</div>
+<div class='contributor-description'><span class='recent-commit' style='margin-top: 0.7rem'>
+<a class="commit-author-link  js-popover-card " data-username="liuqi469227928" href="/liuqi469227928">Se7en</a>
+<span>提交于</span>
+<span class='timeago commit-date' title='2021-02-19 14:12:33 +0800'>
+2021-02-19 14:12
+</span>
+.
+<a href="/nicliuqi/daily/commit/137d4820e79321346fbe015da9925c09daaac5b1">change gif</a>
+</span>
+</div>
+</div>
+<div class='clearfix'></div>
+<div class='file_content image_file'>
+<img src='data:image/gif;base64,R0lGODlhLAEsAff/AGdnZv+zs/+ionZDQ8PEw9R4eP+Zmf+dnf6MjP+WlrZn&#x000A;Z/+SklhYV/////6Bgbu7u9PT0wcFBRsVFbOzs/7Pz/+JiaysrEdHRv+6uqOk&#x000A;pMpzc/b29SQkIphXV2k7Ozc3NioYGJubm5OTk/Hx8e3t7f+qqunp6YuLi+Xm&#x000A;5YJKSoODg3t7e+Hi4aJcXEUoKN3d3fKMjKxiYqqqqtmAgHNzc8NsbMnKyeuD&#x000A;g7aNjM3OzeSCgvj499na2VwzMzkgIPj49oxpafz8++J9feyKivr6+f7m5s29&#x000A;vfr6+PGGhiwrKxMLCoxRUfzw8PWQkP5+fvqQkPmNjfDw7/z8+uaVlU8tLf7+&#x000A;/SEfHj06OuPNzUxLSqutra+xsb1vb2xsa/eJif/3+K2oqOCpqaaoqL/BwIaF&#x000A;hScmI9vQ0MfIx49OTra4uMXGxXZ1deeHh/Py8sbFxImRkcrLy6Wmpuzq6hQR&#x000A;EJ6goK6uruPk5Ovs7CgoJszMzP39/Pz//t3c28vMy6h3dt/g4Ojo6IGBge/v&#x000A;7uTk49fY1/T09MjIyI6Njfv8/Le3tlQYGdrb23+AgOHg387Pzvn5+L2+vubn&#x000A;59zb2sHBwezs7PLz8/aGhs/Q0Nzc3Kmrq/uUlOfo6JeXl9XW1ra3t6Ghod7f&#x000A;3j9AQHFxcJKQkJmZmNjY2Pn6+dHR0efm5jMyMZWWlc3JyObj4+Lj4/Dw8Cso&#x000A;KCYmJK2sq7GwsIeIiK6vr6anp+rr6nd3d/v7+h0cG1BPT0NCQvyHh8/Pz2Nj&#x000A;Yvb5+VNSUvaDgwsJCYeHh7W2tv6FhWBfX/6EhA4ODf+Fhf+EhPf49/7+/nl5&#x000A;edvb27++vigoKJCRkI+Pjy8vLufn5+jn54mJiO/v756envOnqPPz8+vr63Bw&#x000A;cF1cXKioqODg4NbW1rqsrP39/T09POPj4+Tk5P6Dg29vbvn6+nNwb/+Pj/+H&#x000A;h8nIyNnX1/7Bwf+Tk05OTa2urqCgoLm5ufyFhff396urq0M+Pt/f335+fgIC&#x000A;Avf39iIiIAAAAP6Ghv///yH/C05FVFNDQVBFMi4wAwEAAAAh/wtYTVAgRGF0&#x000A;YVhNUDw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVT&#x000A;ek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0&#x000A;YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2&#x000A;MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1s&#x000A;bnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50&#x000A;YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6&#x000A;eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBN&#x000A;TT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RS&#x000A;ZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJj&#x000A;ZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAo&#x000A;V2luZG93cykiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6MjM4Q0Q0M0NC&#x000A;ODcxMTFFNkI1Q0RCRDFDOTZGRkI4MzciIHhtcE1NOkRvY3VtZW50SUQ9Inht&#x000A;cC5kaWQ6MjM4Q0Q0M0RCODcxMTFFNkI1Q0RCRDFDOTZGRkI4MzciPiA8eG1w&#x000A;TU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDoyMzhD&#x000A;RDQzQUI4NzExMUU2QjVDREJEMUM5NkZGQjgzNyIgc3RSZWY6ZG9jdW1lbnRJ&#x000A;RD0ieG1wLmRpZDoyMzhDRDQzQkI4NzExMUU2QjVDREJEMUM5NkZGQjgzNyIv&#x000A;PiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4g&#x000A;PD94cGFja2V0IGVuZD0iciI/PgH//v38+/r5+Pf29fTz8vHw7+7t7Ovq6ejn&#x000A;5uXk4+Lh4N/e3dzb2tnY19bV1NPS0dDPzs3My8rJyMfGxcTDwsHAv769vLu6&#x000A;ubi3trW0s7KxsK+urayrqqmop6alpKOioaCfnp2cm5qZmJeWlZSTkpGQj46N&#x000A;jIuKiYiHhoWEg4KBgH9+fXx7enl4d3Z1dHNycXBvbm1sa2ppaGdmZWRjYmFg&#x000A;X15dXFtaWVhXVlVUU1JRUE9OTUxLSklIR0ZFRENCQUA/Pj08Ozo5ODc2NTQz&#x000A;MjEwLy4tLCsqKSgnJiUkIyIhIB8eHRwbGhkYFxYVFBMSERAPDg0MCwoJCAcG&#x000A;BQQDAgEAACH5BAkUAP8ALAAAAAAsASwBAAj/AP8JHEiwoMGDCBMqXMiwocOH&#x000A;ECNKnEixosWLGDNq3Mixo0eI9doIarCt15g0efKsMkTg1DNyLEqNIOGqEJGP&#x000A;OHPq3MmzJ05mehDVe0TCjiFZqkTk23UlSZZdHy580JXKmC8Ga1ZwmtDLlrgG&#x000A;RBr4HEu2rNmzExvUs/MA24ku3bIkyYWsn927ePPiFWYFHhlsIsagCCIWreHD&#x000A;iBNjLLQhSKloAELV1YtXn+XLmDFT7icsFQ0ZixqQwKW4tOnThpn9G+EsRLcL&#x000A;ufJm3kw7s2XKSXZlGbZqBC7VqIMLH16RGREeEzh1i135cvMI+oQpUYJMSYTp&#x000A;0J03t60vr7Bx3Lx9/2sQhLj58+iZaSs3Id802dr76YsgbM4cCfys5OLAHxYH&#x000A;fvzll8uAEsyBjDDxcdcdXrAAQ8Yk9TQAHHoUVngWMxtAAsB7290VHTIS5AIg&#x000A;LHj4x99/AAaYYn+wmKjfgHNEoNdseEkwzgksXGPhjjzmhIsJDxizoF233UWf&#x000A;BFbw06KK/DTp5JNQQnniibDwk0uBwggjI5E02pULMCKcQcJNPZZpZkRV2GFN&#x000A;Es0ZGQEyuVjBgYlR1mnnnU6y+J8VEiCzJZfx9YNMKJzgU9iZiCJKxA474FIJ&#x000A;MV0wJ9+Qb+I3IpN4Zqrpk1RWWSB0Hmp2Fwdr8HBooqhSWIgbNHSxxhoXTP82&#x000A;6V3C4DcnppvmqmueLVrZ55CTFtmPBADksEOqyJaGCz7lDbSDGpKGuqA+Suzn&#x000A;367YZivlknweuN2CuayAwoTJlktWEJdgMuEOBEggn7R2RYAfndrWa++I/uVi&#x000A;4J/apUILCuKYKzBPQajxAkHsziGobfJJcOu9EEM8Z4vdbinsK9aQgM7AHHf0&#x000A;iBrfEFTPJApbF6xdSlhxbcQsRzxnGVbEyOVdu5zQhh4d53yRKywcuoMhsVl8&#x000A;mz5zlFFly0izPGfMMsaXxQRk6ix1RT9/8K5mfOGR9NYtLz2ZdsKQscGpU5fd&#x000A;UC+pXF2kwyhy7bbEZUgwbZEM9Gz23QuVMg6g8eb/gkfbbwdur9bC8N1PEqA0&#x000A;i/fiA4Gz98n9zDFnkxMLbnm2c7oLeS7ebMD44vUQwObJEeSyMn8S2Hr56pvO&#x000A;mUvTRerTxSOfm/3IBJoXOYcVZTiJhxWF64Mr68RH6V/hkAPzTdS1cyzOAwpr&#x000A;V/TRmW+5X/HY3wlLGV8XOc0YzXfcwDN1aSeB1k7GTaTf2bdfJwd4yA25BATs&#x000A;Eb65O2wR/W2ln46HwvLJRe/cR0AolSEX3dFOLkpBtvud6XbB458V0NckWOTO&#x000A;dAXM4JNgwRzNWOESnnMgoh6xhfLxT0lPit9d5kBBDWqQgwl0Ti7GUAkRmmkf&#x000A;YnCXcyKAQt+9zi7IGJ4L/wl4wBjehh9usGGPgkALvvHwaE2C2YIiIMQhErBK&#x000A;SghWd6ZBjgYqcTgNkIUOTwhFJVkBdhi0ohq3Z8LbfMAZX0RPAzYxxu48kVP8&#x000A;aNqwWqjGIc6pjd0JBSXiaJ5lMOBk+mDfk8qQxe4IY2V9VCN/GlmkLiCCkMIJ&#x000A;wgo2V0Yl6VA+KoukKPkTwQVxwouYNEwQvBFBu0igk7CwQgKH1UlRWpE/sOuO&#x000A;BCCAylSWhRlwGKMrO0nKdwmjirbUIAdkeTJ+gMKXiTGB1WbFQuN9sh9ySmYy&#x000A;YTirfnCDedAkSwMa4IuTIeNvUuLHLOdQS22qUYU7/ATtwlmWBkhjZlQEXBSj&#x000A;J/8fALlTm/872RwMQU+yiIMYM9NHKKUUm9tU85/JnFMp+6GLxhS0Jy+AxsnO&#x000A;VyfuBcufEN2mOrsZjYBdVCeuuIA52wlDhw4wpMmE521ycbCT4qQBgcAnSDkF&#x000A;i+D1g4f6hGkkA+ocBvTSphXBhRr21x0B1omDs+KoULWJy1lFAA5I7QgJdmHO&#x000A;MgQVQD4Vxk6nassDniwU4MxqRRqghYSONU8N1WU7ydrHMuzPLnQ4qlobIpq0&#x000A;OYeddurppCKQTcpNyUS3mlJi9YRMutqrmLdJQiX0uleFNAAbMzvmVzmAwNuc&#x000A;s0VLchKM7GMg6fhJCfZJ3X1ClKSJncixEZOpXeJArsr/QuQaVvsrH50EC6YK&#x000A;8EpzyBJ9IgAq2lBmPlmaw4DwhVjYYus/sOvHB3Rk24g0QB6ZrSIHSqklYBnX&#x000A;uMLyEH1Wux/XftW5USLqgrChuOo2RBvvkeFLGWpE+HxXPvTx7oy8G536DEhl&#x000A;Szqvc6E7q11Q1r0CEUcIsqs9phrpQLcJxTlWcIgQkIIUgInDA+DgiF7kQA3E&#x000A;wAYZANAUWX3XMpUKkWvRCyXZ6oOgCGaILeKbQN7daZkWqw9+XqG5D4zzx0AO&#x000A;spAbsAMeyKIWIuhGKK6guRlVBrVxSiyL/zgrXxy4ug2gw8wAi6cqIUO5rrWg&#x000A;XQAwzkcwilH7SLOa17yPRg15/5woIIY0RHEBWJw4OiFSEiTpysHs9IMf+Iix&#x000A;QgSR2xoLmFd73q5dREBkNjv60Y4mjJDbQIBonGMX0XqXeJUrJ3pNVb39mAYn&#x000A;XkCNDcxT0P8QhyxmJlXMMbMfBGgApGdN6zU/Qg9BBsQDyHABAHoILxG4T6cP&#x000A;LUqoCksY0OjCLTJAgFJvYAdBIE1lcdENqxK7y5qDxT5kXetud3sHuP4xC7zR&#x000A;hSQAS1jREZHRrm3FMkw0L8Gehi4AwIhDPMAVV/5iAzAhzFfeazLGII+3Bz5w&#x000A;XPx4H46IBjyaTCRaCTu07mwpwzajD2CMIKu4yEDDhTHf5+bRLp/gNsFH3u1H&#x000A;ADnOzf+4wp803bD9oDOiH09Ql+yCjdrSsxJZmFUatcVZRzKQ5ED3NrSB3ItD&#x000A;LDxUDjddYwvo0csgb78LyoDNwwkHfgpjt7uyq10MXIWge73bpgZyNUKQNqTL&#x000A;B04c8Gq9HsY1Y3fHBwVAQw98YLKZcYAFSG3AIXQOxaWnc0tdAMvXB//tcFeB&#x000A;GADgh9nxzHZdLRPtXFvmLIVRgBIc4B03KAAXOgCCd13AFjZtQCFUakd/8idJ&#x000A;u5K8XaLRaMLX+hFf38DYximIBwCgTZxB0p4zBYu6IKPjXfNpPzyQgApUQB3v&#x000A;OMABXOB5V5yUyJMon6B65x9k6MPfuertXeYhctez+QeNIsL/Ph5h5tibfJyG&#x000A;6EKTixRsJS2dwMd0m9v74QJ1IMAf/jgGAoLBT2Ac66JBwAJk0HDnE0vIcz25&#x000A;4m5ecg3d532M8gi4EAQbcA22YBOmtgODF3ZzNAvRMkVoN1eUg0ABxG4ep0dK&#x000A;IATqgH/F8A4FoEfGYFPiYALw8C6EhQciyBkkCCCvRmbi93VntgPgRwREQBiC&#x000A;8AIQQACTcAksYAuu0GautwPjBAh0wACZJh/CoHR2gmN28VBbwwF61A8tkAAq&#x000A;aAAK0HDcYFPMAAHSNwdJkDuRA4Lp5WsT0IDf12aLQn5HsChptgOPEARBQAQR&#x000A;uAOUwAKY8ACkIAIncAIh8ACEUA5t/wB7s7YDevhtP2YLtdANbriFvBNUWigo&#x000A;u8cyvTcrxId//mAAaNBwzYBUqkCAZxQsCKgpVdUPuUACdJhmsNcoj1AI19AG&#x000A;G1AIbUAEelAF9YAKoPAHqEANLAAB86AK+XAODJAF3XAOJyADBNAJJvBskPYI&#x000A;G9AGO3AEGPhtUvBjJsAIADRFc8APagdXt6FZbXdXPoAA9+cPBzAAmnYCaKgC&#x000A;XAIq6+h3FdRk59AAkMhm9TATJlANKNAJEAABoIAJnfAN5VAOhZgBcaAFtYAN&#x000A;qsAIDHAF0zAOHwAPNHAIdDAPOUAO2hCQakZ+GwAI33CNuNCDBTdO39AFyDNF&#x000A;DgNFYtYdQf+Ug7pyk90xBzdwf+tgAB6gaRMQeoekHRJEggRmF2fQABvgaI+g&#x000A;DdTwAoYwCZMwD8SQBsRgD97gDbQwAVuADSogCtxwDmYJF0wBD8BgDIFAChmw&#x000A;BeywDSbZZjtQCNpgC5fwABtmB4/gkt6mgRAgJA33U2yjJA0lKPxYgjRYAwvg&#x000A;DxWwAMyXQA9wUhswCrmENXAIJTcpXczQdWzGKK5ADY4wAZkwAZAwBg+gBaoQ&#x000A;CPlwCBkwASG2As2wBjSwAitwCwBgFecAACsQAnUACadwDZDIh0IoCMh4Cg/w&#x000A;CdKgCltACH1IchsQFg1gCDM4mErwMoeJDJm5doq2IIzpD/DYeY7/BGP0tA/R&#x000A;YDjUBHx3ggdPFwd0mIuA4Aok4Aw5kAOd4AylAAeJgA2BsAbDQAuEYAIoMAnx&#x000A;EAciIALD0Ay3cAutYgyiQAeQcAmtUJJOWAgj4ArO0AfsMA+0EAIrIAqB8Ak5&#x000A;sA96cGYEF53jRAA5B2y50IbvwoVJA1l20QLvUAwLoAONNCx4R0/MQArxMiSp&#x000A;YEKvmCk2uCCh0AB64Gh1GQWM0hi4sAn4cAbeoArDsAJrkA/xwAOUMAJ/QAAT&#x000A;EAek0AwA0AyzcAvdwADckAF5AAokYGZRiQr4UAqnAAlasAWesAXyYA27eQ6c&#x000A;0AlfoQctOXKNMU7zEAoNpw9+8i7YxzVN/2cXHVCjCVAADXcFoBdODaBxnDEZ&#x000A;IMAFAvAKdsGOsPhxdpEHtbgPQzGEevAI5bCM56ALT/EBHzAOvqCIIUAHISAC&#x000A;qnAIu0kGzKgLF9AFtQAOI2BmfEgJ+AAHBEAMtCAD8fAAaTABMmBpvtAMcdAJ&#x000A;5IAJJiCJ0FkF4yQN0aVzOpl61zQACVAMBtACDecLhRBOy/AJXJIlHoAEAnAD&#x000A;ACRWJZIpVdUdVoYLkPYDvXgNapABtxAKbYhaf5IyLTINu9ANtekLvmAN3kAG&#x000A;HzANa/AAlBAEaCYIJkAI7JCateANW5AGkEAMWyADh0ADvtAFKjAM1pABfaAN&#x000A;SQqd45QHdqZFhP8VrjspTD2QAEE5lLeRD+FUCFvwrUtwAMiHroMFZukoJRyw&#x000A;hibglNn4CKDgCbeQCkowJNFRd8BmBbGaCuMQCBE7DkmQD5gAkOMXBYAACJdA&#x000A;oKSgCqQgA1sQD/LACbUgAyLQBReQCkkwDVewAgTwnNAZFtvAVc4hVjibfcL0&#x000A;jgiQAJFpF6QATfUQC9+KBgmAACsYAzPzqUjSePxAVHZxSnNpa3oADtFwAdBx&#x000A;HfqCDKkADLswF++mJXNgDCEwDMBwAYcQCY2WiyiQA5AwAYCRFKoQAqpABioQ&#x000A;AhNQByuQBeypJakwC7x0BEAne+NUbbdxnYHDWbMCAsHwDl4gnvKRA77/JA6Q&#x000A;IEz9gAYGYLngCQWdt3hfZjr+UUTvkgXk8ZTZSAQvkAEAcAG6wAC+QAOv0Q35&#x000A;sAK5mQXTAD9MQyRJcAvWAADdgA3lgLHjJ7XzUAtti6sZUAsSKQLSkAEPMAlx&#x000A;sAIMMA1ZYgUAUAuggAvfKLPiYGc4mZiu5mdzIAQHoAGzxA+CkEoNAAoc0E0D&#x000A;YAAVUAykuAAa4AE9sL6UUStS9C65MBK1Bn5tAArzIAOJAAc5MAm0MAyi0Az5&#x000A;QJs0YAxZcAEXEAo/FDm+gKAqgA3V6ApEQH748AAhcAhuSQsE0Ac24Ah9QAB5&#x000A;gAKUQA29IAaw8gGpcAEVWwieCXTjtDctfLit/yNL61gAAtABDQcPp6ZvbVBo&#x000A;duEBC4C+pHgMyKcOwaAAA+ADK7cgWkKDpDpwENgGgFAIEagNLDAPh2ClAMC/&#x000A;vgAMwMAADBAKHGAgH7AGGZAJtxoC8yAIQQB73zAJdDAKtUAAjvAN+IAC9RAE&#x000A;gmByQVAFjgIOcUAD8DAVnNAz0GvIoMBPMLo1EicfNSAAjdsPZDB198MMUZBz&#x000A;RdID76AOQEyK9rwOCPAO74AAGtABVJBF3bQgidB6QieEuJCHuPAIJnAGMuCh&#x000A;ZwoMuhDRDAAAANAFWSwNWwAJ8rACKuAJrlDMJIAKvaAFWmAIKAAIdgABvfAC&#x000A;LOAMkbAMDVAFMt0AlP/QHt0ADysACbYgBd88cg1QBwS4nY/FDz6lDwWwADna&#x000A;D96ASfWgC4NJBQtAz/Y81aS4Do+ZAAsgBB0gN9qBDWZLcik8fuJXDkeIDbfQ&#x000A;BbnZDV1gDdgwAYYwAfLwCUi2AtEwCW2Q0FFAAuUAB32ACm3AAw9AB1aaD/kg&#x000A;Ag/QByzwG9xaCKdAC4xwC5zQbAk9ciZHA1czpF3YnfKReQ03Bzv6RRtQTrPi&#x000A;Avl8DFR92vdsAAbgA90UAg2AC/Q7eJKICy0ZCZNQB94QDxlAB5nwAKdADo7g&#x000A;DaNwAvWWCfiAwnZYD+RQCrZACZ7QDFkgAWI1DsDQBTQwC1vwAttWZnBwAir/&#x000A;8AmTMAhoNnBVIA65BUqKvMhfWACQ/C4MwM7NswPnMDM+gHymjdr4XQEJ4LML&#x000A;QgYNIA6x/YQQyAzLQAIjsA8m0Al5wA5u0AsQQAykIA3SEAKQUA56mIskAAoO&#x000A;Dg720A14gKhJwABdwAAfIAFJ4Au08AJtME6FMA8icAi1cAkkENa11gCloEdB&#x000A;JDhamEAtkM6xkG9lEwT5MDMgcAPlusn17A/FcN9UXQwJUAMz848Y4n2PRgRV&#x000A;oAfV/Ai2AAdbQAyT8ADEIAYhwGzl8ICFYAugAAEflgNpkA8MUN2HYAETcAsA&#x000A;FAGhwA0nkAgrTgIhlgE2MOMDB4WYpahCPdRh1QM+/yUBny1CRLCKs0J5BpDk&#x000A;DlAMDuAA/uAA5nAMlj7VxWB/4tkdujBOAU7lkFYFbdAHmSAGW/AAZ2ADEyAG&#x000A;ajCs41cIgEAOKIACL4AKnTABISADzwABlGAHtWCod4EMqpsBsncJ85AGpUAJ&#x000A;BEcYxuCK6d06RP0uSiBMwADkUpNxMWQXCmAAyUCKDpAAASAACOAEC1ACJbAA&#x000A;m17VBpACDTeLUEvqtAaIlOAItGAPtEAMkOClaUAI2iB+jyAIKGAL5KcNstel&#x000A;83DYKKANL0AHwMAPJjYOITAJhtALpUANrkDjs+aUO2xHhfU2kDU0C1IL2p4z&#x000A;z3NX/dABBrAO4q4OAYABGP9QAu8Q8xgQAAjQ7sdgADSsaZBA0PQOlS1JDlUM&#x000A;158QD1uQCKzOAtio5eQwAmtczFLwCM5ADBkgBmPAAyMwAmdwCF0QCvKjD9Nw&#x000A;DhkAByQZupA2NquwcdOu3prhUHZgQ7gAAVbQTZT7wypoDgJw8wEQ830f8wIw&#x000A;6UquDlAQV/0wDF8d9J9JfoJQCoEdAmAqDXGwBWPgCM4gnHsolWqsDSTQZvz6&#x000A;DROcCZ4AB9VQhHDQHqEQI3MwDjSQCS9AfqjcANaQnpaDvROXDyfPMbgAByy8&#x000A;IJSryfm3DiXA93/f9zMv+EFJj7fBdYq/ZpLYl67wDYZgD9EQCIr4CSEgD55w&#x000A;Cvj/cA2TqI2AsA3bIKBQb2pVQAlnQAuf4JZqQA7X8AKQcALG4KvAAAAicAp8&#x000A;OHCHzHe1DxC5+ukjWLCfFRT/FC5k2NDhQ4gRJU6kWPEhERv8Burr16+DAQTF&#x000A;/I0c6eAAhgApVQbAYMBBsWIJCkQY2G/OiwYb9u3k2dPnT6A+d2woRIIFuAch&#x000A;RJw4JObBJGKZIP2Rs+ERz0ckUFGjxqLcth079j3SQ+LSBFXDSBEAd+rMBBky&#x000A;SKkgkwGC1aA/G0CgyTECPw78BA8mXNjw4cOwJGwsyFHCCTvMLE6mXNny5EcP&#x000A;BBLs2OFABZEkRx4zJwClSgwtX/qroM5FzX6HGojNW7v2/45HuF3ZAnWJwARs&#x000A;h0TQmfctColvl0pVK3QVaxsUJlBAgMBixNWwRDawGJNpwhg4OTCBYtEKkxtI&#x000A;OVDso237RwNpHTnOCYzY/n3EHBY3NthvGrYRJLtsQAILjCgIGfbjqB80DABN&#x000A;NJLWMceBd1hiqYR3HDjGn5gUkK8fCQTJyTYSf7pqgzYEoYYHG86AxJ4MMvBm&#x000A;HhMaqKIKXHZoo7mfdtDGKAIIcAYQbTYQhD1TcBnBBFtQKAeQEYjADZdCKDGh&#x000A;jfZsq6KBCzYCERb8whQTljkYi2DBBfsZZ4JCBDTwTTgna4AYYbxkMIGQIISw&#x000A;GCcqKMGdACpwIrTWXluwmQacK/+xxLC0sYWHU/KwgQA14IDDDUvPOMMZXBrw&#x000A;tAo9cFG0Jz1GgGASNTChZIMdSChErB2ICCIIKh+x9VYiiGBv0X0aIAcZxnKp&#x000A;T0xiD+MA2IKU6EcYZWHrZ5dMAoxzWmoZaoCZaOrkzKMEHtRTTwf8RMAB0RbQ&#x000A;4ENhOhmRVxJ3cIWFS+axQIsJ0jAEHHyo2aeQFx6Q4YFeOjlyhBEKAQoXQSCo&#x000A;FAVBsAtq1J6ytG2DBuRBF8xiMyYssL70iaDOFKZ4zU4153mkWpTfTLSLD/tR&#x000A;IgYHQ/sWwnWOccAcCN9JwctQPGW3RCJIyGOCODKQIZN58vhjmw2CaACFTFQA&#x000A;gAFd8pn/xxEeUNEG4kfa+OYUCFrZ5ohcj5D457yc7pKzOcrQ+G1+FGOszjlg&#x000A;OCCBJeokmYFeiEj578qYASSUln0oIIF1ZJ5ZT8VZq8AHL1do4Ai0b9vHhDO8&#x000A;CcGbWDJ5gBBAqImCCFxQmMAaBspEJgtraIGABFHZo81HQSghwQQStBkhil0r&#x000A;r60BQ+TjSFi4NSaTMY4UMMAcBA7QwYOO7ETmHAjcBPz6h3A5g4OWqVAngcXD&#x000A;/1admWCbYF3fTdSmmkkyICUeC+J5wJltqNl6H+jyIOUCvac5xxtM7IAZs7qR&#x000A;HoIQqh1QiQWYyFfDIJa+nVAsGh/6y7CKFyYOcEBbnOnBAdbB/6FkvOMAXBiZ&#x000A;nSRAig1gT4UM0cYEFNQRF6jjHY0TX/jI15dlnaIBEASKrvDxgEyEoBbxmIAN&#x000A;UGAw2jwiCFVwBSSaMY2OcAAAGThFJExQik5QoxA6OaCoTNAJCHTiiDniYU86&#x000A;1Q0vIcNtFyQWB3LRGBANYQEy29ABDNACyJFMFytcIS4+scGO9GAB79hQDQ3p&#x000A;D3XUgCOOYcEOy8iTsFCiFA+ohSpE8AkxEIAEQcgSbmxkhxDsgiaw0IUKSBGC&#x000A;WaxABEWjBQ8EsYN6CAIFhBgDAUpBAl09slebeGEuMMbGMMltWzU4QCFFcwwE&#x000A;CCABHSiTl/TBR+w1YBWA7McADqAOY/8eUnwJaMGHoHENR+ryESN4gSMekAFr&#x000A;MMIa2IAECaoQK7PhZihOI8EzmpEKZMwBD1mAxwU+kIp/ZmEYDzgFD6pyhz7Y&#x000A;IxOGGEEQdFLGBsThYhYEpn1ggSyOUOEdFZhZMZh3gCFAbyPIgCbgfJUEO8Xg&#x000A;AAjIpjbD945u1iQVFNPlrijRCUgQgxaqYAQjVDGBRjbAaZ6SFSd3sCUThBIW&#x000A;SRjHFf6JB34gIxcMUEUm2HENXJSOFqMIgSOCkEsIdioLXpLALytqH47BpgOI&#x000A;C59HRcgFEHRkDiVNWQPKAQ07KaAE3nJpDd/hoZpMg6a6FMtN5wEJNczjEydQ&#x000A;wSFk4AiFuQH/HCwgRyu00QA9GLABJpjALMhgDRoAoAv5aEY3gAGAEEzgFGPJ&#x000A;kSGioYIMbGI2PNzLIvsRAStQ9KyGUYxBlCAEdRhyQwZowgD6QVK6VmsH42gZ&#x000A;FwSQDBr2dWY3rAkswFlTsdgCAgQwBAtYkIcQAOACqdBFFxiwi26oMgTzwIcg&#x000A;OrVEXFCCshDIQynKcwliEIMA5HgVe4JAjS0cQhpjEISuzraoHTQgEF7S527x&#x000A;U4YycVAdHP0WTDhEkmOoQwBcsEJyqVUIlsFGAQLghXS1iQBexJUjyMBHOMsY&#x000A;FhJgIg88cMUGQBGHLNQpAnPoCz9SMQ4G0GAWdumUp2xk5C01YBkb/xjBEaSA&#x000A;lUfgIxOckAUEUHGNA5NoA+IIAhQ5QzwH54cf2upIC8BX4QndDGcjKcY6DsAG&#x000A;D8dpE7v4kD5G7I+Wmnhx61AHFWBTB/S9uBCA+MYR9YCKCcBjkbDAgxWswI85&#x000A;IINZSuCHLx5QDlct0VN6EMsjcCEFMvJkA7liAQHmcQZQkCAsaEuwDNBVBt2G&#x000A;WTButO0cboCACvvjAALQcALIRRJzJCDObxrBB1o2Ygrr+ZB48xIDBljTsRRC&#x000A;OoKQwg46cQtgpeKntSAFI4CBhzksSBhUFQMkwAEOCLzgsnogQm4e5qsxPIMH&#x000A;tmhD73hVhSAYmzNllTVijsfBbn2LQu5ACf9KKrDmkSBg2AXawNoWNOLEKVub&#x000A;7yiAbSMAikCXkQjaQEUUElwPbCzGGHfwlDZYMIFAdMG8V7BCKoCR3qXcIh8y&#x000A;AIcJCpErKXVSVJiAxBgc4YxW3JxdFMsDBXPbb8Ok9eHvmBnzSlDwEuCZJMVQ&#x000A;x8IH9Ahg5JXE0ZX4zCqwAMhxBgANACthWbUPIuhhDFmQgDF0aOR9AMIOd2AB&#x000A;JEixAl904xxkWIMudsEARtABEr1oxSNsVAXstOEaPHjAGPqgKWdcw92Lcpov&#x000A;PjQHsyJdMHh4IQgqgOtvrSNcfxKAPxCecKtbhgiWF3Hpud71Cr8jBnV+hosJ&#x000A;y5MqsMAauxjHLR7/8A0jB78B2njBMywwATVMgBEMyEI3aKCCaGRADeDgASVk&#x000A;ZQpBOGMMtHiADeBwBkyYoGGLopgN6nx0zQ8mg4AcwJkXF65iOuCDU6966uUU&#x000A;4gV1wPWwd2kF3mEox/iDjKspKXEEaxgHCcADBogDfDgFGyiHIjOyHBGLb1Cs&#x000A;EIiGEwgEGqABbrgFbOiEATKBUyGGeeiD7zsFFNgGXnEaXWCwWOs3WNiMRSqA&#x000A;BRCfxFkNPVE4+6uIR6CBlkEDAeAr/hMuA+AC2/IPw3soaNsJ0oEDAKCJg7iA&#x000A;cfgAboiDUyOHoQq+d4oCHlCDLeCENQAGXTgHOoCsMYCESXiARJgESCCA/xxA&#x000A;BUBogwcCigawAOHRh1xIghcMM3DzEkGaPxOjuh2kiCA4gZYZgCDMsyEMnwpI&#x000A;ADTgj2fpFCVcwga4BlkwhmaKnjlIgh/zhRMgBTowhEo4MiOrhzZAhTywABHg&#x000A;uy5YAWv4hAeIRQIYAxvgAa6QQxIxPPzzizmwAljYw4riACswCH2gwdczpPob&#x000A;RIhoAFlYJI7oIJZaRG2KiRpYlg3iCGDwlEnEriMohFOgAWCJHnHUB0nLhQtQ&#x000A;AWzIAENABYoRPkrAhg9QgmkwBlV4hjM4hW8ohXQLnfshkSAggayzE33oRTwA&#x000A;xjaiKDzAqH7wAPfTM0FUxodogBwAJBe4JkWUxv8KUwck2A8es5OxG8BHSrAG&#x000A;mAQAmIYyeIUIE8foiQCpygIa4IQHCCpPiQIyWIxc8IU44IHouAZAKIVSAARA&#x000A;iII5/AmKqQJ4uEP5mAN+KMgLqo9hEcYz4QglCIY56rpkhMiFaIA/sAIvAYEm&#x000A;SIDTw0hGTIAeqAlhwKgF6QJtXMKdyA1bsAF54AROoIHTogEGuIJUGEaVjAAJ&#x000A;mAYAyAQCSIMMIINuSAJYYAARWK1CsAU5wAcIAAdQMAFqwJISacdZgML+2LHc&#x000A;MkhjGbMIALOEhI0G4b+rxMp/aAPm4gwl0AGXEMtDuiPh6QcX8LP+6AJmAEkI&#x000A;GgpbIIERsAUraYUXAAT/XGCBPiCAOPCFD+CAcBNHYcgFaJAAPOyGWaiqM7CF&#x000A;UkGFdni8TiAEfECFAiM/T4GAgGSMpOQAPPhFzty8cOS3GPQSH1AH0JO4hzTN&#x000A;fxCHsdoWDTCAi9STCSmkCTlG8SmGdxACaqoBAwi7bekGTxmKmnqEQqAGUHgB&#x000A;E4hAzJJAxosHbGgGXfiAcFxJXdiCTbAF7wIEErCFb8gDNTCEPrABcNiG/iI/&#x000A;kbQBAIie/hCGOcgFKygD9LwPuemIslI6lxGCGSJN+vyHBsC/jlCAYjIk0fu6&#x000A;YnCAcFEHc9jPtnoHJFAxzvCAd0iAIcDSBQmFRljLR3qEDSiHPHBDTIiCepOC&#x000A;/5zztGsRhx16yyfigCS4AngQgUUwPMRrgxGgBFvAhxw4AxtQA1uihKGsjQ0o&#x000A;MjVggHFMk4+50aX8Rd7Sy44QFs6DjRYwAAA9pPmESHFYMLUqvUMyBz/BgBJY&#x000A;BwRICQE4BiqtsAXwAgB0DCSQ0gRgAwRdkDnABk8h0xcjAjtQA2KQgQmYBBvA&#x000A;hCOZFVDDBT1IMqGyAcaagE74g07Rg53YgSDYB1sABELQlDPoAyt7Jd9JVE8Z&#x000A;g27QG/KMHhvFUQ6Q1KXkABz6i18ksx7YqEXUQYjEBVJomRQIwk0tCdO4kKdL&#x000A;jQxxqWJYgD6LzQjQgARIBjxLgCbIo/6AB3AQ07DagP9T0AJL+gQtIAZDKIU/&#x000A;sANX2QdKQIVSSIRhnYAqMzJOm50d+CIIuIQcyAFCIIdrwAsIahpP4YEVEIg7&#x000A;3JaByCdfjEFAkgA9RJZ+8AEEUId+NaRO3cEgoAVA8gABiEamdYCnS4nUwFoB&#x000A;wMEaojp1KEs7MTNAPIYEONhzjQDZ2KFtRJsgaAM1oIU4iIMQIIVP2IJMqAVi&#x000A;UAN2cJFPsAZrEAF5oJFEWTUTEEpcIIFeCJI+4AFyuJLYeSRxbYBqwAZR4g+f&#x000A;va1IQ0oJOJaaAAE5WtpDstdBfIYXcgEDwKZpdIB/XQmWaE2mVYcFANttQYNu&#x000A;UZxjGCTjQp6OuAB1wc17awP/Z4CAt4hLpbAGUogDMaAXYtgC5k0ENQAEKdmV&#x000A;bRgBKnkBAjgDNcgBFsCd6IU2qzAyffNZOIrNxsAhENCBBGjVvmra1PuDCOMI&#x000A;EHgCQuorB0jV02AJDFjVfqW62I3NagIJGkImA1AAZRlfYRgGIqDYypGSomAB&#x000A;OCCASSCaLZiALYAEOCgFZ1gE8rCfUbmKR3CFb3CEM8gBHigHE7DZJfzeDAAk&#x000A;ZIAFKOxZa3SWfngF9FVf6RLd1OMBlGIbNgBLEwuXf0WJrQ3LjoJd2V2Q9suT&#x000A;CquAAyiAZhpfaJABI1tbXrEVKdEGQJCOVmCBb3AGfEAB26EEbYiVoNiBQWOB&#x000A;LxaE/4I51JtNsDzomNvSAE3AAQBwgTTxCwmIygXpga+04fUtzYXDhx32ixk4&#x000A;ACLWJihNAJRQByewYap7B5HaFoZU4sWJCSHwM6TsiF14gCmGoEfIFU87IO0o&#x000A;kiRiYzIVBFcIi8ljywRbhBfqh0z1hwQQAHPpAB9QgvnYj46IgI+gZIzE4Tjb&#x000A;LGODDS4wAHroOj4xgHdwAk6F3UheEIZUWkNKhgVYgBYoof7ohyyghSL7AW40&#x000A;m53w5ly8FbaMmAZYBJ5FYg/yB2UIlwVIgAPoAI6w0eihAg3gV9fkEED2MFeg&#x000A;M9hQKYblPyjlVARIgGcOpLIF3WLwv0TKo3Pthw/gBHCarf9yrmhWa4BOkEGC&#x000A;0Chf9ofmMZTokQAFSIB3gK58Hol9pqtyIBxMFdWT7qgKMIDc3ZYeSFrQFQ0E&#x000A;cBA0iKtM7odcmAVb+BQqtmiiFrUEywEFcQx1OIBfA7YDmL2a0Ac0YE0hdE32&#x000A;pSt06BLYSIG9umn+W2gDQAP/7QF1kGaHLGgvUACIzeZcuAUbMDJeLWq53gdW&#x000A;aYA8eF+pRAYquAH9xGkowNKFLIGqfGmSSGk+egQ08hIPWCk/lsZ1MACo3hbv&#x000A;Meuuy+l3WIJMHN9+uAJsCKoqGOq5htwtcQO8XpZmAgE20FSRMIcDiKl5FtLG&#x000A;hj3DVqFHaEEvoYLTje1FHGBnzKj/svbq8EGmA7iBFFgMGJYrGoAALQztmqrr&#x000A;BvCGa/QYJcAhCSiAA1AG1kgABF3IAyDsPZnt62kARnVPTVgA3ea/ZDAADbjG&#x000A;o0WAwZZGZVAHA0CCJeBp3d3lC5AGAiiE4GNQ5kab722AbdhFlSRPYShkBxhg&#x000A;L4kAIUhf7xYN8K4r8Y5NEICBdzhkwrbk0gYBJBjSk85pGFAATD7uKLpTR7hN&#x000A;Twm1/56YBH6aYUjnBQGBHkiBJdDcHjaAsuQgl35wfU4udEhszvBcB+fxqVuA&#x000A;KyVPW0sA4JauZMhpTdAADzDuno6ecWiGeSABlWVj5tYDT3GGNchsaPYCA9g1&#x000A;LmBvENCE/3co4I4w0CWXOGCOpoDkDB/4Sgx/aapDgFh1mfwkcpjgBXgOhhag&#x000A;ghe+7+ixgm4gBR5gVqNacSkwMnbwhRfeFiWoAV77oHUQgGq0Ew/IdI7wgYAj&#x000A;8h6Hph0A8k7XBB8GdQ7J6YO2MwNAdTZDJJIugA6gAvtuVOb8gFuYBBQQPhvJ&#x000A;sjKi0FIQgSugUYOIACVQggFocKUthmQ4AMAyCDKD5QNoczfno0ocK/d85zo/&#x000A;abAW67B1EFcXjYX+nnfghRpIAQ/ogVu2dXGUgFAAgFmwhzMABDjldZVlt1Xr&#x000A;NMpBEmbldRSABDIYB3PN5tuCwghIASRwkA0RANdGE/iFgvjk8/8IjxNBGO8F&#x000A;8YEnOHVUd7OG74gUqN1wDz0EeId3MNgKKAA06AEQGPTLlY9cuIJzWIFoMKJB&#x000A;iIJCyEJ7t/d9EAQS+INJCIFbuACeJfaVTIGd8V8JMDPzdjNvh0SVOm/+e3OU&#x000A;oQTbvvgmuPBwT29F0nQ8ofaXXocKaI2SXwcNSAEXqHX/VUl9kAAJgIYk+IAP&#x000A;gAddSK8VqPt86AJfGIZ8wLssCIVp+MVMJPY06QcQGIACMADINu7+6AG+DvsD&#x000A;OHqDkAD49HqHnHgDAciWcQH53faTVgaZKGDO4GjK53GwHyQEsIQaGABaL/C0&#x000A;Z33Xf33B38seUIAnuKZkeOwbAFsTioH/smXi3I0ehYX6qA9vqo9NFyhvzs/n&#x000A;gr0BL23v9w556QL7kU8A8z53dTdXtYdE2B/H19cHGe+AGdjSCghof0iG71EA&#x000A;nu4PD/CCd5DvAViQFrjukL/qadGGo4SN4zfvcC8GBAAIKD766SvYb86NBMX8&#x000A;MWzo8CHEiBInUqzocF0FBO8SvENQIEaHAT6E6etn8iTKlCpXRgDhwkMHDckS&#x000A;GFBXIWKxCgmCDShZsGQ/HwUSqDNQoIUGA7wWWmzq9KG6f1KnUq1q9WpVFrtM&#x000A;GqSSYMGxp2KbVjAwgKDBCAUMMB3r1mGxsAyPtX37ECMCdRsTIJhRI0YKDz2o&#x000A;uPDhYsCAHj1S/6AR3EOwi8eCPaCJoaBAsKIGOt6sCzFZUQ0D0ZoU1oLoggMJ&#x000A;knm2a7dYVKyyZ1NtNY5rSSqbzbnu7a+YAQW4TSowkMz32HXmjlVwcMyBv+fr&#x000A;kEdcl3cBTZqa1CHQ+G7Bgo3fwy9Qpw78OwMc33FHsK41xWLrDCw4ixaoBy8L&#x000A;zMGnLjY2bQFW1UAkVwzn1Tty+SdWMQsEIwFp/aRgQAX9LfiQORWUEMABDiRQ&#x000A;QgkIQHdhRMmsg1FGFZxYgYr+oMgijCwuCFtwcwwXFBIG/EaiWwAK+CM1WxnU&#x000A;jwtf8cZjU8UgYEAPw/Vgk4VIFuOAAO5gEIAAAWDgjgDFROnaMUfO9f8lkg/l&#x000A;ZIAOVOBWEghCGDBdmUn6+CNtdhg4ZJHviBknRQd0MJwEwSDgBHTvOeCEE8fA&#x000A;yeNCJVypZQCQIrCnf86t40Ax5jgxpaJ8JsmefT/1o0RS73lK0Zx0YgXKBVyZ&#x000A;5IImep46UTEJFBABaRHUgJ0ACTjngDoHvOnAohdm6mikyV5ZAaW+TfnOhgYQ&#x000A;K0AJAoQ5a0VKJtABrqJGUNxN2JqZqqpUNfANB64S+U6C4kIEmxcgRIiGAY5i&#x000A;gEECThhwLwYl+NNspe9AGum9vpKYoZYF24uBAPy5K1FOB9QAoaj9xPDmww0h&#x000A;UK5sL6RyoJEZO6STB/f18+QBj2p5wMDudBj/pwMIINuvOiNe6MC+yQ58pXIi&#x000A;vzufEPJWXFyx2MLG8VXg4GFyngqKnMw7wpEmARKpqTwwwSUc4zSJDjiQsgCH&#x000A;Iqnv1ToHwKzPOBmAxEDe1qBjxhsjTRUESTDNEcDiwksxUMU5gKzZZjfHpzke&#x000A;Nle0f+YggLWyXZLpbq1etJ1WDe88fPTcUrHAD9Oxcp0xySYPkEBzgAeuZQkO&#x000A;88kp4gsCyzjD0aVN6wI3CG2QBJYg8LDcc/Ngt6g+NLHf7P4kY0AMw4HQXaYV&#x000A;MK5sADUX77qGV16pozmte7rOc5hO6RxcCdwwuUkaqNOQlww9/hbmSGMCvEHC&#x000A;yzp7Me8Eo0SuGijE/5ADzpd95QJsNj3kXOprV3qHE7InsrBwxDnYkV1DlGEr&#x000A;n/QjAhpYgIsKh6lDEQtJvVMVIgQxjeH44AnzS5uSmCS6BBSLWCl7VOwEOEDq&#x000A;PEc1TkChATFggBdaqy0zQQNpQMCL3fVPAB1agADUkbfetO9HDYiCO7ZCGvl9&#x000A;LmPr2BYJobC7ixxqAcjy1RJn6JophfFUzIGUyjAgPYYgIBg2MogHWDilErgD&#x000A;SwFwh9bW9x9VNUAOAlAECcNTxcvZqlslEYYQ3gGfYjhBHfhKlBilpEcknbFs&#x000A;ARBRQwwAxCEpwHIIIxjBAkiiJgZoEyUA5BQ1kYBB8m4B5OtHC9gSn/OxMv+S&#x000A;tnSLOQyANQwcQHXqoAff+iHE3U1JAGksgde05xpyYcUVAiiZqEDQhHZN73ib&#x000A;hCPpsoWpW3ITOVNaQMICkADV+UOTw6FXQ+jCskglkXS1fAszrVIJCpQsiEMw&#x000A;QBmNtgAhCGOKeZlkNwNql01taFBygY0bSaOEG5yPIetwwjvuVQJw4pGc3ozn&#x000A;VBqACCykAFBskNYAlbQAFyj0BooUKEr51D9MOsQAHSVNHBf1SbPhS4a+wahU&#x000A;mPGFPyl0Bi+bIRYJYpJYAjSlRnWKchSovn32My0FwGBD+vc8Hd7QP6S0SgOO&#x000A;wFODKMGn+TTaO/hJGiosYItHPWucytIkUcUULjj/u5eySlCBd47lg1fZgx+G&#x000A;09VeirEC71hrSZQghAUUFa3u4p7XFOW1bVo1ATXQK0PfhTM0yvWrT7mquUbh&#x000A;k0MWgK8zBI7UgBKDBBgWpWHZYQWcgERqUicvkysJGhKgDJw4wX++sqlvjpEA&#x000A;2VQhBJutoAYOQFe9qcMSwYxjuErLzUwZk0uOvJcoqWPOIGaEIqo1ACQvdAwD&#x000A;aEA2xPhtPxTQpUhW4ADQLEmg1FFY5c4qZlNF5nrRVzv8Dek0Fikcj3LJhlxg&#x000A;hQDIiFALBHAcMQKnBhTsRw32V9rudWqx8a2UIwPXL7r4RieALYkPuCMyJR3A&#x000A;Bci4CjveCJQOCGBHn02A/xDoa5IJKTOgygEOW7yGAKIw1mfFrKOyauqbmTw2&#x000A;Qgl+cG8E0NEPU4UZOQhmP5ZwgAoRWB0CIY0LygpkkWXIXv5KQMKkNeXeZOiF&#x000A;kFolkBHwZFH1IJsZM4fETDKHInfCChEagADmSmCNAFaYJt1yxpyQsqzNLHq4&#x000A;Fdel9HVHuW7KN/N5KVdvQNgzJ4AN9CXyP6rQiVeYzAMCQMBwjVaWUPVDGEPB&#x000A;88PoYjqagrR4x4BoCR7qzXcUALyx3PCMJwdpHlCazDWx7KxyIgAgChXBDWPv&#x000A;1katMx3++cxharGc1PHadTEZcuU970Gkgo+licoF9MG1RLz2vQfLRwAtGA6c&#x000A;Tf/FXgdE1JI8y/Sp4kKdQw9HLQp2lzK8rS55/GMQHzAZFX0DrJp9J77MEUDy&#x000A;oGwABIB6wzkc9kSLzd5aacCQsGXhmY3yW18wAxR3il8TxqnvCGcJA9EdyzEQ&#x000A;IG+FDkHj7E1nzGbGMPyeHCfcuR2GmRfqBMAgmPwoxD/sFkQYmLw3TqgSGsPm&#x000A;lmOoQwBb5Sw+W/6QBNJRnA7A9lE3bTJ9aOCkkEPAAdQkVGE8QypNZRPPoZ5t&#x000A;daAxAMQTyzE2Uk+DCCO46D4qpkqAwIJ/9h0a2GxJUgDxjAlZXcMIglQoJsyw&#x000A;u05m/WKpU4qhDAMMgaT5OwDdB5jU9Ck9It1ZdoYJ/jD/NHNhOFl4xFQgNPie&#x000A;++eGca5q4v1xAA3IizRzCG7kxUjhykPkitf0yVpiT5FjLAAGIu5HLkxAFQiB&#x000A;gOdvv+zTke0QRQEcvCBgg3BpL/3LhtWQJhmdyMpb5wgQowFUQYYE7nl8BonF&#x000A;HOoowbcjRIUmJH367q9IBUZqMhBUQL0PS8YBvi2qLnifKi5w0/iVyfG8A6dd&#x000A;3268HwJKxPGk35C8je5NhDmgmPVdgStYBQyAxQzhXwGMBlBIABdcmtglYGnB&#x000A;xg2IWEkMAIWEmjpoAvlEQDv0H1W03/QowwFwAf702gDck7iJIA/6g4WZTO7Y&#x000A;38MIQAGGAFawFv1w128Jwwdi/2AP9iBo3cjFDJi4oFmPGcQFwGBVIKHPmMM7&#x000A;DAF9oZdP8UIAPuFZwQYCwByRLEByYUvaDcHvSQAKyAYXZkzEkBTu6EAvfYkG&#x000A;ZYrXKJUZGtV0OZXViUt5qcmQ1MJs1GGoHUBoVdBa0JUDeJEANFK1TEogVoQ5&#x000A;iMly2GFYfV1JtJW7oFnAGQQDMMMiluGC6AT5tED0VYRU3Qu1bEnYPGBKTclN&#x000A;PF3/SMdhJcB5BRZD2SJEvGEYHgQKaKFVMKLeGMAV9oNutOFEeAgM6YycZaKZ&#x000A;bFcAyB2aZeMazQqP3Qi9qKJdHGKEfEKAKCO24B80mQQX/BQsRhRNlQDlWWNU&#x000A;PdeVGP8TXHEPtsQfHsaPFj0MDSaPqDAAMl4FOs6KawmVBNRf4qEZXEHK2dFj&#x000A;VO0ZKCULJp7KAt7Ij0HOAjia69mCgBzkqagDEgjeMz7FcwiMLE6JRD7EW53O&#x000A;JYXgWCCUCfaDB6Sg3mhfhHDCj4ikpzCVUN2k8sGFE6wDljxdS7qk/9BUD53K&#x000A;D4qKEgTDolWhI5oMAxBBT4ojcqhDw53EhBRVzFzKUD4hsACOLG5iuiVAaI0Y&#x000A;3BAXFARTLmwDnfhknNRPj10fab0Ff4ylGT4dPpZAzXTK6qhDvOBbd9wfEaoL&#x000A;NhQkHWplb2zXXUpIWyblhRTOARAatqzDAZxFxWykuGxXq5H/xgVg5Vw6Zm+8&#x000A;g4F55StSprGEnGB6Sq2EJpm9A19SB4eRzxyAQ7nQZZyog1jlBk6yprHIpFuI&#x000A;1LIh0gJQ4aws3p+IijUwZirOTncIzahElnCe3CAaxGko56l4IQx8XT+EwjJw&#x000A;DG+WyXys1VB51nWiVYPcCtO8AzQ6ZQncQ66EQSGgoqqUp5T4iav4wAFoXmkp&#x000A;h7ZtmxnmRT8eUiIJo0sKQF4NCRC4AwX8wm6aZm/sk/WlwKVR6CiWV8McgwDg&#x000A;k4IWjwEcnUmgE0ciQRzWUYRO6PQcQJ1JiGooQ4haFZVYiQDgo5aJYP38pkG4&#x000A;AHfMaEO4aIT4QR3xgR6wKP28gw5Y/x+RzEASsYaXAKleOk9F9ksnIqBIHSgk&#x000A;vtusoNlaOiMFuAMfAB6Szs4xHEApAoUwdMATHIBqlEeLmJjs+QPsNIyUusuI&#x000A;giPGEFcTBFMEhEERbAJ+likKaeYSrIlJSIAHxEANCAES6IR6cIbxzNDrwJBc&#x000A;aWgk7SgoEsmPPsxmmswaMMEdZI5+1mV5HR1QnEQEzIEPUAEaXAYSaAZf+IOM&#x000A;zs60FIzXJGCWmoxaFOKsgOZvQUMb4ELm/EOpmqrEiN5PpGpKrOpLdEANeIEB&#x000A;qMfuYKpYeI2wZFcCZmeJTuY+dliETECxSsWx1mU5wcAA4EpKLOtK9IMEUMES&#x000A;aAAU0AQtPf8MYlmU++1oGLKJzH1mVYoKMEjouDqhGJnDAhjADCxBD/iA6K3r&#x000A;sjKrMPVADCCBm6pDMlhrttypu+gEIjbgakDOeQSTMPDAuEpFnBFnmSjewRIF&#x000A;EmgAYPjADTpsxSTqonqBsBDTejoL8txHKO5dFe5ahJABdJZLcYDoLSVDMtRf&#x000A;ehyAOuhADXSAB1CBBEAsu56EoioA1vFFrebsTKrDg8xf/UlpBC4paaTCBpSs&#x000A;VCADFThpNQZU0qoDTaiGJXzEALhAzPIsSoCAB3BBarAQd3ItRTylQeiDZxpi&#x000A;1kWIIQxtudhIBMTSAswWSlGeddDEZtyAAnhA660Js/pACgwF07L/BuBSxEyk&#x000A;6Yrtqb8KpEEAgOKWS8NSwT3JqVGlT/3t0BNogEigRNWaBBW0gA6oR9uGrnzd&#x000A;wL4GhXlIKWzAQDHOQSSsrqr8F1DMwQdimnKlz5IcwALYbuY+7EkowQDoT01c&#x000A;LPAyhODiHpfOyrNFyCigLVXcRoQsgXpgrLvQxYwZwBPUgAfEbO4SSQtA38DN&#x000A;43oeT5rmnbd2KXcNxwc0APOqCi6swI247gHA7vSG3LTqQAe4QKrm7hzsbd+6&#x000A;x+xRZoMYF751qt4sSQsagvoOiDe4Wa9JgHipA/xmzDEoQ2qw2hJkLt6aBOcW&#x000A;QJvWBARbY1msXUlYUPmeSrzxWuqS6QlP/0UQOAP7DskAPIFxaKyUKINOMK0C&#x000A;9IC63jBBgIDENoFqNJs1FhiistjMka1BcAAJJPFVCMI53IgPBNfvKp3ilcUB&#x000A;JKzjISpKKKr3Wmwmwosa+sBhPkx59aNJ1EICj2sDYAOT9gOJdaP0KUoCCEsB&#x000A;DED25q8LtMA9sdALi9F8hEoQJ9jfeoo5jBwWIoIay0YDTEK6RIgHsN8mo1BO&#x000A;RLIlxEAP2MhJ5C73JsXAdXC+2p3D9QMK1iYNfSF4zsEiHDLaEoiBRIgPOKk+&#x000A;IuAxgIab3sASuIAt47HuxkCbJqcU8wkCuNL8/ZO9CumQnMCgnrJslEM6IKpp&#x000A;JBHKmhZoqIflev/AaGAzCKTADRyA5XQzkuRpZ8qSu3zNFZZEKqQxOgfII3CC&#x000A;LTtxemytCDJHUTCtBqRAPc+sEnhAZ8mR0kGNe4oKCsYnbJpHMOkDMRz0j+BC&#x000A;DnwMMxeAADyzp8ye/2ILFR/sO3BBk2iuSUSABwTXavCzs2jEsi2PELrLpw7J&#x000A;KZo0nchBF9xIBMSAO6+Oc/DHH76muyTtDmmAB/STFvdAZz2uT9vFfNxe+QC0&#x000A;uEiQBgzHHJAsUtNJEGSA8w5JHJEeiegWhziByJ1s2jBHJOvAAGh17nqADjz1&#x000A;GSZAV3q0zxoNUEeICJzzWgsIO6g0nvhUDyOHNMqilnAJ6tmYPyARX9//YNUK&#x000A;wxLAAIW88ozYhBqCgCUMNbaMslh/gDg0NsdsADDciBKIVxw7C5VMY7KgjalB&#x000A;zQGwQQosdMWAwMWAGUqplcmEF1m74Tt45JCoAWxzTAMUwlInt/ueEHUYUDxu&#x000A;zWcpwzscwBCkK06fTGBf5HLtrMn0AHyKjABcWD9QXHQjDSLIg18DRQ+INr6O&#x000A;UTGYzpU4ckjxnlHcdHIrQQdMKxgT2AIgwfAulGr/6uoNRy6AZHwjDTM8wCoP&#x000A;CQg4M56FCcuspMLRz0wYABdoXXL7QDs+ri2FTsWMlh0WxbJ5AzJPuFXggxRB&#x000A;pXiZd2410lGStjeVU3C03sx6wBDEGY8/RQIE/7BNBmdZH4ARlwQwoIOMF2sD&#x000A;GAMep4BqvLNDxMzgGBVzHMATpIC6VowEnIaOfDVsVADfYFjxlrH1zQE1RPm4&#x000A;PoI1/LIzftRkv4WloJX5CUABaF3VukBwKZFTUBgvM5HUiYo+fJoVGUDHmkQI&#x000A;xDicX0UDEENNums7Sq8HH0/+CXeqegD08bZEPDOxFPpb/FuT590BCDMN7ayo&#x000A;fMAjQHqkX4UjLHPFKJmgs2aXI0E9DXgLaMKb5E1YVIsujdODER3QhjCAEhfy&#x000A;uh4ExLr6ksBsJ3eZGYBDJyXv1SAHVgyguymmeQawWMkdBcCVsk8kA3FgJSjo&#x000A;mJfJqACsOztWjEB1V/+MUBC5cJ7WttR3qvYAF0SyxbZFsPPLO3w4rZQFDPj5&#x000A;kHDBcq/2g5MGNICeu6vvBowCHguDU+O4tVeAAOjArkdIUHQAxVpOWAgotSAe&#x000A;+bFLDCjrkHTAA8OwOjzB7ZiEuD78CTdAHby1E29GkQuU4n33JF/zkBzEAPjU&#x000A;m8zWtQj8uyRDamiA41XtaeyguCRDYpKGMby2zM98Hlw4ngzBAYCucC7Ed2cD&#x000A;EFT0Be8tv0fH283xDrFBT+A0qSyZxuZSAQwHMkh41ScxOdQ4hsNxzguUOSRD&#x000A;ABRBAPjBCGGzC3SADtBEWV1soatbXqQHfdiuZw+3HsZ0rpGwYtc9OpNAN4z/&#x000A;d4BhunAWEQWEqQLcsUX3QAsUgGZMK3iYx8GqB0lqQAtQ9C1X7foZwN6biQAc&#x000A;qqjsgsNjvhq7Ag2MNwpiN2U6R7UUBWH3AFDMbAX5gAcsQQvUQAEIwQ0ggRA8&#x000A;LeZOLe5WrT5c9+0v3zvcAHgKgyO0u+8HSD3IgMMBxfodQLW3ZM+wTiQXQFbP&#x000A;/s+rqjBIgARo9fYDhD6BAvsVpFLgQIVj/hg2dPgQYkSJE9cd6NFvYL9mDf51&#x000A;9PgRZEiRI0mWNHlyZINe0wpm7AdCg4AKxSbWtHkTZ06dNo/RZFgsWYIDOlIo&#x000A;KdhyoL6jSzEmdXrUR4sFCZTttIrTnIEaSPslcYUS/2xYsWNRNkABDynBCC0O&#x000A;qFt4FW5cuXOLKVsg4EYHF0yd9k3KtB+HFuoMKJx72F8xBAlANC04jyNZyZMp&#x000A;m9yRL63SfgMSvHOAGHRo0UDVHTCgAU0Po4BZLxXmYkAMXgcQJBMt99iBJU2V&#x000A;wgtSGXhw4LgyzOGt2cWQA8p83nb+HGexYxWEvivQoQcIYa0xzvERu8A7A+8Q&#x000A;VIVu9dg7HUoJzuEhHH58seI6wUpbEEQBAevenvf/v6FiiqlAnc54KUCBDtBA&#x000A;I4UUFmyhhmCoS2CBCgC8qqKLCOqHjMjk+xDEkBrA54LMMOqgLXMuXBHAChBY&#x000A;4J0YE5hxxncWUAeBdQRkUf8ncw7YKiNYNgiRyCI7aiMdE/vxYMb+eHwSSgCb&#x000A;00kxAxrbcAIjtQzxkWjYc8kHHQRILMoyzQxNsZl2UuaADrgChpkt5ZQPlwde&#x000A;MVEJBWhz8kyHjjGnuWLM4bPPKBFQM6f0kDCKIGEWmRNS+JghJwklUzjgHRUL&#x000A;beizChxwYB0HzJnJgSk35bGnnZIRwAPe+mHEw0hlpewbBpTsoQkDNC3UgXcC&#x000A;CEAABJyoQIAASkig1FOVlegYAwrg6goiZp22snowOw6/GQ7Qsc9eMcAgAHdK&#x000A;8KeEb7/1bNl0HarAgL02VCNWauUNq4EQIjhOKWG4kIlQFqUr99eABcaghGTV&#x000A;Xdb/xxi4MkaceR0ei5l5OFASRXV2fdIcBATeWGDDDlYWgSeuzLeceB8+mSRm&#x000A;CPlASQ8MSOBiFjPmmGb+Pj6VTTRaKghWlH1GiRpflEzOAOagdEAAcGkOAAMB&#x000A;DL75zGLUu5cgfgox+eesP6rnBCVh4vdJBypgmmaC/YkZ6jIF0FAzb7DWGu5/&#x000A;Gpggl/v6EYYtBND2L1Riyf71WwEETbvPYxLQgKtd3o4b7gb42KXlGfc+L1QH&#x000A;1CGb4AWcmJzwFav0wTFhLlmccbhJMGZoNoo29b9ihi1BXH+c6LzPYg5owbF+&#x000A;0omz9N5B2uCTLzecIyaPWXTi8gqcWId2M4tR5wnjCJIA/wXfrf+oAUgkMFGf&#x000A;FgSw+MmeWG+eR2UESIEra0i/XusGTmEJ280M0DV88h/ir9RinnbOcB2oVooD&#x000A;X2HfAP9xDWAMTTlGs1+UjrGOBQxKHdKBTkWokLsJrI+AWsMFAJQkAQ0kpF8L&#x000A;9I+gkiaAEu4PNLkBEkEugIsMZnADpEAGvgrCFvCJcEXTYRq4wOUp56hDEyPr&#x000A;BzJy8MIXBoEY0KDhZjrDORyO5hhJ2+EBUHiY3OgsI+fAoBEbhwqWxY8KMDhA&#x000A;CJ84Gtt9ywAOICNcnqeD7RAEGeDgovVw0TCQFMJW8cvPmMZXRtCswxxOeJkT&#x000A;+jiXA7RqQ2vY4hwdFgkU8G5rNP/ITL4UEKw1+vEwn3qO4QrwpX5IgASM9B0R&#x000A;IGCG34DkEXQwTvyW8L1LYlJdFsndCUR5vU6YwYUgQYQb7BM/D7wDZrDsXLM6&#x000A;6Zgk1KOW1wMHFvYhEkJALn4+YMMBdiTMm1Ewd3FYZDIfJodVSCskGziHkoh3&#x000A;AH+80ppRKoZWEndKbvqOGSgwQi5B0oBoTLKGwXJiOqPELndpBhLvZF8QWLEK&#x000A;d2JPDHV7Sj8u9UB+nqpZW3EMMLYp0JP9IA9VEEkQIJAKJVFBE/R7aJ+oAzo4&#x000A;nsKiBLRFH+wYkm9kAZ9fO+dIy+QjBXDFFxVN6ckEcQlwhkQP13oK3r63T5o6&#x000A;RzGMcYzOBECx0wySAJkjIUIIZrjQS2XqqCxik5s2dAJIOjWZ4rgEHj46BAMk&#x000A;o5BZDY06oLA9gnCABDoFq+/MMg6vxYRbaoUOm9C3oRDMdaeo6AY++4EiBKBT&#x000A;r1ZZgP+MSU/ACrQSKyDsAASA1cSKxgADyF0G5PrY6xFBGm/8Sz9wJdLLzsVw&#x000A;QvDkNA7qWYHiYh7SGy0IZmAAxJ52IofMXTxcC1ZmSOIDyEDGHIYrXGTAJAE4&#x000A;QsBymdtc5z4XutGV7nSpW13rXhcBByiAcYWriyElMyAAIfkEBQoA/wAsAAAA&#x000A;ACwBLAEACP8A/wkcSLCgwYMIEypcyLChw4cQI0qcSLGixYsYM2rcyLGjx48g&#x000A;Q4ocSbKkyZMoU6pcybKly5cwY8qcSbOmzZs4c+rcybOnz59AgwodSrSo0aNI&#x000A;kypdyrSp06dQo0pFyayB1av7HlW5GoTI1a9Wp4odG/EqM1wk2nljtIZGs2bd&#x000A;UqW6B8xXl12pLnTzBcBtoBOk2lECRMLVhqtkE0u9Km7EC3b5fF0Qpq+f5cuY&#x000A;M2vGLIzfhw+7uqiYR2KEuAaKUydtQOKMLBoX5mzup68y7dq4c+eenVlYEgAZ&#x000A;SCBWTbyn1XIrUm3WzXz35ebQbWOec45MnG1hi2ufaTVKiMmYdc//xm25doQI&#x000A;wiLc5p3Z+WUJ407kqYd6u32VDUaoOSe7fO326QmDDDISFJjLgblIcKAV/HBg&#x000A;BYIFRjjHhAIKY2EE0t2WYQSh1ELffSCKZBUmzSjnH2bnEaggPw2WAcuLsHAg&#x000A;IwcxzmgjjTDm+CIHLPKTyxwSUPYceZZZQcZhISa5UQPPXKBeec8JM8eB/JRB&#x000A;44w9ZqnlllxqaSOM/FgR5JMa2saBCsIpqeZEDRAAz5DlITMlBy7K2OWdeObp&#x000A;5ZVWzEGmc3Pkg099axaaUAMQGANnPxEgk8uOekYqaaRX5iLMkNIh04wgDVTB&#x000A;TFVfGapkA9QAs6gwEvAT46SstnonnRzk/6IEpu+F8sE448CzgggZ1IGPV9mJ&#x000A;qloD2ojy5H/9oHqlq8w2m2Wls5bJXj9zQNONCnXw0AARwpK1rSp4nMhoLss6&#x000A;a665MVrqH3SzCZMKALK00kAQ3ULVgA0fiBuBBOWe66+zMQa5bnREXjbHFb48&#x000A;EEWw9RrVQBtdiKvPHKry+O/FznKABwfIHNscpgVblgsDdLwQBKENB9XAPPxA&#x000A;SZswVqyK8cwZw8LPHJU1J0F/ICNb3hWi5MBpyj5ZZY24jtpJ89LmlpELMgP3&#x000A;A4ICGngAgmbMYQbNOadogzLRNTXAwzQuC5OLlRYzrTazNEqQM3kgcFECFAW0&#x000A;4IELGWZ9GQdd5P9xGtjcNeBNfzkjQ+faiGeMBz+XamhZByUckMAB7xSwBBXR&#x000A;DuxzP1eQUsjXgK8E8Yn6nJ124qi3CgseODvezwAGqGNOBZMngEQMVocnnshk&#x000A;kAN66CU1sImJtiGjaurIsw2LFeoR2cMBC5hTTDEVLGDAAVAo0APPZUo3BwDa&#x000A;An+S2LmsR+2Lyafvqs2XEklFEwmY448/xRyTjDrX3xDDABLoTqQwgUCS+ES0&#x000A;DSusRx8S2Jj6FsgqGRHONi54wjvkN7/5HcMf+DOAF2LQg8Z1zzL8EAEufjfA&#x000A;jOBCOf9BoM0YyEJJaax/jnOBAaJXwRoeQxkIMIABZtABF/TMMtOoxSP/StgR&#x000A;ZlzAfAlsoRIlBYvyme956rhgDW2YDOsloAADaJx7dkENEhIRIg3YQSjKxK8l&#x000A;mlFPeMhF82zjAQFUoBhTrOH0kkG7A+jAAx5D1hywIY4vWqQBY1zPHBZ3xkLe&#x000A;CQ/MMx8aBLAOOE5xHeY4hjkm6QAHvOMAQhiAbZwzDnB40Y+HYoDjDHc6Q5qy&#x000A;RzZbo2ViIAAp1nB2JSjBMdQRuWIoIwECKIAPpWUZEXwSlAVpABlOpIRV9euU&#x000A;pkwj6QpgAArOrxjmEAAGMFCCAEzTAA6wnw47EC3nGEOAwDzUPE4kDDvxSEGl&#x000A;ROYZYQHD/+RCE1Gs4DGKYc0A1BMDAnCABStg/8cBRK0feMjBL/3YAFZA7T8R&#x000A;oFGDOHCpQaoTmWV4YD88cIBk1NABCZimPTEQAHXo85nHmBwXriYtfchgoERk&#x000A;RhIO+CgWleGgVkjnQ5dIJ9mQRwEHcKY/HGAAa1LTo3EsRjIOAAMP0KofgWBY&#x000A;OBvQDZaukJ20kcAKZ2pKjRGuH0oYQvwqWAwHVKCax/hoHHe6gANwwQfrsswu&#x000A;FoFSwDXgHCdKYoNyURlklIGq6qTRQSvjA3g6cn4OQEAFHLCOscpzqAvwp7iE&#x000A;QYq2pqwBajgRMmT2iktFoEF4zWsZ2leZNsZxkoU17CvVIYCzprUfwNiEY7sl&#x000A;DlisJwJWYhE763rXzP/mNZG2qUFORcvbZw41AYol0hwysVpDNUAFjssFIXlk&#x000A;m5baVp1NXE9WF/DX3hrWHKRVQDeRxYANEPEbb+uHVFEJw3LK9Lnr5Gw/nlcB&#x000A;6/YWjgdgwy6JxI9TFDdJRnytzBz0pPGiN690RZYCDFBd9441pAZIwVFpcF8Q&#x000A;eWNdzuUH6yxz2fP+14yw2CtW1aGOAht4isdAQGlJSqQrdKLBxWlAIfr3H4ey&#x000A;yEG2cfGFkckjVbZgtx8WrVAN0IQenLYft2gDilPTgDfRhjaYZdGEGRXTGT80&#x000A;ui2GQYdzzNtjWC8G27WNFVShjT6KiklxnSqM60pIJ9M4w+uBnUWpLNpjVED/&#x000A;ADqgwo+tsAIWeHlNDcgXQk834crI1czIhHLOhKAONvMWmgkwADd/LAxgyOJX&#x000A;DWBGiBAV19MxlMJJBvQpZaTeFFTU0FVGwAFmIOcPUvgDvhgGO15ACT2Eisi+&#x000A;WI8wyqwqFvfDrpo+l4XPBdX/SMALUwZ1mxPdgsztDjO5+EA3uhAIOkBAqVIx&#x000A;gXojXCXC+TfXbFMazWp85H7UIAEeFrYN+amDFMBQcxnKjDEkPZa3CnKqL9Zi&#x000A;k7HtKg5IABnzplmfKwM7cb9XGeo4gBc60AMy9WxzExjyTxpQjvbRJmbPoqtl&#x000A;OrNrc5nzRleqEcaRd2kZzwzGRwbBExAQbn/XEOAH/zCAEDqQAhdkrj3ISrhY&#x000A;GhCxFte2RxFtMbxbJaMdfUlGVmDQgxaUi6FL4EFIZ9CM0Lbxi126dDu/GCxm&#x000A;ZZsBl9zkclxHWQWQgBvUIAU98IES/lSZMuBiLMuwqch2/nTxRv1VGefRgyZE&#x000A;9zkMSAn6OA+GzJP33GDo7+hRguDpnvQZwUjbPIdashAvdRZXpgcGCC3W3zu9&#x000A;CqhjcpS7QQG40IGrVWYXCi8aJ9YzWUtbYZP57lLPLbYzu59nWrwJGXvyrncp&#x000A;7azoqvL5pGDBM2o7/fRHjoAOqDv5HAt1HZa/5AF8WJkLhL4nQWiZO9nuxMWr&#x000A;fvUJ6pjBYc/97rMHPRNakP/Pdy3oObzdXxzr9o1dSeVjzNPkIQ6G2n1Br8Vk&#x000A;AErmfRaaKzOHdPLpR0LSfedhBaARCgzAF13QBeewAtZABiuwBgloDAwADPCw&#x000A;C0mQBNDQJxgSe+nGKEBCJZCyJWN2azIzM4K2XgbQXmwGR+53dQZWDJXTPP2w&#x000A;BmKhUoJEawvlcNdGI3f1NBvYbc8hAUmgFwyQD9EgD5CQAxAgB64GFk74hA3w&#x000A;CPugDYAACqdgA5AgAr6gC+OQRts3Ho1ydHViaU9SYUvDbZWhBDdAfDlmDghQ&#x000A;TQJAP+JWDAagAFDCCFMBZsGXeg1yepURAU22OmKCDB7UHldwDrWQA6jwA1Bo&#x000A;FVX/EAR6gAu4QASUSASP8Ag7cImUKIlB0ImNeBUbEAW9EA00wAAtMx6XAX65&#x000A;0CCrgmYPV3HN0nb9MGBs5mYB4A5x6ILuZQBoACXDkIem8h+45iXl84cSFit+&#x000A;MhvwQQbPBhaPGASYuA/SOI3UWI3WeI3WuAO40IRgQQJjUAcZcAg0AABXoHib&#x000A;EYZ0ggfnRi5M02eWsQQHwH4G5oYG4A/yaGgH4E//EQKLgQIadm3kdWTlpC4u&#x000A;Qy3wQAYTYAJf8QgbgI0O+ZAQGZGPcDJP+A0yAAAfUIicMQdW0E3seIYBxlcL&#x000A;gACGZg5OUAySB2rrYABGZRsEsBghACX6wIcSdlDJUoi4/5EFdDAIYLEDDRmR&#x000A;QBmUQkmNmQgsVyEJn+ALH/AnaaVCTCMjMqgPBfAOulh8Y1U9zGcZ7LAYACBr&#x000A;XbJv0vF6/cAAXDGUZnmWaLkBOwAWOfAJDMA95AGQGMNp6mcA92iVvYUACOB5&#x000A;tJEDUlEFZKNzIph+yDIxsVIZABBGaLmYjHmWW2EV3zALp5gbHjczEdVtKZAA&#x000A;eGl8C6ADVNcPuRAFUdEAjaBKcpmD3YZvLyJxZCmFjZmNlrgDshmROxCbr3mN&#x000A;j2AVI3ACxVhXjNd469EDCaCCm2ldxXBFUDIOz4cTVhGTAvmbc6UeEfAoPOI0&#x000A;ltENUXib06iNj1AI2rgPavmQDP+pDfUQBLjgmtpJjVaxDUdUGfl3hrglNSNX&#x000A;nO5Fhy0AJSvAbk5RFbFmc3fSg/k2W/3gC9mpnZe4A5TAA5hQDttgAiOAntVI&#x000A;BBtQDoSwCKBwDZIIoem5lg9wGRT3lIxzZGpYaPRpXSy5HvxoL3m2HmUEd6cD&#x000A;Vf2QmBqKltqoByQAAc/gDZ/gCX3gDNQQnkTJkJTQCROQAZ8wD5gwAueZFUSw&#x000A;A+nZAJCQijT5L3TpngWwACXaW7TDfJUhA1KxDTIIiLCoJUvWBYrZmI9giSbw&#x000A;ANLQDNywAqqwBQRACCTgpNv5CCMACItAAHHACLcQCKowDyywFdBontrZAIng&#x000A;H1OKfoT/aRkKkAB3maXzgwBewJf9AAGjKQv4N6Zk2h+3cKZDmYm1WQU7UA5n&#x000A;kAG3AAyhkAU0cALykAaEQAl3egRRYIXPMAG1cAi3AAC+kA/xQAjkkAM28AL0&#x000A;4ZONyQyaehsfuTR4YJP9EAN2KaljdZwakDP9wAEjMJpr8G4854oqAKpBqYkN&#x000A;sA/XsAjxwAhcOA5XoCuqkAGeEKtE2QbfQABbMAHEsAViEAIq0AV9oQKzQAOi&#x000A;QQyRsC0/iZYNkKy14XsY02uV0QIGsGbSKke8CCXAsJw4wQy7oCHL6kLp1w8r&#x000A;AK7VKJuyqYl6sA/kQAidQAATQAeRcQEfkAV7QQPSUAeTQAgP/5oVgkAOPJAD&#x000A;EyAGtPAAD5AGExAHIgAXeCEm/GAMMoACDXAEjMkMteAfG/txIdkPHfCwETtF&#x000A;tCNntnEIFnsT2mBrCcWpPSIjiiej2CiFmniJ9VAIoDAPnKACzSAK53AONHAO&#x000A;DGAMotAFvoCQijiy+8ACeeAGaZAJsbAFnvAAWvAJcRAPIXAOu8A4GJIEa+AN&#x000A;dlCgZ9kAzpl3mUYzDNsPKYC1WVtB6oAEn9kPbiAVi2Ctk8U2/ZGYdrqdRIAL&#x000A;G2ACrUAOLIAJO3sG8/AJjAAAXbAGKzAMciu8NGAM3cAIacADbUAE+7ADgsAC&#x000A;fQAJW/AJIfAJ9lAL0aAC0UALaRACzf8gGa8AC3nRBfGwDZFosKSgqGSrOo63&#x000A;XguQkhF7DAbABVAyB64gFewgte37YiHaD0CwB7H7vBtQCK5ADr0ACZPwALWg&#x000A;CtHwCVrwAJ5QC3EQB3SgrwDQDNKQD8CQBc1ADCzQpEcgCNRADn0wDxmgCiIQ&#x000A;DZyADaRABqrwAOCgu64RDaIADFdwASsACShwoGbZANGwHgoLnP/hAfE7uhaU&#x000A;j1BiDF97E5PwHFNLKZfWD98auztwDbZACGcwBp5ADMRQCyLQFiIwBoDAkITw&#x000A;AHFACivgC7dACiKQBdDADWqwAbiQFdqACjkwD3VACtFACnEgA8TgBpBgCLYQ&#x000A;BFtRxyNgCCL/sAIAcA4nsAWdQAJACpRrOUzmsaj+wntp9g7yK616aamT0MRh&#x000A;8wkeqjTQySX81Utn2p3UwAPzIAYTcAZ5AAcToApyewIPwAMscAoTwAnRcAJr&#x000A;YAw0gA3yYIq+8GxSuANBUA7PIAOkoAohoAVncAmd0AYb4DVOGAS28AJjEA0r&#x000A;EA1xkAPbEI2U3AC38Jz9OynNuh5o8A5IbI91CCUS4F2j2QxH5mKxEsWoLHH9&#x000A;cFLTSARtQKFncAYQQA4vMAnYkA94Cw++sAa+0MG7AA/dAAwfAA8nkAFrYIBq&#x000A;0AB6ILLbQADYIA2kQAxw4Azf8A0kgAIQkAc88AeR8DlfoQcQkAHR/9C9oEDO&#x000A;tOlu7tm5M7POttEC7ozEdOhj/0GWi9Gft7Y40SUMJXgnTZQzbjCuWTECJFAI&#x000A;tuAKDbABmBAP3KALoZAEc2AhY+eeticgWXACKmAMXUALL2AC9SCkEBAPIkAH&#x000A;eWAC+JADtHAIKnAOokG8hxDOKEANy3AcRToBzDujadsAwZgsPI0xPu2oWDq6&#x000A;MHgDDtcPiSDKYbPY5sdtpJQndKJ4c/ACUr0D2lAIRzBCUtAJsxAKsnIeHSiW&#x000A;loEMxiANKhAIpEALamALuICg33AJWwAJgKAf0dANTwMNWcAAF/AjEpAFdHsL&#x000A;DyAOO9AJk9AHKFAIiH2NI9Sei5fOkvLYwv+gASSatcpwAEuwHlZwZ08xL+Pw&#x000A;HhvTOJWJyv8LDWu5nZkYBCYQDwBgQL6WChdobwoSdAQZAbrACfHwCdYwC1rA&#x000A;AkEAvddACeBACIIQCTJgDOUzBxfACIdwRB6qHh8QAmMACTZQCiPgtEEZhSh0&#x000A;a6esa20nAUJAkllbDOoABe9LBphNE6whfaAJDTb53iIIfP2AnRD6CG3wAnGQ&#x000A;BRsoeLlwAaIgCgAAAN2QBVCeBfAA1hzwAQDwCWMgA/mwAloQCXW8D0GwD4DQ&#x000A;CRAAARcJGisQC6fQC8OQBHmXGVagC2vwCZfgCtd9jazBAUfW2WfYdiBgCS4e&#x000A;sUOlYO5U4zbOAo7/xyDyfH4RZxu0kNXUGATUQAznoEZWcA/G4AvGAAD5EAhr&#x000A;wA3cAAAMMOrd0A3GEAghIA+1UAucQAbRQACUkMwbsA3f4AhjkANqQAqHgOVJ&#x000A;OgLgYAHhywBXYG+WIQEXsAbxMptA2QAoYGvvuW1t5wIVQJySCoM68DYI9AmD&#x000A;LRU8IG82OZOwCKNzoJARSgKQEAjAwADDQAtjQAC1MAwrcAt4ywATDQ9Z4Asn&#x000A;EAcEwANwEAe/PNe5rbYjkLuYUAosQA2YkAcP4MVngAmCgKB5MAYTEAIAsAuh&#x000A;sAsMcA4hsAiXWOKTwLopbnGN2gPq0Mn0mQwCoI9EkgoPAG1KIQmcpUpK/wCL&#x000A;dNkPWTAvIVsPkWAI8wAJLFAI1mwHk5DGnMAI/NrI52ANGUAMvfAN4JAILswr&#x000A;BBAJzounKAAI1r0BG6AHlHAG1ZsBEzAGjgAKlHANqAAHtUAK2EAHLfwALIDT&#x000A;D7mWcXC/ODiXVTsAQS2tIVUAqgSEFxDKhu4S32BT2I5VN3dI53YCkB6ylBgF&#x000A;2qAHejC7QTACqFAKPNAJxPAJtfAMhmAIAw0JkLDF85AGYhAHY0ANVT8C5UAC&#x000A;m3gEadoGg3AGE5AJIRANIfAAl5ADcGADTX8NOrv6kxz3DSADi642UPY40Vrt&#x000A;OYRW/yEM3XQZFwAJLl8UttCbm0SCnj3F+kAIUv99jbPbpLKrB5dIqtRADftw&#x000A;ntrAA56QCbKQBgSQA5NQB4TspI/gCixwDURQCCSQFecPEEH2sbAhQ1q0OJMM&#x000A;dUJV6JGeKju0/dhX0eJFjDsaxOnXT18/CbD4jSRZ0uRJlCVhSfDYUYEBc/5k&#x000A;zqRZ0+ZNnMkEoOmo72OKKS56fuy4y1CDf0mVLmXa1OlTqFGlQt2QxCNRn/3m&#x000A;iEw5Eg/Lj1kaCMRY1uyjRztwBcFFBG0DE2pkeJtADNIDSKUEVdyxgdK2EdSo&#x000A;kaj3aINaItde2MiB6Rs5EvtwPaqI1uzlfRpFXO2Xi0NX0KFHlkHWUl+Bd8Vw&#x000A;rmaN89gBDR+zSoBxIMH/EmFDO/brRg7pVODBhQ9P2iBUy1fYXnVEhgfWcw7R&#x000A;o4+MnrtjogYbMG+/rJZEji1x5InZMukUC22U9xEZgYoaKhYsIj8qtOEREVxq&#x000A;qxDZYZn79kcaaMY0Kz4T7cCTYCntIxDUQaA1CCE8ZoEnQOCsn5fMQeAAHTzY&#x000A;Lat+Isjnjt+IM/FE4RrooqM5qGnggo4iQAaZOXKx0Qor+IkuCbD6uaIBcf4T&#x000A;0iI9BIHDk3jkOQSbCfJgwZUdLHrEFXJsAaUPJyn5IQpXKNvhCC+jHBKzAIFp&#x000A;SRgDEVRTRw5y+6gHA9aJcM6biqnggB6uevMAOYtJ5p0DuBBKt87sKRFFRBNd&#x000A;/6oBbT5IApwGiACLqKEi0EfGOSSwtCMCGhjzvx2C2MAQTk4g5RNsMtAiBxM2&#x000A;IMKiHQohgQRMxiDAGRIO0+7TMSFKpSVkplsTQQ6siGC3Fg44hk5mZ1rngBR0&#x000A;k2CIBVSTadkDDGjBB0L7AUBRcMFtAJcNGkAERhB3U3fdsBrQg1fMiCAiChvo&#x000A;UIGRT+Z5gJgHXhihrB2k2AGTSQjAJIodEk4L3v8acAUWYIUdVrSVWopAh9Sa&#x000A;ZdacAxTQTR8NDoippmMQECCBDub4OFyWFWUGRhpZPHbdoYjqw1OGMbpvB1QM&#x000A;yUCaQz6BwBZqUAAkV/UuSusFQ85wBpBCgiCikH2Szv+5rAY6cVMrriYWrQyV&#x000A;P/IhgQo0ptOcBGZwM6sWBFAGp2I0PGAID69CpmW8iYsU3ZljGKKAGmqIoYUO&#x000A;0PBACZ8+8mXcq6V8ZAR8IBFDBGnigICIBjKvQoq2xJRyg23I+QYFQUagxBYW&#x000A;tlnL88YrasCbnjrr2uuSOIAlzTZ36+AAa81u7Rh1DOA28X48EKCC3us0B1Au&#x000A;LNQqb+inaoCEX0FUQIAFFnhn+wQMsM3Cj5CRI7vWH9HGhFLOiCcObOLoF5fM&#x000A;M9/AlSiqLosybdQq5BsIICCEGm3Ia1eN00g+WtKZNNGOOrmYQ4F0ZKyOKMES&#x000A;6kie7+q0DgEMQDcg0IQ6liX/IX8YoAkavFv0TOiUDeDhQlwoQTIqqAwDeKwl&#x000A;w2gA63i1A/w8ghqdsIEaIDEGQ0AgB7Y6AzFoQYBenOIF10ALDiFSBXEww124&#x000A;wIUJQOGMSczjDCzYT+sk0wAAnElHClRJbiKgI1iErXgHsCCEzCGAGOhGGGxI&#x000A;wMjqpJreAU8AXLDCCf2olB1UjyjX40UF/bEOA1ChJVbYBzOu1pcNCAIfOSDA&#x000A;Gfrwv0Jo4wXeyAcDpgGNXdCAFBOAgCsyt4M2jKAQqDOBNgpRCEFowxWnEAMn&#x000A;MvCCSLWuASNYzkfmkEAFFosonsldR2pggA+28SbHSIAO1mbMA7wNbuZwgAPM&#x000A;Ycdi/zyLDX/0IxE+wBl9XM8fyZxJMRYghGN9hBE4Yxh9KOEMNaRhAokgAA/k&#x000A;UIgqVMEOtAhEFqwjjGkAgA6TwMcLCJABVYRgFmuwBjHUcAYU6EEKrhhDNMgQ&#x000A;gkXo4VVXa0AeYieBJEiMdnhQWUdyIZKZucAAZVNmne4kFOItQQDJWI1qDiAA&#x000A;dZzMATRBGzdNKI7jWO94cDtAB3YjDDuw84Y7eOcDapGBTNBCDUajBFpGAIo8&#x000A;aOEcV2CJVkIBgHyooAvACMU0coGMJNAgBLIAxX2CYIsHiEAFGQAHJXJlwyE1&#x000A;ABtDEYaN+PGc202sWDPThxW+shsuILOlyxSAUTnjAwM8aP81DniHOzAQgMtW&#x000A;wI7+QIBPofeiC11vHYaUCQI0MTze5LKdhUDFGWQQBxnIIB5qKIcJBBGlR+BC&#x000A;D1UkgDSAwY8ICEMCHLjCBz6Qimkg9wpdqEUO7oCLzIjDFgSIQwbm0QlquApe&#x000A;emjALvQUowjMoUZ/vZ10pNMVkgLrFVYgSg8EsNibmMMABZDNRy72DnLaREMl&#x000A;uCwGSjDOcqrDs3hrAANCK4BCusYAGlDXM8jHsIRtYwwZIEUd7BEPQ6CgDUcQ&#x000A;U3+CACRB5CAet/gALJJwAXgAwxeMkEcGPpEJR2iXL+TChCEg4QZ8lC5hn4If&#x000A;GbBCqd1gqkDm5QAenAPY6OABgj7/iYAESuORGVQLvjQphjoWAD6ixEAAm73J&#x000A;OhxQgRK4471c7uyAw9UAXxzYH6SdiQE0+JFpiEOp8HqEIGyghRDUQhbxsAEJ&#x000A;rJaZhBGhCpnbRjwYcYIMxKMOBGhFIXYgiFZyGCN60AMLxgCJSzijHCPY6JAO&#x000A;04A+eFddiaOUPoRxalTPKFMSyMVwc5HOC7nEAGxWZjEO8OasGE9OEfqyshyw&#x000A;a5lU2cziSkfs+tGB99Kas+8AXz9oSJGr4UIQjpgAHUIQhzh4AhARgZ/mqkDp&#x000A;QWcuCCSIQiX6M2hKS40I0IbV1AjxjEqe4QW2cMin7JM5Q9AAFkDuFs1GbZ0f&#x000A;E2UAAgD2/5T9wTEGc0YCVs7vakbrANKWedgoasAhjI2G4ym7GAmoAaUe8OB2&#x000A;7sMEp6CFKqxhjVHEAZcNeJw2ovAHCGCCBIVoA+bid/Ox4GcyFWE3Kl8AiTTY&#x000A;AA5nOAUKWoVX7myAu7uEAy268AHrsIvUU6+vVnwAoh4cAHkGD7Y6moBlYyq2&#x000A;pcKe+IkaUAtjD7wCDScZtFoyh6Q2znx/sAExPkGGZqigwjaAwDwOsYJ8BIIR&#x000A;+ZCGKk7wiVO4og1R2MA18EEIFBRmA46mtLjpUw5HzGMCBOgDAQyBicH8eUwB&#x000A;ih8zSiGDQACDA08mtb/VNYC69cMFmlgA21uqEw0eMAV8mrKAy/+uNzfoJusI&#x000A;sD1NKqAJmPoocwQUBA/GMI95WAAbJ8iHL7oBAF2w94xJgIUV5tBkBpAiA2KY&#x000A;gAysQQMVuI8Ak8iB0TCxiBGMiwU5eEYioE8MQ4DCBFBD+phchfM2wIdemIWq&#x000A;cwEP8IFXAAEreDIQGKGOyLo64rprOYAaEL6Mgy+y+73gaAA+CJuPcIED8KAI&#x000A;UQdLUCNgABICugZneIAxiLlTkIFu0BQlCJs54IcFpJQ5uAAGMIYVCARfGIcr&#x000A;AAYaGIZDsIZDGIZzWIF5MAETIABPGAN+MQQ3yINvMAFqqDcvsogPyxxIkA3Z&#x000A;EwADSIAEgAEvmAEuqAFLKIFo8YEDeAf/LsNAK5sU2UuA2jM439NA6XEFDuCM&#x000A;BozAERQCJWiJE3yXq6EPHiCAPCiHVXqGbiCKVPCFFYgGVVgDXcgCX6ABAPAF&#x000A;6wOAaLCADFiBLhAFMjiEQ1ABbgCGC/CFWVAFaWCEaJiAMbCB+AAHHjABW9iG&#x000A;w8jCi/iw6umIGOCTCqgABECAJzCAd0CACrCEGkACEZTAQ8qg2JkDGPDD3sND&#x000A;4GiAceAMJdABA9ipOVkADYC1QSQgIkAFCCgFW5CCQigFVYAYJYgGVdqHKOAB&#x000A;NciBTXAFE3iBXpgEJ7EFQUABZ3i/U1ADN5iECciET7iFVOCAUGgGYsAEFPiL&#x000A;FyAETUOBKDgC/120iAbQgthxATBMhmQqhg86hgpIAOJzxnHqGGOrAZHhugy0&#x000A;xqdoAGO4EA0Quzl5hwpsCXhogCoon0IAhPdoA+jKgW4ACTHAOaRMypszjFCZ&#x000A;njWAMxWAgH0QBEB4gRw4hU6AAHzYsIzcAGYIgl7qiCvgAiSwjbVDydVAmyF4&#x000A;pgFgI2e8Q5hsigagAWNTAGVplgUoAFj7AO7yIncqB0rAHD2QgYUEgDHAB1T4&#x000A;sDawSG1oAyZqgGuIBG1ghmWoB3EgvZtrhS6oEWMQA0CAzG+Ag4eyAXnjSl3E&#x000A;HBXgDGQ4ljnwgJo8gJNESyrbEEXKCshCAGXznZeMS6WoOGNDNrMZxv9mk4Bt&#x000A;mLOcQYs2cDSNoAYR0IUrCIVQ6AZViAMa6IYVaMU1UIET4AYAGAaFUgERyIAt&#x000A;mAdnMAEIIIVuyAIAkAZagAA5EIRt+AZDMIQechJXwMgsLBdngLUmAzIqiIHg&#x000A;GS3ZlIk34gkQqcniUyaJ483ieABjS4ELbJaSTL5+cAPjLEQxwY9y0AJjeDJh&#x000A;QAaf+FBLoZQPRbVceIUT04Vp6IhuOIN6aANb3AYSIIc+OAM1gANQIIH0yM8P&#x000A;y4ILqS9KAQEFEMM1Q8tjiCHdgFBpksDdjMsGUAPdMJ7Y1BgD8BCiOIEL9aL/&#x000A;G4EtYAArcD0wdb0s6JQGUMd9+EmmOQOtrCr/0csZjfgE3XCBkmq9jqCCmkwA&#x000A;kGyjYqgmb7yWBYCBQLTNyMrNNlpQ3iSEZ1KpZqyTZUEAK8ueBVCHCkAkGWoX&#x000A;QszIirCPKrCFPsCGC4iACGAgZJCAcbiACwCG9LSCV9iFkIKFXMiNOQioThgL&#x000A;7TgCIgAECLCBUyAEVCCBHcvPBtgGD+wHNmSDFOgqOu2HHqjJd8hTmzgGZSPJ&#x000A;bFmpZbETPLkQIYAJtGxSa2yDL80KEHgC/IIbf3gH71EHJBCCAigAIfACc72p&#x000A;5BOGbwA5TM0MIhAHEpiALjCGZsiHNRCBPOADQsAEFjAELSAGoYODTmWALDgB&#x000A;NbCFcekPyRiBSyAA/wLIAUAABFfotNYpF2bwURBJrAU4ABhoAef5ro7wgBs4&#x000A;mXVIppIJw7UjLQdIAMvCAATYKWU4gBZIUrcZUEO1xkIQJK2gozck0OC5gRg4&#x000A;QAlQguBSAhDwASrwgBaom4/QBXcZoHoNFSKwBUKwgaexhX3AOWZAhKXLHBao&#x000A;Lnw4pR1wBUHIrW0whEqCAFQwASzs2EELhAvZvTVTBnU4AE1IgUCsmQhyTe9B&#x000A;gGQwBweJgRoYWXVQhgoiSf7S1mN4h7V8LJMkVD2FS2tEh2/KigiYgZbECWM8&#x000A;nDA9qkD9CBGIFKzF1B0gAcAggW4bl7RAC0HjyW2Ag33RAkOIGr4wHVwoBP9q&#x000A;AIccgIBNywxgbYDUPCAquNyZUIYKMIAb6ICTJZ46VYCcso1B8YEOqI0pJVB/&#x000A;WACIkwkBsFKiKABt9VknDYJsDFkDoIfVMAAu4JaaoToQmQMv1IePI5d65QtK&#x000A;wAcIuIRSqAZUiIL00IMgOOANsAUemIBDIANSsAA4CExYyQzQqQbIKAT+yMIf&#x000A;aABmWJEDyrpxnQnEFYASOIBgAII1cB7q7QcQSAENKIB1kYAOWAADKNKZOAZv&#x000A;fI2czIrdo6kB5daJU98L+UUfrgmbiiPBLV1hQBzP/QT52V/66ARIkAULSANI&#x000A;UIOYs8o86IUzeIAtyAR7mIAHUANQaAPRS5hCgBL/jr2ae2uEbPzgNuzTcQIz&#x000A;DMAAAxAACiiCMEDWFWZhYVhhH6gBAejemUAAAwC728TcltLcsmsAHz2gtqmp&#x000A;A0DiFQ4vH/ABDmBa1wORc/iwfVjd1kkYfJgEGRABVagFeaCDTMgEVViSWsgE&#x000A;YoADHmABcnCFHTULhek/XimXBpiHXDA2DwhBLnMCA7isADjmY3aHKQDc+S21&#x000A;ZF0CY+QyjqFkjzDfBJ0yIB6wBtCFvC2BrdMv2BDcCOgGHJiCMAgAdyiBG9AA&#x000A;wVkCD/CAHhgUELmCU3jijEyLcngGLfCGOqCDaAgBOjBlGZgHSEhEGS2Endtf&#x000A;jNCOzCEDwW3LRZ0JYjZm/2TGLDC8gQEIXD2hXxBxgSGwSc6CArAzngGtCUY2&#x000A;MzT7rmAmZAJNgCaYFAbRgACgAHeoaXdYKXM1gDB8BzGkZKKIACxV3XueHmfg&#x000A;AXBwhEl4BhtgDEwgB1SgBFeyD4VeaF7OgXsgFC07y2ddB/6qaP+iJhpmgw4Y&#x000A;lGaeuo4AATaYNdXgmJ09EyEI4ZL2h5P2LBXRDSowgIgOsAOoTXD9aCdAAIuu&#x000A;gF8TyWNIJpPhgiQOBQutIVCOtlg5jG2wBTGZPFfpD13WxQ3g5Q0IBMLyiNxo&#x000A;S5Y+pC/rasxSFnMYLXMKQw0YgK76EBAhHgkogGjyh5Icno8I5rgOsN8DI93w&#x000A;Af/as71nwbWPmBZt/esDqKaaCiEFYD0QoQFUyBz9zcL+oF23QIsmmuqF1ohI&#x000A;4QSIuRAlCNxg/uaa8LKZreMEcILTpom30Wkv0AA0oIKoG7WsEAbQdQAk9Vwh&#x000A;SIBr5rq59qPMOYcNggE3hBsk5YwIsOYbDl/WKAZbmwFFQtk5YAQUiJ81xm7s&#x000A;3oFwawNVgIYP6YhXMJMDWoIDKGKbKAZiNgAnYDM/QYAEsA0diIEU8AAqSIEl&#x000A;EFwJoCMDyJOscK/c1u1h420+HAL9Xg11eAI5xJCeNRsYOgDc6JY5MIZYIIHM&#x000A;0YPLtvBHCrcGyIEV4IcOL4rr4vADDV2cQG4I8ZN1oOH/A7ANAyiBGlgbBtGE&#x000A;dwjUsFPkKfvZPwJy22wCarSJnI0W4hkAb6Zz/aoAASgAq0DZjpAAAPg4zbFy&#x000A;L0qY+MGFSciH4+jyfpgGFbABfYmDZ5KAJpAyuBH03mEpAdhhovCAHSZWsunx&#x000A;rkPpMHosTdhzm1AHdHqsyNrv1ogb70mZ+VWXVFiBZ8DyKmhTRzeL/4ufQpgE&#x000A;GlhR17avCxiGMTgDWoitHABw4iHpbU0GlfyuremHZBF0+LLz6MkcA3usBZD1&#x000A;mshZXOuIkClasyFJARiCAQC4ZL10UZABHkDKTy72TI3dzLEFCwgEBuju2CEe&#x000A;K5CHPFADWZABC7CAMCYAqwAR//N198VSDQFo69dmECiQLFbP5rwpMGPzgSdA&#x000A;99mEAjmkAt7D5gk5ACFYgtPdaHURhg8ABjJ4gAlHSirHVJu7uUJgAWJQgQv4&#x000A;5VFTlxHtB36ABGJg+IZveBkggGjobdgEd2axVp7Y6I/4RVyXQHHPG2YIIxDx&#x000A;gSYYcNY40lTvBwR3yTdagJdvdn4DiXGgAVXIgDEYBF5WSru/+/ghgV74BEpM&#x000A;gpJybXWRAAa4ha2JAGx4AHtYesW3AZDNit2h+Iq/k2j5roXDTVZv9Tsvd6Jw&#x000A;AXGFfJlIBjfjDBdYdZS8Nc6Ah26YGbZ3vTlIAmBoBmngBGz4hE+ogwmYwnZA&#x000A;BW2oGv/S+7Y6gwB2GIMJMDxr+MEvpZl0MaksCARaWIQMMLZhmITEV3wLkIEH&#x000A;mIAF+QglgAIKks1i2JDc2w0NGPLLLy3/ZgbN/0Da8/zS8gKw62GURAAvkEMR&#x000A;uAO+H4e/X/3SJXrhAghYSVKlupBl3JVpViL0a+jwYT99EiH2swIsEDE1aiZA&#x000A;EqEvYkMyk+xZKGnSgoxexiJOXHLAnL+YMmfSrGnT5jF1BgZ87NfigLKbQocS&#x000A;rVlM3b+kSpcybeq0KTNgDXu60LTgWFF/xRIUmNpQQ4JiWcfO3Kph6scPkyD8&#x000A;MZSJ07ldVno+lGiXLsW8evdSzDWui4gJcM5MsGDP3phDXvv/MSJA8mRJew9k&#x000A;CGPZbw4CdWQ30zyGwECBFhoM8BLL+bRQpE9Xs2ZK5ALaflQSXB1bzEAMrxKg&#x000A;IDCNeuhRJEpYfswFbMWES51OEZClKp+xDxzqTtR793p14ngdRpCQ5AIAVVsI&#x000A;2BhTWMZjC2MYLW6mRgZkkzLydCPer8MBrL/Jin13IEEyvu2331GtGbgaEePE&#x000A;RoUB78A01joHeGBZDwasMyBRxxigwXB2OSQBMNbIckYehrihBgGekKICAxwI&#x000A;M5EEPoAwowQgMKTddRJckItlyKxxSz75kCFCCJk8YMMZYxBTB3rx2UMAGYut&#x000A;4Fh8JckAiTeVTQSCOghgyN8xAn75/5tqB5r5TwNBKOjhbO/oN1YFC/hgWQoG&#x000A;JDOmUPQcoIML2j2Uiy4iEkBAIhxBQMBcDLnQxAJe8IYEDAUMIIFDdkVQnAqp&#x000A;WHbBC2cMSsAYkKQhC0rpVSkDAeyB1E8zVFZpGBxSVaeAAW/ieSuuM5V5poFE&#x000A;hGJZPy7Q9qBt6txAaU81aJKrTeaUkAKO2fWTyy5kzFMeBL481IEAFSDwbZf+&#x000A;IbEEFTfaF1s/1rwnA7uHvVqlPWrQ0J6rp07CSWzCVsAsv3gWyKuBQewCrLAO&#x000A;clbMOwV89FEEQizQ70wVqDNndtc9ZIUupIgxB0gR6PCOmMUooxNXS4BQqcW5&#x000A;zFPYuy0bpv9GfdUdMlLLWzwADbAFgAwxz2QC3NojA69alcEHJ3AWSMI43DPC&#x000A;QjAkkTDjmGuxQ8hQeMBQyazzjgHqcEEFWh6KYgN8Lr8bDySaToRMHPOYGp8M&#x000A;NgBgHxoH3Nkz3sX+/FQDj2g69DtuorZVAU/30/DDPN+mgFdW7HDKCklQ5yGw&#x000A;QiRgq03FJPMZaBN6mEsixLxttkn2zJPB0x9N8wCpLZsug9UT+bDAvnnbThQC&#x000A;eztVyAcLDvvbUTd0+BGtmOdazAHQTnRBA83vIEs3lEY7kQcCGC/UMeuUoMPC&#x000A;EpEBRy2kv2rPGbfExkAeoztpgy7AgiXm7fFrtavu/4yg9kQFX0//VgXvUPyR&#x000A;Cw5Qu35VwAB9mggN+raD5jUAFaQABnY+ogQYCG4zBlAew6KRA0iwS3zxOUMW&#x000A;gMWIM5StZTJQgwpiMwCsya+FMsld/ZIiCPwBMAFFG9ABBuC+l0AMAZZA1kc4&#x000A;0YAd7GMfGyBC89TQPboogIebidABJxKBXdChD5OIRwlJZw9iTACI/UAGGBLh&#x000A;LpfNQwyx+4gPEjBAF97uX/UrxDTsQ7T9bQZhSNuSDYmFK4QVblVuaEARAymO&#x000A;BtCwHz4YAK3WAb+iGAANYWuIMDKGJFk0yWxxa0ZsLuCGeFggHvFQn0nqkDbL&#x000A;NGxnbIwfDHW3gd55yAeM0uOA1mGAHtin/wfdoiOBDNACr/BjBIAM5D4aEIfY&#x000A;TFAAAFokTczhAJg4wAHF6N+E/NSQK4jEBmLMYpVocQZW9oQGZOukFkBpJTXM&#x000A;rTo/wWXeimEaZH7JjT8jQiFdecMvHSMB3LNPCrrFzv0YwHMfYR4ugCkOXOBs&#x000A;VkDZp0zMUUAEOCFwxzAHAjRRAFpSrR/TaIYs4DCJCYwRMjKYBDa61w9hZMBt&#x000A;hjGbPSARjdh4gIVsXIcynekAJzjgQsxKJa/SdAX7+OAJ8xyTMg6wBHRxqwII&#x000A;5UwFEhDFfnRhiIH8QQNIYR8quLQoYSoBBkpwgABgwAAOOEYySpCbCH6IAdIg&#x000A;hg0mIYtMmMoeOf+Q1USyoAZxVmkCxLCCZWbnJTY6oAICOIADFiAAdcByTO48&#x000A;UPMosNNWNqGCe6yAhM7VglveCgFysowIflnEBhSCR9UpQK3G4oB3YCAAXOVq&#x000A;CcJUgSf8D2XSsgIDovGAM0CCFuiRTC1S15Bo0MyDFlADPEgpBFPKrxgOKIE7&#x000A;AiCAALgjtUc9Df1a04AqCEARsZmdY3PlmQOAjXIuISye1OEFZDUkEZpdYD5q&#x000A;KYDNKPS0pnXHS7ZSg9jAwrXSKoMxSDHbMcyDECuxTCoIoAXfokQN6V1VDELb&#x000A;wvaatrRcXYADjhdd1jCjBNbNqyYuxzNzvOMJQOyJB5pwAAQU9mALUFj/0gjx&#x000A;yw0wgwQcm4g+dKBhsjhAHSXgKgbiu44EUPQjc6BEHXAWNspFJBVdOEQtZODF&#x000A;fgSCANhEKSRIoVsPGOC5zDKuAByM2mba9FYT5hsGevwREDQWnWM6xgH6SDkJ&#x000A;dMAAAgzTbzTEOJDMARO/fEQDAmGflqKmmVlWhxPC9A4d6BYYzdsHKeI4ZCJ/&#x000A;UUsTmQY44ECMSopPdF70wTv22sIwbdW0g1WjmTnzZahQQMz9AMEQDFBifumJ&#x000A;C0NuiA+44GY1KlKdZJEzL7cByA00YAQv/ogwbjBjzphjHQiIsD+SIdTFfAKQ&#x000A;zRMHMRgwNezYd1oMyEca4DAPSruMFmPAXz+U/3ADzbhwHQ3FQFYXwNwSmMPK&#x000A;WTmsU5rHBB16SAJs8Gob/XEALtyIyD5YQgEScAADdG1fth6KhnYJklTsAZB4&#x000A;jpKHUnAAd9fkGMg+ioctIwFfBpKBEFABHhYdwezwQxQTsMGktagGqazqfS5k&#x000A;sGljjoEEIDu8BmreUC2jhBkAtrjKLsDJpBkRF3igAwrQwQIInmmt3OQ20ALJ&#x000A;LhqgB14L4oyX8YI6KC6UoHYgNivoGzCP2LxCPKALfqroqqYFAEgYAosuk4Eb&#x000A;gLCYFihYfn11r8wN4IRbwZspzZO7znm+aqYpwwBPGMCl0N4QJRwyBgX4zAHU&#x000A;oQz4JcCf/WBAA4iAi/8GmN1DLgnKmBAAhZNNRBiNaMAGgAnM5pmP0Q5Rggek&#x000A;lx08SMMQkxEnYnCgwiq70LgGQLfMS1CBUJMFp05hhh+IKfhT+sMcNlbAEhV/&#x000A;OBD0oAU3MACAbMVjyyQwmJeIjQSe0Jsz4yY23ci86ou4gSA0YCWU80APfOAD&#x000A;FwygACVAAuLR1Y8L2MMGW3hyZKSBN3hRD7xDlxWXAxjAaWVVBQze4Iwamuie&#x000A;ZQhDATgR85kDaCzG9EhLuHnADGDf8PlDUnVXQ+RDA2xe+3jITzjgZhTQUvXD&#x000A;JGhW2CGRNTxSCpSAASwAAgjcOyiDYM0A2JyLMKyBGgjgq8jCA8SR7PDGKRX/&#x000A;gxNUAFfRXM3hST2tRgOEQ2xEgAbkB/PJxG3kRkQIQ9DZV0VFgAcEXMEp1aoE&#x000A;QvM8wHUZwBoNiIbM16acYPrtA55NwCNRFQIYGwIYlVhojpu1wHCcSxaMAQmN&#x000A;Di2owa+Ung6Q2yk5QdIFmnZtyGpcgm71gwIIgNZBjIaA4UgJQQGkABVwjHVQ&#x000A;jj64QAfcgACUAAn2wwlwFl5Vx2gQX1FESHf1xAPI4Op1QupIEAwkwOAp1J7Q&#x000A;0rkkwSfkwQQ82RnAVUTUwDt0YfNNIZ5gIBvkwlPwgNX5hADcjTQ237I1RMP8&#x000A;1TvcgAIsQQoMQPyZ4qs1xBx44CtiQ/vtWVVhiIZ0/4VlfECapB+vFcJ0UE7x&#x000A;EEUxHIN/dEBPeEgErIE1ZVEmnMHcWAbdeeM3+gsCHIALIINTvMCvNQS3MN1E&#x000A;uiBIgAAvIIAyrIM6CNzAaYJ4aUALUAFdEFkEKIGHAMAnxAaZZR2e4CKwyAMv&#x000A;GtEgMcC54McBIpxfFcCcGCIBTEbpEMAKxMYS2MlE5ooAQAtGLkUD2MFG9oNL&#x000A;GFVUmsMBzBf11GMy3I3EoKSkSM8jCR0t1h2GFB4+TgQs4Fn64dkJoMsA6BN/&#x000A;YKAm6NC5fEAiOFlkPIMqiFSdSGRUDohX0uEcWKUJeFZP3GUITmROPAHpNUQN&#x000A;8F7TqdOOHQAUxEAPTBvVVP8HtxjmgPRPa/VDHDTAD6jeAkHCI7mAASCALSaU&#x000A;OghAC/xiQ3CAGCSi6ZiRZXgAgBzml5hDArBBh1QlmgACP+yZAMhmVG5XjxkS&#x000A;HNrG5hzAAQhBCozhyOlDBGxlJzZd+XlIKkxX6q0eKPzamJVZnCGAAHCInyBD&#x000A;NLADethVfeXPO8ShcB7MDv4PcpLAcnpIhYDXRD6TADhSy2HmrW2NAHhBBxxl&#x000A;tPSDBCCBMUUmhsQJ6fVELPAir21AQcFYBbKgQCrbDASdh+iDKuSADMgCMUjO&#x000A;lniBpuXnwUCW5VVlG3ATAOUgiBJFMxmXMw1IMayDbarQegFPTvxHDDioxcAe&#x000A;aMX/5sH9hi7FRhI0ADOEXfPEjOdx4phg4BMEoYcIAzbAgRYYATeF2yPCKGoo&#x000A;Q5CuSiL8Ay7cA0+p54DUmDqM1gJ8Z0wcg1+BYf4kwPjJIWQlgAIgKZG5gAJA&#x000A;wX+sw2zKRFKd5jw4lfo1zxo8Ug+MmJ3WBIf10yMJwxtgAQVYXgQUQOKYKVlg&#x000A;IIpNBAA0QBvABmMJI4bUWGktFwZAGGp4RppOhBIMAatmKWS9QwdoJ5GBQApU&#x000A;IBwGCH8kTGxkwT4aUfMwg9nZhwQwSqJmSEVGE0LiwD7kXE9oQDSK6ljUEwx4&#x000A;URIEwT/8zZYEY44ShRMIQHKVFgYIADVmRU4IQNdNIGid/+uoViSDouVdVEoP&#x000A;cMECRN7kjUUjecUcgILUMVADEEDv2IcwzECu4sp2PR1ChoEEJksCcOu7VSSX&#x000A;RkQrJIWjnZq5jkmNLWAALIC93uk7VF5sCMMWRutYKAO+Nmi1OcS/wcABLACx&#x000A;DkUBRWcGMNA12AAphNAj6UMNAEW/0KqBeggILIHh9EMMXCzGFsVULkbPJgV5&#x000A;gUDI4okDIABWlcCx1VHhDUGfkNIWVuq7jYwAvEMMjC2OfAgasMEB9CA7JdUB&#x000A;RUQWAAAD7MJyzmwMYI3ZSuvUnkvicaQBRO1QeKWrWcb5KYX0YO3D4snedcve&#x000A;8Ye+aQCJ+ljZptN2GQAXeEBltP9juA0Az4HMItHtuUDEvoYbF9Tj0VYkX5ao&#x000A;aEKl4VbcAsDARvLDBiwFpTiuyxaFcRVbggpADIjUqcFt7+6HQrmZDmQnGYrj&#x000A;AOgA9iWD8eSQyFWUC/CcR/bMdr0u1bQA1M4uTUBWdPZDLzTAUiCDBKTa8fou&#x000A;e9mYwlUHFTSBqrERWAncEyhAELbtSHnAFsqtF0aUoLoeCHhvduHN9i5aQ3gv&#x000A;+NKEsu2Sh6iA+S6FCwgBWzJfMjTI6zrEADTIyfJLMUAUwWnAZ86sGbLBYMFZ&#x000A;8yUADPTAdkwFCHiAAiDBm7VQMUxrOyrAti5wCjtNPkbwUsBAbXzjzx1lT0gA&#x000A;FzRnB/P/TPYQ3AwMwOdKkxIswROMmH6AcAEsgQdQARX0gAe0wOMNHEk2oQ2f&#x000A;S9GurwvlhCa0FjKQgA8rxfx+Y1BxQSE+ZqopUn5qjn+wwQCwY+oOcALAIVb8&#x000A;qH9gXwL8cQ4iQM4yX5Fybw3h5AILQAb3wwQ8RQGz0W1ogEgJwxEHsZmq0zsI&#x000A;ABJ0gOz5G60sQMBqjghWQO38rXbVJrVOxAqRpqgmZmwYQxsvRSUv2DsMwfBA&#x000A;KM/xghnbjuYIlhekgCmmbj/0ANwKaNQWaS72RBMl8Rnv8kbmQj2sRi7HzzNZ&#x000A;pMbpQHwRRUx9cDMBb+8VKQykwBxTjhKkgIg1oOFyWAL8z5hp/0Kfcitk5WJD&#x000A;EABrZPPtoNmcMQxomVlglYAAOIGNITHzDaRgCUE0SRMIJJiFsDLeYKAOfGw/&#x000A;1I0sH6ZX6ulH+MItMwU/286iQiQX6igUolsrYoA7uKtE+yhBci4Rp64LbCEz&#x000A;z/IBOLCt3kCdiipB8rJl5EIw7XMw+6gB0OFHMAh+2oQDJICDaVkAUGhC+4MB&#x000A;aMISfC4yD8C/2nFCw8/BgWTEGa2Z3jOw6HNrhDTeKJvnNMTqvqtSk1bMNVgJ&#x000A;NKk0QpQA6EBDp26s3Szo0fA6LMAfW6d1EhyfJgOpilT4QaJwBtVYTYRHG4hZ&#x000A;90xmUAyESoxteCXwnZbJCqfIfHIBcP8pkXkA3EI102wO9gmBAqCBB3jAAKRA&#x000A;CyiABlSkGh3A+J7THS+AcVqGFaDDgTw2z6gDEpAXUt/aaOEYJ7L1N6qTwMXA&#x000A;KFfHHPzET/ULCHtBSz4xRYDAAEBjCQiBSKVRUie0+I61mfA2xCyAEGhJP1DZ&#x000A;UAqkE6yDci0TxuLpAcDAXVNODwzBASCqEidAE+wx6nJgQxBqAFheP2hrS1fj&#x000A;ATCOhzT2bg/1fqiDBphLnXTi1q5DTUXtB/uHBsQ0czeRyRb4TGjIDATwdtIF&#x000A;IvWyxElzvxwFFHhRLuRueDP44LwDHTbEAHwvsf0o+GIFwXVAv73fFDsnrmDg&#x000A;DKRzXoxcQ0j/gEzCCBNOZDJAcmxAwkdjM4yfxhw+RJ3osD2y5wyMbR8n2DFR&#x000A;4QJowoVyBxWkgAfwMVmRsY0rMmiIlKHxinj3i4zThcRNuYUrwx+nwEFSDhUU&#x000A;QHMO9XdXx9LOwL8aAAyIcjuS1VMed0WqcSQATJzzizqUN0gEN5ZnuQAUAJcT&#x000A;WQr8qz+sb+FxdLA0gQAswDoEhTpwJiMrgaPtaw+sORsVXtd5iDxCup1zxrdU&#x000A;prgh9qUDzwUbQAekc3X4AK0kQMCihsR4EQhogqr5hsjUZgwYDptdqNIu+Slx&#x000A;GAx8LLL+TKQziyxRVAJbYK8jL3vqgDEicw/w3FVo3ReS0ofiRAWU/8D7BosO&#x000A;UPvC6IyHn0a8u6kUhYGU2npCH8C8ohGlXjpM7SiPUpzmJIDwHjMqDgDckthm&#x000A;XHB03uVeG4VYT0QMaMKHJTCCtpADCEDyVQcQuAMF7AHAMx9561Y+AfkCE6MA&#x000A;mMMxCECzcwZ8D4ExQnEHTLFoN51ve9ESCMDFW6oBaDdIKMEBDAF69sMGN+EC&#x000A;IMFGSgC6nXzKM59sA4vEGXu+K07Iu0O7ZllX9ajNJ12gziwINJHWC2TCiJQL&#x000A;3GdRXP1EdEAAFEAvv7rVj68fJBcTMEPVW/KgZeL1DlaAqNPWBzkUNhhcy/ys&#x000A;FpA6ILr+UsEMDNaxZ87RiNSnEhdObIhXcP/J1G4JbxQ+OB94bPSAO7gDE6B8&#x000A;39PvAYj6SO28ddKGOlSATYH+fmAF3nFVzFfqdsEAT7RjBLBzbO7PBXP0R9yl&#x000A;Vt9EZlRmP9RACQz84QwX7ft8E3iRPkzB6Ue5Y9/6afxoOK6ZB8RADQgBEiQV&#x000A;9mXavmQ0yKuDezFgMCuDf0zUzEpAgvXgTQysfUQA83/61iXPbwJEiRj9+ukr&#x000A;qOFdMX8LGTZ0+BBixIcHBhTUZzAQrj3/OHb0+BHku2MSSZY0CbFYhQMdCF40&#x000A;SJBghDk+qKBRUACJOgMGEiDwp0zhSaFDGTpYJwADhgQOHBAlWSyZgQNcfMB0&#x000A;CZPKkAMVRjZMdiD/hcWrwhQISFAhGdBjQf0VS1CjZT8qAuAWJKjAAFunexce&#x000A;M1DA4MV+SRo0AHkY8T+RfBmXTHmghoSWV2FWlunCQ4caXnb29Ne1cWOmBww4&#x000A;AR264TFeBxIoqDr5pRIFB9SZ80pRLGUPBRbs7PyOa7EFQiLYnVv3JV69qE+q&#x000A;dGGRYK/E0z8uZn69rT8DMAYUr5z7O0wJVJZogJLAgLrP2IeuO+bA3HL2xypI&#x000A;dQ375YAnW7tGDQsdwH588GCJDlpQoAZ11HHgHcDs8oGuuPpRjj2TjjlAAbH6&#x000A;McYw6jxc4LQKGzOntxmW6MEHycJziTKYQOghBiQOoC2ZEEV8qBj5RKTv/4B3&#x000A;OpjDqpd84MKABWwrxoCBLIogMMHC68eFIRBIQIO4IKzSrn5iyOvGiIpRZwHJ&#x000A;BENGEA/NFKAC27psrBhlektAHSQ0iCEFH5R4ksWXCJLAgxi8IM0nHdcctCFz&#x000A;VBoihTsnI8iD/Wp8R4i4IkAxyBblkqoiwXooATmCWkiAUIfMEQANDaPp0Mzp&#x000A;8DIgvlD5SiaZCtR5Ryp1dKihAw+okEBP/CrjUwEEWEMAKFeNXUgZdQ5gYwkV&#x000A;nQSBCwHUOSaB5wQDoQU0eg0PjRJ0KO6lDkrIMMtPjzUngW+h+wDVVBNDhooZ&#x000A;0LTx2KFiVQc91iwpIIYBXFDUVxc94GIB1tZJpv/eUNtUtonuJOwnhSd2Qs4g&#x000A;2RB1QZjvJEhBgAOsNSiCGyLMUoEEBBVRJSqg04eQdt09DMgIWihSmYQZy3Gh&#x000A;dabc6Z0bFPAAhMpYrMyHFApIgMaTbUatmGPUEWCGHhbtB9p3AqgIQC5KUEcI&#x000A;DRSIIQYNHBCghEwF82AnJZPjMtQLB7pqDZdfBklFuYYwILul2VRIVqme0GCA&#x000A;1wImiIoWdOCJK71vhCoBAWIQU08qNBDgv2sVxNc3WgXAWjAlbig4LCcpJPRL&#x000A;GO4UzApT5J7bI2SynCNaBOhVnCicEZBqAcCDxk9PJQbQAD11aqR9vgoEgELl&#x000A;AHvAdXeCEGqrGHOUMaD/CakBbOEAf574uJ8IhFhA6etU8gDAWFinbpepl+Bp&#x000A;duKJWmvnJ2rwAOChYXKhBTYAxdl91MyhlXNO6ocHPOACHxTtBsGpQOM0sDsn&#x000A;eeAA64DUokCAAJ8QyhwGwJJgLlCY8yWmASqYWlayF77+maRptzOADjrgAj3Z&#x000A;rx9zGFjBeuIeE54QIscQFhecJUAQeGAGJTCLbwrggSa9hAq0ccBKFoU2hd2u&#x000A;Kk76wwep0wBI5EJCEijLtHCImmO4qUcFWELzwEOQohVgP+nJWxeFopADDMF6&#x000A;eSKIElyQggO1sFIE6YEmjISAdwRNdAZo33WUQapFrWB1VPRIA6JwganpxwDJ&#x000A;/7ghG72kjAXSRgE98E4ZC/KiGDSBNRWYJCX/l4DH8e5JZUzBAYzklg0aRAIW&#x000A;JBS11CUYWBBBkWZqwAqm5gMN8IeSoWlTfQ5goufk8VceAF56EBbMkvAIBkas&#x000A;VK/sJ4EYHAABtvkK+a4yAAPUbFDOAdAzEpnLjzSgFq4TYAek1RRnNuYY60Da&#x000A;XwZARhhCqQV3S4B73ikREh2giBnjHWX00QP98fNLSDjdS4CHQQG0YFEMKKc5&#x000A;zwkOfmhogE0QZD/3dklLxKAHdeOk7zSwE9mNsn8KadwM6rQtmChhNz0CzaiW&#x000A;sCgXnGVQx3jHEDI2JkBMlKKLLEQoeikvfnKUMcdIhv9O3tiCHpAxQHKJwX4W&#x000A;IEmkpiYZ72BNAVrgLx+AwAc96MANDMaWL/1RQ9gDZ5fWcQCpOSkDQA3qR4LQ&#x000A;DNj0QxgtkJaarsoXpepkOzVIwa6QSbUUkPUda7xq0xbIMwRAQR2aKNLwCiUA&#x000A;lkBnDl5Qz5qWSLF+pEKuc6UrLVwHoAHQqlh9TarO0PMOKCjgmBjtB0wLUFbV&#x000A;LqRpsbJgBdaDIwVBjiAp2GiXvqQO4PbjFKJlXQPK8YFeFkAAR21bUPiXsJrd&#x000A;jkrWK2MElMkaq95WKIUMYPeQkJBB4eYqXQitckFCBLsCKAIx2CvpHHCM+DDF&#x000A;HPHUm2qkogEPCBSGPajtAlL/C16JKAMyd4XgoJRBpUXNoR7s/WADHgAk3SQg&#x000A;AXy9EbUCcAAnIEAAaNKwzeKJNB0MAMAt8oAO5mtgiCBYBxYWjARkhdKhFMOP&#x000A;UXxJHNYr4cOwYBpTc8EMSngjByQgKRgQQAAw4A4BOMF9ClmAAE6sKPsJYwkw&#x000A;MEDiXLwQc4B4BpBLjgAGGZpRleoqoeixjw9DBAZMTTbzqlAxxoaBADD5zndO&#x000A;U/+UqlU2pABIZQTBlhKwFvBChYYtANdVerCVNemUDQslCD7YrMjC5OOu/Vjf&#x000A;O0aMmiXaOc9MLsExylyvNml1CA4rYw9YnM2+qtQAbGjBa4aWiylwcU0CeKtg&#x000A;mrHm/0ofpgGJWPRLeqDlVl0nRyUANZ4XRMmmlUi7lFFCB3Yiyn5CRatFDDR4&#x000A;5kDkTmPnQq/sBz+W8WtzNsAZsJgaCIxqY4nY9wBMVjKd39km9GggeRgdEivX&#x000A;ykZzKGsG0szNSyTg7TV9yQA6NoghfG1uxLQhfRqKs6uvcwwnqCMAAqgvUmGt&#x000A;AAcK0ANDkDMOocKTFHhHjgRxgQ7e0W8RIbhU0PFFwx2OmAZ0IdOrzDB7HICA&#x000A;Crjzqjx6wskzLYFP4c3dGwYxVTINkzmkYAHW6RItFx3DDdR8rg1QxREJxwak&#x000A;Y6e+6wDvvwVQgOTZzwW/rI1QDG1oZCcjAUMvLAgGEAOyyv+OUOswgMqcZA+a&#x000A;Y93mp8AiZSTABWyWusttjMoBWhBoFetvzxI5qlHcHhoeaYDWTppDeZ422aQP&#x000A;xS9vE0wWPAj4ud4hFZleAm2+nXi/qgQJ5Mu0Elog2XW0fiRCNEAAMvx5L4P4&#x000A;shgttgAMgIAa+b6N6jAddJBhAtOzlwjdyHQP0FNg11u+YEwvY9pndFKHOEAd&#x000A;7rCzOwKQ3xGhJ4B6YqdIEI+d8Znq78+fjh4wrW/ocvn6ltdOAjqQYj31gAuQ&#x000A;RnjYIveS7B2AzilG4gCqJ9NAoLZ4of2wwxwOQNxAS/4krAHiINOEQb4oLv8s&#x000A;z3h0QPamRkA6QEYSayRub2xKAAH/EPDGsmoqPu4lPECjvutYnOYJAOklIOAC&#x000A;fawBnkGdKMObpO4Db0YZsm0Atk2A5mAAiMwA1qFm7MsfXPAkoEJZ2ED2hkYf&#x000A;sGftbCYZNmdRziH+erCKWCAJMi1KDsAGi5AvFEKrsgEIBEeA9GFgBPAzIrAt&#x000A;LAlpEMXKNG9yrM1mMqgAFiUXro4M2WwHHAmjQOCX8I8N+cIckiEAiiAA/CDI&#x000A;ms4FOkAHggctSG05msYfEGBWdiJ3BqAPncQHdKDIbAbHEg5A5uEQf60BfCFg&#x000A;9ArvHpExHMB4KIAC3AG2CksY+uR7fKNIFkBBeoMn4kQDWqBOhEYI0QMP50wA&#x000A;auoqSC8W/2XxEAJmCFsPF02ivoRIJ7LrJSxFCQZkCVqgBgpACG4ACYQAV4CG&#x000A;V5yRMjiwxZZGp26gpwxCGEBhI66x0hpgEvLRSagAlKyvG0/i9toi7JAmoArL&#x000A;MoRBAiRAoOQxwFRxHZAPNdpq1wyCE8bQH1OlAcDhEimDEdEEIz+w8hjnAHQg&#x000A;USjSpQbKUgaGJ7jRWDLIs6bBIz8SJOvhzcBDZmgjGg8SR9xEAG4Aj/AkT1Ku&#x000A;MmiLNHpLcXAsAXQwOnJSJ0GSDLQxAQ5QKJlmqbYqBVxApFLpOyLgRcbKu06S&#x000A;OS6EGgVj5qoS6yhMxpwkDQ1yK52CseYJCWqAGQdAVwzogA7IBf+ogEBuAgpI&#x000A;cQ1pR6d0oEnwKgrcEvAa4AXOcBGhS7rq8maSYR2Yihjf4XLeYQGQkTTeweeq&#x000A;q380EkA60jEfsx6AwVf0oQNYzzKZo2mUyh/WoQIqwIJy8zYvsvK6aALh4ios&#x000A;MDVNrwFuIWA8AMOCMjavbS9aUSr7gQeH8/kaQBYCJhUFQLGWs8twDBDDi4mg&#x000A;oxuoUjqX6xQuCjxk4/Aoyb7Myvy0EyJGE/TeQaEwy/nGU/4aYAScS5V6hCZt&#x000A;pil+zijgQ5QcAC1drDdN4gu5STCwQTzt83weAQACpgc0qj+PhUHuTAAQwAmM&#x000A;JwBKYCkKtC79YhChYxwa1EHPJ4QCht3/IghE+YJBkiIA3KEE/EHZDJAK3XMo&#x000A;6oN7+oEPTPREl0sWBFIwhCFaHDFhmkbZQk1JMaAECBRH92IC1cYgAMBHf5Q8&#x000A;e8hJXrMLAxEBlNRL9Uw53RMBchCz2qBKrXRuGoASxuE4Z3JpvuxLvbQyn9Qk&#x000A;YG5RTuBM0ZR1iADntu9u6DJU6ixOmUzjWvQRi+Edaskg8IAZ8lRP01QEVPQP&#x000A;wzQXKwDPvJRJ/aFC6bQhdA1AiMFRHzVNCcAKNhB7PNBV1kEXl2zZkkIAoodT&#x000A;2c7BoAMYQlVU05QEFNF+kHPnjkVVwQ/PmHQBnGBTY7UVdax7bMFWbzVN1yBg&#x000A;XMDrAPXgNrQE/2TUH6AsVtuI8TQEkZi1KhsgA4btJeZgUhPm4gKgApxA7LIV&#x000A;hdThCWSsH6xgH7zVLRvAELAIPLawHo1lLQz1IAupcgyCQem1XgUh9crIm1gl&#x000A;YSjVfdyDQOnMX/siXapuGpiBYFPzEXoS7bRCWtn1IeLJSJwGFG+krfjuJfJg&#x000A;WS92wkSojCSgERk2NqMHKUJMyZy0Qi4EOAWjVlV2OBvAAoKQMriwWDmVPuQN&#x000A;z35ORCJLKiOABXhWOhsAAtQt5QYgK4f2SZsGKeTtAGwW3A4AzQRDBVLWaamo&#x000A;AbQh4uyHCmDgAGB2K3PkAJLCADaOPb5EB/IxhgphbHVSHCz2I5iBFv8FDbqy&#x000A;02NzxhycgCecwF8PQEExQmzz1kx2YB/kpgFOAJXIIkPZViiZYsMSwEEEoxAd&#x000A;9yPF4Qc2gG8XqQ6E9CWWQFowd3CHwq3KB3Srch+KoHQ7ogFYQN3KyAPeoVdb&#x000A;d5b+YjGFM3Y/kgmYIAgOoxB0wTr1hzR9V0RKFkAeoHGHN1U2gAlq13ZpIGDI&#x000A;NXtY13kbAkk8a2epVyeZwXpXpwFC4IicxBat9ntNQkdXJjrJt3z3IXKBzQ3E&#x000A;zElWyUjet+IMwLPEkH4d8xHuFyQagAQOFm0ly3399yEWCFkjoBUGGGN3IJEy&#x000A;FpVK0ikdmCgmkFwEYximl4JfBnKx13aHoXLK9WpLObgKp0QqJcAURng4ccGE&#x000A;bRcSgHZ/+ZOFvZMlriIERFiGs04S8CBgsiKSIlY71QEKgAsaSi+I9bQB6uFs&#x000A;SXJyLnKHDwwsACQRnthbG8AYUKkfXvMWr9ghFkBR++EKapiLrXRywXgABIDT&#x000A;yNghDMBsCCIRgHiNlYsZ7AGMJ1Rh5ZhahGAx2SWP6RVqB89+2G24yFhxASQP&#x000A;CplgG8AOxgEZkGEOLLmSkYER4SQ3O9mTPxmUQ1mUR5mUS9mUT9mTASqTKzk8&#x000A;VTYgAAAh+QQFMgD/ACwFAAMAmQBHAAAI/wD/CRxIsKDBgwQ35GmAsKHDhxAj&#x000A;SpxIsaJFg8wMMbh2saPHjyBDXmxAYE6/C/VEqlzJsuXDetj6yezna4NHcbhc&#x000A;6twpkgW5f4V8zZRprI3HCcYgCSTwgqfTpw555OJADJhMfZlE+BKVo+Olmd4m&#x000A;IZvGEarZp8zGRBjaj9+lfxus9iN08ZC+fhE+rO1H6qzfncwOWdF3t58VFv8g&#x000A;JJFp5e1EcQNtddvbT56hhX8zr2xwaGaWQv8Smeyna4M4VBJ5dBMksFC3mdge&#x000A;SNBXSTNLhgUf4cL9T1yQj21OCJPJjVmDOHtvEdHTZZor3gg7rd1lPItMfqWI&#x000A;dJG5Arrt7xJ3yP/t9+kfLhoyhclroO2CzAvMHpp4JRMAKQBjQTFsYzJCU/AA&#x000A;QgTKFTLlMglQ41xVxz+UpCLTOJ3ExwxrCJEAzUxWrFBOILtQ888kMgHjXYAk&#x000A;9jaPBA+C8w8LDl6VzxgohojNJA2ockUh3pkwwT/zzISMLZJc900Dr/XTS4lI&#x000A;ChQFPzJF8JNsMkFD2FBXFOYLJzKFsgNB5IwTwRa7zJQLC8xII5MEzmyATD8f&#x000A;xJckgBuEoA0ow/UTwgQznVMIGTMJQww4ueQiTIwRhLClQPNwINMcuwjDZD8c&#x000A;PKOCKjE+o4pMBJCEwpuakfCaMQ3kcZIxsDVAhCgzRQABM4U4YsWZhhD/9IlM&#x000A;HJg0DTaFADBUF/PkIhMNKO4ihjDTgMbpWW2EKZM14vBQS3oPNNDGYkMJgwkg&#x000A;CfaTRCQDNUDCCTIxsshw5/zDDAMYMiNVP7dSZuexTuX0Tw4X+shRAwDwQxcP&#x000A;j47jSYy5xJgFagIxU8cHJITQzxw5dHLXGg2wMxMAAp3ywSL1xNiPCOjAq1M9&#x000A;DDCgjVhZApNKM/gItAM5DcSyVxbb/JOHrzPlk5JAG6hy1wfinNOPMIKMIVM0&#x000A;ocykTwgMFbIBA3f5CZnHt+1AqmF1MsAMLivMIcGmAgFSJyOuCDSCezJhw5s4&#x000A;QhGH02JWCKJClvpIsKY+nTTgTL1W8DAi1CA1/zBrP4X1w2wDIezFyUBV1DJH&#x000A;BrjZ0iIy8zQQTz6AsACPTMjIMFDG/cAzgq65ADACiP1IcIaibP7H921EjLJX&#x000A;BBMws0OR+iTSAG/MrCrQC9QmkTIPD77aTy6dqAxJAyb8Ko51bf4TiEzTrBAB&#x000A;AyOsrhMKWaxlxSn/mEBtLtyX0o1NBc2zZj+7GEXEaDPpAorKt/TDgDgPyCRN&#x000A;A3j0kwpoUwNAgLzWY4kaRvOBO/zjG9S6wqYmsZYs/EYgRDjEXrpAoTaoQhh3&#x000A;0cc4vCEQPUytH/hogJn6cYKi8aUeRfrA3gJ4E9fJ5AM2mcD5rNaAYdxlDsNw&#x000A;EzPQY78H/mMHIqjTBf+uEAFIbMM6w7MBQ4jUp3yYYg3p4R4LVbIDRkzMOKMY&#x000A;Cg0asIKZwMMGL2iAIGbhs37IgjeFQGI/JpCPMz0qCz8ZCDPStoL4UOIDEujF&#x000A;CqdYkSCQzYzm4uFV+gGLRZ3PFy8oZDdooJSB/OEDBZrHD8fTj1eQADKP2IE2&#x000A;CoEKRXEDN3coHh9Fwgx7FOYTQciWBMbwtpkwYAI0m0a9PnAzc2khRnOgi3k6&#x000A;M6U5TCMVWWCALsYxh1igwBio2OMoP4IlZDCCQGziFulk4gZm2AAS1JJf2ATS&#x000A;ABFMDDH/EMTUCBM4tgCgAT5cZkuYEY0QoA4Y2viHN87HGBMc53wnIN8/iPD/&#x000A;jwcUZhYCoYQJATelD8xiHIGqz9PUqZPbXY4BDZjjTIxRpySg62cy4E05aGAU&#x000A;SMxEDfUg4AkCN4dooeIM8yBADhbKUJ2MIA7MeMTUhJGIINQhAoGTQKYi46AP&#x000A;PMcamDuEr8ahDQgszIT6UFFL/yKOFkmARv9owHZeCE6BXKKQC3tfEC6ahENw&#x000A;giP1EwYcZmrPpZ6FGVb8gFL/QYz8kaYBlZgHM5iBjfOl4hq4aQDZUoEbhUXg&#x000A;G/VwqxVsYdazBCEO29xB/H6Vk11EQBTDcGX1/jECm9RDeCJy3s8e8A9bjOYV&#x000A;+iysU3DDDF39LAO4wEUZfSQCeeEjFaLg5wvqFIcG//hMGG4QiMQEl07ROuUF&#x000A;2UIGOxhyjXTM5kyqwM0DaKa5BmQAcxAIkz70JhBOYMO3ZmHGA4SXiq44EnVW&#x000A;MBkECLeXbnDLXGTLxVoigII97kAQocVuSBpw0SyURSCwfA8UDbNaEbgpoIWh&#x000A;gSrysccgxKMbZCiHfFeygVBk4b/d9IwgtgFJH6nhbLczrShu5xAW1GsXIVyw&#x000A;SAoRT3OhYKr9WEGJz3AVfSCDBsMQQQhCQAZj1IIEhWnEQ8CB1X6MAxPKFDFF&#x000A;GgAJ4VnBHrg5hYPIyZbCQBQeOD3BQ3ARh0FyQI9Cnm/9iMMQcYSgTuTURy6A&#x000A;sZbCWKEeKJjABHgAEVxgI/+Dw0Nyli3SAGKQATfg+hkBgsCnELGvpIWYhwhU&#x000A;YI1P8JMizAgBnIUh5zlLRBwTWEsIBjLVxaFIGGnQBjL0ITxhgFMcQW5IA+QB&#x000A;537EwViOdkgEh/IMbiIxFQclRgMoAbgtyEUYhO1blQEHuBDEN9UEYQaKFwVO&#x000A;bbh1FyYQSCdk8gBxxNIofctEmQH3iVCLeARIzEUtWpSKRwjEDjEi8D/w1I/D&#x000A;nWIv4yBBSJiRiOFkMHLW9i0JhCcBHuyhQTLZxc0WsRfOYqkyAnmW/v4gkgZM&#x000A;wCR34QA5/gtsLvr4feZC4tae5s3SAaIz/RjDElWQBErEGyLMeAY9V4DqLEtj&#x000A;R///uIQYJrBNHkCTA1uYRBd8YZxsZYFa3o2qh24Tk/eoO8vMyDM4hNaPAzXA&#x000A;DTG6QjnsMBNJUuJ8HwhFKloxWlyYMBTnFXIDKlynfnThgDPZxWSBqq1HRLgf&#x000A;3QgCJVi6EwiYhBS9XbA2sjW88pAjELqIEjhx4SDY/eMaMYojVBDxAAtsgOEi&#x000A;tkXe39MAW1xoBcp6hYIB4SthvM8ZRQKGXzg8Z2bkgGYz6QZ9+pGFOwjvA5yI&#x000A;0XoAkIoHdAEAhwO2YafGgBDQsx/n8PYfbn9CuTxgroiXPU8aMIIkwCOiFZZJ&#x000A;Pj70iTPESBh1MAHd7wceO8wZEJO8CzLqpAuTWCMN8DAG0SHyQKhomP073nY0&#x000A;ObDKj20QgC3daIA4qkCAvUjAEMH/S1W1vussTMIazBAPM0Fz5pJn2lI3ATIM&#x000A;qdYA+QAMq3AhoDJC00AC5+JK2BcgyQZsRPAIgFAYh1AJpvUB0NQPzXAoARIN&#x000A;wlcx6MY0QyEBxABAADIC0JCCUfVvbKEtQIYk5UGD/xAE01AgSSAB40AKO1ci&#x000A;epAFPCgQzwA921AIk5UkpyAMSdgbP9gPNgAvIjCFAkEL45AK+VAFnLJVWigQ&#x000A;9UB8+QcgiJAEY8g3LCCFjhYQADs='>
+</div>
+
+</div>
+</div>
+<div class='tree_progress'></div>
+<div class='ui small modal' id='modal-linejump'>
+<div class='ui custom form content'>
+<div class='field'>
+<div class='ui right action input'>
+<input placeholder='跳转至某一行...' type='number'>
+<div class='ui orange button'>
+跳转
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class='row column inner-comment' id='blob-comment'>
+<input id="comment_path" name="comment_path" type="hidden" value="056c3f13de67a26ffb2a30598a6d066d3413.gif" />
+<div class='tree-comments'>
+<h3 id='tree_comm_title'>
+评论
+(
+<span class='comments-count'>
+0
+</span>
+)
+</h3>
+<div class='ui threaded comments middle aligned' id='notes-list'></div>
+<input id="ajax_add_note_id" name="ajax_add_note_id" type="hidden" />
+<div class='text-center'>
+<div class='tip-loading' style='display: none'>
+<div class='ui active mini inline loader'></div>
+正在加载...
+</div>
+</div>
+</div>
+<script>
+  "use strict";
+  $(function(){
+    var page = 1
+    var commentsCount = 0
+    var $container = $('.tree-comments')
+    var $comments = $container.find('.ui.comments')
+    var $tipLoading = $container.find('.tip-loading')
+    var $btnLoad = $container.find('.btn-load-more')
+    var noteAnchor = new Gitee.NoteAnchor({ defaultAnchor: '#tree_comm_title' })
+  
+    if (commentsCount < 1) {
+      return;
+    }
+  
+    var path;
+    if ($('#comment_path').val() === '') {
+      path = '/';
+    } else {
+      path = $('#comment_path').val();
+    }
+  
+    function loadComments () {
+      $btnLoad.hide();
+      $tipLoading.show();
+      $.ajax({
+        url: '/nicliuqi/daily/comment_list',
+        data: {
+          page: page,
+          path: path
+        },
+        success: function(data) {
+          var err;
+          try {
+            $tipLoading.hide();
+            $btnLoad.show();
+            if (data.status !== 0) {
+              $btnLoad.text('无更多评论')
+              return $btnLoad.prop('disabled', true).addClass('disabled');
+            } else {
+              TreeComment.CommentListHandler(data);
+              page += 1;
+              if (data.comments_count < 10) {
+                $('#ajax_add_note_id').val('');
+                $btnLoad.text('无更多评论')
+                $btnLoad.prop('disabled', true).addClass('disabled');
+              }
+              // osctree can not load script
+              $comments.find('.timeago').timeago();
+              $comments.find('.commenter-role-label').popup();
+              noteAnchor.locate();
+              toMathMlCode('', 'comments');
+              return $('.markdown-body pre code').each(function(i, block) {
+                return hljs.highlightBlock(block);
+              });
+            }
+          } catch (error) {
+            err = error;
+            return console.log('loadComments error:' + err);
+          }
+        }
+      });
+    };
+  
+  
+    function checkLoad () {
+      var listTop, top;
+      top = $(window).scrollTop();
+      listTop = $container.offset().top;
+      if (listTop >= top && listTop < top + $(window).height()) {
+        $(window).off('scroll', checkLoad);
+        return loadComments();
+      }
+    };
+  
+    $btnLoad.on('click', loadComments);
+    loadComments()
+  })
+</script>
+
+</div>
+<div class='inner-comment-box' id='comment-box'>
+<p>
+你可以在<a href="/login">登录</a>后，发表评论
+</p>
+
+</div>
+
+<div class='complaint'>
+<div class='ui modal small form' id='landing-comments-complaint-modal'>
+<i class='iconfont icon-close close'></i>
+<div class='header'>
+举报
+</div>
+<div class='content'>
+<div class='appeal-success-tip hide'>
+<i class='iconfont icon-ic_msg_success'></i>
+<div class='appeal-success-text'>
+举报成功
+</div>
+<span>
+我们将于2个工作日内通过站内信反馈结果给你！
+</span>
+</div>
+<div class='appeal-tip'>
+请认真填写举报原因，尽可能描述详细。
+</div>
+<div class='ui form appeal-form'>
+<div class='inline field'>
+<label class='left-part appeal-type-wrap'>
+举报类型
+</label>
+<div class='ui dropdown selection' id='appeal-comments-types'>
+<div class='text default'>
+请选择举报类型
+</div>
+<i class='dropdown icon'></i>
+<div class='menu'></div>
+</div>
+</div>
+<div class='inline field'>
+<label class='left-part'>
+举报原因
+</label>
+<textarea class='appeal-reason' id='appeal-comment-reason' name='msg' placeholder='请说明举报原因' rows='3'></textarea>
+</div>
+<div class='ui message callback-msg hide'></div>
+<div class='ui small error text message exceeded-size-tip'></div>
+</div>
+</div>
+<div class='actions'>
+<div class='ui button blank cancel'>
+取消
+</div>
+<div class='ui orange icon button disabled ok' id='complaint-comment-confirm'>
+发送
+</div>
+</div>
+</div>
+<script>
+  var $complaintCommentsModal = $('#landing-comments-complaint-modal'),
+      $complainCommentType = $complaintCommentsModal.find('#appeal-comments-types'),
+      $complaintModalTip = $complaintCommentsModal.find('.callback-msg'),
+      $complaintCommentsContent = $complaintCommentsModal.find('.appeal-reason'),
+      $complaintCommentBtn = $complaintCommentsModal.find('#complaint-comment-confirm'),
+      complaintSending = false,
+      initedCommentsType = false;
+  
+  function initCommentsTypeList() {
+    if (!initedCommentsType) {
+      $.ajax({
+        url: "/appeals/fetch_types",
+        method: 'get',
+        data: {'type': 'comment'},
+        success: function (data) {
+          var result = '';
+          for (var i = 0; i < data.length; i++) {
+            result = result + "<div class='item' data-value='" + data[i].id + "'>" + data[i].name + "</div>";
+          }
+          $complainCommentType.find('.menu').html(result);
+        }
+      });
+      $complainCommentType.dropdown({showOnFocus: false});
+      initedCommentsType = true;
+    }
+  }
+  $complainCommentType.on('click', function() {
+    $complaintCommentsModal.modal({
+      autofocus: false,
+      onApprove: function() {
+        return false;
+      },
+      onHidden: function() {
+        restoreCommonentDefault();
+      }
+    }).modal('show');
+  });
+  
+  $complaintCommentsContent.on('change keyup', function(e) {
+    var content = $(this).val();
+    if ($.trim(content).length > 0 && $complainCommentType.dropdown('get value').length > 0 ) {
+      $complaintCommentBtn.removeClass('disabled');
+      return;
+    }
+    $complaintCommentBtn.addClass('disabled');
+  });
+  
+  
+  $complainCommentType.dropdown({
+    showOnFocus: false,
+    onChange: function(value, text, $selectedItem) {
+      if (value.length > 0 && $.trim($complaintCommentsContent.val()).length > 0) {
+        $complaintCommentBtn.removeClass('disabled');
+        return
+      }
+      $complaintCommentBtn.addClass('disabled');
+    }
+  });
+  
+  function restoreCommonentDefault() {
+    $complainCommentType.dropdown('restore defaults');
+    $complaintCommentsContent.val('');
+    $('.exceeded-size-tip').text('').hide();
+    $complaintModalTip.text('').hide();
+    setTimeout(function() {
+      setCommentSendTip(false);
+    }, 1500);
+  }
+  
+  $complaintCommentBtn.on('click',function(e){
+    var reason = $complaintCommentsContent.val();
+    var appealableId = $('#landing-comments-complaint-modal').attr('data-id');
+    if (complaintSending) {
+      return;
+    }
+    var appealType = $complainCommentType.dropdown('get value');
+    var formData = new FormData();
+    formData.append('appeal_type_id', appealType);
+    formData.append('reason', reason);
+    formData.append('appeal_type','Note');
+    formData.append('target_id',appealableId);
+    $.ajax({
+      type: 'POST',
+      url: "/appeals",
+      cache: false,
+      contentType: false,
+      processData: false,
+      data: formData,
+      beforeSend: function() {
+        setCommentSendStatus(true);
+      },
+      success: function(res) {
+        if (res.status == 200) {
+          setCommentSendTip(true);
+          setTimeout(function() {
+            $complaintCommentsModal.modal('hide');
+            restoreCommonentDefault();
+          }, 3000);
+        }
+        setCommentSendStatus(false);
+      },
+      error: function(err) {
+        showCommonTips(err.responseJSON.message, 'error');
+        setCommentSendStatus(false);
+      }
+    })
+  });
+  
+  function showCommonTips(text, type) {
+    $complaintModalTip.text(text).show();
+    if (type == 'error') {
+      $complaintModalTip.removeClass('success').addClass('error');
+    } else {
+      $complaintModalTip.removeClass('error').addClass('success');
+    }
+  }
+  
+  function setCommentSendStatus(value) {
+    complaintSending = value;
+    if (complaintSending) {
+      $complaintCommentBtn.addClass('loading');
+      $complaintCommentsContent.attr('readonly', true);
+      $complainCommentType.attr('readonly', true);
+    } else {
+      $complaintCommentBtn.removeClass('loading');
+      $complaintCommentsContent.attr('readonly', false);
+      $complainCommentType.attr('readonly', false);
+    }
+  }
+  
+  function setCommentSendTip(value) {
+    if (value) {
+      $('.appeal-success-tip').removeClass('hide');
+      $('.appeal-tip').addClass('hide');
+      $('.appeal-form').addClass('hide');
+      $('#landing-comments-complaint-modal .actions').addClass('hide');
+    } else {
+      $('.appeal-success-tip').addClass('hide');
+      $('.appeal-tip').removeClass('hide');
+      $('.appeal-form').removeClass('hide');
+      $('#landing-comments-complaint-modal .actions').removeClass('hide');
+    }
+  }
+</script>
+
+</div>
+<script>
+  "use strict";
+  $('.js-check-star').checkbox('set unchecked')
+</script>
+
+</div>
+</div>
+</div>
+<div class='four wide column' style='display: none;'>
+<div class='project__right-side'>
+<div class='side-item intro'>
+<div class='header'>
+<h4>简介</h4>
+</div>
+<div class='content intro-info'>
+<span class='git-project-desc-text text-muted'>暂无描述</span>
+<a class='hide spread' href='javascript:void(0);'>
+展开
+<i class='caret down icon'></i>
+</a>
+<a class='retract hide' href='javascript:void(0);'>
+收起
+<i class='caret up icon'></i>
+</a>
+<div class='intro-list'>
+<div class='hide item'>
+<i class='iconfont icon-link'></i>
+<span class='git-project-homepage'>
+<a href="" id="homepage" rel="nofollow" target="_blank"></a>
+</span>
+</div>
+<div class='item'>
+<i class='iconfont icon-tag-program'></i>
+<span class='summary-languages'>
+Python
+</span>
+</div>
+
+<div class='item'>
+<i class='iconfont icon-licence'></i>
+<a href="/nicliuqi/daily/blob/master/LICENSE" id="license-popup" target="_blank">MulanPSL-2.0</a>
+<div class='ui popup dark'>使用 MulanPSL-2.0 开源许可协议</div>
+</div>
+</div>
+</div>
+<div class='content intro-form'>
+<div class='ui small input'>
+<textarea name='project[description]' placeholder='描述' rows='5'></textarea>
+</div>
+<div class='ui small input'>
+<input data-regex-value='(^$)|(^(http|https):\/\/(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5]).*)|(^(http|https):\/\/[a-zA-Z0-9]+([_\-\.]{1}[a-zA-Z0-9]+)*\.[a-zA-Z]{2,10}(:[0-9]{1,10})?(\?.*)?(\/.*)?$)' name='project[homepage]' placeholder='主页(eg: https://gitee.com)' type='text' value=''>
+</div>
+<button class='ui orange button mt-1 btn-save'>
+保存更改
+</button>
+<div class='ui blank button btn-cancel-edit'>
+取消
+</div>
+</div>
+</div>
+<div class='side-item release'>
+<div class='header'>
+<h4>发行版</h4>
+</div>
+<div class='content'>
+<span class='text-muted'>
+暂无发行版
+</span>
+</div>
+</div>
+<div class='side-item contrib' data-url='/nicliuqi/daily/contributors_count?ref=137d4820e79321346fbe015da9925c09daaac5b1' id='contributor'>
+<div class='header'>
+<h4>
+贡献者
+<span class='text-muted' id='contributor-count'></span>
+</h4>
+<a class="ui link button pull-right" href="/nicliuqi/daily/contributors?ref=137d4820e79321346fbe015da9925c09daaac5b1">全部</a>
+</div>
+<div class='content' id='contributor-list'></div>
+<div class='ui active centered inline loader' id='contributor-loader'></div>
+</div>
+<div class='side-item events' data-url='/nicliuqi/daily/events.json' id='proj-events'>
+<div class='header'>
+<h4>近期动态</h4>
+</div>
+<div class='content'>
+<div class='ui comments' id='event-list'></div>
+<a class="loadmore hide" href="javascript:void(0);">加载更多
+<i class='icon dropdown'></i>
+</a><center>
+<div class='text-muted nomore hide'>不能加载更多了</div>
+<div class='ui inline loader active'></div>
+</center>
+</div>
+</div>
+</div>
+<script>
+  window.gon.projectRightSide = {
+    homepage: "",
+    description: "",
+    url: "/nicliuqi/daily/update_description"
+  }
+  
+  $('#license-popup').popup({ position: 'bottom center', lastResort: 'bottom center' })
+</script>
+
+</div>
+</div>
+</div>
+<script>
+  (function() {
+    $(function() {
+      Tree.init();
+      return TreeCommentActions.init();
+    });
+  
+  }).call(this);
+</script>
+
+</div>
+<script>
+  (function() {
+    var donateModal;
+  
+    Gitee.modalHelper = new GiteeModalHelper({
+      alertText: '提示',
+      okText: '确定'
+    });
+  
+    donateModal = new ProjectDonateModal({
+      el: '#project-donate-modal',
+      alipayUrl: '/nicliuqi/daily/alipay',
+      wepayUrl: '/nicliuqi/daily/wepay',
+      nameIsBlank: '名称不能为空',
+      nameTooLong: '名称过长（最多为 36 个字符）',
+      modalHelper: Gitee.modalHelper
+    });
+  
+    if (null === 'true') {
+      donateModal.show();
+    }
+  
+    $('#project-donate').on('click', function() {
+      return donateModal.show();
+    });
+  
+  }).call(this);
+</script>
+<script>
+  Tree.initHighlightTheme('white')
+</script>
+
+
+</div>
+<div class='gitee-project-extension'>
+<div class='extension lang'>Python</div>
+<div class='extension public'>1</div>
+<div class='extension https'>https://gitee.com/nicliuqi/daily.git</div>
+<div class='extension ssh'>git@gitee.com:nicliuqi/daily.git</div>
+<div class='extension namespace'>nicliuqi</div>
+<div class='extension repo'>daily</div>
+<div class='extension name'>daily</div>
+<div class='extension branch'>137d4820e79321346fbe015da9925c09daaac5b1</div>
+</div>
+
+<script>
+  $(function() {
+    GitLab.GfmAutoComplete.dataSource = "/nicliuqi/daily/autocomplete_sources"
+    GitLab.GfmAutoComplete.Emoji.assetBase = '/assets/emoji'
+    GitLab.GfmAutoComplete.setup();
+  });
+</script>
+
+<footer id='git-footer-main'>
+<div class='ui container'>
+<div class='logo-row'>
+<img class='logo-img' src='/static/images/logo-black.svg?t=158106666'>
+</div>
+<div class='name-important'>
+深圳市奥思网络科技有限公司版权所有
+</div>
+<div class='ui two column grid d-flex-center'>
+<div class='nine wide column git-footer-left'>
+<div class='ui four column grid' id='footer-left'>
+<div class='column'>
+<div class='ui link list'>
+<div class='item'>
+<a class="item" href="/about_us">关于我们</a>
+</div>
+<div class='item'>
+<a class="item" href="https://www.oschina.net/news/131099/oschina-hiring">加入我们</a>
+</div>
+<div class='item'>
+<a class="item" href="/terms">使用条款</a>
+</div>
+<div class='item'>
+<a class="item" href="/oschina/git-osc/issues">意见建议</a>
+</div>
+<div class='item'>
+<a class="item" href="/links.html">合作伙伴</a>
+</div>
+</div>
+</div>
+<div class='column'>
+<div class='ui link list'>
+<div class='item'>
+<a class="item" href="/all-about-git">Git 大全</a>
+</div>
+<div class='item'>
+<a class="item" href="https://oschina.gitee.io/learn-git-branching/">Git 命令学习</a>
+</div>
+<div class='item'>
+<a class="item" href="https://copycat.gitee.com/">CopyCat 代码克隆检测</a>
+</div>
+<div class='item'>
+<a class="item" href="/appclient">APP与插件下载</a>
+</div>
+</div>
+</div>
+<div class='column'>
+<div class='ui link list'>
+<div class='item'>
+<a class="item" href="/gitee-stars">Gitee 封面人物</a>
+</div>
+<div class='item'>
+<a class="item" href="/gvp">GVP 项目</a>
+</div>
+<div class='item'>
+<a class="item" href="https://blog.gitee.com/">Gitee 博客</a>
+</div>
+<div class='item'>
+<a class="item" href="/enterprises#nonprofit-plan">Gitee 公益计划</a>
+</div>
+</div>
+</div>
+<div class='column'>
+<div class='ui link list'>
+<div class='item'>
+<a class="item" href="/api/v5/swagger">OpenAPI</a>
+</div>
+<div class='item'>
+<a class="item" href="/help">帮助文档</a>
+</div>
+<div class='item'>
+<a class="item" href="/self_services">在线自助服务</a>
+</div>
+<div class='item'>
+<a class="item" href="/git-osc">更新日志</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class='seven wide column right aligned followus git-footer-right'>
+<div class='qrcode weixin'>
+<img alt="Qrcode weixin" src="https://assets.gitee.com/assets/qrcode-weixin-9e7cfb27165143d2b8e8b268a52ea822.jpg" />
+<p class='weixin-text'>微信服务号</p>
+</div>
+<div class='phone-and-qq column'>
+<div class='ui list official-support-container'>
+<div class='item'>
+<a class="icon-popup" href="//shang.qq.com/wpa/qunwpa?idkey=df785aa7af71f7d74149ab062742d761b845464350ecba25eb440357a3e573b7" title="点击加入 Gitee 官方群"><i class='iconfont icon-logo-qq'></i>
+<span>官方技术交流QQ群：1050025484</span>
+</a></div>
+<div class='item mail-and-zhihu'>
+<a href="mailto: git@oschina.cn"><i class='iconfont icon-msg-mail'></i>
+<span id='git-footer-email'>git#oschina.cn</span>
+</a></div>
+<div class='item mail-and-zhihu'>
+<a href="https://www.zhihu.com/org/ma-yun-osc/" target="_blank"><i class='iconfont icon-zhihu'></i>
+<span>Gitee</span>
+</a></div>
+<div class='item tel'>
+<a>
+<i class='iconfont icon-tel'></i>
+<span>售前及售后使用咨询：400-606-0201</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class='bottombar'>
+<div class='ui container'>
+<div class='ui d-flex d-flex-between'>
+<div class='seven wide column partner d-flex'>
+<div class='open-atom d-flex-center'>
+<img alt="Logo openatom" class="logo-openatom mr-1" src="https://assets.gitee.com/assets/logo-openatom-d083391cc8a54e283529f3fc11cc38ca.svg" />
+<a href="https://www.openatom.org/" target="_blank">开放原子开源基金会</a>
+<div class='sub-title ml-1'>认证代码托管平台</div>
+</div>
+<div class='report-12377 d-flex-center ml-3'>
+<img alt="12377@2x" class="report-12377__logo mr-1" src="https://assets.gitee.com/assets/12377@2x-1aa42ed2d2256f82a61ecf57be1ec244.png" />
+<a href="https://12377.cn" target="_blank">违法和不良信息举报中心</a>
+</div>
+<div class='copyright ml-3'>
+<a href="http://beian.miit.gov.cn/">粤ICP备12009483号</a>
+</div>
+</div>
+<div class='nine wide column right aligned'>
+<i class='icon world'></i>
+<a href="/language/zh-CN">简 体</a>
+/
+<a href="/language/zh-TW">繁 體</a>
+/
+<a href="/language/en">English</a>
+</div>
+</div>
+</div>
+</div>
+</footer>
+<script>
+  var officialEmail = $('#git-footer-email').text()
+  $('#git-footer-main .icon-popup').popup({ position: 'bottom center' })
+  $('#git-footer-email').text(officialEmail.replace('#', '@'))
+  window.gon.popover_card_locale = {
+    follow:"关注",
+    unfollow:"已关注",
+    gvp_title: "GVP - Gitee 最有价值开源项目",
+    project: "项目",
+    org: "开源组织",
+    member: "",
+    author: "作者",
+    user_blocked: "该用户已被屏蔽或已注销",
+    net_error: "网络错误",
+    unknown_exception: "未知异常"
+  }
+</script>
+<script src="https://assets.gitee.com/webpacks/popover_card-f8f6dbb28615dcff05a9.bundle.js"></script>
+
+
+<div class='side-toolbar'>
+<div class='button toolbar-help'>
+<i class='iconfont icon-help'></i>
+</div>
+<div class='ui popup left center dark'>点此查找更多帮助</div>
+<div class='toolbar-help-dialog'>
+<div class='toolbar-dialog-header'>
+<h3 class='toolbar-dialog-title'>搜索帮助</h3>
+<form accept-charset="UTF-8" action="/help/load_keywords_data" class="toolbar-help-search-form" method="get"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /></div>
+<div class='ui icon input fluid toolbar-help-search'>
+<input name='keywords' placeholder='请输入产品名称或问题' type='text'>
+<i class='icon search'></i>
+</div>
+</form>
+
+<i class='iconfont icon-close toolbar-dialog-close-icon'></i>
+</div>
+<div class='toolbar-dialog-content'>
+<div class='toolbar-help-hot-search'>
+<div class='toolbar-roll'>
+<a class="init active" href="https://oschina.gitee.io/learn-git-branching/?utm_source==gitee-help-widget" title="Git 命令在线学习"><i class='Blue icon icon-command iconfont'></i>
+<span>Git 命令在线学习</span>
+</a><a class="init " href="https://gitee.com/help/articles/4261?utm_source==gitee-help-widget" title="如何在 Gitee 导入 GitHub 仓库"><i class='icon icon-clipboard iconfont orange'></i>
+<span>如何在 Gitee 导入 GitHub 仓库</span>
+</a></div>
+<div class='toolbar-list'>
+<div class='toolbar-list-item'>
+<a href="/help/articles/4114">Git 仓库基础操作</a>
+</div>
+<div class='toolbar-list-item'>
+<a href="/help/articles/4166">企业版和社区版功能对比</a>
+</div>
+<div class='toolbar-list-item'>
+<a href="/help/articles/4191">SSH 公钥设置</a>
+</div>
+<div class='toolbar-list-item'>
+<a href="/help/articles/4194">如何处理代码冲突</a>
+</div>
+<div class='toolbar-list-item'>
+<a href="/help/articles/4232">仓库体积过大，如何减小？</a>
+</div>
+<div class='toolbar-list-item'>
+<a href="/help/articles/4279">如何找回被删除的仓库数据</a>
+</div>
+<div class='toolbar-list-item'>
+<a href="/help/articles/4283">Gitee 产品配额说明</a>
+</div>
+<div class='toolbar-list-item'>
+<a href="/help/articles/4284">GitHub仓库快速导入Gitee及同步更新</a>
+</div>
+<div class='toolbar-list-item'>
+<a href="/help/articles/4328">什么是 Release（发行版）</a>
+</div>
+</div>
+</div>
+<div class='toolbar-help-search-reseult'>
+<div class='toolbar-help-flex-column'>
+<div class='ui centered inline loader toolbar-help-loader'></div>
+<div class='toolbar-list'></div>
+<div class='toolbar-help-link-to-help'>
+<a href="" target="_blank">查看更多搜索结果</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<script>
+  var opt = { position: 'left center'};
+  var $helpSideToolbar = $('.button.toolbar-help');
+  var $toolbarRoll = $('.toolbar-roll');
+  
+  $(function() {
+    if (false) {
+      $helpSideToolbar.popup(opt).popup({lastResort:'left center'})
+    } else {
+      $helpSideToolbar.popup({lastResort:'left center'}).popup('show', opt);
+      setTimeout(function() {
+        $helpSideToolbar.popup('hide', opt);
+      }, 3000);
+    }
+  
+    if ($toolbarRoll.length) {
+      setInterval(function() {
+        var $nextActiveLink = $toolbarRoll.find('a.active').next();
+        if (!$nextActiveLink.length) {
+          $nextActiveLink = $toolbarRoll.find('a:first-child');
+        }
+        $nextActiveLink.attr('class', 'active').siblings().removeClass('active init');
+      }, 5000);
+    }
+  })
+</script>
+
+<div class='button share-link'>
+<i class='iconfont icon-share'></i>
+</div>
+<div class='ui popup dark'>
+<div class='header'>
+分享到
+</div>
+<div class='bdsharebuttonbox' style='display: flex'>
+<a class='iconfont icon-home-service-wechat' data-cmd='weixin' title='分享到微信'></a>
+<a class='iconfont icon-weibo' data-cmd='tsina' title='分享到新浪微博'></a>
+<a class='iconfont icon-qq' data-cmd='sqq' title='分享到QQ好友'></a>
+<a class='iconfont icon-qzone' data-cmd='qzone' title='分享到QQ空间'></a>
+</div>
+</div>
+<div class='popup button' id='home-comment'>
+<i class='iconfont icon-comment'></i>
+</div>
+<div class='ui popup dark'>评论</div>
+<div class='toolbar-appeal popup button'>
+<i class='iconfont icon-report'></i>
+</div>
+<div class='ui popup dark'>
+仓库举报
+</div>
+<script>
+  $('.toolbar-appeal').popup({ position: 'left center' });
+</script>
+
+<div class='button gotop popup' id='gotop'>
+<i class='iconfont icon-top'></i>
+</div>
+<div class='ui popup dark'>回到顶部</div>
+</div>
+<div class='form modal normal-modal tiny ui' id='unlanding-complaint-modal'>
+<i class='iconfont icon-close close'></i>
+<div class='header'>
+登录提示
+</div>
+<div class='container actions'>
+<div class='content'>
+该操作需登录 Gitee 帐号，请先登录后再操作。
+</div>
+<div class='ui orange icon large button ok'>
+立即登录
+</div>
+<div class='ui button blank cancel'>
+没有帐号，去注册
+</div>
+</div>
+</div>
+<script>
+  var $elm = $('.toolbar-appeal');
+  
+  $elm.on('click', function() {
+    var modals = $("#unlanding-complaint-modal.normal-modal");
+    if (modals.length > 1) {
+      modals.eq(0).modal('show');
+    } else {
+      modals.modal('show');
+    }
+  })
+  $("#unlanding-complaint-modal.normal-modal").modal({
+    onDeny: function() {
+      window.location.href = "/signup?from=";
+    },
+    onApprove: function() {
+      window.location.href = "/login?from=";
+    }
+  })
+</script>
+
+<style>
+  .side-toolbar .bdsharebuttonbox a {
+    font-size: 24px;
+    color: white !important;
+    opacity: 0.9;
+    margin: 6px 6px 0px 6px;
+    background-image: none;
+    text-indent: 0;
+    height: auto;
+    width: auto;
+  }
+  
+  #enterprises-index #udesk_btn a{
+    margin: 0px 20px 217px 0px !important;
+  }
+</style>
+<script>
+  (function() {
+    $('#project-user-message').popup({
+      position: 'left center'
+    });
+  
+  }).call(this);
+</script>
+<script>
+  Gitee.initSideToolbar({
+    hasComment: true,
+    commentUrl: '/nicliuqi/daily#tree_comm_title'
+  })
+</script>
+<script>
+  window._bd_share_config = {
+    "common": {
+      "bdSnsKey": {},
+      "bdText": document.title,
+      "bdMini": "1",
+      "bdMiniList": ["bdxc","tqf","douban","bdhome","sqq","thx","ibaidu","meilishuo","mogujie","diandian","huaban","duitang","hx","fx","youdao","sdo","qingbiji","people","xinhua","mail","isohu","yaolan","wealink","ty","iguba","fbook","twi","linkedin","h163","evernotecn","copy","print"],
+      "bdPic": "",
+      "bdStyle": "1",
+      "bdSize": "32"
+    },
+    "share": {}
+  }
+</script>
+<script src="/bd_share/static/api/js/share.js"></script>
+
+
+
+
+
+<script>
+  (function() {
+    this.__gac = {
+      domain: 'www.oschina.net'
+    };
+  
+  }).call(this);
+</script>
+
+</body>
+</html>
