@@ -7,7 +7,7 @@ text_suffixes:
   ['yaml', 'md', 'txt']
 
 text_categories:
-  ["ad", "politics", "abuse", "porn", "contraband", "flood", "sensitive_words"]
+  ["politics", "abuse", "porn", "contraband", "flood", "sensitive_words"]
 
 image_suffixes:
   ['jpg', 'png', 'jpeg', 'gif', 'bmp']
