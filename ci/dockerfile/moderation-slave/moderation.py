@@ -76,7 +76,6 @@ def moderate_text(text):
         ]
     }
     r = requests.post(url=url, headers=headers, data=json.dumps(data))
-    print(data)
     return r.json()
 
 
@@ -173,9 +172,12 @@ def deal_with_image(file_name, pt, error, owner, repo, number):
     source_branch = r.json()['head']['ref']
     image_url = 'https://gitee.com/{}/raw/{}/{}'.format(full_repo, source_branch, file_name)
     res = moderate_image(image_url)
-    print(res)
-    pt.add_row([file_name, "detail: {}".format(res['result']['category_suggestions'])])
-    return error
+    if res['result']['suggestion'] == 'pass':
+        return error
+    else:
+        pt.add_row([file_name, "detail: {}".format(res['result']['category_suggestions'])])
+        error += 1
+        return error
 
 
 def main(owner, repo, number):
