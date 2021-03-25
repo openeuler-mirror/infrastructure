@@ -1,0 +1,15 @@
+Name: South-China-Agricultural-University
+HttpURL: https://mirrors.scau.edu.cn/openeuler/
+RsyncURL: ""
+FtpURL: ""
+SponsorName: South-China-Agricultural-University
+SponsorURL: https://mirrors.scau.edu.cn/
+SponsorLogoURL: https://static-data.eol.cn/upload/logo/287.jpg
+AdminName: administrator
+AdminEmail: https://github.com/SCAULUG/contributors
+ContinentOnly: false
+CountryOnly: false
+ASOnly: false
+Score: 100
+Enabled: true
+AllowRedirects: null
