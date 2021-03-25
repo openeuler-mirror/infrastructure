@@ -1,0 +1,15 @@
+Name: openEuler-BeiJing-official
+HttpURL: http://121.36.97.194/
+RsyncURL: rsync://root:openeuler@1234@121.36.97.194/openeuler
+FtpURL: ""
+SponsorName: openEuler
+SponsorURL: https://www.openeuler.org
+SponsorLogoURL: https://openeuler.org/img/other/brand/vertical-left.png
+AdminName: infrastructure
+AdminEmail: admin@openeuler.io
+ContinentOnly: false
+CountryOnly: false
+ASOnly: false
+Score: 100
+Enabled: true
+AllowRedirects: null

@@ -1,0 +1,15 @@
+Name: TrueNetwork
+HttpURL: http://mirror.truenetwork.ru/openeuler/
+RsyncURL: ""
+FtpURL: ""
+SponsorName: Truenetwork
+SponsorURL: https://truenetwork.ru/
+SponsorLogoURL: https://truenetwork.ru/images/logo_small.png
+AdminName: Mirror.Truenetwork
+AdminEmail: mirror@truenetwork.ru
+ContinentOnly: false
+CountryOnly: false
+ASOnly: false
+Score: 100
+Enabled: true
+AllowRedirects: null
