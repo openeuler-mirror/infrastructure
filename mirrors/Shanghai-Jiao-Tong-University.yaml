@@ -1,0 +1,15 @@
+Name: Shanghai-Jiao-Tong-University
+HttpURL: https://mirror.sjtu.edu.cn/openeuler/
+RsyncURL: rsync://root@mirror.sjtu.edu.cn/openeuler
+FtpURL: ""
+SponsorName: Shanghai-Jiao-Tong-University
+SponsorURL: https://mirrors.sjtug.sjtu.edu.cn/
+SponsorLogoURL: https://static-data.eol.cn/upload/logo/125.jpg
+AdminName: administrator
+AdminEmail: https://github.com/sjtug/mirror-requests
+ContinentOnly: false
+CountryOnly: false
+ASOnly: false
+Score: 100
+Enabled: true
+AllowRedirects: null

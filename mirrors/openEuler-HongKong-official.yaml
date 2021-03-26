@@ -1,0 +1,15 @@
+Name: openEuler-HongKong-official
+HttpURL: https://repo.openeuler.org/
+RsyncURL: rsync://repo:openeuler@1234@repo.openeuler.org:30873/openeuler/
+FtpURL: ""
+SponsorName: openEuler
+SponsorURL: https://www.openeuler.org
+SponsorLogoURL: https://openeuler.org/img/other/brand/vertical-left.png
+AdminName: infrastructure
+AdminEmail: admin@openeuler.io
+ContinentOnly: false
+CountryOnly: false
+ASOnly: false
+Score: 100
+Enabled: true
+AllowRedirects: null
