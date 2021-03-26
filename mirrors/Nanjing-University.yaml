@@ -1,0 +1,15 @@
+Name: Nanjing-University
+HttpURL: https://mirrors.nju.edu.cn/openeuler/
+RsyncURL: rsync://root@mirrors.nju.edu.cn/openeuler
+FtpURL: ""
+SponsorName: Nanjing-University
+SponsorURL: http://mirrors.nju.edu.cn/
+SponsorLogoURL: https://static-data.eol.cn/upload/logo/111.jpg
+AdminName: administrator
+AdminEmail: https://github.com/ustclug/mirrorrequest
+ContinentOnly: false
+CountryOnly: false
+ASOnly: false
+Score: 100
+Enabled: true
+AllowRedirects: null
