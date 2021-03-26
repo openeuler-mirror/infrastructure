@@ -1,0 +1,15 @@
+Name: HUAWEI-CLOUD
+HttpURL: https://repo.huaweicloud.com/openeuler/
+RsyncURL: ""
+FtpURL: ""
+SponsorName: HUAWEI-CLOUD
+SponsorURL: https://www.huaweicloud.com/
+SponsorLogoURL: https://bkimg.cdn.bcebos.com/pic/9f510fb30f2442a7d933129f2409ba4bd11373f0a4fc?x-bce-process=image/resize,m_lfit,w_268,limit_1/format,f_jpg
+AdminName: administrator
+AdminEmail: https://www.huaweicloud.com/
+ContinentOnly: false
+CountryOnly: false
+ASOnly: false
+Score: 100
+Enabled: true
+AllowRedirects: null

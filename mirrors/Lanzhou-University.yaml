@@ -1,0 +1,15 @@
+Name: Lanzhou-University
+HttpURL: https://mirror.lzu.edu.cn/openeuler/
+RsyncURL: ""
+FtpURL: ""
+SponsorName: Lanzhou-University
+SponsorURL: http://mirror.lzu.edu.cn/
+SponsorLogoURL: https://static-data.eol.cn/upload/logo/97.jpg
+AdminName: administrator
+AdminEmail: https://github.com/LZUOSS/Mirror
+ContinentOnly: false
+CountryOnly: false
+ASOnly: false
+Score: 100
+Enabled: true
+AllowRedirects: null
