@@ -5,7 +5,7 @@ FtpURL: ""
 SponsorName: openEuler
 SponsorURL: https://www.openeuler.org
 SponsorLogoURL: https://openeuler.org/img/other/brand/vertical-left.png
-AdminName: infrastructure
+AdminName: Infrastructure
 AdminEmail: admin@openeuler.io
 ContinentOnly: false
 CountryOnly: false
