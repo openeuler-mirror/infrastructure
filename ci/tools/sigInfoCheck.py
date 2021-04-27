@@ -169,7 +169,7 @@ def check_repositories(repositories, sig_name, sigs, error):
                 for r in repos:
                     if r not in [x['repo'] for x in repositories]:
                         print(
-                            'ERROR! Check repo: repo {} belongs to sig {} according to sigs.yaml should be listed but not listed.'.format(
+                            'ERROR! Check repo: repo {} belongs to sig {} according to sigs.yaml should be listed but missed.'.format(
                                 r, sig_name))
                         error += 1
     return error
