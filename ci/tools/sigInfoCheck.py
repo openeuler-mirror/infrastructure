@@ -1,4 +1,3 @@
-import argparse
 import os
 import requests
 import re
@@ -18,7 +17,8 @@ def check_yaml_exists(owner, repo, number, access_token):
     for slice in slices:
         file_name = slice.split(' ')[0][2:]
         if re.match(r'^sig/.+/sig-info.yaml$', file_name):
-            url = 'https://gitee.com/api/v5/repos/{0}/{1}/pulls/{2}?access_token={3}'.format(owner, repo, number, access_token)
+            url = 'https://gitee.com/api/v5/repos/{0}/{1}/pulls/{2}?access_token={3}'.format(owner, repo, number,
+                                                                                             access_token)
             r = requests.get(url)
             count += 1
             time.sleep(1)
@@ -57,6 +57,18 @@ def check_mentors(mentors, error):
             except KeyError:
                 print('ERROR! Check mentors: gitee_id is required for every mentor.')
                 error += 1
+            try:
+                email = mentor['email']
+                if not email:
+                    print('ERROR! Check mentors: email cannot be null for every maintainer')
+                    error += 1
+                else:
+                    if not re.match(r'^([a-zA-Z0-9_.-]+)+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$', email):
+                        print('ERROR! Check mentors: invalid email {}'.format(email))
+                        error += 1
+            except KeyError:
+                print('ERROR! Check mentors: email must be provided for evevy maintainer')
+                error += 1
     return error
 
 
@@ -73,6 +85,18 @@ def check_maintainers(maintainers, error):
             except KeyError:
                 print('ERROR! Check maintainers: gitee_id is required for every maintainer.')
                 error += 1
+            try:
+                email = maintainer['email']
+                if not email:
+                    print('ERROR! Check maintainers: email cannot be null for every maintainer')
+                    error += 1
+                else:
+                    if not re.match(r'^([a-zA-Z0-9_.-]+)+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$', email):
+                        print('ERROR! Check maintainers: invalid email {}'.format(email))
+                        error += 1
+            except KeyError:
+                print('ERROR! Check maintainers: email must be provided for evevy maintainer')
+                error += 1
     return error
 
 
@@ -88,6 +112,18 @@ def check_committers(committers, error):
             except KeyError:
                 print('ERROR! Check committers: gitee_id is required for every committer.')
                 error += 1
+            try:
+                email = committer['email']
+                if not email:
+                    print('ERROR! Check committers: email cannot be null for every maintainer')
+                    error += 1
+                else:
+                    if not re.match(r'^([a-zA-Z0-9_.-]+)+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$', email):
+                        print('ERROR! Check committers: invalid email {}'.format(email))
+                        error += 1
+            except KeyError:
+                print('ERROR! Check committers: email must be provided for evevy maintainer')
+                error += 1
     return error
 
 
@@ -97,25 +133,38 @@ def check_repositories(repositories, sig_name, sigs, error):
         print('ERROR! Check repositories: should contain at least 1 repository.')
         error += 1
     else:
-        if sig_name not in [x['name'] for x in sigs]:
-            print('ERROR! Check repositories: sig named {} does not exists in sigs.yaml.'.format(sig_name))
-            error += 1
-        else:
-            for r in repositories:
-                if 'repo' not in r.keys():
-                    print('ERROR! Check repo: repo in repositories should be like "repo: xxx".')
-                    error += 1
-                else:
-                    for sig in sigs:
-                        if sig == sig_name and r not in sig['repositories']:
-                            print('ERROR! Check repo: no repo named {} in sig {}.'.format(repo, sig_name))
-                            error += 1
-                        if sig == sig_name and r in sig['repositories']:
-                            if 'additional_contributors' in r.keys():
-                                additional_contributors = r['additional_contributors']
-                                for additional_contributor in additional_contributors:
+        for sig in sigs:
+            if sig['name'] == sig_name:
+                repos = sig['repositories']
+                for r in repositories:
+                    if r['repo'] not in repos:
+                        print('ERROR! Check repo: no repo named {} in sig {}.'.format(r['repo'], sig_name))
+                        error += 1
+                    else:
+                        if 'additional_contributors' in r.keys():
+                            additional_contributors = r['additional_contributors']
+                            for additional_contributor in additional_contributors:
+                                try:
                                     gitee_id = additional_contributor['gitee_id']
                                     error = check_gitee_id(gitee_id, error)
+                                except KeyError:
+                                    print('ERROR! gitee_id is required in additional_contributors.')
+                                    error += 1
+                                try:
+                                    email = additional_contributor['email']
+                                    if not email:
+                                        print('ERROR! Check repositories: email cannot be null for every '
+                                              'additional_contributor')
+                                        error += 1
+                                    else:
+                                        if not re.match(r'^([a-zA-Z0-9_.-]+)+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$',
+                                                        email):
+                                            print('ERROR! Check repositories: invalid email {}'.format(email))
+                                            error += 1
+                                except KeyError:
+                                    print('ERROR! Check repositories: email must be provided for evevy '
+                                          'additional_contributor')
+                                    error += 1
     return error
 
 
@@ -138,21 +187,37 @@ def check_sig_info_yaml(file_name, file_url):
         description = content['description']
         mailing_list = content['mailing_list']
         meeting_url = content['meeting_url']
-        mature_level = content['mature_level']
-        mentors = content['mentors']
+        mentors = content['mentors'] if 'mentors' in content.keys() else None
         maintainers = content['maintainers']
-        committers = content['committers']
+        committers = content['committers'] if 'committers' in content.keys() else None
         repositories = content['repositories']
-    except KeyError as e:
+    except Exception as e:
         print('ERROR!', e)
         os.system('rm {}'.format(temp_file))
         sys.exit(1)
+    if not description:
+        print('ERROR! description is required for the yaml.')
+        error += 1
+    if not mailing_list:
+        print('ERROR! mailing_list is required for the yaml.')
+        error += 1
+    if not meeting_url:
+        print('ERROR! meeting_url is required for the yaml')
+        error += 1
+    if 'additional_contributors' in content.keys():
+        print('ERROR! additional_contributors should belong a repo.')
+        error += 1
     with open('community/sig/sigs.yaml', 'r') as f2:
         sigs = yaml.load(f2.read(), Loader=yaml.Loader)['sigs']
-    error = check_mentors(mentors, error)
+    if name not in [x['name'] for x in sigs]:
+        print('ERROR! sig named {} does not exist in sigs.yaml'.format(name))
+        error += 1
     error = check_maintainers(maintainers, error)
-    error = check_committers(committers, error)
     error = check_repositories(repositories, name, sigs, error)
+    if mentors:
+        error = check_mentors(mentors, error)
+    if committers:
+        error = check_committers(committers, error)
     if error != 0:
         print('Found {} errors, please check!'.format(error))
         os.system('rm {}'.format(temp_file))
@@ -164,7 +229,8 @@ def check_sig_info_yaml(file_name, file_url):
 
 if __name__ == '__main__':
     if len(sys.argv) != 5:
-        print('Required 4 parameters!')
+        print(
+            'Required 4 parameters! The owner, repo, number, access_token parameters need to be transferred in sequence.')
         sys.exit(1)
     owner = sys.argv[1]
     repo = sys.argv[2]
