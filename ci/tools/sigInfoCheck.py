@@ -40,7 +40,7 @@ def check_gitee_id(gitee_id, error):
     r = requests.get(url)
     time.sleep(1)
     if r.status_code == 404:
-        print('ERROR! Check gitee_id: invalid gitee_id {}.'.format(gitee_id))
+        print('ERROR! Check gitee_id: invalid gitee_id {}'.format(gitee_id))
         error += 1
     return error
 
@@ -189,6 +189,12 @@ def check_sig_info_yaml(file_name, file_url):
         print(e)
         os.system('rm {}'.format(temp_file))
         sys.exit(1)
+    trust_list = ['name', 'description', 'mailing_list', 'meeting_url', 'mature_level', 'mentors', 'maintainers',
+                  'committers', 'security_contacts', 'repositories']
+    for i in content.keys():
+        if i not in trust_list:
+            print('ERROR! Check fields: invalid field {}'.format(i))
+            error += 1
     try:
         name = content['name']
         description = content['description']
@@ -244,3 +250,4 @@ if __name__ == '__main__':
     number = sys.argv[3]
     access_token = sys.argv[4]
     check_yaml_exists(owner, repo, number, access_token)
+
