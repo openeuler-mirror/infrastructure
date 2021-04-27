@@ -138,7 +138,8 @@ def check_repositories(repositories, sig_name, sigs, error):
                 repos = sig['repositories']
                 for r in repositories:
                     if r['repo'] not in repos:
-                        print('ERROR! Check repo: no repo named {} in sig {}.'.format(r['repo'], sig_name))
+                        print('ERROR! Check repo: no repo named {} in sig {} according to sigs.yaml.'.format(r['repo'],
+                                                                                                             sig_name))
                         error += 1
                     else:
                         if 'additional_contributors' in r.keys():
@@ -165,6 +166,12 @@ def check_repositories(repositories, sig_name, sigs, error):
                                     print('ERROR! Check repositories: email must be provided for evevy '
                                           'additional_contributor')
                                     error += 1
+                for r in repos:
+                    if r not in [x['repo'] for x in repositories]:
+                        print(
+                            'ERROR! Check repo: repo {} belongs to sig {} according to sigs.yaml should be listed but not listed.'.format(
+                                r, sig_name))
+                        error += 1
     return error
 
 
