@@ -10,7 +10,7 @@ for managing the source information of the mirror.The table shows fields and des
   | FtpURL | FTP base URL (for scanning only) |
   | SponsorName | Name of the sponsor |
   | SponsorURL | URL of the sponsor |
-  | SponsorLogoURL | URL of a logo to display for this mirror |
+  | SponsorLogoURL | URL of a logo to display for this mirror, the image must be square and in jpg/png format |
   | AdminName | Admin's name |
   | AdminEmail | Admin's email |
   | ContinentOnly | The mirror should only handle its continent |
