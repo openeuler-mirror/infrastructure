@@ -2,43 +2,125 @@ import os
 import requests
 import re
 import sys
-import tempfile
-import time
 import yaml
 
 
-def check_yaml_exists(owner, repo, number, access_token):
+def check_yaml_exists(owner, repo, number):
     """check exists of sig-info.yaml"""
     r = requests.get('https://gitee.com/{0}/{1}/pulls/{2}.diff'.format(owner, repo, number))
-    time.sleep(1)
+    error = 0
     count = 0
     differences = r.text
     slices = differences.split('diff --git ')[1:]
-    for slice in slices:
-        file_name = slice.split(' ')[0][2:]
-        if re.match(r'^sig/.+/sig-info.yaml$', file_name):
-            url = 'https://gitee.com/api/v5/repos/{0}/{1}/pulls/{2}?access_token={3}'.format(owner, repo, number,
-                                                                                             access_token)
-            r = requests.get(url)
-            count += 1
-            time.sleep(1)
-            if r.status_code == 200:
-                source_repo = r.json()['head']['repo']['full_name']
-                source_branch = r.json()['head']['ref']
-                source_url = 'https://gitee.com/{0}/raw/{1}/{2}'.format(source_repo, source_branch, file_name)
-                check_sig_info_yaml(file_name, source_url)
-            else:
-                print(r.text)
-                sys.exit(1)
-    if count == 0:
-        print('Found no sig-info.yaml in Pull Request.')
+    diff_files = [x.split(' ')[0][2:] for x in slices]
+    if 'sig/sigs.yaml' in diff_files:
+        os.system('wget -P /tmp https://gitee.com/openeuler/community/raw/master/sig/sigs.yaml')
+        try:
+            with open('/tmp/sigs.yaml', 'r') as f:
+                sigs = yaml.load(f.read(), Loader=yaml.Loader)['sigs']
+        except Exception as e:
+            print(e)
+            sys.exit(1)
+        try:
+            f = open('community/sig/sigs.yaml', 'r')
+            modified_sigs = yaml.load(f.read(), Loader=yaml.Loader)['sigs']
+            f.close()
+        except Exception as e:
+            print(e)
+            sys.exit(1)
+        os.system('diff /tmp/sigs.yaml community/sig/sigs.yaml > /tmp/diff.txt')
+        remove_repos = []
+        add_repos = []
+        with open('/tmp/diff.txt', 'r') as f:
+            for line in f.readlines():
+                if line.startswith('<'):
+                    remove_repos.append(line.strip().split(' ')[-1])
+                if line.startswith('>'):
+                    add_repos.append(line.strip().split(' ')[-1])
+        for diff_file in diff_files:
+            if re.match(r'^sig/.+/sig-info.yaml$', diff_file):
+                count += 1
+                try:
+                    with open(os.path.join('community', diff_file), 'r') as f:
+                        sig_info = yaml.load(f.read(), Loader=yaml.Loader)
+                except Exception as e:
+                    print(e)
+                    sys.exit(1)
+                for r in remove_repos:
+                    for sig in sigs:
+                        if r in sig['repositories']:
+                            sig_name = sig['name']
+                            if sig_name == sig_info['name']:
+                                if r in sig_info['repositories']:
+                                    print(
+                                        'ERROR! remove repo {0} from sigs.yaml should also remove repo {0} from {1}'.format(
+                                            r, diff_file))
+                            else:
+                                if os.path.exists(os.path.join('community', sig_name, 'sig-info.yaml')):
+                                    print(
+                                        'ERROR! remove repo {0} from sigs.yaml should also remove repo {0} from {1}'.format(
+                                            r, diff_file))
+                                    error += 1
+                for r in add_repos:
+                    for sig in modified_sigs:
+                        if r in sig['repositories']:
+                            sig_name = sig['name']
+                            if sig_name == sig_info['name']:
+                                if r not in [x['repo'] for x in sig_info['repositories']]:
+                                    print(
+                                        'ERROR! add repo {0} to sigs.yaml should also add repo {0} to {1}'.format(r,
+                                                                                                                  diff_file))
+                                    error += 1
+                            else:
+                                if os.path.exists(os.path.join('community', sig_name, 'sig-info.yaml')):
+                                    print(
+                                        'ERROR! add repo {0} to sigs.yaml should also add repo {0} to {1}'.format(r,
+                                                                                                                  diff_file))
+                                    error += 1
+                check_sig_info_yaml(diff_file, modified_sigs)
+        if count == 0:
+            for r in remove_repos:
+                for sig in sigs:
+                    if r in sig['repositories']:
+                        sig_info_yaml = 'sig/{}/sig-info.yaml'.format(sig['name'])
+                        if os.path.exists('community/sig/{}/sig-info.yaml'.format(sig['name'])):
+                            print(
+                                'ERROR! remove repo {0} from sigs.yaml should also remove repo {0} from {1}, '
+                                'but no sig-info.yaml changed'.format(
+                                    r, sig_info_yaml))
+                            error += 1
+            for r in add_repos:
+                for sig in modified_sigs:
+                    if r in sig['repositories']:
+                        sig_info_yaml = 'sig/{}/sig-info.yaml'.format(sig['name'])
+                        if os.path.exists('community/sig/{}/sig-info.yaml'.format(sig['name'])):
+                            print(
+                                'ERROR! add repo {0} to sigs.yaml should also add repo {0} to {1}, but no '
+                                'sig-info.yaml changed'.format(r, sig_info_yaml))
+                            error += 1
+        if error != 0:
+            sys.exit(1)
+    else:
+        try:
+            f = open('community/sig/sigs.yaml', 'r')
+            sigs = yaml.load(f.read(), Loader=yaml.Loader)['sigs']
+            f.close()
+        except Exception as e:
+            print('Invalid yaml: sig/sigs.yaml')
+            print(e)
+            sys.exit(1)
+        for diff_file in diff_files:
+            if re.match(r'^sig/.+/sig-info.yaml$', diff_file):
+                count += 1
+                check_sig_info_yaml(diff_file, sigs)
+        if count == 0:
+            print('Found no sig-info.yaml in Pull Request.')
 
 
 def check_gitee_id(gitee_id, error):
     """validate gitee_id"""
     url = 'https://gitee.com/api/v5/users/{}?access_token={}'.format(gitee_id, access_token)
     r = requests.get(url)
-    time.sleep(1)
     if r.status_code == 404:
         print('ERROR! Check gitee_id: invalid gitee_id {}'.format(gitee_id))
         error += 1
@@ -169,25 +251,21 @@ def check_repositories(repositories, sig_name, sigs, error):
                 for r in repos:
                     if r not in [x['repo'] for x in repositories]:
                         print(
-                            'ERROR! Check repo: repo {} belongs to sig {} according to sigs.yaml should be listed but missed.'.format(
-                                r, sig_name))
+                            'ERROR! Check repo: repo {} belongs to sig {} according to sigs.yaml should be listed '
+                            'but missed.'.format(r, sig_name))
                         error += 1
     return error
 
 
-def check_sig_info_yaml(file_name, file_url):
+def check_sig_info_yaml(file_name, sigs):
     """multipart validations"""
     error = 0
-    tempdir = tempfile.gettempdir()
-    temp_file = os.path.join(tempdir, os.path.basename(file_name))
-    if not os.path.exists(temp_file):
-        os.system('wget -P {0} {1}'.format(tempdir, file_url))
     try:
-        with open(temp_file, 'r') as f:
-            content = yaml.load(f.read(), Loader=yaml.Loader)
+        f = open(os.path.join('community', file_name), 'r')
+        content = yaml.load(f.read(), Loader=yaml.Loader)
+        f.close()
     except Exception as e:
         print(e)
-        os.system('rm {}'.format(temp_file))
         sys.exit(1)
     trust_list = ['name', 'description', 'mailing_list', 'meeting_url', 'mature_level', 'mentors', 'maintainers',
                   'committers', 'security_contacts', 'repositories']
@@ -206,7 +284,6 @@ def check_sig_info_yaml(file_name, file_url):
         repositories = content['repositories']
     except Exception as e:
         print('ERROR!', e)
-        os.system('rm {}'.format(temp_file))
         sys.exit(1)
     if not description:
         print('ERROR! description is required for the yaml.')
@@ -220,10 +297,8 @@ def check_sig_info_yaml(file_name, file_url):
     if 'additional_contributors' in content.keys():
         print('ERROR! additional_contributors should belong a repo.')
         error += 1
-    with open('community/sig/sigs.yaml', 'r') as f2:
-        sigs = yaml.load(f2.read(), Loader=yaml.Loader)['sigs']
     if name not in [x['name'] for x in sigs]:
-        print('ERROR! sig named {} does not exist in sigs.yaml'.format(name))
+        print('ERROR! sig named {} does not exist in _sigs.yaml'.format(name))
         error += 1
     error = check_maintainers(maintainers, error)
     error = check_repositories(repositories, name, sigs, error)
@@ -233,21 +308,19 @@ def check_sig_info_yaml(file_name, file_url):
         error = check_committers(committers, error)
     if error != 0:
         print('Found {} errors, please check!'.format(error))
-        os.system('rm {}'.format(temp_file))
         sys.exit(1)
     else:
-        os.system('rm {}'.format(temp_file))
         print('PASS :)')
 
 
 if __name__ == '__main__':
     if len(sys.argv) != 5:
         print(
-            'Required 4 parameters! The owner, repo, number, access_token parameters need to be transferred in sequence.')
+            'Required 4 parameters! The owner, repo, number, access_token parameters need to be transferred in '
+            'sequence.')
         sys.exit(1)
     owner = sys.argv[1]
     repo = sys.argv[2]
     number = sys.argv[3]
     access_token = sys.argv[4]
-    check_yaml_exists(owner, repo, number, access_token)
-
+    check_yaml_exists(owner, repo, number)
