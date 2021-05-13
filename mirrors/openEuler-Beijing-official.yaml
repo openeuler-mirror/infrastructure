@@ -1,4 +1,4 @@
-Name: openEuler-BeiJing-official
+Name: openEuler-Beijing-official
 HttpURL: http://121.36.97.194/
 RsyncURL: rsync://root:openeuler@1234@121.36.97.194/openeuler
 FtpURL: ""
