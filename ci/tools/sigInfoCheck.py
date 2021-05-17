@@ -6,7 +6,9 @@ import yaml
 
 
 def check_yaml_exists(owner, repo, number):
-    """check exists of sig-info.yaml"""
+    """
+    Check exists of sig-info.yaml and sig/sigs.yaml
+    """
     r = requests.get('https://gitee.com/{0}/{1}/pulls/{2}.diff'.format(owner, repo, number))
     error = 0
     count = 0
@@ -14,6 +16,7 @@ def check_yaml_exists(owner, repo, number):
     slices = differences.split('diff --git ')[1:]
     diff_files = [x.split(' ')[0][2:] for x in slices]
     if 'sig/sigs.yaml' in diff_files:
+        os.system('test -f /tmp/sigs.yaml && rm /tmp/sigs.yaml')
         os.system('wget -P /tmp https://gitee.com/openeuler/community/raw/master/sig/sigs.yaml')
         try:
             with open('/tmp/sigs.yaml', 'r') as f:
@@ -37,6 +40,7 @@ def check_yaml_exists(owner, repo, number):
                     remove_repos.append(line.strip().split(' ')[-1])
                 if line.startswith('>'):
                     add_repos.append(line.strip().split(' ')[-1])
+        os.system('rm /tmp/diff.txt')
         for diff_file in diff_files:
             if re.match(r'^sig/.+/sig-info.yaml$', diff_file):
                 count += 1
@@ -53,12 +57,12 @@ def check_yaml_exists(owner, repo, number):
                             if sig_name == sig_info['name']:
                                 if r in sig_info['repositories']:
                                     print(
-                                        'ERROR! remove repo {0} from sigs.yaml should also remove repo {0} from {1}'.format(
+                                        'ERROR! remove repo {0} from sigs.yaml should also remove repo {0} from {1}.'.format(
                                             r, diff_file))
                             else:
                                 if os.path.exists(os.path.join('community', sig_name, 'sig-info.yaml')):
                                     print(
-                                        'ERROR! remove repo {0} from sigs.yaml should also remove repo {0} from {1}'.format(
+                                        'ERROR! remove repo {0} from sigs.yaml should also remove repo {0} from {1}.'.format(
                                             r, diff_file))
                                     error += 1
                 for r in add_repos:
@@ -68,13 +72,13 @@ def check_yaml_exists(owner, repo, number):
                             if sig_name == sig_info['name']:
                                 if r not in [x['repo'] for x in sig_info['repositories']]:
                                     print(
-                                        'ERROR! add repo {0} to sigs.yaml should also add repo {0} to {1}'.format(r,
+                                        'ERROR! add repo {0} to sigs.yaml should also add repo {0} to {1}.'.format(r,
                                                                                                                   diff_file))
                                     error += 1
                             else:
                                 if os.path.exists(os.path.join('community', sig_name, 'sig-info.yaml')):
                                     print(
-                                        'ERROR! add repo {0} to sigs.yaml should also add repo {0} to {1}'.format(r,
+                                        'ERROR! add repo {0} to sigs.yaml should also add repo {0} to {1}.'.format(r,
                                                                                                                   diff_file))
                                     error += 1
                 check_sig_info_yaml(diff_file, modified_sigs)
@@ -86,7 +90,7 @@ def check_yaml_exists(owner, repo, number):
                         if os.path.exists('community/sig/{}/sig-info.yaml'.format(sig['name'])):
                             print(
                                 'ERROR! remove repo {0} from sigs.yaml should also remove repo {0} from {1}, '
-                                'but no sig-info.yaml changed'.format(
+                                'but no sig-info.yaml changed.'.format(
                                     r, sig_info_yaml))
                             error += 1
             for r in add_repos:
@@ -96,7 +100,7 @@ def check_yaml_exists(owner, repo, number):
                         if os.path.exists('community/sig/{}/sig-info.yaml'.format(sig['name'])):
                             print(
                                 'ERROR! add repo {0} to sigs.yaml should also add repo {0} to {1}, but no '
-                                'sig-info.yaml changed'.format(r, sig_info_yaml))
+                                'sig-info.yaml changed.'.format(r, sig_info_yaml))
                             error += 1
         if error != 0:
             sys.exit(1)
@@ -118,17 +122,21 @@ def check_yaml_exists(owner, repo, number):
 
 
 def check_gitee_id(gitee_id, error):
-    """validate gitee_id"""
+    """
+    Check validation of gitee_id
+    """
     url = 'https://gitee.com/api/v5/users/{}?access_token={}'.format(gitee_id, access_token)
     r = requests.get(url)
     if r.status_code == 404:
-        print('ERROR! Check gitee_id: invalid gitee_id {}'.format(gitee_id))
+        print('ERROR! Check gitee_id: invalid gitee_id {}.'.format(gitee_id))
         error += 1
     return error
 
 
 def check_mentors(mentors, error):
-    """check mentors"""
+    """
+    Check mentors
+    """
     if not mentors:
         pass
     else:
@@ -142,20 +150,22 @@ def check_mentors(mentors, error):
             try:
                 email = mentor['email']
                 if not email:
-                    print('ERROR! Check mentors: email cannot be null for every maintainer')
+                    print('ERROR! Check mentors: email cannot be null for every mentor.')
                     error += 1
                 else:
                     if not re.match(r'^([a-zA-Z0-9_.-]+)+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$', email):
-                        print('ERROR! Check mentors: invalid email {}'.format(email))
+                        print('ERROR! Check mentors: invalid email {}.'.format(email))
                         error += 1
             except KeyError:
-                print('ERROR! Check mentors: email must be provided for evevy maintainer')
+                print('ERROR! Check mentors: email must be provided for evevy mentor.')
                 error += 1
     return error
 
 
 def check_maintainers(maintainers, error):
-    """check maintainers"""
+    """
+    Check maintainers
+    """
     if not maintainers:
         print('ERROR! Check mentors: at least 1 mentor is required.')
         error += 1
@@ -170,20 +180,22 @@ def check_maintainers(maintainers, error):
             try:
                 email = maintainer['email']
                 if not email:
-                    print('ERROR! Check maintainers: email cannot be null for every maintainer')
+                    print('ERROR! Check maintainers: email cannot be null for every maintainer.')
                     error += 1
                 else:
                     if not re.match(r'^([a-zA-Z0-9_.-]+)+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$', email):
-                        print('ERROR! Check maintainers: invalid email {}'.format(email))
+                        print('ERROR! Check maintainers: invalid email {}.'.format(email))
                         error += 1
             except KeyError:
-                print('ERROR! Check maintainers: email must be provided for evevy maintainer')
+                print('ERROR! Check maintainers: email must be provided for evevy maintainer.')
                 error += 1
     return error
 
 
 def check_committers(committers, error):
-    """check committers"""
+    """
+    Check committers
+    """
     if not committers:
         pass
     else:
@@ -197,20 +209,22 @@ def check_committers(committers, error):
             try:
                 email = committer['email']
                 if not email:
-                    print('ERROR! Check committers: email cannot be null for every maintainer')
+                    print('ERROR! Check committers: email cannot be null for every committer.')
                     error += 1
                 else:
                     if not re.match(r'^([a-zA-Z0-9_.-]+)+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$', email):
-                        print('ERROR! Check committers: invalid email {}'.format(email))
+                        print('ERROR! Check committers: invalid email {}.'.format(email))
                         error += 1
             except KeyError:
-                print('ERROR! Check committers: email must be provided for evevy maintainer')
+                print('ERROR! Check committers: email must be provided for evevy committer.')
                 error += 1
     return error
 
 
 def check_repositories(repositories, sig_name, sigs, error):
-    """check repositories"""
+    """
+    Check repositories
+    """
     if not repositories:
         print('ERROR! Check repositories: should contain at least 1 repository.')
         error += 1
@@ -219,6 +233,9 @@ def check_repositories(repositories, sig_name, sigs, error):
             if sig['name'] == sig_name:
                 repos = sig['repositories']
                 for r in repositories:
+                    if not (type(r) == dict and 'repo' in r.keys()):
+                        print('ERROR! Check repo: every repo should be a dictionary type and at least one key should be repo.')
+                        sys.exit(1)
                     if r['repo'] not in repos:
                         print('ERROR! Check repo: no repo named {} in sig {} according to sigs.yaml.'.format(r['repo'],
                                                                                                              sig_name))
@@ -237,28 +254,34 @@ def check_repositories(repositories, sig_name, sigs, error):
                                     email = additional_contributor['email']
                                     if not email:
                                         print('ERROR! Check repositories: email cannot be null for every '
-                                              'additional_contributor')
+                                              'additional_contributor.')
                                         error += 1
                                     else:
                                         if not re.match(r'^([a-zA-Z0-9_.-]+)+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$',
                                                         email):
-                                            print('ERROR! Check repositories: invalid email {}'.format(email))
+                                            print('ERROR! Check repositories: invalid email {}.'.format(email))
                                             error += 1
                                 except KeyError:
                                     print('ERROR! Check repositories: email must be provided for evevy '
-                                          'additional_contributor')
+                                          'additional_contributor.')
                                     error += 1
                 for r in repos:
-                    if r not in [x['repo'] for x in repositories]:
-                        print(
-                            'ERROR! Check repo: repo {} belongs to sig {} according to sigs.yaml should be listed '
-                            'but missed.'.format(r, sig_name))
-                        error += 1
+                    try:
+                        if r not in [x['repo'] for x in repositories]:
+                            print(
+                                'ERROR! Check repo: repo {} belongs to sig {} according to sigs.yaml should be listed '
+                                'but missed.'.format(r, sig_name))
+                            error += 1
+                    except TypeError:
+                        print('ERROR! Check repo: every repo should be a dictionary type and at least one key should be repo.')
+                        sys.exit(1)
     return error
 
 
 def check_sig_info_yaml(file_name, sigs):
-    """multipart validations"""
+    """
+    Check sig_info.yaml
+    """
     error = 0
     try:
         f = open(os.path.join('community', file_name), 'r')
@@ -271,7 +294,7 @@ def check_sig_info_yaml(file_name, sigs):
                   'committers', 'security_contacts', 'repositories']
     for i in content.keys():
         if i not in trust_list:
-            print('ERROR! Check fields: invalid field {}'.format(i))
+            print('ERROR! Check fields: invalid field {}.'.format(i))
             error += 1
     try:
         name = content['name']
@@ -298,7 +321,7 @@ def check_sig_info_yaml(file_name, sigs):
         print('ERROR! additional_contributors should belong a repo.')
         error += 1
     if name not in [x['name'] for x in sigs]:
-        print('ERROR! sig named {} does not exist in _sigs.yaml'.format(name))
+        print('ERROR! sig named {} does not exist in sigs.yaml.'.format(name))
         error += 1
     error = check_maintainers(maintainers, error)
     error = check_repositories(repositories, name, sigs, error)
