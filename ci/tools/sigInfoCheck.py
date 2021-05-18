@@ -1,3 +1,4 @@
+# -*- coding: UTF-8 -*-
 import os
 import requests
 import re
@@ -45,7 +46,7 @@ def check_yaml_exists(owner, repo, number):
             if re.match(r'^sig/.+/sig-info.yaml$', diff_file):
                 count += 1
                 try:
-                    with open(os.path.join('community', diff_file), 'r') as f:
+                    with open(os.path.join('community', diff_file), 'r', encoding='utf-8') as f:
                         sig_info = yaml.load(f.read(), Loader=yaml.Loader)
                 except Exception as e:
                     print(e)
@@ -284,7 +285,7 @@ def check_sig_info_yaml(file_name, sigs):
     """
     error = 0
     try:
-        f = open(os.path.join('community', file_name), 'r')
+        f = open(os.path.join('community', file_name), 'r', encoding='utf-8')
         content = yaml.load(f.read(), Loader=yaml.Loader)
         f.close()
     except Exception as e:
