@@ -1,11 +1,11 @@
-Name: openEuler-Beijing-official
-HttpURL: http://121.36.97.194/
-RsyncURL: rsync://root:openeuler@1234@121.36.97.194/openeuler
+Name: openEuler-HongKong
+HttpURL: https://repo.openeuler.org/
+RsyncURL: rsync://repo:openeuler@1234@repo.openeuler.org:30873/openeuler/
 FtpURL: ""
 SponsorName: openEuler
 SponsorURL: https://www.openeuler.org
 SponsorLogoURL: https://openeuler.org/img/other/brand/vertical-left.png
-AdminName: infrastructure
+AdminName: Infrastructure
 AdminEmail: admin@openeuler.io
 ContinentOnly: false
 CountryOnly: false
