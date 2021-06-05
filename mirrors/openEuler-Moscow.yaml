@@ -1,4 +1,4 @@
-Name: openEuler-Moscow-official
+Name: openEuler-Moscow
 HttpURL: https://ru-repo.openeuler.org/
 RsyncURL: rsync://repo:openeuler@1234@ru-repo.openeuler.org/openeuler
 FtpURL: ""
