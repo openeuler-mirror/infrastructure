@@ -1,6 +1,6 @@
 Name: openEuler-HongKong
 HttpURL: https://repo.openeuler.org/
-RsyncURL: rsync://repo:openeuler@1234@repo.openeuler.org:30873/openeuler/
+RsyncURL: rsync://119.8.63.103:873/openeuler/
 FtpURL: ""
 SponsorName: openEuler
 SponsorURL: https://www.openeuler.org
