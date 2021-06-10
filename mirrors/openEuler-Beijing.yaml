@@ -1,6 +1,6 @@
 Name: openEuler-Beijing
 HttpURL: http://121.36.97.194/
-RsyncURL: rsync://root:openeuler@1234@121.36.97.194/openeuler
+RsyncURL: rsync://121.36.97.194/openeuler
 FtpURL: ""
 SponsorName: openEuler
 SponsorURL: https://www.openeuler.org
