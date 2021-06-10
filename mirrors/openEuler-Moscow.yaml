@@ -1,6 +1,6 @@
 Name: openEuler-Moscow
 HttpURL: https://ru-repo.openeuler.org/
-RsyncURL: rsync://repo:openeuler@1234@ru-repo.openeuler.org/openeuler
+RsyncURL: rsync://ru-repo.openeuler.org:30873/openeuler
 FtpURL: ""
 SponsorName: openEuler
 SponsorURL: https://www.openeuler.org
