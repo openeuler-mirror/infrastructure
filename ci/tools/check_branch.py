@@ -70,7 +70,6 @@ class checkBranch(object):
             if ret:
                 cmd = "cd {0} && git diff HEAD~1 HEAD~0 | grep '^+ '".format(self.community_path)
                 ret = os.popen(cmd).read()
-                print("\n %s" % ret)
                 self._parse_change_msg(ret, change_msg)
         return change_msg
 
