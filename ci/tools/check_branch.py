@@ -52,6 +52,8 @@ class checkBranch(object):
         :parm community_path: community repo path
         :parm pr_id: id of community pr
         """
+        self.error_flag = 0
+        self.warn_flag = 0
         self.branch_map = None
         self.branch_map_yaml = branch_map_yaml
         self.pr_id = pr_id
@@ -97,12 +99,26 @@ class checkBranch(object):
         for msg in message:
             if "  - name" in msg:
                 if sbranch:
-                    change_msg.append({"mbranch": mbranch, "sbranch": sbranch})
+                    if mbranch:
+                        change_msg.append({"mbranch": mbranch, "sbranch": sbranch})
+                    elif sbranch:
+                        if sbranch == "master":
+                            pass
+                        else:
+                            print("WARN: No main branch, if just to change sub branch, you can ignore this")
+                            self.warn_flag = self.warn_flag + 1
                 sbranch = msg.split(':')[-1].strip()
                 mbranch = None
             if "create_from" in msg:
                 mbranch = msg.split(':')[-1].strip()
-        change_msg.append({"mbranch": mbranch, "sbranch": sbranch})
+        if sbranch and mbranch:
+            change_msg.append({"mbranch": mbranch, "sbranch": sbranch})
+        elif sbranch:
+            if sbranch == "master":
+                pass
+            else:
+                print("WARN: No main branch, if just to change sub branch, you can ignore this")
+                self.warn_flag = self.warn_flag + 1
 
     def _check_branch(self, mbranch, sbranch):
         """
@@ -185,23 +201,21 @@ class checkBranch(object):
         """
         check start
         """
-        error_flag = 0
-        warn_flag = 0
         for _dict in self.change_msg:
             try:
                 self._check_branch(_dict["mbranch"], _dict["sbranch"])
             except CheckError as e:
                 print(e)
-                error_flag = error_flag + 1
+                self.error_flag = self.error_flag + 1
             except CheckWarn as e:
                 print(e)
-                warn_flag = warn_flag + 1
+                self.warn_flag = self.warn_flag + 1
             except FileError as e:
                 print(e)
-                error_flag = error_flag + 1
+                self.error_flag = self.error_flag + 1
         print("========================")
-        print("Check PR {0} Result: error {1}, warn {2}".format(self.pr_id, error_flag, warn_flag))
-        if error_flag:
+        print("Check PR {0} Result: error {1}, warn {2}".format(self.pr_id, self.error_flag, self.warn_flag))
+        if self.error_flag:
             sys.exit(1)
 
 
