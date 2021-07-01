@@ -1,0 +1,15 @@
+Name: eFaith-Company-Limited
+HttpURL: http://mirror.efaith.com.hk/openeuler/
+RsyncURL: ""
+FtpURL: ""
+SponsorName: eFaith-Company-Limited
+SponsorURL: http://mirror.efaith.com.hk/
+SponsorLogoURL: https://www.efaith.com.hk/content/logo/logo.png
+AdminName: efaith
+AdminEmail: openeuler@efaith.com.hk
+ContinentOnly: false
+CountryOnly: false
+ASOnly: false
+Score: 100
+Enabled: true
+AllowRedirects: null
