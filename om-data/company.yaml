@@ -1,7 +1,648 @@
 companies:
   - domains:
-      - huawei.com
-    company_name: Huawei
+      - huayun.com
+    company_name: huayun
     aliases:
-      - Huawei
-      - huawei tech
+      - 华云数据控股集团有限公司
+      - huayun
+  - domains:
+      - stu.xju.edu.cn
+    company_name: Xinjiang University
+    aliases:
+      - XJU
+      - 新疆大学
+      - 新大
+      - Xinjiang University
+  - domains:
+      - brsvh.org
+    company_name: brsvh
+    aliases:
+      - brsvh
+  - domains:
+      - kylinos.cn
+      - kylinos.com.cn
+    company_name: kylinos
+    aliases:
+      - 麒麟软件
+      - kylinos
+  - domains:
+      - i-soft.com.cn
+    company_name: i-soft
+    aliases:
+      - 普华基础软件股份有限公司
+      - i-soft
+  - domains:
+      - tongji.edu.cn
+    company_name: Tongji University
+    aliases:
+      - Tongji
+      - 同济大学
+      - Tongji University
+  - domains:
+      - outlook.com
+    company_name: outlook
+    aliases:
+      - outlook
+  - domains:
+      - mails.ucas.ac.cn
+    company_name: University of Chinese Academy of Sciences
+    aliases:
+      - UCAS
+      - 中国科学院大学
+      - 国科大
+      - University of Chinese Academy of Sciences
+  - domains:
+      - whu.edu.cn
+    company_name: Wuhan University
+    aliases:
+      - WHU
+      - 武汉大学
+      - 武大
+      - Wuhan University
+  - domains:
+      - suse.de
+    company_name: suse
+    aliases:
+      - suse
+  - domains:
+      - imnu.edu.cn
+    company_name: Inner Mongolia Normal University
+    aliases:
+      - IMNU
+      - 内蒙古师范大学
+      - 内师大
+      - Inner Mongolia Normal University
+  - domains:
+      - xiyoulinux.org
+    company_name: xiyoulinux
+    aliases:
+      - xiyoulinux
+  - domains:
+      - sh163.net
+    company_name: sh163
+    aliases:
+      - sh163
+  - domains:
+      - lanhuxing.cn
+    company_name: lanhuxing
+    aliases:
+      - lanhuxing
+  - domains:
+      - openeuler.io
+    company_name: openeuler
+    aliases:
+      - openeuler
+  - domains:
+      - hengaiw.com
+    company_name: hengaiw
+    aliases:
+      - 北京恒爱科技发展有限公司
+      - hengaiw
+  - domains:
+      - mail.sustech.edu.cn
+    company_name: Southern University of Science and Technology
+    aliases:
+      - SUSTech
+      - 南方科技大学
+      - 南科大
+      - Southern University of Science and Technology
+  - domains:
+      - bupt.edu.cn
+    company_name: Beijing University of Posts and Telecommunications
+    aliases:
+      - BUPT
+      - 北京邮电大学
+      - 北邮
+      - Beijing University of Posts and Telecommunications
+  - domains:
+      - msn.com
+    company_name: msn
+    aliases:
+      - msn
+  - domains:
+      - me.com
+    company_name: me
+    aliases:
+      - me
+  - domains:
+      - kylinsec.com.cn
+    company_name: kylinsec
+    aliases:
+      - 麒麟软件
+      - kylinsec
+  - domains:
+      - laoqinren.net
+    company_name: laoqinren
+    aliases:
+      - laoqinren
+  - domains:
+      - net-swift.com
+    company_name: net-swift
+    aliases:
+      - 北京网迅科技有限公司
+      - net-swift
+  - domains:
+      - hotmail.com
+    company_name: hotmail
+    aliases:
+      - hotmail
+  - domains:
+      - xupt.edu.cn
+    company_name: Xian University Of Posts & Telecommunications
+    aliases:
+      - XUPT
+      - 西安邮电大学
+      - 西邮
+      - Xian University Of Posts & Telecommunications
+  - domains:
+      - zju.edu.cn
+    company_name: Zhejiang University
+    aliases:
+      - ZJU
+      - 浙江大学
+      - 浙大
+      - Zhejiang University
+  - domains:
+      - huawei.com
+    company_name: huawei
+    aliases:
+      - 华为技术有限公司
+      - huawei
+  - domains:
+      - xlauncher.io
+    company_name: xlauncher
+    aliases:
+      - 杭州朗澈科技有限公司
+      - xlauncher
+  - domains:
+      - talkweb.com.cn
+    company_name: talkweb
+    aliases:
+      - 拓维信息系统股份有限公司
+      - talkweb
+  - domains:
+      - fingera.cn
+    company_name: fingera
+    aliases:
+      - fingera
+  - domains:
+      - les1ie.com
+    company_name: les1ie
+    aliases:
+      - les1ie
+  - domains:
+      - sina.cn
+      - sina.com
+    company_name: sina
+    aliases:
+      - sina
+  - domains:
+      - nbjl.nankai.edu.cn
+    company_name: nbjl.nankai
+    aliases:
+      - 南开-百度联合实验室
+      - nbjl.nankai
+  - domains:
+      - cmiot.chinamobile.com
+    company_name: cmiot.chinamobile
+    aliases:
+      - 中移物联网有限公司
+      - cmiot.chinamobile
+  - domains:
+      - aliyun.com
+    company_name: aliyun
+    aliases:
+      - 阿里云
+      - aliyun
+  - domains:
+      - cs2c.com.cn
+    company_name: cs2c
+    aliases:
+      - 麒麟软件
+      - cs2c
+  - domains:
+      - bessystem.com
+    company_name: bessystem
+    aliases:
+      - 北京宝兰德软件股份有限公司
+      - bessystem
+  - domains:
+      - bjtu.edu.cn
+    company_name: Beijing Jiaotong University
+    aliases:
+      - BJTU
+      - 北京交通大学
+      - 北京交大
+      - Beijing Jiaotong University
+  - domains:
+      - chinasoftinc.com
+    company_name: chinasoftinc
+    aliases:
+      - 中软国际科技服务有限公司
+      - chinasoftinc
+  - domains:
+      - jenkins-zh.cn
+    company_name: jenkins-zh
+    aliases:
+      - jenkins-zh
+  - domains:
+      - cetccloud.com
+    company_name: cetccloud
+    aliases:
+      - 电科云（北京）科技有限公司
+      - cetccloud
+  - domains:
+      - gmail.com
+    company_name: gmail
+    aliases:
+      - gmail
+  - domains:
+      - uestc.edu.cn
+    company_name: University Of Electronic Science And Technology Of China
+    aliases:
+      - UESTC
+      - 电子科技大学
+      - 成电
+      - 电子科大
+      - University Of Electronic Science And Technology Of China
+  - domains:
+      - scut.edu.cn
+    company_name: South China University Of Technology
+    aliases:
+      - SCUT
+      - 华南理工大学
+      - 华工
+      - South China University Of Technology
+  - domains:
+      - mail2.sysu.edu.cn
+    company_name: Sun Yat-sen University
+    aliases:
+      - SYSU
+      - 中山大学
+      - 中大
+      - Sun Yat-sen University
+  - domains:
+      - r51.net
+    company_name: r51
+    aliases:
+      - r51
+  - domains:
+      - xsky.com
+    company_name: xsky
+    aliases:
+      - 星辰天合（北京）数据科技有限公司
+      - xsky
+  - domains:
+      - cmss.chinamobile.com
+    company_name: cmss.chinamobile
+    aliases:
+      - 中国移动通信集团有限公司
+      - 中国移动
+      - cmss.chinamobile
+  - domains:
+      - nighthawk.cc
+    company_name: nighthawk
+    aliases:
+      - nighthawk
+  - domains:
+      - hoperun.com
+    company_name: hoperun
+    aliases:
+      - 江苏润和软件股份有限公司
+      - hoperun
+  - domains:
+      - chinaunicom.cn
+    company_name: chinaunicom
+    aliases:
+      - 中国联合网络通信股份有限公司
+      - 中国联通
+      - chinaunicom
+  - domains:
+      - apusic.com
+    company_name: apusic
+    aliases:
+      - 深圳市金蝶天燕云计算股份有限公司
+      - apusic
+  - domains:
+      - lamdaer.com
+    company_name: lamdaer
+    aliases:
+      - lamdaer
+  - domains:
+      - hoohan.cn
+    company_name: hoohan
+    aliases:
+      - hoohan
+  - domains:
+      - 163.com
+    company_name: '163'
+    aliases:
+      - '163'
+  - domains:
+      - 26.com
+    company_name: '26'
+    aliases:
+      - '26'
+  - domains:
+      - hollowman.ml
+    company_name: hollowman
+    aliases:
+      - hollowman
+  - domains:
+      - tom.com
+    company_name: tom
+    aliases:
+      - tom
+  - domains:
+      - createsz.cn
+    company_name: createsz
+    aliases:
+      - createsz
+  - domains:
+      - live.cn
+      - live.com
+    company_name: live
+    aliases:
+      - live
+  - domains:
+      - sjtu.edu.cn
+    company_name: Shanghai Jiao Tong University
+    aliases:
+      - SJTU
+      - 上海交通大学
+      - 上海交大
+      - Shanghai Jiao Tong University
+  - domains:
+      - jnu.edu.cn
+    company_name: Jinan University
+    aliases:
+      - JNU
+      - 暨南大学
+      - 暨大
+      - Jinan University
+  - domains:
+      - 139.com
+    company_name: '139'
+    aliases:
+      - '139'
+  - domains:
+      - ucsd.edu
+    company_name: University of California, San Diego
+    aliases:
+      - UCSD
+      - 加利福尼亚大学圣迭戈分校
+      - 加州大学圣迭戈分校
+      - University of California, San Diego
+  - domains:
+      - nfschina.com
+    company_name: nfschina
+    aliases:
+      - 中科方德软件有限公司
+      - nfschina
+  - domains:
+      - csu.edu.cn
+    company_name: Central South University
+    aliases:
+      - CSU
+      - 中南大学
+      - Central South University
+  - domains:
+      - icloud.com
+    company_name: icloud
+    aliases:
+      - icloud
+  - domains:
+      - bit.edu.cn
+    company_name: Beijing Institute Of Technology
+    aliases:
+      - BIT
+      - 北京理工大学
+      - 北理工
+      - Beijing Institute Of Technology
+  - domains:
+      - cug.edu.cn
+    company_name: China University Of Geosciences
+    aliases:
+      - CUG
+      - 中国地质大学
+      - 地大
+      - China University Of Geosciences
+  - domains:
+      - ubuntukylin.com
+    company_name: ubuntukylin
+    aliases:
+      - 优麒麟
+      - ubuntukylin
+  - domains:
+      - mail.ustc.edu.cn
+    company_name: University Of Science And Technology Of China
+    aliases:
+      - USTC
+      - 中国科学技术大学
+      - 中国科大
+      - University Of Science And Technology Of China
+  - domains:
+      - jit.edu.cn
+    company_name: Jinling Institute Of Technology
+    aliases:
+      - JIT
+      - 金陵科技学院
+      - Jinling Institute Of Technology
+  - domains:
+      - 189.cn
+    company_name: '189'
+    aliases:
+      - '189'
+  - domains:
+      - topwalk.com
+    company_name: topwalk
+    aliases:
+      - 拓尔思天行网安信息技术有限责任公司
+      - topwalk
+  - domains:
+      - winhong.com
+    company_name: winhong
+    aliases:
+      - 云宏信息科技股份有限公司
+      - winhong
+  - domains:
+      - 1163.com
+    company_name: '1163'
+    aliases:
+      - '1163'
+  - domains:
+      - fjut.edu.cn
+    company_name: Fujian University of Technology
+    aliases:
+      - FJUT
+      - 福建工程学院
+      - 闽工院
+      - Fujian University of Technology
+  - domains:
+      - scutech.com
+    company_name: scutech
+    aliases:
+      - 广州鼎甲计算机科技有限公司
+      - scutech
+  - domains:
+      - uniontech.com
+    company_name: uniontech
+    aliases:
+      - 统信软件
+      - uniontech
+  - domains:
+      - pinegap.com
+    company_name: pinegap
+    aliases:
+      - pinegap
+  - domains:
+      - chinatelecom.cn
+    company_name: chinatelecom
+    aliases:
+      - 中国电信集团有限公司
+      - 中国电信
+      - chinatelecom
+  - domains:
+      - zts.io
+    company_name: zts
+    aliases:
+      - zts
+  - domains:
+      - seu.edu.cn
+    company_name: Southeast University
+    aliases:
+      - SEU
+      - 东南大学
+      - 东大
+      - Southeast University
+  - domains:
+      - hygon.cn
+    company_name: hygon
+    aliases:
+      - 海光信息技术股份有限公司
+      - hygon
+  - domains:
+      - rt-thread.top
+    company_name: rt-thread
+    aliases:
+      - rt-thread
+  - domains:
+      - iscas.a.cn
+      - iscas.ac.cn
+    company_name: iscas
+    aliases:
+      - 中国科学院软件研究所
+      - ISCAS
+      - 软件所
+      - iscas
+  - domains:
+      - pku.edu.cn
+    company_name: Peking University
+    aliases:
+      - PKU
+      - 北京大学
+      - 北大
+      - Peking University
+  - domains:
+      - sohu.com
+    company_name: sohu
+    aliases:
+      - sohu
+  - domains:
+      - vip.qq.com
+      - qq.com
+    company_name: qq
+    aliases:
+      - qq
+  - domains:
+      - arm.com
+    company_name: arm
+    aliases:
+      - arm
+  - domains:
+      - yunify.com
+    company_name: yunify
+    aliases:
+      - yunify
+  - domains:
+      - 126.com
+    company_name: '126'
+    aliases:
+      - '126'
+  - domains:
+      - isrc.iscas.ac.cn
+    company_name: isrc.iscas
+    aliases:
+      - 中国科学院软件研究所智能软件研究中心
+      - isrc.iscas
+  - domains:
+      - turbolinux.com.cn
+    company_name: turbolinux
+    aliases:
+      - 北京拓林思软件有限公司
+      - turbolinux
+  - domains:
+      - foxmail.com
+    company_name: foxmail
+    aliases:
+      - foxmail
+  - domains:
+      - phytium.com.cn
+    company_name: phytium
+    aliases:
+      - 天津飞腾信息技术有限公司
+      - phytium
+  - domains:
+      - evergarden.cn
+    company_name: evergarden
+    aliases:
+      - evergarden
+  - domains:
+      - tyust.edu.cn
+    company_name: Taiyuan University Of Science And Technology
+    aliases:
+      - TYUST
+      - 太原科技大学
+      - 太原科大
+      - Taiyuan University Of Science And Technology
+  - domains:
+      - guoyinnx.com
+    company_name: guoyinnx
+    aliases:
+      - guoyinnx
+  - domains:
+      - yskm.dev
+    company_name: yskm
+    aliases:
+      - yskm
+  - domains:
+      - yhkylin.cn
+    company_name: yhkylin
+    aliases:
+      - 银河麒麟
+      - yhkylin
+  - domains:
+      - 123.com
+    company_name: '123'
+    aliases:
+      - '123'
+  - domains:
+      - yeah.net
+    company_name: yeah
+    aliases:
+      - yeah
+  - domains:
+      - kylios.cn
+    company_name: kylios
+    aliases:
+      - kylios
+  - domains:
+      - bilig.biz
+    company_name: bilig
+    aliases:
+      - bilig
+  - domains:
+      - 21cn.com
+    company_name: 21cn
+    aliases:
+      - 21cn
