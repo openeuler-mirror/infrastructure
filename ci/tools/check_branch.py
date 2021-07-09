@@ -16,6 +16,7 @@
 import os
 import sys
 import yaml
+import subprocess
 
 
 class CheckError(Exception):
@@ -71,8 +72,9 @@ class checkBranch(object):
             ret = os.popen(cmd).read()
             if ret:
                 cmd = "cd {0} && git diff HEAD~1 HEAD~0 | grep '^+ '".format(self.community_path)
-                ret = os.popen(cmd).read()
-                self._parse_change_msg(ret, change_msg)
+                p = subprocess.Popen(cmd, shell=True, stdout=subprocess.PIPE)
+                out = p.stdout.read().decode("utf-8")
+                self._parse_change_msg(out, change_msg)
         return change_msg
 
     def _get_branch_map(self):
