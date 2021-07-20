@@ -17,10 +17,6 @@ sigs:
 - maturity
 - mentors
 - repositories
-maturity:
-- startup
-- gratuated
-- standalone
 siginfo:
 - name
 - description
