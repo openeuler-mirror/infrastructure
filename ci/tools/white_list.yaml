@@ -1,0 +1,42 @@
+repos:
+- name
+- description
+- branches
+- rename_from
+- type
+- upstream
+- create_from
+- upsteam
+- branches
+branches:
+- name
+- type
+- create_from
+sigs:
+- name
+- maturity
+- mentors
+- repositories
+maturity:
+- startup
+- gratuated
+- standalone
+siginfo:
+- name
+- description
+- mailing_list
+- meeting_url
+- mature_level
+- mentors
+- maintainers
+- security_contacts
+- committers
+- repositories
+members:
+- gitee_id
+- name
+- organization
+- email
+repositories:
+- repo
+- additional_contributors
