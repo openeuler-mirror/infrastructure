@@ -83,14 +83,13 @@ def check_repository(repo, filename, repos_white_list, branches_white_list, erro
     return errors
 
 
-def check_sigs_yaml(repo, filename, sigs_white_list, members_white_list, maturity_white_list, errors):
+def check_sigs_yaml(repo, filename, sigs_white_list, members_white_list, errors):
     """
     sigs.yaml check
     :param repo: repository
     :param filename: yaml file path
     :param sigs_white_list:  white_lists['sigs']
     :param members_white_list:  white_lists['members']
-    :param maturity_white_list: white_list['maturity']
     :param errors: errors count
     :return: errors
     """
@@ -108,10 +107,6 @@ def check_sigs_yaml(repo, filename, sigs_white_list, members_white_list, maturit
                     for p in v.keys():
                         if check_white_list(p, members_white_list, filename):
                             errors += 1
-            if 'maturity' in sig.keys():
-                s = sig.get('maturity')
-                if check_white_list(s, maturity_white_list, filename):
-                    errors += 1
     else:
         print('sigs have no values')
     return errors
@@ -167,7 +162,6 @@ def main(owner, repo, number):
         siginfo_white_list = white_lists['siginfo']
         repositories_white_list = white_lists['repositories']
         members_white_list = white_lists['members']
-        maturity_white_list = white_lists['maturity']
     except KeyError as e:
         print(e)
         sys.exit(1)
@@ -176,7 +170,7 @@ def main(owner, repo, number):
         if diff_file == 'repository/src-openeuler.yaml' or diff_file == 'repository/openeuler.yaml':
             errors += check_repository(repo, diff_file, repos_white_list, branches_white_list, errors)
         if diff_file == 'sig/sigs.yaml':
-            errors += check_sigs_yaml(repo, diff_file, sigs_white_list, members_white_list, maturity_white_list, errors)
+            errors += check_sigs_yaml(repo, diff_file, sigs_white_list, members_white_list, errors)
         if re.match(r'^sig/.+/sig-info.yaml$', diff_file):
             sig_name = diff_file.split('/')[1]
             sigs_name_list = [x['name'] for x in load_yaml(os.path.join(repo, 'sig/sigs.yaml'))['sigs']]
