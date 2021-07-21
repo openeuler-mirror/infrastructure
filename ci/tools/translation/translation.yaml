@@ -1,0 +1,11 @@
+sign_to:
+- judith
+file_extension:
+- doc
+- md
+- json
+repositories:
+- owner: openeuler
+  repo: docs
+issue_title: "[Auto] This is a translation issue."
+
