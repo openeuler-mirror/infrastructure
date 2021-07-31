@@ -7,5 +7,5 @@ file_extension:
 repositories:
 - owner: openeuler
   repo: docs
-issue_title: "[Auto] This is a translation issue."
-
+issue_title: "[Auto] This is an English translation issue."
+ru_issue_title: "[Auto] This is a Russian translation issue."
