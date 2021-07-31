@@ -13,9 +13,7 @@ repositories:
     - title: "[Auto] This is an English translation issue."
   - trigger_pr_path: 'docs/en'
     assgin_issue:
-    - title: "[Auto] This is a Russian translation issue."    
-  - trigger_pr_path: 'docs/ru'
-    assgin_issue:
+    - title: "[Auto] This is a Russian translation issue."
 
 # 分目录提交功能完成后删除
 issue_title: "[Auto] This is an English translation issue."
