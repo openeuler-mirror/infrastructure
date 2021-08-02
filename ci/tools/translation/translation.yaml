@@ -9,6 +9,10 @@ repositories:
   repo: docs
   issue_triggers:
   - trigger_pr_path: 'docs/zh'
+    file_extension:
+    - doc
+    - md
+    - json
     assgin_issue:
     - title: "[Auto] This is an English translation issue."
     - sign_to: judith
