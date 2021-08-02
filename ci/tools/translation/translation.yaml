@@ -1,9 +1,3 @@
-sign_to:
-- judith
-file_extension:
-- doc
-- md
-- json
 repositories:
 - owner: openeuler
   repo: docs
@@ -26,5 +20,11 @@ repositories:
     - sign_to: judith
 
 # 分目录提交功能完成后删除
+sign_to:
+- judith
+file_extension:
+- doc
+- md
+- json
 issue_title: "[Auto] This is an English translation issue."
 ru_issue_title: "[Auto] This is a Russian translation issue."
