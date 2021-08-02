@@ -129,7 +129,10 @@ class checkBranch(object):
         :parm sbranch: now branch
         """
         if sbranch == "master":
-            pass
+            if mbranch:
+                raise CheckError("FAIL: master cannot branch from other branch")
+            else:
+                pass
         else:
             self._check_main_branch(mbranch)
             self._check_sub_branch(mbranch, sbranch)
