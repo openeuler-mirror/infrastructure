@@ -11,9 +11,11 @@ repositories:
   - trigger_pr_path: 'docs/zh'
     assgin_issue:
     - title: "[Auto] This is an English translation issue."
+    - sign_to: judith
   - trigger_pr_path: 'docs/en'
     assgin_issue:
     - title: "[Auto] This is a Russian translation issue."
+    - sign_to: judith
 
 # 分目录提交功能完成后删除
 issue_title: "[Auto] This is an English translation issue."
