@@ -194,8 +194,8 @@ class checkBranch(object):
                                 .format(sbranch, sb[-1], mbranch))
                 else:
                     raise CheckError("FAIL: sub branch is wrong")
-            elif sbranch.startswith("openEuler"):
-                raise CheckWarn("WARN: sub branch {0} not found in list given by main branch {1}".format(sbranch, mbranch))
+            #elif sbranch.startswith("openEuler"):
+            #    raise CheckWarn("WARN: sub branch {0} not found in list given by main branch {1}".format(sbranch, mbranch))
             else:
                 raise CheckError("FAIL: sub branch {0} not found in list given by main branch {1}".format(sbranch, mbranch))
             print("Check sub branch {0} SUCCESS".format(sbranch))
