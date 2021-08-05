@@ -76,7 +76,7 @@ def main():
         if diff_file.split(' ')[0][2:] == 'sig/sigs.yaml':
             lines = diff_file.split('\n')
             for line in lines:
-                if line.startswith('+ - '):
+                if line.startswith('+  -'):
                     added_repos.append(line.strip().split()[2])
     if not added_repos:
         print('No new repos were added in this Pull Request, exit...')
