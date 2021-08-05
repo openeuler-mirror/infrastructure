@@ -4,21 +4,11 @@ repositories:
   issue_triggers:
   - trigger_pr_path: 'docs/zh'
     file_extension: [doc, md, json]
-    assgin_issue:
+    assign_issue:
     - title: "[Auto] This is an English translation issue."
     - sign_to: judith
   - trigger_pr_path: 'docs/en'
     file_extension: [doc, md, json]
-    assgin_issue:
+    assign_issue:
     - title: "[Auto] This is a Russian translation issue."
     - sign_to: judith
-
-# 分目录提交功能完成后删除
-sign_to:
-- judith
-file_extension:
-- doc
-- md
-- json
-issue_title: "[Auto] This is an English translation issue."
-ru_issue_title: "[Auto] This is a Russian translation issue."
