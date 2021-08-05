@@ -33,7 +33,8 @@ def check_repo_exist(added_repo):
         r = requests.get('https://gitee.com/{}'.format(added_repo))
         if r.status_code != 200:
             if retry == 0:
-                return False
+                print('Repo {} has not been built yet, exit...'.format(added_repo))
+                sys.exit(1)
             print('Repo {} does not exist, retry: {}'.format(added_repo, retry))
             retry -= 1
             time.sleep(interval)
@@ -75,7 +76,7 @@ def main():
         if diff_file.split(' ')[0][2:] == 'sig/sigs.yaml':
             lines = diff_file.split('\n')
             for line in lines:
-                if line.startswith('+') and not line.startswith('+++'):
+                if line.startswith('+ - '):
                     added_repos.append(line.strip().split()[2])
     if not added_repos:
         print('No new repos were added in this Pull Request, exit...')
