@@ -11,7 +11,7 @@ def load_yaml(file_path):
     :param file_path: yaml file path
     :return: content of yaml
     """
-    with open(file_path) as fp:
+    with open(file_path, encoding="utf-8") as fp:
         try:
             content = yaml.load(fp.read(), Loader=yaml.Loader)
         except yaml.MarkedYAMLError as e:
@@ -20,15 +20,17 @@ def load_yaml(file_path):
     return content
 
 
-def get_diff_files(owner, repo, number):
+def get_diff_files(owner, repo, number, acc_token):
     """
     get the pr's diffs
-    :param owner: owner
-    :param repo: repo
-    :param number: pr number
-    :return: diff_files, pr_url
+    :param owner: owner ep:openeuler
+    :param repo: repo ep: docs
+    :param number: pull request number
+    :param acc_token: access_token
+    :return: list of diffs, pull request url
     """
-    r = requests.get('https://gitee.com/{}/{}/pulls/{}.diff'.format(owner, repo, number))
+    param = {"access_token": acc_token}
+    r = requests.get('https://gitee.com/{}/{}/pulls/{}.diff'.format(owner, repo, number), params=param)
     if r.status_code != 200:
         print(r.status_code, r.text)
         print("please check owner: {}, repo: {}, pr_number: {}".format(owner, repo, number))
@@ -38,9 +40,9 @@ def get_diff_files(owner, repo, number):
     pr_url = "https://gitee.com/{}/{}/pulls/{}".format(owner, repo, number)
     for diff_file in diff_files:
         if diff_file.endswith('\"'):
-            d = re.compile(r'/\\[\d\s\S]+')
+            d = re.compile(r'/[\d\s\S]+')
             diff_file = d.findall(diff_file)
-            diff_file = diff_file[0].replace('/', '').replace('\"', '')
+            diff_file = diff_file[0].replace('/', '', 1).replace('\"', '')
             diff_files_list.append(diff_file)
         else:
             diff_files_list.append(diff_file)
@@ -50,10 +52,10 @@ def get_diff_files(owner, repo, number):
 def check_issue_exits(acc_token, owner, repo):
     """
     check issues exit or not
-    :param acc_token: acc_token
-    :param owner: owner
-    :param repo: repo
-    :return:
+    :param acc_token: access_token
+    :param owner: owner ep:openeuler
+    :param repo: repo ep: docs
+    :return: issues list of the repository
     """
     get_all_issue_url = "https://gitee.com/api/v5/repos/{}/{}/issues".format(owner, repo)
     page = 1
@@ -88,12 +90,12 @@ def create_issue(acc_token, owner, repo, p_number, issue_title, assignee, body):
     """
     create issues
     :param acc_token: access_token
-    :param owner: owner
-    :param repo: repo
-    :param p_number: p_number
+    :param owner: owner ep:openeuler
+    :param repo: repo ep: docs
+    :param p_number: pull request number
     :param issue_title: issue_title
     :param assignee: issue owner
-    :param body: pr_url
+    :param body: pull request url
     :return:
     """
     issue_url = 'https://gitee.com/api/v5/repos/{}/issues'.format(owner)
@@ -132,52 +134,70 @@ def create_issue(acc_token, owner, repo, p_number, issue_title, assignee, body):
 def main(owner, repo, token, number):
     """
     main function
-    :param owner: owner
-    :param repo: repo
+    :param owner: owner ep:openeuler
+    :param repo: repo ep: docs
     :param token: access_token
     :param number: pull request number
     :return:
     """
     content = load_yaml("translation.yaml")
-
-    issue_related_pr_number = {}
     results = check_issue_exits(token, owner, repo)
+    issue_related_pr_number = {}
+    owner_repo_relationship = {}
+    current_assignee = {}
+    current_file_extension = {}
+    current_issue_title = {}
+    file_extension = []
+    trigger_path = []
     try:
-        file_extension = content["file_extension"]
         repositories = content["repositories"]
-        issue_title = content["issue_title"]
-        assignee = content["sign_to"]
     except KeyError as e:
         print(e)
         sys.exit(1)
-    for i in repositories:
-        if repo == i["repo"] and owner == i["owner"]:
-            file_count = 0
-            diff_files, pr_url = get_diff_files(owner, repo, number)
-            for diff_file in diff_files:
-                if diff_file.split('.')[-1] in file_extension:
-                    print("file {} has been changed".format(diff_file))
-                    file_count += 1
-                else:
-                    continue
-            if file_count > 0:
-                if results:
-                    for result in results:
-                        issue_related_pr_number[result.get("title").split('.')[-1].replace('[', '').replace(']', '')]\
-                            = result.get("number")
-                    if number in issue_related_pr_number.keys():
-                        print("Error: issue has already created, please go to check issue: #{}"
-                                .format(issue_related_pr_number.get(number)))
-                        sys.exit(1)
+    for r in repositories:
+        owner_repo_relationship[r["owner"]] = r["repo"]
+
+    if owner in owner_repo_relationship.keys() and repo in owner_repo_relationship.values():
+        for repository in repositories:
+            if owner == repository["owner"] and repo == repository["repo"]:
+                file_count = 0
+                diff_files, pr_url = get_diff_files(owner, repo, number, token)
+                for issue_trigger in repository["issue_triggers"]:
+                    file_extension.append(issue_trigger["file_extension"])
+                    trigger_path.append(issue_trigger["trigger_pr_path"])
+                    for diff_file in diff_files:
+                        if diff_file.startswith(issue_trigger["trigger_pr_path"]) \
+                                and diff_file.split('.')[-1] in issue_trigger["file_extension"]:
+                            print("file {} has been changed".format(diff_file))
+                            file_count += 1
+                            current_assignee[issue_trigger["trigger_pr_path"]] = issue_trigger["assign_issue"][1]["sign_to"]
+                            current_file_extension[issue_trigger["trigger_pr_path"]] = issue_trigger["file_extension"]
+                            current_issue_title[issue_trigger["trigger_pr_path"]] = issue_trigger["assign_issue"][0]["title"]
+                        else:
+                            continue
+                if file_count > 0:
+                    if results:
+                        for result in results:
+                            issue_number = result.get("title").split('.')[-1].replace('[', '').replace(']', '')
+                            issue_related_pr_number[issue_number] = result.get("number")
+                        if number in issue_related_pr_number.keys():
+                            print("Error: issue has already created, please go to check issue: #{}"
+                                  .format(issue_related_pr_number[number]))
+                            sys.exit(1)
+                        else:
+                            for k in current_file_extension.keys():
+                                create_issue(token, owner, repo, number, current_issue_title[k],
+                                             current_assignee[k], pr_url)
                     else:
-                        create_issue(token, owner, repo, number, issue_title, assignee, pr_url)
+                        for k in current_file_extension.keys():
+                            create_issue(token, owner, repo, number, current_issue_title[k],
+                                         current_assignee[k], pr_url)
                 else:
-                    create_issue(token, owner, repo, number, issue_title, assignee, pr_url)
-            else:
-                print("repo: {}'s files that end with {} are not changed".format(repo, file_extension))
-        else:
-            print("ERROR: wrong repo {} or wrong owner {}, please check!".format(repo, owner))
-            sys.exit(1)
+                    print("NOTE: repository: {}/{}'s files in {} that end with {} are not changed"
+                          .format(owner, repo, trigger_path, file_extension))
+    else:
+        print("ERROR: wrong repo {} or wrong owner {}, please check!".format(repo, owner))
+        sys.exit(1)
 
 
 if __name__ == '__main__':
