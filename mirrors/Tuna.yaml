@@ -1,0 +1,15 @@
+Name: Tuna 
+HttpURL: https://mirrors.tuna.tsinghua.edu.cn/openeuler/
+RsyncURL: ""
+FtpURL: ""
+SponsorName: Tsinghua
+SponsorURL: https://mirrors.tuna.tsinghua.edu.cn/
+SponsorLogoURL: https://mirrors.tuna.tsinghua.edu.cn/static/img/logo-small.png
+AdminName: administrator
+AdminEmail: support@tuna.tsinghua.edu.cn
+ContinentOnly: false
+CountryOnly: false
+ASOnly: false
+Score: 100
+Enabled: true
+AllowRedirects: null
