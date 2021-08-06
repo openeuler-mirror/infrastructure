@@ -13,3 +13,6 @@ ASOnly: false
 Score: 100
 Enabled: true
 AllowRedirects: null
+NetworkBandwidth: 1000Mb/s
+Latitude: 1.2868
+Longitude: 103.8503
