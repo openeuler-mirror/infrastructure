@@ -398,7 +398,7 @@ def main():
         if errors != 0:
             sys.exit(1)
     else:
-        sigs = load_yaml('community/sig/sigs.yaml')
+        sigs = load_yaml('community/sig/sigs.yaml')['sigs']
         for diff_file in diff_files:
             if re.match(r'^sig/.+/sig-info.yaml$', diff_file):
                 count += 1
