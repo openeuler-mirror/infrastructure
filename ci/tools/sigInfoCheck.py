@@ -1,4 +1,8 @@
-# -*- coding: UTF-8 -*-
+"""
+A tool for checking the consistency between multiple SIG information and sigs.yaml, and validation of fields for every
+SIG information.
+"""
+import argparse
 import os
 import requests
 import re
@@ -408,13 +412,16 @@ def main():
 
 
 if __name__ == '__main__':
-    if len(sys.argv) != 5:
-        print('Required 4 parameters! The owner, repo, number, access_token parameters need to be transferred in '
-              'sequence.')
-        sys.exit(1)
-    owner = sys.argv[1]
-    repo = sys.argv[2]
-    number = sys.argv[3]
-    access_token = sys.argv[4]
+    parser = argparse.ArgumentParser(description='A tool for checking the consistency between multiple SIG information'
+                                                 ' and sigs.yaml, and validation of fields for every SIG information.')
+    parser.add_argument('-o', '--owner', help='owner of Pull Request', required=True)
+    parser.add_argument('-r', '--repo', help='repo of Pull Request', required=True)
+    parser.add_argument('-n', '--number', help='number of Pull Request', required=True)
+    parser.add_argument('-t', '--token', help='access_token', required=True)
+    args = parser.parse_args()
+    owner = args.owner
+    repo = args.repo
+    number = args.number
+    access_token = args.token
     main()
 
