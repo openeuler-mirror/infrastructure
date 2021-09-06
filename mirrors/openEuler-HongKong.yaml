@@ -4,7 +4,7 @@ RsyncURL: rsync://119.8.63.103:873/openeuler/
 FtpURL: ""
 SponsorName: openEuler
 SponsorURL: https://www.openeuler.org
-SponsorLogoURL: https://openeuler.org/img/other/brand/vertical-left.png
+SponsorLogoURL: https://www.openeuler.org/img/other/brand/vertical-left.png
 AdminName: Infrastructure
 AdminEmail: admin@openeuler.io
 ContinentOnly: false
