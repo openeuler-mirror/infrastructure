@@ -62,18 +62,31 @@ class checkBranch(object):
         self._get_branch_map()
         self.change_msg = []
 
-    def get_change_msg(self):
-        """
-        get messages of changeing about branch
-        """
-        if os.path.exists(self.community_path):
-            cmd = "cd {0} && git diff --name-status HEAD~1 HEAD~0 | grep src-openeuler.yaml".format(self.community_path)
-            ret = os.popen(cmd).read()
-            if ret:
-                cmd = "cd {0} && git diff HEAD~1 HEAD~0 | grep '^+ '".format(self.community_path)
-                p = subprocess.Popen(cmd, shell=True, stdout=subprocess.PIPE)
-                out = p.stdout.read().decode("utf-8")
-                self._parse_change_msg(out, self.change_msg)
+    def _read_yaml(self, file_path):
+        if os.path.exists(file_path):
+            with open(file_path, 'r', encoding='utf-8') as f:
+                file_msg = yaml.load(f, Loader=yaml.FullLoader)
+        return file_msg
+    
+    def _change_pkg(self, list1, list2):
+        assert isinstance(list1, list)
+        assert isinstance(list2, list)
+        change_pkg = []
+        for p in list1:
+            if p not in list2:
+                change_pkg.append(p)
+        return change_pkg
+    
+    def get_change_pkg(self):
+        new_yaml = os.path.join(self.community_path, "repository", "src-openeuler.yaml")
+        old_yaml = "%s/old-src-openeuler.yaml" %  self.community_path
+        if os.system('cd %s && git show remotes/origin/master:repository/src-openeuler.yaml > old-src-openeuler.yaml' % self.community_path) != 0:
+            print("Error: can't get src-openeuler.yaml from remote repo")
+            return 1
+
+        list1 = self._read_yaml(new_yaml)["repositories"]
+        list2 = self._read_yaml(old_yaml)["repositories"]
+        self.change_msg = self._change_pkg(list1, list2)
 
     def _get_branch_map(self):
         """
@@ -95,41 +108,6 @@ class checkBranch(object):
                 self.change_msg = yaml.load(f, Loader=yaml.FullLoader)["repositories"]
         else:
             raise FileError("ERROR: No file {0}".format(src_openeuler_yaml))
-
-    def _parse_change_msg(self, message, change_msg):
-        """
-        parser for messsages
-        :parm message: message about branch
-        :parm change_msg: list which store message
-        """
-        message = message.split('\n')
-        while '' in message:
-            message.remove('')
-        mbranch = None
-        sbranch = None
-        for msg in message:
-            if "  - name" in msg:
-                if sbranch:
-                    if mbranch:
-                        change_msg.append({"mbranch": mbranch, "sbranch": sbranch})
-                    elif sbranch:
-                        if sbranch == "master":
-                            pass
-                        else:
-                            print("WARN: No main branch, if just to change sub branch, you can ignore this")
-                            self.warn_flag = self.warn_flag + 1
-                sbranch = msg.split(':')[-1].strip()
-                mbranch = None
-            if "create_from" in msg:
-                mbranch = msg.split(':')[-1].strip()
-        if sbranch and mbranch:
-            change_msg.append({"mbranch": mbranch, "sbranch": sbranch})
-        elif sbranch:
-            if sbranch == "master":
-                pass
-            else:
-                print("WARN: No main branch, if just to change sub branch, you can ignore this")
-                self.warn_flag = self.warn_flag + 1
 
     def _check_branch(self, mbranch, sbranch, pkg_name=''):
         """
@@ -201,26 +179,6 @@ class checkBranch(object):
                 raise CheckError("FAIL: {0} sub branch {1} not found in list given by main branch {2}".format(pkg_name, sbranch, mbranch))
 
     def check(self):
-        """
-        check start
-        """
-        for _dict in self.change_msg:
-            try:
-                self._check_branch(_dict["mbranch"], _dict["sbranch"])
-            except CheckError as e:
-                print(e)
-                self.error_flag = self.error_flag + 1
-            except CheckWarn as e:
-                print(e)
-                self.warn_flag = self.warn_flag + 1
-            except FileError as e:
-                print(e)
-                self.error_flag = self.error_flag + 1
-        print("Check PR {0} Result: error {1}, warn {2}".format(self.pr_id, self.error_flag, self.warn_flag))
-        if self.error_flag:
-            sys.exit(1)
-
-    def check_all(self):
         for pkg in self.change_msg:
             pkg_name = pkg["name"]
             branches = pkg["branches"]
@@ -257,7 +215,9 @@ if __name__ == "__main__":
     C = checkBranch(args.config, args.community_repo_path, args.pr_id)
     if args.all == "True":
         C.get_src_openeuler_yaml()
-        C.check_all()
-    else:
-        C.get_change_msg()
         C.check()
+    else:
+        C.get_change_pkg()
+        C.check()
+
+
