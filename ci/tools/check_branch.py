@@ -178,10 +178,25 @@ class checkBranch(object):
             else:
                 raise CheckError("FAIL: {0} sub branch {1} not found in list given by main branch {2}".format(pkg_name, sbranch, mbranch))
 
+    def _check_createfrom_valid(self, reponame, sbranches, mbranches):
+        """
+        check if the create_from branch is created or creating.
+        """
+        for br in mbranches:
+            if br is None:
+                continue
+            if br not in sbranches:
+                raise CheckError("FAIL: Branch( {0} ) of repo( {1} ) is not created or creating but in create_from.".format(br, reponame))
+            else:
+                continue
+        return
+
     def check(self):
         for pkg in self.change_msg:
             pkg_name = pkg["name"]
             branches = pkg["branches"]
+            sbranches = []
+            mbranches = []
             for bch in branches:
                 sbranch = bch['name']
                 if sbranch == "master":
@@ -189,6 +204,8 @@ class checkBranch(object):
                 else:
                     mbranch = bch['create_from']
                 try:
+                    sbranches.append(sbranch)
+                    mbranches.append(mbranch)
                     self._check_branch(mbranch, sbranch, pkg_name=pkg_name)
                 except CheckError as e:
                     print(e)
@@ -199,6 +216,11 @@ class checkBranch(object):
                 except FileError as e:
                     print(e)
                     self.error_flag = self.error_flag + 1
+            try:
+                self._check_createfrom_valid(pkg_name, sbranches, mbranches)
+            except CheckError as e:
+                print(e)
+                self.error_flag = self.error_flag + 1
         print("Check PR {0} Result: error {1}, warn {2}".format(self.pr_id, self.error_flag, self.warn_flag))
         if self.error_flag:
             sys.exit(1)
