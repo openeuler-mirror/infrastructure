@@ -4,7 +4,7 @@ RsyncURL: rsync://ru-repo.openeuler.org:30873/openeuler
 FtpURL: ""
 SponsorName: openEuler
 SponsorURL: https://www.openeuler.org
-SponsorLogoURL: https://openeuler.org/img/other/brand/vertical-left.png
+SponsorLogoURL: https://www.openeuler.org/img/other/brand/vertical-left.png
 AdminName: infrastructure
 AdminEmail: admin@openeuler.io
 ContinentOnly: false
@@ -16,3 +16,4 @@ AllowRedirects: null
 NetworkBandwidth: 300
 Latitude: 55.7386
 Longitude: 37.6068
+Country: Russia
