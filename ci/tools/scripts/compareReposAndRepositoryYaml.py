@@ -123,7 +123,7 @@ def main():
         'openeuler.yaml中被重命名但仍存在的所有仓库': openeuler_rename_from_still_exist_repos,
         'src-openeuler.yaml中被重命名但仍存在的所有仓库': src_openeuler_rename_from_still_exist_repos
     }
-    print(data)
+    # print(data)
     # 删除临时目录
     os.system('rm -rf {}/{}'.format(tmpdir, timestamp))
 
