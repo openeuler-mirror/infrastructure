@@ -29,7 +29,7 @@ and [inifum](https://github.com/infinum/exim4-docker). Most of our Docker files 
 
 - Channels
 
-    IRC will be used to hold the weekly meeting. If you consider other meeting channels like Zoom, please propose it to [mail list](infra@openeuler.org) in advance. 
+    IRC will be used to hold the weekly meeting. If you consider other meeting channels like Zoom, please propose it to [mailing list](infra@openeuler.org) in advance. 
 
     The channel https://webchat.freenode.net/#openeuler-meeting is used.
 
