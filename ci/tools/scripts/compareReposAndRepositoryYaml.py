@@ -1,7 +1,9 @@
+#!/usr/bin/python3
 # -*- coding: utf-8 -*-
+
 """
-A script to compare and get differences between current repositories and openeuler.yaml/src-openeuler.yaml, also show
-rename_from repos and existing rename_from repos.
+A script to check consistency of repos and branches between config yaml and query results through the interfaces. The
+script shows issues and exits abnormally when the differences exists.
 """
 import argparse
 import json
@@ -11,6 +13,7 @@ import sys
 import tempfile
 import time
 import yaml
+from multiprocessing.dummy import Pool as ThreadPool
 
 
 def get_openeuler_repos():
@@ -63,23 +66,27 @@ def get_src_openeuler_repos():
     return src_repos
 
 
-def main():
-    tmpdir = tempfile.gettempdir()
-    timestamp = int(time.time())
-    os.system('cd {0}; mkdir {1}; cd {1}; git clone https://gitee.com/openeuler/community.git'.format(tmpdir, timestamp))
+def get_repo_branches(repo):
+    """获取仓库所有分支和所有保护分支"""
+    url = 'https://gitee.com/api/v5/repos/{}/branches?access_token={}'.format(repo, access_token)
+    r = requests.get(url)
+    repo_branches = [x['name'] for x in r.json()]
+    repo_protected_branches = [x['name'] for x in r.json() if x['protected']]
+    return repo_branches, repo_protected_branches
+
+
+def check_repos_consistency(o_yaml, src_yaml, issues):
+    print('=' * 20 + ' Check repos consistency ' + '=' * 20)
     openeuler_repos = get_openeuler_repos()  # api获取的openeuler所有仓库
     src_openeuler_repos = get_src_openeuler_repos()  # api获取的src-openeuler所有仓库
-    with open('{}/{}/community/repository/openeuler.yaml'.format(tmpdir, timestamp), 'r') as f:
-        o_yaml = yaml.load(f.read(), Loader=yaml.Loader)['repositories']
+
     openeuler_yaml_repos = []  # openeuler.yaml中的所有仓库
     openueler_rename_repos = []  # openeuler.yaml中被重命名的所有仓库
     for r in o_yaml:
         openeuler_yaml_repos.append(r['name'])
         if 'rename_from' in r.keys():
             openueler_rename_repos.append(r['rename_from'])
-    with open('{}/{}/community/repository/src-openeuler.yaml'.format(tmpdir, timestamp), 'r') as f:
-        src_yaml = yaml.load(f.read(), Loader=yaml.Loader)['repositories']
-    os.system('rm -rf {}/{}'.format(tmpdir, timestamp))
+
     src_openeuler_yaml_repos = []  # src-openeuler.yaml中的所有仓库
     src_openeuler_rename_repos = []  # src-openeuler.yaml中被重命名的所有仓库
     for r in src_yaml:
@@ -113,21 +120,6 @@ def main():
     for r in src_openeuler_rename_repos:
         if r in src_openeuler_extra_repos:
             src_openeuler_rename_from_still_exist_repos.append(r)
-    data = {
-        '不在openeuler.yaml中的仓库': openeuler_extra_repos,
-        '不在src-openeuler.yaml中的仓库': src_openeuler_extra_repos,
-        '在openeuler.yaml中但不存在的仓库': openeuler_non_existed_repos,
-        '在src-openeuler.yaml中但不存在的仓库': src_openeuler_non_existed_repos,
-        'openeuler.yaml中被重命名的所有仓库': openueler_rename_repos,
-        'src-openeuler.yaml中被重命名的所有仓库': src_openeuler_rename_repos,
-        'openeuler.yaml中被重命名但仍存在的所有仓库': openeuler_rename_from_still_exist_repos,
-        'src-openeuler.yaml中被重命名但仍存在的所有仓库': src_openeuler_rename_from_still_exist_repos
-    }
-    # print(data)
-    # 删除临时目录
-    os.system('rm -rf {}/{}'.format(tmpdir, timestamp))
-
-    issues = 0
     if len(openeuler_extra_repos) != 0:
         print('ERROR! 检查出不在openeuler.yaml中的仓库: {}'.format(openeuler_extra_repos))
         issues += 1
@@ -144,6 +136,87 @@ def main():
         print('WARNING! openeuler.yaml中有被重命名但仍存在的仓库: {}'.format(openeuler_rename_from_still_exist_repos))
     if len(src_openeuler_rename_from_still_exist_repos) != 0:
         print('WARNING! src-openeuler.yaml中有被重命名但仍存在仓库: {}'.format(src_openeuler_rename_from_still_exist_repos))
+    return issues
+
+
+def check_euler_branches(openeuler_repo):
+    not_exist_branches = []
+    not_protected_branches = []
+    repo_full_name = os.path.join('openeuler', openeuler_repo['name'])
+    yaml_branches = [x['name'] for x in openeuler_repo['branches']]
+    repo_branches, repo_protected_branches = get_repo_branches(repo_full_name)
+    for branch in yaml_branches:
+        if branch not in repo_branches:
+            not_exist_branches.append(branch)
+        if branch in repo_branches and branch not in repo_protected_branches:
+            not_protected_branches.append(branch)
+    if not_exist_branches:
+        print('ERROR! 检查出仓库{}已配置但不存在的分支: {}'.format(repo_full_name, not_exist_branches))
+    if not_protected_branches:
+        print('ERROR! 检查出仓库{}配置的保护分支不存在(实为非保护分支): {}'.format(repo_full_name, not_protected_branches))
+
+
+def check_src_euler_branches(src_openeuler_repo):
+    not_exist_branches = []
+    not_protected_branches = []
+    repo_full_name = os.path.join('src-openeuler', src_openeuler_repo['name'])
+    yaml_branches = [x['name'] for x in src_openeuler_repo['branches']]
+    repo_branches, repo_protected_branches = get_repo_branches(repo_full_name)
+    for branch in yaml_branches:
+        if branch not in repo_branches:
+            not_exist_branches.append(branch)
+        if branch in repo_branches and branch not in repo_protected_branches:
+            not_protected_branches.append(branch)
+    if not_exist_branches:
+        print('ERROR! 检查出仓库{}已配置但不存在的分支: {}'.format(repo_full_name, not_exist_branches))
+    if not_protected_branches:
+        print('ERROR! 检查出仓库{}配置的保护分支不存在(实为非保护分支): {}'.format(repo_full_name, not_protected_branches))
+
+
+def check_branch_consistency(o_yaml, src_yaml, issues):
+    print('=' * 20 + ' Check branches consistency ' + '=' * 20)
+    pool = ThreadPool(50)
+    pool.map(check_euler_branches, o_yaml)
+    pool.close()
+    pool.join()
+    pool2 = ThreadPool(50)
+    pool2.map(check_src_euler_branches, src_yaml)
+    pool2.close()
+    pool2.join()
+    return issues
+
+
+def main():
+    t1 = time.time()
+    print('=' * 20 + 'Prepare' + '=' * 20)
+    tmpdir = tempfile.gettempdir()
+    timestamp = int(t1)
+    os.system(
+        'cd {0};'
+        'mkdir {1};'
+        'cd {1} && echo "Temporary clone directory is $(pwd)";'
+        'git clone https://gitee.com/openeuler/community.git'.format(tmpdir, timestamp))
+    o_yaml_path = '{}/{}/community/repository/openeuler.yaml'.format(tmpdir, timestamp)
+    src_yaml_path = '{}/{}/community/repository/src-openeuler.yaml'.format(tmpdir, timestamp)
+    print('\nReading {}'.format(o_yaml_path))
+    with open(o_yaml_path, 'r') as f:
+        o_yaml = yaml.load(f.read(), Loader=yaml.Loader)['repositories']
+    print('Reading {}'.format(src_yaml_path))
+    with open(src_yaml_path, 'r') as f:
+        src_yaml = yaml.load(f.read(), Loader=yaml.Loader)['repositories']
+    issues = 0
+    t2 = time.time()
+    print('Prepare wasted time: {}\n'.format(t2 - t1))
+    issues += check_repos_consistency(o_yaml, src_yaml, issues)
+    t3 = time.time()
+    print('Check repos consistency wasted time: {}\n'.format(t3 - t2))
+    issues += check_branch_consistency(o_yaml, src_yaml, issues)
+    t4 = time.time()
+    print('Check branches consistency wasted time: {}\n'.format(t4 - t3))
+    print('Total waste: {}'.format(t4 - t1))
+    # 删除临时目录
+    os.system('rm -rf {}/{}'.format(tmpdir, timestamp))
+    print('Clean up temporary clone directory.')
     if issues != 0:
         sys.exit(1)
 
