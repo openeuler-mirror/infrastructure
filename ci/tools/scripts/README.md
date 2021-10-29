@@ -26,13 +26,13 @@
 
 ---
 ### compareReposAndRepositoryYaml
-通过api查询openeuler和src-openeuler的所有仓库，并与repository/下对应的yaml文件对比，找出不在yaml中的仓库，以及yaml中被重命名的仓库和yaml中被重命名且仍存在的仓库，输出json字符串。
+通过api查询openeuler和src-openeuler的所有仓库及其所有分支，并与repository/下对应的yaml文件对比，并输出不符合仓库、分支一致性的错误信息。
 #### 运行
 - 通过`-t`或`--token`传入access_token，需注意access_token是否具有足够权限  e.g. `python3 compareReposAndRepositoryYaml.py -t *********`
 #### 输出
 - 不在openeuler.yaml中的仓库
 - 不在src-openeuler.yaml中的仓库
-- openeuler.yaml中被重命名的所有仓库
-- src-openeuler.yaml中被重命名的所有仓库
-- openeuler.yaml中被重命名但仍存在的所有仓库
-- src-openeuler.yaml中被重命名但仍存在的所有仓库
+- 在openeuler.yaml中但不存在的仓库
+- 在src-openeuler.yaml中但不存在的仓库
+- 仓库已配置但不存在的分支
+- 仓库已配置但不存在的保护分支
