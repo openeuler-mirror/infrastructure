@@ -140,6 +140,7 @@ def check_repos_consistency(o_yaml, src_yaml, issues):
 
 
 def check_euler_branches(openeuler_repo):
+    branches_issues = 0
     not_exist_branches = []
     not_protected_branches = []
     repo_full_name = os.path.join('openeuler', openeuler_repo['name'])
@@ -148,15 +149,19 @@ def check_euler_branches(openeuler_repo):
     for branch in yaml_branches:
         if branch not in repo_branches:
             not_exist_branches.append(branch)
-        if branch in repo_branches and branch not in repo_protected_branches:
+        elif branch not in repo_protected_branches:
             not_protected_branches.append(branch)
     if not_exist_branches:
         print('ERROR! 检查出仓库{}已配置但不存在的分支: {}'.format(repo_full_name, not_exist_branches))
+        branches_issues += 1
     if not_protected_branches:
         print('ERROR! 检查出仓库{}配置的保护分支不存在(实为非保护分支): {}'.format(repo_full_name, not_protected_branches))
+        branches_issues += 1
+    return branches_issues
 
 
 def check_src_euler_branches(src_openeuler_repo):
+    branches_issues = 0
     not_exist_branches = []
     not_protected_branches = []
     repo_full_name = os.path.join('src-openeuler', src_openeuler_repo['name'])
@@ -165,25 +170,29 @@ def check_src_euler_branches(src_openeuler_repo):
     for branch in yaml_branches:
         if branch not in repo_branches:
             not_exist_branches.append(branch)
-        if branch in repo_branches and branch not in repo_protected_branches:
+        elif branch not in repo_protected_branches:
             not_protected_branches.append(branch)
     if not_exist_branches:
         print('ERROR! 检查出仓库{}已配置但不存在的分支: {}'.format(repo_full_name, not_exist_branches))
+        branches_issues += 1
     if not_protected_branches:
         print('ERROR! 检查出仓库{}配置的保护分支不存在(实为非保护分支): {}'.format(repo_full_name, not_protected_branches))
+        branches_issues += 1
+    return branches_issues
 
 
-def check_branch_consistency(o_yaml, src_yaml, issues):
+def check_branch_consistency(o_yaml, src_yaml):
     print('=' * 20 + ' Check branches consistency ' + '=' * 20)
     pool = ThreadPool(50)
-    pool.map(check_euler_branches, o_yaml)
+    res1 = pool.map(check_euler_branches, o_yaml)
     pool.close()
     pool.join()
     pool2 = ThreadPool(50)
-    pool2.map(check_src_euler_branches, src_yaml)
+    res2 = pool2.map(check_src_euler_branches, src_yaml)
     pool2.close()
     pool2.join()
-    return issues
+    branches_issues = res1.count(1) + res1.count(2) + res2.count(1) + res2.count(2)
+    return branches_issues
 
 
 def main():
@@ -210,7 +219,7 @@ def main():
     issues += check_repos_consistency(o_yaml, src_yaml, issues)
     t3 = time.time()
     print('Check repos consistency wasted time: {}\n'.format(t3 - t2))
-    issues += check_branch_consistency(o_yaml, src_yaml, issues)
+    issues += check_branch_consistency(o_yaml, src_yaml)
     t4 = time.time()
     print('Check branches consistency wasted time: {}\n'.format(t4 - t3))
     print('Total waste: {}'.format(t4 - t1))
