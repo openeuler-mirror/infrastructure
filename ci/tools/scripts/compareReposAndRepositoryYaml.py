@@ -75,7 +75,8 @@ def get_repo_branches(repo):
     return repo_branches, repo_protected_branches
 
 
-def check_repos_consistency(o_yaml, src_yaml, issues):
+def check_repos_consistency(issues):
+    """检查仓库一致性"""
     print('=' * 20 + ' Check repos consistency ' + '=' * 20)
     openeuler_repos = get_openeuler_repos()  # api获取的openeuler所有仓库
     src_openeuler_repos = get_src_openeuler_repos()  # api获取的src-openeuler所有仓库
@@ -139,9 +140,18 @@ def check_repos_consistency(o_yaml, src_yaml, issues):
     return issues
 
 
+def get_sig_name(repo):
+    """获取仓库所属sig"""
+    for sig in sigs:
+        if repo in sig['repositories']:
+            return sig['name']
+
+
 def check_euler_branches(openeuler_repo):
+    """openeuler.yaml中仓库的分支一致性检查"""
     branches_issues = 0
     not_exist_branches = []
+    not_configured_branches = []
     not_protected_branches = []
     repo_full_name = os.path.join('openeuler', openeuler_repo['name'])
     yaml_branches = [x['name'] for x in openeuler_repo['branches']]
@@ -151,18 +161,28 @@ def check_euler_branches(openeuler_repo):
             not_exist_branches.append(branch)
         elif branch not in repo_protected_branches:
             not_protected_branches.append(branch)
-    if not_exist_branches:
-        print('ERROR! 检查出仓库{}已配置但不存在的分支: {}'.format(repo_full_name, not_exist_branches))
-        branches_issues += 1
-    if not_protected_branches:
-        print('ERROR! 检查出仓库{}配置的保护分支不存在(实为非保护分支): {}'.format(repo_full_name, not_protected_branches))
-        branches_issues += 1
+    for branch in repo_protected_branches:
+        if branch not in yaml_branches:
+            not_configured_branches.append(branch)
+    if not_exist_branches or not_configured_branches or not_protected_branches:
+        sig_name = get_sig_name(repo_full_name)
+        if not_exist_branches:
+            print('ERROR! 配置多，仓库少 [{}]{}: {}'.format(sig_name, repo_full_name, not_exist_branches))
+            branches_issues += 1
+        if not_configured_branches:
+            print('ERROR! 仓库多，配置少 [{}]{}: {}'.format(sig_name, repo_full_name, not_configured_branches))
+            branches_issues += 1
+        if not_protected_branches:
+            print('ERROR! 非保护分支 [{}]{}: {}'.format(sig_name, repo_full_name, not_protected_branches))
+            branches_issues += 1
     return branches_issues
 
 
 def check_src_euler_branches(src_openeuler_repo):
+    """src-openeuler.yaml中仓库的分支一致性检查"""
     branches_issues = 0
     not_exist_branches = []
+    not_configured_branches = []
     not_protected_branches = []
     repo_full_name = os.path.join('src-openeuler', src_openeuler_repo['name'])
     yaml_branches = [x['name'] for x in src_openeuler_repo['branches']]
@@ -172,16 +192,24 @@ def check_src_euler_branches(src_openeuler_repo):
             not_exist_branches.append(branch)
         elif branch not in repo_protected_branches:
             not_protected_branches.append(branch)
-    if not_exist_branches:
-        print('ERROR! 检查出仓库{}已配置但不存在的分支: {}'.format(repo_full_name, not_exist_branches))
-        branches_issues += 1
-    if not_protected_branches:
-        print('ERROR! 检查出仓库{}配置的保护分支不存在(实为非保护分支): {}'.format(repo_full_name, not_protected_branches))
-        branches_issues += 1
+    for branch in repo_protected_branches:
+        if branch not in yaml_branches:
+            not_configured_branches.append(branch)
+    if not_exist_branches or not_configured_branches or not_protected_branches:
+        sig_name = get_sig_name(repo_full_name)
+        if not_exist_branches:
+            print('ERROR! 配置多，仓库少 [{}]{}: {}'.format(sig_name, repo_full_name, not_exist_branches))
+            branches_issues += 1
+        if not_configured_branches:
+            print('ERROR! 仓库多，配置少 [{}]{}: {}'.format(sig_name, repo_full_name, not_configured_branches))
+            branches_issues += 1
+        if not_protected_branches:
+            print('ERROR! 非保护分支 [{}]{}: {}'.format(sig_name, repo_full_name, not_protected_branches))
+            branches_issues += 1
     return branches_issues
 
 
-def check_branch_consistency(o_yaml, src_yaml):
+def check_branch_consistency():
     print('=' * 20 + ' Check branches consistency ' + '=' * 20)
     pool = ThreadPool(50)
     res1 = pool.map(check_euler_branches, o_yaml)
@@ -191,35 +219,16 @@ def check_branch_consistency(o_yaml, src_yaml):
     res2 = pool2.map(check_src_euler_branches, src_yaml)
     pool2.close()
     pool2.join()
-    branches_issues = res1.count(1) + res1.count(2) + res2.count(1) + res2.count(2)
+    branches_issues = len(res1) - res1.count(0) + len(res2) - res2.count(0)
     return branches_issues
 
 
 def main():
-    t1 = time.time()
-    print('=' * 20 + 'Prepare' + '=' * 20)
-    tmpdir = tempfile.gettempdir()
-    timestamp = int(t1)
-    os.system(
-        'cd {0};'
-        'mkdir {1};'
-        'cd {1} && echo "Temporary clone directory is $(pwd)";'
-        'git clone https://gitee.com/openeuler/community.git'.format(tmpdir, timestamp))
-    o_yaml_path = '{}/{}/community/repository/openeuler.yaml'.format(tmpdir, timestamp)
-    src_yaml_path = '{}/{}/community/repository/src-openeuler.yaml'.format(tmpdir, timestamp)
-    print('\nReading {}'.format(o_yaml_path))
-    with open(o_yaml_path, 'r') as f:
-        o_yaml = yaml.load(f.read(), Loader=yaml.Loader)['repositories']
-    print('Reading {}'.format(src_yaml_path))
-    with open(src_yaml_path, 'r') as f:
-        src_yaml = yaml.load(f.read(), Loader=yaml.Loader)['repositories']
     issues = 0
-    t2 = time.time()
-    print('Prepare wasted time: {}\n'.format(t2 - t1))
-    issues += check_repos_consistency(o_yaml, src_yaml, issues)
+    issues += check_repos_consistency(issues)
     t3 = time.time()
     print('Check repos consistency wasted time: {}\n'.format(t3 - t2))
-    issues += check_branch_consistency(o_yaml, src_yaml)
+    issues += check_branch_consistency()
     t4 = time.time()
     print('Check branches consistency wasted time: {}\n'.format(t4 - t3))
     print('Total waste: {}'.format(t4 - t1))
@@ -235,5 +244,27 @@ if __name__ == '__main__':
     parser.add_argument('-t', '--token', help='access_token', required=True)
     args = parser.parse_args()
     access_token = args.token
+    t1 = time.time()
+    print('=' * 20 + 'Prepare' + '=' * 20)
+    tmpdir = tempfile.gettempdir()
+    timestamp = int(t1)
+    os.system(
+        'cd {0};'
+        'mkdir {1};'
+        'cd {1} && echo "Temporary clone directory is $(pwd)";'
+        'git clone https://gitee.com/openeuler/community.git'.format(tmpdir, timestamp))
+    o_yaml_path = '{}/{}/community/repository/openeuler.yaml'.format(tmpdir, timestamp)
+    src_yaml_path = '{}/{}/community/repository/src-openeuler.yaml'.format(tmpdir, timestamp)
+    yaml_repos_path = '{}/{}/community/sig/sigs.yaml'.format(tmpdir, timestamp)
+    print('\nReading {}'.format(o_yaml_path))
+    with open(o_yaml_path, 'r') as f:
+        o_yaml = yaml.load(f.read(), Loader=yaml.Loader)['repositories']
+    print('Reading {}'.format(src_yaml_path))
+    with open(src_yaml_path, 'r') as f:
+        src_yaml = yaml.load(f.read(), Loader=yaml.Loader)['repositories']
+    with open(yaml_repos_path, 'r') as f:
+        sigs = yaml.load(f.read(), Loader=yaml.Loader)['sigs']
+    t2 = time.time()
+    print('Prepare wasted time: {}\n'.format(t2 - t1))
     main()
 
