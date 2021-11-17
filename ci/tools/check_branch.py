@@ -61,6 +61,7 @@ class checkBranch(object):
         self.community_path = community_path
         self._get_branch_map()
         self.change_msg = []
+        self.before_change_msg = []
 
     def _read_yaml(self, file_path):
         if os.path.exists(file_path):
@@ -74,9 +75,12 @@ class checkBranch(object):
         change_pkg = []
         for p in list1:
             if p not in list2:
-                change_pkg.append(p)
-        return change_pkg
-    
+                for q in list2:
+                    if q["name"] == p["name"]:
+                        self.before_change_msg.append(q)
+                        break
+                self.change_msg.append(p)
+
     def get_change_pkg(self):
         new_yaml = os.path.join(self.community_path, "repository", "src-openeuler.yaml")
         old_yaml = "%s/old-src-openeuler.yaml" %  self.community_path
@@ -86,7 +90,7 @@ class checkBranch(object):
 
         list1 = self._read_yaml(new_yaml)["repositories"]
         list2 = self._read_yaml(old_yaml)["repositories"]
-        self.change_msg = self._change_pkg(list1, list2)
+        self._change_pkg(list1, list2)
 
     def _get_branch_map(self):
         """
@@ -109,7 +113,7 @@ class checkBranch(object):
         else:
             raise FileError("ERROR: No file {0}".format(src_openeuler_yaml))
 
-    def _check_branch(self, mbranch, sbranch, pkg_name=''):
+    def _check_branch(self, mbranch, sbranch, pkg_name='', old_flag=0):
         """
         check
         :parm mbranch: branch which now branch created from
@@ -121,10 +125,10 @@ class checkBranch(object):
             else:
                 pass
         else:
-            self._check_main_branch(mbranch, pkg_name=pkg_name)
-            self._check_sub_branch(mbranch, sbranch, pkg_name=pkg_name)
+            self._check_main_branch(mbranch, pkg_name=pkg_name, old_flag=old_flag)
+            self._check_sub_branch(mbranch, sbranch, pkg_name=pkg_name, old_flag=old_flag)
 
-    def _check_main_branch(self, mbranch, pkg_name=''):
+    def _check_main_branch(self, mbranch, pkg_name='', old_flag=0):
         """
         check main branch which now branch created from
         :parm mbranch: main branch
@@ -132,19 +136,31 @@ class checkBranch(object):
         if mbranch not in self.branch_map["branch"].keys():
             if mbranch.startswith("Multi"):
                 if mbranch.split("_")[-1] not in self.branch_map["branch"].keys():
-                    raise CheckError("FAIL: {0} Not found main branch {1}".format(pkg_name, mbranch.split("_")[-1]))
+                    if old_flag:
+                        raise CheckWarn("WARN: {0} Not found main branch {1}".format(pkg_name, mbranch.split("_")[-1]))
+                    else:
+                        raise CheckError("FAIL: {0} Not found main branch {1}".format(pkg_name, mbranch.split("_")[-1]))
             elif mbranch.startswith("oepkg"):
                 tmp = mbranch.split("_")[-1]
                 if tmp.startswith("oe"):
                     tmp = tmp.replace("oe", "openEuler")
                     if tmp not in self.branch_map["branch"].keys():
-                        raise CheckError("FAIL: {0} Not found main branch {1}".format(pkg_name, tmp))
+                        if old_flag:
+                            raise CheckWarn("WARN: {0} Not found main branch {1}".format(pkg_name, tmp))
+                        else:
+                            raise CheckError("FAIL: {0} Not found main branch {1}".format(pkg_name, tmp))
                 else:
-                    raise CheckError("FAIL: {0} Not found main branch {1}".format(pkg_name, tmp))
+                    if old_flag:
+                        raise CheckError("WARN: {0} Not found main branch {1}".format(pkg_name, tmp))
+                    else:
+                        raise CheckError("FAIL: {0} Not found main branch {1}".format(pkg_name, tmp))
             else:
-                raise CheckError("FAIL: {0} Not found main branch {1}".format(pkg_name, mbranch))
+                if old_flag:
+                    raise CheckWarn("WARN: {0} Not found main branch {1}".format(pkg_name, mbranch))
+                else:
+                    raise CheckError("FAIL: {0} Not found main branch {1}".format(pkg_name, mbranch))
 
-    def _check_sub_branch(self, mbranch, sbranch, pkg_name=''):
+    def _check_sub_branch(self, mbranch, sbranch, pkg_name='', old_flag=0):
         """
         check sub branch
         :parm mbranch: main branch
@@ -157,26 +173,46 @@ class checkBranch(object):
                 if "_oe" in mbranch:
                     mbranch = mbranch.split("_")[-1].replace("oe", "openEuler")
             else:
-                raise CheckError("FAIL: {0} main branch is wrong".format(pkg_name))
+                if old_flag:
+                    raise CheckWarn("WARN: {0} main branch is wrong".format(pkg_name))
+                else:
+                    raise CheckError("FAIL: {0} main branch is wrong".format(pkg_name))
 
         if sbranch not in self.branch_map["branch"][mbranch]:
             sb = sbranch.split("_")
             if sbranch.startswith("Multi"):
                 if "Multi-Version" != sb[0]:
-                    raise CheckError("FAIL: {0} sub branch {1} is wrong".format(pkg_name, sbranch))
+                    if old_flag:
+                        raise CheckWarn("WARN: {0} sub branch {1} is wrong".format(pkg_name, sbranch))
+                    else:
+                        raise CheckError("FAIL: {0} sub branch {1} is wrong".format(pkg_name, sbranch))
                 if sb[-1] not in self.branch_map["branch"][mbranch]:
-                    raise CheckError("FAIL: {0} sub branch {1}\'s {2} not found in list given by main branch {3}"\
+                    if old_flag:
+                        raise CheckWarn("WARN: {0} sub branch {1}\'s {2} not found in list given by main branch {3}"\
+                            .format(pkg_name, sbranch, sb[-1], mbranch))
+                    else:
+                        raise CheckError("FAIL: {0} sub branch {1}\'s {2} not found in list given by main branch {3}"\
                             .format(pkg_name, sbranch, sb[-1], mbranch))
             elif sbranch.startswith("oepkg"):
                 if sb[-1].startswith("oe"):
                     tmp = sb[-1].replace("oe", "openEuler")
                     if tmp not in self.branch_map["branch"][mbranch]:
-                        raise CheckError("FAIL: {0} sub branch {1}\'s {2} not found in list given by main branch {3}"\
+                        if old_flag:
+                            raise CheckWarn("WARN: {0} sub branch {1}\'s {2} not found in list given by main branch {3}"\
+                                .format(pkg_name, sbranch, sb[-1], mbranch))
+                        else:
+                            raise CheckError("FAIL: {0} sub branch {1}\'s {2} not found in list given by main branch {3}"\
                                 .format(pkg_name, sbranch, sb[-1], mbranch))
                 else:
-                    raise CheckError("FAIL: {0} sub branch is wrong".format(pkg_name))
+                    if old_flag:
+                        raise CheckWarn("WARN: {0} sub branch is wrong".format(pkg_name))
+                    else:
+                        raise CheckError("FAIL: {0} sub branch is wrong".format(pkg_name))
             else:
-                raise CheckError("FAIL: {0} sub branch {1} not found in list given by main branch {2}".format(pkg_name, sbranch, mbranch))
+                if old_flag:
+                    raise CheckWarn("WARN: {0} sub branch {1} not found in list given by main branch {2}".format(pkg_name, sbranch, mbranch))
+                else:
+                    raise CheckError("FAIL: {0} sub branch {1} not found in list given by main branch {2}".format(pkg_name, sbranch, mbranch))
 
     def _check_createfrom_valid(self, reponame, sbranches, mbranches):
         """
@@ -192,11 +228,12 @@ class checkBranch(object):
         return
 
     def check(self):
+        old_flag = 0
         for pkg in self.change_msg:
             pkg_name = pkg["name"]
             branches = pkg["branches"]
-            sbranches = []
-            mbranches = []
+            #sbranches = []
+            #mbranches = []
             for bch in branches:
                 sbranch = bch['name']
                 if sbranch == "master":
@@ -204,9 +241,18 @@ class checkBranch(object):
                 else:
                     mbranch = bch['create_from']
                 try:
-                    sbranches.append(sbranch)
-                    mbranches.append(mbranch)
-                    self._check_branch(mbranch, sbranch, pkg_name=pkg_name)
+                    for bpkg in self.before_change_msg:
+                        if bpkg["name"] == pkg_name:
+                            bl = bpkg["branches"]
+                            for ob in bl:
+                                if ob["name"] == sbranch:
+                                    old_flag = 1
+                                    break
+                            break
+                    #sbranches.append(sbranch)
+                    #mbranches.append(mbranch)
+                    self._check_branch(mbranch, sbranch, pkg_name=pkg_name, old_flag=old_flag)
+                    old_flag = 0
                 except CheckError as e:
                     print(e)
                     self.error_flag = self.error_flag + 1
@@ -216,11 +262,11 @@ class checkBranch(object):
                 except FileError as e:
                     print(e)
                     self.error_flag = self.error_flag + 1
-            try:
-                self._check_createfrom_valid(pkg_name, sbranches, mbranches)
-            except CheckError as e:
-                print(e)
-                self.error_flag = self.error_flag + 1
+            #try:
+            #    self._check_createfrom_valid(pkg_name, sbranches, mbranches)
+            #except CheckError as e:
+            #    print(e)
+            #    self.error_flag = self.error_flag + 1
         print("Check PR {0} Result: error {1}, warn {2}".format(self.pr_id, self.error_flag, self.warn_flag))
         if self.error_flag:
             sys.exit(1)
