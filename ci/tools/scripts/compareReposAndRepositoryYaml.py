@@ -223,6 +223,23 @@ def check_branch_consistency():
     return branches_issues
 
 
+def check_recycle_repos_status():
+    print('=' * 20 + ' Check recycle repos status ' + '=' * 20)
+    repos = []
+    for sig in sigs:
+        if sig['name'] == 'sig-recycle':
+            repos = sig['repositories']
+    error_count = 0
+    for repo in repos:
+        r = requests.get('https://gitee.com/api/v5/repos/{}?access_token={}'.format(repo, access_token))
+        if r.status_code == 200:
+            status = r.json()['status']
+            print('{}的仓库状态为{}'.format(repo, status))
+            if status == '开始' or status == 'Started':
+                error_count += 1
+    return error_count
+
+
 def main():
     issues = 0
     issues += check_repos_consistency(issues)
@@ -231,10 +248,14 @@ def main():
     issues += check_branch_consistency()
     t4 = time.time()
     print('Check branches consistency wasted time: {}\n'.format(t4 - t3))
-    print('Total waste: {}'.format(t4 - t1))
+    issues += check_recycle_repos_status()
+    t5 = time.time()
+    print('Check recycle repos status wasted time: {}\n'.format(t5 - t4))
+    print('Total waste: {}'.format(t5 - t1))
     # 删除临时目录
     os.system('rm -rf {}/{}'.format(tmpdir, timestamp))
     print('Clean up temporary clone directory.')
+
     if issues != 0:
         sys.exit(1)
 
