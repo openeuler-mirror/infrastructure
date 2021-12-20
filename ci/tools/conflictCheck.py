@@ -15,7 +15,12 @@ def check(session):
         if r.status_code != 200 and r.status_code != 502:
             print('ERROR! Fail to get Pull Request info, status_code:', r.status_code)
             sys.exit(1)
+        state = r.json()['state']
         mergeable = r.json()['mergeable']
+        if state == 'closed':
+            result = 'The Pull Request has been closed. Skip checking.'
+            comment(session, result)
+            sys.exit(1)
         if not mergeable:
             print('ERROR! The Pull Request conflicts. Ready to tag conflict label.')
             tag(session)
@@ -26,6 +31,12 @@ def check(session):
         print('ERROR! Too many retries, exit retry')
         sys.exit(1)
 
+def comment(session, body):
+    url = 'https://gitee.com/api/v5/repos/{0}/{1}/pulls/{2}/comments'.format(owner, repo, number)
+    data = {"access_token": access_token, "body": body}
+    r = session.post(url, data=data)
+    if r.status_code != 201:
+        print(r.status_code, r.json())
 
 def tag(session):
     url = 'https://gitee.com/api/v5/repos/{0}/{1}/pulls/{2}/labels?access_token={3}'.format(owner, repo, number,
