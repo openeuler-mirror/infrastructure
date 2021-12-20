@@ -19,6 +19,7 @@ def check(session):
         mergeable = r.json()['mergeable']
         if state == 'closed':
             result = 'The Pull Request has been closed. Skip checking.'
+            print(result)
             comment(session, result)
             sys.exit(1)
         if not mergeable:
