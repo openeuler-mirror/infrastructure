@@ -82,12 +82,13 @@ def main():
         print('No new repos were added in this Pull Request, exit...')
         sys.exit(0)
 
+    reconf_jobs = []
+    server = conn_jenkins()
     for added_repo in added_repos:
         # Check whether the repository is built already
         if not check_repo_exist(added_repo):
             continue
         # trigger build
-        server = conn_jenkins()
         jobs = added_repo.split('/')[1]
         parameters = {
             'action': 'create',
@@ -101,6 +102,11 @@ def main():
                 print('Repo {} has its projects on jenkins already'.format(added_repo))
                 continue
             server.build_job(name='multiarch/src-openeuler/jobs-crud/_entry', parameters=parameters)
+            reconf_jobs.append(jobs)
+    reconf_jobs_string = " ".join(reconf_jobs)
+    sleep_time = len(reconf_jobs) * 60
+    time.sleep(sleep_time)
+    server.build_job(name='Infra/daily_jobs/reconf_arch/', parameters={'jobs': reconf_jobs_string})
 
 
 if __name__ == '__main__':
