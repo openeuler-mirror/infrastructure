@@ -98,7 +98,7 @@ def main():
             'repo_server': 'repo-service.dailybuild'
         }
         if added_repo.startswith('src'):
-            if server.get_info_name('multiarch/src-openeuler/trigger/{}'.format(jobs)) == jobs:
+            if server.get_job_name('multiarch/src-openeuler/trigger/{}'.format(jobs)) == jobs:
                 print('Repo {} has its projects on jenkins already'.format(added_repo))
                 continue
             server.build_job(name='multiarch/src-openeuler/jobs-crud/_entry', parameters=parameters)
