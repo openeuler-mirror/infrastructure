@@ -234,9 +234,11 @@ def check_recycle_repos_status():
         r = requests.get('https://gitee.com/api/v5/repos/{}?access_token={}'.format(repo, access_token))
         if r.status_code == 200:
             status = r.json()['status']
-            print('{}的仓库状态为{}'.format(repo, status))
-            if status == '开始' or status == 'Started':
+            if status != '关闭' or status != 'Closed' or status != 'closed':
+                print('{}的仓库状态为{}'.format(repo, status))
                 error_count += 1
+        else:
+            print('Failed to get information about repository {}, status_code: {}, reason: {}'.format(repo, r.status_code, r.json()))
     return error_count
 
 
