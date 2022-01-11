@@ -1,9 +1,9 @@
 Name: Northwest-A&F-University
-HttpURL: https://mirror.nwafu.edu.cn/openeuler/
+HttpURL: https://mirrors.nwafu.edu.cn/openeuler/
 RsyncURL: ""
 FtpURL: ""
 SponsorName: Northwest-A&F-University
-SponsorURL: http://mirror.nwafu.edu.cn/
+SponsorURL: http://mirrors.nwafu.edu.cn/
 SponsorLogoURL: https://mirrors.nwafu.edu.cn/help/assets/images/favicon.png
 AdminName: Cui Chengyu
 AdminEmail: ccy@nwafu.edu.cn
