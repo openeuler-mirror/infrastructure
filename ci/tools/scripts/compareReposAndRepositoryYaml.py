@@ -274,7 +274,7 @@ if __name__ == '__main__':
         'mkdir {1};'
         'cd {1} && echo "Temporary clone directory is $(pwd)";'
         'git clone https://gitee.com/openeuler/community.git'.format(tmpdir, timestamp))
-    sig_path = 'community/sig'
+    sig_path = os.path.join(tmpdir, str(timestamp), 'community', 'sig')
     o_yaml = []
     src_yaml = []
     sigs = []
