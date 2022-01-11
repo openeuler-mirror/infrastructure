@@ -1,0 +1,19 @@
+Name: Northwest-A&F-University
+HttpURL: https://mirror.nwafu.edu.cn/openeuler/
+RsyncURL: ""
+FtpURL: ""
+SponsorName: Northwest-A&F-University
+SponsorURL: http://mirror.nwafu.edu.cn/
+SponsorLogoURL: https://mirrors.nwafu.edu.cn/help/assets/images/favicon.png
+AdminName: Cui Chengyu
+AdminEmail: ccy@nwafu.edu.cn
+ContinentOnly: false
+CountryOnly: false
+ASOnly: false
+Score: 100
+Enabled: true
+AllowRedirects: null
+NetworkBandwidth: 150
+Latitude: 34.2625
+Longitude: 108.0661
+Country: China
