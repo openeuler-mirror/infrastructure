@@ -13,7 +13,7 @@ ASOnly: false
 Score: 100
 Enabled: true
 AllowRedirects: null
-NetworkBandwidth: 150
+NetworkBandwidth: 300
 Latitude: 34.2625
 Longitude: 108.0661
 Country: China
