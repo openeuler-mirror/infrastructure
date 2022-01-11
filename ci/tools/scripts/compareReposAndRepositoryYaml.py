@@ -34,7 +34,6 @@ def get_openeuler_repos():
         try:
             for repo in response.json():
                 o_repos.append(repo['path'])
-            print('Get openeuler repos: 第{}页获取完毕!'.format(page))
         except json.decoder.JSONDecodeError:
             return o_repos
         page += 1
@@ -59,7 +58,6 @@ def get_src_openeuler_repos():
         try:
             for repo in response.json():
                 src_repos.append(repo['path'])
-            print('Get src-openeuler repos: 第{}页获取完毕!'.format(page))
         except json.decoder.JSONDecodeError:
             return src_repos
         page += 1
@@ -122,10 +120,10 @@ def check_repos_consistency(issues):
         if r in src_openeuler_extra_repos:
             src_openeuler_rename_from_still_exist_repos.append(r)
     if len(openeuler_extra_repos) != 0:
-        print('ERROR! 检查出不在openeuler.yaml中的仓库: {}'.format(openeuler_extra_repos))
+        print('ERROR! 检查出不在community中的openeuler仓库: {}'.format(openeuler_extra_repos))
         issues += 1
     if len(src_openeuler_extra_repos) != 0:
-        print('ERROR! 检查出不在src-openeuler.yaml中的仓库: {}'.format(src_openeuler_extra_repos))
+        print('ERROR! 检查出不在community中的src-openeuler仓库: {}'.format(src_openeuler_extra_repos))
         issues += 1
     if len(openeuler_non_existed_repos) != 0:
         print('ERROR! 检查出在openeuler.yaml中但不存在的仓库: {}'.format(openeuler_non_existed_repos))
@@ -276,17 +274,35 @@ if __name__ == '__main__':
         'mkdir {1};'
         'cd {1} && echo "Temporary clone directory is $(pwd)";'
         'git clone https://gitee.com/openeuler/community.git'.format(tmpdir, timestamp))
-    o_yaml_path = '{}/{}/community/repository/openeuler.yaml'.format(tmpdir, timestamp)
-    src_yaml_path = '{}/{}/community/repository/src-openeuler.yaml'.format(tmpdir, timestamp)
-    yaml_repos_path = '{}/{}/community/sig/sigs.yaml'.format(tmpdir, timestamp)
-    print('\nReading {}'.format(o_yaml_path))
-    with open(o_yaml_path, 'r') as f:
-        o_yaml = yaml.load(f.read(), Loader=yaml.Loader)['repositories']
-    print('Reading {}'.format(src_yaml_path))
-    with open(src_yaml_path, 'r') as f:
-        src_yaml = yaml.load(f.read(), Loader=yaml.Loader)['repositories']
-    with open(yaml_repos_path, 'r') as f:
-        sigs = yaml.load(f.read(), Loader=yaml.Loader)['sigs']
+    sig_path = 'community/sig'
+    o_yaml = []
+    src_yaml = []
+    sigs = []
+    for i in os.listdir(sig_path):
+        if i in ['README.md', 'sig-template']:
+            continue
+        if i not in [x['name'] for x in sigs]:
+            sigs.append({'name': i, 'repositories': []})
+        if 'openeuler' in os.listdir(os.path.join(sig_path, i)):
+            for filesdir, _, repos in os.walk(os.path.join(sig_path, i, 'openeuler')):
+                for repo in repos:
+                    with open(os.path.join(filesdir, repo)) as f:
+                        config_info = yaml.load(f.read(), Loader=yaml.Loader)
+                        o_yaml.append(config_info)
+                        for sig in sigs:
+                            if sig['name'] == i:
+                                repositories = sig['repositories']
+                                repositories.append(os.path.join('openeuler', repo.split('.yaml')[0]))
+        if 'src-openeuler' in os.listdir(os.path.join(sig_path, i)):
+            for filesdir, _, src_repos in os.walk(os.path.join(sig_path, i, 'src-openeuler')):
+                for src_repo in src_repos:
+                    with open(os.path.join(filesdir, src_repo), 'r') as f:
+                        src_config_info = yaml.load(f.read(), Loader=yaml.Loader)
+                        src_yaml.append(src_config_info)
+                        for sig in sigs:
+                            if sig['name'] == i:
+                                repositories = sig['repositories']
+                                repositories.append(os.path.join('src-openeuler', src_repo.split('.yaml')[0]))
     t2 = time.time()
     print('Prepare wasted time: {}\n'.format(t2 - t1))
     main()
