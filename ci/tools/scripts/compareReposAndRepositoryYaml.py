@@ -153,7 +153,10 @@ def check_euler_branches(openeuler_repo):
     not_protected_branches = []
     repo_full_name = os.path.join('openeuler', openeuler_repo['name'])
     yaml_branches = [x['name'] for x in openeuler_repo['branches']]
-    repo_branches, repo_protected_branches = get_repo_branches(repo_full_name)
+    try:
+        repo_branches, repo_protected_branches = get_repo_branches(repo_full_name)
+    except OSError:
+        return branches_issues
     for branch in yaml_branches:
         if branch not in repo_branches:
             not_exist_branches.append(branch)
@@ -208,6 +211,7 @@ def check_src_euler_branches(src_openeuler_repo):
 
 
 def check_branch_consistency():
+    """检查分支一致性"""
     print('=' * 20 + ' Check branches consistency ' + '=' * 20)
     pool = ThreadPool(50)
     res1 = pool.map(check_euler_branches, o_yaml)
@@ -222,6 +226,7 @@ def check_branch_consistency():
 
 
 def check_recycle_repos_status():
+    """检查recycle仓库的状态"""
     print('=' * 20 + ' Check recycle repos status ' + '=' * 20)
     repos = []
     for sig in sigs:
@@ -236,22 +241,79 @@ def check_recycle_repos_status():
                 print('{}的仓库状态为{}'.format(repo, status))
                 error_count += 1
         else:
-            print('Failed to get information about repository {}, status_code: {}, reason: {}'.format(repo, r.status_code, r.json()))
+            print(
+                'Failed to get information about repository {}, status_code: {}, reason: {}'.format(repo, r.status_code,
+                                                                                                    r.json()))
     return error_count
+
+
+def get_repository_members(repository):
+    """获取一个仓库所有成员的gitee_id列表"""
+    members = []
+    page = 1
+    url = 'https://gitee.com/api/v5/repos/{}/collaborators'.format(repository)
+    while True:
+        params = {
+            'access_token': access_token,
+            'page': page,
+            'per_page': 100
+        }
+        r = requests.get(url, params=params)
+        if r.status_code != 200:
+            print('ERROR! Fail to get members of repo {}'.format(repository))
+            print(r.status_code, r.json())
+            return members
+        if not r.json():
+            break
+        for member in r.json():
+            gitee_id = member['login']
+            members.append(gitee_id)
+        page += 1
+    return [member.lower() for member in members]
+
+
+def check_members():
+    """检查仓库成员一致性"""
+    print('=' * 20 + ' Check members consistency ' + '=' * 20)
+    errors_found = 0
+    for sig in sigs:
+        sig_name = sig['name']
+        repositories = sig['repositories']
+        owners_path = os.path.join(sig_path, sig_name, 'OWNERS')
+        with open(owners_path, 'r') as fp:
+            maintainers = yaml.load(fp.read(), Loader=yaml.Loader)['maintainers']
+            # print('sig: {}, maintainers: {}'.format(sig_name, maintainers))
+        for repository in repositories:
+            members = get_repository_members(repository)
+            for maintainer in maintainers:
+                if maintainer.lower() not in members:
+                    errors_found += 1
+                    print('ERROR! Found maintainer {} of sig {} is not a member of repository {}'.format(
+                        maintainer, sig_name, repository
+                    ))
+    print('Check members issues: {}'.format(errors_found))
+    return errors_found
 
 
 def main():
     issues = 0
     issues += check_repos_consistency(issues)
+
     t3 = time.time()
     print('Check repos consistency wasted time: {}\n'.format(t3 - t2))
+
     issues += check_branch_consistency()
     t4 = time.time()
     print('Check branches consistency wasted time: {}\n'.format(t4 - t3))
+
     issues += check_recycle_repos_status()
     t5 = time.time()
     print('Check recycle repos status wasted time: {}\n'.format(t5 - t4))
-    print('Total waste: {}'.format(t5 - t1))
+
+    issues += check_members()
+    t6 = time.time()
+    print('Check members consistency wasted time: {}\n'.format(t6 - t5))
+    print('Total waste: {}'.format(t6 - t1))
     # 删除临时目录
     os.system('rm -rf {}/{}'.format(tmpdir, timestamp))
     print('Clean up temporary clone directory.')
@@ -266,7 +328,7 @@ if __name__ == '__main__':
     args = parser.parse_args()
     access_token = args.token
     t1 = time.time()
-    print('=' * 20 + 'Prepare' + '=' * 20)
+    print('=' * 20 + ' Prepare ' + '=' * 20)
     tmpdir = tempfile.gettempdir()
     timestamp = int(t1)
     os.system(
