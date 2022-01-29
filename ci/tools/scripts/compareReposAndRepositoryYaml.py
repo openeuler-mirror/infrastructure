@@ -6,6 +6,7 @@ A script to check consistency of repos and branches between config yaml and quer
 script shows issues and exits abnormally when the differences exists.
 """
 import argparse
+import datetime
 import json
 import os
 import requests
@@ -152,6 +153,9 @@ def check_euler_branches(openeuler_repo):
     not_configured_branches = []
     not_protected_branches = []
     repo_full_name = os.path.join('openeuler', openeuler_repo['name'])
+    sig_name = get_sig_name(repo_full_name)
+    if sig_name == 'sig-recycle':
+        return branches_issues
     yaml_branches = [x['name'] for x in openeuler_repo['branches']]
     try:
         repo_branches, repo_protected_branches = get_repo_branches(repo_full_name)
@@ -166,7 +170,6 @@ def check_euler_branches(openeuler_repo):
         if branch not in yaml_branches:
             not_configured_branches.append(branch)
     if not_exist_branches or not_configured_branches or not_protected_branches:
-        sig_name = get_sig_name(repo_full_name)
         if not_exist_branches:
             print('ERROR! 配置多，仓库少 [{}]{}: {}'.format(sig_name, repo_full_name, not_exist_branches))
             branches_issues += 1
@@ -186,8 +189,14 @@ def check_src_euler_branches(src_openeuler_repo):
     not_configured_branches = []
     not_protected_branches = []
     repo_full_name = os.path.join('src-openeuler', src_openeuler_repo['name'])
+    sig_name = get_sig_name(repo_full_name)
+    if sig_name == 'sig-recycle':
+        return branches_issues
     yaml_branches = [x['name'] for x in src_openeuler_repo['branches']]
-    repo_branches, repo_protected_branches = get_repo_branches(repo_full_name)
+    try:
+        repo_branches, repo_protected_branches = get_repo_branches(repo_full_name)
+    except OSError:
+        return branches_issues
     for branch in yaml_branches:
         if branch not in repo_branches:
             not_exist_branches.append(branch)
@@ -197,7 +206,6 @@ def check_src_euler_branches(src_openeuler_repo):
         if branch not in yaml_branches:
             not_configured_branches.append(branch)
     if not_exist_branches or not_configured_branches or not_protected_branches:
-        sig_name = get_sig_name(repo_full_name)
         if not_exist_branches:
             print('ERROR! 配置多，仓库少 [{}]{}: {}'.format(sig_name, repo_full_name, not_exist_branches))
             branches_issues += 1
@@ -282,9 +290,11 @@ def check_members():
         owners_path = os.path.join(sig_path, sig_name, 'OWNERS')
         with open(owners_path, 'r') as fp:
             maintainers = yaml.load(fp.read(), Loader=yaml.Loader)['maintainers']
-            # print('sig: {}, maintainers: {}'.format(sig_name, maintainers))
         for repository in repositories:
-            members = get_repository_members(repository)
+            try:
+                members = get_repository_members(repository)
+            except OSError:
+                continue
             for maintainer in maintainers:
                 if maintainer.lower() not in members:
                     errors_found += 1
@@ -310,7 +320,10 @@ def main():
     t5 = time.time()
     print('Check recycle repos status wasted time: {}\n'.format(t5 - t4))
 
-    issues += check_members()
+    date = int(datetime.datetime.now().strftime('%d'))
+    # 控制仓库成员一致性检查执行的间隔
+    if date % 2 != 0:
+        issues += check_members()
     t6 = time.time()
     print('Check members consistency wasted time: {}\n'.format(t6 - t5))
     print('Total waste: {}'.format(t6 - t1))

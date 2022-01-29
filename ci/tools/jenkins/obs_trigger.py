@@ -1,4 +1,5 @@
 import jenkins
+import os
 import requests
 import sys
 import time
@@ -66,30 +67,24 @@ def main():
         sys.exit(1)
     slices = r.text.split('diff --git ')[1:]
     diff_files = [x.split(' ')[0][2:] for x in slices]
-    # Check whether sigs/sigs.yaml exists in the list, exit if not
-    if 'sig/sigs.yaml' not in diff_files:
-        print('No new repos were added in this Pull Request, exit...')
+    # Get a list of changed repositories
+    changed_repos = []
+    for diff_file in diff_files:
+        if len(diff_file.split('/')) == 5 and diff_file.split('/')[0] == 'sig' and diff_file.split('/')[2] == \
+                'src-openeuler' and diff_file.split('/')[-1].endswith('.yaml'):
+            changed_repo = os.path.join(diff_file.split('/')[2], diff_file.split('/')[-1].split('.yaml')[0])
+            changed_repos.append(changed_repo)
+    if not changed_repos:
+        print('No src-openeuler repos were changed in this Pull Request, exit...')
         sys.exit(0)
-    # Get a list of added repositories
-    added_repos = []
-    for diff_file in slices:
-        if diff_file.split(' ')[0][2:] == 'sig/sigs.yaml':
-            lines = diff_file.split('\n')
-            for line in lines:
-                if line.startswith('+  -'):
-                    added_repos.append(line.strip().split()[2])
-    if not added_repos:
-        print('No new repos were added in this Pull Request, exit...')
-        sys.exit(0)
-
     reconf_jobs = []
     server = conn_jenkins()
-    for added_repo in added_repos:
+    for changed_repo in changed_repos:
         # Check whether the repository is built already
-        if not check_repo_exist(added_repo):
+        if not check_repo_exist(changed_repo):
             continue
         # trigger build
-        jobs = added_repo.split('/')[1]
+        jobs = changed_repo.split('/')[1]
         parameters = {
             'action': 'create',
             'template': 'gcc',
@@ -97,16 +92,18 @@ def main():
             'exclude_jobs': '',
             'repo_server': 'repo-service.dailybuild'
         }
-        if added_repo.startswith('src'):
-            if server.get_job_name('multiarch/src-openeuler/trigger/{}'.format(jobs)) == jobs:
-                print('Repo {} has its projects on jenkins already'.format(added_repo))
-                continue
-            server.build_job(name='multiarch/src-openeuler/jobs-crud/_entry', parameters=parameters)
-            reconf_jobs.append(jobs)
-    reconf_jobs_string = " ".join(reconf_jobs)
-    sleep_time = len(reconf_jobs) * 60
-    time.sleep(sleep_time)
-    server.build_job(name='Infra/daily_jobs/reconf_arch/', parameters={'jobs': reconf_jobs_string})
+        if server.get_job_name('multiarch/src-openeuler/trigger/{}'.format(jobs)) == jobs:
+            print('Repo {} has its projects on jenkins already.'.format(changed_repo))
+            continue
+        server.build_job(name='multiarch/src-openeuler/jobs-crud/_entry', parameters=parameters)
+        print('Build job multiarch/src-openeuler/jobs-crud/_entry, jobs: {}'.format(jobs))
+        reconf_jobs.append(jobs)
+    if reconf_jobs:
+        reconf_jobs_string = " ".join(reconf_jobs)
+        sleep_time = len(reconf_jobs) * 60
+        time.sleep(sleep_time)
+        server.build_job(name='Infra/daily_jobs/reconf_arch', parameters={'jobs': reconf_jobs_string})
+        print('Build job Infra/daily_jobs/reconf_arch, jobs: {}'.format(reconf_jobs_string))
 
 
 if __name__ == '__main__':
