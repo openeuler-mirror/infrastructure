@@ -286,6 +286,8 @@ def check_members():
     errors_found = 0
     for sig in sigs:
         sig_name = sig['name']
+        if sig_name == 'sig-recycle':
+            continue
         repositories = sig['repositories']
         owners_path = os.path.join(sig_path, sig_name, 'OWNERS')
         with open(owners_path, 'r') as fp:
