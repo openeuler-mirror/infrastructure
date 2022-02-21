@@ -52,14 +52,55 @@ def fork(fork_repo):
     return r
 
 
-def add_maintainer(username, error_count):
+def get_repo_members(repository):
+    """
+    Get all members of the repo
+    :param repository: the target repo
+    :return: a json format response or nothing when the request is abnormal
+    """
+    url = 'https://gitee.com/api/v5/repos/openeuler-risc-v/{}/collaborators'.format(repository)
+    params = {
+        'access_token': access_token,
+        'page': 1,
+        'per_page': 100
+    }
+    r = requests.get(url, params=params)
+    if r.status_code != 200:
+        print(r.json())
+    else:
+        resp = {}
+        for i in r.json():
+            resp[i['login']] = i['permissions']['admin']
+        return resp
+
+
+def delete_member(repository, username):
+    """
+    Remove a member from a repo
+    :param repository: the target repo
+    :param username: the target gitee_id
+    :return: True/False when succeeded/failed
+    """
+    url = 'https://gitee.com/api/v5/repos/openeuler-risc-v/{}/collaborators/{}'.format(repository, username)
+    params = {'access_token': access_token}
+    r = requests.delete(url, params=params)
+    if r.status_code != 204:
+        print('Fail to delete member {} of repo {}'.format(username, repository))
+        return False
+    else:
+        return True
+
+
+def add_maintainer(repository, username, error_count):
     """
     Add a maintainer for the repo
+    :param repository: the target repo
     :param username: login name of maintainer
     :param error_count: count of errors
     :return: error_count
     """
-    add_maintainer_url = 'https://gitee.com/api/v5/repos/openeuler-risc-v/{}/collaborators/{}'.format(repo, username)
+    add_maintainer_url = 'https://gitee.com/api/v5/repos/openeuler-risc-v/{}/collaborators/{}'.format(repository,
+                                                                                                      username)
     data = {
         'access_token': access_token,
         'permission': 'admin'
@@ -67,20 +108,22 @@ def add_maintainer(username, error_count):
     r = requests.put(add_maintainer_url, data)
     if r.status_code != 200:
         error_count += 1
-        print('Fail to add maintainer {} to repo {}'.format(maintainer, repo))
+        print('Fail to add maintainer {} to repo {}'.format(username, repository))
         print(r.json())
-    print('Set maintainer {} for repo {}'.format(maintainer, repo))
+    print('Set maintainer {} for repo {}'.format(username, repository))
     return error_count
 
 
-def add_committer(username, error_count):
+def add_committer(repository, username, error_count):
     """
     Add a committer for the repo
+    :param repository: the target repo
     :param username: login name of maintainer
     :param error_count: count of errors
     :return: error_count
     """
-    add_committer_url = 'https://gitee.com/api/v5/repos/openeuler-risc-v/{}/collaborators/{}'.format(repo, username)
+    add_committer_url = 'https://gitee.com/api/v5/repos/openeuler-risc-v/{}/collaborators/{}'.format(repository,
+                                                                                                     username)
     data = {
         'access_token': access_token,
         'permission': 'push'
@@ -88,23 +131,13 @@ def add_committer(username, error_count):
     r = requests.put(add_committer_url, data)
     if r.status_code != 200:
         error_count += 1
-        print('Fail to add committer {} to repo {}'.format(committer, repo))
+        print('Fail to add committer {} to repo {}'.format(username, repository))
         print(r.json())
-    print('Set committer {} for repo {}'.format(committer, repo))
+    print('Set committer {} for repo {}'.format(username, repository))
     return error_count
 
 
-if __name__ == '__main__':
-    parser = argparse.ArgumentParser(description='A tool used to fork repositories and configure members for RISC-V')
-    parser.add_argument('-o', '--owner', help='owner of Pull Request', required=True)
-    parser.add_argument('-r', '--repo', help='repo of Pull Request', required=True)
-    parser.add_argument('-n', '--number', help='number of Pull Request', required=True)
-    parser.add_argument('-t', '--token', help='access_token', required=True)
-    args = parser.parse_args()
-    pr_owner = args.owner
-    pr_repo = args.repo
-    pr_number = args.number
-    access_token = args.token
+def main():
     diff_files = check_diff_files()
     if 'configuration/riscv_fork_list.yaml' not in diff_files and 'RISCV_members.yaml' not in diff_files:
         sys.exit(0)
@@ -129,12 +162,47 @@ if __name__ == '__main__':
                 print(response.json())
                 continue
             print('\nFork repo {} from src-openeuler to openeuler-risc-v'.format(repo))
+        # get all members of the repo
+        repo_members = get_repo_members(repo)
+        if not repo_members:
+            print('Fail to get members of repo {}, skip...'.format(repo))
+            continue
         # add maintainers for repo
         for maintainer in maintainers:
-            errors = add_maintainer(maintainer, errors)
+            if maintainer not in repo_members.keys():
+                errors = add_maintainer(repo, maintainer, errors)
+            else:
+                if repo_members.get(maintainer):
+                    print('Keep maintainer {} for repo {}'.format(maintainer, repo))
+                    continue
+                if delete_member(repo, maintainer):
+                    print('Delete non-maintainer {} of repo {}'.format(maintainer, repo))
+                    errors = add_maintainer(repo, maintainer, errors)
         # add committers for repo
         for committer in committers:
-            errors = add_committer(committer, errors)
+            if committer not in repo_members.keys():
+                errors = add_committer(repo, committer, errors)
+            else:
+                if not repo_members.get(committer):
+                    print('Keep committer {} for repo {}'.format(committer, repo))
+                    continue
+                if delete_member(repo, committer):
+                    print('Delete non-committer {} of repo {}'.format(committer, repo))
+                    errors = add_committer(repo, committer, errors)
     if errors != 0:
         sys.exit(1)
+
+
+if __name__ == '__main__':
+    parser = argparse.ArgumentParser(description='A tool used to fork repositories and configure members for RISC-V')
+    parser.add_argument('-o', '--owner', help='owner of Pull Request', required=True)
+    parser.add_argument('-r', '--repo', help='repo of Pull Request', required=True)
+    parser.add_argument('-n', '--number', help='number of Pull Request', required=True)
+    parser.add_argument('-t', '--token', help='access_token', required=True)
+    args = parser.parse_args()
+    pr_owner = args.owner
+    pr_repo = args.repo
+    pr_number = args.number
+    access_token = args.token
+    main()
 
