@@ -164,6 +164,13 @@ def main():
             print('\nFork repo {} from src-openeuler to openeuler-risc-v'.format(repo))
         # get all members of the repo
         repo_members = get_repo_members(repo)
+        # remove unmatched members
+        for member in repo_members.keys():
+            if member == 'openeuler-ci-bot':
+                continue
+            if member not in maintainers and member not in committers:
+                if delete_member(repo, member):
+                    print('Delete unmatched member {} of repo {}'.format(member, repo))
         if not repo_members:
             print('Fail to get members of repo {}, skip...'.format(repo))
             continue
