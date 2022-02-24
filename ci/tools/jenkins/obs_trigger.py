@@ -77,7 +77,6 @@ def main():
     if not changed_repos:
         print('No src-openeuler repos were changed in this Pull Request, exit...')
         sys.exit(0)
-    reconf_jobs = []
     server = conn_jenkins()
     for changed_repo in changed_repos:
         # Check whether the repository is built already
@@ -97,13 +96,6 @@ def main():
             continue
         server.build_job(name='multiarch/src-openeuler/jobs-crud/_entry', parameters=parameters)
         print('Build job multiarch/src-openeuler/jobs-crud/_entry, jobs: {}'.format(jobs))
-        reconf_jobs.append(jobs)
-    if reconf_jobs:
-        reconf_jobs_string = " ".join(reconf_jobs)
-        sleep_time = len(reconf_jobs) * 60
-        time.sleep(sleep_time)
-        server.build_job(name='Infra/daily_jobs/reconf_arch', parameters={'jobs': reconf_jobs_string})
-        print('Build job Infra/daily_jobs/reconf_arch, jobs: {}'.format(reconf_jobs_string))
 
 
 if __name__ == '__main__':
