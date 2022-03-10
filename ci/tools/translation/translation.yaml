@@ -1,6 +1,7 @@
 repositories:
 - owner: openeuler
   repo: docs
+  auto_create_issue: true
   issue_triggers:
   - trigger_pr_path: 'docs/zh'
     file_extension: [doc, md, json]
