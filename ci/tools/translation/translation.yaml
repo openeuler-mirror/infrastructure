@@ -13,3 +13,14 @@ repositories:
 #    assign_issue:
 #    - title: "[Auto] This is a Russian translation issue."
 #    - sign_to: judith
+- owner: openeuler
+  repo: website-v2
+  auto_create_issue: false
+  # if you want to trigger to create an issue when pull request has been merged, use this command.
+  trigger_command: "/translate"
+  # if you don't want to trigger to create an issue when pull request has been merged, use this command.
+  cancel_command: "/translate cancel"
+  issue_triggers:
+  - assign_issue:
+    - title: "[Auto] This is an English translation issue."
+    - sign_to: georgecao
