@@ -7,12 +7,12 @@ repositories:
     file_extension: [doc, md, json]
     assign_issue:
     - title: "[Auto] This is an English translation issue."
-    - sign_to: judith    
+    - sign_to: judithsq    
 #  - trigger_pr_path: 'docs/en'
 #    file_extension: [doc, md, json]
 #    assign_issue:
 #    - title: "[Auto] This is a Russian translation issue."
-#    - sign_to: judith
+#    - sign_to: judithsq
 - owner: openeuler
   repo: website-v2
   auto_create_issue: false
