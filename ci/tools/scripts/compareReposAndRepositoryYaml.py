@@ -221,11 +221,11 @@ def check_src_euler_branches(src_openeuler_repo):
 def check_branch_consistency():
     """检查分支一致性"""
     print('=' * 20 + ' Check branches consistency ' + '=' * 20)
-    pool = ThreadPool(50)
+    pool = ThreadPool(20)
     res1 = pool.map(check_euler_branches, o_yaml)
     pool.close()
     pool.join()
-    pool2 = ThreadPool(50)
+    pool2 = ThreadPool(20)
     res2 = pool2.map(check_src_euler_branches, src_yaml)
     pool2.close()
     pool2.join()
