@@ -33,8 +33,8 @@ def get_openeuler_repos():
         if len(response.json()) == 0:
             break
         try:
-            for repo in response.json():
-                o_repos.append(repo['path'])
+            for repository in response.json():
+                o_repos.append(repository['path'])
         except json.decoder.JSONDecodeError:
             return o_repos
         page += 1
@@ -44,7 +44,7 @@ def get_openeuler_repos():
 def get_src_openeuler_repos():
     """分页获取src-openeuler的所有仓库"""
     page = 1
-    src_repos = []
+    source_repos = []
     while page < 999:
         url = 'https://gitee.com/api/v5/orgs/src-openeuler/repos'
         params = {
@@ -57,17 +57,17 @@ def get_src_openeuler_repos():
         if len(response.json()) == 0:
             break
         try:
-            for repo in response.json():
-                src_repos.append(repo['path'])
+            for repository in response.json():
+                source_repos.append(repository['path'])
         except json.decoder.JSONDecodeError:
-            return src_repos
+            return source_repos
         page += 1
-    return src_repos
+    return source_repos
 
 
-def get_repo_branches(repo):
+def get_repo_branches(repository):
     """获取仓库所有分支和所有保护分支"""
-    url = 'https://gitee.com/api/v5/repos/{}/branches?access_token={}'.format(repo, access_token)
+    url = 'https://gitee.com/api/v5/repos/{}/branches?access_token={}'.format(repository, access_token)
     r = requests.get(url)
     repo_branches = [x['name'] for x in r.json()]
     repo_protected_branches = [x['name'] for x in r.json() if x['protected']]
@@ -139,11 +139,11 @@ def check_repos_consistency(issues):
     return issues
 
 
-def get_sig_name(repo):
+def get_sig_name(repository):
     """获取仓库所属sig"""
-    for sig in sigs:
-        if repo in sig['repositories']:
-            return sig['name']
+    for s in sigs:
+        if repository in s['repositories']:
+            return s['name']
 
 
 def check_euler_branches(openeuler_repo):
@@ -221,11 +221,11 @@ def check_src_euler_branches(src_openeuler_repo):
 def check_branch_consistency():
     """检查分支一致性"""
     print('=' * 20 + ' Check branches consistency ' + '=' * 20)
-    pool = ThreadPool(20)
+    pool = ThreadPool(10)
     res1 = pool.map(check_euler_branches, o_yaml)
     pool.close()
     pool.join()
-    pool2 = ThreadPool(20)
+    pool2 = ThreadPool(10)
     res2 = pool2.map(check_src_euler_branches, src_yaml)
     pool2.close()
     pool2.join()
@@ -236,21 +236,22 @@ def check_branch_consistency():
 def check_recycle_repos_status():
     """检查recycle仓库的状态"""
     print('=' * 20 + ' Check recycle repos status ' + '=' * 20)
-    repos = []
-    for sig in sigs:
-        if sig['name'] == 'sig-recycle':
-            repos = sig['repositories']
+    recycle_repos = []
+    for s in sigs:
+        if s['name'] == 'sig-recycle':
+            recycle_repos = s['repositories']
     error_count = 0
-    for repo in repos:
-        r = requests.get('https://gitee.com/api/v5/repos/{}?access_token={}'.format(repo, access_token))
+    for repository in recycle_repos:
+        r = requests.get('https://gitee.com/api/v5/repos/{}?access_token={}'.format(repository, access_token))
         if r.status_code == 200:
             status = r.json()['status']
             if status != '关闭' and status != 'Closed' and status != 'closed':
-                print('{}的仓库状态为{}'.format(repo, status))
+                print('{}的仓库状态为{}'.format(repository, status))
                 error_count += 1
         else:
             print(
-                'Failed to get information about repository {}, status_code: {}, reason: {}'.format(repo, r.status_code,
+                'Failed to get information about repository {}, status_code: {}, reason: {}'.format(repository,
+                                                                                                    r.status_code,
                                                                                                     r.json()))
     return error_count
 
@@ -284,15 +285,23 @@ def check_members():
     """检查仓库成员一致性"""
     print('=' * 20 + ' Check members consistency ' + '=' * 20)
     errors_found = 0
-    for sig in sigs:
-        sig_name = sig['name']
+    for s in sigs:
+        sig_name = s['name']
         if sig_name == 'sig-recycle':
             continue
-        repositories = sig['repositories']
+        sig_repositories = s['repositories']
         owners_path = os.path.join(sig_path, sig_name, 'OWNERS')
-        with open(owners_path, 'r') as fp:
-            maintainers = yaml.load(fp.read(), Loader=yaml.Loader)['maintainers']
-        for repository in repositories:
+        if os.path.exists(owners_path):
+            with open(owners_path, 'r') as fp:
+                maintainers = yaml.load(fp.read(), Loader=yaml.Loader)['maintainers']
+        else:
+            sig_info_file = os.path.join(sig_path, sig_name, 'sig-info.yaml')
+            with open(sig_info_file, 'r') as fp:
+                sig_info = yaml.load(fp.read(), Loader=yaml.Loader)
+                owners = sig_info['maintainers']
+                if owners:
+                    maintainers = [maintainer['gitee_id'] for maintainer in owners]
+        for repository in sig_repositories:
             try:
                 members = get_repository_members(repository)
             except OSError:
