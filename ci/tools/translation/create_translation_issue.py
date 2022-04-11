@@ -131,13 +131,24 @@ def create_issue(acc_token, owner, repo, p_number, issue_title, assignee, body):
             print("issue has been made successfully, issue number is #{}".format(json.loads(res.text).get("number")))
 
 
-def get_pr_state(owner, repo, number):
+def get_pr_information(owner, repo, number):
     url = "https://gitee.com/api/v5/repos/{}/{}/pulls/{}".format(owner, repo, number)
     r = requests.get(url)
     if r.status_code != 200:
         print("bad request")
         sys.exit(1)
-    return json.loads(r.text)["state"]
+    return json.loads(r.text)
+
+
+def get_pr_issue_title(issue_url):
+    r = requests.get(issue_url)
+    if r.status_code != 200:
+        print("bad request")
+        sys.exit(1)
+    res = r.json()
+    if len(res) == 0:
+        return ""
+    return r.json()[0]["title"]
 
 
 def main(owner, repo, token, number):
@@ -158,7 +169,10 @@ def main(owner, repo, token, number):
     current_issue_title = {}
     file_extension = []
     trigger_path = []
-    pr_state = get_pr_state(owner, repo, number)
+    pr_state = get_pr_information(owner, repo, number)["state"]
+    pr_issue_url = get_pr_information(owner, repo, number)["issue_url"]
+    pr_issue_title = get_pr_issue_title(pr_issue_url)
+
     try:
         repositories = content["repositories"]
     except KeyError as e:
@@ -197,10 +211,14 @@ def main(owner, repo, token, number):
                             sys.exit(1)
                         else:
                             for k in current_file_extension.keys():
+                                if pr_issue_title.startswith("[Auto]"):
+                                    continue
                                 create_issue(token, owner, repo, number, current_issue_title[k],
                                              current_assignee[k], pr_url)
                     else:
                         for k in current_file_extension.keys():
+                            if pr_issue_title.startswith("[Auto]"):
+                                continue
                             create_issue(token, owner, repo, number, current_issue_title[k],
                                          current_assignee[k], pr_url)
                 else:
