@@ -131,17 +131,19 @@ def create_issue(acc_token, owner, repo, p_number, issue_title, assignee, body):
             print("issue has been made successfully, issue number is #{}".format(json.loads(res.text).get("number")))
 
 
-def get_pr_information(owner, repo, number):
+def get_pr_information(owner, repo, number, token):
     url = "https://gitee.com/api/v5/repos/{}/{}/pulls/{}".format(owner, repo, number)
-    r = requests.get(url)
+    param = {"access_token": token}
+    r = requests.get(url, params=param)
     if r.status_code != 200:
-        print("bad request")
+        print("bad request 1")
         sys.exit(1)
     return json.loads(r.text)
 
 
-def get_pr_issue_title(issue_url):
-    r = requests.get(issue_url)
+def get_pr_issue_title(issue_url, token):
+    param = {"access_token": token}
+    r = requests.get(issue_url, params=param)
     if r.status_code != 200:
         print("bad request")
         sys.exit(1)
@@ -160,61 +162,51 @@ def main(owner, repo, token, number):
     :param number: pull request number
     :return:
     """
-    content = load_yaml("translation.yaml")
+    content = load_yaml("translation2.yaml")
     results = check_issue_exits(token, owner, repo)
     issue_related_pr_number = {}
-    owner_repo_relationship = {}
     current_assignee = {}
     current_file_extension = {}
     current_issue_title = {}
     file_extension = []
     trigger_path = []
-    pr_state = get_pr_information(owner, repo, number)["state"]
-    pr_issue_url = get_pr_information(owner, repo, number)["issue_url"]
-    pr_issue_title = get_pr_issue_title(pr_issue_url)
+    pr_information = get_pr_information(owner, repo, number, token)
+    pr_state = pr_information["state"]
+    pr_issue_url = pr_information["issue_url"]
+    pr_issue_title = get_pr_issue_title(pr_issue_url, token)
 
     try:
         repositories = content["repositories"]
     except KeyError as e:
         print(e)
         sys.exit(1)
-    for r in repositories:
-        owner_repo_relationship[r["repo"]] = r["owner"]
+    for repository in repositories:
+        if owner == repository["owner"] and repo == repository["repo"] and repository["auto_create_issue"]:
+            file_count = 0
+            diff_files, pr_url = get_diff_files(owner, repo, number, token)
+            for issue_trigger in repository["issue_triggers"]:
+                file_extension.append(issue_trigger["file_extension"])
+                trigger_path.append(issue_trigger["trigger_pr_path"])
+                for diff_file in diff_files:
+                    if diff_file.startswith(issue_trigger["trigger_pr_path"]) \
+                            and diff_file.split('.')[-1] in issue_trigger["file_extension"]:
+                        print("file {} has been changed".format(diff_file))
+                        file_count += 1
+                        current_assignee[issue_trigger["trigger_pr_path"]] = issue_trigger["assign_issue"][1]["sign_to"]
+                        current_file_extension[issue_trigger["trigger_pr_path"]] = issue_trigger["file_extension"]
+                        current_issue_title[issue_trigger["trigger_pr_path"]] = issue_trigger["assign_issue"][0]["title"]
+                    else:
+                        continue
 
-    if owner in owner_repo_relationship.values() and repo in owner_repo_relationship.keys():
-        for repository in repositories:
-            if owner == repository["owner"] and repo == repository["repo"] and repository["auto_create_issue"]:
-                file_count = 0
-                diff_files, pr_url = get_diff_files(owner, repo, number, token)
-                for issue_trigger in repository["issue_triggers"]:
-                    file_extension.append(issue_trigger["file_extension"])
-                    trigger_path.append(issue_trigger["trigger_pr_path"])
-                    for diff_file in diff_files:
-                        if diff_file.startswith(issue_trigger["trigger_pr_path"]) \
-                                and diff_file.split('.')[-1] in issue_trigger["file_extension"]:
-                            print("file {} has been changed".format(diff_file))
-                            file_count += 1
-                            current_assignee[issue_trigger["trigger_pr_path"]] = issue_trigger["assign_issue"][1]["sign_to"]
-                            current_file_extension[issue_trigger["trigger_pr_path"]] = issue_trigger["file_extension"]
-                            current_issue_title[issue_trigger["trigger_pr_path"]] = issue_trigger["assign_issue"][0]["title"]
-                        else:
-                            continue
-
-                if file_count > 0:
-                    if results:
-                        for result in results:
-                            issue_number = result.get("title").split('.')[-1].replace('[', '').replace(']', '')
-                            issue_related_pr_number[issue_number] = result.get("number")
-                        if number in issue_related_pr_number.keys():
-                            print("Error: issue has already created, please go to check issue: #{}"
-                                  .format(issue_related_pr_number[number]))
-                            sys.exit(1)
-                        else:
-                            for k in current_file_extension.keys():
-                                if pr_issue_title.startswith("[Auto]"):
-                                    continue
-                                create_issue(token, owner, repo, number, current_issue_title[k],
-                                             current_assignee[k], pr_url)
+            if file_count > 0:
+                if results:
+                    for result in results:
+                        issue_number = result.get("title").split('.')[-1].replace('[', '').replace(']', '')
+                        issue_related_pr_number[issue_number] = result.get("number")
+                    if number in issue_related_pr_number.keys():
+                        print("Error: issue has already created, please go to check issue: #{}"
+                              .format(issue_related_pr_number[number]))
+                        sys.exit(1)
                     else:
                         for k in current_file_extension.keys():
                             if pr_issue_title.startswith("[Auto]"):
@@ -222,71 +214,76 @@ def main(owner, repo, token, number):
                             create_issue(token, owner, repo, number, current_issue_title[k],
                                          current_assignee[k], pr_url)
                 else:
-                    print("NOTE: repository: {}/{}'s files in {} that end with {} are not changed"
-                          .format(owner, repo, trigger_path, file_extension))
-            elif owner == repository["owner"] and repo == repository["repo"] and not repository["auto_create_issue"]:
-                comment_url = "https://gitee.com/api/v5/repos/{}/{}/pulls/{}/comments?page=1&per_page=100" \
-                    .format(owner, repo, number)
-                comment_params = {
-                    "access_token": token,
-                    "direction": "asc"
-                }
-                trigger_command = repository["trigger_command"] if repository["trigger_command"] else ""
-                cancel_command = repository["cancel_command"] if repository["cancel_command"] else ""
+                    for k in current_file_extension.keys():
+                        if pr_issue_title.startswith("[Auto]"):
+                            continue
+                        create_issue(token, owner, repo, number, current_issue_title[k],
+                                     current_assignee[k], pr_url)
+            else:
+                print("NOTE: repository: {}/{}'s files in {} that end with {} are not changed"
+                      .format(owner, repo, trigger_path, file_extension))
+        elif owner == repository["owner"] and repo == repository["repo"] and not repository["auto_create_issue"]:
+            comment_url = "https://gitee.com/api/v5/repos/{}/{}/pulls/{}/comments?page=1&per_page=100" \
+                .format(owner, repo, number)
+            comment_params = {
+                "access_token": token,
+                "direction": "asc"
+            }
+            trigger_command = repository["trigger_command"] if repository["trigger_command"] else ""
+            cancel_command = repository["cancel_command"] if repository["cancel_command"] else ""
 
-                regex = re.compile(trigger_command)
-                regex2 = re.compile(cancel_command)
-                r = requests.get(comment_url, params=comment_params)
-                if r.status_code != 200:
-                    print("ERROR: bad request, status code: {}".format(r.status_code))
-                    sys.exit(1)
-                items = json.loads(r.text)
-                do_translate = False
-                cancel_translate = False
-                maps = {}
-                for i in items:
-                    if regex.fullmatch(i["body"]):
-                        maps[i["body"]] = i["created_at"]
-                    if regex2.fullmatch(i["body"]):
-                        maps[i["body"]] = i["created_at"]
-                if trigger_command in maps.keys():
-                    time1 = maps[trigger_command]
-                else:
-                    time1 = ""
-                if cancel_command in maps.keys():
-                    time2 = maps[cancel_command]
-                else:
-                    time2 = ""
-                if time1 > time2:
-                    do_translate = True
-                if time1 < time2:
-                    cancel_translate = True
+            regex = re.compile(trigger_command)
+            regex2 = re.compile(cancel_command)
+            r = requests.get(comment_url, params=comment_params)
+            if r.status_code != 200:
+                print("ERROR: bad request, status code: {}".format(r.status_code))
+                sys.exit(1)
+            items = json.loads(r.text)
+            do_translate = False
+            cancel_translate = False
+            maps = {}
+            for i in items:
+                if regex.fullmatch(i["body"]):
+                    maps[i["body"]] = i["created_at"]
+                if regex2.fullmatch(i["body"]):
+                    maps[i["body"]] = i["created_at"]
+            if trigger_command in maps.keys():
+                time1 = maps[trigger_command]
+            else:
+                time1 = ""
+            if cancel_command in maps.keys():
+                time2 = maps[cancel_command]
+            else:
+                time2 = ""
+            if time1 > time2:
+                do_translate = True
+            if time1 < time2:
+                cancel_translate = True
 
-                diff_files, pr_url = get_diff_files(owner, repo, number, token)
-                if do_translate and pr_state == "merged":
-                    if results:
-                        for result in results:
-                            issue_number = result.get("title").split('.')[-1].replace('[', '').replace(']', '')
-                            issue_related_pr_number[issue_number] = result.get("number")
-                        if number in issue_related_pr_number.keys():
-                            print("Error: issue has already created, please go to check issue: #{}"
-                                  .format(issue_related_pr_number[number]))
-                            sys.exit(1)
-                        else:
-                            create_issue(token, owner, repo, number,
-                                         repository["issue_triggers"]["assign_issue"][0]["title"],
-                                         repository["issue_triggers"]["assign_issue"][1]["sign_to"], pr_url)
+            diff_files, pr_url = get_diff_files(owner, repo, number, token)
+            if do_translate and pr_state == "merged":
+                if results:
+                    for result in results:
+                        issue_number = result.get("title").split('.')[-1].replace('[', '').replace(']', '')
+                        issue_related_pr_number[issue_number] = result.get("number")
+                    if number in issue_related_pr_number.keys():
+                        print("Error: issue has already created, please go to check issue: #{}"
+                              .format(issue_related_pr_number[number]))
+                        sys.exit(1)
                     else:
-                        create_issue(token, owner, repo, number, repository["issue_triggers"]["assign_issue"][0]["title"],
+                        create_issue(token, owner, repo, number,
+                                     repository["issue_triggers"]["assign_issue"][0]["title"],
                                      repository["issue_triggers"]["assign_issue"][1]["sign_to"], pr_url)
-                elif cancel_translate:
-                    print("not need to create issue for pull request")
-
                 else:
-                    print("not need to create issue for pull request")
-    else:
-        print("ERROR: wrong repo {} or wrong owner {}, please check!".format(repo, owner))
-        sys.exit(1)
+                    create_issue(token, owner, repo, number, repository["issue_triggers"]["assign_issue"][0]["title"],
+                                 repository["issue_triggers"]["assign_issue"][1]["sign_to"], pr_url)
+            elif cancel_translate:
+                print("not need to create issue for pull request")
+
+            else:
+                print("not need to create issue for pull request")
+        else:
+            continue
 
 
 if __name__ == '__main__':
