@@ -24,3 +24,27 @@ repositories:
   - assign_issue:
     - title: "[Auto] This is an English translation issue."
     - sign_to: georgecao
+- owner: opengauss
+  repo: docs
+  auto_create_issue: true
+  issue_triggers:
+  - trigger_pr_path: 'content/zh'
+    file_extension: [doc, md, json]
+    assign_issue:
+    - title: "[Auto] This is an English translation issue."
+    - sign_to: judithsq
+  - trigger_pr_path: 'content/en'
+    file_extension: [doc, md, json]
+    assign_issue:
+    - title: "[Auto] This is a Chinese translation issue."
+    - sign_to: judithsq
+  - trigger_pr_path: 'content/docs-lite/zh'
+    file_extension: [doc, md, json]
+    assign_issue:
+    - title: "[Auto] This is an English translation issue."
+    - sign_to: judithsq
+  - trigger_pr_path: 'content/docs-lite/en'
+    file_extension: [doc, md, json]
+    assign_issue:
+    - title: "[Auto] This is a Chinese translation issue."
+    - sign_to: judithsq
