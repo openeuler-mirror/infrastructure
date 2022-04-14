@@ -174,6 +174,8 @@ def main(owner, repo, token, number):
     pr_state = pr_information["state"]
     pr_issue_url = pr_information["issue_url"]
     pr_issue_title = get_pr_issue_title(pr_issue_url, token)
+    zh_file = []
+    en_file = []
 
     try:
         repositories = content["repositories"]
@@ -189,16 +191,30 @@ def main(owner, repo, token, number):
                 trigger_path.append(issue_trigger["trigger_pr_path"])
                 for diff_file in diff_files:
                     if diff_file.startswith(issue_trigger["trigger_pr_path"]) \
-                            and diff_file.split('.')[-1] in issue_trigger["file_extension"]:
+                            and diff_file.split('.')[-1] in issue_trigger["file_extension"] and "/zh" in issue_trigger["trigger_pr_path"]:
                         print("file {} has been changed".format(diff_file))
                         file_count += 1
-                        current_assignee[issue_trigger["trigger_pr_path"]] = issue_trigger["assign_issue"][1]["sign_to"]
-                        current_file_extension[issue_trigger["trigger_pr_path"]] = issue_trigger["file_extension"]
-                        current_issue_title[issue_trigger["trigger_pr_path"]] = issue_trigger["assign_issue"][0]["title"]
+                        current_assignee["zh"] = issue_trigger["assign_issue"][1]["sign_to"]
+                        current_file_extension["zh"] = issue_trigger["file_extension"]
+                        current_issue_title["zh"] = issue_trigger["assign_issue"][0]["title"]
+                        zh_file.append(diff_file.replace("zh/", ""))
+                    elif diff_file.startswith(issue_trigger["trigger_pr_path"]) \
+                            and diff_file.split('.')[-1] in issue_trigger["file_extension"] and "/en" in issue_trigger["trigger_pr_path"]:
+                        print("file {} has been changed".format(diff_file))
+                        file_count += 1
+                        current_assignee["en"] = issue_trigger["assign_issue"][1]["sign_to"]
+                        current_file_extension["en"] = issue_trigger["file_extension"]
+                        current_issue_title["en"] = issue_trigger["assign_issue"][0]["title"]
+                        en_file.append(diff_file.replace("en/", ""))
                     else:
                         continue
-
-            if file_count > 0:
+            changed_same_files = False
+            for z in zh_file:
+                if z in en_file:
+                    changed_same_files = True
+                else:
+                    changed_same_files = False
+            if file_count > 0 and not changed_same_files:
                 if results:
                     for result in results:
                         issue_number = result.get("title").split('.')[-1].replace('[', '').replace(']', '')
@@ -219,6 +235,8 @@ def main(owner, repo, token, number):
                             continue
                         create_issue(token, owner, repo, number, current_issue_title[k],
                                      current_assignee[k], pr_url)
+            elif file_count > 0 and changed_same_files:
+                print("changed the same files in en and zh path, no need to create issue")
             else:
                 print("NOTE: repository: {}/{}'s files in {} that end with {} are not changed"
                       .format(owner, repo, trigger_path, file_extension))
