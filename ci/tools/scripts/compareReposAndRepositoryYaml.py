@@ -316,6 +316,41 @@ def check_members():
     return errors_found
 
 
+def update_repo_label(repository, label):
+    url = 'https://gitee.com/api/v5/repos/{}/project_labels?access_token={}'.format(repository, access_token)
+    data = json.dumps(["{}".format(label)])
+    errors = 0
+    try:
+        res = requests.put(url, data=data)
+        if res.status_code != 200:
+            print('Failed to update label! sig: {}, repo: {}, status_code: {}'.format(label,
+                                                                                      repository,
+                                                                                      res.status_code))
+            errors += 1
+    except ConnectionError as e:
+        print('ConnectionError! sig: {}, repo: {}'.format(label, repository))
+        print(e)
+        errors += 1
+    except OSError as e2:
+        print('OSError! sig: {}, repo: {}'.format(label, repository))
+        print(e2)
+        errors += 1
+    return errors
+
+
+def update_all_repos_label():
+    print('=' * 20 + ' Update all repos label ' + '=' * 20)
+    update_label_errors = 0
+    for s in sigs:
+        sig_name = s['name']
+        if sig_name == 'sig-recycle':
+            continue
+        sig_repos = s['repositories']
+        for sig_repo in sig_repos:
+            update_label_errors += update_repo_label(sig_repo, sig_name)
+    return update_label_errors
+
+
 def main():
     issues = 0
     issues += check_repos_consistency(issues)
@@ -337,7 +372,13 @@ def main():
         issues += check_members()
     t6 = time.time()
     print('Check members consistency wasted time: {}\n'.format(t6 - t5))
-    print('Total waste: {}'.format(t6 - t1))
+
+    weekday = datetime.datetime.today().isoweekday()
+    if weekday == 6:
+        issues += update_all_repos_label()
+    t7 = time.time()
+    print('Update all repos label: {}\n'.format(t7 - t6))
+    print('Total waste: {}'.format(t7 - t1))
     # 删除临时目录
     os.system('rm -rf {}/{}'.format(tmpdir, timestamp))
     print('Clean up temporary clone directory.')
