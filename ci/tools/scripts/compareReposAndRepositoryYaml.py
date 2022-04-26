@@ -146,6 +146,12 @@ def get_sig_name(repository):
             return s['name']
 
 
+def convert_branch_name_string(branch_name_list):
+    """将有数字的分支名转换为字符串"""
+    return [str(branch_name) if isinstance(branch_name, (int, float)) else branch_name
+            for branch_name in branch_name_list]
+
+
 def check_euler_branches(openeuler_repo):
     """openeuler.yaml中仓库的分支一致性检查"""
     branches_issues = 0
@@ -157,6 +163,7 @@ def check_euler_branches(openeuler_repo):
     if sig_name == 'sig-recycle':
         return branches_issues
     yaml_branches = [x['name'] for x in openeuler_repo['branches']]
+    yaml_branches = convert_branch_name_string(yaml_branches)
     try:
         repo_branches, repo_protected_branches = get_repo_branches(repo_full_name)
     except OSError:
@@ -193,6 +200,7 @@ def check_src_euler_branches(src_openeuler_repo):
     if sig_name == 'sig-recycle':
         return branches_issues
     yaml_branches = [x['name'] for x in src_openeuler_repo['branches']]
+    yaml_branches = convert_branch_name_string(yaml_branches)
     try:
         repo_branches, repo_protected_branches = get_repo_branches(repo_full_name)
     except OSError:
