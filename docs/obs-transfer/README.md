@@ -11,7 +11,7 @@
 ![img_2.png](img_2.png)  <br/>
 
 ### 2、Windows操作指南  <br/>
-####①、登录  <br/>
+#### ①、登录  <br/>
 ![img_3.png](img_3.png)   <br/>
 
 #### ②、上传文件或文件夹  <br/>
