@@ -38,7 +38,12 @@ def get_obs_tree(repo_name, token):
 
 
 def write_to_obs(missing_list, token):
+    secret_repos = ["mkeuleros", "openEuler_chroot"]
     for m in missing_list:
+        # secret repos are some not opened repositories, so don't have to create _service for them.
+        if m in secret_repos:
+            print("secret repo don't have to create : ", m)
+            continue
         with open("./service_template", 'r', encoding="utf-8") as f:
             file = f.read()
         content = file.replace("{}", m)
@@ -51,7 +56,7 @@ def write_to_obs(missing_list, token):
             "content": base64_content,
             "message": "add missing _service by openeuler-ci-bot"
         }
-        print(m)
+        print("create _service for ", m)
         r = requests.post(create_file, data)
         if r.status_code != 201:
             time.sleep(0.5)
