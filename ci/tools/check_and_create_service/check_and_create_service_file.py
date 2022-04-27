@@ -12,7 +12,7 @@ def get_gitee_tree(token):
     repo_names = []
     for i in res.json()["tree"]:
         if i["path"].startswith("sig/") and i["path"].endswith(".yaml") and str.count(i["path"], "/") > 3 \
-                and i["path"].split("/")[1] != "sig-recycle":
+                and i["path"].split("/")[1] != "sig-recycle" and i["path"].split("/")[1] != "Private":
             repo_names.append(i["path"].split("/")[-1].split(".yaml")[0])
     return repo_names
 
@@ -27,7 +27,6 @@ def get_obs_tree(repo_name, token):
     missing_service_repo = []
     for i in trees:
         if i["path"].startswith("master/") and i["path"].split("/")[1] in dirs and i["path"].endswith("_service"):
-            # print(i["path"])
             repo_set.add(i["path"].split("/")[-2])
 
     for r in repo_name:
@@ -38,15 +37,10 @@ def get_obs_tree(repo_name, token):
 
 
 def write_to_obs(missing_list, token):
-    secret_repos = ["mkeuleros", "openEuler_chroot"]
     for m in missing_list:
-        # secret repos are some not opened repositories, so don't have to create _service for them.
-        if m in secret_repos:
-            print("secret repo don't have to create : ", m)
-            continue
         with open("./service_template", 'r', encoding="utf-8") as f:
-            file = f.read()
-        content = file.replace("{}", m)
+            file_stream = f.read()
+        content = file_stream.replace("{}", m)
 
         base64_content = base64.b64encode(content.encode('utf-8'))
         create_file = "https://gitee.com/api/v5/repos/src-openeuler/obs_meta/contents/master/" \
