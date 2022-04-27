@@ -48,8 +48,8 @@ chmod 755 obsutil  <br/>
 #### ④、拷贝obsutil、setup.sh到/usr/bin目录  <br/>
 拷贝obsutil_linux_amd64_5.x.x目录下文件obsutil、setup.sh到/usr/bin目录下  <br/>
 ![img_6.png](img_6.png)  <br/>
-cp xx/obsutil_linux_amd64_5.x.x/obsutil  /usr/bin/  <br/>
-cp xx/obsutil_linux_amd64_5.x.x/setup.sh  /usr/bin/  <br/>
+cp obsutil  /usr/bin/  <br/>
+cp setup.sh  /usr/bin/  <br/>
 
 ### 2、初始化配置  <br/> 
 使用永久AK、SK进行初始化配置  <br/>
