@@ -12,7 +12,8 @@ def get_gitee_tree(token):
     repo_names = []
     for i in res.json()["tree"]:
         if i["path"].startswith("sig/") and i["path"].endswith(".yaml") and str.count(i["path"], "/") > 3 \
-                and i["path"].split("/")[1] != "sig-recycle" and i["path"].split("/")[1] != "Private":
+                and str.__contains__(i["path"], "/src-openeuler/") and i["path"].split("/")[1] != "sig-recycle" \
+                and i["path"].split("/")[1] != "Private":
             repo_names.append(i["path"].split("/")[-1].split(".yaml")[0])
     return repo_names
 
