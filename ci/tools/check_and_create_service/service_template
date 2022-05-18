@@ -1,6 +1,9 @@
 <services>
-    <service name="tar_scm_kernel_repo">
-      <param name="scm">repo</param>
-      <param name="url">next/openEuler/{}</param>
+    <service name="tar_scm">
+      <param name="scm">git</param>
+      <param name="url">git@gitee.com:src-openeuler/#projectname#.git</param>
+      <param name="exclude">*</param>
+      <param name="extract">*</param>
+      <param name="revision">master</param>
     </service>
 </services>

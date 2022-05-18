@@ -14,6 +14,8 @@ def get_gitee_tree(token):
         if i["path"].startswith("sig/") and i["path"].endswith(".yaml") and str.count(i["path"], "/") > 3 \
                 and str.__contains__(i["path"], "/src-openeuler/") and i["path"].split("/")[1] != "sig-recycle" \
                 and i["path"].split("/")[1] != "Private":
+            if i["path"].split(".yaml")[0].split("/")[-1] in ["obs_meta"]:
+                continue
             repo_names.append(i["path"].split("/")[-1].split(".yaml")[0])
     return repo_names
 
@@ -41,7 +43,7 @@ def write_to_obs(missing_list, token):
     for m in missing_list:
         with open("./service_template", 'r', encoding="utf-8") as f:
             file_stream = f.read()
-        content = file_stream.replace("{}", m)
+        content = file_stream.replace("#projectname#", m)
 
         base64_content = base64.b64encode(content.encode('utf-8'))
         create_file = "https://gitee.com/api/v5/repos/src-openeuler/obs_meta/contents/master/" \

@@ -1,0 +1,28 @@
+repos:
+  - repo: https://gitee.com/openeuler/website-v2
+    trigger_path:
+    - web-ui/docs/zh/blog
+    - web-ui/docs/en/blog
+    - web-ui/docs/ru/blog
+    - web-ui/docs/zh/news
+    - web-ui/docs/en/news
+    - web-ui/docs/ru/news
+    send_to: gongyuhua@huawei.com
+  - repo: https://gitee.com/opengauss/blog
+    trigger_path:
+    - content/zh/post
+    - content/en/post
+    send_to: gongyuhua@huawei.com
+  - repo: https://gitee.com/opengauss/website
+    trigger_path:
+    - content/zh/news
+    - content/en/news
+    send_to: 2467577789@qq.com
+  - repo: https://gitee.com/openlookeng/website
+    trigger_path:
+    - content/zh-cn/blog
+    - content/zh-cn/news
+    - content/en-us/news
+    - content/en-us/blog
+    send_to: gongyuhua@huawei.com
+
