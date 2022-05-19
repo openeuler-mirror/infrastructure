@@ -113,7 +113,7 @@ if __name__ == '__main__':
     parser.add_argument('-r', '--repo', help='repo name', required=True)
     parser.add_argument('-n', '--number', help='pr number', required=True)
     parser.add_argument('-t', '--token', help='token', required=True)
-    parser.add_argument('-h', '--host', help='host', required=True)
+    parser.add_argument('-s', '--host', help='host', required=True)
     parser.add_argument('-p', '--port', help='port', required=True)
     parser.add_argument('-u', '--user', help='user', required=True)
     parser.add_argument('-pw', '--pwd', help='pwd', required=True)
