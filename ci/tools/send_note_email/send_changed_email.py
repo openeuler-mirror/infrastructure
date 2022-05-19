@@ -65,11 +65,10 @@ def get_template(trigger_list):
             <tr>
                 This email is sent automatically, no need to reply!<br>
                 <br>
-                <td><font color="#CC0000">result - Files Changed</font></td>
+                <td><font color="#CC0000">website-link</font></td>
             </tr>
             <tr>
                 <td>
-                <p><font color="#000000">changed files</font></p>
                 <hr size="2" width="100%" align="center" /></td>
             </tr>
             <tr>
@@ -82,7 +81,7 @@ def get_template(trigger_list):
         </table>
     </body>
     </html>
-    """.format("{} have been changed".format(trigger_list))
+    """.format(trigger_list)
     return body
 
 
@@ -131,16 +130,29 @@ if __name__ == '__main__':
 
     repos = load_config("./watch_repo_pr.yaml")["repos"]
     for r in repos:
-        v = []
+        v = set()
         if r["repo"].split("/")[-2] == org and r["repo"].split("/")[-1] == repo_name:
             trigger_path = r["trigger_path"]
-            for d in diffs:
-                for t in trigger_path:
+            for t in trigger_path:
+                for d in diffs:
                     if d.startswith(t):
-                        v.append(d)
+                        v.add(t)
         if len(v) > 0:
+            web_url = set()
+            for i in v:
+                for j in r["website"]:
+                    if i.split("/")[-1] in j and (i.split("/")[-2] + "/") in j:
+                        web_url.add(j)
+                    elif org == "openlookeng" and i.split("/")[-1] in j and (i.split("/")[-2] + "/") not in j \
+                            and i.split("/")[-2] == "en-us":
+                        web_url.add(j)
+                    elif i.split("/")[-1] == "post" and i.split("/")[-2] in j:
+                        web_url.add(j)
+            web_url = list(web_url)
+
             receiver_addr = r["send_to"]
             sender_addr = user
-            send_email(sender_addr, receiver_addr, host, port, user, password, r["repo"], v)
+            send_email(sender_addr, receiver_addr, host, port, user, password, r["repo"], web_url)
         else:
             print("%s no need to send email" % r["repo"])
+
