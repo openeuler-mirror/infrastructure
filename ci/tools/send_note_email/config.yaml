@@ -7,16 +7,29 @@ repos:
     - web-ui/docs/zh/news
     - web-ui/docs/en/news
     - web-ui/docs/ru/news
+    website:
+    - https://www.openeuler.org/zh/interaction/news-list/
+    - https://www.openeuler.org/en/interaction/news-list/
+    - https://ru.openeuler.org/ru/interaction/news-list/
+    - https://www.openeuler.org/zh/interaction/blog-list/
+    - https://www.openeuler.org/en/interaction/blog-list/
+    - https://ru.openeuler.org/ru/interaction/blog-list/
     send_to: gongyuhua@huawei.com
   - repo: https://gitee.com/opengauss/blog
     trigger_path:
     - content/zh/post
     - content/en/post
+    website:
+    - https://opengauss.org/zh/blogs/blogs.html
+    - https://opengauss.org/en/blogs/blogs.html
     send_to: gongyuhua@huawei.com
   - repo: https://gitee.com/opengauss/website
     trigger_path:
     - content/zh/news
     - content/en/news
+    website:
+    - https://opengauss.org/en/news.html
+    - https://opengauss.org/zh/news.html
     send_to: 2467577789@qq.com
   - repo: https://gitee.com/openlookeng/website
     trigger_path:
@@ -24,5 +37,10 @@ repos:
     - content/zh-cn/news
     - content/en-us/news
     - content/en-us/blog
+    website:
+    - https://openlookeng.io/zh-cn/news.html
+    - https://openlookeng.io/news.html
+    - https://openlookeng.io/blog.html
+    - https://openlookeng.io/zh-cn/blog.html
     send_to: gongyuhua@huawei.com
 
