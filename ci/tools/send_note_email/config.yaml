@@ -30,7 +30,7 @@ repos:
     website:
     - https://opengauss.org/en/news.html
     - https://opengauss.org/zh/news.html
-    send_to: 2467577789@qq.com
+    send_to: gongyuhua@huawei.com
   - repo: https://gitee.com/openlookeng/website
     trigger_path:
     - content/zh-cn/blog
