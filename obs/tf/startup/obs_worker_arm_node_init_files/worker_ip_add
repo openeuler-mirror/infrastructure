@@ -1,0 +1,17 @@
+# worker node initial ip address; You can modify it;
+# but make sure all ip address can be reachable. You only execute "sh /obs/obs_worker_openeuler_x86.sh" again when ip address changed at once;
+
+# build.openeuler.org ip add
+frontend_host="172.16.1.81"
+
+# source.openeuler.org ip add
+source_host="172.16.1.89"
+
+# backend.openeuler.org ip add
+backend_host="172.16.1.95"
+
+# home-backend.openeuler.org ip add
+home_backend_host="172.16.1.84"
+
+# other-backend.openeuler.org ip add
+other_backend_host="172.16.1.124"
