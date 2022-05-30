@@ -4,7 +4,7 @@ RsyncURL: ""
 FtpURL: ""
 SponsorName: "Northwest-A&F-University"
 SponsorURL: http://mirrors.nwafu.edu.cn/
-SponsorLogoURL: https://mirrors.nwafu.edu.cn/help/assets/images/favicon.png
+SponsorLogoURL: https://openeuler-website.obs.ap-southeast-1.myhuaweicloud.com/mirrors/Northwest-A%26F-University.png
 AdminName: Cui Chengyu
 AdminEmail: ccy@nwafu.edu.cn
 ContinentOnly: false

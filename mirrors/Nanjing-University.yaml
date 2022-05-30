@@ -4,7 +4,7 @@ RsyncURL: rsync://root@mirrors.nju.edu.cn/openeuler
 FtpURL: ""
 SponsorName: Nanjing-University
 SponsorURL: http://mirrors.nju.edu.cn/
-SponsorLogoURL: https://static-data.eol.cn/upload/logo/111.jpg
+SponsorLogoURL: https://openeuler-website.obs.ap-southeast-1.myhuaweicloud.com/mirrors/Nanjing-University.jpg
 AdminName: administrator
 AdminEmail: https://github.com/ustclug/mirrorrequest
 ContinentOnly: false
