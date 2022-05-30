@@ -4,7 +4,7 @@ RsyncURL: ""
 FtpURL: ""
 SponsorName: South-China-Agricultural-University
 SponsorURL: https://mirrors.scau.edu.cn/
-SponsorLogoURL: https://static-data.eol.cn/upload/logo/287.jpg
+SponsorLogoURL: https://openeuler-website.obs.ap-southeast-1.myhuaweicloud.com/mirrors/South-China-Agricultural-University.jpg
 AdminName: administrator
 AdminEmail: https://github.com/SCAULUG/contributors
 ContinentOnly: false
