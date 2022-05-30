@@ -4,7 +4,7 @@ RsyncURL: rsync://mirror.truenetwork.ru/openeuler
 FtpURL: ""
 SponsorName: Truenetwork
 SponsorURL: https://truenetwork.ru/
-SponsorLogoURL: https://truenetwork.ru/images/logo_small.png
+SponsorLogoURL: https://openeuler-website.obs.ap-southeast-1.myhuaweicloud.com/mirrors/Truenetwork.png
 AdminName: Mirror.Truenetwork
 AdminEmail: mirror@truenetwork.ru
 ContinentOnly: false

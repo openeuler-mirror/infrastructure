@@ -4,7 +4,7 @@ RsyncURL: ""
 FtpURL: ""
 SponsorName: Belnet
 SponsorURL: https://belnet.be/
-SponsorLogoURL: http://ftp.belnet.be/belnetstyle/belnetlogo.png
+SponsorLogoURL: https://openeuler-website.obs.ap-southeast-1.myhuaweicloud.com/mirrors/Belnet.png
 AdminName: Belnet
 AdminEmail: ftpmaint@belnet.be
 ContinentOnly: false

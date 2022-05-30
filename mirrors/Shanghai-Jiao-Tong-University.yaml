@@ -4,7 +4,7 @@ RsyncURL: rsync://root@mirror.sjtu.edu.cn/openeuler
 FtpURL: ""
 SponsorName: Shanghai-Jiao-Tong-University
 SponsorURL: https://mirrors.sjtug.sjtu.edu.cn/
-SponsorLogoURL: https://static-data.eol.cn/upload/logo/125.jpg
+SponsorLogoURL: https://openeuler-website.obs.ap-southeast-1.myhuaweicloud.com/mirrors/Shanghai-Jiao-Tong-University.jpg
 AdminName: administrator
 AdminEmail: https://github.com/sjtug/mirror-requests
 ContinentOnly: false
