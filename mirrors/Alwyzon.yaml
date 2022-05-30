@@ -4,7 +4,7 @@ RsyncURL: ""
 FtpURL: ""
 SponsorName: Alwyzon
 SponsorURL: https://www.alwyzon.com/en
-SponsorLogoURL: https://mirror.alwyzon.net/alwyzon.svg
+SponsorLogoURL: https://openeuler-website.obs.ap-southeast-1.myhuaweicloud.com/mirrors/Alwyzon.svg
 AdminName: Alwyzon
 AdminEmail: support@alwyzon.net 
 ContinentOnly: false
