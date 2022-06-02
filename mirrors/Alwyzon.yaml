@@ -13,7 +13,7 @@ ASOnly: false
 Score: 100
 Enabled: true
 AllowRedirects: null
-NetworkBandwidth: 1000
+NetworkBandwidth: 10000
 Latitude: 48.20849
 Longitude: 16.37208
 Country: Austria
