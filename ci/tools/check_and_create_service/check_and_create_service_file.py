@@ -25,7 +25,7 @@ def get_obs_tree(repo_name, token):
     obs_url = "https://gitee.com/api/v5/repos/src-openeuler/obs_meta/git/trees/master?recursive=1"
     res = requests.get(url=obs_url, data=data)
     trees = res.json()["tree"]
-    dirs = ["openEuler:Factory", "openEuler:Mainline", "openEuler:Epol"]
+    dirs = ["openEuler:Factory", "openEuler:Mainline", "openEuler:Epol", "openEuler:Extras"]
     repo_set = set()
     missing_service_repo = []
     for i in trees:
