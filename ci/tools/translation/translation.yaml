@@ -48,3 +48,8 @@ repositories:
     assign_issue:
     - title: "[Auto] 这是一个中文翻译需求."
     - sign_to: freyaqqianjin
+  - trigger_pr_path: 'contribute/'
+    file_extension: [doc, md, json]
+    assign_issue:
+    - title: "[Auto] This is an English translation issue."
+    - sign_to: freyaqqianjin
