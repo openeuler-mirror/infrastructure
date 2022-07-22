@@ -206,6 +206,15 @@ def main(owner, repo, token, number):
                         current_file_extension["en"] = issue_trigger["file_extension"]
                         current_issue_title["en"] = issue_trigger["assign_issue"][0]["title"]
                         en_file.append(diff_file.replace("en/", ""))
+                    elif diff_file.startswith(issue_trigger["trigger_pr_path"]) \
+                            and diff_file.split('.')[-1] in issue_trigger["file_extension"]:
+                        if owner in ["opengauss"] and repo in ["docs"] and issue_trigger["trigger_pr_path"] in ["contribute/"]:
+                            print("file {} has been changed".format(diff_file))
+                            file_count += 1
+                            current_assignee["zh"] = issue_trigger["assign_issue"][1]["sign_to"]
+                            current_file_extension["zh"] = issue_trigger["file_extension"]
+                            current_issue_title["zh"] = issue_trigger["assign_issue"][0]["title"]
+                            zh_file.append(diff_file)
                     else:
                         continue
             changed_same_files = False
