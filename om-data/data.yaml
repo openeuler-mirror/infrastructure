@@ -11311,3 +11311,11 @@ users:
         end_date: ''
     user_name: ''
     emails: []
+  - gitee_id: zh-f
+    github_id: ''
+    companies:
+      - company_name: 'chinatelecom'
+        organization_name: ''
+        end_date: ''
+    user_name: ''
+    emails: ["zh.f@outlook.com", "zhangfan2@chinatelecom.cn"]
