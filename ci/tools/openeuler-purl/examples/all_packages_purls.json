@@ -1,0 +1,4353 @@
+{
+  "version": "openEuler-20.03-LTS",
+  "data": [
+    {
+      "name": "python-setuptools_scm-3.1.0-2.oe1.src.rpm",
+      "purls": [
+        "pkg:pypi/setuptools-scm@3.1.0"
+      ]
+    },
+    {
+      "name": "python-SecretStorage-2.3.1-11.oe1.src.rpm",
+      "purls": [
+        "pkg:pypi/SecretStorage@2.3.1"
+      ]
+    },
+    {
+      "name": "python-freezegun-0.3.8-12.oe1.src.rpm",
+      "purls": [
+        "pkg:pypi/freezegun@0.3.8"
+      ]
+    },
+    {
+      "name": "jq-1.5-17.oe1.src.rpm",
+      "purls": [
+        "pkg:gem/activesupport@4.2.3",
+        "pkg:gem/addressable@2.3.8",
+        "pkg:gem/bonsai@1.4.9",
+        "pkg:gem/builder@3.2.2",
+        "pkg:gem/hpricot@0.8.6",
+        "pkg:gem/i18n@0.7.0",
+        "pkg:gem/json@1.8.3",
+        "pkg:gem/launchy@2.4.3",
+        "pkg:gem/liquid@3.0.6",
+        "pkg:gem/maruku@0.7.2",
+        "pkg:gem/minitest@5.8.0",
+        "pkg:gem/mustache@0.99.8",
+        "pkg:gem/rack@1.6.4",
+        "pkg:gem/rack-protection@1.5.3",
+        "pkg:gem/rake@10.4.2",
+        "pkg:gem/rdiscount@2.1.8",
+        "pkg:gem/ronn@0.7.3",
+        "pkg:gem/sass@3.4.16",
+        "pkg:gem/sinatra@1.4.6",
+        "pkg:gem/thread_safe@0.3.5",
+        "pkg:gem/tilt@2.0.1",
+        "pkg:gem/tzinfo@1.2.2",
+        "pkg:gem/watch@0.1.0",
+        "pkg:gem/yui-compressor@0.12.0"
+      ]
+    },
+    {
+      "name": "PyPAM-0.5.0-1.oe1.src.rpm",
+      "purls": [
+        "pkg:rpm/PyPAM@0.5.0-1?arch=athlon&epoch=0&upstream=PyPAM-0.5.0-1.src.rpm",
+        "pkg:rpm/PyPAM@0.5.0-1?arch=athlon&epoch=0",
+        "pkg:rpm/PyPAM-debuginfo@0.5.0-1?arch=athlon&epoch=0&upstream=PyPAM-0.5.0-1.src.rpm"
+      ]
+    },
+    {
+      "name": "python-pytest-mock-1.10.0-4.oe1.src.rpm",
+      "purls": [
+        "pkg:pypi/pytest-mock@1.10.0"
+      ]
+    },
+    {
+      "name": "python-packaging-17.1-2.oe1.src.rpm",
+      "purls": [
+        "pkg:pypi/packaging@17.1"
+      ]
+    },
+    {
+      "name": "python-mimeparse-1.6.0-8.oe1.src.rpm",
+      "purls": [
+        "pkg:pypi/python-mimeparse@1.6.0"
+      ]
+    },
+    {
+      "name": "python-setuptools_git-1.1-10.oe1.src.rpm",
+      "purls": [
+        "pkg:pypi/setuptools-git@1.1"
+      ]
+    },
+    {
+      "name": "python-httplib2-0.13.1-4.oe1.src.rpm",
+      "purls": [
+        "pkg:pypi/flake8@3.4.1",
+        "pkg:pypi/future@0.16.0",
+        "pkg:pypi/httplib2@0.13.1",
+        "pkg:pypi/mock@2.0.0",
+        "pkg:pypi/pytest@3.2.1",
+        "pkg:pypi/pytest-cov@2.5.1",
+        "pkg:pypi/pytest-forked@0.2",
+        "pkg:pypi/pytest-randomly@1.2.1",
+        "pkg:pypi/pytest-timeout@1.2.0",
+        "pkg:pypi/pytest-xdist@1.20.0",
+        "pkg:pypi/six@1.10.0"
+      ]
+    },
+    {
+      "name": "python-whoosh-2.7.4-13.oe1.src.rpm",
+      "purls": [
+        "pkg:pypi/Whoosh@2.7.4"
+      ]
+    },
+    {
+      "name": "drpm-0.4.1-3.oe1.src.rpm",
+      "purls": [
+        "pkg:rpm/drpm-devel@0.1.3-1.fc20?arch=x86_64&epoch=0&upstream=drpm-0.1.3-1.fc20.src.rpm",
+        "pkg:rpm/drpm-devel@0.3.0-1.fc20?arch=x86_64&epoch=0&upstream=drpm-0.3.0-1.fc20.src.rpm",
+        "pkg:rpm/libcmocka@0.4.1-3.fc21?arch=i686&epoch=0&upstream=cmocka-0.4.1-3.fc21.src.rpm",
+        "pkg:rpm/libcmocka@1.0.1-1.fc21?arch=i686&epoch=0&upstream=cmocka-1.0.1-1.fc21.src.rpm"
+      ]
+    },
+    {
+      "name": "python-unittest2-1.1.0-16.oe1.src.rpm",
+      "purls": [
+        "pkg:pypi/unittest2@1.1.0"
+      ]
+    },
+    {
+      "name": "python-tornado-5.0.2-5.oe1.src.rpm",
+      "purls": [
+        "pkg:pypi/tornado@5.0.2"
+      ]
+    },
+    {
+      "name": "dnf-4.2.15-8.oe1.src.rpm",
+      "purls": [
+        "pkg:rpm/basesystem@10.0-7?arch=noarch&epoch=0&upstream=basesystem-10.0-7.src.rpm",
+        "pkg:rpm/basesystem@10.0-7?arch=noarch&epoch=0&upstream=basesystem-10.0-7.src.rpm",
+        "pkg:rpm/basesystem@10.0-7?arch=noarch&epoch=0",
+        "pkg:rpm/basesystem@10.0-7?arch=noarch&epoch=0&upstream=basesystem-10.0-7.src.rpm",
+        "pkg:rpm/basesystem@11-3?arch=noarch&epoch=0&upstream=basesystem-11-3.src.rpm",
+        "pkg:rpm/basesystem@11-3?arch=noarch&epoch=0&upstream=basesystem-11-3.src.rpm",
+        "pkg:rpm/basesystem@11-3?arch=noarch&epoch=0",
+        "pkg:rpm/basesystem@11-3?arch=noarch&epoch=0&upstream=basesystem-11-3.src.rpm",
+        "pkg:rpm/basesystem@11-3?arch=noarch&epoch=0&upstream=basesystem-11-3.src.rpm",
+        "pkg:rpm/basesystem@11-3?arch=noarch&epoch=0",
+        "pkg:rpm/basesystem@11-3?arch=noarch&epoch=0&upstream=basesystem-11-3.src.rpm",
+        "pkg:rpm/bash@4.2.46-21?arch=x86_64&epoch=0&upstream=bash-4.2.46-21.src.rpm",
+        "pkg:rpm/bash@4.2.46-21?arch=x86_64&epoch=0",
+        "pkg:rpm/bash@4.2.46-21?arch=x86_64&epoch=0&upstream=bash-4.2.46-21.src.rpm",
+        "pkg:rpm/bash@4.4.12-2?arch=x86_64&epoch=0&upstream=bash-4.4.12-2.src.rpm",
+        "pkg:rpm/bash@4.4.12-2?arch=x86_64&epoch=0",
+        "pkg:rpm/bash@4.4.12-2?arch=x86_64&epoch=0&upstream=bash-4.4.12-2.src.rpm",
+        "pkg:rpm/bash@4.4.12-2?arch=x86_64&epoch=0",
+        "pkg:rpm/bash@4.4.12-2?arch=x86_64&epoch=0&upstream=bash-4.4.12-2.src.rpm",
+        "pkg:rpm/bash-doc@4.2.46-21?arch=noarch&epoch=0&upstream=bash-4.2.46-21.src.rpm",
+        "pkg:rpm/bash-doc@4.2.46-21?arch=noarch&epoch=0&upstream=bash-4.2.46-21.src.rpm",
+        "pkg:rpm/bash-doc@4.2.46-21?arch=noarch&epoch=0&upstream=bash-4.2.46-21.src.rpm",
+        "pkg:rpm/bash-doc@4.4.12-2?arch=noarch&epoch=0&upstream=bash-4.4.12-2.src.rpm",
+        "pkg:rpm/bash-doc@4.4.12-2?arch=noarch&epoch=0&upstream=bash-4.4.12-2.src.rpm",
+        "pkg:rpm/bash-doc@4.4.12-2?arch=noarch&epoch=0&upstream=bash-4.4.12-2.src.rpm",
+        "pkg:rpm/bash-doc@4.4.12-2?arch=noarch&epoch=0&upstream=bash-4.4.12-2.src.rpm",
+        "pkg:rpm/bash-doc@4.4.12-2?arch=noarch&epoch=0&upstream=bash-4.4.12-2.src.rpm",
+        "pkg:rpm/dummy-nscd@2.17-157?arch=x86_64&epoch=0&upstream=glibc-2.17-157.src.rpm",
+        "pkg:rpm/dummy-nscd@2.17-157?arch=x86_64&epoch=0&upstream=glibc-2.17-157.src.rpm",
+        "pkg:rpm/dummy-nscd@2.25-4?arch=x86_64&epoch=0&upstream=glibc-2.25-4.src.rpm",
+        "pkg:rpm/dummy-nscd@2.25-4?arch=x86_64&epoch=0&upstream=glibc-2.25-4.src.rpm",
+        "pkg:rpm/dummy-nscd@2.25.90-2?arch=x86_64&epoch=0&upstream=glibc-2.25.90-2.src.rpm",
+        "pkg:rpm/dummy-nscd@2.25.90-2?arch=x86_64&epoch=0&upstream=glibc-2.25.90-2.src.rpm",
+        "pkg:rpm/filesystem@3.2-21?arch=x86_64&epoch=0&upstream=filesystem-3.2-21.src.rpm",
+        "pkg:rpm/filesystem@3.2-40?arch=x86_64&epoch=0&upstream=filesystem-3.2-40.src.rpm",
+        "pkg:rpm/filesystem@3.2-40?arch=x86_64&epoch=0",
+        "pkg:rpm/filesystem@3.2-40?arch=x86_64&epoch=0&upstream=filesystem-3.2-40.src.rpm",
+        "pkg:rpm/filesystem@3.2-40?arch=x86_64&epoch=0",
+        "pkg:rpm/filesystem@3.2-40?arch=x86_64&epoch=0&upstream=filesystem-3.2-40.src.rpm",
+        "pkg:rpm/filesystem@3.2-21?arch=x86_64&epoch=0",
+        "pkg:rpm/filesystem@3.2-21?arch=x86_64&epoch=0&upstream=filesystem-3.2-21.src.rpm",
+        "pkg:rpm/glibc@2.17-157?arch=x86_64&epoch=0&upstream=glibc-2.17-157.src.rpm",
+        "pkg:rpm/glibc@2.17-157?arch=x86_64&epoch=0",
+        "pkg:rpm/glibc@2.17-157?arch=x86_64&epoch=0&upstream=glibc-2.17-157.src.rpm",
+        "pkg:rpm/glibc@2.25-4?arch=x86_64&epoch=0&upstream=glibc-2.25-4.src.rpm",
+        "pkg:rpm/glibc@2.25-4?arch=x86_64&epoch=0",
+        "pkg:rpm/glibc@2.25-4?arch=x86_64&epoch=0&upstream=glibc-2.25-4.src.rpm",
+        "pkg:rpm/glibc@2.25.90-2?arch=x86_64&epoch=0&upstream=glibc-2.25.90-2.src.rpm",
+        "pkg:rpm/glibc@2.25.90-2?arch=x86_64&epoch=0",
+        "pkg:rpm/glibc@2.25.90-2?arch=x86_64&epoch=0&upstream=glibc-2.25.90-2.src.rpm",
+        "pkg:rpm/glibc-common@2.17-157?arch=x86_64&epoch=0&upstream=glibc-2.17-157.src.rpm",
+        "pkg:rpm/glibc-common@2.17-157?arch=x86_64&epoch=0&upstream=glibc-2.17-157.src.rpm",
+        "pkg:rpm/glibc-common@2.25-4?arch=x86_64&epoch=0&upstream=glibc-2.25-4.src.rpm",
+        "pkg:rpm/glibc-common@2.25-4?arch=x86_64&epoch=0&upstream=glibc-2.25-4.src.rpm",
+        "pkg:rpm/glibc-common@2.25.90-2?arch=x86_64&epoch=0&upstream=glibc-2.25.90-2.src.rpm",
+        "pkg:rpm/glibc-common@2.25.90-2?arch=x86_64&epoch=0&upstream=glibc-2.25.90-2.src.rpm",
+        "pkg:rpm/glibc-debuginfo-common@2.17-157?arch=x86_64&epoch=0&upstream=glibc-2.17-157.src.rpm",
+        "pkg:rpm/glibc-debuginfo-common@2.17-157?arch=x86_64&epoch=0&upstream=glibc-2.17-157.src.rpm",
+        "pkg:rpm/glibc-debuginfo-common@2.25-4?arch=x86_64&epoch=0&upstream=glibc-2.25-4.src.rpm",
+        "pkg:rpm/glibc-debuginfo-common@2.25-4?arch=x86_64&epoch=0&upstream=glibc-2.25-4.src.rpm",
+        "pkg:rpm/glibc-debuginfo-common@2.25.90-2?arch=x86_64&epoch=0&upstream=glibc-2.25.90-2.src.rpm",
+        "pkg:rpm/glibc-debuginfo-common@2.25.90-2?arch=x86_64&epoch=0&upstream=glibc-2.25.90-2.src.rpm",
+        "pkg:rpm/grub2@2.02-0.40?arch=x86_64&epoch=0&upstream=grub2-2.02-0.40.src.rpm",
+        "pkg:rpm/grub2@2.02-0.40?arch=x86_64&epoch=0",
+        "pkg:rpm/grub2@2.02-0.40?arch=x86_64&epoch=0&upstream=grub2-2.02-0.40.src.rpm",
+        "pkg:rpm/httpd@2.2.10-1?arch=x86_64&epoch=0&upstream=httpd-2.2.10-1.src.rpm",
+        "pkg:rpm/httpd@2.2.10-1?arch=x86_64&epoch=0",
+        "pkg:rpm/httpd@2.2.10-1?arch=x86_64&epoch=0&upstream=httpd-2.2.10-1.src.rpm",
+        "pkg:rpm/httpd@2.2.15-59?arch=x86_64&epoch=0&upstream=httpd-2.2.15-59.src.rpm",
+        "pkg:rpm/httpd@2.2.15-59?arch=x86_64&epoch=0",
+        "pkg:rpm/httpd@2.2.15-59?arch=x86_64&epoch=0&upstream=httpd-2.2.15-59.src.rpm",
+        "pkg:rpm/httpd@2.4.25-7?arch=x86_64&epoch=0&upstream=httpd-2.4.25-7.src.rpm",
+        "pkg:rpm/httpd@2.4.25-8?arch=x86_64&epoch=0&upstream=httpd-2.4.25-8.src.rpm",
+        "pkg:rpm/httpd@2.4.25-7?arch=x86_64&epoch=0",
+        "pkg:rpm/httpd@2.4.25-7?arch=x86_64&epoch=0&upstream=httpd-2.4.25-7.src.rpm",
+        "pkg:rpm/httpd@2.4.25-8?arch=x86_64&epoch=0",
+        "pkg:rpm/httpd@2.4.25-8?arch=x86_64&epoch=0&upstream=httpd-2.4.25-8.src.rpm",
+        "pkg:rpm/httpd-doc@2.2.10-1?arch=x86_64&epoch=0&upstream=httpd-2.2.10-1.src.rpm",
+        "pkg:rpm/httpd-doc@2.2.10-1?arch=x86_64&epoch=0&upstream=httpd-2.2.10-1.src.rpm",
+        "pkg:rpm/httpd-doc@2.2.15-59?arch=x86_64&epoch=0&upstream=httpd-2.2.15-59.src.rpm",
+        "pkg:rpm/httpd-doc@2.2.15-59?arch=x86_64&epoch=0&upstream=httpd-2.2.15-59.src.rpm",
+        "pkg:rpm/httpd-doc@2.4.25-7?arch=x86_64&epoch=0&upstream=httpd-2.4.25-7.src.rpm",
+        "pkg:rpm/httpd-doc@2.4.25-8?arch=x86_64&epoch=0&upstream=httpd-2.4.25-8.src.rpm",
+        "pkg:rpm/httpd-doc@2.4.25-7?arch=x86_64&epoch=0&upstream=httpd-2.4.25-7.src.rpm",
+        "pkg:rpm/httpd-doc@2.4.25-8?arch=x86_64&epoch=0&upstream=httpd-2.4.25-8.src.rpm",
+        "pkg:rpm/httpd-provides-name@3.0-1?arch=x86_64&epoch=0&upstream=httpd-provides-name-3.0-1.src.rpm",
+        "pkg:rpm/httpd-provides-name@3.0-1?arch=x86_64&epoch=0",
+        "pkg:rpm/httpd-provides-name@3.0-1?arch=x86_64&epoch=0&upstream=httpd-provides-name-3.0-1.src.rpm",
+        "pkg:rpm/httpd-provides-name-doc@3.0-1?arch=x86_64&epoch=0&upstream=httpd-provides-name-3.0-1.src.rpm",
+        "pkg:rpm/httpd-provides-name-doc@3.0-1?arch=x86_64&epoch=0&upstream=httpd-provides-name-3.0-1.src.rpm",
+        "pkg:rpm/httpd-provides-name-version-release@3.0-1?arch=x86_64&epoch=0&upstream=httpd-provides-name-version-release-3.0-1.src.rpm",
+        "pkg:rpm/httpd-provides-name-version-release@3.0-1?arch=x86_64&epoch=0",
+        "pkg:rpm/httpd-provides-name-version-release@3.0-1?arch=x86_64&epoch=0&upstream=httpd-provides-name-version-release-3.0-1.src.rpm",
+        "pkg:rpm/httpd-provides-name-version-release-doc@3.0-1?arch=x86_64&epoch=0&upstream=httpd-provides-name-version-release-3.0-1.src.rpm",
+        "pkg:rpm/httpd-provides-name-version-release-doc@3.0-1?arch=x86_64&epoch=0&upstream=httpd-provides-name-version-release-3.0-1.src.rpm",
+        "pkg:rpm/kernel@3.10.0-514?arch=x86_64&epoch=0&upstream=kernel-3.10.0-514.src.rpm",
+        "pkg:rpm/kernel@3.10.0-514?arch=x86_64&epoch=0",
+        "pkg:rpm/kernel@3.10.0-514?arch=x86_64&epoch=0&upstream=kernel-3.10.0-514.src.rpm",
+        "pkg:rpm/kernel@4.11.0-1?arch=x86_64&epoch=0&upstream=kernel-4.11.0-1.src.rpm",
+        "pkg:rpm/kernel@4.11.0-1?arch=x86_64&epoch=0",
+        "pkg:rpm/kernel@4.11.0-1?arch=x86_64&epoch=0&upstream=kernel-4.11.0-1.src.rpm",
+        "pkg:rpm/kernel@4.11.0-1?arch=x86_64&epoch=0",
+        "pkg:rpm/kernel@4.11.0-1?arch=x86_64&epoch=0&upstream=kernel-4.11.0-1.src.rpm",
+        "pkg:rpm/kernel-doc@3.10.0-514?arch=noarch&epoch=0&upstream=kernel-3.10.0-514.src.rpm",
+        "pkg:rpm/kernel-doc@3.10.0-514?arch=noarch&epoch=0&upstream=kernel-3.10.0-514.src.rpm",
+        "pkg:rpm/kernel-doc@3.10.0-514?arch=noarch&epoch=0&upstream=kernel-3.10.0-514.src.rpm",
+        "pkg:rpm/kernel-doc@4.11.0-1?arch=noarch&epoch=0&upstream=kernel-4.11.0-1.src.rpm",
+        "pkg:rpm/kernel-doc@4.11.0-1?arch=noarch&epoch=0&upstream=kernel-4.11.0-1.src.rpm",
+        "pkg:rpm/kernel-doc@4.11.0-1?arch=noarch&epoch=0&upstream=kernel-4.11.0-1.src.rpm",
+        "pkg:rpm/kernel-doc@4.11.0-1?arch=noarch&epoch=0&upstream=kernel-4.11.0-1.src.rpm",
+        "pkg:rpm/kernel-doc@4.11.0-1?arch=noarch&epoch=0&upstream=kernel-4.11.0-1.src.rpm",
+        "pkg:rpm/kernel-headers@3.10.0-514?arch=x86_64&epoch=0&upstream=kernel-3.10.0-514.src.rpm",
+        "pkg:rpm/kernel-headers@3.10.0-514?arch=x86_64&epoch=0&upstream=kernel-3.10.0-514.src.rpm",
+        "pkg:rpm/kernel-headers@4.11.0-1?arch=x86_64&epoch=0&upstream=kernel-4.11.0-1.src.rpm",
+        "pkg:rpm/kernel-headers@4.11.0-1?arch=x86_64&epoch=0&upstream=kernel-4.11.0-1.src.rpm",
+        "pkg:rpm/kernel-headers@4.11.0-1?arch=x86_64&epoch=0&upstream=kernel-4.11.0-1.src.rpm",
+        "pkg:rpm/libnghttp2@1.21.1-1.1?arch=x86_64&epoch=0&upstream=libnghttp2-1.21.1-1.1.src.rpm",
+        "pkg:rpm/libnghttp2@1.21.1-1?arch=x86_64&epoch=0&upstream=libnghttp2-1.21.1-1.src.rpm",
+        "pkg:rpm/libnghttp2@1.21.1-1.1?arch=x86_64&epoch=0",
+        "pkg:rpm/libnghttp2@1.21.1-1.1?arch=x86_64&epoch=0&upstream=libnghttp2-1.21.1-1.1.src.rpm",
+        "pkg:rpm/libnghttp2@1.21.1-1?arch=x86_64&epoch=0",
+        "pkg:rpm/libnghttp2@1.21.1-1?arch=x86_64&epoch=0&upstream=libnghttp2-1.21.1-1.src.rpm",
+        "pkg:rpm/libnghttp2@1.21.1-1?arch=x86_64&epoch=0",
+        "pkg:rpm/libnghttp2@1.21.1-1?arch=x86_64&epoch=0&upstream=libnghttp2-1.21.1-1.src.rpm",
+        "pkg:rpm/m4@1.4.18-6?arch=x86_64&epoch=0&upstream=m4-1.4.18-6.src.rpm",
+        "pkg:rpm/m4@1.4.18-6?arch=x86_64&epoch=0",
+        "pkg:rpm/m4@1.4.18-6?arch=x86_64&epoch=0&upstream=m4-1.4.18-6.src.rpm",
+        "pkg:rpm/systemd@219-30?arch=x86_64&epoch=0&upstream=systemd-219-30.src.rpm",
+        "pkg:rpm/systemd@219-30?arch=x86_64&epoch=0",
+        "pkg:rpm/systemd@219-30?arch=x86_64&epoch=0&upstream=systemd-219-30.src.rpm",
+        "pkg:rpm/systemd@233-3?arch=x86_64&epoch=0&upstream=systemd-233-3.src.rpm",
+        "pkg:rpm/systemd@233-3?arch=x86_64&epoch=0",
+        "pkg:rpm/systemd@233-3?arch=x86_64&epoch=0&upstream=systemd-233-3.src.rpm",
+        "pkg:rpm/systemd@233-3?arch=x86_64&epoch=0",
+        "pkg:rpm/systemd@233-3?arch=x86_64&epoch=0&upstream=systemd-233-3.src.rpm",
+        "pkg:rpm/tour@4-4?arch=noarch&epoch=0&upstream=tour-4-4.src.rpm",
+        "pkg:rpm/tour@5-0?arch=noarch&epoch=0&upstream=tour-5-0.src.rpm",
+        "pkg:rpm/tour@5-1?arch=noarch&epoch=0&upstream=tour-5-1.src.rpm"
+      ]
+    },
+    {
+      "name": "python-google-apputils-0.4.2-15.oe1.src.rpm",
+      "purls": [
+        "pkg:pypi/google-apputils@0.4.2"
+      ]
+    },
+    {
+      "name": "iSulad-img-2.0.0-20200318.002428.gitdbc56638.oe1.src.rpm",
+      "purls": [
+        "pkg:golang/golang.org/x/crypto@v0.0.0-20190308221718-c2843e01d9a2",
+        "pkg:golang/golang.org/x/sys@v0.0.0-20190215142949-d0b11bdaac8a",
+        "pkg:golang/golang.org/x/text@v0.3.0"
+      ]
+    },
+    {
+      "name": "python-u-msgpack-python-2.5.0-2.oe1.src.rpm",
+      "purls": [
+        "pkg:pypi/u-msgpack-python@2.5.0"
+      ]
+    },
+    {
+      "name": "python-toml-0.10.0-1.oe1.src.rpm",
+      "purls": [
+        "pkg:pypi/toml@0.10.0"
+      ]
+    },
+    {
+      "name": "python-humanize-0.5.1-16.oe1.src.rpm",
+      "purls": [
+        "pkg:pypi/humanize@0.5.1"
+      ]
+    },
+    {
+      "name": "python-pip-18.0-12.oe1.src.rpm",
+      "purls": [
+        "pkg:pypi/pip@18.0"
+      ]
+    },
+    {
+      "name": "python-aniso8601-7.0.0-1.oe1.src.rpm",
+      "purls": [
+        "pkg:pypi/aniso8601@7.0.0"
+      ]
+    },
+    {
+      "name": "gpgme-1.13.1-5.oe1.src.rpm",
+      "purls": [
+        "pkg:npm/gpgmejs@0.0.1-dev"
+      ]
+    },
+    {
+      "name": "python-requests-file-1.4.3-9.oe1.src.rpm",
+      "purls": [
+        "pkg:pypi/requests-file@1.4.3"
+      ]
+    },
+    {
+      "name": "python-keyczar-0.71c-13.oe1.src.rpm",
+      "purls": [
+        "pkg:pypi/python-keyczar@0.71c"
+      ]
+    },
+    {
+      "name": "python-enchant-2.0.0-6.oe1.src.rpm",
+      "purls": [
+        "pkg:pypi/pyenchant@2.0.0"
+      ]
+    },
+    {
+      "name": "python-pycurl-7.43.0.2-6.oe1.src.rpm",
+      "purls": [
+        "pkg:pypi/pycurl@7.43.0.2"
+      ]
+    },
+    {
+      "name": "opencc-1.0.5-4.oe1.src.rpm",
+      "purls": [
+        "pkg:npm/opencc@1.0.5"
+      ]
+    },
+    {
+      "name": "python-dateutil-2.7.0-7.oe1.src.rpm",
+      "purls": [
+        "pkg:pypi/python-dateutil@2.7.0"
+      ]
+    },
+    {
+      "name": "python-pytest-cov-2.5.1-7.oe1.src.rpm",
+      "purls": [
+        "pkg:pypi/pytest-cov@2.5.1"
+      ]
+    },
+    {
+      "name": "m2crypto-0.30.1-3.oe1.src.rpm",
+      "purls": [
+        "pkg:pypi/M2Crypto@0.30.1"
+      ]
+    },
+    {
+      "name": "python-pytest-virtualenv-1.2.11-11.oe1.src.rpm",
+      "purls": [
+        "pkg:pypi/pytest-virtualenv@1.2.11"
+      ]
+    },
+    {
+      "name": "python-zipp-0.5.1-1.oe1.src.rpm",
+      "purls": [
+        "pkg:pypi/zipp@0.5.1"
+      ]
+    },
+    {
+      "name": "python-scikit-learn-0.20.4-2.oe1.src.rpm",
+      "purls": [
+        "pkg:pypi/cython@0.27.3"
+      ]
+    },
+    {
+      "name": "subscription-manager-1.23.3-5.oe1.src.rpm",
+      "purls": [
+        "pkg:npm/abbrev@1.1.0",
+        "pkg:npm/acorn@3.3.0",
+        "pkg:npm/acorn@4.0.13",
+        "pkg:npm/acorn@5.0.3",
+        "pkg:npm/acorn@5.1.1",
+        "pkg:npm/acorn-dynamic-import@2.0.2",
+        "pkg:npm/acorn-jsx@3.0.1",
+        "pkg:npm/ajv@4.11.8",
+        "pkg:npm/ajv@5.2.2",
+        "pkg:npm/ajv-keywords@1.5.1",
+        "pkg:npm/align-text@0.1.4",
+        "pkg:npm/alphanum-sort@1.0.2",
+        "pkg:npm/ansi-escapes@1.4.0",
+        "pkg:npm/ansi-regex@2.1.1",
+        "pkg:npm/ansi-regex@3.0.0",
+        "pkg:npm/ansi-styles@1.0.0",
+        "pkg:npm/ansi-styles@2.2.1",
+        "pkg:npm/ansi-styles@3.2.0",
+        "pkg:npm/anymatch@1.3.0",
+        "pkg:npm/aproba@1.1.2",
+        "pkg:npm/are-we-there-yet@1.1.4",
+        "pkg:npm/argparse@1.0.9",
+        "pkg:npm/arr-diff@2.0.0",
+        "pkg:npm/arr-flatten@1.0.3",
+        "pkg:npm/array-union@1.0.2",
+        "pkg:npm/array-uniq@1.0.3",
+        "pkg:npm/array-unique@0.2.1",
+        "pkg:npm/array.prototype.find@2.0.4",
+        "pkg:npm/arrify@1.0.1",
+        "pkg:npm/asap@2.0.6",
+        "pkg:npm/asn1@0.2.3",
+        "pkg:npm/asn1.js@4.9.1",
+        "pkg:npm/assert@1.4.1",
+        "pkg:npm/assert-plus@0.2.0",
+        "pkg:npm/assert-plus@1.0.0",
+        "pkg:npm/async@2.4.1",
+        "pkg:npm/async-each@1.0.1",
+        "pkg:npm/asynckit@0.4.0",
+        "pkg:npm/autoprefixer@6.7.7",
+        "pkg:npm/aws-sign2@0.6.0",
+        "pkg:npm/aws4@1.6.0",
+        "pkg:npm/babel-code-frame@6.22.0",
+        "pkg:npm/babel-core@6.25.0",
+        "pkg:npm/babel-generator@6.25.0",
+        "pkg:npm/babel-helper-builder-binary-assignment-operator-visitor@6.24.1",
+        "pkg:npm/babel-helper-builder-react-jsx@6.24.1",
+        "pkg:npm/babel-helper-call-delegate@6.24.1",
+        "pkg:npm/babel-helper-define-map@6.24.1",
+        "pkg:npm/babel-helper-explode-assignable-expression@6.24.1",
+        "pkg:npm/babel-helper-function-name@6.24.1",
+        "pkg:npm/babel-helper-get-function-arity@6.24.1",
+        "pkg:npm/babel-helper-hoist-variables@6.24.1",
+        "pkg:npm/babel-helper-optimise-call-expression@6.24.1",
+        "pkg:npm/babel-helper-regex@6.24.1",
+        "pkg:npm/babel-helper-remap-async-to-generator@6.24.1",
+        "pkg:npm/babel-helper-replace-supers@6.24.1",
+        "pkg:npm/babel-helpers@6.24.1",
+        "pkg:npm/babel-loader@7.0.0",
+        "pkg:npm/babel-messages@6.23.0",
+        "pkg:npm/babel-plugin-check-es2015-constants@6.22.0",
+        "pkg:npm/babel-plugin-syntax-async-functions@6.13.0",
+        "pkg:npm/babel-plugin-syntax-exponentiation-operator@6.13.0",
+        "pkg:npm/babel-plugin-syntax-jsx@6.18.0",
+        "pkg:npm/babel-plugin-syntax-trailing-function-commas@6.22.0",
+        "pkg:npm/babel-plugin-transform-async-to-generator@6.24.1",
+        "pkg:npm/babel-plugin-transform-es2015-arrow-functions@6.22.0",
+        "pkg:npm/babel-plugin-transform-es2015-block-scoped-functions@6.22.0",
+        "pkg:npm/babel-plugin-transform-es2015-block-scoping@6.24.1",
+        "pkg:npm/babel-plugin-transform-es2015-classes@6.24.1",
+        "pkg:npm/babel-plugin-transform-es2015-computed-properties@6.24.1",
+        "pkg:npm/babel-plugin-transform-es2015-destructuring@6.23.0",
+        "pkg:npm/babel-plugin-transform-es2015-duplicate-keys@6.24.1",
+        "pkg:npm/babel-plugin-transform-es2015-for-of@6.23.0",
+        "pkg:npm/babel-plugin-transform-es2015-function-name@6.24.1",
+        "pkg:npm/babel-plugin-transform-es2015-literals@6.22.0",
+        "pkg:npm/babel-plugin-transform-es2015-modules-amd@6.24.1",
+        "pkg:npm/babel-plugin-transform-es2015-modules-commonjs@6.24.1",
+        "pkg:npm/babel-plugin-transform-es2015-modules-systemjs@6.24.1",
+        "pkg:npm/babel-plugin-transform-es2015-modules-umd@6.24.1",
+        "pkg:npm/babel-plugin-transform-es2015-object-super@6.24.1",
+        "pkg:npm/babel-plugin-transform-es2015-parameters@6.24.1",
+        "pkg:npm/babel-plugin-transform-es2015-shorthand-properties@6.24.1",
+        "pkg:npm/babel-plugin-transform-es2015-spread@6.22.0",
+        "pkg:npm/babel-plugin-transform-es2015-sticky-regex@6.24.1",
+        "pkg:npm/babel-plugin-transform-es2015-template-literals@6.22.0",
+        "pkg:npm/babel-plugin-transform-es2015-typeof-symbol@6.23.0",
+        "pkg:npm/babel-plugin-transform-es2015-unicode-regex@6.24.1",
+        "pkg:npm/babel-plugin-transform-exponentiation-operator@6.24.1",
+        "pkg:npm/babel-plugin-transform-react-jsx@6.24.1",
+        "pkg:npm/babel-plugin-transform-regenerator@6.24.1",
+        "pkg:npm/babel-plugin-transform-strict-mode@6.24.1",
+        "pkg:npm/babel-preset-env@1.5.2",
+        "pkg:npm/babel-register@6.24.1",
+        "pkg:npm/babel-runtime@6.23.0",
+        "pkg:npm/babel-runtime@6.25.0",
+        "pkg:npm/babel-template@6.25.0",
+        "pkg:npm/babel-traverse@6.25.0",
+        "pkg:npm/babel-types@6.25.0",
+        "pkg:npm/babylon@6.17.3",
+        "pkg:npm/balanced-match@0.4.2",
+        "pkg:npm/balanced-match@1.0.0",
+        "pkg:npm/base64-js@1.2.0",
+        "pkg:npm/bcrypt-pbkdf@1.0.1",
+        "pkg:npm/big.js@3.1.3",
+        "pkg:npm/binary-extensions@1.8.0",
+        "pkg:npm/block-stream@0.0.9",
+        "pkg:npm/bluebird@2.11.0",
+        "pkg:npm/bn.js@4.11.6",
+        "pkg:npm/boom@2.10.1",
+        "pkg:npm/bootstrap@3.3.7",
+        "pkg:npm/bootstrap-datepicker@1.6.4",
+        "pkg:npm/bootstrap-select@1.12.4",
+        "pkg:npm/bootstrap-switch@3.3.4",
+        "pkg:npm/bootstrap-touchspin@3.1.1",
+        "pkg:npm/brace-expansion@1.1.8",
+        "pkg:npm/braces@1.8.5",
+        "pkg:npm/brorand@1.1.0",
+        "pkg:npm/browserify-aes@1.0.6",
+        "pkg:npm/browserify-cipher@1.0.0",
+        "pkg:npm/browserify-des@1.0.0",
+        "pkg:npm/browserify-rsa@4.0.1",
+        "pkg:npm/browserify-sign@4.0.4",
+        "pkg:npm/browserify-zlib@0.1.4",
+        "pkg:npm/browserslist@1.7.7",
+        "pkg:npm/browserslist@2.1.5",
+        "pkg:npm/buffer@4.9.1",
+        "pkg:npm/buffer-xor@1.0.3",
+        "pkg:npm/builtin-modules@1.1.1",
+        "pkg:npm/builtin-status-codes@3.0.0",
+        "pkg:npm/c3@0.4.18",
+        "pkg:npm/caller-path@0.1.0",
+        "pkg:npm/callsites@0.2.0",
+        "pkg:npm/camelcase@1.2.1",
+        "pkg:npm/camelcase@3.0.0",
+        "pkg:npm/caniuse-api@1.6.1",
+        "pkg:npm/caniuse-db@1.0.30000715",
+        "pkg:npm/caniuse-lite@1.0.30000684",
+        "pkg:npm/caseless@0.12.0",
+        "pkg:npm/center-align@0.1.3",
+        "pkg:npm/chalk@0.4.0",
+        "pkg:npm/chalk@1.1.3",
+        "pkg:npm/chalk@2.1.0",
+        "pkg:npm/chokidar@1.7.0",
+        "pkg:npm/cipher-base@1.0.3",
+        "pkg:npm/circular-json@0.3.3",
+        "pkg:npm/clap@1.2.0",
+        "pkg:npm/classnames@2.2.5",
+        "pkg:npm/cli@1.0.1",
+        "pkg:npm/cli-cursor@1.0.2",
+        "pkg:npm/cli-width@2.1.0",
+        "pkg:npm/cliui@2.1.0",
+        "pkg:npm/cliui@3.2.0",
+        "pkg:npm/clone@1.0.2",
+        "pkg:npm/co@4.6.0",
+        "pkg:npm/coa@1.0.4",
+        "pkg:npm/code-point-at@1.1.0",
+        "pkg:npm/color@0.11.4",
+        "pkg:npm/color-convert@1.9.0",
+        "pkg:npm/color-name@1.1.3",
+        "pkg:npm/color-string@0.3.0",
+        "pkg:npm/colormin@1.1.2",
+        "pkg:npm/colors@1.1.2",
+        "pkg:npm/combined-stream@1.0.5",
+        "pkg:npm/commondir@1.0.1",
+        "pkg:npm/compression-webpack-plugin@1.0.0",
+        "pkg:npm/concat-map@0.0.1",
+        "pkg:npm/concat-stream@1.6.0",
+        "pkg:npm/console-browserify@1.1.0",
+        "pkg:npm/console-control-strings@1.1.0",
+        "pkg:npm/constants-browserify@1.0.0",
+        "pkg:npm/convert-source-map@1.5.0",
+        "pkg:npm/copy-webpack-plugin@3.0.1",
+        "pkg:npm/core-js@1.2.7",
+        "pkg:npm/core-js@2.4.1",
+        "pkg:npm/core-util-is@1.0.2",
+        "pkg:npm/create-ecdh@4.0.0",
+        "pkg:npm/create-hash@1.1.3",
+        "pkg:npm/create-hmac@1.1.6",
+        "pkg:npm/create-react-class@15.6.2",
+        "pkg:npm/cryptiles@2.0.5",
+        "pkg:npm/crypto-browserify@3.11.0",
+        "pkg:npm/css-color-names@0.0.4",
+        "pkg:npm/css-loader@0.28.4",
+        "pkg:npm/css-selector-tokenizer@0.7.0",
+        "pkg:npm/cssesc@0.1.0",
+        "pkg:npm/cssnano@3.10.0",
+        "pkg:npm/csso@2.3.2",
+        "pkg:npm/d@1.0.0",
+        "pkg:npm/d3@3.5.17",
+        "pkg:npm/dashdash@1.14.1",
+        "pkg:npm/datatables.net@1.10.16",
+        "pkg:npm/datatables.net@2.1.1",
+        "pkg:npm/datatables.net-bs@2.1.1",
+        "pkg:npm/datatables.net-colreorder@1.3.3",
+        "pkg:npm/datatables.net-colreorder@1.4.1",
+        "pkg:npm/datatables.net-colreorder-bs@1.3.3",
+        "pkg:npm/datatables.net-select@1.2.3",
+        "pkg:npm/date-now@0.1.4",
+        "pkg:npm/debug@2.6.8",
+        "pkg:npm/decamelize@1.2.0",
+        "pkg:npm/deep-extend@0.4.2",
+        "pkg:npm/deep-is@0.1.3",
+        "pkg:npm/define-properties@1.1.2",
+        "pkg:npm/defined@1.0.0",
+        "pkg:npm/del@2.2.2",
+        "pkg:npm/delayed-stream@1.0.0",
+        "pkg:npm/delegates@1.0.0",
+        "pkg:npm/des.js@1.0.0",
+        "pkg:npm/detect-indent@4.0.0",
+        "pkg:npm/diffie-hellman@5.0.2",
+        "pkg:npm/doctrine@1.5.0",
+        "pkg:npm/doctrine@2.0.0",
+        "pkg:npm/dom-helpers@3.2.1",
+        "pkg:npm/dom-serializer@0.1.0",
+        "pkg:npm/domain-browser@1.1.7",
+        "pkg:npm/domelementtype@1.1.3",
+        "pkg:npm/domelementtype@1.3.0",
+        "pkg:npm/domhandler@2.3.0",
+        "pkg:npm/domutils@1.5.1",
+        "pkg:npm/drmonty-datatables-colvis@1.1.2",
+        "pkg:npm/ecc-jsbn@0.1.1",
+        "pkg:npm/electron-to-chromium@1.3.14",
+        "pkg:npm/electron-to-chromium@1.3.18",
+        "pkg:npm/elliptic@6.4.0",
+        "pkg:npm/emojis-list@2.1.0",
+        "pkg:npm/encoding@0.1.12",
+        "pkg:npm/enhanced-resolve@3.1.0",
+        "pkg:npm/entities@1.0.0",
+        "pkg:npm/entities@1.1.1",
+        "pkg:npm/eonasdan-bootstrap-datetimepicker@4.17.47",
+        "pkg:npm/errno@0.1.4",
+        "pkg:npm/error-ex@1.3.1",
+        "pkg:npm/es-abstract@1.7.0",
+        "pkg:npm/es-to-primitive@1.1.1",
+        "pkg:npm/es5-ext@0.10.24",
+        "pkg:npm/es6-iterator@2.0.1",
+        "pkg:npm/es6-map@0.1.5",
+        "pkg:npm/es6-set@0.1.5",
+        "pkg:npm/es6-symbol@3.1.1",
+        "pkg:npm/es6-weak-map@2.0.2",
+        "pkg:npm/escape-string-regexp@1.0.5",
+        "pkg:npm/escope@3.6.0",
+        "pkg:npm/eslint@3.19.0",
+        "pkg:npm/eslint-loader@1.6.3",
+        "pkg:npm/eslint-plugin-react@6.9.0",
+        "pkg:npm/espree@3.4.3",
+        "pkg:npm/esprima@2.7.3",
+        "pkg:npm/esprima@4.0.0",
+        "pkg:npm/esquery@1.0.0",
+        "pkg:npm/esrecurse@4.2.0",
+        "pkg:npm/estraverse@4.2.0",
+        "pkg:npm/esutils@2.0.2",
+        "pkg:npm/event-emitter@0.3.5",
+        "pkg:npm/events@1.1.1",
+        "pkg:npm/evp_bytestokey@1.0.0",
+        "pkg:npm/exit@0.1.2",
+        "pkg:npm/exit-hook@1.1.1",
+        "pkg:npm/expand-brackets@0.1.5",
+        "pkg:npm/expand-range@1.8.2",
+        "pkg:npm/extend@3.0.1",
+        "pkg:npm/extglob@0.3.2",
+        "pkg:npm/extract-text-webpack-plugin@2.1.2",
+        "pkg:npm/extsprintf@1.0.2",
+        "pkg:npm/fast-deep-equal@1.0.0",
+        "pkg:npm/fast-levenshtein@2.0.6",
+        "pkg:npm/fastparse@1.1.1",
+        "pkg:npm/fbjs@0.8.14",
+        "pkg:npm/fbjs@0.8.16",
+        "pkg:npm/figures@1.7.0",
+        "pkg:npm/file-entry-cache@2.0.0",
+        "pkg:npm/file-loader@1.1.5",
+        "pkg:npm/filename-regex@2.0.1",
+        "pkg:npm/fill-range@2.2.3",
+        "pkg:npm/find-cache-dir@0.1.1",
+        "pkg:npm/find-up@1.1.2",
+        "pkg:pypi/flake8@3.0.4",
+        "pkg:npm/flat-cache@1.2.2",
+        "pkg:npm/flatten@1.0.2",
+        "pkg:npm/font-awesome@4.7.0",
+        "pkg:npm/for-in@1.0.2",
+        "pkg:npm/for-own@0.1.5",
+        "pkg:npm/foreach@2.0.5",
+        "pkg:npm/forever-agent@0.6.1",
+        "pkg:npm/form-data@2.1.4",
+        "pkg:npm/fs-extra@0.26.7",
+        "pkg:npm/fs.realpath@1.0.0",
+        "pkg:npm/fsevents@1.1.2",
+        "pkg:npm/fstream@1.0.11",
+        "pkg:npm/fstream-ignore@1.0.5",
+        "pkg:npm/function-bind@1.1.0",
+        "pkg:npm/gauge@2.7.4",
+        "pkg:npm/generate-function@2.0.0",
+        "pkg:npm/generate-object-property@1.2.0",
+        "pkg:npm/get-caller-file@1.0.2",
+        "pkg:npm/getpass@0.1.7",
+        "pkg:npm/gettext-parser@1.1.0",
+        "pkg:npm/glob@6.0.4",
+        "pkg:npm/glob@7.1.2",
+        "pkg:npm/glob-base@0.3.0",
+        "pkg:npm/glob-parent@2.0.0",
+        "pkg:npm/globals@9.18.0",
+        "pkg:npm/globby@5.0.0",
+        "pkg:npm/google-code-prettify@1.0.5",
+        "pkg:npm/graceful-fs@4.1.11",
+        "pkg:npm/har-schema@1.0.5",
+        "pkg:npm/har-validator@4.2.1",
+        "pkg:npm/has@1.0.1",
+        "pkg:npm/has-ansi@2.0.0",
+        "pkg:npm/has-color@0.1.7",
+        "pkg:npm/has-flag@1.0.0",
+        "pkg:npm/has-flag@2.0.0",
+        "pkg:npm/has-unicode@2.0.1",
+        "pkg:npm/hash-base@2.0.2",
+        "pkg:npm/hash.js@1.0.3",
+        "pkg:npm/hawk@3.1.3",
+        "pkg:npm/hmac-drbg@1.0.1",
+        "pkg:npm/hoek@2.16.3",
+        "pkg:npm/home-or-tmp@2.0.0",
+        "pkg:npm/hosted-git-info@2.4.2",
+        "pkg:npm/html-comment-regex@1.1.1",
+        "pkg:npm/htmlparser2@3.8.3",
+        "pkg:npm/http-signature@1.1.1",
+        "pkg:npm/https-browserify@0.0.1",
+        "pkg:npm/iconv-lite@0.4.18",
+        "pkg:npm/icss-replace-symbols@1.1.0",
+        "pkg:npm/icss-utils@2.1.0",
+        "pkg:npm/ieee754@1.1.8",
+        "pkg:npm/ignore@3.3.3",
+        "pkg:npm/imurmurhash@0.1.4",
+        "pkg:npm/indexes-of@1.0.1",
+        "pkg:npm/indexof@0.0.1",
+        "pkg:npm/inflight@1.0.6",
+        "pkg:npm/inherits@2.0.1",
+        "pkg:npm/inherits@2.0.3",
+        "pkg:npm/ini@1.3.4",
+        "pkg:npm/inquirer@0.12.0",
+        "pkg:npm/interpret@1.0.3",
+        "pkg:npm/invariant@2.2.2",
+        "pkg:npm/invert-kv@1.0.0",
+        "pkg:npm/is-absolute-url@2.1.0",
+        "pkg:npm/is-arrayish@0.2.1",
+        "pkg:npm/is-binary-path@1.0.1",
+        "pkg:npm/is-buffer@1.1.5",
+        "pkg:npm/is-builtin-module@1.0.0",
+        "pkg:npm/is-callable@1.1.3",
+        "pkg:npm/is-date-object@1.0.1",
+        "pkg:npm/is-dotfile@1.0.3",
+        "pkg:npm/is-equal-shallow@0.1.3",
+        "pkg:npm/is-extendable@0.1.1",
+        "pkg:npm/is-extglob@1.0.0",
+        "pkg:npm/is-finite@1.0.2",
+        "pkg:npm/is-fullwidth-code-point@1.0.0",
+        "pkg:npm/is-fullwidth-code-point@2.0.0",
+        "pkg:npm/is-glob@2.0.1",
+        "pkg:npm/is-my-json-valid@2.16.0",
+        "pkg:npm/is-number@2.1.0",
+        "pkg:npm/is-number@3.0.0",
+        "pkg:npm/is-path-cwd@1.0.0",
+        "pkg:npm/is-path-in-cwd@1.0.0",
+        "pkg:npm/is-path-inside@1.0.0",
+        "pkg:npm/is-plain-obj@1.1.0",
+        "pkg:npm/is-posix-bracket@0.1.1",
+        "pkg:npm/is-primitive@2.0.0",
+        "pkg:npm/is-property@1.0.2",
+        "pkg:npm/is-regex@1.0.4",
+        "pkg:npm/is-resolvable@1.0.0",
+        "pkg:npm/is-stream@1.1.0",
+        "pkg:npm/is-svg@2.1.0",
+        "pkg:npm/is-symbol@1.0.1",
+        "pkg:npm/is-typedarray@1.0.0",
+        "pkg:npm/is-utf8@0.2.1",
+        "pkg:npm/isarray@0.0.1",
+        "pkg:npm/isarray@1.0.0",
+        "pkg:npm/isobject@2.1.0",
+        "pkg:npm/isomorphic-fetch@2.2.1",
+        "pkg:npm/isstream@0.1.2",
+        "pkg:npm/jasmine@2.8.0",
+        "pkg:npm/jasmine-core@2.8.0",
+        "pkg:npm/jquery@3.2.1",
+        "pkg:npm/jquery-match-height@0.7.2",
+        "pkg:npm/js-base64@2.1.9",
+        "pkg:npm/js-tokens@3.0.1",
+        "pkg:npm/js-yaml@3.7.0",
+        "pkg:npm/js-yaml@3.9.1",
+        "pkg:npm/jsbn@0.1.1",
+        "pkg:npm/jsesc@0.5.0",
+        "pkg:npm/jsesc@1.3.0",
+        "pkg:npm/jshint@2.9.5",
+        "pkg:npm/jshint-loader@0.8.4",
+        "pkg:npm/json-loader@0.5.4",
+        "pkg:npm/json-schema@0.2.3",
+        "pkg:npm/json-schema-traverse@0.3.1",
+        "pkg:npm/json-stable-stringify@1.0.1",
+        "pkg:npm/json-stringify-safe@5.0.1",
+        "pkg:npm/json5@0.5.1",
+        "pkg:npm/jsonfile@2.4.0",
+        "pkg:npm/jsonify@0.0.0",
+        "pkg:npm/jsonpointer@4.0.1",
+        "pkg:npm/jsprim@1.4.0",
+        "pkg:npm/jsx-ast-utils@1.4.1",
+        "pkg:npm/keycode@2.1.9",
+        "pkg:npm/kind-of@3.2.2",
+        "pkg:npm/kind-of@4.0.0",
+        "pkg:npm/klaw@1.3.1",
+        "pkg:npm/lazy-cache@1.0.4",
+        "pkg:npm/lcid@1.0.0",
+        "pkg:npm/levn@0.3.0",
+        "pkg:npm/load-json-file@1.1.0",
+        "pkg:npm/loader-runner@2.3.0",
+        "pkg:npm/loader-utils@0.2.17",
+        "pkg:npm/loader-utils@1.1.0",
+        "pkg:npm/lodash@2.4.2",
+        "pkg:npm/lodash@3.7.0",
+        "pkg:npm/lodash@4.17.4",
+        "pkg:npm/lodash.camelcase@4.3.0",
+        "pkg:npm/lodash.clonedeep@4.5.0",
+        "pkg:npm/lodash.memoize@4.1.2",
+        "pkg:npm/lodash.uniq@4.5.0",
+        "pkg:npm/longest@1.0.1",
+        "pkg:npm/loose-envify@1.3.1",
+        "pkg:npm/macaddress@0.2.8",
+        "pkg:npm/math-expression-evaluator@1.2.17",
+        "pkg:npm/memory-fs@0.4.1",
+        "pkg:npm/micromatch@2.3.11",
+        "pkg:npm/miller-rabin@4.0.0",
+        "pkg:npm/mime-db@1.27.0",
+        "pkg:npm/mime-types@2.1.15",
+        "pkg:npm/minimalistic-assert@1.0.0",
+        "pkg:npm/minimalistic-crypto-utils@1.0.1",
+        "pkg:npm/minimatch@3.0.4",
+        "pkg:npm/minimist@0.0.8",
+        "pkg:npm/minimist@1.2.0",
+        "pkg:npm/mkdirp@0.5.1",
+        "pkg:npm/moment@2.14.1",
+        "pkg:npm/moment@2.18.1",
+        "pkg:npm/moment-timezone@0.4.1",
+        "pkg:npm/ms@2.0.0",
+        "pkg:npm/mute-stream@0.0.5",
+        "pkg:npm/nan@2.6.2",
+        "pkg:npm/natural-compare@1.4.0",
+        "pkg:npm/node-dir@0.1.17",
+        "pkg:npm/node-fetch@1.7.2",
+        "pkg:npm/node-libs-browser@2.0.0",
+        "pkg:npm/node-pre-gyp@0.6.36",
+        "pkg:npm/nomnom@1.8.1",
+        "pkg:npm/nopt@4.0.1",
+        "pkg:npm/normalize-package-data@2.3.8",
+        "pkg:npm/normalize-path@2.1.1",
+        "pkg:npm/normalize-range@0.1.2",
+        "pkg:npm/normalize-url@1.9.1",
+        "pkg:npm/npmlog@4.1.0",
+        "pkg:npm/num2fraction@1.2.2",
+        "pkg:npm/number-is-nan@1.0.1",
+        "pkg:npm/oauth-sign@0.8.2",
+        "pkg:npm/object-assign@4.1.1",
+        "pkg:npm/object-hash@1.1.8",
+        "pkg:npm/object-keys@1.0.11",
+        "pkg:npm/object.omit@2.0.1",
+        "pkg:npm/once@1.4.0",
+        "pkg:npm/onetime@1.1.0",
+        "pkg:npm/optionator@0.8.2",
+        "pkg:npm/os-browserify@0.2.1",
+        "pkg:npm/os-homedir@1.0.2",
+        "pkg:npm/os-locale@1.4.0",
+        "pkg:npm/os-tmpdir@1.0.2",
+        "pkg:npm/osenv@0.1.4",
+        "pkg:npm/pako@0.2.9",
+        "pkg:npm/parse-asn1@5.1.0",
+        "pkg:npm/parse-glob@3.0.4",
+        "pkg:npm/parse-json@2.2.0",
+        "pkg:npm/path-browserify@0.0.0",
+        "pkg:npm/path-exists@2.1.0",
+        "pkg:npm/path-is-absolute@1.0.1",
+        "pkg:npm/path-is-inside@1.0.2",
+        "pkg:npm/path-parse@1.0.5",
+        "pkg:npm/path-type@1.1.0",
+        "pkg:npm/patternfly@3.27.6",
+        "pkg:npm/patternfly-bootstrap-combobox@1.1.7",
+        "pkg:npm/patternfly-bootstrap-treeview@2.1.5",
+        "pkg:npm/patternfly-react@0.8.0",
+        "pkg:npm/pbkdf2@3.0.12",
+        "pkg:pypi/pep8@1.5.7",
+        "pkg:npm/performance-now@0.2.0",
+        "pkg:npm/pify@2.3.0",
+        "pkg:npm/pinkie@2.0.4",
+        "pkg:npm/pinkie-promise@2.0.1",
+        "pkg:npm/pkg-dir@1.0.0",
+        "pkg:npm/pluralize@1.2.1",
+        "pkg:npm/po2json@0.4.5",
+        "pkg:npm/postcss@5.2.17",
+        "pkg:npm/postcss@6.0.9",
+        "pkg:npm/postcss-calc@5.3.1",
+        "pkg:npm/postcss-colormin@2.2.2",
+        "pkg:npm/postcss-convert-values@2.6.1",
+        "pkg:npm/postcss-discard-comments@2.0.4",
+        "pkg:npm/postcss-discard-duplicates@2.1.0",
+        "pkg:npm/postcss-discard-empty@2.1.0",
+        "pkg:npm/postcss-discard-overridden@0.1.1",
+        "pkg:npm/postcss-discard-unused@2.2.3",
+        "pkg:npm/postcss-filter-plugins@2.0.2",
+        "pkg:npm/postcss-merge-idents@2.1.7",
+        "pkg:npm/postcss-merge-longhand@2.0.2",
+        "pkg:npm/postcss-merge-rules@2.1.2",
+        "pkg:npm/postcss-message-helpers@2.0.0",
+        "pkg:npm/postcss-minify-font-values@1.0.5",
+        "pkg:npm/postcss-minify-gradients@1.0.5",
+        "pkg:npm/postcss-minify-params@1.2.2",
+        "pkg:npm/postcss-minify-selectors@2.1.1",
+        "pkg:npm/postcss-modules-extract-imports@1.2.0",
+        "pkg:npm/postcss-modules-local-by-default@1.2.0",
+        "pkg:npm/postcss-modules-scope@1.1.0",
+        "pkg:npm/postcss-modules-values@1.3.0",
+        "pkg:npm/postcss-normalize-charset@1.1.1",
+        "pkg:npm/postcss-normalize-url@3.0.8",
+        "pkg:npm/postcss-ordered-values@2.2.3",
+        "pkg:npm/postcss-reduce-idents@2.4.0",
+        "pkg:npm/postcss-reduce-initial@1.0.1",
+        "pkg:npm/postcss-reduce-transforms@1.0.4",
+        "pkg:npm/postcss-selector-parser@2.2.3",
+        "pkg:npm/postcss-svgo@2.1.6",
+        "pkg:npm/postcss-unique-selectors@2.0.2",
+        "pkg:npm/postcss-value-parser@3.3.0",
+        "pkg:npm/postcss-zindex@2.2.0",
+        "pkg:npm/prelude-ls@1.1.2",
+        "pkg:npm/prepend-http@1.0.4",
+        "pkg:npm/preserve@0.2.0",
+        "pkg:npm/private@0.1.7",
+        "pkg:npm/process@0.11.10",
+        "pkg:npm/process-nextick-args@1.0.7",
+        "pkg:npm/progress@1.1.8",
+        "pkg:npm/promise@7.3.1",
+        "pkg:npm/prop-types@15.6.0",
+        "pkg:npm/prop-types-extra@1.0.1",
+        "pkg:npm/prr@0.0.0",
+        "pkg:npm/public-encrypt@4.0.0",
+        "pkg:npm/punycode@1.3.2",
+        "pkg:npm/punycode@1.4.1",
+        "pkg:pypi/python-dateutil@1.5",
+        "pkg:npm/q@1.5.0",
+        "pkg:npm/qs@6.4.0",
+        "pkg:npm/query-string@4.3.4",
+        "pkg:npm/querystring@0.2.0",
+        "pkg:npm/querystring-es3@0.2.1",
+        "pkg:npm/randomatic@1.1.7",
+        "pkg:npm/randombytes@2.0.5",
+        "pkg:npm/rc@1.2.1",
+        "pkg:npm/rcfinder@0.1.9",
+        "pkg:npm/rcloader@0.1.2",
+        "pkg:npm/react@15.6.2",
+        "pkg:npm/react-bootstrap@0.31.5",
+        "pkg:npm/react-dom@15.6.2",
+        "pkg:npm/react-overlays@0.7.4",
+        "pkg:npm/read-pkg@1.1.0",
+        "pkg:npm/read-pkg-up@1.0.1",
+        "pkg:npm/readable-stream@1.1.13",
+        "pkg:npm/readable-stream@2.2.11",
+        "pkg:npm/readable-stream@2.3.3",
+        "pkg:npm/readdirp@2.1.0",
+        "pkg:npm/readline2@1.0.1",
+        "pkg:npm/rechoir@0.6.2",
+        "pkg:npm/reduce-css-calc@1.3.0",
+        "pkg:npm/reduce-function-call@1.0.2",
+        "pkg:npm/regenerate@1.3.2",
+        "pkg:npm/regenerator-runtime@0.10.5",
+        "pkg:npm/regenerator-transform@0.9.11",
+        "pkg:npm/regex-cache@0.4.3",
+        "pkg:npm/regexpu-core@1.0.0",
+        "pkg:npm/regexpu-core@2.0.0",
+        "pkg:npm/regjsgen@0.2.0",
+        "pkg:npm/regjsparser@0.1.5",
+        "pkg:npm/remove-trailing-separator@1.0.2",
+        "pkg:npm/repeat-element@1.1.2",
+        "pkg:npm/repeat-string@1.6.1",
+        "pkg:npm/repeating@2.0.1",
+        "pkg:npm/request@2.81.0",
+        "pkg:npm/require-directory@2.1.1",
+        "pkg:npm/require-main-filename@1.0.1",
+        "pkg:npm/require-uncached@1.0.3",
+        "pkg:npm/resolve@1.4.0",
+        "pkg:npm/resolve-from@1.0.1",
+        "pkg:npm/restore-cursor@1.0.1",
+        "pkg:npm/right-align@0.1.3",
+        "pkg:npm/rimraf@2.6.1",
+        "pkg:npm/ripemd160@2.0.1",
+        "pkg:npm/run-async@0.1.0",
+        "pkg:npm/rx-lite@3.1.2",
+        "pkg:npm/safe-buffer@5.0.1",
+        "pkg:npm/safe-buffer@5.1.0",
+        "pkg:npm/safe-buffer@5.1.1",
+        "pkg:npm/sax@1.2.4",
+        "pkg:npm/schema-utils@0.3.0",
+        "pkg:npm/semver@5.3.0",
+        "pkg:npm/set-blocking@2.0.0",
+        "pkg:npm/set-immediate-shim@1.0.1",
+        "pkg:npm/setimmediate@1.0.5",
+        "pkg:npm/sha.js@2.4.8",
+        "pkg:npm/shelljs@0.3.0",
+        "pkg:npm/shelljs@0.7.8",
+        "pkg:npm/signal-exit@3.0.2",
+        "pkg:pypi/six@1.11.0",
+        "pkg:npm/slash@1.0.0",
+        "pkg:npm/slice-ansi@0.0.4",
+        "pkg:npm/sntp@1.0.9",
+        "pkg:npm/sort-keys@1.1.2",
+        "pkg:npm/source-list-map@0.1.8",
+        "pkg:npm/source-list-map@1.1.2",
+        "pkg:npm/source-list-map@2.0.0",
+        "pkg:npm/source-map@0.5.6",
+        "pkg:npm/source-map-support@0.4.15",
+        "pkg:npm/spdx-correct@1.0.2",
+        "pkg:npm/spdx-expression-parse@1.0.4",
+        "pkg:npm/spdx-license-ids@1.2.2",
+        "pkg:npm/sprintf-js@1.0.3",
+        "pkg:npm/sshpk@1.13.1",
+        "pkg:npm/stream-browserify@2.0.1",
+        "pkg:npm/stream-http@2.7.2",
+        "pkg:npm/strict-uri-encode@1.1.0",
+        "pkg:npm/string-width@1.0.2",
+        "pkg:npm/string-width@2.1.1",
+        "pkg:npm/string_decoder@0.10.31",
+        "pkg:npm/string_decoder@1.0.2",
+        "pkg:npm/string_decoder@1.0.3",
+        "pkg:npm/stringstream@0.0.5",
+        "pkg:npm/strip-ansi@0.1.1",
+        "pkg:npm/strip-ansi@3.0.1",
+        "pkg:npm/strip-ansi@4.0.0",
+        "pkg:npm/strip-bom@2.0.0",
+        "pkg:npm/strip-bom@3.0.0",
+        "pkg:npm/strip-json-comments@0.1.3",
+        "pkg:npm/strip-json-comments@1.0.4",
+        "pkg:npm/strip-json-comments@2.0.1",
+        "pkg:npm/style-loader@0.18.2",
+        "pkg:npm/subscription-manager@0.1.0",
+        "pkg:npm/supports-color@2.0.0",
+        "pkg:npm/supports-color@3.2.3",
+        "pkg:npm/supports-color@4.2.1",
+        "pkg:npm/svgo@0.7.2",
+        "pkg:npm/table@3.8.3",
+        "pkg:npm/tapable@0.2.6",
+        "pkg:npm/tar@2.2.1",
+        "pkg:npm/tar-pack@3.4.0",
+        "pkg:npm/text-table@0.2.0",
+        "pkg:npm/through@2.3.8",
+        "pkg:npm/timers-browserify@2.0.2",
+        "pkg:npm/to-arraybuffer@1.0.1",
+        "pkg:npm/to-fast-properties@1.0.3",
+        "pkg:npm/tough-cookie@2.3.2",
+        "pkg:npm/trim-right@1.0.1",
+        "pkg:npm/tryit@1.0.3",
+        "pkg:npm/tty-browserify@0.0.0",
+        "pkg:npm/tunnel-agent@0.6.0",
+        "pkg:npm/tweetnacl@0.14.5",
+        "pkg:npm/type-check@0.3.2",
+        "pkg:npm/typedarray@0.0.6",
+        "pkg:npm/ua-parser-js@0.7.14",
+        "pkg:npm/uglify-js@2.8.29",
+        "pkg:npm/uglify-to-browserify@1.0.2",
+        "pkg:npm/uid-number@0.0.6",
+        "pkg:npm/uncontrollable@4.1.0",
+        "pkg:npm/underscore@1.6.0",
+        "pkg:npm/uniq@1.0.1",
+        "pkg:npm/uniqid@4.1.1",
+        "pkg:npm/uniqs@2.0.0",
+        "pkg:npm/url@0.11.0",
+        "pkg:npm/user-home@2.0.0",
+        "pkg:npm/util@0.10.3",
+        "pkg:npm/util-deprecate@1.0.2",
+        "pkg:npm/uuid@3.0.1",
+        "pkg:npm/validate-npm-package-license@3.0.1",
+        "pkg:npm/vendors@1.0.1",
+        "pkg:npm/verror@1.3.6",
+        "pkg:npm/vm-browserify@0.0.4",
+        "pkg:npm/warning@3.0.0",
+        "pkg:npm/watchpack@1.3.1",
+        "pkg:npm/webpack@2.6.1",
+        "pkg:npm/webpack-sources@0.2.3",
+        "pkg:npm/webpack-sources@1.0.1",
+        "pkg:npm/whatwg-fetch@2.0.3",
+        "pkg:npm/whet.extend@0.9.9",
+        "pkg:npm/which-module@1.0.0",
+        "pkg:npm/wide-align@1.1.2",
+        "pkg:npm/window-size@0.1.0",
+        "pkg:npm/wordwrap@0.0.2",
+        "pkg:npm/wordwrap@1.0.0",
+        "pkg:npm/wrap-ansi@2.1.0",
+        "pkg:npm/wrappy@1.0.2",
+        "pkg:npm/write@0.2.1",
+        "pkg:npm/xtend@4.0.1",
+        "pkg:npm/y18n@3.2.1",
+        "pkg:npm/yargs@3.10.0",
+        "pkg:npm/yargs@6.6.0",
+        "pkg:npm/yargs-parser@4.2.1"
+      ]
+    },
+    {
+      "name": "python-mock-2.0.0-11.oe1.src.rpm",
+      "purls": [
+        "pkg:pypi/mock@2.0.0"
+      ]
+    },
+    {
+      "name": "python-distro-1.3.0-5.oe1.src.rpm",
+      "purls": [
+        "pkg:pypi/distro@1.3.0"
+      ]
+    },
+    {
+      "name": "python-zope-event-4.2.0-12.oe1.src.rpm",
+      "purls": [
+        "pkg:pypi/zope.event@4.2.0"
+      ]
+    },
+    {
+      "name": "rpmlint-1.10-18.oe1.src.rpm",
+      "purls": [
+        "pkg:rpm/PamCheck@0.1-1?arch=i586&epoch=0&upstream=PamCheck-0.1-1.src.rpm",
+        "pkg:rpm/autofs@5.0.7-28.fc19?arch=i686&epoch=1&upstream=autofs-5.0.7-28.fc19.src.rpm",
+        "pkg:rpm/cyrus-imapd@2.4.17-9.fc22?arch=x86_64&epoch=0&upstream=cyrus-imapd-2.4.17-9.fc22.src.rpm",
+        "pkg:rpm/dovecot@2.2.9-1.fc20?arch=x86_64&epoch=1&upstream=dovecot-2.2.9-1.fc20.src.rpm",
+        "pkg:rpm/netmask-debugsource@2.4.3-5.fc27?arch=x86_64&epoch=0&upstream=netmask-2.4.3-5.fc27.src.rpm",
+        "pkg:rpm/ngircd@22-2.fc22?arch=x86_64&epoch=0&upstream=ngircd-22-2.fc22.src.rpm",
+        "pkg:rpm/nodejs010@1-7.el6_4?arch=x86_64&epoch=0",
+        "pkg:rpm/nodejs010-nodejs@0.10.3-3.el6_4?arch=x86_64&epoch=0&upstream=nodejs010-nodejs-0.10.3-3.el6_4.src.rpm",
+        "pkg:rpm/nodejs010-nodejs@0.10.3-3.el6_4?arch=x86_64&epoch=0",
+        "pkg:rpm/nodejs010-nodejs-forever-agent@0.2.0-2.el6_4?arch=noarch&epoch=0",
+        "pkg:rpm/nodejs010-nodejs-oauth-sign@0.2.0-2.el6_4?arch=noarch&epoch=0&upstream=nodejs010-nodejs-oauth-sign-0.2.0-2.el6_4.src.rpm",
+        "pkg:rpm/nodejs010-nodejs-oauth-sign@0.2.0-2.el6_4?arch=noarch&epoch=0&upstream=nodejs010-nodejs-oauth-sign-0.2.0-2.el6_4.src.rpm",
+        "pkg:rpm/nodejs010-nodejs-oauth-sign@0.2.0-2.el6_4?arch=noarch&epoch=0&upstream=nodejs010-nodejs-oauth-sign-0.2.0-2.el6_4.src.rpm",
+        "pkg:rpm/nodejs010-runtime@1-7.el6_4?arch=x86_64&epoch=0&upstream=nodejs010-1-7.el6_4.src.rpm",
+        "pkg:rpm/nodejs110-nodejs-oauth-sign@0.2.0-2.el6_4?arch=noarch&epoch=0&upstream=nodejs110-nodejs-oauth-sign-0.2.0-2.el6_4.src.rpm",
+        "pkg:rpm/non-utf8@1.0-1.el5.centos?arch=x86_64&epoch=0&upstream=non-utf8-1.0-1.el5.centos.src.rpm",
+        "pkg:rpm/non-utf8@1.0-1.el5.centos?arch=x86_64&epoch=0",
+        "pkg:rpm/python3-power@1.1-4.20121103git2cfe611.fc19?arch=noarch&epoch=0&upstream=python-power-1.1-4.20121103git2cfe611.fc19.src.rpm"
+      ]
+    },
+    {
+      "name": "libdnf-0.37.2-2.oe1.src.rpm",
+      "purls": [
+        "pkg:rpm/basesystem@10.0-7?arch=noarch&epoch=0&upstream=basesystem-10.0-7.src.rpm",
+        "pkg:rpm/basesystem@10.0-7?arch=noarch&epoch=0&upstream=basesystem-10.0-7.src.rpm",
+        "pkg:rpm/basesystem@10.0-7?arch=noarch&epoch=0&upstream=basesystem-10.0-7.src.rpm",
+        "pkg:rpm/basesystem@10.0-7?arch=noarch&epoch=0&upstream=basesystem-10.0-7.src.rpm",
+        "pkg:rpm/basesystem@10.0-7?arch=noarch&epoch=0&upstream=basesystem-10.0-7.src.rpm",
+        "pkg:rpm/basesystem@10.0-7?arch=noarch&epoch=0&upstream=basesystem-10.0-7.src.rpm",
+        "pkg:rpm/basesystem@10.0-7?arch=noarch&epoch=0",
+        "pkg:rpm/basesystem@10.0-7?arch=noarch&epoch=0&upstream=basesystem-10.0-7.src.rpm",
+        "pkg:rpm/basesystem@11-3?arch=noarch&epoch=0&upstream=basesystem-11-3.src.rpm",
+        "pkg:rpm/basesystem@11-3?arch=noarch&epoch=0&upstream=basesystem-11-3.src.rpm",
+        "pkg:rpm/basesystem@11-3?arch=noarch&epoch=0&upstream=basesystem-11-3.src.rpm",
+        "pkg:rpm/basesystem@11-3?arch=noarch&epoch=0&upstream=basesystem-11-3.src.rpm",
+        "pkg:rpm/basesystem@11-3?arch=noarch&epoch=0&upstream=basesystem-11-3.src.rpm",
+        "pkg:rpm/basesystem@11-3?arch=noarch&epoch=0&upstream=basesystem-11-3.src.rpm",
+        "pkg:rpm/basesystem@11-3?arch=noarch&epoch=0",
+        "pkg:rpm/basesystem@11-3?arch=noarch&epoch=0&upstream=basesystem-11-3.src.rpm",
+        "pkg:rpm/basesystem@11-3?arch=noarch&epoch=0&upstream=basesystem-11-3.src.rpm",
+        "pkg:rpm/basesystem@11-3?arch=noarch&epoch=0&upstream=basesystem-11-3.src.rpm",
+        "pkg:rpm/basesystem@11-3?arch=noarch&epoch=0&upstream=basesystem-11-3.src.rpm",
+        "pkg:rpm/basesystem@11-3?arch=noarch&epoch=0",
+        "pkg:rpm/basesystem@11-3?arch=noarch&epoch=0&upstream=basesystem-11-3.src.rpm",
+        "pkg:rpm/bash@4.2.46-21?arch=i686&epoch=0&upstream=bash-4.2.46-21.src.rpm",
+        "pkg:rpm/bash@4.2.46-21?arch=s390x&epoch=0&upstream=bash-4.2.46-21.src.rpm",
+        "pkg:rpm/bash@4.2.46-21?arch=x86_64&epoch=0&upstream=bash-4.2.46-21.src.rpm",
+        "pkg:rpm/bash@4.2.46-21?arch=i686&epoch=0&upstream=bash-4.2.46-21.src.rpm",
+        "pkg:rpm/bash@4.2.46-21?arch=s390x&epoch=0&upstream=bash-4.2.46-21.src.rpm",
+        "pkg:rpm/bash@4.2.46-21?arch=s390x&epoch=0",
+        "pkg:rpm/bash@4.2.46-21?arch=x86_64&epoch=0&upstream=bash-4.2.46-21.src.rpm",
+        "pkg:rpm/bash@4.4.12-2?arch=i686&epoch=0&upstream=bash-4.4.12-2.src.rpm",
+        "pkg:rpm/bash@4.4.12-2?arch=s390x&epoch=0&upstream=bash-4.4.12-2.src.rpm",
+        "pkg:rpm/bash@4.4.12-2?arch=x86_64&epoch=0&upstream=bash-4.4.12-2.src.rpm",
+        "pkg:rpm/bash@4.4.12-2?arch=i686&epoch=0&upstream=bash-4.4.12-2.src.rpm",
+        "pkg:rpm/bash@4.4.12-2?arch=s390x&epoch=0&upstream=bash-4.4.12-2.src.rpm",
+        "pkg:rpm/bash@4.4.12-2?arch=s390x&epoch=0",
+        "pkg:rpm/bash@4.4.12-2?arch=x86_64&epoch=0&upstream=bash-4.4.12-2.src.rpm",
+        "pkg:rpm/bash@4.4.12-2?arch=i686&epoch=0&upstream=bash-4.4.12-2.src.rpm",
+        "pkg:rpm/bash@4.4.12-2?arch=s390x&epoch=0&upstream=bash-4.4.12-2.src.rpm",
+        "pkg:rpm/bash@4.4.12-2?arch=s390x&epoch=0",
+        "pkg:rpm/bash@4.4.12-2?arch=x86_64&epoch=0&upstream=bash-4.4.12-2.src.rpm",
+        "pkg:rpm/bash-doc@4.2.46-21?arch=noarch&epoch=0&upstream=bash-4.2.46-21.src.rpm",
+        "pkg:rpm/bash-doc@4.2.46-21?arch=noarch&epoch=0&upstream=bash-4.2.46-21.src.rpm",
+        "pkg:rpm/bash-doc@4.2.46-21?arch=noarch&epoch=0&upstream=bash-4.2.46-21.src.rpm",
+        "pkg:rpm/bash-doc@4.2.46-21?arch=noarch&epoch=0&upstream=bash-4.2.46-21.src.rpm",
+        "pkg:rpm/bash-doc@4.2.46-21?arch=noarch&epoch=0&upstream=bash-4.2.46-21.src.rpm",
+        "pkg:rpm/bash-doc@4.2.46-21?arch=noarch&epoch=0&upstream=bash-4.2.46-21.src.rpm",
+        "pkg:rpm/bash-doc@4.2.46-21?arch=noarch&epoch=0&upstream=bash-4.2.46-21.src.rpm",
+        "pkg:rpm/bash-doc@4.4.12-2?arch=noarch&epoch=0&upstream=bash-4.4.12-2.src.rpm",
+        "pkg:rpm/bash-doc@4.4.12-2?arch=noarch&epoch=0&upstream=bash-4.4.12-2.src.rpm",
+        "pkg:rpm/bash-doc@4.4.12-2?arch=noarch&epoch=0&upstream=bash-4.4.12-2.src.rpm",
+        "pkg:rpm/bash-doc@4.4.12-2?arch=noarch&epoch=0&upstream=bash-4.4.12-2.src.rpm",
+        "pkg:rpm/bash-doc@4.4.12-2?arch=noarch&epoch=0&upstream=bash-4.4.12-2.src.rpm",
+        "pkg:rpm/bash-doc@4.4.12-2?arch=noarch&epoch=0&upstream=bash-4.4.12-2.src.rpm",
+        "pkg:rpm/bash-doc@4.4.12-2?arch=noarch&epoch=0&upstream=bash-4.4.12-2.src.rpm",
+        "pkg:rpm/bash-doc@4.4.12-2?arch=noarch&epoch=0&upstream=bash-4.4.12-2.src.rpm",
+        "pkg:rpm/bash-doc@4.4.12-2?arch=noarch&epoch=0&upstream=bash-4.4.12-2.src.rpm",
+        "pkg:rpm/bash-doc@4.4.12-2?arch=noarch&epoch=0&upstream=bash-4.4.12-2.src.rpm",
+        "pkg:rpm/bash-doc@4.4.12-2?arch=noarch&epoch=0&upstream=bash-4.4.12-2.src.rpm",
+        "pkg:rpm/dummy-nscd@2.17-157?arch=i686&epoch=0&upstream=glibc-2.17-157.src.rpm",
+        "pkg:rpm/dummy-nscd@2.17-157?arch=s390x&epoch=0&upstream=glibc-2.17-157.src.rpm",
+        "pkg:rpm/dummy-nscd@2.17-157?arch=x86_64&epoch=0&upstream=glibc-2.17-157.src.rpm",
+        "pkg:rpm/dummy-nscd@2.17-157?arch=i686&epoch=0&upstream=glibc-2.17-157.src.rpm",
+        "pkg:rpm/dummy-nscd@2.17-157?arch=s390x&epoch=0&upstream=glibc-2.17-157.src.rpm",
+        "pkg:rpm/dummy-nscd@2.17-157?arch=x86_64&epoch=0&upstream=glibc-2.17-157.src.rpm",
+        "pkg:rpm/dummy-nscd@2.25-4?arch=i686&epoch=0&upstream=glibc-2.25-4.src.rpm",
+        "pkg:rpm/dummy-nscd@2.25-4?arch=s390x&epoch=0&upstream=glibc-2.25-4.src.rpm",
+        "pkg:rpm/dummy-nscd@2.25-4?arch=x86_64&epoch=0&upstream=glibc-2.25-4.src.rpm",
+        "pkg:rpm/dummy-nscd@2.25-4?arch=i686&epoch=0&upstream=glibc-2.25-4.src.rpm",
+        "pkg:rpm/dummy-nscd@2.25-4?arch=s390x&epoch=0&upstream=glibc-2.25-4.src.rpm",
+        "pkg:rpm/dummy-nscd@2.25-4?arch=x86_64&epoch=0&upstream=glibc-2.25-4.src.rpm",
+        "pkg:rpm/dummy-nscd@2.25.90-2?arch=i686&epoch=0&upstream=glibc-2.25.90-2.src.rpm",
+        "pkg:rpm/dummy-nscd@2.25.90-2?arch=s390x&epoch=0&upstream=glibc-2.25.90-2.src.rpm",
+        "pkg:rpm/dummy-nscd@2.25.90-2?arch=x86_64&epoch=0&upstream=glibc-2.25.90-2.src.rpm",
+        "pkg:rpm/dummy-nscd@2.25.90-2?arch=i686&epoch=0&upstream=glibc-2.25.90-2.src.rpm",
+        "pkg:rpm/dummy-nscd@2.25.90-2?arch=s390x&epoch=0&upstream=glibc-2.25.90-2.src.rpm",
+        "pkg:rpm/dummy-nscd@2.25.90-2?arch=x86_64&epoch=0&upstream=glibc-2.25.90-2.src.rpm",
+        "pkg:rpm/filesystem@3.2-21?arch=i686&epoch=0&upstream=filesystem-3.2-21.src.rpm",
+        "pkg:rpm/filesystem@3.2-40?arch=i686&epoch=0&upstream=filesystem-3.2-40.src.rpm",
+        "pkg:rpm/filesystem@3.2-21?arch=s390x&epoch=0&upstream=filesystem-3.2-21.src.rpm",
+        "pkg:rpm/filesystem@3.2-40?arch=s390x&epoch=0&upstream=filesystem-3.2-40.src.rpm",
+        "pkg:rpm/filesystem@3.2-21?arch=x86_64&epoch=0&upstream=filesystem-3.2-21.src.rpm",
+        "pkg:rpm/filesystem@3.2-40?arch=x86_64&epoch=0&upstream=filesystem-3.2-40.src.rpm",
+        "pkg:rpm/filesystem@3.2-40?arch=i686&epoch=0&upstream=filesystem-3.2-40.src.rpm",
+        "pkg:rpm/filesystem@3.2-40?arch=s390x&epoch=0&upstream=filesystem-3.2-40.src.rpm",
+        "pkg:rpm/filesystem@3.2-40?arch=s390x&epoch=0",
+        "pkg:rpm/filesystem@3.2-40?arch=x86_64&epoch=0&upstream=filesystem-3.2-40.src.rpm",
+        "pkg:rpm/filesystem@3.2-40?arch=i686&epoch=0&upstream=filesystem-3.2-40.src.rpm",
+        "pkg:rpm/filesystem@3.2-40?arch=s390x&epoch=0&upstream=filesystem-3.2-40.src.rpm",
+        "pkg:rpm/filesystem@3.2-40?arch=s390x&epoch=0",
+        "pkg:rpm/filesystem@3.2-40?arch=x86_64&epoch=0&upstream=filesystem-3.2-40.src.rpm",
+        "pkg:rpm/filesystem@3.2-21?arch=i686&epoch=0&upstream=filesystem-3.2-21.src.rpm",
+        "pkg:rpm/filesystem@3.2-21?arch=s390x&epoch=0&upstream=filesystem-3.2-21.src.rpm",
+        "pkg:rpm/filesystem@3.2-21?arch=s390x&epoch=0",
+        "pkg:rpm/filesystem@3.2-21?arch=x86_64&epoch=0&upstream=filesystem-3.2-21.src.rpm",
+        "pkg:rpm/glibc@2.17-157?arch=i686&epoch=0&upstream=glibc-2.17-157.src.rpm",
+        "pkg:rpm/glibc@2.17-157?arch=s390x&epoch=0&upstream=glibc-2.17-157.src.rpm",
+        "pkg:rpm/glibc@2.17-157?arch=x86_64&epoch=0&upstream=glibc-2.17-157.src.rpm",
+        "pkg:rpm/glibc@2.17-157?arch=i686&epoch=0&upstream=glibc-2.17-157.src.rpm",
+        "pkg:rpm/glibc@2.17-157?arch=s390x&epoch=0&upstream=glibc-2.17-157.src.rpm",
+        "pkg:rpm/glibc@2.17-157?arch=s390x&epoch=0",
+        "pkg:rpm/glibc@2.17-157?arch=x86_64&epoch=0&upstream=glibc-2.17-157.src.rpm",
+        "pkg:rpm/glibc@2.25-4?arch=i686&epoch=0&upstream=glibc-2.25-4.src.rpm",
+        "pkg:rpm/glibc@2.25-4?arch=s390x&epoch=0&upstream=glibc-2.25-4.src.rpm",
+        "pkg:rpm/glibc@2.25-4?arch=x86_64&epoch=0&upstream=glibc-2.25-4.src.rpm",
+        "pkg:rpm/glibc@2.25-4?arch=i686&epoch=0&upstream=glibc-2.25-4.src.rpm",
+        "pkg:rpm/glibc@2.25-4?arch=s390x&epoch=0&upstream=glibc-2.25-4.src.rpm",
+        "pkg:rpm/glibc@2.25-4?arch=s390x&epoch=0",
+        "pkg:rpm/glibc@2.25-4?arch=x86_64&epoch=0&upstream=glibc-2.25-4.src.rpm",
+        "pkg:rpm/glibc@2.25.90-2?arch=i686&epoch=0&upstream=glibc-2.25.90-2.src.rpm",
+        "pkg:rpm/glibc@2.25.90-2?arch=s390x&epoch=0&upstream=glibc-2.25.90-2.src.rpm",
+        "pkg:rpm/glibc@2.25.90-2?arch=x86_64&epoch=0&upstream=glibc-2.25.90-2.src.rpm",
+        "pkg:rpm/glibc@2.25.90-2?arch=i686&epoch=0&upstream=glibc-2.25.90-2.src.rpm",
+        "pkg:rpm/glibc@2.25.90-2?arch=s390x&epoch=0&upstream=glibc-2.25.90-2.src.rpm",
+        "pkg:rpm/glibc@2.25.90-2?arch=s390x&epoch=0",
+        "pkg:rpm/glibc@2.25.90-2?arch=x86_64&epoch=0&upstream=glibc-2.25.90-2.src.rpm",
+        "pkg:rpm/glibc-common@2.17-157?arch=i686&epoch=0&upstream=glibc-2.17-157.src.rpm",
+        "pkg:rpm/glibc-common@2.17-157?arch=s390x&epoch=0&upstream=glibc-2.17-157.src.rpm",
+        "pkg:rpm/glibc-common@2.17-157?arch=x86_64&epoch=0&upstream=glibc-2.17-157.src.rpm",
+        "pkg:rpm/glibc-common@2.17-157?arch=i686&epoch=0&upstream=glibc-2.17-157.src.rpm",
+        "pkg:rpm/glibc-common@2.17-157?arch=s390x&epoch=0&upstream=glibc-2.17-157.src.rpm",
+        "pkg:rpm/glibc-common@2.17-157?arch=x86_64&epoch=0&upstream=glibc-2.17-157.src.rpm",
+        "pkg:rpm/glibc-common@2.25-4?arch=i686&epoch=0&upstream=glibc-2.25-4.src.rpm",
+        "pkg:rpm/glibc-common@2.25-4?arch=s390x&epoch=0&upstream=glibc-2.25-4.src.rpm",
+        "pkg:rpm/glibc-common@2.25-4?arch=x86_64&epoch=0&upstream=glibc-2.25-4.src.rpm",
+        "pkg:rpm/glibc-common@2.25-4?arch=i686&epoch=0&upstream=glibc-2.25-4.src.rpm",
+        "pkg:rpm/glibc-common@2.25-4?arch=s390x&epoch=0&upstream=glibc-2.25-4.src.rpm",
+        "pkg:rpm/glibc-common@2.25-4?arch=x86_64&epoch=0&upstream=glibc-2.25-4.src.rpm",
+        "pkg:rpm/glibc-common@2.25.90-2?arch=i686&epoch=0&upstream=glibc-2.25.90-2.src.rpm",
+        "pkg:rpm/glibc-common@2.25.90-2?arch=s390x&epoch=0&upstream=glibc-2.25.90-2.src.rpm",
+        "pkg:rpm/glibc-common@2.25.90-2?arch=x86_64&epoch=0&upstream=glibc-2.25.90-2.src.rpm",
+        "pkg:rpm/glibc-common@2.25.90-2?arch=i686&epoch=0&upstream=glibc-2.25.90-2.src.rpm",
+        "pkg:rpm/glibc-common@2.25.90-2?arch=s390x&epoch=0&upstream=glibc-2.25.90-2.src.rpm",
+        "pkg:rpm/glibc-common@2.25.90-2?arch=x86_64&epoch=0&upstream=glibc-2.25.90-2.src.rpm",
+        "pkg:rpm/glibc-debuginfo-common@2.17-157?arch=i686&epoch=0&upstream=glibc-2.17-157.src.rpm",
+        "pkg:rpm/glibc-debuginfo-common@2.17-157?arch=s390x&epoch=0&upstream=glibc-2.17-157.src.rpm",
+        "pkg:rpm/glibc-debuginfo-common@2.17-157?arch=x86_64&epoch=0&upstream=glibc-2.17-157.src.rpm",
+        "pkg:rpm/glibc-debuginfo-common@2.17-157?arch=i686&epoch=0&upstream=glibc-2.17-157.src.rpm",
+        "pkg:rpm/glibc-debuginfo-common@2.17-157?arch=s390x&epoch=0&upstream=glibc-2.17-157.src.rpm",
+        "pkg:rpm/glibc-debuginfo-common@2.17-157?arch=x86_64&epoch=0&upstream=glibc-2.17-157.src.rpm",
+        "pkg:rpm/glibc-debuginfo-common@2.25-4?arch=i686&epoch=0&upstream=glibc-2.25-4.src.rpm",
+        "pkg:rpm/glibc-debuginfo-common@2.25-4?arch=s390x&epoch=0&upstream=glibc-2.25-4.src.rpm",
+        "pkg:rpm/glibc-debuginfo-common@2.25-4?arch=x86_64&epoch=0&upstream=glibc-2.25-4.src.rpm",
+        "pkg:rpm/glibc-debuginfo-common@2.25-4?arch=i686&epoch=0&upstream=glibc-2.25-4.src.rpm",
+        "pkg:rpm/glibc-debuginfo-common@2.25-4?arch=s390x&epoch=0&upstream=glibc-2.25-4.src.rpm",
+        "pkg:rpm/glibc-debuginfo-common@2.25-4?arch=x86_64&epoch=0&upstream=glibc-2.25-4.src.rpm",
+        "pkg:rpm/glibc-debuginfo-common@2.25.90-2?arch=i686&epoch=0&upstream=glibc-2.25.90-2.src.rpm",
+        "pkg:rpm/glibc-debuginfo-common@2.25.90-2?arch=s390x&epoch=0&upstream=glibc-2.25.90-2.src.rpm",
+        "pkg:rpm/glibc-debuginfo-common@2.25.90-2?arch=x86_64&epoch=0&upstream=glibc-2.25.90-2.src.rpm",
+        "pkg:rpm/glibc-debuginfo-common@2.25.90-2?arch=i686&epoch=0&upstream=glibc-2.25.90-2.src.rpm",
+        "pkg:rpm/glibc-debuginfo-common@2.25.90-2?arch=s390x&epoch=0&upstream=glibc-2.25.90-2.src.rpm",
+        "pkg:rpm/glibc-debuginfo-common@2.25.90-2?arch=x86_64&epoch=0&upstream=glibc-2.25.90-2.src.rpm",
+        "pkg:rpm/grub2@2.02-0.40?arch=i686&epoch=0&upstream=grub2-2.02-0.40.src.rpm",
+        "pkg:rpm/grub2@2.02-0.40?arch=s390x&epoch=0&upstream=grub2-2.02-0.40.src.rpm",
+        "pkg:rpm/grub2@2.02-0.40?arch=x86_64&epoch=0&upstream=grub2-2.02-0.40.src.rpm",
+        "pkg:rpm/grub2@2.02-0.40?arch=i686&epoch=0&upstream=grub2-2.02-0.40.src.rpm",
+        "pkg:rpm/grub2@2.02-0.40?arch=s390x&epoch=0&upstream=grub2-2.02-0.40.src.rpm",
+        "pkg:rpm/grub2@2.02-0.40?arch=s390x&epoch=0",
+        "pkg:rpm/grub2@2.02-0.40?arch=x86_64&epoch=0&upstream=grub2-2.02-0.40.src.rpm",
+        "pkg:rpm/httpd@2.2.10-1?arch=i686&epoch=0&upstream=httpd-2.2.10-1.src.rpm",
+        "pkg:rpm/httpd@2.2.10-1?arch=s390x&epoch=0&upstream=httpd-2.2.10-1.src.rpm",
+        "pkg:rpm/httpd@2.2.10-1?arch=x86_64&epoch=0&upstream=httpd-2.2.10-1.src.rpm",
+        "pkg:rpm/httpd@2.2.10-1?arch=i686&epoch=0&upstream=httpd-2.2.10-1.src.rpm",
+        "pkg:rpm/httpd@2.2.10-1?arch=s390x&epoch=0&upstream=httpd-2.2.10-1.src.rpm",
+        "pkg:rpm/httpd@2.2.10-1?arch=s390x&epoch=0",
+        "pkg:rpm/httpd@2.2.10-1?arch=x86_64&epoch=0&upstream=httpd-2.2.10-1.src.rpm",
+        "pkg:rpm/httpd@2.2.15-59?arch=i686&epoch=0&upstream=httpd-2.2.15-59.src.rpm",
+        "pkg:rpm/httpd@2.2.15-59?arch=s390x&epoch=0&upstream=httpd-2.2.15-59.src.rpm",
+        "pkg:rpm/httpd@2.2.15-59?arch=x86_64&epoch=0&upstream=httpd-2.2.15-59.src.rpm",
+        "pkg:rpm/httpd@2.2.15-59?arch=i686&epoch=0&upstream=httpd-2.2.15-59.src.rpm",
+        "pkg:rpm/httpd@2.2.15-59?arch=s390x&epoch=0&upstream=httpd-2.2.15-59.src.rpm",
+        "pkg:rpm/httpd@2.2.15-59?arch=s390x&epoch=0",
+        "pkg:rpm/httpd@2.2.15-59?arch=x86_64&epoch=0&upstream=httpd-2.2.15-59.src.rpm",
+        "pkg:rpm/httpd@2.4.25-7?arch=i686&epoch=0&upstream=httpd-2.4.25-7.src.rpm",
+        "pkg:rpm/httpd@2.4.25-8?arch=i686&epoch=0&upstream=httpd-2.4.25-8.src.rpm",
+        "pkg:rpm/httpd@2.4.25-7?arch=s390x&epoch=0&upstream=httpd-2.4.25-7.src.rpm",
+        "pkg:rpm/httpd@2.4.25-8?arch=s390x&epoch=0&upstream=httpd-2.4.25-8.src.rpm",
+        "pkg:rpm/httpd@2.4.25-7?arch=x86_64&epoch=0&upstream=httpd-2.4.25-7.src.rpm",
+        "pkg:rpm/httpd@2.4.25-8?arch=x86_64&epoch=0&upstream=httpd-2.4.25-8.src.rpm",
+        "pkg:rpm/httpd@2.4.25-7?arch=i686&epoch=0&upstream=httpd-2.4.25-7.src.rpm",
+        "pkg:rpm/httpd@2.4.25-7?arch=s390x&epoch=0&upstream=httpd-2.4.25-7.src.rpm",
+        "pkg:rpm/httpd@2.4.25-7?arch=s390x&epoch=0",
+        "pkg:rpm/httpd@2.4.25-7?arch=x86_64&epoch=0&upstream=httpd-2.4.25-7.src.rpm",
+        "pkg:rpm/httpd@2.4.25-8?arch=i686&epoch=0&upstream=httpd-2.4.25-8.src.rpm",
+        "pkg:rpm/httpd@2.4.25-8?arch=s390x&epoch=0&upstream=httpd-2.4.25-8.src.rpm",
+        "pkg:rpm/httpd@2.4.25-8?arch=s390x&epoch=0",
+        "pkg:rpm/httpd@2.4.25-8?arch=x86_64&epoch=0&upstream=httpd-2.4.25-8.src.rpm",
+        "pkg:rpm/httpd-doc@2.2.10-1?arch=i686&epoch=0&upstream=httpd-2.2.10-1.src.rpm",
+        "pkg:rpm/httpd-doc@2.2.10-1?arch=s390x&epoch=0&upstream=httpd-2.2.10-1.src.rpm",
+        "pkg:rpm/httpd-doc@2.2.10-1?arch=x86_64&epoch=0&upstream=httpd-2.2.10-1.src.rpm",
+        "pkg:rpm/httpd-doc@2.2.10-1?arch=i686&epoch=0&upstream=httpd-2.2.10-1.src.rpm",
+        "pkg:rpm/httpd-doc@2.2.10-1?arch=s390x&epoch=0&upstream=httpd-2.2.10-1.src.rpm",
+        "pkg:rpm/httpd-doc@2.2.10-1?arch=x86_64&epoch=0&upstream=httpd-2.2.10-1.src.rpm",
+        "pkg:rpm/httpd-doc@2.2.15-59?arch=i686&epoch=0&upstream=httpd-2.2.15-59.src.rpm",
+        "pkg:rpm/httpd-doc@2.2.15-59?arch=s390x&epoch=0&upstream=httpd-2.2.15-59.src.rpm",
+        "pkg:rpm/httpd-doc@2.2.15-59?arch=x86_64&epoch=0&upstream=httpd-2.2.15-59.src.rpm",
+        "pkg:rpm/httpd-doc@2.2.15-59?arch=i686&epoch=0&upstream=httpd-2.2.15-59.src.rpm",
+        "pkg:rpm/httpd-doc@2.2.15-59?arch=s390x&epoch=0&upstream=httpd-2.2.15-59.src.rpm",
+        "pkg:rpm/httpd-doc@2.2.15-59?arch=x86_64&epoch=0&upstream=httpd-2.2.15-59.src.rpm",
+        "pkg:rpm/httpd-doc@2.4.25-7?arch=i686&epoch=0&upstream=httpd-2.4.25-7.src.rpm",
+        "pkg:rpm/httpd-doc@2.4.25-8?arch=i686&epoch=0&upstream=httpd-2.4.25-8.src.rpm",
+        "pkg:rpm/httpd-doc@2.4.25-7?arch=s390x&epoch=0&upstream=httpd-2.4.25-7.src.rpm",
+        "pkg:rpm/httpd-doc@2.4.25-8?arch=s390x&epoch=0&upstream=httpd-2.4.25-8.src.rpm",
+        "pkg:rpm/httpd-doc@2.4.25-7?arch=x86_64&epoch=0&upstream=httpd-2.4.25-7.src.rpm",
+        "pkg:rpm/httpd-doc@2.4.25-8?arch=x86_64&epoch=0&upstream=httpd-2.4.25-8.src.rpm",
+        "pkg:rpm/httpd-doc@2.4.25-7?arch=i686&epoch=0&upstream=httpd-2.4.25-7.src.rpm",
+        "pkg:rpm/httpd-doc@2.4.25-7?arch=s390x&epoch=0&upstream=httpd-2.4.25-7.src.rpm",
+        "pkg:rpm/httpd-doc@2.4.25-7?arch=x86_64&epoch=0&upstream=httpd-2.4.25-7.src.rpm",
+        "pkg:rpm/httpd-doc@2.4.25-8?arch=i686&epoch=0&upstream=httpd-2.4.25-8.src.rpm",
+        "pkg:rpm/httpd-doc@2.4.25-8?arch=s390x&epoch=0&upstream=httpd-2.4.25-8.src.rpm",
+        "pkg:rpm/httpd-doc@2.4.25-8?arch=x86_64&epoch=0&upstream=httpd-2.4.25-8.src.rpm",
+        "pkg:rpm/httpd-provides-name@3.0-1?arch=i686&epoch=0&upstream=httpd-provides-name-3.0-1.src.rpm",
+        "pkg:rpm/httpd-provides-name@3.0-1?arch=s390x&epoch=0&upstream=httpd-provides-name-3.0-1.src.rpm",
+        "pkg:rpm/httpd-provides-name@3.0-1?arch=x86_64&epoch=0&upstream=httpd-provides-name-3.0-1.src.rpm",
+        "pkg:rpm/httpd-provides-name@3.0-1?arch=i686&epoch=0&upstream=httpd-provides-name-3.0-1.src.rpm",
+        "pkg:rpm/httpd-provides-name@3.0-1?arch=s390x&epoch=0&upstream=httpd-provides-name-3.0-1.src.rpm",
+        "pkg:rpm/httpd-provides-name@3.0-1?arch=s390x&epoch=0",
+        "pkg:rpm/httpd-provides-name@3.0-1?arch=x86_64&epoch=0&upstream=httpd-provides-name-3.0-1.src.rpm",
+        "pkg:rpm/httpd-provides-name-doc@3.0-1?arch=i686&epoch=0&upstream=httpd-provides-name-3.0-1.src.rpm",
+        "pkg:rpm/httpd-provides-name-doc@3.0-1?arch=s390x&epoch=0&upstream=httpd-provides-name-3.0-1.src.rpm",
+        "pkg:rpm/httpd-provides-name-doc@3.0-1?arch=x86_64&epoch=0&upstream=httpd-provides-name-3.0-1.src.rpm",
+        "pkg:rpm/httpd-provides-name-doc@3.0-1?arch=i686&epoch=0&upstream=httpd-provides-name-3.0-1.src.rpm",
+        "pkg:rpm/httpd-provides-name-doc@3.0-1?arch=s390x&epoch=0&upstream=httpd-provides-name-3.0-1.src.rpm",
+        "pkg:rpm/httpd-provides-name-doc@3.0-1?arch=x86_64&epoch=0&upstream=httpd-provides-name-3.0-1.src.rpm",
+        "pkg:rpm/httpd-provides-name-version-release@3.0-1?arch=i686&epoch=0&upstream=httpd-provides-name-version-release-3.0-1.src.rpm",
+        "pkg:rpm/httpd-provides-name-version-release@3.0-1?arch=s390x&epoch=0&upstream=httpd-provides-name-version-release-3.0-1.src.rpm",
+        "pkg:rpm/httpd-provides-name-version-release@3.0-1?arch=x86_64&epoch=0&upstream=httpd-provides-name-version-release-3.0-1.src.rpm",
+        "pkg:rpm/httpd-provides-name-version-release@3.0-1?arch=i686&epoch=0&upstream=httpd-provides-name-version-release-3.0-1.src.rpm",
+        "pkg:rpm/httpd-provides-name-version-release@3.0-1?arch=s390x&epoch=0&upstream=httpd-provides-name-version-release-3.0-1.src.rpm",
+        "pkg:rpm/httpd-provides-name-version-release@3.0-1?arch=s390x&epoch=0",
+        "pkg:rpm/httpd-provides-name-version-release@3.0-1?arch=x86_64&epoch=0&upstream=httpd-provides-name-version-release-3.0-1.src.rpm",
+        "pkg:rpm/httpd-provides-name-version-release-doc@3.0-1?arch=i686&epoch=0&upstream=httpd-provides-name-version-release-3.0-1.src.rpm",
+        "pkg:rpm/httpd-provides-name-version-release-doc@3.0-1?arch=s390x&epoch=0&upstream=httpd-provides-name-version-release-3.0-1.src.rpm",
+        "pkg:rpm/httpd-provides-name-version-release-doc@3.0-1?arch=x86_64&epoch=0&upstream=httpd-provides-name-version-release-3.0-1.src.rpm",
+        "pkg:rpm/httpd-provides-name-version-release-doc@3.0-1?arch=i686&epoch=0&upstream=httpd-provides-name-version-release-3.0-1.src.rpm",
+        "pkg:rpm/httpd-provides-name-version-release-doc@3.0-1?arch=s390x&epoch=0&upstream=httpd-provides-name-version-release-3.0-1.src.rpm",
+        "pkg:rpm/httpd-provides-name-version-release-doc@3.0-1?arch=x86_64&epoch=0&upstream=httpd-provides-name-version-release-3.0-1.src.rpm",
+        "pkg:rpm/kernel@3.10.0-514?arch=i686&epoch=0&upstream=kernel-3.10.0-514.src.rpm",
+        "pkg:rpm/kernel@3.10.0-514?arch=s390x&epoch=0&upstream=kernel-3.10.0-514.src.rpm",
+        "pkg:rpm/kernel@3.10.0-514?arch=x86_64&epoch=0&upstream=kernel-3.10.0-514.src.rpm",
+        "pkg:rpm/kernel@3.10.0-514?arch=i686&epoch=0&upstream=kernel-3.10.0-514.src.rpm",
+        "pkg:rpm/kernel@3.10.0-514?arch=s390x&epoch=0&upstream=kernel-3.10.0-514.src.rpm",
+        "pkg:rpm/kernel@3.10.0-514?arch=s390x&epoch=0",
+        "pkg:rpm/kernel@3.10.0-514?arch=x86_64&epoch=0&upstream=kernel-3.10.0-514.src.rpm",
+        "pkg:rpm/kernel@4.11.0-1?arch=i686&epoch=0&upstream=kernel-4.11.0-1.src.rpm",
+        "pkg:rpm/kernel@4.11.0-1?arch=s390x&epoch=0&upstream=kernel-4.11.0-1.src.rpm",
+        "pkg:rpm/kernel@4.11.0-1?arch=x86_64&epoch=0&upstream=kernel-4.11.0-1.src.rpm",
+        "pkg:rpm/kernel@4.11.0-1?arch=i686&epoch=0&upstream=kernel-4.11.0-1.src.rpm",
+        "pkg:rpm/kernel@4.11.0-1?arch=s390x&epoch=0&upstream=kernel-4.11.0-1.src.rpm",
+        "pkg:rpm/kernel@4.11.0-1?arch=s390x&epoch=0",
+        "pkg:rpm/kernel@4.11.0-1?arch=x86_64&epoch=0&upstream=kernel-4.11.0-1.src.rpm",
+        "pkg:rpm/kernel@4.11.0-1?arch=i686&epoch=0&upstream=kernel-4.11.0-1.src.rpm",
+        "pkg:rpm/kernel@4.11.0-1?arch=s390x&epoch=0&upstream=kernel-4.11.0-1.src.rpm",
+        "pkg:rpm/kernel@4.11.0-1?arch=s390x&epoch=0",
+        "pkg:rpm/kernel@4.11.0-1?arch=x86_64&epoch=0&upstream=kernel-4.11.0-1.src.rpm",
+        "pkg:rpm/kernel-doc@3.10.0-514?arch=noarch&epoch=0&upstream=kernel-3.10.0-514.src.rpm",
+        "pkg:rpm/kernel-doc@3.10.0-514?arch=noarch&epoch=0&upstream=kernel-3.10.0-514.src.rpm",
+        "pkg:rpm/kernel-doc@3.10.0-514?arch=noarch&epoch=0&upstream=kernel-3.10.0-514.src.rpm",
+        "pkg:rpm/kernel-doc@3.10.0-514?arch=noarch&epoch=0&upstream=kernel-3.10.0-514.src.rpm",
+        "pkg:rpm/kernel-doc@3.10.0-514?arch=noarch&epoch=0&upstream=kernel-3.10.0-514.src.rpm",
+        "pkg:rpm/kernel-doc@3.10.0-514?arch=noarch&epoch=0&upstream=kernel-3.10.0-514.src.rpm",
+        "pkg:rpm/kernel-doc@3.10.0-514?arch=noarch&epoch=0&upstream=kernel-3.10.0-514.src.rpm",
+        "pkg:rpm/kernel-doc@4.11.0-1?arch=noarch&epoch=0&upstream=kernel-4.11.0-1.src.rpm",
+        "pkg:rpm/kernel-doc@4.11.0-1?arch=noarch&epoch=0&upstream=kernel-4.11.0-1.src.rpm",
+        "pkg:rpm/kernel-doc@4.11.0-1?arch=noarch&epoch=0&upstream=kernel-4.11.0-1.src.rpm",
+        "pkg:rpm/kernel-doc@4.11.0-1?arch=noarch&epoch=0&upstream=kernel-4.11.0-1.src.rpm",
+        "pkg:rpm/kernel-doc@4.11.0-1?arch=noarch&epoch=0&upstream=kernel-4.11.0-1.src.rpm",
+        "pkg:rpm/kernel-doc@4.11.0-1?arch=noarch&epoch=0&upstream=kernel-4.11.0-1.src.rpm",
+        "pkg:rpm/kernel-doc@4.11.0-1?arch=noarch&epoch=0&upstream=kernel-4.11.0-1.src.rpm",
+        "pkg:rpm/kernel-doc@4.11.0-1?arch=noarch&epoch=0&upstream=kernel-4.11.0-1.src.rpm",
+        "pkg:rpm/kernel-doc@4.11.0-1?arch=noarch&epoch=0&upstream=kernel-4.11.0-1.src.rpm",
+        "pkg:rpm/kernel-doc@4.11.0-1?arch=noarch&epoch=0&upstream=kernel-4.11.0-1.src.rpm",
+        "pkg:rpm/kernel-doc@4.11.0-1?arch=noarch&epoch=0&upstream=kernel-4.11.0-1.src.rpm",
+        "pkg:rpm/kernel-headers@3.10.0-514?arch=i686&epoch=0&upstream=kernel-3.10.0-514.src.rpm",
+        "pkg:rpm/kernel-headers@3.10.0-514?arch=s390x&epoch=0&upstream=kernel-3.10.0-514.src.rpm",
+        "pkg:rpm/kernel-headers@3.10.0-514?arch=x86_64&epoch=0&upstream=kernel-3.10.0-514.src.rpm",
+        "pkg:rpm/kernel-headers@3.10.0-514?arch=i686&epoch=0&upstream=kernel-3.10.0-514.src.rpm",
+        "pkg:rpm/kernel-headers@3.10.0-514?arch=s390x&epoch=0&upstream=kernel-3.10.0-514.src.rpm",
+        "pkg:rpm/kernel-headers@3.10.0-514?arch=x86_64&epoch=0&upstream=kernel-3.10.0-514.src.rpm",
+        "pkg:rpm/kernel-headers@4.11.0-1?arch=i686&epoch=0&upstream=kernel-4.11.0-1.src.rpm",
+        "pkg:rpm/kernel-headers@4.11.0-1?arch=s390x&epoch=0&upstream=kernel-4.11.0-1.src.rpm",
+        "pkg:rpm/kernel-headers@4.11.0-1?arch=x86_64&epoch=0&upstream=kernel-4.11.0-1.src.rpm",
+        "pkg:rpm/kernel-headers@4.11.0-1?arch=i686&epoch=0&upstream=kernel-4.11.0-1.src.rpm",
+        "pkg:rpm/kernel-headers@4.11.0-1?arch=s390x&epoch=0&upstream=kernel-4.11.0-1.src.rpm",
+        "pkg:rpm/kernel-headers@4.11.0-1?arch=x86_64&epoch=0&upstream=kernel-4.11.0-1.src.rpm",
+        "pkg:rpm/kernel-headers@4.11.0-1?arch=i686&epoch=0&upstream=kernel-4.11.0-1.src.rpm",
+        "pkg:rpm/kernel-headers@4.11.0-1?arch=s390x&epoch=0&upstream=kernel-4.11.0-1.src.rpm",
+        "pkg:rpm/kernel-headers@4.11.0-1?arch=x86_64&epoch=0&upstream=kernel-4.11.0-1.src.rpm",
+        "pkg:rpm/libnghttp2@1.21.1-1.1?arch=i686&epoch=0&upstream=libnghttp2-1.21.1-1.1.src.rpm",
+        "pkg:rpm/libnghttp2@1.21.1-1?arch=i686&epoch=0&upstream=libnghttp2-1.21.1-1.src.rpm",
+        "pkg:rpm/libnghttp2@1.21.1-1.1?arch=s390x&epoch=0&upstream=libnghttp2-1.21.1-1.1.src.rpm",
+        "pkg:rpm/libnghttp2@1.21.1-1?arch=s390x&epoch=0&upstream=libnghttp2-1.21.1-1.src.rpm",
+        "pkg:rpm/libnghttp2@1.21.1-1.1?arch=x86_64&epoch=0&upstream=libnghttp2-1.21.1-1.1.src.rpm",
+        "pkg:rpm/libnghttp2@1.21.1-1?arch=x86_64&epoch=0&upstream=libnghttp2-1.21.1-1.src.rpm",
+        "pkg:rpm/libnghttp2@1.21.1-1.1?arch=i686&epoch=0&upstream=libnghttp2-1.21.1-1.1.src.rpm",
+        "pkg:rpm/libnghttp2@1.21.1-1.1?arch=s390x&epoch=0&upstream=libnghttp2-1.21.1-1.1.src.rpm",
+        "pkg:rpm/libnghttp2@1.21.1-1.1?arch=s390x&epoch=0",
+        "pkg:rpm/libnghttp2@1.21.1-1.1?arch=x86_64&epoch=0&upstream=libnghttp2-1.21.1-1.1.src.rpm",
+        "pkg:rpm/libnghttp2@1.21.1-1?arch=i686&epoch=0&upstream=libnghttp2-1.21.1-1.src.rpm",
+        "pkg:rpm/libnghttp2@1.21.1-1?arch=s390x&epoch=0&upstream=libnghttp2-1.21.1-1.src.rpm",
+        "pkg:rpm/libnghttp2@1.21.1-1?arch=s390x&epoch=0",
+        "pkg:rpm/libnghttp2@1.21.1-1?arch=x86_64&epoch=0&upstream=libnghttp2-1.21.1-1.src.rpm",
+        "pkg:rpm/libnghttp2@1.21.1-1?arch=i686&epoch=0&upstream=libnghttp2-1.21.1-1.src.rpm",
+        "pkg:rpm/libnghttp2@1.21.1-1?arch=s390x&epoch=0&upstream=libnghttp2-1.21.1-1.src.rpm",
+        "pkg:rpm/libnghttp2@1.21.1-1?arch=s390x&epoch=0",
+        "pkg:rpm/libnghttp2@1.21.1-1?arch=x86_64&epoch=0&upstream=libnghttp2-1.21.1-1.src.rpm",
+        "pkg:rpm/mystery-devel@19.67-1?arch=noarch&epoch=0&upstream=mystery-19.67-1.src.rpm",
+        "pkg:rpm/systemd@219-30?arch=i686&epoch=0&upstream=systemd-219-30.src.rpm",
+        "pkg:rpm/systemd@219-30?arch=s390x&epoch=0&upstream=systemd-219-30.src.rpm",
+        "pkg:rpm/systemd@219-30?arch=x86_64&epoch=0&upstream=systemd-219-30.src.rpm",
+        "pkg:rpm/systemd@219-30?arch=i686&epoch=0&upstream=systemd-219-30.src.rpm",
+        "pkg:rpm/systemd@219-30?arch=s390x&epoch=0&upstream=systemd-219-30.src.rpm",
+        "pkg:rpm/systemd@219-30?arch=s390x&epoch=0",
+        "pkg:rpm/systemd@219-30?arch=x86_64&epoch=0&upstream=systemd-219-30.src.rpm",
+        "pkg:rpm/systemd@233-3?arch=i686&epoch=0&upstream=systemd-233-3.src.rpm",
+        "pkg:rpm/systemd@233-3?arch=s390x&epoch=0&upstream=systemd-233-3.src.rpm",
+        "pkg:rpm/systemd@233-3?arch=x86_64&epoch=0&upstream=systemd-233-3.src.rpm",
+        "pkg:rpm/systemd@233-3?arch=i686&epoch=0&upstream=systemd-233-3.src.rpm",
+        "pkg:rpm/systemd@233-3?arch=s390x&epoch=0&upstream=systemd-233-3.src.rpm",
+        "pkg:rpm/systemd@233-3?arch=s390x&epoch=0",
+        "pkg:rpm/systemd@233-3?arch=x86_64&epoch=0&upstream=systemd-233-3.src.rpm",
+        "pkg:rpm/systemd@233-3?arch=i686&epoch=0&upstream=systemd-233-3.src.rpm",
+        "pkg:rpm/systemd@233-3?arch=s390x&epoch=0&upstream=systemd-233-3.src.rpm",
+        "pkg:rpm/systemd@233-3?arch=s390x&epoch=0",
+        "pkg:rpm/systemd@233-3?arch=x86_64&epoch=0&upstream=systemd-233-3.src.rpm",
+        "pkg:rpm/tour@4-5?arch=noarch&epoch=0&upstream=tour-4-5.src.rpm",
+        "pkg:rpm/tour@4-6?arch=noarch&epoch=0&upstream=tour-4-6.src.rpm"
+      ]
+    },
+    {
+      "name": "python-xgboost-0.90-2.oe1.src.rpm",
+      "purls": [
+        "pkg:maven/commons-cli/commons-cli",
+        "pkg:maven/commons-io/commons-io",
+        "pkg:maven/commons-lang/commons-lang",
+        "pkg:maven/commons-logging/commons-logging",
+        "pkg:maven/com.google.guava/guava",
+        "pkg:maven/org.apache.hadoop/hadoop-annotations",
+        "pkg:maven/org.apache.hadoop/hadoop-common",
+        "pkg:maven/org.apache.hadoop/hadoop-yarn-api",
+        "pkg:maven/org.apache.hadoop/hadoop-yarn-client",
+        "pkg:maven/org.apache.hadoop/hadoop-yarn-common",
+        "pkg:maven/org.apache.hadoop/hadoop-yarn-server-nodemanager",
+        "pkg:maven/org.apache.hadoop/hadoop-yarn-server-resourcemanager",
+        "pkg:maven/org.apache.hadoop/hadoop-yarn-server-tests",
+        "pkg:maven/junit/junit",
+        "pkg:maven/log4j/log4j",
+        "pkg:pypi/xgboost@0.90"
+      ]
+    },
+    {
+      "name": "fuse-python-0.2.1-24.oe1.src.rpm",
+      "purls": [
+        "pkg:pypi/fuse-python@0.2.1"
+      ]
+    },
+    {
+      "name": "python-extras-1.0.0-6.oe1.src.rpm",
+      "purls": [
+        "pkg:pypi/extras@1.0.0"
+      ]
+    },
+    {
+      "name": "python-hypothesis-3.66.11-2.oe1.src.rpm",
+      "purls": [
+        "pkg:pypi/%r@x.",
+        "pkg:gem/ast@2.4.0",
+        "pkg:gem/diff-lcs@1.3",
+        "pkg:gem/docile@1.1.5",
+        "pkg:gem/helix_runtime@0.7.5",
+        "pkg:gem/json@2.1.0",
+        "pkg:gem/minitest@5.8.5",
+        "pkg:gem/parallel@1.12.1",
+        "pkg:gem/parser@2.5.1.0",
+        "pkg:gem/powerpack@0.1.1",
+        "pkg:gem/rainbow@2.2.2",
+        "pkg:gem/rake@12.3.1",
+        "pkg:gem/redcarpet@3.4.0",
+        "pkg:gem/rspec@3.7.0",
+        "pkg:gem/rspec-core@3.7.1",
+        "pkg:gem/rspec-expectations@3.7.0",
+        "pkg:gem/rspec-mocks@3.7.0",
+        "pkg:gem/rspec-support@3.7.1",
+        "pkg:gem/rubocop@0.51.0",
+        "pkg:gem/ruby-progressbar@1.9.0",
+        "pkg:gem/simplecov@0.15.1",
+        "pkg:gem/simplecov-html@0.10.2",
+        "pkg:gem/thor@0.20.0",
+        "pkg:gem/tomlrb@1.2.7",
+        "pkg:gem/unicode-display_width@1.3.2",
+        "pkg:gem/yard@0.9.12"
+      ]
+    },
+    {
+      "name": "python-traceback2-1.4.0-19.oe1.src.rpm",
+      "purls": [
+        "pkg:pypi/traceback2@1.4.0"
+      ]
+    },
+    {
+      "name": "python-pytoml-0.1.18-2.oe1.src.rpm",
+      "purls": [
+        "pkg:pypi/pytest@3.0.7"
+      ]
+    },
+    {
+      "name": "python-enum34-1.1.6-8.oe1.src.rpm",
+      "purls": [
+        "pkg:pypi/enum34@1.1.6"
+      ]
+    },
+    {
+      "name": "python-ethtool-0.14-2.oe1.src.rpm",
+      "purls": [
+        "pkg:pypi/ethtool@0.14"
+      ]
+    },
+    {
+      "name": "pyliblzma-0.5.3-28.oe1.src.rpm",
+      "purls": [
+        "pkg:pypi/pyliblzma@0.5.3"
+      ]
+    },
+    {
+      "name": "python2-typing-3.6.2-4.oe1.src.rpm",
+      "purls": [
+        "pkg:pypi/typing@3.6.2"
+      ]
+    },
+    {
+      "name": "golang-1.13-3.3.oe1.src.rpm",
+      "purls": [
+        "pkg:golang/github.com/google/pprof@v0.0.0-20190515194954-54271f7e092f",
+        "pkg:golang/github.com/ianlancetaylor/demangle@v0.0.0-20180524225900-fc6590592b44",
+        "pkg:golang/golang.org/x/arch@v0.0.0-20190815191158-8a70ba74b3a1",
+        "pkg:golang/golang.org/x/crypto@v0.0.0-20190325154230-a5d413f7728c",
+        "pkg:golang/golang.org/x/crypto@v0.0.0-20190611184440-5c40567a22f8",
+        "pkg:golang/golang.org/x/net@v0.0.0-20190813141303-74dc4d7220e7",
+        "pkg:golang/golang.org/x/sys@v0.0.0-20190502175342-a43fa875dd82",
+        "pkg:golang/golang.org/x/sys@v0.0.0-20190529130038-5219a1e1c5f8",
+        "pkg:golang/golang.org/x/text@v0.3.2",
+        "pkg:golang/golang.org/x/tools@v0.0.0-20190611154301-25a4f137592f"
+      ]
+    },
+    {
+      "name": "python-oauthlib-3.0.2-1.oe1.src.rpm",
+      "purls": [
+        "pkg:pypi/blinker@1.4",
+        "pkg:pypi/pyjwt@1.6.0"
+      ]
+    },
+    {
+      "name": "python-cryptography-vectors-2.6.1-1.oe1.src.rpm",
+      "purls": [
+        "pkg:pypi/cryptography-vectors@2.6.1"
+      ]
+    },
+    {
+      "name": "python-psycopg2-2.7.5-3.2.oe1.src.rpm",
+      "purls": [
+        "pkg:pypi/psycopg2@2.7.5"
+      ]
+    },
+    {
+      "name": "mercurial-5.1-2.oe1.src.rpm",
+      "purls": [
+        "pkg:cargo/aho-corasick@0.5.3",
+        "pkg:cargo/aho-corasick@0.6.9",
+        "pkg:cargo/arrayvec@0.4.7",
+        "pkg:pypi/asn1crypto@0.24.0 ",
+        "pkg:pypi/astroid@1.6.6 ",
+        "pkg:pypi/astroid@2.2.5 ",
+        "pkg:cargo/autocfg@0.1.2",
+        "pkg:pypi/backports.functools-lru-cache@1.5 ",
+        "pkg:pypi/bcrypt@3.1.6 ",
+        "pkg:cargo/bitflags@1.0.4",
+        "pkg:cargo/bitflags@1.0.4",
+        "pkg:pypi/boto3@1.9.137 ",
+        "pkg:pypi/botocore@1.12.137 ",
+        "pkg:cargo/byteorder@1.2.6",
+        "pkg:cargo/byteorder@1.3.1",
+        "pkg:cargo/bytes@0.4.10",
+        "pkg:pypi/bzr@2.7.0",
+        "pkg:cargo/cc@1.0.25",
+        "pkg:pypi/certifi@2018.11.29 ",
+        "pkg:pypi/certifi@2019.3.9 ",
+        "pkg:pypi/cffi@1.12.3 ",
+        "pkg:cargo/cfg-if@0.1.5",
+        "pkg:pypi/chardet@3.0.4 ",
+        "pkg:cargo/chg@0.1.0",
+        "pkg:cargo/cloudabi@0.0.3",
+        "pkg:cargo/cloudabi@0.0.3",
+        "pkg:pypi/configparser@3.7.3 ",
+        "pkg:pypi/configparser@3.7.4 ",
+        "pkg:pypi/contextlib2@0.5.5 ",
+        "pkg:cargo/cpython@0.1.0",
+        "pkg:cargo/cpython@0.2.1",
+        "pkg:cargo/crossbeam-deque@0.6.1",
+        "pkg:cargo/crossbeam-epoch@0.5.2",
+        "pkg:cargo/crossbeam-utils@0.5.0",
+        "pkg:pypi/cryptography@2.6.1 ",
+        "pkg:pypi/docutils@0.14 ",
+        "pkg:pypi/docutils@0.14 ",
+        "pkg:pypi/docutils@0.14 ",
+        "pkg:pypi/docutils@0.14 ",
+        "pkg:pypi/docutils@0.14 ",
+        "pkg:pypi/dulwich@0.19.11 ",
+        "pkg:pypi/entrypoints@0.3 ",
+        "pkg:pypi/enum34@1.1.6 ",
+        "pkg:cargo/fuchsia-cprng@0.1.0",
+        "pkg:cargo/fuchsia-zircon@0.3.3",
+        "pkg:cargo/fuchsia-zircon-sys@0.3.3",
+        "pkg:pypi/funcsigs@1.0.2 ",
+        "pkg:cargo/futures@0.1.24",
+        "pkg:pypi/futures@3.2.0 ",
+        "pkg:pypi/fuzzywuzzy@0.17.0 ",
+        "pkg:pypi/fuzzywuzzy@0.17.0 ",
+        "pkg:cargo/hg-core@0.1.0",
+        "pkg:cargo/hg-cpython@0.1.0",
+        "pkg:cargo/hgcli@0.1.0",
+        "pkg:cargo/hgdirectffi@0.1.0",
+        "pkg:pypi/idna@2.8 ",
+        "pkg:pypi/idna@2.8 ",
+        "pkg:cargo/iovec@0.1.2",
+        "pkg:pypi/isort@4.3.17 ",
+        "pkg:pypi/isort@4.3.17 ",
+        "pkg:pypi/jmespath@0.9.4 ",
+        "pkg:cargo/kernel32-sys@0.2.2",
+        "pkg:cargo/kernel32-sys@0.2.2",
+        "pkg:pypi/keyring@18.0.1 ",
+        "pkg:pypi/lazy-object-proxy@1.3.1 ",
+        "pkg:pypi/lazy-object-proxy@1.3.1 ",
+        "pkg:cargo/lazy_static@1.1.0",
+        "pkg:cargo/lazy_static@1.3.0",
+        "pkg:cargo/lazycell@1.2.0",
+        "pkg:cargo/libc@0.2.43",
+        "pkg:cargo/libc@0.2.45",
+        "pkg:cargo/libc@0.2.45",
+        "pkg:cargo/lock_api@0.1.4",
+        "pkg:cargo/log@0.4.5",
+        "pkg:pypi/mccabe@0.6.1 ",
+        "pkg:pypi/mccabe@0.6.1 ",
+        "pkg:cargo/memchr@0.1.11",
+        "pkg:cargo/memchr@2.2.0",
+        "pkg:cargo/memoffset@0.2.1",
+        "pkg:cargo/mio@0.6.16",
+        "pkg:cargo/mio-named-pipes@0.1.6",
+        "pkg:cargo/mio-uds@0.6.7",
+        "pkg:cargo/miow@0.2.1",
+        "pkg:cargo/miow@0.3.3",
+        "pkg:pypi/mock@2.0.0 ",
+        "pkg:pypi/multidict@4.5.2 ",
+        "pkg:cargo/net2@0.2.33",
+        "pkg:cargo/nodrop@0.1.12",
+        "pkg:pypi/ntlm-auth@1.3.0 ",
+        "pkg:cargo/num-traits@0.1.43",
+        "pkg:cargo/num-traits@0.2.6",
+        "pkg:cargo/num-traits@0.2.6",
+        "pkg:cargo/num_cpus@1.8.0",
+        "pkg:cargo/owning_ref@0.3.3",
+        "pkg:pypi/paramiko@2.4.2 ",
+        "pkg:cargo/parking_lot@0.6.4",
+        "pkg:cargo/parking_lot_core@0.3.1",
+        "pkg:pypi/pbr@5.1.3 ",
+        "pkg:pypi/pyasn1@0.4.5 ",
+        "pkg:pypi/pycparser@2.19 ",
+        "pkg:pypi/pyflakes@2.1.1 ",
+        "pkg:pypi/pyflakes@2.1.1 ",
+        "pkg:pypi/pygments@2.3.1 ",
+        "pkg:pypi/pygments@2.3.1 ",
+        "pkg:pypi/pygments@2.3.1 ",
+        "pkg:pypi/pygments@2.3.1 ",
+        "pkg:pypi/pylint@1.9.4 ",
+        "pkg:pypi/pylint@2.3.1 ",
+        "pkg:pypi/pynacl@1.3.0 ",
+        "pkg:pypi/pypsrp@0.3.1 ",
+        "pkg:pypi/python-dateutil@2.8.0 ",
+        "pkg:pypi/python-levenshtein@0.12.0 ",
+        "pkg:pypi/python-levenshtein@0.12.0 ",
+        "pkg:cargo/python27-sys@0.1.2",
+        "pkg:cargo/python27-sys@0.2.1",
+        "pkg:cargo/python3-sys@0.2.1",
+        "pkg:pypi/pywin32-ctypes@0.2.0 ",
+        "pkg:pypi/pyyaml@5.1 ",
+        "pkg:pypi/pyyaml@5.1 ",
+        "pkg:cargo/rand@0.5.5",
+        "pkg:cargo/rand@0.6.5",
+        "pkg:cargo/rand_chacha@0.1.1",
+        "pkg:cargo/rand_core@0.2.1",
+        "pkg:cargo/rand_core@0.3.1",
+        "pkg:cargo/rand_core@0.4.0",
+        "pkg:cargo/rand_hc@0.1.0",
+        "pkg:cargo/rand_isaac@0.1.1",
+        "pkg:cargo/rand_jitter@0.1.2",
+        "pkg:cargo/rand_os@0.1.2",
+        "pkg:cargo/rand_pcg@0.1.1",
+        "pkg:cargo/rand_xorshift@0.1.1",
+        "pkg:cargo/rdrand@0.4.0",
+        "pkg:cargo/redox_syscall@0.1.40",
+        "pkg:cargo/regex@0.1.80",
+        "pkg:cargo/regex@1.1.0",
+        "pkg:cargo/regex-syntax@0.3.9",
+        "pkg:cargo/regex-syntax@0.6.4",
+        "pkg:pypi/requests@2.21.0 ",
+        "pkg:cargo/rustc_version@0.2.3",
+        "pkg:cargo/rustc_version@0.2.3",
+        "pkg:pypi/s3transfer@0.2.0 ",
+        "pkg:cargo/scopeguard@0.3.3",
+        "pkg:cargo/semver@0.9.0",
+        "pkg:cargo/semver@0.9.0",
+        "pkg:cargo/semver-parser@0.7.0",
+        "pkg:cargo/semver-parser@0.7.0",
+        "pkg:pypi/singledispatch@3.4.0.3 ",
+        "pkg:pypi/six@1.12.0 ",
+        "pkg:pypi/six@1.12.0 ",
+        "pkg:pypi/six@1.12.0 ",
+        "pkg:cargo/slab@0.4.1",
+        "pkg:cargo/smallvec@0.6.5",
+        "pkg:cargo/socket2@0.3.8",
+        "pkg:cargo/stable_deref_trait@1.1.1",
+        "pkg:cargo/thread-id@2.0.0",
+        "pkg:cargo/thread_local@0.2.7",
+        "pkg:cargo/thread_local@0.3.6",
+        "pkg:cargo/tokio@0.1.11",
+        "pkg:cargo/tokio-codec@0.1.1",
+        "pkg:cargo/tokio-current-thread@0.1.3",
+        "pkg:cargo/tokio-executor@0.1.5",
+        "pkg:cargo/tokio-fs@0.1.3",
+        "pkg:cargo/tokio-hglib@0.2.0",
+        "pkg:cargo/tokio-io@0.1.9",
+        "pkg:cargo/tokio-process@0.2.2",
+        "pkg:cargo/tokio-process@0.2.2",
+        "pkg:cargo/tokio-reactor@0.1.6",
+        "pkg:cargo/tokio-signal@0.2.5",
+        "pkg:cargo/tokio-tcp@0.1.2",
+        "pkg:cargo/tokio-threadpool@0.1.7",
+        "pkg:cargo/tokio-timer@0.2.7",
+        "pkg:cargo/tokio-udp@0.1.2",
+        "pkg:cargo/tokio-uds@0.2.2",
+        "pkg:pypi/typed-ast@1.3.4",
+        "pkg:cargo/ucd-util@0.1.3",
+        "pkg:cargo/unreachable@1.0.0",
+        "pkg:pypi/urllib3@1.24.1 ",
+        "pkg:pypi/urllib3@1.24.2 ",
+        "pkg:cargo/utf8-ranges@0.1.3",
+        "pkg:cargo/utf8-ranges@1.0.2",
+        "pkg:pypi/vcrpy@2.0.1 ",
+        "pkg:pypi/vcrpy@2.0.1 ",
+        "pkg:cargo/version_check@0.1.5",
+        "pkg:cargo/void@1.0.2",
+        "pkg:cargo/winapi@0.2.8",
+        "pkg:cargo/winapi@0.2.8",
+        "pkg:cargo/winapi@0.3.6",
+        "pkg:cargo/winapi@0.3.6",
+        "pkg:cargo/winapi-build@0.1.1",
+        "pkg:cargo/winapi-build@0.1.1",
+        "pkg:cargo/winapi-i686-pc-windows-gnu@0.4.0",
+        "pkg:cargo/winapi-i686-pc-windows-gnu@0.4.0",
+        "pkg:cargo/winapi-x86_64-pc-windows-gnu@0.4.0",
+        "pkg:cargo/winapi-x86_64-pc-windows-gnu@0.4.0",
+        "pkg:pypi/wrapt@1.11.1 ",
+        "pkg:pypi/wrapt@1.11.1 ",
+        "pkg:cargo/ws2_32-sys@0.2.1",
+        "pkg:pypi/yarl@1.3.0 "
+      ]
+    },
+    {
+      "name": "python-py-1.5.4-4.oe1.src.rpm",
+      "purls": [
+        "pkg:pypi/apipkg@1.4",
+        "pkg:pypi/iniconfig@1.0.0",
+        "pkg:pypi/py@1.5.4"
+      ]
+    },
+    {
+      "name": "python-ply-3.9-9.oe1.src.rpm",
+      "purls": [
+        "pkg:pypi/ply@3.9"
+      ]
+    },
+    {
+      "name": "python-singledispatch-3.4.0.3-14.oe1.src.rpm",
+      "purls": [
+        "pkg:pypi/singledispatch@3.4.0.3"
+      ]
+    },
+    {
+      "name": "pyelftools-0.25-2.oe1.src.rpm",
+      "purls": [
+        "pkg:pypi/pyelftools@0.25"
+      ]
+    },
+    {
+      "name": "python-imagesize-1.0.0-4.oe1.src.rpm",
+      "purls": [
+        "pkg:pypi/imagesize@1.0.0"
+      ]
+    },
+    {
+      "name": "python-setuptools-40.4.3-4.oe1.src.rpm",
+      "purls": [
+        "pkg:pypi/certifi@2016.9.26",
+        "pkg:pypi/setuptools@40.4.3",
+        "pkg:pypi/wincertstore@0.2"
+      ]
+    },
+    {
+      "name": "python-PyMySQL-0.9.2-3.oe1.src.rpm",
+      "purls": [
+        "pkg:pypi/PyMySQL@0.9.2"
+      ]
+    },
+    {
+      "name": "python-apipkg-1.5-2.oe1.src.rpm",
+      "purls": [
+        "pkg:pypi/apipkg@1.5"
+      ]
+    },
+    {
+      "name": "python-ecdsa-0.14.1-1.oe1.src.rpm",
+      "purls": [
+        "pkg:pypi/ecdsa@0.14.1"
+      ]
+    },
+    {
+      "name": "libwebp-1.0.0-5.oe1.src.rpm",
+      "purls": [
+        "pkg:maven/gradle-wrapper/gradle-wrapper@2.13",
+        "pkg:maven/libwebp/libwebp"
+      ]
+    },
+    {
+      "name": "authz-0.1-16.oe1.src.rpm",
+      "purls": [
+        "pkg:golang/github.com/BurntSushi/toml@v0.3.1",
+        "pkg:golang/github.com/Microsoft/go-winio@v0.4.14",
+        "pkg:golang/github.com/containerd/continuity@v0.0.0-20190815185530-f2a389ac0a02",
+        "pkg:golang/github.com/davecgh/go-spew@v1.1.1",
+        "pkg:golang/github.com/docker/docker@v0.0.0-00010101000000-000000000000",
+        "pkg:golang/github.com/docker/engine@v0.0.0-20190717160951-456712c5b8d9",
+        "pkg:golang/github.com/docker/go-connections@v0.4.0",
+        "pkg:golang/github.com/docker/go-units@v0.4.0",
+        "pkg:golang/github.com/go-yaml/yaml@v2.1.0 incompatible",
+        "pkg:golang/github.com/golang/crypto@v0.0.0-20190701094942-4def268fd1a4",
+        "pkg:golang/github.com/golang/net@v0.0.0-20190813141303-74dc4d7220e7",
+        "pkg:golang/github.com/golang/sync@v0.0.0-20190423024810-112230192c58",
+        "pkg:golang/github.com/golang/sys@v0.0.0-20190813064441-fde4db37ae7a",
+        "pkg:golang/github.com/golang/text@v0.3.2",
+        "pkg:golang/github.com/golang/tools@v0.0.0-20190816200558-6889da9d5479",
+        "pkg:golang/github.com/golang/xerrors@v0.0.0-20190717185122-a985d3407aa7",
+        "pkg:golang/github.com/gorilla/mux@v1.7.3",
+        "pkg:golang/github.com/konsorten/go-windows-terminal-sequences@v1.0.1",
+        "pkg:golang/github.com/opencontainers/go-digest@v1.0.0-rc1",
+        "pkg:golang/github.com/opencontainers/image-spec@v1.0.1",
+        "pkg:golang/github.com/pkg/errors@v0.8.1",
+        "pkg:golang/github.com/pmezard/go-difflib@v1.0.0",
+        "pkg:golang/github.com/sirupsen/logrus@v1.4.1",
+        "pkg:golang/github.com/sirupsen/logrus@v1.4.2",
+        "pkg:golang/github.com/stretchr/objx@v0.1.1",
+        "pkg:golang/github.com/stretchr/testify@v1.2.2",
+        "pkg:golang/github.com/urfave/cli@v1.21.0",
+        "pkg:golang/golang.org/x/crypto@v0.0.0-20190308221718-c2843e01d9a2",
+        "pkg:golang/golang.org/x/sys@v0.0.0-20190422165155-953cdadca894",
+        "pkg:golang/golang.org/x/sys@v0.0.0-20190507160741-ecd444e8653b",
+        "pkg:golang/gopkg.in/yaml.v2@v2.2.2"
+      ]
+    },
+    {
+      "name": "libidn-1.35-8.oe1.src.rpm",
+      "purls": [
+        "pkg:maven/libidn/libidn@1.35"
+      ]
+    },
+    {
+      "name": "python-jsonpointer-1.10-15.oe1.src.rpm",
+      "purls": [
+        "pkg:pypi/jsonpointer@1.10"
+      ]
+    },
+    {
+      "name": "babel-2.7.0-1.oe1.src.rpm",
+      "purls": [
+        "pkg:pypi/Babel@2.7.0"
+      ]
+    },
+    {
+      "name": "python-idna-2.8-3.oe1.src.rpm",
+      "purls": [
+        "pkg:pypi/idna@2.8"
+      ]
+    },
+    {
+      "name": "python-more-itertools-4.1.0-5.oe1.src.rpm",
+      "purls": [
+        "pkg:pypi/more-itertools@4.1.0"
+      ]
+    },
+    {
+      "name": "google-noto-cjk-fonts-20170602-9.oe1.src.rpm",
+      "purls": [
+        "pkg:rpm/google-noto-cjk-fonts@20170602-9.oe1?arch=noarch&epoch=0"
+      ]
+    },
+    {
+      "name": "qt-4.8.7-47.oe1.src.rpm",
+      "purls": [
+        "pkg:rpm/qt@4.8.7-47.oe1?arch=aarch64&epoch=1"
+      ]
+    },
+    {
+      "name": "python-urwid-2.0.1-5.oe1.src.rpm",
+      "purls": [
+        "pkg:pypi/urwid@2.0.1"
+      ]
+    },
+    {
+      "name": "python-constantly-15.1.0-4.oe1.src.rpm",
+      "purls": [
+        "pkg:pypi/constantly@15.1.0"
+      ]
+    },
+    {
+      "name": "python-prettytable-0.7.2-18.oe1.src.rpm",
+      "purls": [
+        "pkg:pypi/prettytable@0.7.2"
+      ]
+    },
+    {
+      "name": "python-fixtures-3.0.0-12.oe1.src.rpm",
+      "purls": [
+        "pkg:pypi/fixtures@3.0.0"
+      ]
+    },
+    {
+      "name": "python-urlgrabber-4.0.0-1.oe1.src.rpm",
+      "purls": [
+        "pkg:pypi/urlgrabber@4.0.0"
+      ]
+    },
+    {
+      "name": "kernel-4.19.90-2003.4.0.0036.oe1.src.rpm",
+      "purls": [
+        "pkg:rpm/kernel@4.19.90-2003.4.0.0036.oe1?arch=aarch64&epoch=0"
+      ]
+    },
+    {
+      "name": "python-olefile-0.46-2.oe1.src.rpm",
+      "purls": [
+        "pkg:pypi/olefile@0.46"
+      ]
+    },
+    {
+      "name": "python-six-1.12.0-1.oe1.src.rpm",
+      "purls": [
+        "pkg:pypi/six@1.12.0"
+      ]
+    },
+    {
+      "name": "python-httpretty-0.9.5-4.oe1.src.rpm",
+      "purls": [
+        "pkg:pypi/httpretty@0.9.5",
+        "pkg:pypi/six@1.11.0"
+      ]
+    },
+    {
+      "name": "pycairo-1.18.2-1.oe1.src.rpm",
+      "purls": [
+        "pkg:pypi/pycairo@1.18.2"
+      ]
+    },
+    {
+      "name": "python-paste-2.0.3-10.oe1.src.rpm",
+      "purls": [
+        "pkg:pypi/Paste@2.0.3"
+      ]
+    },
+    {
+      "name": "libappstream-glib-0.7.14-3.oe1.src.rpm",
+      "purls": [
+        "pkg:rpm/app@1-1.fc25?arch=i686&epoch=0&upstream=app-1-1.fc25.src.rpm",
+        "pkg:rpm/app@1-1.fc25?arch=x86_64&epoch=0&upstream=app-1-1.fc25.src.rpm",
+        "pkg:rpm/app-console@1-1.fc25?arch=noarch&epoch=0&upstream=app-1-1.fc25.src.rpm",
+        "pkg:rpm/app-extra@1-1.fc25?arch=noarch&epoch=0&upstream=app-1-1.fc25.src.rpm",
+        "pkg:rpm/composite@1-1.fc21?arch=x86_64&epoch=0&upstream=composite-1-1.fc21.src.rpm",
+        "pkg:rpm/driver@1-1.fc28?arch=noarch&epoch=0&upstream=driver-1-1.fc28.src.rpm",
+        "pkg:rpm/font@1-1.fc21?arch=noarch&epoch=0&upstream=font-1-1.fc21.src.rpm",
+        "pkg:rpm/font-serif@1-1.fc21?arch=noarch&epoch=0&upstream=font-1-1.fc21.src.rpm",
+        "pkg:rpm/test@0.1-1.fc21?arch=noarch&epoch=0&upstream=test-0.1-1.fc21.src.rpm"
+      ]
+    },
+    {
+      "name": "fontforge-20170731-11.oe1.src.rpm",
+      "purls": [
+        "pkg:npm/FontForgeBreakpadCrashAcceptor@0.0.1",
+        "pkg:rpm/libX11@1.3.6-30.5?arch=noarch&epoch=0&upstream=libX11-1.3.6-30.5.src.rpm"
+      ]
+    },
+    {
+      "name": "texlive-base-20180414-28.oe1.src.rpm",
+      "purls": [
+        "pkg:rpm/texlive-base@20180414-28.oe1?arch=aarch64&epoch=7"
+      ]
+    },
+    {
+      "name": "python-ipaddress-1.0.18-9.oe1.src.rpm",
+      "purls": [
+        "pkg:pypi/ipaddress@1.0.18"
+      ]
+    },
+    {
+      "name": "mozjs60-60.2.2-4.oe1.src.rpm",
+      "purls": [
+        "pkg:rpm/mozjs60@60.2.2-4.oe1?arch=aarch64&epoch=0"
+      ]
+    },
+    {
+      "name": "uthash-2.0.2-7.oe1.src.rpm",
+      "purls": [
+        "pkg:npm/uthash@2.0.2"
+      ]
+    },
+    {
+      "name": "docker-compose-1.22.0-2.oe1.src.rpm",
+      "purls": [
+        "pkg:pypi/:sys_platform",
+        "pkg:pypi/PySocks@1.6.7",
+        "pkg:pypi/PyYAML@3.12",
+        "pkg:pypi/backports.ssl-match-hostname@3.5.0.1",
+        "pkg:pypi/cached-property@1.3.0",
+        "pkg:pypi/certifi@2017.4.17",
+        "pkg:pypi/chardet@3.0.4",
+        "pkg:pypi/coverage@4.4.2",
+        "pkg:pypi/docker@3.4.1",
+        "pkg:pypi/docker-compose@1.22.0",
+        "pkg:pypi/docker-pycreds@0.3.0",
+        "pkg:pypi/dockerpty@0.4.1",
+        "pkg:pypi/docopt@0.6.2",
+        "pkg:pypi/enum34@1.1.6",
+        "pkg:pypi/flake8@3.5.0",
+        "pkg:pypi/functools32@3.2.3.post2",
+        "pkg:pypi/idna@2.5",
+        "pkg:pypi/ipaddress@1.0.18",
+        "pkg:pypi/jsonschema@2.6.0",
+        "pkg:pypi/pypiwin32@219",
+        "pkg:pypi/pypiwin32@220",
+        "pkg:pypi/pytest@2.9.2",
+        "pkg:pypi/pytest-cov@2.5.1",
+        "pkg:pypi/requests@2.18.4",
+        "pkg:pypi/six@1.10.0",
+        "pkg:pypi/texttable@0.9.1",
+        "pkg:pypi/urllib3@1.21.1",
+        "pkg:pypi/websocket-client@0.32.0"
+      ]
+    },
+    {
+      "name": "linux-firmware-20190815-4.oe1.src.rpm",
+      "purls": [
+        "pkg:rpm/linux-firmware@20190815-4.oe1?arch=noarch&epoch=0"
+      ]
+    },
+    {
+      "name": "python-ruamel-yaml-clib-0.1.2-1.oe1.src.rpm",
+      "purls": [
+        "pkg:pypi/ruamel.yaml.clib@0.1.2"
+      ]
+    },
+    {
+      "name": "rear-2.4-3.oe1.src.rpm",
+      "purls": [
+        "pkg:rpm/rear@1.17.2-1.fc23?arch=x86_64&epoch=0&upstream=rear-1.17.2-1.fc23.src.rpm",
+        "pkg:rpm/rear@1.18-1.fc23?arch=x86_64&epoch=0&upstream=rear-1.18-1.fc23.src.rpm",
+        "pkg:rpm/rear@1.19-1.fc23?arch=x86_64&epoch=0&upstream=rear-1.19-1.fc23.src.rpm",
+        "pkg:rpm/rear@1.19-1.git201610111647.fc23?arch=x86_64&epoch=0&upstream=rear-1.19-1.git201610111647.fc23.src.rpm",
+        "pkg:rpm/rear@1.19-1.git201611300645.fc25?arch=x86_64&epoch=0&upstream=rear-1.19-1.git201611300645.fc25.src.rpm",
+        "pkg:rpm/rear@2.00-1.fc25?arch=x86_64&epoch=0&upstream=rear-2.00-1.fc25.src.rpm"
+      ]
+    },
+    {
+      "name": "pyxattr-0.6.1-1.oe1.src.rpm",
+      "purls": [
+        "pkg:pypi/pyxattr@0.6.1"
+      ]
+    },
+    {
+      "name": "docbook5-style-xsl-1.79.2-8.oe1.src.rpm",
+      "purls": [
+        "pkg:maven/ant-contrib/ant-contrib@1.0b3",
+        "pkg:maven/org.antlr/antlr-runtime@3.1.3",
+        "pkg:maven/com.xmlcalabash.drivers.Main/calabash@1.0.2-93",
+        "pkg:maven/org.apache.commons.codec/commons-codec@1.3",
+        "pkg:maven/org.apache/commons-httpclient@3.1",
+        "pkg:maven/commons-logging/commons-logging@1.1.1",
+        "pkg:maven/org.jruby.extras/constantine@0.7",
+        "pkg:maven/isorelax/isorelax",
+        "pkg:maven/org.jruby.extras/jaffl@0.5.1",
+        "pkg:maven/org.jruby.extras/jffi@1.0.1",
+        "pkg:maven/com/thaiopensource/relaxng/util/Driver/jing",
+        "pkg:maven/jline/jline@0.9.95-SNAPSHOT",
+        "pkg:maven/org.jruby.extras/jnr-netdb@0.4",
+        "pkg:maven/org.jruby.ext.posix/jnr-posix@1.1.4",
+        "pkg:maven/org.python.util.jython/jython",
+        "pkg:maven/org.apache.lucene/lucene-analyzers@3.0.0",
+        "pkg:maven/org.apache.lucene/lucene-core@3.0.0",
+        "pkg:maven/com.icl.saxon.StyleSheet/saxon",
+        "pkg:maven/saxon65/saxon65",
+        "pkg:maven/saxon9-ant/saxon9-ant",
+        "pkg:maven/net.sf.saxon.Transform/saxon9he",
+        "pkg:maven/org.apache.xml.serializer/serializer@2.7.2",
+        "pkg:maven/org.ccil.cowan.tagsoup.CommandLine/tagsoup@1.2.1",
+        "pkg:maven/webhelpindexer/webhelpindexer",
+        "pkg:maven/org.apache.xalan/xalan@2.7.2",
+        "pkg:maven/xalan27/xalan27",
+        "pkg:maven/org.apache.xerces.impl.Version/xercesImpl@2.11.0",
+        "pkg:maven/org.w3c.dom.ls/xml-apis@1.4.01",
+        "pkg:maven/xmlresolver/xmlresolver@0.9.0",
+        "pkg:maven/org.apache.xalan.xsltc/xsltc@2.7.2"
+      ]
+    },
+    {
+      "name": "brotli-1.0.5-3.oe1.src.rpm",
+      "purls": [
+        "pkg:maven/org.brotli/dec@0.2.0-SNAPSHOT",
+        "pkg:maven/junit/junit@4.12"
+      ]
+    },
+    {
+      "name": "qt5-doc-5.11.1-4.oe1.src.rpm",
+      "purls": [
+        "pkg:rpm/qt5-doc@5.11.1-4.oe1?arch=noarch&epoch=0"
+      ]
+    },
+    {
+      "name": "python-cryptography-2.6.1-1.oe1.src.rpm",
+      "purls": [
+        "pkg:pypi/cryptography@2.6.1",
+        "pkg:pypi/cryptography_vectors@{0"
+      ]
+    },
+    {
+      "name": "python-beautifulsoup4-4.6.3-2.oe1.src.rpm",
+      "purls": [
+        "pkg:pypi/beautifulsoup4@4.6.3"
+      ]
+    },
+    {
+      "name": "lxcfs-tools-0.3-16.oe1.src.rpm",
+      "purls": [
+        "pkg:golang/github.com/BurntSushi/toml@v0.3.1",
+        "pkg:golang/github.com/containerd/console@v0.0.0-20181022165439-0650fd9eeb50",
+        "pkg:golang/github.com/coreos/go-systemd@v0.0.0-20190719114852-fd7a80b32e1f",
+        "pkg:golang/github.com/coreos/pkg@v0.0.0-20180928190104-399ea9e2e55f",
+        "pkg:golang/github.com/cyphar/filepath-securejoin@v0.2.2",
+        "pkg:golang/github.com/davecgh/go-spew@v1.1.1",
+        "pkg:golang/github.com/docker/docker@v0.0.0-00010101000000-000000000000",
+        "pkg:golang/github.com/docker/engine@v0.0.0-20181106193140-f5749085e9cb",
+        "pkg:golang/github.com/docker/go-units@v0.4.0",
+        "pkg:golang/github.com/go-yaml/yaml@v2.1.0 incompatible",
+        "pkg:golang/github.com/godbus/dbus@v4.1.0 incompatible",
+        "pkg:golang/github.com/golang/protobuf@v1.3.2",
+        "pkg:golang/github.com/golang/sys@v0.0.0-20190813064441-fde4db37ae7a",
+        "pkg:golang/github.com/konsorten/go-windows-terminal-sequences@v1.0.1",
+        "pkg:golang/github.com/mrunalp/fileutils@v0.0.0-20171103030105-7d4729fb3618",
+        "pkg:golang/github.com/opencontainers/runc@v1.0.0-rc6",
+        "pkg:golang/github.com/opencontainers/runtime-spec@v1.0.1",
+        "pkg:golang/github.com/opencontainers/selinux@v1.3.0",
+        "pkg:golang/github.com/pkg/errors@v0.8.1",
+        "pkg:golang/github.com/pmezard/go-difflib@v1.0.0",
+        "pkg:golang/github.com/seccomp/libseccomp-golang@v0.9.1",
+        "pkg:golang/github.com/sirupsen/logrus@v1.4.2",
+        "pkg:golang/github.com/stretchr/objx@v0.1.1",
+        "pkg:golang/github.com/stretchr/testify@v1.2.2",
+        "pkg:golang/github.com/syndtr/gocapability@v0.0.0-20180916011248-d98352740cb2",
+        "pkg:golang/github.com/urfave/cli@v1.21.0",
+        "pkg:golang/github.com/vishvananda/netlink@v1.0.0",
+        "pkg:golang/github.com/vishvananda/netns@v0.0.0-20190625233234-7109fa855b0f",
+        "pkg:golang/golang.org/x/sys@v0.0.0-20190422165155-953cdadca894",
+        "pkg:golang/gopkg.in/yaml.v2@v2.2.2"
+      ]
+    },
+    {
+      "name": "protobuf-3.9.0-7.oe1.src.rpm",
+      "purls": [
+        "pkg:maven/org.easymock/easymock",
+        "pkg:maven/org.easymock/easymock",
+        "pkg:maven/org.easymock/easymock",
+        "pkg:maven/org.easymock/easymockclassextension",
+        "pkg:maven/org.easymock/easymockclassextension",
+        "pkg:maven/org.easymock/easymockclassextension",
+        "pkg:maven/com.google.errorprone/error_prone_annotations@2.3.2",
+        "pkg:npm/google-protobuf@3.9.0",
+        "pkg:maven/com.google.code.gson/gson@2.7",
+        "pkg:maven/com.google.guava/guava",
+        "pkg:maven/com.google.guava/guava",
+        "pkg:maven/com.google.guava/guava",
+        "pkg:maven/com.google.guava/guava-testlib",
+        "pkg:maven/com.fasterxml.jackson.core/jackson-core@2.4.3",
+        "pkg:maven/org.jruby/jruby-complete@1.7.13",
+        "pkg:maven/junit/junit",
+        "pkg:maven/junit/junit",
+        "pkg:maven/junit/junit",
+        "pkg:maven/protobuf-java/protobuf-java",
+        "pkg:maven/com.google.protobuf/protobuf-java@3.0.0",
+        "pkg:maven/com.google.truth/truth"
+      ]
+    },
+    {
+      "name": "pyOpenSSL-19.0.0-1.oe1.src.rpm",
+      "purls": [
+        "pkg:pypi/pyOpenSSL@19.0.0"
+      ]
+    },
+    {
+      "name": "python-webob-1.8.2-3.oe1.src.rpm",
+      "purls": [
+        "pkg:pypi/WebOb@1.8.2"
+      ]
+    },
+    {
+      "name": "containernetworking-plugins-0.8.2-3.git485be65.oe1.src.rpm",
+      "purls": [
+        "pkg:golang/github.com/Microsoft/go-winio@v0.4.11",
+        "pkg:golang/github.com/Microsoft/hcsshim@v0.8.6",
+        "pkg:golang/github.com/alexflint/go-filemutex@v0.0.0-20171022225611-72bdc8eae2ae",
+        "pkg:golang/github.com/buger/jsonparser@v0.0.0-20180808090653-f4dd9f5a6b44",
+        "pkg:golang/github.com/containernetworking/cni@v0.7.0",
+        "pkg:golang/github.com/coreos/go-iptables@v0.4.2",
+        "pkg:golang/github.com/coreos/go-systemd@v0.0.0-20180511133405-39ca1b05acc7",
+        "pkg:golang/github.com/d2g/dhcp4@v0.0.0-20170904100407-a1d1b6c41b1c",
+        "pkg:golang/github.com/d2g/dhcp4client@v1.0.0",
+        "pkg:golang/github.com/d2g/dhcp4server@v0.0.0-20181031114812-7d4a0a7f59a5",
+        "pkg:golang/github.com/d2g/hardwareaddr@v0.0.0-20190221164911-e7d9fbe030e4",
+        "pkg:golang/github.com/godbus/dbus@v0.0.0-20180201030542-885f9cc04c9c",
+        "pkg:golang/github.com/golang/protobuf@v1.3.1",
+        "pkg:golang/github.com/j-keck/arping@v0.0.0-20160618110441-2cf9dc699c56",
+        "pkg:golang/github.com/juju/errors@v0.0.0-20180806074554-22422dad46e1",
+        "pkg:golang/github.com/juju/loggo@v0.0.0-20190526231331-6e530bcce5d8",
+        "pkg:golang/github.com/juju/testing@v0.0.0-20190613124551-e81189438503",
+        "pkg:golang/github.com/kr/pretty@v0.1.0",
+        "pkg:golang/github.com/mattn/go-shellwords@v1.0.3",
+        "pkg:golang/github.com/onsi/ginkgo@v0.0.0-20151202141238-7f8ab55aaf3b",
+        "pkg:golang/github.com/onsi/gomega@v0.0.0-20151007035656-2152b45fa28a",
+        "pkg:golang/github.com/safchain/ethtool@v0.0.0-20190326074333-42ed695e3de8",
+        "pkg:golang/github.com/sirupsen/logrus@v1.0.6",
+        "pkg:golang/github.com/stretchr/testify@v1.3.0",
+        "pkg:golang/github.com/vishvananda/netlink@v0.0.0-20181108222139-023a6dafdcdf",
+        "pkg:golang/github.com/vishvananda/netns@v0.0.0-20180720170159-13995c7128cc",
+        "pkg:golang/golang.org/x/crypto@v0.0.0-20181009213950-7c1a557ab941",
+        "pkg:golang/golang.org/x/net@v0.0.0-20181011144130-49bb7cea24b1",
+        "pkg:golang/golang.org/x/sys@v0.0.0-20190616124812-15dcb6c0061f",
+        "pkg:golang/gopkg.in/airbrake/gobrake.v2@v2.0.9",
+        "pkg:golang/gopkg.in/check.v1@v1.0.0-20180628173108-788fd7840127",
+        "pkg:golang/gopkg.in/gemnasium/logrus-airbrake-hook.v2@v2.1.2",
+        "pkg:golang/gopkg.in/mgo.v2@v2.0.0-20180705113604-9856a29383ce",
+        "pkg:golang/gopkg.in/yaml.v2@v2.2.2"
+      ]
+    },
+    {
+      "name": "python-ldap-3.1.0-1.oe1.src.rpm",
+      "purls": [
+        "pkg:pypi/python-ldap@3.1.0"
+      ]
+    },
+    {
+      "name": "mysql-8.0.17-3.oe1.src.rpm",
+      "purls": [
+        "pkg:rpm/mysql@8.0.17-3.oe1?arch=aarch64&epoch=0"
+      ]
+    },
+    {
+      "name": "python-cffi-1.11.5-10.oe1.src.rpm",
+      "purls": [
+        "pkg:pypi/cffi@1.11.5"
+      ]
+    },
+    {
+      "name": "python-scikit-optimize-0.5.2-1.oe1.src.rpm",
+      "purls": [
+        "pkg:pypi/scikit-optimize@0.5.2"
+      ]
+    },
+    {
+      "name": "python-ordered-set-2.0.2-1.oe1.src.rpm",
+      "purls": [
+        "pkg:pypi/ordered-set@2.0.2"
+      ]
+    },
+    {
+      "name": "openvswitch-2.12.0-5.oe1.src.rpm",
+      "purls": [
+        "pkg:pypi/:sys_platform"
+      ]
+    },
+    {
+      "name": "python-pretend-1.0.8-15.oe1.src.rpm",
+      "purls": [
+        "pkg:pypi/pretend@1.0.8"
+      ]
+    },
+    {
+      "name": "python-pygments-2.2.0-15.oe1.src.rpm",
+      "purls": [
+        "pkg:pypi/Pygments@2.2.0"
+      ]
+    },
+    {
+      "name": "python-contextlib2-0.5.5-9.oe1.src.rpm",
+      "purls": [
+        "pkg:pypi/contextlib2@0.5.5"
+      ]
+    },
+    {
+      "name": "python-paramiko-2.4.1-7.oe1.src.rpm",
+      "purls": [
+        "pkg:pypi/flake8@2.6.2",
+        "pkg:pypi/pytest@3.2.1",
+        "pkg:pypi/pytest_relaxed@1.0.0",
+        "pkg:pypi/twine@1.9.1",
+        "pkg:pypi/wheel@0.24"
+      ]
+    },
+    {
+      "name": "pygobject3-3.30.1-2.oe1.src.rpm",
+      "purls": [
+        "pkg:pypi/PyGObject@3.30.1"
+      ]
+    },
+    {
+      "name": "python-websocket-client-0.47.0-6.oe1.src.rpm",
+      "purls": [
+        "pkg:pypi/unittest2@0.8.0",
+        "pkg:pypi/websocket-client@0.47.0"
+      ]
+    },
+    {
+      "name": "python-parse-1.8.4-2.oe1.src.rpm",
+      "purls": [
+        "pkg:pypi/parse@1.8.4"
+      ]
+    },
+    {
+      "name": "atune-0.2-0.1.oe1.src.rpm",
+      "purls": [
+        "pkg:golang/cloud.google.com/go@v0.26.0",
+        "pkg:golang/github.com/BurntSushi/toml@v0.3.1",
+        "pkg:golang/github.com/antlr/antlr4@v0.0.0-20190726171924-e4737db19f4f",
+        "pkg:golang/github.com/bndr/gotabulate@v1.1.2",
+        "pkg:golang/github.com/caibirdme/yql@v0.0.0-20190801103415-238f3c90b514",
+        "pkg:golang/github.com/client9/misspell@v0.3.4",
+        "pkg:golang/github.com/cockroachdb/apd@v1.1.0",
+        "pkg:golang/github.com/coreos/go-systemd@v0.0.0-20190719114852-fd7a80b32e1f",
+        "pkg:golang/github.com/davecgh/go-spew@v1.1.1",
+        "pkg:golang/github.com/denisenkom/go-mssqldb@v0.0.0-20190707035753-2be1aa521ff4",
+        "pkg:golang/github.com/go-ini/ini@v1.42.0",
+        "pkg:golang/github.com/go-sql-driver/mysql@v1.4.1",
+        "pkg:golang/github.com/go-sql-driver/mysql@v1.4.1",
+        "pkg:golang/github.com/go-xorm/sqlfiddle@v0.0.0-20180821085327-62ce714f951a",
+        "pkg:golang/github.com/go-xorm/xorm@v0.7.4",
+        "pkg:golang/github.com/golang/glog@v0.0.0-20160126235308-23def4e6c14b",
+        "pkg:golang/github.com/golang/mock@v1.1.1",
+        "pkg:golang/github.com/golang/protobuf@v1.2.0",
+        "pkg:golang/github.com/golang/protobuf@v1.3.1",
+        "pkg:golang/github.com/google/go-cmp@v0.2.0",
+        "pkg:golang/github.com/jackc/fake@v0.0.0-20150926172116-812a484cc733",
+        "pkg:golang/github.com/jackc/pgx@v3.3.0 incompatible",
+        "pkg:golang/github.com/konsorten/go-windows-terminal-sequences@v1.0.1",
+        "pkg:golang/github.com/kr/pretty@v0.1.0",
+        "pkg:golang/github.com/lib/pq@v1.0.0",
+        "pkg:golang/github.com/mattn/go-sqlite3@v1.10.0",
+        "pkg:golang/github.com/mattn/go-sqlite3@v1.10.0",
+        "pkg:golang/github.com/mattn/go-sqlite3@v1.11.0",
+        "pkg:golang/github.com/mitchellh/mapstructure@v1.1.2",
+        "pkg:golang/github.com/pkg/errors@v0.8.1",
+        "pkg:golang/github.com/pmezard/go-difflib@v1.0.0",
+        "pkg:golang/github.com/satori/go.uuid@v1.2.0",
+        "pkg:golang/github.com/shopspring/decimal@v0.0.0-20180709203117-cd690d0c9e24",
+        "pkg:golang/github.com/sirupsen/logrus@v1.4.2",
+        "pkg:golang/github.com/smartystreets/goconvey@v0.0.0-20190731233626-505e41936337",
+        "pkg:golang/github.com/stretchr/objx@v0.1.1",
+        "pkg:golang/github.com/stretchr/testify@v1.2.2",
+        "pkg:golang/github.com/stretchr/testify@v1.3.0",
+        "pkg:golang/github.com/stretchr/testify@v1.3.0",
+        "pkg:golang/github.com/urfave/cli@v1.20.0",
+        "pkg:golang/github.com/ziutek/mymysql@v1.5.4",
+        "pkg:golang/golang.org/x/lint@v0.0.0-20190313153728-d0100b6bd8b3",
+        "pkg:golang/golang.org/x/net@v0.0.0-20190311183353-d8887717615a",
+        "pkg:golang/golang.org/x/net@v0.0.0-20190628185345-da137c7871d7",
+        "pkg:golang/golang.org/x/oauth2@v0.0.0-20180821212333-d2e6202438be",
+        "pkg:golang/golang.org/x/sys@v0.0.0-20190215142949-d0b11bdaac8a",
+        "pkg:golang/golang.org/x/sys@v0.0.0-20190422165155-953cdadca894",
+        "pkg:golang/golang.org/x/tools@v0.0.0-20190524140312-2c0ae7006135",
+        "pkg:golang/google.golang.org/appengine@v1.1.0",
+        "pkg:golang/google.golang.org/appengine@v1.4.0",
+        "pkg:golang/google.golang.org/genproto@v0.0.0-20180817151627-c66870c02cf8",
+        "pkg:golang/google.golang.org/grpc@v1.22.0",
+        "pkg:golang/gopkg.in/check.v1@v0.0.0-20161208181325-20d25e280405",
+        "pkg:golang/gopkg.in/ini.v1@v1.48.0",
+        "pkg:golang/gopkg.in/yaml.v2@v2.2.2",
+        "pkg:golang/honnef.co/go/tools@v0.0.0-20190523083050-ea95bdfd59fc",
+        "pkg:golang/xorm.io/builder@v0.3.5",
+        "pkg:golang/xorm.io/core@v0.6.3"
+      ]
+    },
+    {
+      "name": "python-pytest-expect-1.1.0-3.oe1.src.rpm",
+      "purls": [
+        "pkg:pypi/pytest-expect@1.1.0"
+      ]
+    },
+    {
+      "name": "python-genshi-0.7-23.oe1.src.rpm",
+      "purls": [
+        "pkg:pypi/Genshi@0.7"
+      ]
+    },
+    {
+      "name": "python-path-5.2-15.oe1.src.rpm",
+      "purls": [
+        "pkg:pypi/path.py@5.2"
+      ]
+    },
+    {
+      "name": "pyflakes-2.0.0-8.oe1.src.rpm",
+      "purls": [
+        "pkg:pypi/pyflakes@2.0.0"
+      ]
+    },
+    {
+      "name": "python-zope-interface-4.5.0-3.oe1.src.rpm",
+      "purls": [
+        "pkg:pypi/zope.interface@4.5.0"
+      ]
+    },
+    {
+      "name": "python-productmd-1.22-2.oe1.src.rpm",
+      "purls": [
+        "pkg:pypi/productmd@1.22"
+      ]
+    },
+    {
+      "name": "python-futures-3.1.1-5.oe1.src.rpm",
+      "purls": [
+        "pkg:pypi/futures@3.1.1"
+      ]
+    },
+    {
+      "name": "python-backports_abc-0.5-9.oe1.src.rpm",
+      "purls": [
+        "pkg:pypi/backports-abc@0.5"
+      ]
+    },
+    {
+      "name": "fonttools-3.29.0-2.oe1.src.rpm",
+      "purls": [
+        "pkg:pypi/brotli@1.0.1",
+        "pkg:pypi/brotlipy@0.7.0",
+        "pkg:pypi/fonttools@3.29.0",
+        "pkg:pypi/munkres@1.0.10",
+        "pkg:pypi/unicodedata2@11.0.0",
+        "pkg:pypi/zopfli@0.1.4"
+      ]
+    },
+    {
+      "name": "umoci-0.4.5-2.oe1.src.rpm",
+      "purls": [
+        "pkg:golang/github.com/BurntSushi/toml@v0.3.1",
+        "pkg:golang/github.com/apex/log@v1.1.1",
+        "pkg:golang/github.com/aphistic/golf@v0.0.0-20180712155816-02c07f170c5a",
+        "pkg:golang/github.com/aphistic/sweet@v0.2.0",
+        "pkg:golang/github.com/aphistic/sweet@v0.3.0",
+        "pkg:golang/github.com/aws/aws-sdk-go@v1.20.6",
+        "pkg:golang/github.com/aws/aws-sdk-go@v1.23.21",
+        "pkg:golang/github.com/aybabtme/rgbterm@v0.0.0-20170906152045-cc83f3b3ce59",
+        "pkg:golang/github.com/cpuguy83/go-md2man/v2@v2.0.0-20190314233015-f79a8a8ca69d",
+        "pkg:golang/github.com/cyphar/filepath-securejoin@v0.2.2",
+        "pkg:golang/github.com/davecgh/go-spew@v1.1.1",
+        "pkg:golang/github.com/docker/go-units@v0.4.0",
+        "pkg:golang/github.com/fatih/color@v1.7.0",
+        "pkg:golang/github.com/go-logfmt/logfmt@v0.4.0",
+        "pkg:golang/github.com/golang/protobuf@v1.3.2",
+        "pkg:golang/github.com/google/uuid@v1.1.1",
+        "pkg:golang/github.com/jpillora/backoff@v0.0.0-20180909062703-3050d21c67d7",
+        "pkg:golang/github.com/klauspost/compress@v1.8.3",
+        "pkg:golang/github.com/klauspost/cpuid@v1.2.1",
+        "pkg:golang/github.com/klauspost/pgzip@v1.2.1",
+        "pkg:golang/github.com/konsorten/go-windows-terminal-sequences@v1.0.1",
+        "pkg:golang/github.com/konsorten/go-windows-terminal-sequences@v1.0.2",
+        "pkg:golang/github.com/kr/pretty@v0.1.0",
+        "pkg:golang/github.com/kr/pty@v1.1.8",
+        "pkg:golang/github.com/mattn/go-colorable@v0.1.2",
+        "pkg:golang/github.com/mattn/go-isatty@v0.0.8",
+        "pkg:golang/github.com/mattn/go-isatty@v0.0.9",
+        "pkg:golang/github.com/mohae/deepcopy@v0.0.0-20170929034955-c48cc78d4826",
+        "pkg:golang/github.com/onsi/ginkgo@v1.10.1",
+        "pkg:golang/github.com/onsi/gomega@v1.7.0",
+        "pkg:golang/github.com/opencontainers/go-digest@v1.0.0-rc1",
+        "pkg:golang/github.com/opencontainers/image-spec@v1.0.1",
+        "pkg:golang/github.com/opencontainers/runtime-spec@v1.0.1",
+        "pkg:golang/github.com/pkg/errors@v0.8.1",
+        "pkg:golang/github.com/pkg/errors@v0.8.1",
+        "pkg:golang/github.com/pmezard/go-difflib@v1.0.0",
+        "pkg:golang/github.com/rogpeppe/fastuuid@v1.1.0",
+        "pkg:golang/github.com/rogpeppe/fastuuid@v1.2.0",
+        "pkg:golang/github.com/rootless-containers/proto@v0.1.0",
+        "pkg:golang/github.com/sirupsen/logrus@v1.4.2",
+        "pkg:golang/github.com/smartystreets/go-aws-auth@v0.0.0-20180515143844-0c1422d1fdb9",
+        "pkg:golang/github.com/smartystreets/gunit@v1.0.0",
+        "pkg:golang/github.com/smartystreets/gunit@v1.0.4",
+        "pkg:golang/github.com/stretchr/objx@v0.1.1",
+        "pkg:golang/github.com/stretchr/objx@v0.2.0",
+        "pkg:golang/github.com/stretchr/testify@v1.2.2",
+        "pkg:golang/github.com/stretchr/testify@v1.3.0",
+        "pkg:golang/github.com/stretchr/testify@v1.4.0",
+        "pkg:golang/github.com/tj/assert@v0.0.0-20171129193455-018094318fb0",
+        "pkg:golang/github.com/tj/go-elastic@v0.0.0-20171221160941-36157cbbebc2",
+        "pkg:golang/github.com/tj/go-kinesis@v0.0.0-20171128231115-08b17f58cb1b",
+        "pkg:golang/github.com/tj/go-spin@v1.1.0",
+        "pkg:golang/github.com/urfave/cli@v1.22.1",
+        "pkg:golang/github.com/vbatts/go-mtree@v0.4.4",
+        "pkg:golang/golang.org/x/crypto@v0.0.0-20190911031432-227b76d455e7",
+        "pkg:golang/golang.org/x/net@v0.0.0-20190620200207-3b0461eec859",
+        "pkg:golang/golang.org/x/net@v0.0.0-20190912160710-24e19bdeb0f2",
+        "pkg:golang/golang.org/x/sync@v0.0.0-20190911185100-cd5d95a43a6e",
+        "pkg:golang/golang.org/x/sys@v0.0.0-20190422165155-953cdadca894",
+        "pkg:golang/golang.org/x/sys@v0.0.0-20190813064441-fde4db37ae7a",
+        "pkg:golang/golang.org/x/sys@v0.0.0-20190913121621-c3b328c6e5a7",
+        "pkg:golang/golang.org/x/text@v0.3.2",
+        "pkg:golang/golang.org/x/tools@v0.0.0-20190913181337-0240832f5c3d",
+        "pkg:golang/gopkg.in/check.v1@v1.0.0-20190902080502-41f04d3bba15",
+        "pkg:golang/gopkg.in/yaml.v2@v2.2.2"
+      ]
+    },
+    {
+      "name": "python-nose-1.3.7-26.oe1.src.rpm",
+      "purls": [
+        "pkg:pypi/Some-plugin@0.0.0",
+        "pkg:pypi/UNKNOWN@0.0.0",
+        "pkg:pypi/nose@1.3.7"
+      ]
+    },
+    {
+      "name": "python-joblib-0.14.0-3.oe1.src.rpm",
+      "purls": [
+        "pkg:pypi/sphinx@1.6.3"
+      ]
+    },
+    {
+      "name": "qt5-qtwebchannel-5.11.1-4.oe1.src.rpm",
+      "purls": [
+        "pkg:npm/Chatclient@0.0.1",
+        "pkg:npm/qwclient@0.0.1"
+      ]
+    },
+    {
+      "name": "texlive-2018-22.oe1.src.rpm",
+      "purls": [
+        "pkg:rpm/texlive@2018-22.oe1?arch=noarch&epoch=8"
+      ]
+    },
+    {
+      "name": "libvoikko-4.1.1-3.oe1.src.rpm",
+      "purls": [
+        "pkg:maven/net.java.dev.jna/jna@4.2.2",
+        "pkg:maven/junit/junit@4.12"
+      ]
+    },
+    {
+      "name": "python-testscenarios-0.5.0-14.oe1.src.rpm",
+      "purls": [
+        "pkg:pypi/testscenarios@0.5.0"
+      ]
+    },
+    {
+      "name": "python-sphinx-theme-alabaster-0.7.11-6.oe1.src.rpm",
+      "purls": [
+        "pkg:pypi/alabaster@0.7.11"
+      ]
+    },
+    {
+      "name": "python-keyring-13.2.1-4.oe1.src.rpm",
+      "purls": [
+        "pkg:pypi/:sys_platform@linux",
+        "pkg:pypi/:sys_platform@win32",
+        "pkg:pypi/keyring@13.2.1"
+      ]
+    },
+    {
+      "name": "python-pyudev-0.21.0-10.oe1.src.rpm",
+      "purls": [
+        "pkg:pypi/pyudev@0.21.0"
+      ]
+    },
+    {
+      "name": "python-incremental-17.5.0-5.oe1.src.rpm",
+      "purls": [
+        "pkg:pypi/incremental@17.5.0"
+      ]
+    },
+    {
+      "name": "nototools-0-1.20190712.git9c4375f.oe1.src.rpm",
+      "purls": [
+        "pkg:pypi/Pillow@4.0.0",
+        "pkg:pypi/booleanOperations@0.7.0",
+        "pkg:pypi/defcon@0.3.1",
+        "pkg:pypi/pyclipper@1.0.6",
+        "pkg:pypi/scour@0.37",
+        "pkg:pypi/ufoLib@2.0.0"
+      ]
+    },
+    {
+      "name": "python-urllib3-1.24.3-2.oe1.src.rpm",
+      "purls": [
+        "pkg:pypi/PySocks@1.6.8",
+        "pkg:pypi/mock@2.0.0",
+        "pkg:pypi/pkginfo@1.4.2",
+        "pkg:pypi/pluggy@0.8.0",
+        "pkg:pypi/pytest@3.8.2",
+        "pkg:pypi/pytest-httpbin@0.3.0",
+        "pkg:pypi/pytest-timeout@1.3.1",
+        "pkg:pypi/tornado@5.1.1",
+        "pkg:pypi/tox@2.9.1",
+        "pkg:pypi/wheel@0.30.0"
+      ]
+    },
+    {
+      "name": "mozjs52-52.9.0-5.oe1.src.rpm",
+      "purls": [
+        "pkg:rpm/mozjs52@52.9.0-5.oe1?arch=aarch64&epoch=0"
+      ]
+    },
+    {
+      "name": "qt5-qtwebengine-5.11.1-7.oe1.src.rpm",
+      "purls": [
+        "pkg:rpm/qt5-qtwebengine@5.11.1-7.oe1?arch=aarch64&epoch=0"
+      ]
+    },
+    {
+      "name": "python-polib-1.1.0-2.oe1.src.rpm",
+      "purls": [
+        "pkg:pypi/polib@1.1.0"
+      ]
+    },
+    {
+      "name": "python-asn1crypto-0.24.0-8.oe1.src.rpm",
+      "purls": [
+        "pkg:pypi/asn1crypto@0.24.0"
+      ]
+    },
+    {
+      "name": "pytest-3.6.4-3.oe1.src.rpm",
+      "purls": [
+        "pkg:pypi/:sys_platform@win32",
+        "pkg:pypi/pytest@3.6.4",
+        "pkg:pypi/sphinx@1.4.*"
+      ]
+    },
+    {
+      "name": "python-pandas-0.25.3-1.oe1.src.rpm",
+      "purls": [
+        "pkg:pypi/pandas@0.25.3"
+      ]
+    },
+    {
+      "name": "python-backports-unittest_mock-1.2.1-7.oe1.src.rpm",
+      "purls": [
+        "pkg:pypi/:python_version@2.7",
+        "pkg:pypi/backports.unittest-mock@1.2.1",
+        "pkg:pypi/python_version@2.6",
+        "pkg:pypi/python_version@3.2"
+      ]
+    },
+    {
+      "name": "python-repoze-lru-0.7-2.oe1.src.rpm",
+      "purls": [
+        "pkg:pypi/repoze.lru@0.7"
+      ]
+    },
+    {
+      "name": "python-itsdangerous-1.1.0-1.oe1.src.rpm",
+      "purls": [
+        "pkg:pypi/itsdangerous@1.1.0"
+      ]
+    },
+    {
+      "name": "python-configparser-3.5.0b2-11.oe1.src.rpm",
+      "purls": [
+        "pkg:pypi/configparser@3.5.0b2"
+      ]
+    },
+    {
+      "name": "python-blinker-1.4-4.oe1.src.rpm",
+      "purls": [
+        "pkg:pypi/blinker@1.4"
+      ]
+    },
+    {
+      "name": "python-docker-4.0.2-1.oe1.src.rpm",
+      "purls": [
+        "pkg:pypi/:sys_platform",
+        "pkg:pypi/appdirs@1.4.3",
+        "pkg:pypi/asn1crypto@0.22.0",
+        "pkg:pypi/backports.ssl-match-hostname@3.5.0.1",
+        "pkg:pypi/cffi@1.10.0",
+        "pkg:pypi/coverage@4.5.2",
+        "pkg:pypi/cryptography@2.3",
+        "pkg:pypi/docker@4.0.2",
+        "pkg:pypi/enum34@1.1.6",
+        "pkg:pypi/flake8@3.6.0",
+        "pkg:pypi/idna@2.5",
+        "pkg:pypi/ipaddress@1.0.18",
+        "pkg:pypi/mock@1.0.1",
+        "pkg:pypi/packaging@16.8",
+        "pkg:pypi/paramiko@2.4.2",
+        "pkg:pypi/pyOpenSSL@18.0.0",
+        "pkg:pypi/pycparser@2.17",
+        "pkg:pypi/pyparsing@2.2.0",
+        "pkg:pypi/pypiwin32@219",
+        "pkg:pypi/pypiwin32@219",
+        "pkg:pypi/pypiwin32@223",
+        "pkg:pypi/pypiwin32@223",
+        "pkg:pypi/pytest@4.1.0",
+        "pkg:pypi/pytest-cov@2.6.1",
+        "pkg:pypi/pytest-timeout@1.3.3",
+        "pkg:pypi/requests@2.20.0",
+        "pkg:pypi/six@1.10.0",
+        "pkg:pypi/urllib3@1.24.3",
+        "pkg:pypi/websocket-client@0.56.0"
+      ]
+    },
+    {
+      "name": "python-sphinxcontrib-spelling-4.2.0-2.oe1.src.rpm",
+      "purls": [
+        "pkg:pypi/sphinxcontrib-spelling@4.2.0"
+      ]
+    },
+    {
+      "name": "python-tempita-0.5.1-21.oe1.src.rpm",
+      "purls": [
+        "pkg:pypi/Tempita@0.5.1"
+      ]
+    },
+    {
+      "name": "pytz-2019.2-2.oe1.src.rpm",
+      "purls": [
+        "pkg:pypi/pytz@2019.2"
+      ]
+    },
+    {
+      "name": "clang-7.0.0-5.oe1.src.rpm",
+      "purls": [
+        "pkg:npm/vscode-clangd@0.0.6"
+      ]
+    },
+    {
+      "name": "python-flask-1.0.4-3.oe1.src.rpm",
+      "purls": [
+        "pkg:pypi/Flask@1.0.4"
+      ]
+    },
+    {
+      "name": "openvswitch-kmod-2.12.0-1.oe1.src.rpm",
+      "purls": [
+        "pkg:pypi/:sys_platform"
+      ]
+    },
+    {
+      "name": "createrepo_c-0.15.0-4.oe1.src.rpm",
+      "purls": [
+        "pkg:rpm/Archer@3.4.5-6?arch=x86_64&epoch=2&upstream=Archer-3.4.5-6.src.rpm",
+        "pkg:rpm/Archer@3.4.5-6?arch=x86_64&epoch=2&upstream=Archer-3.4.5-6.src.rpm",
+        "pkg:rpm/Rimmer@1.0.2-2?arch=x86_64&epoch=0&upstream=Rimmer-1.0.2-2.src.rpm",
+        "pkg:rpm/balicek-iso88591@1.1.1-1?arch=x86_64&epoch=0&upstream=balicek-iso88591-1.1.1-1.src.rpm",
+        "pkg:rpm/balicek-iso88592@1.1.1-1?arch=x86_64&epoch=0&upstream=balicek-iso88592-1.1.1-1.src.rpm",
+        "pkg:rpm/balicek-utf8@1.1.1-1?arch=x86_64&epoch=0&upstream=balicek-utf8-1.1.1-1.src.rpm",
+        "pkg:rpm/empty@0-0?arch=x86_64&epoch=0",
+        "pkg:rpm/empty@0-0?arch=x86_64&epoch=0&upstream=empty-0-0.src.rpm",
+        "pkg:rpm/fake_bash@1.1.1-1?arch=x86_64&epoch=0&upstream=fake_bash-1.1.1-1.src.rpm",
+        "pkg:rpm/fake_bash@1.1.1-1?arch=x86_64&epoch=0&upstream=fake_bash-1.1.1-1.src.rpm",
+        "pkg:rpm/super_kernel@6.0.1-2?arch=x86_64&epoch=0&upstream=super_kernel-6.0.1-2.src.rpm",
+        "pkg:rpm/super_kernel@6.0.1-2?arch=x86_64&epoch=0&upstream=super_kernel-6.0.1-2.src.rpm"
+      ]
+    },
+    {
+      "name": "python-cached_property-1.5.1-1.oe1.src.rpm",
+      "purls": [
+        "pkg:pypi/coverage@4.4.2",
+        "pkg:pypi/freezegun@0.3.10",
+        "pkg:pypi/pytest@3.7.4",
+        "pkg:pypi/pytest-cov@2.6.0",
+        "pkg:pypi/twine@1.11.0",
+        "pkg:pypi/wheel@0.31.1"
+      ]
+    },
+    {
+      "name": "python-markupsafe-1.0-3.oe1.src.rpm",
+      "purls": [
+        "pkg:pypi/MarkupSafe@1.0"
+      ]
+    },
+    {
+      "name": "pyparsing-2.2.0-4.oe1.src.rpm",
+      "purls": [
+        "pkg:pypi/pyparsing@2.2.0"
+      ]
+    },
+    {
+      "name": "python-funcsigs-1.0.2-13.oe1.src.rpm",
+      "purls": [
+        "pkg:pypi/funcsigs@1.0.2"
+      ]
+    },
+    {
+      "name": "docbook-style-xsl-1.79.2-9.oe1.src.rpm",
+      "purls": [
+        "pkg:maven/ant-contrib/ant-contrib@1.0b3",
+        "pkg:maven/org.antlr/antlr-runtime@3.1.3",
+        "pkg:maven/com.xmlcalabash.drivers.Main/calabash@1.0.2-93",
+        "pkg:maven/org.apache.commons.codec/commons-codec@1.3",
+        "pkg:maven/org.apache/commons-httpclient@3.1",
+        "pkg:maven/commons-logging/commons-logging@1.1.1",
+        "pkg:maven/org.jruby.extras/constantine@0.7",
+        "pkg:maven/isorelax/isorelax",
+        "pkg:maven/org.jruby.extras/jaffl@0.5.1",
+        "pkg:maven/org.jruby.extras/jffi@1.0.1",
+        "pkg:maven/com/thaiopensource/relaxng/util/Driver/jing",
+        "pkg:maven/jline/jline@0.9.95-SNAPSHOT",
+        "pkg:maven/org.jruby.extras/jnr-netdb@0.4",
+        "pkg:maven/org.jruby.ext.posix/jnr-posix@1.1.4",
+        "pkg:maven/org.python.util.jython/jython",
+        "pkg:maven/org.apache.lucene/lucene-analyzers@3.0.0",
+        "pkg:maven/org.apache.lucene/lucene-core@3.0.0",
+        "pkg:maven/com.icl.saxon.StyleSheet/saxon",
+        "pkg:maven/saxon65/saxon65",
+        "pkg:maven/saxon9-ant/saxon9-ant",
+        "pkg:maven/net.sf.saxon.Transform/saxon9he",
+        "pkg:maven/org.apache.xml.serializer/serializer@2.7.2",
+        "pkg:maven/org.ccil.cowan.tagsoup.CommandLine/tagsoup@1.2.1",
+        "pkg:maven/webhelpindexer/webhelpindexer",
+        "pkg:maven/org.apache.xalan/xalan@2.7.2",
+        "pkg:maven/xalan27/xalan27",
+        "pkg:maven/org.w3c.dom.ls/xercesImpl@1.4.01",
+        "pkg:maven/org.xml.sax/xml-apis@1.4.01",
+        "pkg:maven/xmlresolver/xmlresolver@0.9.0",
+        "pkg:maven/org.apache.bcel/xsltc@2.7.2"
+      ]
+    },
+    {
+      "name": "python-lit-0.7.0-3.oe1.src.rpm",
+      "purls": [
+        "pkg:pypi/lit@0.7.0"
+      ]
+    },
+    {
+      "name": "python-bcrypt-3.1.4-7.oe1.src.rpm",
+      "purls": [
+        "pkg:pypi/bcrypt@3.1.4"
+      ]
+    },
+    {
+      "name": "python-netaddr-0.7.19-14.oe1.src.rpm",
+      "purls": [
+        "pkg:pypi/netaddr@0.7.19"
+      ]
+    },
+    {
+      "name": "freerdp-2.0.0-44.rc3.h4.oe1.src.rpm",
+      "purls": [
+        "pkg:maven/gradle-wrapper/gradle-wrapper@2.8"
+      ]
+    },
+    {
+      "name": "python-jsonpatch-1.21-5.oe1.src.rpm",
+      "purls": [
+        "pkg:pypi/jsonpatch@1.21"
+      ]
+    },
+    {
+      "name": "python-jsonschema-2.6.0-6.oe1.src.rpm",
+      "purls": [
+        "pkg:pypi/:python_version@2.7",
+        "pkg:pypi/jsonschema@2.6.0"
+      ]
+    },
+    {
+      "name": "python-mysqlclient-1.3.12-7.oe1.src.rpm",
+      "purls": [
+        "pkg:pypi/mysqlclient@1.3.12"
+      ]
+    },
+    {
+      "name": "python-linecache2-1.0.0-18.oe1.src.rpm",
+      "purls": [
+        "pkg:pypi/linecache2@1.0.0"
+      ]
+    },
+    {
+      "name": "grpc-1.22.0-3.oe1.src.rpm",
+      "purls": [
+        "pkg:pypi/certifi@2017.4.17",
+        "pkg:pypi/chardet@3.0.4",
+        "pkg:pypi/googleapis-common-protos@1.5.5",
+        "pkg:maven/gradle-wrapper/gradle-wrapper@2.10",
+        "pkg:maven/gradle-wrapper/gradle-wrapper@2.10",
+        "pkg:npm/grpc-examples@0.1.0",
+        "pkg:npm/grpc-examples@0.1.0",
+        "pkg:pypi/idna@2.7",
+        "pkg:pypi/oauth2client@4.1.0"
+      ]
+    },
+    {
+      "name": "python-dns-1.15.0-10.oe1.src.rpm",
+      "purls": [
+        "pkg:pypi/dnspython@1.15.0"
+      ]
+    },
+    {
+      "name": "python-pytest-fixture-config-1.2.11-6.oe1.src.rpm",
+      "purls": [
+        "pkg:pypi/pytest-fixture-config@1.2.11"
+      ]
+    },
+    {
+      "name": "nodejs-10.11.0-1.oe1.src.rpm",
+      "purls": [
+        "pkg:npm/0-dns@1.0.0",
+        "pkg:npm/@types/node@10.3.5",
+        "pkg:npm/JSONStream@1.3.4",
+        "pkg:npm/abbrev@1.1.1",
+        "pkg:npm/acorn@5.5.3",
+        "pkg:npm/acorn@5.7.2",
+        "pkg:npm/agent-base@4.2.0",
+        "pkg:npm/agentkeepalive@3.4.1",
+        "pkg:npm/ajv@5.5.2",
+        "pkg:npm/ansi-align@2.0.0",
+        "pkg:npm/ansi-regex@2.1.1",
+        "pkg:npm/ansi-regex@3.0.0",
+        "pkg:npm/ansi-regex@3.0.0",
+        "pkg:npm/ansi-regex@3.0.0",
+        "pkg:npm/ansi-styles@3.2.1",
+        "pkg:npm/ansi-styles@3.2.1",
+        "pkg:npm/ansicolors@0.3.2",
+        "pkg:npm/ansistyles@0.1.3",
+        "pkg:npm/anymatch@2.0.0",
+        "pkg:npm/aproba@1.2.0",
+        "pkg:npm/archy@1.0.0",
+        "pkg:npm/are-we-there-yet@1.1.4",
+        "pkg:npm/argparse@1.0.10",
+        "pkg:npm/argparse@1.0.10",
+        "pkg:npm/arr-diff@2.0.0",
+        "pkg:npm/arr-flatten@1.1.0",
+        "pkg:npm/arr-union@3.1.0",
+        "pkg:npm/array-unique@0.2.1",
+        "pkg:npm/asap@2.0.6",
+        "pkg:npm/asn1@0.2.4",
+        "pkg:npm/assert-plus@1.0.0",
+        "pkg:npm/assign-symbols@1.0.0",
+        "pkg:npm/async@1.5.2",
+        "pkg:npm/async-each@1.0.1",
+        "pkg:npm/asynckit@0.4.0",
+        "pkg:npm/atob@2.1.2",
+        "pkg:npm/aws-sign2@0.7.0",
+        "pkg:npm/aws4@1.8.0",
+        "pkg:npm/bail@1.0.3",
+        "pkg:npm/bail@1.0.3",
+        "pkg:npm/balanced-match@1.0.0",
+        "pkg:npm/balanced-match@1.0.0",
+        "pkg:npm/balanced-match@1.0.0",
+        "pkg:npm/base@0.11.2",
+        "pkg:npm/bcrypt-pbkdf@1.0.2",
+        "pkg:npm/bin-links@1.1.2",
+        "pkg:npm/binary-extensions@1.11.0",
+        "pkg:npm/block-stream@0.0.9",
+        "pkg:npm/bluebird@3.5.1",
+        "pkg:npm/boolbase@1.0.0",
+        "pkg:npm/boxen@1.3.0",
+        "pkg:npm/brace-expansion@1.1.11",
+        "pkg:npm/brace-expansion@1.1.11",
+        "pkg:npm/brace-expansion@1.1.11",
+        "pkg:npm/braces@1.8.5",
+        "pkg:npm/buffer-from@1.0.0",
+        "pkg:npm/buffer-from@1.1.1",
+        "pkg:npm/builtin-modules@1.1.1",
+        "pkg:npm/builtin-modules@2.0.0",
+        "pkg:npm/builtins@1.0.3",
+        "pkg:npm/byline@5.0.0",
+        "pkg:npm/byte-size@4.0.3",
+        "pkg:npm/cacache@10.0.4",
+        "pkg:npm/cacache@11.2.0",
+        "pkg:npm/cache-base@1.0.1",
+        "pkg:npm/call-limit@1.1.0",
+        "pkg:npm/camelcase@3.0.0",
+        "pkg:npm/camelcase@4.1.0",
+        "pkg:npm/camelcase@5.0.0",
+        "pkg:npm/capture-stack-trace@1.0.0",
+        "pkg:npm/caseless@0.12.0",
+        "pkg:npm/ccount@1.0.3",
+        "pkg:npm/ccount@1.0.3",
+        "pkg:npm/chalk@2.4.1",
+        "pkg:npm/chalk@2.4.1",
+        "pkg:npm/character-entities@1.2.2",
+        "pkg:npm/character-entities@1.2.2",
+        "pkg:npm/character-entities-html4@1.1.2",
+        "pkg:npm/character-entities-html4@1.1.2",
+        "pkg:npm/character-entities-legacy@1.1.2",
+        "pkg:npm/character-entities-legacy@1.1.2",
+        "pkg:npm/character-reference-invalid@1.1.2",
+        "pkg:npm/character-reference-invalid@1.1.2",
+        "pkg:npm/chokidar@2.0.4",
+        "pkg:npm/chownr@1.0.1",
+        "pkg:npm/ci-info@1.4.0",
+        "pkg:npm/cidr-regex@2.0.9",
+        "pkg:npm/clang-format@1.2.3",
+        "pkg:npm/class-utils@0.3.6",
+        "pkg:npm/cli-boxes@1.0.0",
+        "pkg:npm/cli-columns@3.1.2",
+        "pkg:npm/cli-table3@0.5.0",
+        "pkg:npm/cliui@4.1.0",
+        "pkg:npm/clone@1.0.4",
+        "pkg:npm/cmd-shim@2.0.2",
+        "pkg:npm/co@3.1.0",
+        "pkg:npm/co@4.6.0",
+        "pkg:npm/code-point-at@1.1.0",
+        "pkg:npm/code-point-at@1.1.0",
+        "pkg:npm/collapse-white-space@1.0.4",
+        "pkg:npm/collapse-white-space@1.0.4",
+        "pkg:npm/collection-visit@1.0.0",
+        "pkg:npm/color-convert@1.9.1",
+        "pkg:npm/color-convert@1.9.3",
+        "pkg:npm/color-name@1.1.3",
+        "pkg:npm/color-name@1.1.3",
+        "pkg:npm/colors@1.1.2",
+        "pkg:npm/columnify@1.5.4",
+        "pkg:npm/combined-stream@1.0.6",
+        "pkg:npm/comma-separated-tokens@1.0.5",
+        "pkg:npm/component-emitter@1.2.1",
+        "pkg:npm/concat-map@0.0.1",
+        "pkg:npm/concat-map@0.0.1",
+        "pkg:npm/concat-map@0.0.1",
+        "pkg:npm/concat-stream@1.6.2",
+        "pkg:npm/concat-stream@1.6.2",
+        "pkg:npm/config-chain@1.1.11",
+        "pkg:npm/configstore@3.1.2",
+        "pkg:npm/console-control-strings@1.1.0",
+        "pkg:npm/copy-concurrently@1.0.5",
+        "pkg:npm/copy-descriptor@0.1.1",
+        "pkg:npm/core-util-is@1.0.2",
+        "pkg:npm/core-util-is@1.0.2",
+        "pkg:npm/create-error-class@3.0.2",
+        "pkg:npm/cross-spawn@5.1.0",
+        "pkg:npm/crypto-random-string@1.0.0",
+        "pkg:npm/css-selector-parser@1.3.0",
+        "pkg:npm/cyclist@0.2.2",
+        "pkg:npm/dashdash@1.14.1",
+        "pkg:npm/debug@2.6.9",
+        "pkg:npm/debug@2.6.9",
+        "pkg:npm/debug@3.1.0",
+        "pkg:npm/debuglog@1.0.1",
+        "pkg:npm/decamelize@1.2.0",
+        "pkg:npm/decode-uri-component@0.2.0",
+        "pkg:npm/decode-uri-component@0.2.0",
+        "pkg:npm/deep-extend@0.5.1",
+        "pkg:npm/deep-extend@0.6.0",
+        "pkg:npm/defaults@1.0.3",
+        "pkg:npm/define-properties@1.1.2",
+        "pkg:npm/define-property@2.0.2",
+        "pkg:npm/delayed-stream@1.0.0",
+        "pkg:npm/delegates@1.0.0",
+        "pkg:npm/detab@2.0.1",
+        "pkg:npm/detect-indent@5.0.0",
+        "pkg:npm/detect-newline@2.1.0",
+        "pkg:npm/dezalgo@1.0.3",
+        "pkg:npm/dot-prop@4.2.0",
+        "pkg:npm/dotenv@5.0.1",
+        "pkg:npm/duplexer3@0.1.4",
+        "pkg:npm/duplexify@3.6.0",
+        "pkg:npm/ecc-jsbn@0.1.2",
+        "pkg:npm/editor@1.0.0",
+        "pkg:npm/encoding@0.1.12",
+        "pkg:npm/end-of-stream@1.4.1",
+        "pkg:npm/err-code@1.1.2",
+        "pkg:npm/errno@0.1.7",
+        "pkg:npm/error-ex@1.3.2",
+        "pkg:npm/es6-promise@4.2.4",
+        "pkg:npm/es6-promisify@5.0.0",
+        "pkg:npm/escape-string-regexp@1.0.5",
+        "pkg:npm/escape-string-regexp@1.0.5",
+        "pkg:npm/esprima@4.0.0",
+        "pkg:npm/esprima@4.0.1",
+        "pkg:npm/estree-walker@0.5.1",
+        "pkg:npm/example@0.0.0",
+        "pkg:npm/example@0.0.0",
+        "pkg:npm/execa@0.7.0",
+        "pkg:npm/expand-brackets@0.1.5",
+        "pkg:npm/expand-range@1.8.2",
+        "pkg:npm/extend@3.0.1",
+        "pkg:npm/extend@3.0.2",
+        "pkg:npm/extend@3.0.2",
+        "pkg:npm/extend-shallow@3.0.2",
+        "pkg:npm/extglob@0.3.2",
+        "pkg:npm/extraneous-detected@0.0.0",
+        "pkg:npm/extraneous-dev-dep@0.0.0",
+        "pkg:npm/extsprintf@1.3.0",
+        "pkg:npm/fast-deep-equal@1.1.0",
+        "pkg:npm/fast-json-stable-stringify@2.0.0",
+        "pkg:npm/fault@1.0.2",
+        "pkg:npm/figgy-pudding@2.0.1",
+        "pkg:npm/figgy-pudding@3.4.1",
+        "pkg:npm/filename-regex@2.0.1",
+        "pkg:npm/fill-range@2.2.3",
+        "pkg:npm/find-npm-prefix@1.0.2",
+        "pkg:npm/find-up@2.1.0",
+        "pkg:npm/flush-write-stream@1.0.3",
+        "pkg:npm/fn-name@2.0.1",
+        "pkg:npm/for-in@1.0.2",
+        "pkg:npm/for-own@0.1.5",
+        "pkg:npm/foreach@2.0.5",
+        "pkg:npm/forever-agent@0.6.1",
+        "pkg:npm/form-data@2.3.2",
+        "pkg:npm/format@0.2.2",
+        "pkg:npm/fragment-cache@0.2.1",
+        "pkg:npm/from2@1.3.0",
+        "pkg:npm/from2@2.3.0",
+        "pkg:npm/fs-minipass@1.2.5",
+        "pkg:npm/fs-vacuum@1.2.10",
+        "pkg:npm/fs-write-stream-atomic@1.0.10",
+        "pkg:npm/fs.realpath@1.0.0",
+        "pkg:npm/fs.realpath@1.0.0",
+        "pkg:npm/fs.realpath@1.0.0",
+        "pkg:npm/fsevents@1.2.4",
+        "pkg:npm/fstream@1.0.11",
+        "pkg:npm/function-bind@1.1.1",
+        "pkg:npm/gauge@2.7.4",
+        "pkg:npm/genfun@4.0.1",
+        "pkg:npm/gentle-fs@2.0.1",
+        "pkg:npm/get-caller-file@1.0.2",
+        "pkg:npm/get-stream@3.0.0",
+        "pkg:npm/get-value@2.0.6",
+        "pkg:npm/getpass@0.1.7",
+        "pkg:npm/glob@7.1.2",
+        "pkg:npm/glob@7.1.2",
+        "pkg:npm/glob@7.1.3",
+        "pkg:npm/glob-base@0.3.0",
+        "pkg:npm/glob-parent@2.0.0",
+        "pkg:npm/global-dirs@0.1.1",
+        "pkg:npm/got@6.7.1",
+        "pkg:npm/graceful-fs@4.1.11",
+        "pkg:npm/graceful-fs@4.1.11",
+        "pkg:npm/har-schema@2.0.0",
+        "pkg:npm/har-validator@5.1.0",
+        "pkg:npm/has@1.0.3",
+        "pkg:npm/has-flag@3.0.0",
+        "pkg:npm/has-flag@3.0.0",
+        "pkg:npm/has-unicode@2.0.1",
+        "pkg:npm/has-value@1.0.0",
+        "pkg:npm/has-values@1.0.0",
+        "pkg:npm/hast-to-hyperscript@3.1.0",
+        "pkg:npm/hast-util-from-parse5@2.1.0",
+        "pkg:npm/hast-util-is-element@1.0.1",
+        "pkg:npm/hast-util-parse-selector@2.1.1",
+        "pkg:npm/hast-util-raw@2.0.2",
+        "pkg:npm/hast-util-sanitize@1.2.0",
+        "pkg:npm/hast-util-to-html@3.1.0",
+        "pkg:npm/hast-util-to-parse5@2.2.0",
+        "pkg:npm/hast-util-whitespace@1.0.1",
+        "pkg:npm/hastscript@3.1.0",
+        "pkg:npm/hosted-git-info@2.7.1",
+        "pkg:npm/html-void-elements@1.0.3",
+        "pkg:npm/http-cache-semantics@3.8.1",
+        "pkg:npm/http-proxy-agent@2.1.0",
+        "pkg:npm/http-signature@1.2.0",
+        "pkg:npm/https-proxy-agent@2.2.1",
+        "pkg:npm/humanize-ms@1.2.1",
+        "pkg:npm/iconv-lite@0.4.23",
+        "pkg:npm/iferr@0.1.5",
+        "pkg:npm/iferr@0.1.5",
+        "pkg:npm/iferr@0.1.5",
+        "pkg:npm/iferr@1.0.2",
+        "pkg:npm/ignore@3.3.10",
+        "pkg:npm/ignore-walk@3.0.1",
+        "pkg:npm/import-lazy@2.1.0",
+        "pkg:npm/imurmurhash@0.1.4",
+        "pkg:npm/inflight@1.0.6",
+        "pkg:npm/inflight@1.0.6",
+        "pkg:npm/inflight@1.0.6",
+        "pkg:npm/inherits@2.0.3",
+        "pkg:npm/inherits@2.0.3",
+        "pkg:npm/inherits@2.0.3",
+        "pkg:npm/inherits@2.0.3",
+        "pkg:npm/ini@1.3.5",
+        "pkg:npm/ini@1.3.5",
+        "pkg:npm/init-package-json@1.10.3",
+        "pkg:npm/invert-kv@1.0.0",
+        "pkg:npm/ip@1.1.5",
+        "pkg:npm/ip-regex@2.1.0",
+        "pkg:npm/irregular-plurals@2.0.0",
+        "pkg:npm/is-accessor-descriptor@0.1.6",
+        "pkg:npm/is-alphabetical@1.0.2",
+        "pkg:npm/is-alphabetical@1.0.2",
+        "pkg:npm/is-alphanumeric@1.0.0",
+        "pkg:npm/is-alphanumerical@1.0.2",
+        "pkg:npm/is-alphanumerical@1.0.2",
+        "pkg:npm/is-arrayish@0.2.1",
+        "pkg:npm/is-binary-path@1.0.1",
+        "pkg:npm/is-buffer@1.1.6",
+        "pkg:npm/is-buffer@2.0.3",
+        "pkg:npm/is-builtin-module@1.0.0",
+        "pkg:npm/is-ci@1.1.0",
+        "pkg:npm/is-cidr@2.0.6",
+        "pkg:npm/is-data-descriptor@0.1.4",
+        "pkg:npm/is-decimal@1.0.2",
+        "pkg:npm/is-decimal@1.0.2",
+        "pkg:npm/is-descriptor@0.1.6",
+        "pkg:npm/is-dotfile@1.0.3",
+        "pkg:npm/is-empty@1.2.0",
+        "pkg:npm/is-equal-shallow@0.1.3",
+        "pkg:npm/is-extendable@0.1.1",
+        "pkg:npm/is-extglob@1.0.0",
+        "pkg:npm/is-fullwidth-code-point@1.0.0",
+        "pkg:npm/is-fullwidth-code-point@2.0.0",
+        "pkg:npm/is-fullwidth-code-point@2.0.0",
+        "pkg:npm/is-glob@2.0.1",
+        "pkg:npm/is-hexadecimal@1.0.2",
+        "pkg:npm/is-hexadecimal@1.0.2",
+        "pkg:npm/is-hidden@1.1.1",
+        "pkg:npm/is-installed-globally@0.1.0",
+        "pkg:npm/is-module@1.0.0",
+        "pkg:npm/is-nan@1.2.1",
+        "pkg:npm/is-npm@1.0.0",
+        "pkg:npm/is-number@2.1.0",
+        "pkg:npm/is-obj@1.0.1",
+        "pkg:npm/is-object@1.0.1",
+        "pkg:npm/is-path-inside@1.0.1",
+        "pkg:npm/is-plain-obj@1.1.0",
+        "pkg:npm/is-plain-obj@1.1.0",
+        "pkg:npm/is-plain-object@2.0.4",
+        "pkg:npm/is-posix-bracket@0.1.1",
+        "pkg:npm/is-primitive@2.0.0",
+        "pkg:npm/is-redirect@1.0.0",
+        "pkg:npm/is-retry-allowed@1.1.0",
+        "pkg:npm/is-stream@1.1.0",
+        "pkg:npm/is-typedarray@1.0.0",
+        "pkg:npm/is-whitespace-character@1.0.2",
+        "pkg:npm/is-whitespace-character@1.0.2",
+        "pkg:npm/is-windows@1.0.2",
+        "pkg:npm/is-word-character@1.0.2",
+        "pkg:npm/is-word-character@1.0.2",
+        "pkg:npm/isarray@0.0.1",
+        "pkg:npm/isarray@1.0.0",
+        "pkg:npm/isarray@1.0.0",
+        "pkg:npm/isexe@2.0.0",
+        "pkg:npm/isobject@2.1.0",
+        "pkg:npm/isstream@0.1.2",
+        "pkg:npm/js-yaml@3.11.0",
+        "pkg:npm/js-yaml@3.12.0",
+        "pkg:npm/jsbn@0.1.1",
+        "pkg:npm/json-parse-better-errors@1.0.2",
+        "pkg:npm/json-parse-better-errors@1.0.2",
+        "pkg:npm/json-schema@0.2.3",
+        "pkg:npm/json-schema-traverse@0.3.1",
+        "pkg:npm/json-stringify-safe@5.0.1",
+        "pkg:npm/json5@1.0.1",
+        "pkg:npm/jsonparse@1.3.1",
+        "pkg:npm/jsprim@1.4.1",
+        "pkg:npm/kebab-case@1.0.0",
+        "pkg:npm/kind-of@3.2.2",
+        "pkg:npm/latest-version@3.1.0",
+        "pkg:npm/lazy-property@1.0.0",
+        "pkg:npm/lcid@1.0.0",
+        "pkg:npm/libcipm@2.0.2",
+        "pkg:npm/libnpmhook@4.0.1",
+        "pkg:npm/libnpx@10.2.0",
+        "pkg:npm/load-plugin@2.2.2",
+        "pkg:npm/locate-path@2.0.0",
+        "pkg:npm/lock-verify@2.0.2",
+        "pkg:npm/lockfile@1.0.4",
+        "pkg:npm/lodash._baseindexof@3.1.0",
+        "pkg:npm/lodash._baseuniq@4.6.0",
+        "pkg:npm/lodash._bindcallback@3.0.1",
+        "pkg:npm/lodash._cacheindexof@3.0.2",
+        "pkg:npm/lodash._createcache@3.1.2",
+        "pkg:npm/lodash._createset@4.0.3",
+        "pkg:npm/lodash._getnative@3.9.1",
+        "pkg:npm/lodash._root@3.0.1",
+        "pkg:npm/lodash.clonedeep@4.5.0",
+        "pkg:npm/lodash.debounce@4.0.8",
+        "pkg:npm/lodash.iteratee@4.7.0",
+        "pkg:npm/lodash.restparam@3.6.1",
+        "pkg:npm/lodash.union@4.6.0",
+        "pkg:npm/lodash.uniq@4.5.0",
+        "pkg:npm/lodash.without@4.4.0",
+        "pkg:npm/longest-streak@1.0.0",
+        "pkg:npm/longest-streak@2.0.2",
+        "pkg:npm/lowercase-keys@1.0.1",
+        "pkg:npm/lru-cache@4.1.3",
+        "pkg:npm/magic-string@0.22.5",
+        "pkg:npm/make-dir@1.3.0",
+        "pkg:npm/make-fetch-happen@3.0.0",
+        "pkg:npm/make-fetch-happen@4.0.1",
+        "pkg:npm/map-cache@0.2.2",
+        "pkg:npm/map-visit@1.0.0",
+        "pkg:npm/mapz@1.0.2",
+        "pkg:npm/markdown-escapes@1.0.2",
+        "pkg:npm/markdown-escapes@1.0.2",
+        "pkg:npm/markdown-extensions@1.1.1",
+        "pkg:npm/markdown-table@0.4.0",
+        "pkg:npm/markdown-table@1.1.2",
+        "pkg:npm/mdast-comment-marker@1.0.3",
+        "pkg:npm/mdast-comment-marker@1.0.3",
+        "pkg:npm/mdast-util-compact@1.0.2",
+        "pkg:npm/mdast-util-definitions@1.2.2",
+        "pkg:npm/mdast-util-heading-style@1.0.4",
+        "pkg:npm/mdast-util-to-hast@3.0.1",
+        "pkg:npm/mdast-util-to-string@1.0.5",
+        "pkg:npm/mdurl@1.0.1",
+        "pkg:npm/meant@1.0.1",
+        "pkg:npm/mem@1.1.0",
+        "pkg:npm/micromatch@2.3.11",
+        "pkg:npm/mime-db@1.35.0",
+        "pkg:npm/mime-types@2.1.19",
+        "pkg:npm/mimic-fn@1.2.0",
+        "pkg:npm/minimatch@3.0.4",
+        "pkg:npm/minimatch@3.0.4",
+        "pkg:npm/minimatch@3.0.4",
+        "pkg:npm/minimist@0.0.8",
+        "pkg:npm/minimist@1.2.0",
+        "pkg:npm/minimist@1.2.0",
+        "pkg:npm/minipass@2.3.3",
+        "pkg:npm/minizlib@1.1.0",
+        "pkg:npm/mississippi@2.0.0",
+        "pkg:npm/mississippi@3.0.0",
+        "pkg:npm/mixin-deep@1.3.1",
+        "pkg:npm/mkdirp@0.5.1",
+        "pkg:npm/module-stub@1.1.12",
+        "pkg:npm/move-concurrently@1.0.1",
+        "pkg:npm/ms@2.0.0",
+        "pkg:npm/ms@2.0.0",
+        "pkg:npm/ms@2.0.0",
+        "pkg:npm/ms@2.1.1",
+        "pkg:npm/mute-stream@0.0.7",
+        "pkg:npm/nan@2.11.0",
+        "pkg:npm/nanomatch@1.2.13",
+        "pkg:npm/node-core-clang-format@1.0.0",
+        "pkg:npm/node-doc-generator@0.0.0",
+        "pkg:npm/node-fetch-npm@2.0.2",
+        "pkg:npm/node-gyp@3.8.0",
+        "pkg:npm/node-inspect@1.11.5",
+        "pkg:npm/node-lint-md-cli-rollup@1.0.0",
+        "pkg:npm/nopt@3.0.6",
+        "pkg:npm/nopt@4.0.1",
+        "pkg:npm/normalize-package-data@2.4.0",
+        "pkg:npm/normalize-path@2.1.1",
+        "pkg:npm/npm@6.4.1",
+        "pkg:npm/npm-audit-report@1.3.1",
+        "pkg:npm/npm-bundled@1.0.5",
+        "pkg:npm/npm-cache-filename@1.0.2",
+        "pkg:npm/npm-init@0.0.0",
+        "pkg:npm/npm-install-checks@3.0.0",
+        "pkg:npm/npm-lifecycle@2.1.0",
+        "pkg:npm/npm-logical-tree@1.2.1",
+        "pkg:npm/npm-package-arg@6.1.0",
+        "pkg:npm/npm-packlist@1.1.11",
+        "pkg:npm/npm-pick-manifest@2.1.0",
+        "pkg:npm/npm-prefix@1.2.0",
+        "pkg:npm/npm-profile@3.0.2",
+        "pkg:npm/npm-registry-client@8.6.0",
+        "pkg:npm/npm-registry-fetch@1.1.0",
+        "pkg:npm/npm-registry-fetch@3.1.1",
+        "pkg:npm/npm-run-path@2.0.2",
+        "pkg:npm/npm-user-validate@1.0.0",
+        "pkg:npm/npmlog@4.1.2",
+        "pkg:npm/nth-check@1.0.1",
+        "pkg:npm/number-is-nan@1.0.1",
+        "pkg:npm/number-is-nan@1.0.1",
+        "pkg:npm/oauth-sign@0.9.0",
+        "pkg:npm/object-assign@4.1.1",
+        "pkg:npm/object-assign@4.1.1",
+        "pkg:npm/object-copy@0.1.0",
+        "pkg:npm/object-keys@1.0.12",
+        "pkg:npm/object-visit@1.0.1",
+        "pkg:npm/object.omit@2.0.1",
+        "pkg:npm/object.pick@1.3.0",
+        "pkg:npm/once@1.4.0",
+        "pkg:npm/once@1.4.0",
+        "pkg:npm/once@1.4.0",
+        "pkg:npm/once@1.4.0",
+        "pkg:npm/opener@1.5.0",
+        "pkg:npm/os-homedir@1.0.2",
+        "pkg:npm/os-homedir@1.0.2",
+        "pkg:npm/os-locale@2.1.0",
+        "pkg:npm/os-tmpdir@1.0.2",
+        "pkg:npm/osenv@0.1.5",
+        "pkg:npm/p-finally@1.0.0",
+        "pkg:npm/p-limit@1.2.0",
+        "pkg:npm/p-locate@2.0.0",
+        "pkg:npm/p-try@1.0.0",
+        "pkg:npm/package-json@4.0.1",
+        "pkg:npm/package-name@1.2.3",
+        "pkg:npm/package-name@1.2.3",
+        "pkg:npm/pacote@8.1.6",
+        "pkg:npm/parallel-transform@1.1.0",
+        "pkg:npm/parse-entities@1.1.2",
+        "pkg:npm/parse-entities@1.1.2",
+        "pkg:npm/parse-glob@3.0.4",
+        "pkg:npm/parse-json@4.0.0",
+        "pkg:npm/parse5@3.0.3",
+        "pkg:npm/pascalcase@0.1.1",
+        "pkg:npm/path-dirname@1.0.2",
+        "pkg:npm/path-exists@3.0.0",
+        "pkg:npm/path-is-absolute@1.0.1",
+        "pkg:npm/path-is-absolute@1.0.1",
+        "pkg:npm/path-is-absolute@1.0.1",
+        "pkg:npm/path-is-inside@1.0.2",
+        "pkg:npm/path-key@2.0.1",
+        "pkg:npm/path-parse@1.0.5",
+        "pkg:npm/path-parse@1.0.6",
+        "pkg:npm/performance-now@2.1.0",
+        "pkg:npm/pify@3.0.0",
+        "pkg:npm/plur@3.0.1",
+        "pkg:npm/posix-character-classes@0.1.1",
+        "pkg:npm/prepend-http@1.0.4",
+        "pkg:npm/preserve@0.2.0",
+        "pkg:npm/process-nextick-args@2.0.0",
+        "pkg:npm/process-nextick-args@2.0.0",
+        "pkg:npm/promise-inflight@1.0.1",
+        "pkg:npm/promise-retry@1.1.1",
+        "pkg:npm/promzard@0.3.0",
+        "pkg:npm/property-information@3.2.0",
+        "pkg:npm/proto-list@1.2.4",
+        "pkg:npm/protoduck@5.0.0",
+        "pkg:npm/prr@1.0.1",
+        "pkg:npm/pseudomap@1.0.2",
+        "pkg:npm/psl@1.1.29",
+        "pkg:npm/pump@2.0.1",
+        "pkg:npm/pump@2.0.1",
+        "pkg:npm/pump@3.0.0",
+        "pkg:npm/pumpify@1.5.1",
+        "pkg:npm/punycode@1.4.1",
+        "pkg:npm/qrcode-terminal@0.12.0",
+        "pkg:npm/qs@6.5.2",
+        "pkg:npm/query-string@6.1.0",
+        "pkg:npm/qw@1.0.1",
+        "pkg:npm/randomatic@1.1.7",
+        "pkg:npm/rc@1.2.7",
+        "pkg:npm/rc@1.2.8",
+        "pkg:npm/read@1.0.7",
+        "pkg:npm/read-cmd-shim@1.0.1",
+        "pkg:npm/read-installed@1.0.0",
+        "pkg:npm/read-installed@4.0.3",
+        "pkg:npm/read-package-json@2.0.13",
+        "pkg:npm/read-package-tree@5.2.1",
+        "pkg:npm/readable-stream@1.1.14",
+        "pkg:npm/readable-stream@2.3.6",
+        "pkg:npm/readable-stream@2.3.6",
+        "pkg:npm/readdir-scoped-modules@1.0.2",
+        "pkg:npm/readdirp@2.1.0",
+        "pkg:npm/regex-cache@0.4.4",
+        "pkg:npm/regex-not@1.0.2",
+        "pkg:npm/registry-auth-token@3.3.2",
+        "pkg:npm/registry-url@3.1.0",
+        "pkg:npm/rehype-raw@2.0.0",
+        "pkg:npm/rehype-stringify@3.0.0",
+        "pkg:npm/remark@5.1.0",
+        "pkg:npm/remark@8.0.0",
+        "pkg:npm/remark-html@7.0.0",
+        "pkg:npm/remark-lint@6.0.2",
+        "pkg:npm/remark-lint@6.0.2",
+        "pkg:npm/remark-lint-blockquote-indentation@1.0.2",
+        "pkg:npm/remark-lint-checkbox-character-style@1.0.2",
+        "pkg:npm/remark-lint-checkbox-content-indent@1.0.2",
+        "pkg:npm/remark-lint-code-block-style@1.0.2",
+        "pkg:npm/remark-lint-definition-spacing@1.0.2",
+        "pkg:npm/remark-lint-fenced-code-flag@1.0.2",
+        "pkg:npm/remark-lint-fenced-code-marker@1.0.2",
+        "pkg:npm/remark-lint-file-extension@1.0.2",
+        "pkg:npm/remark-lint-final-definition@1.0.2",
+        "pkg:npm/remark-lint-final-newline@1.0.2",
+        "pkg:npm/remark-lint-first-heading-level@1.1.2",
+        "pkg:npm/remark-lint-hard-break-spaces@1.0.3",
+        "pkg:npm/remark-lint-heading-style@1.0.2",
+        "pkg:npm/remark-lint-maximum-line-length@1.1.0",
+        "pkg:npm/remark-lint-no-auto-link-without-protocol@1.0.2",
+        "pkg:npm/remark-lint-no-blockquote-without-caret@1.0.0",
+        "pkg:npm/remark-lint-no-duplicate-definitions@1.0.2",
+        "pkg:npm/remark-lint-no-file-name-articles@1.0.2",
+        "pkg:npm/remark-lint-no-file-name-consecutive-dashes@1.0.2",
+        "pkg:npm/remark-lint-no-file-name-outer-dashes@1.0.3",
+        "pkg:npm/remark-lint-no-heading-content-indent@1.0.2",
+        "pkg:npm/remark-lint-no-heading-indent@1.0.2",
+        "pkg:npm/remark-lint-no-inline-padding@1.0.2",
+        "pkg:npm/remark-lint-no-multiple-toplevel-headings@1.0.2",
+        "pkg:npm/remark-lint-no-shell-dollars@1.0.2",
+        "pkg:npm/remark-lint-no-shortcut-reference-image@1.0.2",
+        "pkg:npm/remark-lint-no-table-indentation@1.0.2",
+        "pkg:npm/remark-lint-no-tabs@1.0.2",
+        "pkg:npm/remark-lint-no-unused-definitions@1.0.2",
+        "pkg:npm/remark-lint-prohibited-strings@1.0.3",
+        "pkg:npm/remark-lint-rule-style@1.0.2",
+        "pkg:npm/remark-lint-strong-marker@1.0.2",
+        "pkg:npm/remark-lint-table-cell-padding@1.0.2",
+        "pkg:npm/remark-lint-table-pipes@1.0.2",
+        "pkg:npm/remark-message-control@4.1.0",
+        "pkg:npm/remark-message-control@4.1.0",
+        "pkg:npm/remark-parse@4.0.0",
+        "pkg:npm/remark-parse@5.0.0",
+        "pkg:npm/remark-preset-lint-node@1.0.2",
+        "pkg:npm/remark-preset-lint-node@file:remark-preset-lint-node",
+        "pkg:npm/remark-rehype@3.0.0",
+        "pkg:npm/remark-stringify@1.1.0",
+        "pkg:npm/remark-stringify@4.0.0",
+        "pkg:npm/remove-trailing-separator@1.1.0",
+        "pkg:npm/repeat-element@1.1.2",
+        "pkg:npm/repeat-string@1.6.1",
+        "pkg:npm/repeat-string@1.6.1",
+        "pkg:npm/replace-ext@1.0.0",
+        "pkg:npm/replace-ext@1.0.0",
+        "pkg:npm/request@2.88.0",
+        "pkg:npm/require-directory@2.1.1",
+        "pkg:npm/require-main-filename@1.0.1",
+        "pkg:npm/resolve@1.7.1",
+        "pkg:npm/resolve@1.8.1",
+        "pkg:npm/resolve-from@4.0.0",
+        "pkg:npm/resolve-from@4.0.0",
+        "pkg:npm/resolve-url@0.2.1",
+        "pkg:npm/ret@0.1.15",
+        "pkg:npm/retry@0.10.1",
+        "pkg:npm/retry@0.10.1",
+        "pkg:npm/retry@0.12.0",
+        "pkg:npm/rimraf@2.6.2",
+        "pkg:npm/rollup@0.55.5",
+        "pkg:npm/rollup-plugin-commonjs@8.4.1",
+        "pkg:npm/rollup-plugin-json@2.3.1",
+        "pkg:npm/rollup-plugin-node-resolve@3.4.0",
+        "pkg:npm/rollup-pluginutils@2.0.1",
+        "pkg:npm/run-queue@1.0.3",
+        "pkg:npm/safe-buffer@5.1.2",
+        "pkg:npm/safe-buffer@5.1.2",
+        "pkg:npm/safe-regex@1.1.0",
+        "pkg:npm/safer-buffer@2.1.2",
+        "pkg:npm/semver@5.3.0",
+        "pkg:npm/semver@5.5.0",
+        "pkg:npm/semver-diff@2.1.0",
+        "pkg:npm/set-blocking@2.0.0",
+        "pkg:npm/set-immediate-shim@1.0.1",
+        "pkg:npm/set-value@2.0.0",
+        "pkg:npm/sha@2.0.1",
+        "pkg:npm/shebang-command@1.2.0",
+        "pkg:npm/shebang-regex@1.0.0",
+        "pkg:npm/shellsubstitute@1.2.0",
+        "pkg:npm/signal-exit@3.0.2",
+        "pkg:npm/slash@1.0.0",
+        "pkg:npm/sliced@1.0.1",
+        "pkg:npm/slide@1.1.6",
+        "pkg:npm/smart-buffer@1.1.15",
+        "pkg:npm/smart-buffer@4.0.1",
+        "pkg:npm/snapdragon@0.8.2",
+        "pkg:npm/snapdragon-node@2.1.1",
+        "pkg:npm/snapdragon-util@3.0.1",
+        "pkg:npm/socks@1.1.10",
+        "pkg:npm/socks@2.2.0",
+        "pkg:npm/socks-proxy-agent@3.0.1",
+        "pkg:npm/socks-proxy-agent@4.0.1",
+        "pkg:npm/sorted-object@2.0.1",
+        "pkg:npm/sorted-union-stream@2.1.3",
+        "pkg:npm/source-map@0.5.7",
+        "pkg:npm/source-map-resolve@0.5.2",
+        "pkg:npm/source-map-url@0.4.0",
+        "pkg:npm/space-separated-tokens@1.1.2",
+        "pkg:npm/spdx-correct@3.0.0",
+        "pkg:npm/spdx-exceptions@2.1.0",
+        "pkg:npm/spdx-expression-parse@3.0.0",
+        "pkg:npm/spdx-license-ids@3.0.0",
+        "pkg:npm/split-string@3.1.0",
+        "pkg:npm/sprintf-js@1.0.3",
+        "pkg:npm/sprintf-js@1.0.3",
+        "pkg:npm/sshpk@1.14.2",
+        "pkg:npm/ssri@5.3.0",
+        "pkg:npm/ssri@5.3.0",
+        "pkg:npm/ssri@6.0.0",
+        "pkg:npm/state-toggle@1.0.1",
+        "pkg:npm/state-toggle@1.0.1",
+        "pkg:npm/static-extend@0.1.2",
+        "pkg:npm/stream-each@1.2.2",
+        "pkg:npm/stream-iterate@1.2.0",
+        "pkg:npm/stream-shift@1.0.0",
+        "pkg:npm/strict-uri-encode@2.0.0",
+        "pkg:npm/string-width@1.0.2",
+        "pkg:npm/string-width@1.0.2",
+        "pkg:npm/string-width@1.0.2",
+        "pkg:npm/string-width@2.1.1",
+        "pkg:npm/string-width@2.1.1",
+        "pkg:npm/string_decoder@0.10.31",
+        "pkg:npm/string_decoder@1.1.1",
+        "pkg:npm/string_decoder@1.1.1",
+        "pkg:npm/stringify-entities@1.3.2",
+        "pkg:npm/stringify-entities@1.3.2",
+        "pkg:npm/stringify-package@1.0.0",
+        "pkg:npm/strip-ansi@3.0.1",
+        "pkg:npm/strip-ansi@4.0.0",
+        "pkg:npm/strip-ansi@4.0.0",
+        "pkg:npm/strip-ansi@4.0.0",
+        "pkg:npm/strip-eof@1.0.0",
+        "pkg:npm/strip-json-comments@2.0.1",
+        "pkg:npm/strip-json-comments@2.0.1",
+        "pkg:npm/supports-color@5.4.0",
+        "pkg:npm/supports-color@5.5.0",
+        "pkg:npm/tar@2.2.1",
+        "pkg:npm/tar@4.4.6",
+        "pkg:npm/term-size@1.2.0",
+        "pkg:npm/text-table@0.2.0",
+        "pkg:npm/text-table@0.2.0",
+        "pkg:npm/through@2.3.8",
+        "pkg:npm/through2@2.0.3",
+        "pkg:npm/timed-out@4.0.1",
+        "pkg:npm/tiny-relative-date@1.3.0",
+        "pkg:npm/to-object-path@0.3.0",
+        "pkg:npm/to-regex@3.0.2",
+        "pkg:npm/to-regex-range@2.1.1",
+        "pkg:npm/to-vfile@4.0.0",
+        "pkg:npm/to-vfile@5.0.0",
+        "pkg:npm/tough-cookie@2.4.3",
+        "pkg:npm/trim@0.0.1",
+        "pkg:npm/trim@0.0.1",
+        "pkg:npm/trim@0.0.1",
+        "pkg:npm/trim-lines@1.1.1",
+        "pkg:npm/trim-trailing-lines@1.1.1",
+        "pkg:npm/trim-trailing-lines@1.1.1",
+        "pkg:npm/trough@1.0.2",
+        "pkg:npm/trough@1.0.3",
+        "pkg:npm/tunnel-agent@0.6.0",
+        "pkg:npm/tweetnacl@0.14.5",
+        "pkg:npm/typedarray@0.0.6",
+        "pkg:npm/typedarray@0.0.6",
+        "pkg:npm/uid-number@0.0.6",
+        "pkg:npm/umask@1.1.0",
+        "pkg:npm/unherit@1.1.1",
+        "pkg:npm/unherit@1.1.1",
+        "pkg:npm/unified@6.2.0",
+        "pkg:npm/unified@7.0.0",
+        "pkg:npm/unified-args@6.0.0",
+        "pkg:npm/unified-engine@5.1.0",
+        "pkg:npm/unified-lint-rule@1.0.3",
+        "pkg:npm/unified-message-control@1.0.4",
+        "pkg:npm/unified-message-control@1.0.4",
+        "pkg:npm/union-value@1.0.0",
+        "pkg:npm/unique-filename@1.1.0",
+        "pkg:npm/unique-slug@2.0.0",
+        "pkg:npm/unique-string@1.0.0",
+        "pkg:npm/unist-builder@1.0.2",
+        "pkg:npm/unist-util-find@1.0.1",
+        "pkg:npm/unist-util-generated@1.1.2",
+        "pkg:npm/unist-util-generated@1.1.2",
+        "pkg:npm/unist-util-inspect@4.1.3",
+        "pkg:npm/unist-util-is@2.1.2",
+        "pkg:npm/unist-util-is@2.1.2",
+        "pkg:npm/unist-util-is@2.1.2",
+        "pkg:npm/unist-util-position@3.0.1",
+        "pkg:npm/unist-util-position@3.0.1",
+        "pkg:npm/unist-util-remove-position@1.1.2",
+        "pkg:npm/unist-util-remove-position@1.1.2",
+        "pkg:npm/unist-util-select@1.5.0",
+        "pkg:npm/unist-util-stringify-position@1.1.2",
+        "pkg:npm/unist-util-stringify-position@1.1.2",
+        "pkg:npm/unist-util-stringify-position@1.1.2",
+        "pkg:npm/unist-util-visit@1.3.1",
+        "pkg:npm/unist-util-visit@1.4.0",
+        "pkg:npm/unist-util-visit@1.4.0",
+        "pkg:npm/unist-util-visit-parents@2.0.1",
+        "pkg:npm/unist-util-visit-parents@2.0.1",
+        "pkg:npm/unpipe@1.0.0",
+        "pkg:npm/unset-value@1.0.0",
+        "pkg:npm/untildify@2.1.0",
+        "pkg:npm/unzip-response@2.0.1",
+        "pkg:npm/upath@1.1.0",
+        "pkg:npm/update-notifier@2.5.0",
+        "pkg:npm/urix@0.1.0",
+        "pkg:npm/url-parse-lax@1.0.0",
+        "pkg:npm/use@3.1.1",
+        "pkg:npm/util-deprecate@1.0.2",
+        "pkg:npm/util-deprecate@1.0.2",
+        "pkg:npm/util-extend@1.0.3",
+        "pkg:npm/uuid@3.3.2",
+        "pkg:npm/validate-npm-package-license@3.0.4",
+        "pkg:npm/validate-npm-package-name@3.0.0",
+        "pkg:npm/verror@1.10.0",
+        "pkg:npm/vfile@2.3.0",
+        "pkg:npm/vfile@3.0.0",
+        "pkg:npm/vfile-location@2.0.3",
+        "pkg:npm/vfile-location@2.0.3",
+        "pkg:npm/vfile-location@2.0.3",
+        "pkg:npm/vfile-message@1.0.1",
+        "pkg:npm/vfile-message@1.0.1",
+        "pkg:npm/vfile-reporter@5.0.0",
+        "pkg:npm/vfile-statistics@1.1.1",
+        "pkg:npm/vlq@0.2.3",
+        "pkg:npm/wcwidth@1.0.1",
+        "pkg:npm/web-namespaces@1.1.2",
+        "pkg:npm/which@1.3.1",
+        "pkg:npm/which-module@2.0.0",
+        "pkg:npm/wide-align@1.1.2",
+        "pkg:npm/widest-line@2.0.0",
+        "pkg:npm/worker-farm@1.6.0",
+        "pkg:npm/wrap-ansi@2.1.0",
+        "pkg:npm/wrapped@1.0.1",
+        "pkg:npm/wrappy@1.0.2",
+        "pkg:npm/wrappy@1.0.2",
+        "pkg:npm/wrappy@1.0.2",
+        "pkg:npm/wrappy@1.0.2",
+        "pkg:npm/write-file-atomic@2.3.0",
+        "pkg:npm/x-is-array@0.1.0",
+        "pkg:npm/x-is-function@1.0.4",
+        "pkg:npm/x-is-string@0.1.0",
+        "pkg:npm/x-is-string@0.1.0",
+        "pkg:npm/xdg-basedir@3.0.0",
+        "pkg:npm/xtend@4.0.1",
+        "pkg:npm/xtend@4.0.1",
+        "pkg:npm/xtend@4.0.1",
+        "pkg:npm/xtend@4.0.1",
+        "pkg:npm/y18n@3.2.1",
+        "pkg:npm/y18n@4.0.0",
+        "pkg:npm/yallist@2.1.2",
+        "pkg:npm/yallist@3.0.2",
+        "pkg:npm/yallist@3.0.2",
+        "pkg:npm/yargs@11.0.0",
+        "pkg:npm/yargs-parser@9.0.2",
+        "pkg:npm/zwitch@1.0.3"
+      ]
+    },
+    {
+      "name": "dnf-plugins-core-4.0.11-5.oe1.src.rpm",
+      "purls": [
+        "pkg:rpm/bar@4-6?arch=noarch&epoch=0&upstream=bar-4-6.src.rpm",
+        "pkg:rpm/foo@4-6?arch=noarch&epoch=0&upstream=foo-4-6.src.rpm",
+        "pkg:rpm/foo@4-6?arch=noarch&epoch=0&upstream=foo-4-6.src.rpm",
+        "pkg:rpm/foo@4-6?arch=noarch&epoch=0",
+        "pkg:rpm/foo@4-7?arch=noarch&epoch=0",
+        "pkg:rpm/foo@4-8?arch=noarch&epoch=0",
+        "pkg:rpm/foo@4-6?arch=noarch&epoch=0&upstream=foo-4-6.src.rpm",
+        "pkg:rpm/foo@4-7?arch=noarch&epoch=0&upstream=foo-4-7.src.rpm",
+        "pkg:rpm/foo@4-8?arch=noarch&epoch=0&upstream=foo-4-8.src.rpm",
+        "pkg:rpm/tour@4-6?arch=noarch&epoch=0"
+      ]
+    },
+    {
+      "name": "python-virtualenv-16.0.0-6.oe1.src.rpm",
+      "purls": [
+        "pkg:pypi/virtualenv@16.0.0"
+      ]
+    },
+    {
+      "name": "python-construct-2.5.1-19.oe1.src.rpm",
+      "purls": [
+        "pkg:pypi/construct@2.5.1"
+      ]
+    },
+    {
+      "name": "mongodb-4.0.1-3.oe1.src.rpm",
+      "purls": [
+        "pkg:pypi/PyYAML@3.11",
+        "pkg:pypi/boto3@1.5.27",
+        "pkg:pypi/cheetah3@3.0.0",
+        "pkg:pypi/concurrencytest@0.1.2",
+        "pkg:pypi/cryptography@1.7.2",
+        "pkg:pypi/jinja2@2.10",
+        "pkg:pypi/jira@1.0.10",
+        "pkg:pypi/mock@2.0.0",
+        "pkg:pypi/mock@2.0.0",
+        "pkg:pypi/mypy@0.580",
+        "pkg:pypi/psutil@5.4.3",
+        "pkg:pypi/pydocstyle@2.1.1",
+        "pkg:pypi/pyjwt@1.5.3",
+        "pkg:pypi/pylint@1.8.3",
+        "pkg:pypi/pypiwin32@219",
+        "pkg:pypi/pypiwin32@223",
+        "pkg:pypi/python-subunit@0.0.16",
+        "pkg:pypi/pyyaml@3.11",
+        "pkg:pypi/scons@2.5.0",
+        "pkg:pypi/testscenarios@0.4",
+        "pkg:pypi/typing@3.6.1",
+        "pkg:pypi/unittest-xml-reporting@2.1.0",
+        "pkg:pypi/yapf@0.21.0"
+      ]
+    },
+    {
+      "name": "python-execnet-1.5.0-5.oe1.src.rpm",
+      "purls": [
+        "pkg:pypi/execnet@1.5.0"
+      ]
+    },
+    {
+      "name": "rpm-4.15.1-12.oe1.src.rpm",
+      "purls": [
+        "pkg:rpm/capstest@1.0-1?arch=noarch&epoch=0&upstream=capstest-1.0-1.src.rpm",
+        "pkg:rpm/foo@1.0-1?arch=noarch&epoch=0",
+        "pkg:rpm/foo@1.0-1?arch=noarch&epoch=0&upstream=foo-1.0-1.src.rpm",
+        "pkg:rpm/hello@1.0-1?arch=i386&epoch=0",
+        "pkg:rpm/hello@1.0-1?arch=i386&epoch=0&upstream=hello-1.0-1.src.rpm",
+        "pkg:rpm/hello@1.0-1?arch=ppc64&epoch=0&upstream=hello-1.0-1.src.rpm",
+        "pkg:rpm/hello@2.0-1?arch=i686&epoch=0&upstream=hello-2.0-1.src.rpm",
+        "pkg:rpm/hello@2.0-1?arch=x86_64&epoch=0&upstream=hello-2.0-1.src.rpm",
+        "pkg:rpm/hello@2.0-1?arch=x86_64&epoch=0&upstream=hello-2.0-1.src.rpm"
+      ]
+    },
+    {
+      "name": "python-gevent-1.3.6-2.oe1.src.rpm",
+      "purls": [
+        "pkg:pypi/gevent@1.3.6"
+      ]
+    },
+    {
+      "name": "python-hyperlink-18.0.0-8.oe1.src.rpm",
+      "purls": [
+        "pkg:pypi/coverage@4.4.1",
+        "pkg:pypi/hyperlink@18.0.0",
+        "pkg:pypi/idna@2.5",
+        "pkg:pypi/pytest@2.9.2",
+        "pkg:pypi/pytest-cov@2.3.0",
+        "pkg:pypi/tox@2.6.0"
+      ]
+    },
+    {
+      "name": "python-importlib-metadata-0.23-1.oe1.src.rpm",
+      "purls": [
+        "pkg:pypi/importlib-metadata@0.23"
+      ]
+    },
+    {
+      "name": "python-lxml-4.2.3-3.oe1.src.rpm",
+      "purls": [
+        "pkg:pypi/lxml@4.2.3"
+      ]
+    },
+    {
+      "name": "python-werkzeug-0.14.1-6.oe1.src.rpm",
+      "purls": [
+        "pkg:pypi/Werkzeug@0.14.1"
+      ]
+    },
+    {
+      "name": "python-pysocks-1.7.0-2.oe1.src.rpm",
+      "purls": [
+        "pkg:pypi/PySocks@1.7.0"
+      ]
+    },
+    {
+      "name": "python-pid-2.1.1-12.oe1.src.rpm",
+      "purls": [
+        "pkg:pypi/pid@2.1.1"
+      ]
+    },
+    {
+      "name": "python-pytest-shutil-1.2.6-6.oe1.src.rpm",
+      "purls": [
+        "pkg:pypi/pytest-shutil@1.2.6"
+      ]
+    },
+    {
+      "name": "python-sure-1.4.11-4.oe1.src.rpm",
+      "purls": [
+        "pkg:pypi/mock@2.0.0",
+        "pkg:pypi/six@1.10.0",
+        "pkg:pypi/sure@1.4.11"
+      ]
+    },
+    {
+      "name": "SDL2-2.0.8-9.oe1.src.rpm",
+      "purls": [
+        "pkg:maven/gradle-wrapper/gradle-wrapper@2.10"
+      ]
+    },
+    {
+      "name": "python-cherrypy-3.5.0-12.oe1.src.rpm",
+      "purls": [
+        "pkg:pypi/CherryPy@3.5.0"
+      ]
+    },
+    {
+      "name": "python-iso8601-0.1.11-2.oe1.src.rpm",
+      "purls": [
+        "pkg:pypi/iso8601@0.1.11"
+      ]
+    },
+    {
+      "name": "python-sphinx_rtd_theme-0.4.1-2.oe1.src.rpm",
+      "purls": [
+        "pkg:pypi/sphinx-rtd-theme@0.4.1"
+      ]
+    },
+    {
+      "name": "dbus-python-1.2.8-8.oe1.src.rpm",
+      "purls": [
+        "pkg:pypi/dbus-python@1.2.8"
+      ]
+    },
+    {
+      "name": "python-docker-pycreds-0.4.0-1.oe1.src.rpm",
+      "purls": [
+        "pkg:pypi/docker-pycreds@0.4.0",
+        "pkg:pypi/flake8@2.4.1",
+        "pkg:pypi/pytest@3.0.2",
+        "pkg:pypi/pytest-cov@2.3.1"
+      ]
+    },
+    {
+      "name": "librepo-1.11.0-2.oe1.src.rpm",
+      "purls": [
+        "pkg:rpm/Archer@3.4.5-6?arch=x86_64&epoch=2&upstream=Archer-3.4.5-6.src.rpm",
+        "pkg:rpm/empty@0-0?arch=x86_64&epoch=0",
+        "pkg:rpm/filesystem@2.4.44-1.fc16?arch=i686&epoch=0&upstream=filesystem-2.4.44-1.fc16.src.rpm"
+      ]
+    },
+    {
+      "name": "python-jwt-1.7.1-2.oe1.src.rpm",
+      "purls": [
+        "pkg:pypi/PyJWT@1.7.1"
+      ]
+    },
+    {
+      "name": "firefox-62.0.3-4.oe1.src.rpm",
+      "purls": [
+        "pkg:rpm/firefox@62.0.3-4.oe1?arch=aarch64&epoch=0"
+      ]
+    },
+    {
+      "name": "kata-containers-v1.7.0-18.oe1.src.rpm",
+      "purls": [
+        "pkg:rpm/kata-containers@v1.7.0-18.oe1?arch=aarch64&epoch=0"
+      ]
+    },
+    {
+      "name": "syscontainer-tools-v0.9-36.oe1.src.rpm",
+      "purls": [
+        "pkg:golang/github.com/BurntSushi/toml@v0.3.1",
+        "pkg:golang/github.com/Microsoft/go-winio@v0.4.14",
+        "pkg:golang/github.com/coreos/go-systemd@v0.0.0-20161114122254-48702e0da86b",
+        "pkg:golang/github.com/coreos/pkg@v0.0.0-20180928190104-399ea9e2e55f",
+        "pkg:golang/github.com/davecgh/go-spew@v1.1.1",
+        "pkg:golang/github.com/docker/docker@v1.13.1",
+        "pkg:golang/github.com/docker/go-units@v0.4.0",
+        "pkg:golang/github.com/docker/libnetwork@v0.5.6",
+        "pkg:golang/github.com/go-yaml/yaml@v2.1.0 incompatible",
+        "pkg:golang/github.com/godbus/dbus@v4.1.0 incompatible",
+        "pkg:golang/github.com/golang/crypto@v0.0.0-20190701094942-4def268fd1a4",
+        "pkg:golang/github.com/golang/net@v0.0.0-20190813141303-74dc4d7220e7",
+        "pkg:golang/github.com/golang/protobuf@v1.3.2",
+        "pkg:golang/github.com/golang/sync@v0.0.0-20190423024810-112230192c58",
+        "pkg:golang/github.com/golang/sys@v0.0.0-20190813064441-fde4db37ae7a",
+        "pkg:golang/github.com/golang/text@v0.3.2",
+        "pkg:golang/github.com/golang/tools@v0.0.0-20190815235612-5b08f89bfc0c",
+        "pkg:golang/github.com/golang/xerrors@v0.0.0-20190717185122-a985d3407aa7",
+        "pkg:golang/github.com/konsorten/go-windows-terminal-sequences@v1.0.1",
+        "pkg:golang/github.com/mrunalp/fileutils@v0.0.0-20171103030105-7d4729fb3618",
+        "pkg:golang/github.com/opencontainers/runc@v1.0.0-rc3",
+        "pkg:golang/github.com/opencontainers/runtime-spec@v1.0.0-rc5",
+        "pkg:golang/github.com/pkg/errors@v0.8.1",
+        "pkg:golang/github.com/pmezard/go-difflib@v1.0.0",
+        "pkg:golang/github.com/seccomp/libseccomp-golang@v0.9.1",
+        "pkg:golang/github.com/sirupsen/logrus@v1.4.1",
+        "pkg:golang/github.com/sirupsen/logrus@v1.4.2",
+        "pkg:golang/github.com/stretchr/objx@v0.1.1",
+        "pkg:golang/github.com/stretchr/testify@v1.2.2",
+        "pkg:golang/github.com/syndtr/gocapability@v0.0.0-20180916011248-d98352740cb2",
+        "pkg:golang/github.com/urfave/cli@v1.21.0",
+        "pkg:golang/github.com/vishvananda/netlink@v1.0.0",
+        "pkg:golang/github.com/vishvananda/netns@v0.0.0-20190625233234-7109fa855b0f",
+        "pkg:golang/golang.org/x/sys@v0.0.0-20190422165155-953cdadca894",
+        "pkg:golang/golang.org/x/sys@v0.0.0-20190507160741-ecd444e8653b",
+        "pkg:golang/golang.org/x/sys@v0.0.0-20190507160741-ecd444e8653b",
+        "pkg:golang/gopkg.in/yaml.v2@v2.2.2"
+      ]
+    },
+    {
+      "name": "python-pbr-4.1.1-3.oe1.src.rpm",
+      "purls": [
+        "pkg:pypi/pbr@4.1.1"
+      ]
+    },
+    {
+      "name": "python-testtools-2.3.0-11.oe1.src.rpm",
+      "purls": [
+        "pkg:pypi/testtools@2.3.0"
+      ]
+    },
+    {
+      "name": "python-coverage-4.5.3-1.oe1.src.rpm",
+      "purls": [
+        "pkg:pypi/coverage@4.5.3"
+      ]
+    },
+    {
+      "name": "python2-2.7.16-15.oe1.src.rpm",
+      "purls": [
+        "pkg:pypi/wsgiref@0.1.2"
+      ]
+    },
+    {
+      "name": "python-simplegeneric-0.8.1-11.oe1.src.rpm",
+      "purls": [
+        "pkg:pypi/simplegeneric@0.8.1"
+      ]
+    },
+    {
+      "name": "scipy-1.2.2-2.oe1.src.rpm",
+      "purls": [
+        "pkg:npm/MathJax-grunt-cleaner@0.1.0"
+      ]
+    },
+    {
+      "name": "nss-3.40.1-11.oe1.src.rpm",
+      "purls": [
+        "pkg:npm/decision-task@0.0.1"
+      ]
+    },
+    {
+      "name": "python-html5lib-1.0.1-5.oe1.src.rpm",
+      "purls": [
+        "pkg:pypi/pytest@3.2.5"
+      ]
+    },
+    {
+      "name": "librsvg2-2.44.15-1.oe1.src.rpm",
+      "purls": [
+        "pkg:cargo/aho-corasick@0.6.8",
+        "pkg:cargo/alga@0.7.2",
+        "pkg:cargo/ansi_term@0.11.0",
+        "pkg:cargo/approx@0.3.0",
+        "pkg:cargo/arrayvec@0.4.7",
+        "pkg:cargo/atty@0.2.11",
+        "pkg:cargo/backtrace@0.3.9",
+        "pkg:cargo/backtrace-sys@0.1.24",
+        "pkg:cargo/bitflags@0.9.1",
+        "pkg:cargo/bitflags@1.0.4",
+        "pkg:cargo/byteorder@1.2.6",
+        "pkg:cargo/c_vec@1.3.2",
+        "pkg:cargo/cairo-rs@0.4.1",
+        "pkg:cargo/cairo-sys-rs@0.6.0",
+        "pkg:cargo/cast@0.2.2",
+        "pkg:cargo/cc@1.0.25",
+        "pkg:cargo/cfg-if@0.1.5",
+        "pkg:cargo/chrono@0.4.6",
+        "pkg:cargo/clap@2.32.0",
+        "pkg:cargo/cloudabi@0.0.3",
+        "pkg:cargo/criterion@0.2.5",
+        "pkg:cargo/criterion-plot@0.2.5",
+        "pkg:cargo/criterion-stats@0.2.5",
+        "pkg:cargo/crossbeam-deque@0.2.0",
+        "pkg:cargo/crossbeam-epoch@0.3.1",
+        "pkg:cargo/crossbeam-utils@0.2.2",
+        "pkg:cargo/cssparser@0.24.0",
+        "pkg:cargo/cssparser-macros@0.3.4",
+        "pkg:cargo/csv@1.0.2",
+        "pkg:cargo/csv-core@0.1.4",
+        "pkg:cargo/downcast-rs@1.0.3",
+        "pkg:cargo/dtoa@0.4.3",
+        "pkg:cargo/dtoa-short@0.3.2",
+        "pkg:cargo/either@1.5.0",
+        "pkg:cargo/failure@0.1.2",
+        "pkg:cargo/failure_derive@0.1.2",
+        "pkg:cargo/float-cmp@0.4.0",
+        "pkg:cargo/fuchsia-zircon@0.3.3",
+        "pkg:cargo/fuchsia-zircon-sys@0.3.3",
+        "pkg:cargo/gdk-pixbuf@0.4.0",
+        "pkg:cargo/gdk-pixbuf-sys@0.6.0",
+        "pkg:cargo/generic-array@0.11.1",
+        "pkg:cargo/gio@0.4.1",
+        "pkg:cargo/gio-sys@0.6.0",
+        "pkg:cargo/glib@0.5.0",
+        "pkg:cargo/glib-sys@0.6.0",
+        "pkg:cargo/gobject-sys@0.6.0",
+        "pkg:cargo/handlebars@0.32.4",
+        "pkg:cargo/itertools@0.7.8",
+        "pkg:cargo/itertools-num@0.1.2",
+        "pkg:cargo/itoa@0.4.3",
+        "pkg:cargo/kernel32-sys@0.2.2",
+        "pkg:cargo/language-tags@0.2.2",
+        "pkg:cargo/lazy_static@0.2.11",
+        "pkg:cargo/lazy_static@1.1.0",
+        "pkg:cargo/libc@0.2.43",
+        "pkg:cargo/libm@0.1.2",
+        "pkg:cargo/locale_config@0.2.2",
+        "pkg:cargo/log@0.4.5",
+        "pkg:cargo/matches@0.1.8",
+        "pkg:cargo/matrixmultiply@0.1.14",
+        "pkg:cargo/memchr@2.1.0",
+        "pkg:cargo/memoffset@0.2.1",
+        "pkg:cargo/nalgebra@0.16.4",
+        "pkg:cargo/nodrop@0.1.12",
+        "pkg:cargo/num-complex@0.2.0",
+        "pkg:cargo/num-integer@0.1.39",
+        "pkg:cargo/num-traits@0.2.6",
+        "pkg:cargo/num_cpus@1.8.0",
+        "pkg:cargo/owning_ref@0.3.3",
+        "pkg:cargo/pango@0.4.0",
+        "pkg:cargo/pango-sys@0.6.0",
+        "pkg:cargo/pangocairo@0.5.0",
+        "pkg:cargo/pangocairo-sys@0.7.0",
+        "pkg:cargo/pest@1.0.6",
+        "pkg:cargo/pest_derive@1.0.8",
+        "pkg:cargo/phf@0.7.23",
+        "pkg:cargo/phf_codegen@0.7.23",
+        "pkg:cargo/phf_generator@0.7.23",
+        "pkg:cargo/phf_shared@0.7.23",
+        "pkg:cargo/pkg-config@0.3.14",
+        "pkg:cargo/proc-macro2@0.4.19",
+        "pkg:cargo/procedural-masquerade@0.1.6",
+        "pkg:cargo/quick-error@1.2.2",
+        "pkg:cargo/quote@0.3.15",
+        "pkg:cargo/quote@0.6.8",
+        "pkg:cargo/rand@0.4.3",
+        "pkg:cargo/rand@0.5.5",
+        "pkg:cargo/rand_core@0.2.2",
+        "pkg:cargo/rand_core@0.3.0",
+        "pkg:cargo/rawpointer@0.1.0",
+        "pkg:cargo/rayon@1.0.2",
+        "pkg:cargo/rayon-core@1.4.1",
+        "pkg:cargo/redox_syscall@0.1.40",
+        "pkg:cargo/redox_termios@0.1.1",
+        "pkg:cargo/regex@0.2.11",
+        "pkg:cargo/regex@1.0.5",
+        "pkg:cargo/regex-syntax@0.5.6",
+        "pkg:cargo/regex-syntax@0.6.2",
+        "pkg:cargo/rsvg_internals@0.0.1",
+        "pkg:cargo/rustc-demangle@0.1.9",
+        "pkg:cargo/ryu@0.2.6",
+        "pkg:cargo/same-file@1.0.3",
+        "pkg:cargo/scopeguard@0.3.3",
+        "pkg:cargo/serde@1.0.79",
+        "pkg:cargo/serde_derive@1.0.79",
+        "pkg:cargo/serde_json@1.0.31",
+        "pkg:cargo/simplelog@0.5.2",
+        "pkg:cargo/siphasher@0.2.3",
+        "pkg:cargo/smallvec@0.6.5",
+        "pkg:cargo/stable_deref_trait@1.1.1",
+        "pkg:cargo/strsim@0.7.0",
+        "pkg:cargo/syn@0.11.11",
+        "pkg:cargo/syn@0.14.9",
+        "pkg:cargo/syn@0.15.7",
+        "pkg:cargo/synom@0.11.3",
+        "pkg:cargo/synstructure@0.9.0",
+        "pkg:cargo/term@0.5.1",
+        "pkg:cargo/termion@1.5.1",
+        "pkg:cargo/textwrap@0.10.0",
+        "pkg:cargo/thread-scoped@1.0.2",
+        "pkg:cargo/thread_local@0.3.6",
+        "pkg:cargo/time@0.1.40",
+        "pkg:cargo/typenum@1.10.0",
+        "pkg:cargo/ucd-util@0.1.1",
+        "pkg:cargo/unicode-width@0.1.5",
+        "pkg:cargo/unicode-xid@0.0.4",
+        "pkg:cargo/unicode-xid@0.1.0",
+        "pkg:cargo/unreachable@1.0.0",
+        "pkg:cargo/utf8-ranges@1.0.1",
+        "pkg:cargo/vec_map@0.8.1",
+        "pkg:cargo/version_check@0.1.5",
+        "pkg:cargo/void@1.0.2",
+        "pkg:cargo/walkdir@2.2.5",
+        "pkg:cargo/winapi@0.2.8",
+        "pkg:cargo/winapi@0.3.6",
+        "pkg:cargo/winapi-build@0.1.1",
+        "pkg:cargo/winapi-i686-pc-windows-gnu@0.4.0",
+        "pkg:cargo/winapi-util@0.1.1",
+        "pkg:cargo/winapi-x86_64-pc-windows-gnu@0.4.0"
+      ]
+    },
+    {
+      "name": "uboot-tools-2018.09-8.oe1.src.rpm",
+      "purls": [
+        "pkg:pypi/Sphinx@1.4.9",
+        "pkg:pypi/docutils@0.12"
+      ]
+    },
+    {
+      "name": "python-dict2xml-1.6.1-1.oe1.src.rpm",
+      "purls": [
+        "pkg:pypi/dict2xml@1.6.1"
+      ]
+    },
+    {
+      "name": "overpass-fonts-3.0.3-4.oe1.src.rpm",
+      "purls": [
+        "pkg:npm/overpass@3.0.3"
+      ]
+    },
+    {
+      "name": "kiwi-9.19.15-2.oe1.src.rpm",
+      "purls": [
+        "pkg:pypi/generateDS@2.29.24",
+        "pkg:pypi/kiwi@9.19.15",
+        "pkg:pypi/xattr@0.9.3"
+      ]
+    },
+    {
+      "name": "suitesparse-4.4.6-17.oe1.src.rpm",
+      "purls": [
+        "pkg:rpm/suitesparse@4.4.6-17.oe1?arch=aarch64&epoch=0"
+      ]
+    },
+    {
+      "name": "clamav-0.101.4-5.oe1.src.rpm",
+      "purls": [
+        "pkg:rpm/clamav@0.101.4-5.oe1?arch=aarch64&epoch=0"
+      ]
+    },
+    {
+      "name": "python-rsa-3.4.2-11.oe1.src.rpm",
+      "purls": [
+        "pkg:pypi/rsa@3.4.2"
+      ]
+    },
+    {
+      "name": "python-jinja2-2.10-10.oe1.src.rpm",
+      "purls": [
+        "pkg:pypi/Jinja2@2.10"
+      ]
+    },
+    {
+      "name": "ruby-2.5.1-104.oe1.src.rpm",
+      "purls": [
+        "pkg:gem/bar@0.0.2",
+        "pkg:gem/diff-lcs@1.2.5",
+        "pkg:gem/foo@0.0.1",
+        "pkg:gem/rake@10.4.2",
+        "pkg:gem/rspec@2.14.1",
+        "pkg:gem/rspec-core@2.14.8",
+        "pkg:gem/rspec-expectations@2.14.5",
+        "pkg:gem/rspec-mocks@2.14.6"
+      ]
+    },
+    {
+      "name": "python-requests-2.21.0-5.oe1.src.rpm",
+      "purls": [
+        "pkg:pypi/certifi@2018.4.16",
+        "pkg:pypi/chardet@3.0.4",
+        "pkg:pypi/e1839a8",
+        "pkg:pypi/idna@2.6",
+        "pkg:pypi/pysocks@1.6.8",
+        "pkg:pypi/urllib3@1.22"
+      ]
+    },
+    {
+      "name": "python3-mallard-ducktype-0.3-5.oe1.src.rpm",
+      "purls": [
+        "pkg:pypi/mallard-ducktype@0.3"
+      ]
+    },
+    {
+      "name": "python-cheetah-3.1.0-7.oe1.src.rpm",
+      "purls": [
+        "pkg:pypi/Cheetah3@3.1.0"
+      ]
+    },
+    {
+      "name": "python-sqlalchemy-1.2.11-2.oe1.src.rpm",
+      "purls": [
+        "pkg:pypi/SQLAlchemy@1.2.11"
+      ]
+    },
+    {
+      "name": "python-sphinx-1.7.6-6.oe1.src.rpm",
+      "purls": [
+        "pkg:pypi/:sys_platform@win32",
+        "pkg:pypi/Sphinx@1.7.6"
+      ]
+    },
+    {
+      "name": "ceph-12.2.8-6.oe1.src.rpm",
+      "purls": [
+        "pkg:pypi/Sphinx@1.6.3",
+        "pkg:gem/activesupport@4.2.7",
+        "pkg:gem/addressable@2.4.0",
+        "pkg:pypi/ceph-brag@0.1",
+        "pkg:gem/coffee-script@2.4.1",
+        "pkg:gem/coffee-script-source@1.10.0",
+        "pkg:gem/colorator@1.1.0",
+        "pkg:npm/duk-debug@0.1.0",
+        "pkg:gem/ethon@0.9.1",
+        "pkg:gem/execjs@2.7.0",
+        "pkg:gem/faraday@0.9.2",
+        "pkg:gem/ffi@1.9.14",
+        "pkg:pypi/flake8@3.0.4",
+        "pkg:pypi/flake8@3.0.4",
+        "pkg:gem/forwardable-extended@2.6.0",
+        "pkg:gem/gemoji@2.1.0",
+        "pkg:gem/github-pages@104",
+        "pkg:gem/github-pages-health-check@1.2.0",
+        "pkg:gem/html-pipeline@2.4.2",
+        "pkg:gem/i18n@0.7.0",
+        "pkg:gem/jekyll@3.3.0",
+        "pkg:gem/jekyll-avatar@0.4.2",
+        "pkg:gem/jekyll-coffeescript@1.0.1",
+        "pkg:gem/jekyll-feed@0.8.0",
+        "pkg:gem/jekyll-gist@1.4.0",
+        "pkg:gem/jekyll-github-metadata@2.2.0",
+        "pkg:gem/jekyll-mentions@1.2.0",
+        "pkg:gem/jekyll-paginate@1.1.0",
+        "pkg:gem/jekyll-redirect-from@0.11.0",
+        "pkg:gem/jekyll-sass-converter@1.3.0",
+        "pkg:gem/jekyll-seo-tag@2.1.0",
+        "pkg:gem/jekyll-sitemap@0.12.0",
+        "pkg:gem/jekyll-swiss@0.4.0",
+        "pkg:gem/jekyll-watch@1.5.0",
+        "pkg:gem/jemoji@0.7.0",
+        "pkg:gem/json@1.8.3",
+        "pkg:gem/kramdown@1.11.1",
+        "pkg:gem/liquid@3.0.6",
+        "pkg:gem/listen@3.0.6",
+        "pkg:gem/mercenary@0.3.6",
+        "pkg:gem/mini_portile2@2.1.0",
+        "pkg:gem/minima@2.0.0",
+        "pkg:gem/minitest@5.9.1",
+        "pkg:gem/multipart-post@2.0.0",
+        "pkg:gem/net-dns@0.8.0",
+        "pkg:gem/nokogiri@1.6.8.1",
+        "pkg:gem/octokit@4.4.1",
+        "pkg:gem/pathutil@0.14.0",
+        "pkg:gem/public_suffix@1.5.3",
+        "pkg:npm/rapidjson@1.0.4",
+        "pkg:gem/rb-fsevent@0.9.8",
+        "pkg:gem/rb-inotify@0.9.7",
+        "pkg:gem/rouge@1.11.1",
+        "pkg:gem/safe_yaml@1.0.4",
+        "pkg:gem/sass@3.4.22",
+        "pkg:gem/sawyer@0.7.0",
+        "pkg:gem/terminal-table@1.7.3",
+        "pkg:gem/thread_safe@0.3.5",
+        "pkg:gem/typhoeus@0.8.0",
+        "pkg:gem/tzinfo@1.2.2",
+        "pkg:gem/unicode-display_width@1.1.1"
+      ]
+    }
+  ]
+}

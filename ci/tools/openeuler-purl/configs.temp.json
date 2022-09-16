@@ -1,0 +1,8 @@
+{
+  "dir_path": "/home/unknow/data/openeuler-purl/rpm",
+  "mirror_url": "https://mirrors.nju.edu.cn/openeuler/",
+  "syft": "./bin/linux/syft.exe",
+  "template": "./purl.json.tmpl",
+  "download_limit": 50,
+  "syft_limit": 10
+}

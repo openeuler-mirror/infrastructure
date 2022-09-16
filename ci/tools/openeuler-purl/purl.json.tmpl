@@ -1,0 +1,10 @@
+{
+ "name": "{{.Source.Target | osBase}}",
+ "purls": [
+ {{- $artifactLength := len .Artifacts -}}
+ {{- range $index, $value := .Artifacts}}
+  {{$pos := add $index 1 -}}
+  "{{$value.PURL -}}"{{if lt $pos $artifactLength}},{{else}}{{break}}{{end}}
+ {{- end}}
+ ]
+}
