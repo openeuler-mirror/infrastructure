@@ -1,0 +1,19 @@
+Name: USTC
+HttpURL: https://mirrors.ustc.edu.cn/openeuler/
+RsyncURL: ""
+FtpURL: ""
+SponsorName: University of Science and Technology of China
+SponsorURL: https://ustc.edu.cn/
+SponsorLogoURL: https://openeuler-website.obs.ap-southeast-1.myhuaweicloud.com/mirrors/USTC.png
+AdminName: LUG@USTC
+AdminEmail: lug@ustc.edu.cn
+ContinentOnly: false
+CountryOnly: false
+ASOnly: false
+Score: 100
+Enabled: true
+AllowRedirects: null
+NetworkBandwidth: 100
+Latitude: 31.8639
+Longitude: 117.2808
+Country: China
