@@ -1,10 +1,10 @@
-Name: HIT
+Name: Harbin-Institute-of-Technology
 HttpURL: https://mirrors.hit.edu.cn/openeuler/
-RsyncURL: rsync://mirrors.hit.edu.cn/
+RsyncURL: rsync://mirrors.hit.edu.cn/openeuler/
 FtpURL: ""
-SponsorName: HARBIN INSTITUTE OF TECHNOLOGY
+SponsorName: Harbin Institute of Technology
 SponsorURL: http://www.hit.edu.cn/
-SponsorLogoURL: https://openeuler-website.obs.ap-southeast-1.myhuaweicloud.com/mirrors/HIT.png
+SponsorLogoURL: https://openeuler-website.obs.ap-southeast-1.myhuaweicloud.com/mirrors/Harbin-Institute-of-Technology.png
 AdminName: administrator
 AdminEmail: https://github.com/hitlug/mirror-web
 ContinentOnly: false
