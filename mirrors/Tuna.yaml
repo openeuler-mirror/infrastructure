@@ -1,6 +1,6 @@
 Name: Tuna 
 HttpURL: https://mirrors.tuna.tsinghua.edu.cn/openeuler/
-RsyncURL: ""
+RsyncURL: rsync://root@mirrors.tuna.tsinghua.edu.cn/openeuler
 FtpURL: ""
 SponsorName: Tsinghua
 SponsorURL: https://mirrors.tuna.tsinghua.edu.cn/
