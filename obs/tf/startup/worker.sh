@@ -72,7 +72,7 @@ OBS_INSTALL_DIR=/tmp/obs_worker_arm_install
 [[ ! -d ${OBS_INSTALL_DIR} ]] && mkdir -p ${OBS_INSTALL_DIR}
 
 if [[ ! -e ${OBS_INSTALL_DIR}/obsworker.tar.gz ]]; then
-    curl https://openeuler.obs.cn-south-1.myhuaweicloud.com:443/infrastructure/obsworker.tar.gz -o ${OBS_INSTALL_DIR}/obsworker.tar.gz
+    cp ../obsworker.tar.gz ${OBS_INSTALL_DIR}
 fi
 
 echo "Updating the cluster hosts info"
