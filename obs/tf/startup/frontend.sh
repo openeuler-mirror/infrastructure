@@ -9,12 +9,6 @@ frontend_host=$1
 source_host=$2
 backend_host=$3
 home_backend_host=$4
-#ensure the system matches
-system_info=`uname -r`
-if [[ ! ${system_info} == '4.12.14-lp151.28.7-default' ]];then
-    echo "this script is strictly bound to specific release `4.12.14-lp151.28.7-default`,  please ensure this script works on your system"
-    exit 1
-fi
 
 if [[ ! -e /srv/obs/certs/fullchain.pem ]]; then
     echo "Please ensure the certificate file '/srv/obs/certs/fullchain.pem' exists"
@@ -134,8 +128,10 @@ systemctl start mysql
 systemctl start memcached
 systemctl start apache2
 echo "Restarting ts server for textual search engine"
+pushd /srv/www/obs/api
 rake ts:stop --trace RAILS_ENV="production"
 rake ts:start --trace RAILS_ENV="production"
+popd
 
 echo "OBS frontend server successfully started"
 echo "Important, please update the administrator (Admin)'s password"
