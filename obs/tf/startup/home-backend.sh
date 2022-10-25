@@ -11,12 +11,6 @@ backend_host=$3
 home_backend_host=$4
 repo_id=$5
 data_disk=$6
-#ensure the system matches
-system_info=`uname -r`
-if [[ ! ${system_info} == '4.12.14-lp151.28.7-default' ]];then
-    echo "this script is strictly bound to specific release `4.12.14-lp151.28.7-default`,  please ensure this script works on your system"
-    exit 1
-fi
 
 echo "Starting obs backend service with source server ${source_host}.."
 #enable and start sshd service

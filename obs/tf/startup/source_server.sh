@@ -10,12 +10,7 @@ source_host=$2
 backend_host=$3
 home_backend_host=$4
 data_disk=$5
-#ensure the system matches
-system_info=`uname -r`
-if [[ ! ${system_info} == '4.12.14-lp151.28.7-default' ]];then
-    echo "this script is strictly bound to specific release `4.12.14-lp151.28.7-default`,  please ensure this script works on your system"
-    exit 1
-fi
+
 echo "Starting obs source service with backend server ${backend_host}.."
 #enable and start sshd service
 echo "Enabling sshd service if not enabled"
@@ -122,15 +117,14 @@ fi
 if [[ -e /root/.config/osc/oscrc ]];then
     rm /root/.config/osc/oscrc
 fi
-cd /root/.config/osc
-curl -o oscrc https://openeuler.obs.cn-south-1.myhuaweicloud.com:443/infrastructure/oscrc
+curl -o /root/.config/osc/oscrc https://openeuler.obs.cn-south-1.myhuaweicloud.com:443/infrastructure/oscrc
 
 # update cache folder for scm service
 echo CACHEDIRECTORY="/srv/cache/obs/tar_scm" > /etc/obs/services/tar_scm
 
 # copy service files into
-cp ../service/* /usr/lib/obs/service/
-cp ../build-pkg-rpm /usr/lib/build/build-pkg-rpm
+cp ./service/* /usr/lib/obs/service/
+cp ./build-pkg-rpm /usr/lib/build/build-pkg-rpm
 mkdir -p /usr/lib/obs/source_md5
 chmod 777 /usr/lib/obs/source_md5
 mkdir -p /srv/cache/obs/tar_scm/{incoming,repo,repourl}
