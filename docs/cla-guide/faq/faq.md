@@ -13,6 +13,8 @@ description: |
 
 请访问这个[网页](https://gitee.com/api/v5/swagger#/getV5ReposOwnerRepoPullsNumberCommits)，输入pr信息进行查看
 
+![api_example](api_example.png)
+
 **非轻量级PR**中某个commit的作者的邮箱见下图。
 
 ![commit-author-email](commit_author_email.png)
