@@ -1,0 +1,70 @@
+relations:
+  - path:
+      - ci/
+    owner:
+      - gitee_id: wanghaosq
+        name: wanghao
+        organization: xxxx
+        email: xxx@xxx.com
+      - gitee_id: liuqi469227928
+        name: liuqi
+        organization: xxxx
+        email: xxx@xxx.com
+  - path:
+      - docs/
+      - obs/
+      - README.md
+      - transformRepoyaml.py
+      - THIRD PARTY OPEN SOURCE SOFTWARE NOTICE
+    owner:
+      - gitee_id: georgecao
+        name: caozhi
+        organization: xxxx
+        email: xxx@xxx.com
+  - path:
+      - bot/
+    owner:
+      - gitee_id: georgecao
+        name: caozhi
+        organization: xxxx
+        email: xxx@xxx.com
+      - gitee_id: wanghaosq
+        name: wanghao
+        organization: xxxx
+        email: xxx@xxx.com
+  - path:
+      - ansible/
+    owner:
+      - gitee_id: Zhaochunjiang
+        name: zhaochunjiang
+        organization: xxxx
+        email: xxx@xxx.com
+  - path:
+      - mail/
+      - om-data/
+    owner:
+      - gitee_id: Tom_zc
+        name: zhuchao
+        organization: xxxx
+        email: xxx@xxx.com
+  - path:
+      - survey/
+      - website/
+      - mirrors/
+    owner:
+      - gitee_id: liuyanglinux
+        name: liuyang
+        organization: xxxx
+        email: xxx@xxx.com
+  - path:
+      - meetbot/
+      - environment/
+      - cd/
+    owner:
+      - gitee_id: liuqi469227928
+        name: liuqi
+        organization: xxxx
+        email: xxx@xxx.com
+
+
+
