@@ -20,9 +20,14 @@ def load_yaml(file_path):
     return content
 
 
+def write_to_log(repo_url, gid):
+    with open("./sync.log", "a", encoding="utf-8", ) as f:
+        f.writelines(repo_url + "::" + str(gid) + "\n")
+
+
 def sync_to_gitlab(username, user_pass, target, gitlab_tk, repos_orgs, plat):
     groups_id = check_target_org_exists(username, user_pass, target, gitlab_tk)
-    repos = get_single_group_exists_repos(groups_id, gitlab_tk)
+    repos = get_single_group_exists_repos(username, user_pass, groups_id, gitlab_tk)
     headers = {"Private-Token": gitlab_tk}
     undo = []
     create_repo_url = 'https://{}:{}@source.openeuler.sh/api/v4/projects'.format(username, user_pass)
@@ -58,6 +63,7 @@ def sync_to_gitlab(username, user_pass, target, gitlab_tk, repos_orgs, plat):
             r = requests.post(url=create_repo_url, headers=headers, data=d)
             if r.status_code != 201:
                 print("create %s failed" % d)
+                write_to_log(d["import_url"], d["namespace_id"])
                 continue
 
 
@@ -115,7 +121,7 @@ def get_all_repos_in_src_org(src_platform, src_org, src_url, gitee_tk, github_tk
                 .format(src_url.split("//")[-1].split("/")[0], g_id, page2)
             repo_res = requests.get(url=get_repo_id_url, data=data)
             if repo_res.status_code != 200:
-                print("bad request", repo_res.status_code)
+                continue
             if 0 < len(repo_res.json()) <= 100:
                 for j in repo_res.json():
                     repo_org[src_url + j["path"]] = j["path_with_namespace"].split("/")[0]
@@ -125,7 +131,7 @@ def get_all_repos_in_src_org(src_platform, src_org, src_url, gitee_tk, github_tk
     return repo_org
 
 
-def get_single_group_exists_repos(single_group_id, gitlab_tk):
+def get_single_group_exists_repos(username, user_pass, single_group_id, gitlab_tk):
     repo_names = []
     page = 1
     data = {"per_page": 100}
@@ -133,7 +139,8 @@ def get_single_group_exists_repos(single_group_id, gitlab_tk):
         'Private-Token': gitlab_tk
     }
     while True:
-        url = "https://source.openeuler.sh/api/v4/groups/{}/projects?page={}".format(single_group_id, page)
+        url = "https://{}:{}@source.openeuler.sh/api/v4/groups/{}/projects?page={}".\
+            format(username, user_pass, single_group_id, page)
         r = requests.get(url=url, headers=headers, data=data)
         if 0 < len(r.json()) <= 100:
             for i in r.json():
@@ -158,7 +165,7 @@ def check_target_org_exists(username, user_pass, target, gitlab_tk):
     page = 1
     while True:
         d = {"per_page": 100}
-        url = "https://source.openeuler.sh/api/v4/groups?page={}".format(page)
+        url = "https://{}:{}@source.openeuler.sh/api/v4/groups?page={}".format(username, user_pass, page)
         r = requests.get(url=url, headers=headers, data=d)
         if r.status_code != 200:
             print("get group %s id failed" % target)
@@ -269,7 +276,7 @@ def refresh_organization_repos_in_gitlab(username, user_pass, single_group_id,
         target_gitlab_url = 'https://{}:{}@source.openeuler.sh/api/v4/projects/{}/repository/commits'\
             .format(username, user_pass, rid)
         target_gitlab_res = requests.get(url=target_gitlab_url)
-        if target_gitlab_res.status_code != 200:
+        if target_gitlab_res.status_code != 200 or len(target_gitlab_res.json()) == 0:
             continue
         target_gitlab_sha = target_gitlab_res.json()[0]["id"]
         if target_gitlab_sha != sha:
@@ -305,6 +312,8 @@ def refresh_organization_repos_in_gitlab(username, user_pass, single_group_id,
                     n += 1
                 else:
                     break
+            if n == 2:
+                write_to_log(data["import_url"], data["namespace_id"])
             time.sleep(0.3)
 
 
@@ -398,7 +407,7 @@ def refresh_single_repo_in_gitlab(username, user_pass, single_group_id,
         target_gitlab_url = 'https://{}:{}@source.openeuler.sh/api/v4/projects/{}/repository/commits' \
             .format(username, user_pass, rid)
         target_gitlab_res = requests.get(url=target_gitlab_url)
-        if target_gitlab_res.status_code != 200:
+        if target_gitlab_res.status_code != 200 or len(target_gitlab_res.json()) == 0:
             continue
         target_gitlab_sha = target_gitlab_res.json()[0]["id"]
         if target_gitlab_sha != sha:
@@ -430,6 +439,8 @@ def refresh_single_repo_in_gitlab(username, user_pass, single_group_id,
                     n += 1
                 else:
                     break
+            if n == 2:
+                write_to_log(data["import_url"], data["namespace_id"])
             time.sleep(0.3)
 
 
@@ -480,4 +491,3 @@ if __name__ == '__main__':
             repos_group_id = check_target_org_exists(name, password, target_org, gitlab_token)
             refresh_single_repo_in_gitlab(name, password, repos_group_id, source_platform, source_org,
                                           source_url, gitlab_token, gitee_token, github_token, repos_url)
-
