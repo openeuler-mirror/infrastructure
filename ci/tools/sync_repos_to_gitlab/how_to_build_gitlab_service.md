@@ -45,12 +45,25 @@
 |IMAP_STARTTLS|启用STARTTLS，默认为false|是|
 
 ## 3.服务部署
+### 镜像拉取
+postgresql:
+```shell
+docker pull swr.cn-north-4.myhuaweicloud.com/openeuler/public/postgres:1.15.1
+```
+redis:
+```shell
+docker pull swr.cn-north-4.myhuaweicloud.com/openeuler/public/redis:1.6.2.6
+```
+gitlab:
+```shell
+docker pull swr.cn-north-4.myhuaweicloud.com/openeuler/public/gitlab:1.15.2.2
+```
 ### k8s部署
 Step 1.在1的链接中下载镜像并上传到自有的镜像服务器
 <br>
-Step 2.将2中的环境变量添加到k8s部署文件中
+Step 2.将2中的环境变量添加到k8s部署文件deployment.yaml中
 <br>
-参考链接： https://github.com/opensourceways/infra-openeuler/tree/master/applications/source-gitlab
+参考配置: https://gitee.com/openeuler/infrastructure/raw/master/ci/tools/sync_repos_to_gitlab/template-k8s-yaml/gitlab-template-deployment.yaml
 
 ### docker部署
 此方式中的3个镜像可从  使用docker pull命令进行下载. <br>
@@ -61,14 +74,14 @@ docker run --name gitlab-postgresql -d \
     --env 'DB_USER=gitlab' --env 'DB_PASS=password' \
     --env 'DB_EXTENSION=pg_trgm,btree_gist' \
     --volume /srv/docker/gitlab/postgresql:/var/lib/postgresql \
-    postgresql
+    postgresql:1.15.1
 ```
 
 Step 2. 部署redis<br>
 ```shell
 docker run --name gitlab-redis -d \
     --volume /srv/docker/gitlab/redis:/data \
-    redis:6.2
+    redis:1.6.2.6
 ```
 <br>
 
@@ -83,5 +96,5 @@ docker run --name gitlab -d \
     --env 'GITLAB_SECRETS_SECRET_KEY_BASE=long-and-random-alpha-numeric-string' \
     --env 'GITLAB_SECRETS_OTP_KEY_BASE=long-and-random-alpha-numeric-string' \
     --volume /srv/docker/gitlab/gitlab:/home/git/data \
-    gitlab:14.8.2
+    gitlab:1.15.2.2
 ```
