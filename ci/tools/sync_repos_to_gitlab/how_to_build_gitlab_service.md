@@ -57,14 +57,13 @@ docker pull swr.cn-north-4.myhuaweicloud.com/openeuler/public/gitlab:1.15.2.2
 
 ## 3.服务部署
 ### k8s部署
-Step 1.在1的链接中下载镜像并上传到自有的镜像服务器
+Step 1.在1的链接中下载镜像并在k8s环境中制定镜像信息
 <br>
-Step 2.将2中的环境变量添加到k8s部署文件deployment.yaml中
+Step 2.将“2.参数设置”中的环境变量添加到k8s部署文件deployment.yaml中
 <br>
 参考配置: https://gitee.com/openeuler/infrastructure/raw/master/ci/tools/sync_repos_to_gitlab/template-k8s-yaml/gitlab-template-deployment.yaml
 
 ### docker部署
-此方式中的3个镜像可从  使用docker pull命令进行下载. <br>
 Step 1. 部署postgresql<br>
 ```shell
 docker run --name gitlab-postgresql -d \
