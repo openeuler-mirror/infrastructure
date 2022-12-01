@@ -1,8 +1,19 @@
 # 搭建Gitlab代码仓服务
 
-## 1.下载Gitlab镜像
-### 下载链接:
-
+## 1.下载镜像
+### 镜像拉取:
+postgresql:
+```shell
+docker pull swr.cn-north-4.myhuaweicloud.com/openeuler/public/postgres:1.15.1
+```
+redis:
+```shell
+docker pull swr.cn-north-4.myhuaweicloud.com/openeuler/public/redis:1.6.2.6
+```
+gitlab:
+```shell
+docker pull swr.cn-north-4.myhuaweicloud.com/openeuler/public/gitlab:1.15.2.2
+```
 ## 2.参数设置
 
 | 参数名 | 说明 | 是否必需 |
@@ -45,19 +56,6 @@
 |IMAP_STARTTLS|启用STARTTLS，默认为false|是|
 
 ## 3.服务部署
-### 镜像拉取
-postgresql:
-```shell
-docker pull swr.cn-north-4.myhuaweicloud.com/openeuler/public/postgres:1.15.1
-```
-redis:
-```shell
-docker pull swr.cn-north-4.myhuaweicloud.com/openeuler/public/redis:1.6.2.6
-```
-gitlab:
-```shell
-docker pull swr.cn-north-4.myhuaweicloud.com/openeuler/public/gitlab:1.15.2.2
-```
 ### k8s部署
 Step 1.在1的链接中下载镜像并上传到自有的镜像服务器
 <br>
