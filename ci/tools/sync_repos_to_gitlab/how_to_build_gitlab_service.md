@@ -56,14 +56,14 @@ docker pull swr.cn-north-4.myhuaweicloud.com/openeuler/public/gitlab:1.15.2.2
 |IMAP_STARTTLS|启用STARTTLS，默认为false|是|
 
 ## 3.服务部署
-### k8s部署
+### 方案一:k8s部署
 Step 1.在1的链接中下载镜像并在k8s环境中制定镜像信息
 <br>
 Step 2.将“2.参数设置”中的环境变量添加到k8s部署文件deployment.yaml中
 <br>
 参考配置: https://gitee.com/openeuler/infrastructure/raw/master/ci/tools/sync_repos_to_gitlab/template-k8s-yaml/gitlab-template-deployment.yaml
 
-### docker部署
+### 方案二:docker部署
 Step 1. 部署postgresql<br>
 ```shell
 docker run --name gitlab-postgresql -d \
@@ -95,3 +95,4 @@ docker run --name gitlab -d \
     --volume /srv/docker/gitlab/gitlab:/home/git/data \
     gitlab:1.15.2.2
 ```
+
