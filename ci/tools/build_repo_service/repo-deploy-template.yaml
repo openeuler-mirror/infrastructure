@@ -1,0 +1,153 @@
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  labels:
+    name: openeuler-repo-mirror
+  name: openeuler-repo-mirror            # repo-mirror
+
+
+# PVC
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: openeuler-data-volume
+  namespace: openeuler-repo-mirror
+spec:
+  storageClassName: "csi-disk-sas"         # 根据集群storageclass填写
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 1Gi                         # 根据实际容量配置
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: repo-service
+  namespace: openeuler-repo-mirror
+spec:
+  ports:
+  - name: nginx-repo-http
+    port: 80
+    nodePort: 30007
+    protocol: TCP
+    targetPort: 80
+  selector:
+    app: openeuler-repo
+  type: NodePort
+
+
+# Deployment for repo service
+---
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: repo-server
+  namespace: openeuler-repo-mirror
+spec:
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels:
+      app: openeuler-repo
+  template:
+    metadata:
+      labels:
+        app: openeuler-repo
+    spec:
+      containers:
+        - name: repo-nginx
+          image: swr.cn-north-4.myhuaweicloud.com/openeuler/public/repo-nginx:1.21.0
+          volumeMounts:
+            - mountPath: /repo/openeuler   # 手动修改
+              name: data-volume
+            - mountPath: /etc/nginx/conf/nginx.conf
+              name: repo-nginx-configmap-volume
+              subPath: nginx.conf
+            - mountPath: /etc/nginx/conf/conf.d/default.conf
+              name: repo-nginx-configmap-volume
+              subPath: default.conf
+          resources:
+            requests:
+              cpu: 500m                 # 4U
+              memory: 500Mi             # 8G
+          command:
+            - /bin/sh
+            - -c
+            - |
+              mkdir -p /repo/openeuler    # 手动修改，创建目录
+              exec nginx -g "daemon off;"
+      volumes:
+        - name: data-volume
+          persistentVolumeClaim:
+            claimName: openeuler-data-volume                # 手动修改，与PVC中保持一致
+        - configMap:
+            name: repo-configmap
+          name: repo-nginx-configmap-volume
+
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: repo-configmap
+  namespace: openeuler-repo-mirror
+data:
+  default.conf: |
+    server {
+        listen 80;
+
+        if ($time_iso8601 ~ "^(\d{4})-(\d{2})-(\d{2})") {
+               set $year $1;
+               set $month $2;
+               set $day $3;
+        }
+        # access_log /var/log/nginx/access.log.$year$month$day main;
+
+        server_name *.openeuler.org;
+
+        location / {
+            root   /repo/openeuler;   # 手动修改 /repo/openeuler
+            fancyindex on;
+            fancyindex_exact_size off;
+            fancyindex_header /fancySource/header.html;
+            fancyindex_footer /fancySource/footer.html;
+            autoindex   on;
+        }
+        location /fancySource {
+           root /etc/nginx/conf/static;
+        }
+        location = /favicon.ico {
+          log_not_found off;
+          access_log off;
+        }
+    }
+  nginx.conf: |-
+    user  root;
+    worker_processes  auto;
+
+    error_log  /var/log/nginx/error.log warn;
+    pid        /var/run/nginx.pid;
+
+
+    events {
+        worker_connections  10240;
+    }
+
+
+    http {
+        include       /etc/nginx/conf/mime.types;
+        default_type  application/octet-stream;
+
+        sendfile        on;
+        tcp_nopush      on;
+
+        keepalive_timeout  65;
+
+        #gzip  on;
+
+        server_tokens off;
+        include /etc/nginx/conf/conf.d/*.conf;
+    }
