@@ -45,6 +45,7 @@ def sync_to_gitlab(username, user_pass, target, gitlab_tk, repos_orgs, plat):
             "namespace_id": groups_id,
             "visibility": "public",
             "mirror": True,
+            "lfs_enabled": True
         }
         if plat == "gitlab":
             create_data["import_url"] = k + ".git"
@@ -182,7 +183,7 @@ def check_target_org_exists(username, user_pass, target, gitlab_tk):
         if r.status_code != 201:
             print("create %s groups failed" % target)
             sys.exit(1)
-        group_id = r.json()[0]["id"]
+        group_id = r.json()["id"]
     return group_id
 
 
@@ -192,6 +193,9 @@ def refresh_organization_repos_in_gitlab(username, user_pass, single_group_id,
     repos_id = {}
     page = 1
     data = {"per_page": 100}
+
+    has_diff_commits = False
+
     while True:
         url = "https://{}:{}@source.openeuler.sh/api/v4/groups/{}/projects?page={}" \
             .format(username, user_pass, single_group_id, page)
@@ -203,32 +207,64 @@ def refresh_organization_repos_in_gitlab(username, user_pass, single_group_id,
         if len(r.json()) == 0:
             break
     for rp, rid in repos_id.items():
-        sha = ""
         import_url = ""
         if src_platform == "gitee":
             if rp in ["tree1", "Tree1"]:
                 rp = rp.replace("1", "")
-            gitee_url = "https://gitee.com/api/v5/repos/{}/{}/commits".format(src_org, rp)
-            gitee_data = {"access_token": gitee_tk}
-            gitee_res = requests.get(url=gitee_url, data=gitee_data)
-            if gitee_res.status_code != 200:
+
+            # get all branches and theirs commits
+            branch_url = "https://gitee.com/api/v5/repos/{}/{}/branches".format(src_org, rp)
+            branch_data = {"access_token": gitee_tk}
+            branch_res = requests.get(url=branch_url, params=branch_data)
+            if branch_res.status_code != 200:
                 continue
-            gitee_import_url = gitee_res.json()[0]["html_url"].split("/commit/")[0]
-            gitee_sha = gitee_res.json()[0]["sha"]
-            sha = gitee_sha
-            import_url = gitee_import_url
+            branches = {}
+            for b in branch_res.json():
+                branches[b.get("name")] = b.get("commit").get("sha")
+
+            gitlab_branches = {}
+            target_gitlab_url = 'https://{}:{}@source.openeuler.sh/api/v4/projects/{}/repository/branches' \
+                .format(username, user_pass, rid)
+            target_gitlab_res = requests.get(url=target_gitlab_url)
+            if target_gitlab_res.status_code != 200 or len(target_gitlab_res.json()) == 0:
+                continue
+            for g in target_gitlab_res.json():
+                gitlab_branches[g.get("name")] = g.get("commit").get("id")
+
+            for b, s in branches.items():
+                if s != gitlab_branches.get(b):
+                    has_diff_commits = True
+
+            import_url = "https://gitee.com/{}/{}".format(src_org, rp)
+
         if src_platform == "github":
             if rp in ["tree1", "Tree1"]:
                 rp = rp.replace("1", "")
-            github_url = "https://api.github.com/repos/{}/{}/commits".format(src_org, rp)
+            github_url = "https://api.github.com/repos/{}/{}/branches".format(src_org, rp)
             github_header = {"Authorization": "token %s" % github_tk}
             github_res = requests.get(url=github_url, headers=github_header)
             if github_res.status_code != 200:
                 continue
-            github_import_url = github_res.json()[0]["html_url"].split("/commit/")[0]
-            github_sha = github_res.json()[0]["sha"]
-            sha = github_sha
-            import_url = github_import_url
+
+            branches = {}
+            for b in github_res.json():
+                branches[b.get("name")] = b.get("commit").get("sha")
+
+            gitlab_branches = {}
+            target_gitlab_url = 'https://{}:{}@source.openeuler.sh/api/v4/projects/{}/repository/branches' \
+                .format(username, user_pass, rid)
+            target_gitlab_res = requests.get(url=target_gitlab_url)
+            if target_gitlab_res.status_code != 200 or len(target_gitlab_res.json()) == 0:
+                continue
+            for g in target_gitlab_res.json():
+                gitlab_branches[g.get("name")] = g.get("commit").get("id")
+
+            for b, s in branches.items():
+                if s != gitlab_branches.get(b):
+                    has_diff_commits = True
+
+            import_url = "https://github.com/{}/{}".format(src_org, rp)
+
         if src_platform == "gitlab":
             if rp in ["tree1", "Tree1"]:
                 rp = rp.replace("1", "")
@@ -236,7 +272,7 @@ def refresh_organization_repos_in_gitlab(username, user_pass, single_group_id,
             data = {"per_page": 100}
             while True:
                 get_group_id_url = "https://" + src_url.split("/")[2] + "/api/v4/groups?page={}".format(page)
-                get_group_res = requests.get(url=get_group_id_url, data=data)
+                get_group_res = requests.get(url=get_group_id_url, params=data)
                 if get_group_res.status_code != 200:
                     continue
                 if 0 < len(get_group_res.json()) <= 100:
@@ -262,24 +298,34 @@ def refresh_organization_repos_in_gitlab(username, user_pass, single_group_id,
                 if len(repo_res.json()) == 0:
                     break
 
-            gitlab_url = "https://{}/api/v4/projects/{}/repository/commits".format(src_url.split("/")[2], repo_id)
+            gitlab_url = "https://{}/api/v4/projects/{}/repository/branches".format(src_url.split("/")[2], repo_id)
             gitlab_res = requests.get(url=gitlab_url)
             if gitlab_res.status_code != 200:
                 continue
-            time.sleep(0.2)
-            gitlab_import_url = gitlab_res.json()[0]["web_url"].split("/-/commit/")[0]
-            gitlab_sha = gitlab_res.json()[0]["sha"]
-            sha = gitlab_sha
-            import_url = gitlab_import_url
 
-        # get local repo's commits
-        target_gitlab_url = 'https://{}:{}@source.openeuler.sh/api/v4/projects/{}/repository/commits'\
-            .format(username, user_pass, rid)
-        target_gitlab_res = requests.get(url=target_gitlab_url)
-        if target_gitlab_res.status_code != 200 or len(target_gitlab_res.json()) == 0:
-            continue
-        target_gitlab_sha = target_gitlab_res.json()[0]["id"]
-        if target_gitlab_sha != sha:
+            # get all branches and theirs newly commits
+            branches = {}
+            for b in gitlab_res.json():
+                branches[b.get("name")] = b.get("commit").get("id")
+
+            gitlab_branches = {}
+            target_gitlab_url = 'https://{}:{}@source.openeuler.sh/api/v4/projects/{}/repository/branches' \
+                .format(username, user_pass, rid)
+            target_gitlab_res = requests.get(url=target_gitlab_url)
+            if target_gitlab_res.status_code != 200 or len(target_gitlab_res.json()) == 0:
+                continue
+            for g in target_gitlab_res.json():
+                gitlab_branches[g.get("name")] = g.get("commit").get("id")
+
+            for b, s in branches.items():
+                if s != gitlab_branches.get(b):
+                    has_diff_commits = True
+
+            import_url = "https://{}/{}/{}".format(src_url.split("/")[2], src_org, rp)
+
+            time.sleep(0.2)
+
+        if has_diff_commits:
             print("true, begin to delete and reload")
             headers = {
                 'Private-Token': gitlab_tk
@@ -293,6 +339,7 @@ def refresh_organization_repos_in_gitlab(username, user_pass, single_group_id,
                 "namespace_id": single_group_id,
                 "visibility": "public",
                 "mirror": True,
+                "lfs_enabled": True
             }
             print("delete and recreate repo : ", import_url)
             if src_platform == "gitlab":
@@ -323,6 +370,7 @@ def refresh_single_repo_in_gitlab(username, user_pass, single_group_id,
     repos_id = {}
     page = 1
     data = {"per_page": 100}
+    has_diff_commits = False
     while True:
         url = "https://{}:{}@source.openeuler.sh/api/v4/groups/{}/projects?page={}" \
             .format(username, user_pass, single_group_id, page)
@@ -336,29 +384,61 @@ def refresh_single_repo_in_gitlab(username, user_pass, single_group_id,
         if len(r.json()) == 0:
             break
     for rp, rid in repos_id.items():
-        sha = ""
         import_url = ""
         if src_platform == "gitee":
             if rp in ["tree1", "Tree1"]:
                 rp = rp.replace("1", "")
-            gitee_url = "https://gitee.com/api/v5/repos/{}/{}/commits".format(src_org, rp)
-            gitee_data = {"access_token": gitee_tk}
-            gitee_res = requests.get(url=gitee_url, data=gitee_data)
-            if gitee_res.status_code != 200:
+
+            branch_url = "https://gitee.com/api/v5/repos/{}/{}/branches".format(src_org, rp)
+            branch_data = {"access_token": gitee_tk}
+            branch_res = requests.get(url=branch_url, params=branch_data)
+            if branch_res.status_code != 200:
                 continue
-            gitee_sha = gitee_res.json()[0]["sha"]
-            sha = gitee_sha
+            branches = {}
+            for b in branch_res.json():
+                branches[b.get("name")] = b.get("commit").get("sha")
+
+            gitlab_branches = {}
+            target_gitlab_url = 'https://{}:{}@source.openeuler.sh/api/v4/projects/{}/repository/branches' \
+                .format(username, user_pass, rid)
+            target_gitlab_res = requests.get(url=target_gitlab_url)
+            if target_gitlab_res.status_code != 200 or len(target_gitlab_res.json()) == 0:
+                continue
+            for g in target_gitlab_res.json():
+                gitlab_branches[g.get("name")] = g.get("commit").get("id")
+
+            for b, s in branches.items():
+                if s != gitlab_branches.get(b):
+                    has_diff_commits = True
+
             import_url = "https://gitee.com/{}/{}".format(src_org, rp)
+
         if src_platform == "github":
             if rp in ["tree1", "Tree1"]:
                 rp = rp.replace("1", "")
-            github_url = "https://api.github.com/repos/{}/{}/commits".format(src_org, rp)
+            github_url = "https://api.github.com/repos/{}/{}/branches".format(src_org, rp)
             github_header = {"Authorization": "token %s" % github_tk}
             github_res = requests.get(url=github_url, headers=github_header)
             if github_res.status_code != 200:
                 continue
-            github_sha = github_res.json()[0]["sha"]
-            sha = github_sha
+
+            branches = {}
+            for b in github_res.json():
+                branches[b.get("name")] = b.get("commit").get("sha")
+
+            gitlab_branches = {}
+            target_gitlab_url = 'https://{}:{}@source.openeuler.sh/api/v4/projects/{}/repository/branches' \
+                .format(username, user_pass, rid)
+            target_gitlab_res = requests.get(url=target_gitlab_url)
+            if target_gitlab_res.status_code != 200 or len(target_gitlab_res.json()) == 0:
+                continue
+            for g in target_gitlab_res.json():
+                gitlab_branches[g.get("name")] = g.get("commit").get("id")
+
+            for b, s in branches.items():
+                if s != gitlab_branches.get(b):
+                    has_diff_commits = True
+
             import_url = "https://github.com/{}/{}".format(src_org, rp)
         if src_platform == "gitlab":
             if rp in ["tree1", "Tree1"]:
@@ -367,7 +447,7 @@ def refresh_single_repo_in_gitlab(username, user_pass, single_group_id,
             data = {"per_page": 100}
             while True:
                 get_group_id_url = "https://" + src_url.split("/")[2] + "/api/v4/groups?page={}".format(page)
-                get_group_res = requests.get(url=get_group_id_url, data=data)
+                get_group_res = requests.get(url=get_group_id_url, params=data)
                 if get_group_res.status_code != 200:
                     continue
                 if 0 < len(get_group_res.json()) <= 100:
@@ -392,25 +472,35 @@ def refresh_single_repo_in_gitlab(username, user_pass, single_group_id,
                     page2 += 1
                 if len(repo_res.json()) == 0:
                     break
-            gitlab_url = "https://{}/api/v4/projects/{}/repository/commits".format(src_url.split("/")[2], repo_id)
+
+            gitlab_url = "https://{}/api/v4/projects/{}/repository/branches".format(src_url.split("/")[2], repo_id)
             gitlab_res = requests.get(url=gitlab_url)
             if gitlab_res.status_code != 200:
-                print(gitlab_res.status_code)
                 continue
-            time.sleep(0.2)
-            gitlab_import_url = gitlab_res.json()[0]["web_url"].split("/-/commit/")[0]
-            gitlab_sha = gitlab_res.json()[0]["id"]
-            sha = gitlab_sha
-            import_url = gitlab_import_url
 
-        # get local repo's commits
-        target_gitlab_url = 'https://{}:{}@source.openeuler.sh/api/v4/projects/{}/repository/commits' \
-            .format(username, user_pass, rid)
-        target_gitlab_res = requests.get(url=target_gitlab_url)
-        if target_gitlab_res.status_code != 200 or len(target_gitlab_res.json()) == 0:
-            continue
-        target_gitlab_sha = target_gitlab_res.json()[0]["id"]
-        if target_gitlab_sha != sha:
+            # get all branches and theirs newly commits
+            branches = {}
+            for b in gitlab_res.json():
+                branches[b.get("name")] = b.get("commit").get("id")
+
+            gitlab_branches = {}
+            target_gitlab_url = 'https://{}:{}@source.openeuler.sh/api/v4/projects/{}/repository/branches' \
+                .format(username, user_pass, rid)
+            target_gitlab_res = requests.get(url=target_gitlab_url)
+            if target_gitlab_res.status_code != 200 or len(target_gitlab_res.json()) == 0:
+                continue
+            for g in target_gitlab_res.json():
+                gitlab_branches[g.get("name")] = g.get("commit").get("id")
+
+            for b, s in branches.items():
+                if s != gitlab_branches.get(b):
+                    has_diff_commits = True
+
+            import_url = "https://{}/{}/{}".format(src_url.split("/")[2], src_org, rp)
+
+            time.sleep(0.2)
+
+        if has_diff_commits:
             headers = {
                 'Private-Token': gitlab_tk
             }
@@ -422,10 +512,11 @@ def refresh_single_repo_in_gitlab(username, user_pass, single_group_id,
                 "namespace_id": single_group_id,
                 "visibility": "public",
                 "mirror": True,
+                "lfs_enabled": True
             }
             print("delete and recreate single repo : ", import_url)
             if src_platform == "gitlab":
-                data["import_url"] = import_url + "git"
+                data["import_url"] = import_url + ".git"
             # delete and refresh
             delete_url = 'https://{}:{}@source.openeuler.sh/api/v4/projects/{}'.format(username, user_pass, rid)
             r = requests.delete(url=delete_url, headers=headers)
@@ -491,3 +582,4 @@ if __name__ == '__main__':
             repos_group_id = check_target_org_exists(name, password, target_org, gitlab_token)
             refresh_single_repo_in_gitlab(name, password, repos_group_id, source_platform, source_org,
                                           source_url, gitlab_token, gitee_token, github_token, repos_url)
+
