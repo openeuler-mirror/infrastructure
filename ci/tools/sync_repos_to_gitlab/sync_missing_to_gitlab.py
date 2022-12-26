@@ -30,6 +30,10 @@ def sync_missing_to_gitlab(l: list, u_name, u_pass, gitlab_tk):
             data["path"] = url.split("/")[-1]
             data["visibility"] = "public"
             data["namespace_id"] = gid
+            
+        if url.split("/")[-1] in ["tree", "Tree"]:
+            data["name"] = "%s1" % url.split("/")[-1]
+            data["path"] = "%s1" % url.split("/")[-1]
         print(create_url, data)
         r = requests.post(url=create_url, data=data, headers=headers)
         if r.status_code != 201:
