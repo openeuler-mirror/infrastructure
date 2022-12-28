@@ -23,6 +23,18 @@ description: |
 
 ![light-pr-commit-author-email](light_pr_commit_author_email.png)
 
+## 如何查询一个邮箱是否签署了CLA
+
+请访问这个[网页](https://clasign.osinfra.cn/api/v1/individual-signing/gitee/openeuler?email=)，在链接后拼接要查询的邮箱，返回数据的signed为*true*表示成功签署CLA，*false*表示未签署CLA。
+
+![cla_fail](cla_fail.png)
+
+返回数据的signed为*false*， 表示该邮箱未签署CLA。
+
+![cla_success](cla_success.png)
+
+返回数据的signed为*true*，表示成功签署CLA。
+
 ## 当某个commit作者的邮箱未签署CLA怎么处理
 
    使用该邮箱签署CLA
