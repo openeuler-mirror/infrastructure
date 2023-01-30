@@ -5,6 +5,10 @@ description: |
   An overview about CLA.
 ---
 
+## 指引视频
+
+请点击[链接](https://www.bilibili.com/video/BV12A411o7zY/)观看CLA指引
+
 ## 机器人是怎么检查PR是否签署了CLA的
 
 机器人是通过检查PullRequest中**所有commit**作者的邮箱是否都签署了CLA来判定PR是否完成了CLA签署
