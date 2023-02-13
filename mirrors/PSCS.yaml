@@ -1,0 +1,19 @@
+Name: PSCS 
+HttpURL: http://mirror.ps.kz/openeuler/
+RsyncURL: ""
+FtpURL: ""
+SponsorName: PS Cloud Services
+SponsorURL: https://www.ps.kz/
+SponsorLogoURL: https://openeuler-website.obs.ap-southeast-1.myhuaweicloud.com/mirrors/PSCS.svg
+AdminName: PS Cloud Services
+AdminEmail: support@ps.kz
+ContinentOnly: false
+CountryOnly: false
+ASOnly: false
+Score: 100
+Enabled: true
+AllowRedirects: null
+NetworkBandwidth: 1000
+Latitude: 43.25
+Longitude: 76.95
+Country: Kazakhstan
