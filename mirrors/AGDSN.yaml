@@ -1,0 +1,19 @@
+Name: AGDSN
+HttpURL: https://ftp.agdsn.de/openeuler/
+RsyncURL: rsync://ftp.agdsn.de/openeuler
+FtpURL: ""
+SponsorName: Arbeitsgemeinschaft Dresdner Studentennetz
+SponsorURL: https://agdsn.de/sipa/news/
+SponsorLogoURL: https://openeuler-website.obs.ap-southeast-1.myhuaweicloud.com/mirrors/AGDSN.svg
+AdminName: Arbeitsgemeinschaft Dresdner Studentennetz
+AdminEmail: support@agdsn.de
+ContinentOnly: false
+CountryOnly: false
+ASOnly: false
+Score: 100
+Enabled: true
+AllowRedirects: null
+NetworkBandwidth: 10000
+Latitude: 51.0509
+Longitude: 13.7383
+Country: Germany
