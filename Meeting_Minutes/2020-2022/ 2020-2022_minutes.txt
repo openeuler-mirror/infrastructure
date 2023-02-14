@@ -1,0 +1,603 @@
+
+============================================================================================
+openEuler infra sig 例会：
+时间：2022年5月17日 17：00 - 18：00
+与会人：George、魏强，陈曾、陈德喜
+议题：
+1. OBS构建系统WORKER容器化讨论——陈曾
+
+2. Intel arch sig组在kernel仓库上开发问题 
+从kernel fork到intel-arch 仓库
+3.OBP与OEPKGS交流(包对接，构建二进制对接) 
+OEPKGS接口开发中
+
+
+===============================================================================================
+openEuler infra sig 例会：
+时间：2022年5月10日 16：00 - 17：00
+参会： george 
+遗留问题：
+1.OBP与OEPKGS交流(包对接，构建二进制对接) 
+    进展： 目前在接口对齐（构建结果上传）和开发阶段；
+
+2. OBS service切换git代码同步方式：
+——master分支新老service都支持，验证稳定后再推广
+——service适配门禁已经完成
+
+3. Intel arch sig组在kernel仓库上开发问题，
+  5.17 参加 Intel arch sig 例会具体讨论。
+
+4. 邮件列表的问题 ，DMARC问题解决会在近期上线，如果有遇到问题可以积极反馈；
+
+
+===============================================================================================
+ 
+openEuler infra sig 例会：
+时间：2022年4月19日 16：00 - 18：00
+
+议题:
+    1. OBP进展介绍(TommyLike)
+    2. OBP与OEPKGS交流(包对接，构建二进制对接)(KevinZheng)
+    3. OBP与麒麟交流(TommyLike)
+    4. OBS service切换git代码同步方式
+    5. 门禁支持误报上报功能&&门禁回显添加门禁指导文档链接
+    
+遗留问题：
+2.OBP与OEPKGS交流(包对接，构建二进制对接)
+(1)obp 对接 oepkgs 仓库分发镜像
+(2)obp 对接 oepkgs 软件包仓库
+(3)虚拟机镜像、安装镜像、容器镜像多种镜像检索下载的镜像市场
+4. OBS service切换git代码同步方式：
+（1）<param name="extract">*</param>
+<param name="exclude">*</param>，指定之后可以介绍额外压缩包的大小；
+（2）如果src-openeuler仓库里面包含目录，需要单独处理；
+ 
+参会人:
+1. TommyLike
+2. KevinZheng
+3. yinjiayi
+4. YangTao
+5.georgecao
+6.small_leek
+7. 魏强
+8. liuqi469227928
+9.陈德喜
+10.duyiwei7w
+==============================================================================================
+2022-04-14 openEuler Developer Day SIG meeting
+https://etherpad.openeuler.org/p/sig-Infrastructure-22.09-planning
+
+============================================================================================
+【20220228】
+议题：
+0. RISC-V sig组申请新增OBS构建资源讨论；当前已有资源配置情况
+    a、在已有的OBS资源的情况下扩容（3台机器，2优1弱，优10个任务，弱6个任务）4k包 7天   
+    解决方式：先申请加两个资源 （3.4完成资源上线）
+    b、计算资源 和 板接入   risc-v架构资源，5152等端口放开流程走完即可接入 （3.4日完成网络申请）
+
+1. 为解决OBS单包等待构建时间长的问题，申请采取以下措施之一：
+（1）增加backend-scheduler,减轻当前scheduler的压力（年前尝试过，但是没有成功，建议重新攻关尝试）；
+（2）额外搭建一套完整的OBS集群，将部分project迁移过去；
+——选方案1，   按照扩展backend节点方式，不用大规格。
+
+2.拉通做一次门禁配置的培训，讲清楚我们社区门禁添加的框架和流程。zhengyaohui
+
+
+12.23 Infra&Gatekeeper周例会
+本次例会主持：George  
+与会人：George、disnight、huanghaitao、zhengyaohui、
+下次例会时间： 1月5号，轮值主持：王冲
+主要议题：
+
+1. 当前门禁时间较长，构建依赖链接（arm环境 mirrors.huaweicloud.com ）不稳定问题。 --haitao、caozhi
+     a. 容器继承宿主机的DNS使用，check下容器访问ip是否稳定。
+     b. 验证 下在jenkins build cmd加入修改osc环境内的host信息。
+2. jenkins集群加构建服务器：
+     a.当前是单节点，需要新增节点主要涉及内核高版本问题。
+     b. 建议将openEuler 21.09版本推送到华为云，提供cce节点服务。--zhengyaohui
+3. 知会：构建系统时间问题。OBS动态扩缩容、ISO构建迁移到容器化并压缩时长。
+
+遗留问题：
+1、ceph-sig 对接openEuler CI：从jenkins ssh到ceph 自己测试环境的机器。--liuqinfei
+
+-------------------------------------------------------------------------------------------------------------------
+
+【1206 Gatekeeper双周例会】
+本次发起人：disnight  下次发起人：Georgecao
+
+本次与会人：disnight、mingdaoche、dolphin-M、liuqi469227928、George、hht、lihaiwei、liuqinfei、liying、miaokaibo、zhengyaohui、wjyscu、王策、杨桃
+
+议题：
+一、软件包引入流程优化方案及相关文件精简优化——gitee_cmd
+1. 重新梳理原流程步骤与对应责任人，确认当前流程步骤责任人合理性
+2. 准备软件包引入指导（验证流程）
+
+二、CI自定义容器方案讨论 涉及内核版本。 提出人：zhengyaohui
+1. 调研社区内需要强依赖kernel的软件包（优先排查带ko/编译依赖kernel-devel kernel-headers的软件包），从数量/依赖kernel程度进行分析
+2. 分析：运行时容器、系统容器的差异；调研k8s对接iSulad的CRI场景，是否可以有独立容器
+根据调研结论，下次例会再分析
+
+
+三、ceph-sig 对接openEuler CI   提出人：liuqinfei
+背景：ceph当前已经在申请的5台物理机上面搭建了自己的测试框架，跑百万级别的测试用例
+需求：与openEuler对接，1，满足在gitee用命令触发对PR的构建、跑用例；2，获取gitee PR构建包的路径
+1.在openeuler/openeuler-jenkins仓库下以issue跟踪
+
+
+历史etherpad链接
+https://etherpad.openeuler.org/p/sig-gatekeeper
+2021年-10月-29日 Infra例会 延期，具体时间另行通知，谢谢。
+
+会议时间：2021-10--14
+与会人： GeorgeCao
+议题：
+1. NPS度量+开发者画像在infra sig 落地方案分享
+2. openEuler Infra服务更换基础镜像使用openEuler进展与计划
+3. openEuler构建系统代码化进展同步
+
+
+
+
+-------------------------------------------------------------------------------------
+会议时间：2021-06-10
+
+议题一： openEuler基础设施 用户体验与基础设施
+
+
+
+-------------------------------------------------------------------------------------
+会议时间：2021/03/23
+与会人：
+--george
+--李翔
+--husheng
+--miaokaibo
+--chenyanpan
+--Erik
+--liuqi
+……
+
+遗留问题：
+1.openEuler社区bugzilla系统进展知会----已完成，在试用；
+   --基本机构已经搭建完成，需要进一步做配置完善。
+2.OBS构建系统优化情况
+--ccache，构建服务器的IO瓶颈问题解决，master调度节点的性能瓶颈的问题处理 （补充测试）
+--OBS服务版本升级，（采用单rpm服务升级后系统运行有问题）
+
+3. 容器基础镜像大小优化 --最新的openEuler基础容器镜像200M左右，完成；
+4. 在构建/发布流程中加入对应用容器镜像构建的支持（另预定会议讨论，lujingxiao、George、miaokaibo）
+   -----（在release-sig组跟踪）
+5. 在openEuler基础设施平台内推广使用openEuler自己的云原生组件（推荐）（长期实践，）
+6. 和Compass-CI讨论业务交集（Compass-ci更关注系统业务功能的测试，基础设施CI关注包编译构建）
+
+1. openEuler构建系统容器化-- OBS系统
+a.在OBS上游社区去咨询
+2. SSO服务讨论（单点登录系统）
+3. 微信小程序开发进展和难点求助
+a. 小程序体验版已发布 ，有活动页面（微信小程序 openEuler体验版，）
+b. 完整功能上线预计3.30号
+若(⊙o⊙)…
+
+fgre
+
+
+0会议时间：2021/02/02
+与会人：
+-george.cao
+
+议题：
+1.openEuler社区bugzilla系统进展知会
+   --基本机构已经搭建完成，需要进一步做配置完善。
+2.OBS构建系统优化情况
+   --ccache，构建服务器的IO瓶颈问题解决，master调度节点的性能瓶颈的问题处理
+   --OBS服务版本升级，
+3. 容器基础镜像大小优化
+4. 在构建/发布流程中加入对容器镜像构建的支持（另预定会议讨论，lujingxiao、George、miaokaibo）
+5. 在openEuler基础设施平台内推广使用openEuler自己的云原生组件（推荐）
+6. 和Compass-CI讨论业务交集
+7.……（待您补充）
+
+
+会议时间：12-08
+与会人：
+- george.cao
+- liuqi
+- jiayi.yin
+
+1. 峰会议题的丰富，之前提的是：
+      2020年的工作情况与现状  & 2021年的sig组运作计划  
+     a. 网络稳定问题，对国外网站访问时延不定；
+     b. 提供测试集群；
+     c. 编译加速；
+2. CLA签署：补齐操作指导
+     企业法定责任人部分--已完成
+     企业管理员 ----12.15
+     企业员工
+     个人贡献者
+
+
+
+会议时间：11-17
+与会人：
+- George.Cao
+- Eric
+
+遗留问题：
+1. 邮件列表问题
+2. CLA系统 (客服务性提示)
+    a、社区指导文档：how to start ： openEuler website 
+    b、CLA签署： CLA签署页面 ：指引与操作  指引中可以加链接 
+                               签署页和管理页面 背景完全一致
+                               UI 界面讨论，
+                               操作手册      12.01 George.Cao
+                               对老系统上已经签署企业贡献协议的场景，可否直接继承。  11.20 George.Cao / chenzeng
+             确认邮件中带有一次性password，有可能被识别为危险邮件。明文密码
+                              
+                              
+        
+https://zoom.us/j/98270515224?pwd=cGxVeHdkaFFMVDZ6L01mSHNmSEo3Zz09
+
+会议时间：11-03 
+与会人：
+- George.Cao
+- myeuler
+- Eric
+- TommyHu
+- gaohechao
+
+会议议题：
+1.邮件列表问题
+a. 未注册邮件列表，直接发送，邮件列表会挂起。   ————gaohechao
+-- 指导文档要补充
+--管理员统一到一个人，统一处理
+--针对几个常见邮件试一下（gmail.qq.163等）
+
+b. 未完成注册， ————刘奇
+--系统回复邮件 描述调整，加入中文。可以加入联系人信息。
+--几个模板调整内容，审核
+
+c. openEuler的邮件列表发送的邮件未在正常的收件箱中，可能归入了垃圾邮件。 
+-- 指导说明
+d. 我们自己完善我们的定位信息，尽快反馈。————gaohechao/caozhi
+    ---日志筛选
+
+e. 自己未收到自己发给邮件列表的邮件。————曹志
+   ---说明不实现的理由
+
+1). 问题综合解决一部分后，发一封综合的指导说明邮件，
+2). 加一些自动化的信息
+
+2.CLA系统遗留问题
+    
+3. ……
+
+======================================================================================
+openEuler 20.09版本总结 j基础设施部分：
+时间：2020-10-22  10:00-12:00
+与会人：邓鹏，缪开波，胡胜，曹志，高鹤超，刘奇，王冲
+
+改进：
+1. 华为云管理 RSICV机器，误操作，影响RSICV的OBS构建。
+    —— 华为云设备变更（主要是删除设备），三人审核同意，才能操作。 --曹志  10.30前给出审核记录的存放位置和模板，后面长期跟踪。
+    
+2. 版本产物自动发布到对外服务器(miaokaibo)
+   —— 缪开波 11.20 ，脚本实现
+   
+3. rsync同步大文件太慢 -> (tommylikehu)
+dd: 命令 （邓鹏）https://www.junmajinlong.com/shell/dd_split_csplit/
+    —— 曹志/胡胜   11.30
+    
+4. build仓库 使用分支管理容易产生配置遗漏，配置复杂，建议使用单个配置文件管理；
+   —— 缪开波 12.31
+5. 软件包代码存放在不同的组织仓库（源码包和二进制包分离），容易造成代码更新遗漏
+   ——汪胜方 00526758 之前处理过 
+   ——11.13输出一个可行方案 曹志/邓鹏
+   
+6. Jenkins任务从上游仓库下载代码经常报fail，导致任务失败
+   ——下次gatekeeper周例会再讨论下
+   
+7. Jenkins集群自动扩缩容
+    ——gaohechao 确认下华为云方案，11.30
+    
+8. Jenkins任务分布到old new两个集群，将old迁移到new上
+    ——王冲，11.30 done（包括ISO）
+    
+9. OBS-》api node 承担了ISO归档等非API应有的额外功能，需要迁移到独立node
+   存放每日构建的产物: http://121.36.84.172/
+   ——同8跟踪
+   
+10.OBS 集群逐步分组件迁移到容器
+   —— 数据库服务化 / node(api、src、backen、worker)->集群化
+         12.30 完成数据库服务化  曹志/开波
+   
+11. CI-bot部分场景漏响应
+     —— 曹志  落地重试机制，11.13
+     
+12. 根据新建仓库信息自动建Jenkins任务
+      —— 邓鹏/王冲  11.20 完成
+
+
+=========版本总结时增加的遗留问题============================================
+13. 特定的问题单性质的issue和pr关联，关闭issue需要工具能找到对应对的pr。 ——李永强
+14. 通过RP的方式打TAG，避免每次都需要maintainer操作。 ——胡峰
+15. 分析下ISO和rmp源下载慢问题，并跟踪改进。 ——陈亚强
+
+
+
+【Weekly Meeting】
+date：2020--10-27
+issue：
+  
+  1.讨论security@openeuler.org邮件列表注册使用问题，拉yanxiaobing对需求。
+  2.obs源码仓同步 仓库部署
+  
+
+
+
+
+
+【Weekly Meeting】
+date：2020--09-22
+issue：
+  1.讨论security@openeuler.org邮件列表注册使用问题，拉yanxiaobing对需求。
+  
+
+
+【Weekly Meeting】
+Date: 2020-09-15
+Addendanes:
+    - GeorgeCao
+ 
+issues:
+1.How to display an community agent on the website?  -- GeorgeCao/Maquanyi  
+2. shall we change this weekly meeting to biweekly meeting?
+
+
+
+【Weekly Meeting】
+date：2020-08-18
+Attendances：
+GeorgeCao
+freesky-edward
+
+1.How to display an community agent on the website?  -- GeorgeCao/Maquanyi 
+
+
+
+date: 2020-08-04
+===================
+Attendances:
+    
+-TommyLikeHu
+-GeorgeCao
+
+
+
+date: 2020-07-28
+===================
+Attendances:
+    
+-Erik.Yuan(Arm)
+-GeorgeCao
+
+1. When will the doc about openEuler CLA signing be released???? 
+2. The objectives of gate-keeper SIG?
+
+
+date: 2020-07-14
+===================
+Attendances:
+    
+    
+    
+
+1. The CLA issue update
+2. What is the current status of openEuler CI? And some ideas on that
+
+
+
+date: 2020-07-14
+===================
+Attendances:
+    - tommylikehu
+    - Eirk.Yuan(Arm)
+    - Eli Ma(Huawei)
+
+1. openEuler CLA signing facility design & discussion;
+Some key points agreed in the meeting about CLA signing
+
+a.   Quanyi will send out the CLA design with detail description to the infra mail-list for review tomorrow(July 15th);
+b.   The final design doc with all the UI templates merged will be published before July 25th after the openEuler internal F2F discussion in Chendu next week;
+c.    The develop plan will be made before the end of July; 
+
+
+date: 2020-06-30
+===================
+Attendances:
+    - tommylikehu
+    - Eirk.Yuan(Arm)
+    - Eli Ma(Huawei)
+
+
+issue:
+    1.自动同步pr https://gitee.com/openeuler/infrastructure/issues/I1K340?from=project-issue 遗留到下周，请提 PR 的人到会议上讨论
+
+date: 2020-06-23
+===================
+1. 基础设施如何更好的支撑加包流程的自动化（胡core  熊博 提议讨论）
+   a.自动检查src-openeuler.yaml的格式  ---- George.Cao
+   b.obs可以暂时做定期检查/ 和厂商沟通确认下obs的演进
+2. cibot 取消@提醒(tommylikehu)
+example: https://gitee.com/mindspore/mindspore/pulls/2471
+TODO: 跟mindspore确认 类似于lgtm approve正确但无意义的评论应该干掉。
+3. repo源搜索的类型和范围
+1. https://repo.openeuler.org
+4.确认issue问题：https://gitee.com/openeuler/community-issue/issues/I1L6L5?from=project-issue   --- George.Cao
+
+
+date: 2020-06-16
+===================
+Attendances:
+    - freesky-edward
+    -zhongjun2
+    -hao616647005
+    -George.Cao
+    -Eli Ma
+    
+
+===================
+date: 2020-06-16
+1. repo.openeuler.org 支持全局搜索(找不到看是不是可以提示加仓库)
+1. http://download.opensuse.org/tumbleweed/repo/oss/
+#todo: 页面UCD统一
+#repo: 源搜索
+
+1. Propose to update weekly meeting to bi-weekly [freesky-edward]
+1. 待 20.09 版本发布后改为双周
+ 
+2.运营看板进展(hao616647005)
+https://gitee.com/opensourceway/community/issues/I1JEUD
+a.需求：知道这个社区的贡献和总体规模
+ 当前指标体现：
+代码量 （包括个人、组织）
+源代码repo  --- 直接统计代码函数
+压缩包   ---     解压后统计
+区分自研代码(openeuler)  和非自研代码(src-openeuler)
+软件包个数 （是否需要统计？）
+b.需求：区分开源社区用户公司来源
+https://gitee.com/opensourceway/om-data/tree/master
+是否需要区分公司内部的组织？ 需要
+
+3. Bugzilla - From @zhuyanpeng
+1.管理需求
+
+4. 日历和会议系统自动化
+1. 通过 git 仓库发布会议 - 自动生成视频会议的链接
+1. iCal 
+2. calDAV - git repository
+2. 日历自动发布到对应的邮件列表
+
+
+===================
+date: 2020-06-09
+Attendances:
+-
+-George.Cao
+
+1. cla进展 (zengchen1024)
+    ————CLA如何嵌入到网站
+2.之前讨论的一个需求：将归属于某个包的issue分派给相应的owner，我们之前讨论过一次认为可以不用做，朱延鹏提出希望再审视一下。
+    ————建议降低优先级 
+3.版本管理  release-sig的需求 
+    ————待分析George.Cao
+4.社区基础设施对 码云 接口依赖 需要考虑可移植 
+
+
+
+2020-06-09 议题申报：
+1. 之前讨论的一个需求：将归属于某个包的issue分派给相应的owner，我们之前讨论过一次认为可以不用做，朱延鹏提出希望再审视一下。
+3. repo页面整改(tommylikehu)
+4. cla进展(zengchen1024)
+
+===============
+date: 2020-06-02
+Attendances:
+- tommylikehu
+-George.Cao
+-zhuyanpeng
+
+上周遗留:
+  1.个人签署要加到企业里面去
+  
+  CLA:
+      1. 作为单独的服务来弄，
+      2. 企业CLA变更后要重新签署，跟个人签署保持一致。
+      3. TODO: 周五下午跟maquanyi一起对下初步的cla app方案。(maquanyi&chenzeng&husheng)
+      4. 
+
+
+===============
+date: 2020-05-26
+Attendances:
+    - Eli Ma <eli@patch.sh>
+    - freesky-edward
+      Erik.Yuan@arm.com
+
+    
+Topics:
+      1. CLA 签署讨论
+      咨询律师给出法律合规的建议流程——下周例会。
+1) Arm五月初已经通过一位VP提交了CLA签署，需要收到签署成功后的确认函，
+譬如CNCF 会将一个CLA的文档放到其CLA管理的网站，每个公司在使用其自身的账号登录后能查看到； 或 通过邮件发了正式确认函； 
+——从公司签署的角度希望知道签署成功的确认。（优先级更高）
+Update 2020--05-26 在企业签署成功后生成 PDF 版本的 CLA 文件，发送到签署邮箱，由被签署公司盖章后通过邮件发送到指定接受邮箱。
+2) Legal entity CLA 由公司代表签署后，该公司下属的contributors不需要再以个人名义签署？
+Update 2020-05-26 企业签署后，该公司下属 Contributor 依旧需要签署，但是需要以公司邮箱签署，系统需要发送提醒邮件给企业邮箱。(此企业邮箱应该不是公司签署时的邮箱。 如果在公司CLA签署生成的PDF里面生成一个
+管理账号 + PW, 后台该管理账号可以配置几个接收人邮箱，用于管理白名单过程中完成必要的交互，譬如notification;  
+个人/公司签署后建议发progress 的知会邮件，同时通知白名单管理账号对应的邮件接收人进行后续处理）
+个人签署后，需要企业账号确认才生效。 (或者企业账号可配置个人签署CLA的候选列表，个人提出签署CLA请求后，后台核查是否在候选列表中，不在则给出提示和拒绝。 在个人完成CLA签署后，该签署人会从候选列表移动到企业的已签署白名单中）
+企业账号能访问所有已签署的账号的白名单，同时支持删除某个已签署。
+3) 公司代表人的资格确认问题，建议华为公司一并给出完备的流程；
+是否支持企业下属贡献者名单变更（目前CNCF的公司账户登录到服务器后，可以配置该公司有哪些贡献者参与该社区。具体之前跟Fred邮件介绍过）？
+需要为企业提供管理贡献者的功能     
+在企业签署 CLA 成功后，为企业开设管理贡献者的功能
+目前CLA的签署必须要Gitee账号，这个对公司签署代表来说是否可以去掉？
+ 在企业签署 CLA 后，贡献者需要依旧使用企业邮箱注册 Gitee 账号，并签署 CLA 进行贡献 。
+管理白名单的账号密码便于企业管理员处理
+
+      2. How to use OpenEuler OBS? What services are provided by OpenEuler OBS?
+          - address: https://build.openeuler.org/ 
+          - build a wiki for how to build a pkg.  set up a sig —— build team.
+
+CentOS 可以参考 https://wiki.centos.org/HowTos/CommunityBuildSystem
+https://wiki.centos.org/Events/Dojo/Brussels2015?action=AttachFile&do=get&target=CBS-DOJOBRUSSELS2015.pdf
+核心是如何让大家真正将OBS之类的build system使用起来管理OpenEuler以及个人待push的诸多repo + branches ---> 发现当前的痛点  ----> 优化
+
+
+===============
+date: 2020-05-19
+Attendances:
+    - freesky-edward
+   - tommylikehu
+   - George.Cao
+   - Erik.Yuan@arm.com
+    
+Topics:
+      1. CLA 签署讨论
+      咨询律师给出法律合规的建议流程——下周例会。
+1) Arm五月初已经通过一位VP提交了CLA签署，需要收到签署成功后的确认函，
+譬如CNCF 会将一个CLA的文档放到其CLA管理的网站，每个公司在使用其自身的账号登录后能查看到； 或 通过邮件发了正式确认函； 
+——从公司签署的角度希望知道签署成功的确认。（优先级更高）
+2) Legal entity CLA 由公司代表签署后，该公司下属的contributors不需要再以个人名义签署？
+3) 公司代表人的资格确认问题，建议华为公司一并给出完备的流程；
+      infra开发相应check校验。
+      是否支持企业下属贡献者名单变更（目前CNCF的公司账户登录到服务器后，可以配置该公司有哪些贡献者参与该社区。具体之前跟Fred邮件介绍过）？
+      ——linux支持名单变更。
+      目前CLA的签署必须要Gitee账号，这个对公司签署代表来说是否可以去掉？
+
+===============
+date: 2020-05-12 
+Attendances:
+    - freesky-edward
+    -George.Cao
+    - Erik.Yuan @Arm
+
+Topics:
+    1. CLA signment improvement--fred_li
+        1. 没法证明代表是企业代表。
+        2. 无法证明企业。
+        
+        
+        
+    优先级降低--
+    2. requirement/design flow
+        2.1. sig scope ：website， bot， infrastructure（obs，jeckins， maillist， meeting-bot，etherpad，repo）， tool-collection， blog（归档）.
+        2.2. issue  --> PR: design  docs(没有设计) --> PR: code（PR 没法检视，e.g. 30文件） -->  review 
+        2.3  design & review 
+    1. 指定review的人  
+    2. 需要设计文档  —— 输出设计文档及流程的要求（包括模板）——freesky-edward  提交到infrastructure PR，到TC去申请议题。
+    3. 公共部分的需求：github.com/opensourceways/   放在openeuler里孵化。例行在这个会议里跟踪。
+   3. open discussion
+      带宽：OBS的临时repo源带宽（100M）—— 北京   公司内部慢。
+      issue怎么使用——杨丽or中华培训
+      
