@@ -1,0 +1,19 @@
+Name: ALA
+HttpURL: https://mirror.anigil.com/openeuler/
+RsyncURL: ""
+FtpURL: ""
+SponsorName: AniGil Linux Archive 
+SponsorURL: https://github.com/Ani-Gil
+SponsorLogoURL: https://openeuler-website.obs.ap-southeast-1.myhuaweicloud.com/mirrors/ALA.png
+AdminName: AniGil
+AdminEmail: dlatldn426@gmail.com
+ContinentOnly: false
+CountryOnly: false
+ASOnly: false
+Score: 100
+Enabled: true
+AllowRedirects: null
+NetworkBandwidth: 3500
+Latitude: 37.5663
+Longitude: 126.9779
+Country: Korea
