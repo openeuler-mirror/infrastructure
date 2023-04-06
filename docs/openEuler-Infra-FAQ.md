@@ -5,7 +5,7 @@
 <li><strong>请问我如何在Gitee平台申请加入openEuler企业，成为组织成员？</strong></li>
 </ol>
 <p>请点击<a href="https://gitee.com/open_euler?invite=10c2a5093d0832fb8845ee7e3d2d8b486db1513364c59cd38e7cde0b62298f898e2a5d1b1b807987439bc1f65eaa027860f010c409ba4a18108234d13d970cb1">链接</a>填写相关内容后申请加入即可；<br>
-申请通常会在第二天10点前审核生效；如未及时生效可邮件通知 <a href="mailto:infra@openeuler.org">infra@openeuler.org</a> 。</p>
+申请通常会在三个工作日内审核生效；如未及时生效可邮件通知 <a href="mailto:infra@openeuler.org">infra@openeuler.org</a> 。</p>
 <hr>
 <ol start="2">
 <li><strong>请问如何在openEuler社区创建代码仓库？</strong></li>
