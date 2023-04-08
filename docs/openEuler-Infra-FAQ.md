@@ -4,7 +4,7 @@
 <ol start="1">
 <li><strong>请问我如何在Gitee平台申请加入openEuler企业，成为组织成员？</strong></li>
 </ol>
-<p>请点击<a href="https://gitee.com/open_euler?invite=10c2a5093d0832fb98c209cb449fed7b2d8f2d9915b6b1cd8e7cde0b62298f898e2a5d1b1b807987439bc1f65eaa027860f010c409ba4a18108234d13d970cb1">链接</a>填写相关内容后申请加入即可；<br>
+<p>请点击<a href="https://gitee.com/open_euler?invite=10c2a5093d0832fb49aeaa9b1eb32db88a0db6866f7189018e7cde0b62298f898e2a5d1b1b807987439bc1f65eaa027860f010c409ba4a18108234d13d970cb1">链接</a>填写相关内容后申请加入即可；<br>
 申请通常会在三个工作日内审核生效；如未及时生效可邮件通知 <a href="mailto:infra@openeuler.org">infra@openeuler.org</a> 。</p>
 <hr>
 <ol start="2">
