@@ -1,0 +1,19 @@
+Name: UOC 
+HttpURL: https://ftp.cc.uoc.gr/mirrors/linux/openeuler/
+RsyncURL: ""
+FtpURL: ""
+SponsorName: Univesity of Crete Computer Center
+SponsorURL: https://www.csd.uoc.gr/
+SponsorLogoURL: https://openeuler-website.obs.ap-southeast-1.myhuaweicloud.com/mirrors/UOC.png
+AdminName: University of Crete / Department of Physics
+AdminEmail: mirrors@cc.uoc.gr
+ContinentOnly: false
+CountryOnly: false
+ASOnly: false
+Score: 100
+Enabled: true
+AllowRedirects: null
+NetworkBandwidth: 1000
+Latitude: 38.0665
+Longitude: 23.7667
+Country: Greece
