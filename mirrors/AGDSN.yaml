@@ -4,7 +4,7 @@ RsyncURL: rsync://ftp.agdsn.de/openeuler
 FtpURL: ""
 SponsorName: Arbeitsgemeinschaft Dresdner Studentennetz
 SponsorURL: https://agdsn.de/sipa/news/
-SponsorLogoURL: https://openeuler-website.obs.ap-southeast-1.myhuaweicloud.com/mirrors/AGDSN.svg
+SponsorLogoURL: https://openeuler-website.obs.ap-southeast-1.myhuaweicloud.com/mirrors/AGDSN.png
 AdminName: Arbeitsgemeinschaft Dresdner Studentennetz
 AdminEmail: support@agdsn.de
 ContinentOnly: false
