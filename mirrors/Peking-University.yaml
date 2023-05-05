@@ -3,8 +3,8 @@ HttpURL: https://mirrors.pku.edu.cn/openeuler/
 RsyncURL: ""
 FtpURL: ""
 SponsorName: Peking-University
-SponsorURL: http://mirrors.nju.edu.cn/
-SponsorLogoURL: https://mirrors.pku.edu.cn/static/logo.png
+SponsorURL: https://mirrors.pku.edu.cn/Mirrors
+SponsorLogoURL: https://openeuler-website.obs.ap-southeast-1.myhuaweicloud.com/mirrors/Peking-University.png
 AdminName: administrator
 AdminEmail: mirror@pku.edu.cn
 ContinentOnly: false
