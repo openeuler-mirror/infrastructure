@@ -3,6 +3,7 @@
 		
 请点击[链接](https://gitee.com/open_euler?invite=10c2a5093d0832fb81561e64fbd285c29dda0333a026096d8e7cde0b62298f898e2a5d1b1b807987439bc1f65eaa027860f010c409ba4a18108234d13d970cb1)填写相关内容后申请加入即可；
 
+<<<<<<< master
 申请通常会在三个工作日内审核生效；如未及时生效可邮件通知 [infra@openeuler.org](mailto:infra@openeuler.org) 。
 
 ---
@@ -25,6 +26,7 @@ openEuler社区代码仓库的创建、删除管理方式如下：
 		
 出现该标签表示该PR中所包含的commit中，有部分贡献者没有签署openEuler社区的贡献者协议CLA。[签署地址](https://gitee.com/link?target=https%3A%2F%2Fclasign.osinfra.cn%2Fsign%2FZ2l0ZWUlMkZvcGVuZXVsZXI%3D)可以在PR评论区找到。如果是个人贡献者请选择“签署个人CLA”，如果是作为企业的员工参与贡献请选择“签署员工CLA”；作为企业员工再签署是时需要使用企业邮箱，比如 [](mailto:xxx@huawei.com)[xxx@huawei.com](mailto:xxx@huawei.com) 、[xxxx@kylinos.cn](mailto:xxxx@kylinos.cn)等。CLA检查是使用commit中信息中的commit邮箱作为检查凭证的。该邮箱可以通过git log --pretty=fuller查询到。
 		
+
 <table>
 <tbody><tr>
 <th>场景</th>
