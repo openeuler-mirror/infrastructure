@@ -646,3 +646,8 @@ companies:
     company_name: 21cn
     aliases:
       - 21cn
+  - domains:
+      - ncti-gba.cn
+    company_name: NCTI
+    aliases:
+      - 粤港澳大湾区（广东）国创中心
