@@ -1010,7 +1010,7 @@ users:
   - gitee_id: cherry530
     github_id: ''
     companies:
-      - company_name: ''
+      - company_name: 'NCTI'
         organization_name: ''
         end_date: ''
     user_name: ''
@@ -5730,7 +5730,7 @@ users:
   - gitee_id: lyn1001
     github_id: ''
     companies:
-      - company_name: ''
+      - company_name: 'NCTI'
         organization_name: ''
         end_date: ''
     user_name: ''
@@ -5954,7 +5954,7 @@ users:
   - gitee_id: MementoMoriCheng
     github_id: ''
     companies:
-      - company_name: ''
+      - company_name: 'NCTI'
         organization_name: ''
         end_date: ''
     user_name: ''
@@ -7850,7 +7850,7 @@ users:
   - gitee_id: ssttkx
     github_id: ''
     companies:
-      - company_name: ''
+      - company_name: 'NCTI'
         organization_name: ''
         end_date: ''
     user_name: ''
@@ -8762,7 +8762,7 @@ users:
   - gitee_id: wang--ge
     github_id: ''
     companies:
-      - company_name: ''
+      - company_name: 'NCTI'
         organization_name: ''
         end_date: ''
     user_name: ''
@@ -11178,7 +11178,7 @@ users:
   - gitee_id: zjl_long
     github_id: ''
     companies:
-      - company_name: ''
+      - company_name: 'NCTI'
         organization_name: ''
         end_date: ''
     user_name: ''
@@ -11327,3 +11327,75 @@ users:
         end_date: ''
     user_name: ''
     emails: ["515316497@qq.com", "tianyuan01@chinasoftinc.com"]
+  - gitee_id: starlet_dx
+    github_id: ''
+    companies:
+      - company_name: 'NCTI'
+        organization_name: ''
+        end_date: ''
+    user_name: ''
+    emails: []
+  - gitee_id: wu-leilei
+    github_id: ''
+    companies:
+      - company_name: 'NCTI'
+        organization_name: ''
+        end_date: ''
+    user_name: ''
+    emails: []
+  - gitee_id: chen-jan
+    github_id: ''
+    companies:
+      - company_name: 'NCTI'
+        organization_name: ''
+        end_date: ''
+    user_name: ''
+    emails: []
+  - gitee_id: wk333
+    github_id: ''
+    companies:
+      - company_name: 'NCTI'
+        organization_name: ''
+        end_date: ''
+    user_name: ''
+    emails: []
+  - gitee_id: mazenggang3
+    github_id: ''
+    companies:
+      - company_name: 'NCTI'
+        organization_name: ''
+        end_date: ''
+    user_name: ''
+    emails: []
+  - gitee_id: zhanglu626
+    github_id: ''
+    companies:
+      - company_name: 'NCTI'
+        organization_name: ''
+        end_date: ''
+    user_name: ''
+    emails: []
+  - gitee_id: zhangpanting
+    github_id: ''
+    companies:
+      - company_name: 'NCTI'
+        organization_name: ''
+        end_date: ''
+    user_name: ''
+    emails: []
+  - gitee_id: ding-jiao
+    github_id: ''
+    companies:
+      - company_name: 'NCTI'
+        organization_name: ''
+        end_date: ''
+    user_name: ''
+    emails: []
+  - gitee_id: hukun66
+    github_id: ''
+    companies:
+      - company_name: 'NCTI'
+        organization_name: ''
+        end_date: ''
+    user_name: ''
+    emails: []
