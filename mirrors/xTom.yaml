@@ -4,7 +4,7 @@ RsyncURL: rsync://mirrors.xtom.de/openeuler/
 FtpURL: ""
 SponsorName: xTom
 SponsorURL: https://xtom.com/
-SponsorLogoURL: https://openeuler-website.obs.ap-southeast-1.myhuaweicloud.com/mirrors/xTom.png
+SponsorLogoURL: https://openeuler-website.obs.ap-southeast-1.myhuaweicloud.com/mirrors/xTom.ico
 AdminName: xTom
 AdminEmail: mirror@xtom.com
 ContinentOnly: false
