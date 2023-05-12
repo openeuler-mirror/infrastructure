@@ -101,12 +101,12 @@ def get_mail_step():
         os.remove("/home/patches/project_series.txt")
 
     # before run getmail, sleep 5 minutes
-    time.sleep(300)
+    time.sleep(600)
     # 兼容多仓库
     for k, v in RCFile_MAP.items():
         os.environ["GET_EMAIL"] = os.getenv(v.get("host"))
         os.popen('getmail --getmaildir="{}" --idle INBOX'.format(k)).readlines()
-        time.sleep(10)
+        time.sleep(1)
 
 
 def download_patches_by_using_git_pw(ser_id):
@@ -267,7 +267,7 @@ def make_branch_and_apply_patch(user, token, origin_branch, ser_id, repository_p
         push_res = os.popen("git push origin %s" % new_branch).readlines()
         for p in push_res:
             if "error:" in p or "fatal:" in p:
-                time.sleep(20)
+                time.sleep(3)
                 print("git push failed, %s, try again" % p)
                 os.popen("git push origin %s" % new_branch).readlines()
                 retry_flag = True
