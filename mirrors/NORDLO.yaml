@@ -4,7 +4,7 @@ RsyncURL: ""
 FtpURL: ""
 SponsorName: NORDLO
 SponsorURL: https://nordlo.com/
-SponsorLogoURL: https://openeuler-website.obs.ap-southeast-1.myhuaweicloud.com/mirrors/NORDLO.svg
+SponsorLogoURL: https://openeuler-website.obs.ap-southeast-1.myhuaweicloud.com/mirrors/NORDLO.png
 AdminName: NORDLO
 AdminEmail: mirror-maintainers@zetup.se
 ContinentOnly: false
