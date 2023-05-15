@@ -143,3 +143,13 @@ CI未及时触发通常有两种情况：
 **git push origin :refs/tags/v2.0**
 
 ---
+13.  **请问PR什么不能关联上Issue ？**
+		
+PR关联ISSUE的时候找不到相关的Issue的原因一般有两个：
+
+
+- 用户没有相关权限，需要加入企业组织，参考问题1；
+- 希望关联的Issue和PR不归属于同一个仓库，那么需要再企业版界面操作： 
+   https://e.gitee.com/open_euler/dashboard ，【代码】——>（对应仓库）——>【代码评审】——>（对应PR）——>【关联工作项】输入Issue ID即可关联；
+
+---
