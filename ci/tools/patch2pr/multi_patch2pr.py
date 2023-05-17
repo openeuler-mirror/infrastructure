@@ -515,7 +515,7 @@ def get_email_content_sender_and_covert_to_pr_body(ser_id, path_of_repo):
                                            "but a cover doesn't have been sent, so bot can not generate a pull request. "
                                            "Please check and apply a cover, then send all patches again",
                                            [patch_sender_email], [], sub, msg_id, path_of_repo)
-            return "", "", "", "", "", "", ""
+            return "", "", "", "", "", "", "", ""
 
         # config git
         config_git(patch_sender_email, patch_send_name)
@@ -533,7 +533,7 @@ def get_email_content_sender_and_covert_to_pr_body(ser_id, path_of_repo):
         cover_content = row[4]
 
     if cover_content == "" or cover_headers == "" or cover_name == "":
-        return "", "", "", "", "", "", ""
+        return "", "", "", "", "", "", "", ""
     sub = cover_name
     title_for_pr = cover_name.split("]")[1]
 
