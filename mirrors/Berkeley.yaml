@@ -1,0 +1,19 @@
+Name: Berkeley
+HttpURL: https://mirrors.ocf.berkeley.edu/openeuler/
+RsyncURL: ""
+FtpURL: ""
+SponsorName: UC Berkeley
+SponsorURL: https://www.berkeley.edu/
+SponsorLogoURL: https://openeuler-website.obs.ap-southeast-1.myhuaweicloud.com/mirrors/Berkeley.ico
+AdminName: Open Computing Facility
+AdminEmail: help@ocf.berkeley.edu
+ContinentOnly: false
+CountryOnly: false
+ASOnly: false
+Score: 100
+Enabled: true
+AllowRedirects: null
+NetworkBandwidth: 10000
+Latitude: 37.8573
+Longitude: -122.2449
+Country: United States of America
