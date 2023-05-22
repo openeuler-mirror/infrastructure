@@ -1,10 +1,10 @@
-Name: Berkeley
+Name: OCF
 HttpURL: https://mirrors.ocf.berkeley.edu/openeuler/
 RsyncURL: ""
 FtpURL: ""
-SponsorName: UC Berkeley
-SponsorURL: https://www.berkeley.edu/
-SponsorLogoURL: https://openeuler-website.obs.ap-southeast-1.myhuaweicloud.com/mirrors/Berkeley.ico
+SponsorName: Open Computing Facility
+SponsorURL: https://www.ocf.berkeley.edu/
+SponsorLogoURL: https://openeuler-website.obs.ap-southeast-1.myhuaweicloud.com/mirrors/OCF.png
 AdminName: Open Computing Facility
 AdminEmail: help@ocf.berkeley.edu
 ContinentOnly: false
