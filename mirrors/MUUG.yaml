@@ -1,0 +1,19 @@
+Name: MUUG
+HttpURL: https://muug.ca/mirror/openeuler/
+RsyncURL: rsync://muug.ca/mirror/openeuler/
+FtpURL: ""
+SponsorName: Manitoba UNIX User Group
+SponsorURL: https://muug.ca/
+SponsorLogoURL: https://openeuler-website.obs.ap-southeast-1.myhuaweicloud.com/mirrors/MUUG.png
+AdminName: Manitoba UNIX User Group
+AdminEmail: mirror@muug.ca
+ContinentOnly: false
+CountryOnly: false
+ASOnly: false
+Score: 100
+Enabled: true
+AllowRedirects: null
+NetworkBandwidth: 10000
+Latitude: 49.8946
+Longitude: -97.1354
+Country: Canada
