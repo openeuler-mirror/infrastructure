@@ -238,7 +238,7 @@ def make_branch_and_apply_patch(user, token, origin_branch, ser_id, repository_p
             for res in r:
                 if "error:" in res or "fatal:" in res:
                     os.popen(
-                        "git clone https://{}:{}@gitee.com/src/{}.git".format(user, token, repo_name)).readlines()
+                        "git clone https://{}:{}@gitee.com/src-op/{}.git".format(user, token, repo_name)).readlines()
             os.chdir("/home/patches/{}".format(repository_path))
         elif org == "openeuler":
             r = os.popen("git clone https://{}:{}@gitee.com/ci-robot/{}.git".format(user, token, repo_name)).readlines()
@@ -320,7 +320,7 @@ def make_pr_to_summit_commit(org, repo_name, source_branch, base_branch, token, 
 
     data = {
         "access_token": token,
-        "head": "patch-bot:" + source_branch,
+        "head": "ci-robot:" + source_branch,
         "base": base_branch,
         "title": title,
         "body": body,
