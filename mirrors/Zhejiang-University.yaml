@@ -1,6 +1,6 @@
 Name: Zhejiang-University
 HttpURL: https://mirror.zju.edu.cn/openeuler/
-RsyncURL: rsync://root@mirror.zju.edu.cn/openeuler
+RsyncURL: ""
 FtpURL: ""
 SponsorName: ZJUSCT
 SponsorURL: https://www.zjusct.io/
