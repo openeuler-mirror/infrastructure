@@ -735,7 +735,7 @@ def main():
         # in production environment， deploy on one branch
         branch = branch.strip(" ")
         if branch not in ["openEuler-22.03-LTS-SP1", "openEuler-22.03-LTS", "OLK-5.10"] and "openeuler/kernel" == repo:
-            print("branch doesn't match, ignore it")
+            print("branch %s doesn't match, ignore it" % branch, len(branch))
             return
 
         config_git_pw(project_name, server, server_token)
