@@ -103,15 +103,22 @@ def make_fork_same_with_origin(branch_name, o, r):
 
     # list git branches by git branch -a
     fork_branches_list = os.popen("git branch -a").readlines()
+    create_to_fork = False
     for fb in fork_branches_list:
         if not fb.strip("\n").strip(" ").__contains__(branch_name):
-            # create branch to fork repo
-            os.popen("git fetch upstream %s" % branch_name).readlines()
-            os.popen("git checkout -b %s upstream/%s" % (branch_name, branch_name)).readlines()
-            os.popen("git push -u origin %s" % branch_name).readlines()
+            create_to_fork = True
+        else:
+            create_to_fork = False
+            break
 
-            same_flag = True
-            return same_flag
+    if create_to_fork:
+        # create branch to fork repo
+        os.popen("git fetch upstream %s" % branch_name).readlines()
+        os.popen("git checkout -b %s upstream/%s" % (branch_name, branch_name)).readlines()
+        os.popen("git push -u origin %s" % branch_name).readlines()
+
+        same_flag = True
+        return same_flag
 
     if branch_name in ["openEuler-1.0-LTS", "master"]:
         os.popen("git checkout -f {}".format(branch_name)).readlines()
@@ -539,11 +546,35 @@ def get_email_content_sender_and_covert_to_pr_body(ser_id, path_of_repo):
         for row in patches_headers_rows:
             data = row[0].split("\n")
             for index, string in enumerate(data):
-                if string.startswith("To: "):
+                if string.__contains__("kernel@openeuler.org") or string.__contains__("kernel-build@openeuler.org"):
+                    who_is_email_list = ""
                     if "<" in string:
-                        who_is_email_list = string.split("<")[1].split(">")[0]
+                        if "To:" in string:
+                            string = string.replace("To: ", "")
+                        if string.__contains__(","):
+                            to_list = string.replace(" ", "").split(",")
+                            for t in to_list:
+                                if t == "":
+                                    continue
+                                if t.split("<")[1].split(">")[0] in ["kernel@openeuler.org",
+                                                                     "kernel-build@openeuler.org"]:
+                                    who_is_email_list = t.split("<")[1].split(">")[0]
+                        else:
+                            who_is_email_list = string.split("<")[1].split(">")[0]
                     else:
-                        who_is_email_list = string.split(" ")[1]
+                        if "To:" in string:
+                            string = string.replace("To:", "")
+                        if string.__contains__(","):
+                            to_list = string.replace(" ", "").split(",")
+                            for t in to_list:
+                                if t == "":
+                                    continue
+                                if "?=" in t:
+                                    t = t.split("?=")[-1]
+                                if t in ["kernel@openeuler.org", "kernel-build@openeuler.org"]:
+                                    who_is_email_list = t
+                        else:
+                            who_is_email_list = string.split(" ")[-1]
                 if string.startswith("From: "):
                     if "<" not in string and ">" not in string:
                         # deal with email address like this xx@xx.com, not like X XX <xxx@xxx.com>
@@ -564,7 +595,7 @@ def get_email_content_sender_and_covert_to_pr_body(ser_id, path_of_repo):
                         patch_sender_email = string.split("<")[1].split(">")[0]
                         patch_send_name = string.split("<")[0].split("From:")[1].split(" ")[1] + " " + \
                                           string.split("<")[0].split("From:")[1].split(" ")[2]
-                if string.__contains__("https://mailweb.openeuler.org/hyperkitty/list/%s/message/" % who_is_email_list):
+                if string.__contains__("https://mailweb.openeuler.org/hyperkitty/list/"):
                     email_list_link_of_patch = string.replace("<", "").replace(">", "").replace("message", "thread")
                 if string.startswith("Message-Id: "):
                     msg_id = string.split("Message-Id: ")[1]
@@ -615,12 +646,37 @@ def get_email_content_sender_and_covert_to_pr_body(ser_id, path_of_repo):
             msg_id = ch.split("Message-Id: ")[1]
         if ch.startswith("Message-ID: "):
             msg_id = ch.split("Message-ID: ")[1]
-        if ch.startswith("To: "):
+            
+        if ch.__contains__("kernel@openeuler.org") or ch.__contains__("kernel-build@openeuler.org"):
+            cover_who_is_email_list = ""
             if "<" in ch:
-                cover_who_is_email_list = ch.split("<")[1].split(">")[0]
+                if "To:" in ch:
+                    ch = ch.replace("To:", "")
+                if ch.__contains__(","):
+                    to_list = ch.replace(" ", "").split(",")
+                    for t in to_list:
+                        if t == "":
+                            continue
+                        if t.split("<")[1].split(">")[0] in ["kernel@openeuler.org", "kernel-build@openeuler.org"]:
+                            cover_who_is_email_list = t.split("<")[1].split(">")[0]
+                else:
+                    cover_who_is_email_list = ch.split("<")[1].split(">")[0]
             else:
-                cover_who_is_email_list = ch.split(" ")[1]
-        if ch.__contains__("https://mailweb.openeuler.org/hyperkitty/list/%s/message/" % cover_who_is_email_list):
+                if "To:" in ch:
+                    ch = ch.replace("To: ", "")
+                if ch.__contains__(","):
+                    to_list = ch.replace(" ", "").split(",")
+                    for t in to_list:
+                        if t == "":
+                            continue
+                        if "?=" in t:
+                            t = t.split("?=")[-1]
+                        if t in ["kernel@openeuler.org", "kernel-build@openeuler.org"]:
+                            cover_who_is_email_list = t
+                else:
+                    cover_who_is_email_list = ch.split(" ")[-1]
+
+        if ch.__contains__("https://mailweb.openeuler.org/hyperkitty/list/"):
             email_list_link_of_patch = ch.replace("<", "").replace(">", "").replace("message", "thread")
         if ch.startswith("From: "):
 
