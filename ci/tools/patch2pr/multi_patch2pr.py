@@ -104,7 +104,7 @@ def make_fork_same_with_origin(branch_name, o, r):
     # list git branches by git branch -a
     fork_branches_list = os.popen("git branch -a").readlines()
     for fb in fork_branches_list:
-        if branch_name not in fb.strip("\n").strip(" "):
+        if not fb.strip("\n").strip(" ").__contains__(branch_name):
             # create branch to fork repo
             os.popen("git fetch upstream %s" % branch_name).readlines()
             os.popen("git checkout -b %s upstream/%s" % (branch_name, branch_name)).readlines()
@@ -546,12 +546,19 @@ def get_email_content_sender_and_covert_to_pr_body(ser_id, path_of_repo):
                         who_is_email_list = string.split(" ")[1]
                 if string.startswith("From: "):
                     if "<" not in string and ">" not in string:
-                        email_from = data[index + 1]
-                        email_from_name = base64.b64decode(string.split("From: ")[1].split("?b?")[1].split("?=")[0]) \
-                            .decode("gb18030")
-                        committer = email_from_name + " " + email_from
-                        patch_sender_email = email_from.split("<")[1].split(">")[0]
-                        patch_send_name = email_from_name
+                        # deal with email address like this xx@xx.com, not like X XX <xxx@xxx.com>
+                        e_re = re.compile(r'^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$')
+                        if e_re.match(string.split("From:")[1].strip(" ")):
+                            patch_sender_email = string.split("From:")[1].strip(" ")
+                            committer = patch_sender_email.split("@")[0] + " " + patch_sender_email.split("@")[1]
+                            patch_send_name = patch_sender_email.split("@")[0]
+                        else:
+                            email_from = data[index + 1]
+                            email_from_name = base64.b64decode(string.split("From: ")[1].split("?b?")[1].split("?=")[0]) \
+                                .decode("gb18030")
+                            committer = email_from_name + " " + email_from
+                            patch_sender_email = email_from.split("<")[1].split(">")[0]
+                            patch_send_name = email_from_name
                     else:
                         committer = string.split("From:")[1]
                         patch_sender_email = string.split("<")[1].split(">")[0]
@@ -618,12 +625,19 @@ def get_email_content_sender_and_covert_to_pr_body(ser_id, path_of_repo):
         if ch.startswith("From: "):
 
             if "<" not in ch and ">" not in ch:
-                email_from = cover_data[idx + 1]
-                email_from_name = base64.b64decode(ch.split("From: ")[1].split("?b?")[1].split("?=")[0]) \
-                    .decode("gb18030")
-                committer = email_from_name + " " + email_from
-                patch_sender_email = email_from.split("<")[1].split(">")[0]
-                patch_send_name = email_from_name
+                # deal with email address like this xx@xx.com, not like X XX <xxx@xxx.com>
+                e_re = re.compile(r'^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$')
+                if e_re.match(ch.split("From:")[1].strip(" ")):
+                    patch_sender_email = ch.split("From:")[1].strip(" ")
+                    committer = patch_sender_email.split("@")[0] + " " + patch_sender_email.split("@")[1]
+                    patch_send_name = patch_sender_email.split("@")[0]
+                else:
+                    email_from = cover_data[idx + 1]
+                    email_from_name = base64.b64decode(ch.split("From: ")[1].split("?b?")[1].split("?=")[0]) \
+                        .decode("gb18030")
+                    committer = email_from_name + " " + email_from
+                    patch_sender_email = email_from.split("<")[1].split(">")[0]
+                    patch_send_name = email_from_name
             else:
                 committer = ch.split("From:")[1]
                 patch_sender_email = ch.split("<")[1].split(">")[0]
@@ -775,6 +789,8 @@ def main():
             elif tag.count(",") >= 2:
                 if tag.split(",")[-1] == tag_name:
                     branch = tag.split(",")[-1]
+                elif tag.split(",")[-2] == tag_name:
+                    branch = tag.split(",")[-2]
                 else:
                     branch = tag.split(",")[0]
         else:
