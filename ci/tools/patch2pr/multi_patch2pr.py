@@ -399,7 +399,7 @@ def make_pr_to_summit_commit(org, repo_name, source_branch, base_branch, token, 
             "access_token": token,
             "body": "/check-cla",
         }
-        comment_url = "https://gitee.com/api/v5/repos/{}/{}/pulls/{}/comments".\
+        comment_url = "https://gitee.com/api/v5/repos/{}/{}/pulls/{}/comments". \
             format(org, repo_name, res.json().get("number"))
 
         rsp = requests.post(url=comment_url, data=comment_data)
@@ -540,8 +540,14 @@ def get_email_content_sender_and_covert_to_pr_body(ser_id, path_of_repo):
                     first_path_mail_name = row[0]
 
         cur.execute(
-            "SELECT headers from patchwork_patch where series_id={} and name='{}'".format(ser_id, first_path_mail_name))
-        patches_headers_rows = cur.fetchall()
+            "SELECT headers, name from patchwork_patch where series_id={}".format(ser_id))
+        patches_headers_name_rows = cur.fetchall()
+        patches_headers_rows = []
+        for i in patches_headers_name_rows:
+            if i[1] == first_path_mail_name:
+                patches_headers_rows.append(i)
+                break
+        
         who_is_email_list = ""
         for row in patches_headers_rows:
             data = row[0].split("\n")
@@ -622,7 +628,7 @@ def get_email_content_sender_and_covert_to_pr_body(ser_id, path_of_repo):
             msg_id = ch.split("Message-Id: ")[1]
         if ch.startswith("Message-ID: "):
             msg_id = ch.split("Message-ID: ")[1]
-            
+
         if ch.startswith("To: "):
             if "<" in ch:
                 cover_who_is_email_list = ch.split("<")[1].split(">")[0]
@@ -720,7 +726,8 @@ def change_email_status_to_answered(host_pass_dict):
     im_server.login(useraccount, password)
 
     imaplib.Commands['ID'] = ('AUTH')
-    args = ("name", "{}".format(useraccount), "contact", "{}".format(useraccount), "version", "1.0.0", "vendor", "myclient")
+    args = (
+    "name", "{}".format(useraccount), "contact", "{}".format(useraccount), "version", "1.0.0", "vendor", "myclient")
     im_server._simple_command('ID', '("' + '" "'.join(args) + '")')
     im_server.select()
     _, unseen = im_server.search(None, "UNANSWERED")
@@ -912,4 +919,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-
