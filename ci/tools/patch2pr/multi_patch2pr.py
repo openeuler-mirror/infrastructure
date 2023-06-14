@@ -1,4 +1,5 @@
 import base64
+import json
 import re
 import time
 import requests
@@ -58,6 +59,8 @@ RCFile_MAP = {
     "/home/patches/rc/src-openeuler/kernel": {"host": "SRC_OPENEULER_KERNEL_HOST", "pass": "SRC_OPENEULER_KERNEL_PASS"},
     "/home/patches/rc/openeuler/kernel": {"host": "OPENEULER_KERNEL_HOST", "pass": "OPENEULER_KERNEL_PASS"}
 }
+
+MAILING_LIST = ["kernel@openeuler.org", "kernel-build@openeuler.org",]
 
 PR_SUCCESS = "反馈：\n" \
              "您发送到{}的补丁/补丁集，已成功转换为PR！\n" \
@@ -547,42 +550,57 @@ def get_email_content_sender_and_covert_to_pr_body(ser_id, path_of_repo):
             if i[1] == first_path_mail_name:
                 patches_headers_rows.append(i)
                 break
-        
+
         who_is_email_list = ""
-        for row in patches_headers_rows:
-            data = row[0].split("\n")
-            for index, string in enumerate(data):
-                if string.startswith("To: "):
-                    if "<" in string:
-                        who_is_email_list = string.split("<")[1].split(">")[0]
-                    else:
-                        who_is_email_list = string.split(" ")[1]
-                if string.startswith("From: "):
-                    if "<" not in string and ">" not in string:
-                        # deal with email address like this xx@xx.com, not like X XX <xxx@xxx.com>
-                        e_re = re.compile(r'^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$')
-                        if e_re.match(string.split("From:")[1].strip(" ")):
-                            patch_sender_email = string.split("From:")[1].strip(" ")
-                            committer = patch_sender_email.split("@")[0] + " " + patch_sender_email.split("@")[1]
-                            patch_send_name = patch_sender_email.split("@")[0]
-                        else:
-                            email_from = data[index + 1]
-                            email_from_name = base64.b64decode(string.split("From: ")[1].split("?b?")[1].split("?=")[0]) \
-                                .decode("gb18030")
-                            committer = email_from_name + " " + email_from
-                            patch_sender_email = email_from.split("<")[1].split(">")[0]
-                            patch_send_name = email_from_name
-                    else:
-                        committer = string.split("From:")[1]
-                        patch_sender_email = string.split("<")[1].split(">")[0]
-                        patch_send_name = string.split("<")[0].split("From:")[1].split(" ")[1] + " " + \
-                                          string.split("<")[0].split("From:")[1].split(" ")[2]
-                if string.__contains__("https://mailweb.openeuler.org/hyperkitty/list/") and "message" in string:
-                    email_list_link_of_patch = string.replace("<", "").replace(">", "").replace("message", "thread")
-                if string.startswith("Message-Id: "):
-                    msg_id = string.split("Message-Id: ")[1]
-                if string.startswith("Message-ID: "):
-                    msg_id = string.split("Message-ID: ")[1]
+        # new code using email
+        email_msg = email.message_from_string(patches_headers_rows[0][0])
+        # deal with email To
+        email_to = email_msg.get("To").replace("\n\t", "")
+        if "," in email_to:
+            email_list = email_to.split(",")
+            for e in email_list:
+                if "<" in e and ">" in e:
+                    if e.split("<")[1].split(">")[0] in MAILING_LIST:
+                        who_is_email_list = e.split("<")[1].split(">")[0]
+                else:
+                    if e in MAILING_LIST:
+                        who_is_email_list = e
+        else:
+            e = email_to
+            if "<" in e and ">" in e:
+                if e.split("<")[1].split(">")[0] in MAILING_LIST:
+                    who_is_email_list = e.split("<")[1].split(">")[0]
+            else:
+                if e in MAILING_LIST:
+                    who_is_email_list = e
+
+        # deal with From
+        email_from = email_msg.get("From")
+
+        if "<" not in email_from and ">" not in email_from:
+            # deal with email address like this xx@xx.com, not like X XX <xxx@xxx.com>
+            e_re = re.compile(r'^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$')
+            if e_re.match(email_from):
+                patch_sender_email = email_from
+                committer = patch_sender_email.split("@")[0] + " " + patch_sender_email
+                patch_send_name = patch_sender_email.split("@")[0]
+            else:
+                e_from = email_from.split(" ")[-1]
+                patch_sender_email = e_from
+                committer = patch_sender_email.split("@")[0] + " " + patch_sender_email
+                patch_send_name = patch_sender_email.split("@")[0]
+        else:
+            committer = email_from
+            patch_sender_email = email_from.split("<")[1].split(">")[0]
+            patch_send_name = email_from.split("<")[0].split(" ")[0] + " " + \
+                              email_from.split("<")[0].split(" ")[1]
+
+        # deal with Message-ID
+        msg_id = email_msg.get("Message-ID") or email_msg.get("Message-Id")
+
+        # deal with Archived-at
+        email_list_link_of_patch = email_msg.get("Archived-At").replace(" ", "").\
+            replace("\n", "").replace("<", "").replace(">", "")
         cc.append(who_is_email_list)
 
         if "1/" in first_path_mail_name:
@@ -622,42 +640,55 @@ def get_email_content_sender_and_covert_to_pr_body(ser_id, path_of_repo):
     title_for_pr = cover_name.split("]")[1]
 
     cover_who_is_email_list = ""
-    cover_data = cover_headers.split("\n")
-    for idx, ch in enumerate(cover_data):
-        if ch.startswith("Message-Id: "):
-            msg_id = ch.split("Message-Id: ")[1]
-        if ch.startswith("Message-ID: "):
-            msg_id = ch.split("Message-ID: ")[1]
-
-        if ch.startswith("To: "):
-            if "<" in ch:
-                cover_who_is_email_list = ch.split("<")[1].split(">")[0]
+    # new code using email
+    email_msg = email.message_from_string(cover_headers)
+    # deal with email To
+    email_to = email_msg.get("To").replace("\n\t", "")
+    if "," in email_to:
+        email_list = email_to.split(",")
+        for e in email_list:
+            if "<" in e and ">" in e:
+                if e.split("<")[1].split(">")[0] in MAILING_LIST:
+                    cover_who_is_email_list = e.split("<")[1].split(">")[0]
             else:
-                cover_who_is_email_list = ch.split(" ")[1]
+                if e in MAILING_LIST:
+                    cover_who_is_email_list = e
+    else:
+        e = email_to
+        if "<" in e and ">" in e:
+            if e.split("<")[1].split(">")[0] in MAILING_LIST:
+                cover_who_is_email_list = e.split("<")[1].split(">")[0]
+        else:
+            if e in MAILING_LIST:
+                cover_who_is_email_list = e
 
-        if ch.__contains__("https://mailweb.openeuler.org/hyperkitty/list/") and "message" in ch:
-            email_list_link_of_patch = ch.replace("<", "").replace(">", "").replace("message", "thread")
-        if ch.startswith("From: "):
+    # deal with From
+    email_from = email_msg.get("From")
 
-            if "<" not in ch and ">" not in ch:
-                # deal with email address like this xx@xx.com, not like X XX <xxx@xxx.com>
-                e_re = re.compile(r'^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$')
-                if e_re.match(ch.split("From:")[1].strip(" ")):
-                    patch_sender_email = ch.split("From:")[1].strip(" ")
-                    committer = patch_sender_email.split("@")[0] + " " + patch_sender_email.split("@")[1]
-                    patch_send_name = patch_sender_email.split("@")[0]
-                else:
-                    email_from = cover_data[idx + 1]
-                    email_from_name = base64.b64decode(ch.split("From: ")[1].split("?b?")[1].split("?=")[0]) \
-                        .decode("gb18030")
-                    committer = email_from_name + " " + email_from
-                    patch_sender_email = email_from.split("<")[1].split(">")[0]
-                    patch_send_name = email_from_name
-            else:
-                committer = ch.split("From:")[1]
-                patch_sender_email = ch.split("<")[1].split(">")[0]
-                patch_send_name = ch.split("<")[0].split("From:")[1].split(" ")[1] + " " + \
-                                  ch.split("<")[0].split("From:")[1].split(" ")[2]
+    if "<" not in email_from and ">" not in email_from:
+        # deal with email address like this xx@xx.com, not like X XX <xxx@xxx.com>
+        e_re = re.compile(r'^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$')
+        if e_re.match(email_from):
+            patch_sender_email = email_from
+            committer = patch_sender_email.split("@")[0] + " " + patch_sender_email
+            patch_send_name = patch_sender_email.split("@")[0]
+        else:
+            e_from = email_from.split(" ")[-1]
+            patch_sender_email = e_from
+            committer = patch_sender_email.split("@")[0] + " " + patch_sender_email
+            patch_send_name = patch_sender_email.split("@")[0]
+    else:
+        committer = email_from
+        patch_sender_email = email_from.split("<")[1].split(">")[0]
+        patch_send_name = email_from.split("<")[0].split(" ")[0] + " " + \
+                          email_from.split("<")[0].split(" ")[1]
+
+    # deal with Message-ID
+    msg_id = email_msg.get("Message-ID") or email_msg.get("Message-Id")
+
+    # deal with Archived-at
+    email_list_link_of_patch = email_msg.get("Archived-At").replace(" ", "")\
+        .replace("\n", "").replace("<", "").replace(">", "")
     cc.append(cover_who_is_email_list)
 
     for ct in cover_content.split("\n"):
@@ -744,6 +775,114 @@ def rewrite_to_project_series_file(data_list):
     with open("/home/patches/project_series.txt", "a", encoding="utf-8") as f:
         for d in data_list:
             f.writelines(d)
+
+
+def notice_dropped_patches_sender(data_string: str):
+    """
+    use to tell developers that their patches have been dropped because bot retries 3 times, the result is that pr can
+    not been created.
+    :param data_string: a information str
+    :return:
+    """
+    series_id = data_string.split(":")[2]
+
+    # open database connect
+    user = os.getenv("DATABASE_USER")
+    name = os.getenv("DATABASE_NAME")
+    password = os.getenv("DATABASE_PASSWORD")
+    host = os.getenv("DATABASE_HOST")
+
+    conn = psycopg2.connect(database=name, user=user, password=password, host=host, port="5432")
+
+    cur = conn.cursor()
+
+    cur.execute("SELECT msgid, submitter_id, headers from patchwork_patch where series_id={} LIMIT 1".format(series_id))
+    patch_data = cur.fetchall()
+    msgid, submitter_id, header = patch_data[0][0], patch_data[0][1], patch_data[0][2]
+
+    archived_link = email.message_from_string(header).get("Archived-At").replace("<", "").replace(">", "")
+    mailing_list = archived_link.split("/list/")[1].split("/message/")[0]
+
+    cur.execute("SELECT email FROM patchwork_person where id={}".format(submitter_id))
+    submitter_email = cur.fetchall()[0][0]
+
+    cur.close()
+    conn.close()
+
+    zh_reason = "重试三次后仍无法创建PR，因此丢弃此补丁/补丁集"
+    zh_suggest = "请确认补丁是否存在问题或者漏发，无误后重新发送至邮件列表"
+    en_reason = "bot can not create PR after tried three times, so bot drop this patch(es)"
+    en_suggest = "please checkout if something is wrong with your patches or you have missed some patches, " \
+                 "you can send to mailing list again after you have checked"
+    content = PR_FAILED.format(
+        mailing_list, archived_link, zh_reason, zh_suggest, mailing_list, archived_link, en_reason, en_suggest
+    )
+
+    repo = data_string.split(":")[1].split("-")[0] + "/" + data_string.split(":")[1].split("-")[1]
+
+    send_mail_to_notice_developers(
+        content, [submitter_email], [], "", msgid, repo
+    )
+
+
+def check_retry_times(information: list):
+    """
+    use to checkout if a series of patches has been already try 3 times
+    :param information: list
+    :return: list
+    """
+    patch_to_retry_list = []
+    if not os.path.exists("/home/patches/check.json"):
+        os.popen("touch /home/patches/check.json")
+
+    with open("/home/patches/check.json", "r", encoding="utf-8") as f:
+        d = f.readlines()
+        if len(d) == 0:
+            dic = {}
+            if len(information) == 0:
+                return []
+            for i in information:
+                dic[i] = 0
+                patch_to_retry_list.append(i)
+            with open("/home/patches/check.json", "w", encoding="utf-8") as ff:
+                json.dump(dic, ff)
+
+            return patch_to_retry_list
+
+        else:
+            data_dic = json.loads("".join(d))
+            write_to_json_dic = {}
+            if len(information) == 0:
+                for k, v in data_dic.items():
+                    write_to_json_dic[k] = v + 1
+
+            else:
+                if len(information) == 0:
+                    return []
+
+                else:
+                    for i in information:
+
+                        v = data_dic.get(i)
+                        if v is not None:
+                            if v <= 2:
+                                write_to_json_dic[i] = data_dic.get(i) + 1
+                                patch_to_retry_list.append(i)
+                            else:
+                                try:
+                                    notice_dropped_patches_sender(i)
+                                except Exception as e:
+                                    print("notice developer the action of dropping patch(es) "
+                                          "from %s failed, reason: %s" % (i, e))
+                                    continue
+                        else:
+                            write_to_json_dic[i] = 0
+                            patch_to_retry_list.append(i)
+
+            with open("/home/patches/check.json", "w", encoding="utf-8") as fw:
+                json.dump(write_to_json_dic, fw)
+
+            return patch_to_retry_list
 
 
 def main():
@@ -910,6 +1049,7 @@ def main():
             continue
 
     if len(infor_data) != 0:
+        infor_data = check_retry_times(infor_data)
         rewrite_to_project_series_file(infor_data)
     else:
         os.remove("/home/patches/project_series.txt")
@@ -919,3 +1059,4 @@ def main():
 
 if __name__ == '__main__':
     main()
+
