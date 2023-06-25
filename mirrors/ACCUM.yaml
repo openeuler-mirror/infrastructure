@@ -1,0 +1,19 @@
+Name: ACCUM
+HttpURL: https://mirror.accum.se/mirror/openeuler.org/
+RsyncURL: ""
+FtpURL: ""
+SponsorName: Academic Computer Club in Umeå, Sweden
+SponsorURL: https://mirror.accum.se/
+SponsorLogoURL: https://openeuler-website.obs.ap-southeast-1.myhuaweicloud.com/mirrors/ACCUM.ico
+AdminName: Academic Computer Club in Umeå, Sweden
+AdminEmail: ftp-adm@accum.se
+ContinentOnly: false
+CountryOnly: false
+ASOnly: false
+Score: 100
+Enabled: true
+AllowRedirects: null
+NetworkBandwidth: 20000
+Latitude: 63.8284
+Longitude: 20.2597
+Country: Sweden
