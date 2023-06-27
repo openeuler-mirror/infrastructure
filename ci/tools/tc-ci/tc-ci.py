@@ -42,7 +42,6 @@ def is_datetime(value):
 
 
 class GitConfig(Enum):
-    work_dir = "/temp/tc/"
     group = "openeuler"
     repos = "TC"
     clone_cmd = "git clone {} {}"
@@ -272,10 +271,12 @@ def prepare_env(work_dir, group, repo_name, pull_id, local_path, branch="master"
 
 @click.command()
 @click.option("--pr_id", help="the pr_id of git")
-def main(pr_id):
+@click.option("--work_dir", help="the work dir")
+def main(pr_id, work_dir):
     if not pr_id:
         raise RuntimeError("invalid pr_id")
-    work_dir = GitConfig.work_dir.value
+    if not work_dir or not os.path.exists(work_dir):
+        raise RuntimeError("invalid work_dir")
     group = GitConfig.group.value
     repo_name = GitConfig.repos.value
     local_repo_path = local_repo_name(group, repo_name, pr_id)
@@ -285,8 +286,8 @@ def main(pr_id):
         print("prepare env failed")
         sys.exit(-1)
     result = ci_check(pr_id, local_path)
-    if os.path.exists(work_dir):
-        shutil.rmtree(work_dir)
+    if os.path.exists(local_path):
+        shutil.rmtree(local_path)
     if result:
         sys.exit(-1)
 
