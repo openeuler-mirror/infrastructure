@@ -1,0 +1,19 @@
+Name: Nanyang-Institute-of-Technology
+HttpURL: https://mirror.nyist.edu.cn/openeuler/
+RsyncURL: ""
+FtpURL: ""
+SponsorName: Nanyang Institute of Technology
+SponsorURL: https://www.nyist.edu.cn/
+SponsorLogoURL: https://openeuler-website.obs.ap-southeast-1.myhuaweicloud.com/mirrors/Nanyang-Institute-of-Technology.png
+AdminName: NYIST-CIPS
+AdminEmail: cips@nyist.edu.cn
+ContinentOnly: false
+CountryOnly: false
+ASOnly: false
+Score: 100
+Enabled: true
+AllowRedirects: null
+NetworkBandwidth: 10000
+Latitude: 32.9947
+Longitude: 112.5328
+Country: China
