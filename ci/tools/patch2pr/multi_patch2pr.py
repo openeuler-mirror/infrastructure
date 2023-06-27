@@ -15,7 +15,7 @@ from textwrap import dedent
 
 BRANCHES_MAP = {
     "src-openeuler/kernel": {
-        'build-5.10-rc': 'build-5.10-rc',
+        "openEuler-22.03-LTS-SP2": "openEuler-22.03-LTS-SP2",
         'master': 'master',
         'openEuler-20.03-LTS': 'openEuler-20.03-LTS',
         'openEuler-20.03-LTS-Next': 'openEuler-20.03-LTS-Next',
@@ -44,7 +44,6 @@ BRANCHES_MAP = {
         "openEuler-22.03-LTS": "openEuler-22.03-LTS",
         "openEuler-22.03-LTS-SP2": "openEuler-22.03-LTS-SP2",
         "openEuler-22.09": "openEuler-22.09",
-        "devel-6.1": "devel-6.1",
         "openEuler-22.03-LTS-Ascend": "openEuler-22.03-LTS-Ascend",
         "openEuler-22.09-HCK": "openEuler-22.09-HCK",
         "openEuler-20.03-LTS-SP3": "openEuler-20.03-LTS-SP3",
@@ -974,11 +973,6 @@ def main():
         branch_not_match = False
         if target_branch is None:
             branch_not_match = True
-        else:
-            if repo == "openeuler/kernel" \
-                    and target_branch not in ["openEuler-22.03-LTS-SP1", "openEuler-22.03-LTS",
-                                              "OLK-5.10", "openEuler-22.03-LTS-SP2"]:
-                branch_not_match = True
 
         if branch_not_match:
             print("branch is ", branch, "can not match any branches")
@@ -1059,4 +1053,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-
