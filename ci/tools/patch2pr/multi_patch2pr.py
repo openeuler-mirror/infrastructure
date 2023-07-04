@@ -1,4 +1,4 @@
-import base64
+import yaml
 import json
 import re
 import time
@@ -13,53 +13,23 @@ from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 from textwrap import dedent
 
-BRANCHES_MAP = {
-    "src-openeuler/kernel": {
-        "openEuler-22.03-LTS-SP2": "openEuler-22.03-LTS-SP2",
-        'master': 'master',
-        'openEuler-20.03-LTS': 'openEuler-20.03-LTS',
-        'openEuler-20.03-LTS-Next': 'openEuler-20.03-LTS-Next',
-        'openEuler-20.03-LTS-SP1': 'openEuler-20.03-LTS-SP1',
-        'openEuler-20.03-LTS-SP1-testing': 'openEuler-20.03-LTS-SP1-testing',
-        'openEuler-20.03-LTS-SP2': 'openEuler-20.03-LTS-SP2',
-        'openEuler-20.03-LTS-SP3': 'openEuler-20.03-LTS-SP3',
-        'openEuler-20.09': 'openEuler-20.09',
-        'openEuler-21.03': 'openEuler-21.03',
-        'openEuler-21.09': 'openEuler-21.09',
-        'openEuler-22.03-LTS': 'openEuler-22.03-LTS',
-        'openEuler-22.03-LTS-LoongArch': 'openEuler-22.03-LTS-LoongArch',
-        'openEuler-22.03-LTS-Next': 'openEuler-22.03-LTS-Next',
-        'openEuler-22.03-LTS-SP1': 'openEuler-22.03-LTS-SP1',
-        'openEuler-22.09': 'openEuler-22.09',
-        'openEuler-22.09-HeXin': 'openEuler-22.09-HeXin',
-        'openEuler-23.03': 'openEuler-23.03',
-        'openEuler1.0': 'openEuler1.0',
-        'openEuler1.0-base': 'openEuler1.0-base'
-    },
-    "openeuler/kernel": {
-        "master": "master",
-        "openEuler-1.0-LTS": "openEuler-1.0-LTS",
-        "openEuler-22.03-LTS-SP1": "openEuler-22.03-LTS-SP1",
-        "OLK-5.10": "OLK-5.10",
-        "openEuler-22.03-LTS": "openEuler-22.03-LTS",
-        "openEuler-22.03-LTS-SP2": "openEuler-22.03-LTS-SP2",
-        "openEuler-22.09": "openEuler-22.09",
-        "openEuler-22.03-LTS-Ascend": "openEuler-22.03-LTS-Ascend",
-        "openEuler-22.09-HCK": "openEuler-22.09-HCK",
-        "openEuler-20.03-LTS-SP3": "openEuler-20.03-LTS-SP3",
-        "openEuler-21.09": "openEuler-21.09",
-        "openEuler-21.03": "openEuler-21.03",
-        "openEuler-20.09": "openEuler-20.09",
-    }
-}
+BRANCHES_MAP = {}
 
 # map of getmailrc file path, host and pass
-RCFile_MAP = {
-    "/home/patches/rc/src-openeuler/kernel": {"host": "SRC_OPENEULER_KERNEL_HOST", "pass": "SRC_OPENEULER_KERNEL_PASS"},
-    "/home/patches/rc/openeuler/kernel": {"host": "OPENEULER_KERNEL_HOST", "pass": "OPENEULER_KERNEL_PASS"}
-}
+RCFile_MAP = {}
 
-MAILING_LIST = ["kernel@openeuler.org", "kernel-build@openeuler.org",]
+MAILING_LIST = []
+
+
+def load_configuration():
+    with open('/home/patches/repositories_branches_map.yaml', "r", encoding="utf-8") as f:
+        d = yaml.safe_load(f.read())
+
+    for k, v in d.get("mapping").items():
+        BRANCHES_MAP[k] = v.get("branches")
+        RCFile_MAP["/home/patches/rc/" + k] = v.get("env")
+        MAILING_LIST.append(v.get("mailing-list"))
+
 
 PR_SUCCESS = "反馈：\n" \
              "您发送到{}的补丁/补丁集，已成功转换为PR！\n" \
@@ -107,7 +77,8 @@ def make_fork_same_with_origin(branch_name, o, r):
     fork_branches_list = os.popen("git branch -a").readlines()
     create_to_fork = False
     for fb in fork_branches_list:
-        if not fb.strip("\n").strip(" ").__contains__(branch_name):
+        fb = fb.strip("\n").strip(" ").replace("* ", "")
+        if fb != ("remotes/origin/" + branch_name) and fb != branch_name:
             create_to_fork = True
         else:
             create_to_fork = False
@@ -122,10 +93,7 @@ def make_fork_same_with_origin(branch_name, o, r):
         same_flag = True
         return same_flag
 
-    if branch_name in ["openEuler-1.0-LTS", "master"]:
-        os.popen("git checkout -f {}".format(branch_name)).readlines()
-    else:
-        os.popen("git checkout -f origin/{}".format(branch_name)).readlines()
+    os.popen("git checkout -f origin/{}".format(branch_name)).readlines()
     fetch_res = os.popen("git fetch upstream {}".format(branch_name)).readlines()
     for p in fetch_res:
         if "error:" in p or "fatal:" in p:
@@ -228,6 +196,7 @@ def config_get_mail(rc_path, u_name, u_pass, email_server, path_of_sh):
             else:
                 return
     else:
+        os.popen("mkdir -p %s" % rc_path).readlines()
         os.popen("touch {}".format(file_path)).readlines()
 
     retriever = ["[retriever]", "type = SimplePOP3SSLRetriever",
@@ -895,6 +864,8 @@ def main():
         print("args can not be empty")
         return
 
+    load_configuration()
+
     # config get-mail tools
     for k, v in RCFile_MAP.items():
         config_get_mail(k, v.get("host"), v.get("pass"), mail_server,
@@ -1053,3 +1024,4 @@ def main():
 
 if __name__ == '__main__':
     main()
+
