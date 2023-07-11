@@ -578,7 +578,7 @@ def get_email_content_sender_and_covert_to_pr_body(ser_id, path_of_repo):
             en_suggest = "please checkout and apply the patches' cover and send all again"
             content = PR_FAILED.format(cc[0], email_list_link_of_patch, zh_reason, zh_suggest,
                                        cc[0], email_list_link_of_patch, en_reason, en_suggest)
-            send_mail_to_notice_developers(content, [patch_sender_email], [], sub, msg_id, path_of_repo)
+            send_mail_to_notice_developers(content, [patch_sender_email], cc, sub, msg_id, path_of_repo)
             cur.close()
             conn.close()
             return "", "", "", "", "", "", "", ""
@@ -956,7 +956,7 @@ def main():
             )
 
             send_mail_to_notice_developers(
-                content, emails_to_notify, [], subject_str, message_id, repo
+                content, emails_to_notify, cc, subject_str, message_id, repo
             )
             continue
 
@@ -973,7 +973,7 @@ def main():
             )
 
             send_mail_to_notice_developers(
-                content, emails_to_notify, [], subject_str, message_id, repo
+                content, emails_to_notify, cc, subject_str, message_id, repo
             )
             continue
 
@@ -989,7 +989,7 @@ def main():
             )
 
             # sync codes from origin failed, so send email to tell developer what happened
-            send_mail_to_notice_developers(content, emails_to_notify, [], subject_str, message_id, repo)
+            send_mail_to_notice_developers(content, emails_to_notify, cc, subject_str, message_id, repo)
             continue
 
         # make pr
@@ -1010,7 +1010,7 @@ def main():
             )
 
             # call gitee api to create PR failed, so send mail to tell developers what happened and take easy
-            send_mail_to_notice_developers(content, emails_to_notify, [], subject_str, message_id, repo)
+            send_mail_to_notice_developers(content, emails_to_notify, cc, subject_str, message_id, repo)
             continue
 
     if len(infor_data) != 0:
@@ -1024,4 +1024,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-
