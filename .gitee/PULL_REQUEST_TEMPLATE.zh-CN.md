@@ -4,7 +4,7 @@
 
 **该PR关联的issue** *(格式为fixes #<issue号>, 或者resolves #<issue号>)*: fixes #
 
-**希望检视人员了解**:
+**希望检视人员了解的内容**:
 
 **Release note**:
 <!--  Steps to write your release note:
