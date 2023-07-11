@@ -33,10 +33,10 @@ def list_repos(maps: dict):
             if branch not in exists_branches and "remotes/origin/%s" % branch not in exists_branches and \
                     "remotes/upstream/%s" % branch not in exists_branches:
                 os.popen("git fetch upstream %s" % branch).readlines()
-                os.popen("git checkout -b %s upstream/%s" % (branch, branch)).readlines()
+                os.popen("git checkout -f -b %s upstream/%s" % (branch, branch)).readlines()
                 os.popen("git push -u origin %s" % branch).readlines()
             else:
-                os.popen("git checkout origin/%s" % branch).readlines()
+                os.popen("git checkout -f origin/%s" % branch).readlines()
                 os.popen("git fetch upstream %s" % branch).readlines()
                 os.popen("git merge upstream/%s" % branch).readlines()
                 os.popen("git push origin HEAD:%s" % branch).readlines()
@@ -52,10 +52,10 @@ def list_repos(maps: dict):
             if branch not in exists_branches and "remotes/origin/%s" % branch not in exists_branches and \
                     "remotes/upstream/%s" % branch not in exists_branches:
                 os.popen("git fetch upstream %s" % branch).readlines()
-                os.popen("git checkout -b %s upstream/%s" % (branch, branch)).readlines()
+                os.popen("git checkout -f -b %s upstream/%s" % (branch, branch)).readlines()
                 os.popen("git push -u origin %s" % branch).readlines()
             else:
-                os.popen("git checkout origin/%s" % branch).readlines()
+                os.popen("git checkout -f origin/%s" % branch).readlines()
                 os.popen("git fetch upstream %s" % branch).readlines()
                 os.popen("git merge upstream/%s" % branch).readlines()
                 os.popen("git push origin HEAD:%s" % branch).readlines()
