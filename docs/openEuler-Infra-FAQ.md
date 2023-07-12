@@ -153,3 +153,12 @@ PR关联ISSUE的时候找不到相关的Issue的原因一般有两个：
    https://e.gitee.com/open_euler/dashboard ，【代码】——>（对应仓库）——>【代码评审】——>（对应PR）——>【关联工作项】输入Issue ID即可关联；
 
 ---
+14. **如何简化或去除PR以及Issue中welcome信息里的@仓库成员信息？**
+- 简化welcome成员信息<br>
+(1)在[基础设施仓库](https://gitee.com/openeuler/infrastructure) 提起issue，表明需要对哪个仓库进行welcome成员信息简化处理<br>
+(2)提供一个名为PATH_OWNER_MAPPING.YAML的yaml格式文件到需要做简化信息处理的仓库，[文件示例](https://gitee.com/openeuler/docs/blob/master/PATH_OWNER_MAPPING.YAML) <br>
+(3)文件准备好后，由基础设施团队进行配置更新<br>
+- 去除welcome成员信息<br>
+(1)在[基础设施仓库](https://gitee.com/openeuler/infrastructure) 提起issue，表明需要对哪个仓库进行去除welcome成员信息处理<br>
+(2)基础设施团队进行配置更新<br>
+---
