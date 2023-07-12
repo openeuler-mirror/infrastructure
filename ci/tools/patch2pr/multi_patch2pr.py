@@ -306,7 +306,7 @@ def make_branch_and_apply_patch(user, token, origin_branch, ser_id, repository_p
 
 # summit a pr
 def make_pr_to_summit_commit(org, repo_name, source_branch, base_branch, token, pr_url_in_email_list, cover_letter,
-                             receiver_email, pr_title, commit, cc_email, sub, msg_id):
+                             receiver_email, pr_title, commit, cc_email, sub, msg_id, bugzilla):
     """
     summit a pull request and add a "/check-cla" comment to it
     :param org: org
@@ -327,7 +327,7 @@ def make_pr_to_summit_commit(org, repo_name, source_branch, base_branch, token, 
     """
     title = pr_title
     if pr_url_in_email_list or cover_letter:
-        body = "PR sync from: {}\n{} \n{}".format(commit, pr_url_in_email_list, cover_letter)
+        body = "PR sync from: {}\n{} \n{} \n{}".format(commit, pr_url_in_email_list, cover_letter, bugzilla)
     else:
         body = ""
 
@@ -460,6 +460,24 @@ def create_auto_reply(from_address, to_address, body, cc_address, original):
     mail['Cc'] = ",".join(cc_address)
     mail.attach(MIMEText(dedent(body), 'plain'))
     return mail
+
+
+def find_bugzilla_link(ser_id):
+    """
+    use to get bugzilla address of patches
+    :param ser_id:
+    :return: content of bugzilla address
+    """
+    bugzilla_set = set()
+    bugzillas = os.popen('grep -rn "bugzilla:" /home/patches/{}/*'.format(ser_id)).readlines()
+
+    https_re = re.compile(r'http[s]?://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*\(\),]|(?:%[0-9a-fA-F][0-9a-fA-F]))+')
+    for b in bugzillas:
+        res = https_re.findall(b)
+        if res:
+            bugzilla_set.add(res[0])
+
+    return "\n".join(bugzilla_set)
 
 
 def get_email_content_sender_and_covert_to_pr_body(ser_id, path_of_repo):
@@ -932,6 +950,9 @@ def main():
         sender_email, letter_body, sync_pr, title_pr, comm, cc, subject_str, message_id = get_email_content_sender_and_covert_to_pr_body(
             series_id, repo)
 
+        # get bugzilla address in patches
+        bugzilla_content = find_bugzilla_link(series_id)
+
         if sender_email == "" and letter_body == "" and sync_pr == "" and title_pr == "":
             print("can not get useful information for ", project_name, ", series id is ", series_id, ", repo is ", repo)
             continue
@@ -996,7 +1017,7 @@ def main():
         pr_success, reason = make_pr_to_summit_commit(organization, rp, source_branch, target_branch,
                                                       not_cibot_gitee_token,
                                                       sync_pr, letter_body, emails_to_notify, title_pr, comm, cc_list,
-                                                      subject_str, message_id)
+                                                      subject_str, message_id, bugzilla_content)
 
         if not pr_success and reason:
             infor_data.append(i)
@@ -1024,3 +1045,4 @@ def main():
 
 if __name__ == '__main__':
     main()
+
