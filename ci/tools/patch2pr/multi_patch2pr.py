@@ -912,7 +912,13 @@ def main():
 
         series_id = i.split(":")[2]
 
-        tag = i.split(":")[3].split("[")[1].split("]")[0]
+        tag = ""
+        try:
+            tag = i.split(":")[3].split("[")[1].split("]")[0]
+        except Exception as e:
+            if e:
+                print("execute {} failed, error: {}".format(i, e))
+                continue
 
         # check if we have the same number of patches in db, if not, skip
         same_in_db = check_patches_number_same_with_subject(series_id, tag)
@@ -1045,4 +1051,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-
