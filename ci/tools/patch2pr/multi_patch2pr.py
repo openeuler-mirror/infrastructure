@@ -424,6 +424,7 @@ def send_mail_to_notice_developers(content, email_address, cc_address, subject, 
     _, unseen = im_server.search(None, "UNANSWERED")
     unseen_list = unseen[0].split()
 
+    found_in_unanswered = False
     for number in unseen_list:
         _, data = im_server.fetch(number, '(RFC822)')
         original = email.message_from_bytes(data[0][1])
@@ -433,12 +434,33 @@ def send_mail_to_notice_developers(content, email_address, cc_address, subject, 
         else:
             from_email = from_email.strip(" ")
         if from_email == email_address[0] and original['Message-ID'] == message_id:
+            found_in_unanswered = True
             sm_server.sendmail(useraccount, email_address + cc_address,
                                create_auto_reply(useraccount, email_address, content, cc_address, original).as_bytes())
             log = 'Replied to “%s” for the mail “%s”' % (original['From'],
                                                          original['Subject'])
             print(log)
             im_server.store(number, '+FLAGS', '\\Answered')
+
+    if not found_in_unanswered:
+        _, answered = im_server.search(None, "ANSWERED")
+        answered_list = answered[0].split()
+        for number in answered_list:
+            _, data = im_server.fetch(number, '(RFC822)')
+            original = email.message_from_bytes(data[0][1])
+            from_email = original["From"]
+            if "<" in from_email and ">" in from_email:
+                from_email = original["From"].split("<")[1].split(">")[0]
+            else:
+                from_email = from_email.strip(" ")
+            if from_email == email_address[0] and original['Message-ID'] == message_id:
+                sm_server.sendmail(useraccount, email_address + cc_address,
+                                   create_auto_reply(useraccount, email_address, content, cc_address,
+                                                     original).as_bytes())
+                log = 'Replied to “%s” for the mail “%s”' % (original['From'],
+                                                             original['Subject'])
+                print(log)
+                im_server.store(number, '+FLAGS', '\\Answered')
 
     sm_server.quit()
     sm_server.close()
@@ -871,6 +893,15 @@ def check_retry_times(information: list):
             return patch_to_retry_list
 
 
+def remove_index_lock():
+    """
+    make sure index.lock has been removed
+    :return:
+    """
+    for repo in BRANCHES_MAP.keys():
+        os.popen("rm -f /home/patches/%s/.git/index.lock" % repo).readlines()
+
+
 def main():
     server = os.getenv("PATCHWORK_SERVER", "")
     server_token = os.getenv("PATCHWORK_TOKEN", "")
@@ -883,6 +914,7 @@ def main():
         return
 
     load_configuration()
+    remove_index_lock()
 
     # config get-mail tools
     for k, v in RCFile_MAP.items():
