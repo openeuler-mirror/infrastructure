@@ -900,6 +900,7 @@ def remove_index_lock():
     """
     for repo in BRANCHES_MAP.keys():
         os.popen("rm -f /home/patches/%s/.git/index.lock" % repo).readlines()
+        os.popen("rm -f /home/patches/%s/.git/HEAD.lock" % repo).readlines()
 
 
 def main():
