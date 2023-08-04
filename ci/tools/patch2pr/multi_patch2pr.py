@@ -901,6 +901,9 @@ def remove_index_lock():
     for repo in BRANCHES_MAP.keys():
         os.popen("rm -f /home/patches/%s/.git/index.lock" % repo).readlines()
         os.popen("rm -f /home/patches/%s/.git/HEAD.lock" % repo).readlines()
+        os.popen("rm -f /home/patches/%s/.git/logs/HEAD.lock" % repo).readlines()
+        os.popen("rm -f /home/patches/%s/.git/logs/refs/heads/*.lock" % repo).readlines()
+        os.popen("rm -f /home/patches/%s/.git/refs/heads/*.lock" % repo).readlines()
 
 
 def main():
