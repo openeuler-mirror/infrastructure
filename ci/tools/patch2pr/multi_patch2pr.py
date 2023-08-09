@@ -743,7 +743,11 @@ def check_patches_number_same_with_subject(ser_id, tag_str):
             else:
                 patch_number_subject = 1
     else:
-        patch_number_subject = int(tag_str.split(",")[-1].split("/")[1])
+        patch_number_subject = 0
+        if number_re.match(tag_str.split(",")[1]):
+            patch_number_subject = int(tag_str.split(",")[1].split("/")[1])
+        elif number_re.match(tag_str.split(",")[2]):
+            patch_number_subject = int(tag_str.split(",")[2].split("/")[1])
     cur.close()
     conn.close()
 
@@ -971,10 +975,8 @@ def main():
                 else:
                     branch = tag.split(",")[0]
             elif tag.count(",") >= 2:
-                if tag.split(",")[-1] == tag_name:
-                    branch = tag.split(",")[-1]
-                elif tag.split(",")[-2] == tag_name:
-                    branch = tag.split(",")[-2]
+                if tag.split(",")[1] == tag_name:
+                    branch = tag.split(",")[1]
                 else:
                     branch = tag.split(",")[0]
         else:
