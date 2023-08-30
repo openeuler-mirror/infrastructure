@@ -24,6 +24,8 @@ mapping:
       openEuler-23.03: 'openEuler-23.03'
       openEuler1.0: 'openEuler1.0'
       openEuler1.0-base: 'openEuler1.0-base'
+      openEuler-23.09: "openEuler-23.09"
+      openEuler-22.03-LTS-SP2: 'openEuler-22.03-LTS-SP2'
   openeuler/kernel:
     mailing-list: "kernel@openeuler.org"
     env:
