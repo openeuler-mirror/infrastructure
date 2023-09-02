@@ -1,7 +1,7 @@
 ---
 1.  **请问我如何在Gitee平台申请加入openEuler企业，成为组织成员？**
 		
-请点击[链接](https://gitee.com/open_euler?invite=10c2a5093d0832fb9d38e4381de2e260525bc9ba105292468e7cde0b62298f898e2a5d1b1b807987439bc1f65eaa027860f010c409ba4a18108234d13d970cb1)填写相关内容后申请加入即可；
+请点击[链接](https://gitee.com/open_euler?invite=10c2a5093d0832fbe476736b80d0d20e29ac6116323ebc848e7cde0b62298f898e2a5d1b1b807987439bc1f65eaa027860f010c409ba4a18108234d13d970cb1)填写相关内容后申请加入即可；
 
 申请通常会在三个工作日内审核生效；如未及时生效可邮件通知 [infra@openeuler.org](mailto:infra@openeuler.org) 。
 
