@@ -32,6 +32,8 @@ def write_empty_to_file(org_id, token, username, userpass):
     for pid in projects_id.keys():
         branch_url = 'https://{}:{}@source.openeuler.sh/api/v4/projects/{}/repository/branches'.format(username, userpass, pid)
         res = requests.get(url=branch_url, headers=headers)
+        if res.status_code != 200:
+            continue
         if res.status_code == 200 and len(res.json()) != 0:
             time.sleep(1)
             continue
