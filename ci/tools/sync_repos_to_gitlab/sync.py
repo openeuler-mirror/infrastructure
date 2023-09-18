@@ -211,6 +211,7 @@ def git_for_big_repos(g_name, im_url, r_name, r_id, branch_list, u_name, u_pass,
     """
     os.popen("rm -rf %s" % r_name)
     work_dir = os.popen("pwd").readlines()[0].replace("\n", "")
+    not_exists_branches = []
     for b, v in branch_list.items():
         if v is not None:
             os.popen("git clone -b {} --depth=1 https://{}:{}@source.openeuler.sh/{}/{}.git"
@@ -218,46 +219,61 @@ def git_for_big_repos(g_name, im_url, r_name, r_id, branch_list, u_name, u_pass,
             os.chdir("%s/%s" % (work_dir, r_name))
             os.popen("git config user.name wanghao;git config user.email shalldows@163.com")
             os.popen("git remote add upstream {}".format(im_url)).readlines()
-            pull_res = os.popen("git pull upstream {} --allow-unrelated-histories".format(b)).readlines()
-            for pr in pull_res:
+            fetch_res = os.popen("git fetch upstream {}".format(b, b)).readlines()
+            fetch_success = True
+            for f in fetch_res:
+                if "error:" in f or "fatal:" in f:
+                    os.chdir(work_dir)
+                    os.popen("rm -rf {}".format(r_name)).readlines()
+                    fetch_success = False
+                    break
+
+            if not fetch_success:
+                continue
+
+            merge_res = os.popen("git merge upstream/%s --allow-unrelated-histories" % b)
+            for pr in merge_res:
                 if "error:" in pr or "fatal:" in pr:
                     os.chdir(work_dir)
                     os.popen("rm -rf {}".format(r_name)).readlines()
                     break
-            os.popen("git push").readlines()
+            os.popen("git push origin HEAD:%s" % b).readlines()
             os.chdir(work_dir)
             os.popen("rm -rf {}".format(r_name)).readlines()
         else:
-            url = "https://{}:{}@source.openeuler.sh/api/v4/projects/{}/repository/branches".format(u_name, u_pass, r_id)
-            headers = {
-                'Private-Token': gitlab_token
-            }
-            data = {
-                "branch": b,
-                "ref": "master"
-            }
-            res = requests.post(url=url, data=data, headers=headers)
-            if res.status_code != 201:
+            if b.startswith("sync"):
                 continue
 
-            os.popen("git clone --depth=1 https://{}:{}@source.openeuler.sh/{}/{}.git"
-                     .format(u_name, u_pass, g_name, r_name)).readlines()
-            os.chdir("%s/%s" % (work_dir, r_name))
-            os.popen("rm -rf %s/%s" % (work_dir, r_name)).readlines()
-            os.popen("git config user.name wanghao;git config user.email shalldows@163.com")
-            os.popen("git checkout -b %s" % b).readlines()
-            os.popen("git remote add upstream {}".format(im_url)).readlines()
-            pull_res = os.popen("git pull upstream {} --allow-unrelated-histories".format(b)).readlines()
-            for pr in pull_res:
-                if "error:" in pr or "fatal:" in pr:
+            not_exists_branches.append(b)
+
+    if len(not_exists_branches) != 0:
+        os.popen("git clone --depth=1 https://{}:{}@source.openeuler.sh/{}/{}.git"
+                 .format(u_name, u_pass, g_name, r_name)).readlines()
+        os.chdir("%s/%s" % (work_dir, r_name))
+
+        os.popen("git config user.name wanghao;git config user.email shalldows@163.com")
+        os.popen("git remote add upstream {}".format(im_url)).readlines()
+
+        for br in not_exists_branches:
+            fetch_result = os.popen("git fetch upstream %s" % br).readlines()
+            should_continue = True
+            for fr in fetch_result:
+                if "error" in fr:
+                    should_continue = False
+                    break
+
+            if not should_continue:
+                continue
+            res = os.popen("git checkout -b {} --track upstream/{}".format(br, br)).readlines()
+            for pr in res:
+                if "error:" in pr:
                     os.chdir(work_dir)
                     os.popen("rm -rf {}".format(r_name)).readlines()
                     break
-            os.popen("git add .").readlines()
-            os.popen("git commit -m 'sync branch by bot'").readlines()
-            os.popen("git push").readlines()
-            os.chdir(work_dir)
-            os.popen("rm -rf {}".format(r_name)).readlines()
+
+            os.popen("git push origin {}".format(br)).readlines()
+        os.chdir(work_dir)
+        os.popen("rm -rf {}".format(r_name)).readlines()
 
 
 # upload the organizations' repositories from different platforms to gitlab
@@ -432,9 +448,10 @@ def refresh_organization_repos_in_gitlab(username, user_pass, single_group_id,
             storage = res_storage.json().get("statistics").get("repository_size")
             if storage is None or storage == 0:
                 continue
-                
-            if storage > 314572800:
-                git_for_big_repos(single_group_name, import_url, rp, rid, has_diff_branches_commits, username, user_pass, gitlab_tk)
+
+            if storage > 1073741824:
+                git_for_big_repos(single_group_name, import_url, rp, rid, has_diff_branches_commits, username,
+                                  user_pass, gitlab_tk)
 
             else:
                 create_url = 'https://{}:{}@source.openeuler.sh/api/v4/projects'.format(username, user_pass)
@@ -643,8 +660,9 @@ def refresh_single_repo_in_gitlab(username, user_pass, single_group_id,
             if storage is None or storage == 0:
                 continue
 
-            if storage > 314572800:
-                git_for_big_repos(single_group_name, import_url, rp, rid, has_diff_branches_commits, username, user_pass, gitlab_tk)
+            if storage > 1073741824:
+                git_for_big_repos(single_group_name, import_url, rp, rid, has_diff_branches_commits, username,
+                                  user_pass, gitlab_tk)
 
             else:
                 create_url = 'https://{}:{}@source.openeuler.sh/api/v4/projects'.format(username, user_pass)
@@ -725,4 +743,3 @@ if __name__ == '__main__':
             repos_group_id = check_target_org_exists(name, password, target_org, gitlab_token)
             refresh_single_repo_in_gitlab(name, password, repos_group_id, source_platform, source_org,
                                           source_url, gitlab_token, gitee_token, github_token, repos_url)
-
