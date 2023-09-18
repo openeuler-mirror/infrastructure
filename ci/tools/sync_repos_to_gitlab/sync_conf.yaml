@@ -3,6 +3,284 @@ sync_tasks:
     - duration: "H * * 0 *"
       type: organization
       source:
+      - org: opensourceways
+        platform: github
+        url: https://github.com/opensourceways
+      target:
+      - org: opensourceway
+        platform: gitlab
+        url: https://source.openeuler.sh/opensourceway
+  - task:
+    - duration: "H * * 0 *"
+      type: organization
+      source:
+      - org: opengauss
+        platform: gitee
+        url: https://gitee.com/opengauss
+      target:
+      - org: opengauss
+        platform: gitlab
+        url: https://source.openeuler.sh/opengauss
+  - task:
+    - duration: "H * * 0 *"
+      type: organization
+      source:
+      - org: openlookeng
+        platform: gitee
+        url: https://gitee.com/openlookeng
+      target:
+      - org: openlookeng
+        platform: gitlab
+        url: https://source.openeuler.sh/openlookeng
+  - task:
+    - duration: "H * * 0 *"
+      type: organization
+      source:
+      - org: mindspore
+        platform: gitee
+        url: https://gitee.com/mindspore
+      target:
+      - org: mindspore
+        platform: gitlab
+        url: https://source.openeuler.sh/mindspore
+  - task:
+    - duration: "H * * 0 *"
+      type: repository
+      source:
+      - org: hashicorp
+        repos:
+        - vault
+        platform: github
+        url: https://github.com/hashicorp
+      target:
+      - org: opensourceway
+        platform: gitlab
+        url: https://source.openeuler.sh/opensourceway
+  - task:
+    - duration: "H * * 0 *"
+      type: repository
+      source:
+      - org: cert-manager
+        repos:
+        - cert-manager
+        platform: github
+        url: https://github.com/cert-manager
+      target:
+      - org: opensourceway
+        platform: gitlab
+        url: https://source.openeuler.sh/opensourceway
+  - task:
+    - duration: "H * * 0 *"
+      type: repository
+      source:
+      - org: derailed
+        repos:
+        - k9s
+        platform: github
+        url: https://github.com/derailed
+      target:
+      - org: opensourceway
+        platform: gitlab
+        url: https://source.openeuler.sh/opensourceway
+  - task:
+    - duration: "H * * 0 *"
+      type: repository
+      source:
+      - org: ether
+        repos:
+        - etherpad-lite
+        platform: github
+        url: https://github.com/ether
+      target:
+      - org: opensourceway
+        platform: gitlab
+        url: https://source.openeuler.sh/opensourceway
+  - task:
+    - duration: "H * * 0 *"
+      type: repository
+      source:
+      - org: openSUSE
+        repos:
+        - obs-build
+        platform: github
+        url: https://github.com/openSUSE
+      target:
+      - org: opensourceway
+        platform: gitlab
+        url: https://source.openeuler.sh/opensourceway
+  - task:
+    - duration: "H * * 0 *"
+      type: repository
+      source:
+      - org: mailman
+        repos:
+        - mailman
+        platform: github
+        url: https://github.com/mailman
+      target:
+      - org: opensourceway
+        platform: gitlab
+        url: https://source.openeuler.sh/opensourceway
+  - task:
+    - duration: "H * * 0 *"
+      type: repository
+      source:
+      - org: ansible
+        repos:
+        - ansible
+        platform: github
+        url: https://github.com/ansible
+      target:
+      - org: opensourceway
+        platform: gitlab
+        url: https://source.openeuler.sh/opensourceway
+  - task:
+    - duration: "H * * 0 *"
+      type: repository
+      source:
+      - org: fluent
+        repos:
+        - fluentd
+        platform: github
+        url: https://github.com/fluent
+      target:
+      - org: opensourceway
+        platform: gitlab
+        url: https://source.openeuler.sh/opensourceway
+  - task:
+    - duration: "H * * 0 *"
+      type: repository
+      source:
+      - org: prometheus
+        repos:
+        - node_exporter
+        platform: github
+        url: https://github.com/prometheus
+      target:
+      - org: opensourceway
+        platform: gitlab
+        url: https://source.openeuler.sh/opensourceway
+  - task:
+    - duration: "H * * 0 *"
+      type: repository
+      source:
+      - org: dockersecureimages
+        repos:
+        - kibana-oss
+        platform: github
+        url: https://github.com/dockersecureimages
+      target:
+      - org: opensourceway
+        platform: gitlab
+        url: https://source.openeuler.sh/opensourceway
+  - task:
+    - duration: "H * * 0 *"
+      type: repository
+      source:
+      - org: jenkinsci
+        repos:
+        - jenkins
+        platform: github
+        url: https://github.com/jenkinsci
+      target:
+      - org: opensourceway
+        platform: gitlab
+        url: https://source.openeuler.sh/opensourceway
+  - task:
+    - duration: "H * * 0 *"
+      type: repository
+      source:
+      - org: beego
+        repos:
+        - beego
+        platform: github
+        url: https://github.com/beego
+      target:
+      - org: opensourceway
+        platform: gitlab
+        url: https://source.openeuler.sh/opensourceway
+  - task:
+    - duration: "H * * 0 *"
+      type: repository
+      source:
+      - org: gin-gonic
+        repos:
+        - gin
+        platform: github
+        url: https://github.com/gin-gonic
+      target:
+      - org: opensourceway
+        platform: gitlab
+        url: https://source.openeuler.sh/opensourceway
+  - task:
+    - duration: "H * * 0 *"
+      type: repository
+      source:
+      - org: vuejs
+        repos:
+        - vue
+        platform: github
+        url: https://github.com/vuejs
+      target:
+      - org: opensourceway
+        platform: gitlab
+        url: https://source.openeuler.sh/opensourceway
+  - task:
+    - duration: "H * * 0 *"
+      type: repository
+      source:
+      - org: PrivateBin
+        repos:
+        - PrivateBin
+        platform: github
+        url: https://github.com/PrivateBin
+      target:
+      - org: opensourceway
+        platform: gitlab
+        url: https://source.openeuler.sh/opensourceway
+  - task:
+    - duration: "H * * 0 *"
+      type: repository
+      source:
+      - org: koji-project
+        repos:
+        - koji
+        platform: github
+        url: https://github.com/koji-project
+      target:
+      - org: opensourceway
+        platform: gitlab
+        url: https://source.openeuler.sh/opensourceway
+  - task:
+    - duration: "H * * 0 *"
+      type: repository
+      source:
+      - org: fedora-infra
+        repos:
+        - koschei
+        platform: github
+        url: https://github.com/fedora-infra
+      target:
+      - org: opensourceway
+        platform: gitlab
+        url: https://source.openeuler.sh/opensourceway
+  - task:
+    - duration: "H * * 0 *"
+      type: repository
+      source:
+      - org: exim-team
+        repos:
+        - exim4
+        platform: gitlab
+        url: https://salsa.debian.org/exim-team
+      target:
+      - org: opensourceway
+        platform: gitlab
+        url: https://source.openeuler.sh/opensourceway
+  - task:
+    - duration: "H * * 0 *"
+      type: organization
+      source:
       - org: openeuler
         platform: gitee
         url: https://gitee.com/openeuler
