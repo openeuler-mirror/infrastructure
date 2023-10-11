@@ -20,23 +20,12 @@ from multiprocessing.dummy import Pool as ThreadPool
 def get_openeuler_repos():
     """分页获取openeuler的所有仓库"""
     page = 1
-    o_repos = []
-    while page < 999:
-        url = 'https://gitee.com/api/v5/orgs/openeuler/repos'
-        params = {
-            'type': 'all',
-            'page': page,
-            'per_page': 100,
-            'access_token': access_token
-        }
-        response = requests.get(url, params=params)
-        if len(response.json()) == 0:
-            break
-        try:
-            for repository in response.json():
-                o_repos.append(repository['path'])
-        except json.decoder.JSONDecodeError:
-            return o_repos
+    oe_repos = []
+    while True:
+        repos_by_page = get_repos_by_page('openeuler', page)
+        if not repos_by_page:
+            return oe_repos
+        oe_repos.extend(repos_by_page)
         page += 1
     return o_repos
 
@@ -44,34 +33,56 @@ def get_openeuler_repos():
 def get_src_openeuler_repos():
     """分页获取src-openeuler的所有仓库"""
     page = 1
-    source_repos = []
-    while page < 999:
-        url = 'https://gitee.com/api/v5/orgs/src-openeuler/repos'
-        params = {
-            'type': 'all',
-            'page': page,
-            'per_page': 100,
-            'access_token': access_token
-        }
-        response = requests.get(url, params=params)
-        if len(response.json()) == 0:
-            break
-        try:
-            for repository in response.json():
-                source_repos.append(repository['path'])
-        except json.decoder.JSONDecodeError:
-            return source_repos
+    soe_repos = []
+    while True:
+        repos_by_page = get_repos_by_page('src-openeuler', page)
+        if not repos_by_page:
+            return soe_repos
+        soe_repos.extend(repos_by_page)
         page += 1
-    return source_repos
+    return soe_repos
+
+
+def get_repos_by_page(org, page):
+    """按页获取组织的仓库"""
+    print('Get {} repos by page: {}'.format(org, page))
+    url = 'https://gitee.com/api/v5/orgs/{}/repos'.format(org)
+    params = {
+        'type': 'all',
+        'page': page,
+        'per_page': 100,
+        'access_token': access_token
+    }
+    res = []
+    try:
+        r = requests.get(url, params=params)
+        if r.status_code != 200:
+            time.sleep(10)
+            get_repos_by_page(org, page)
+        if len(r.json()) == 0:
+            return res
+        for repo in r.json():
+            res.append(repo['path'])
+        return res
+    except:
+        time.sleep(10)
+        get_repos_by_page(org, page)
 
 
 def get_repo_branches(repository):
     """获取仓库所有分支和所有保护分支"""
     url = 'https://gitee.com/api/v5/repos/{}/branches?access_token={}'.format(repository, access_token)
-    r = requests.get(url)
-    repo_branches = [x['name'] for x in r.json()]
-    repo_protected_branches = [x['name'] for x in r.json() if x['protected']]
-    return repo_branches, repo_protected_branches
+    try:
+        r = requests.get(url)
+        if r.status_code != 200:
+            time.sleep(10)
+            get_repo_branches(repository)
+        repo_branches = [x['name'] for x in r.json()]
+        repo_protected_branches = [x['name'] for x in r.json() if x['protected']]
+        return repo_branches, repo_protected_branches
+    except:
+        time.sleep(10)
+        get_repo_branches(repository)
 
 
 def check_repos_consistency(issues):
@@ -79,6 +90,7 @@ def check_repos_consistency(issues):
     print('=' * 20 + ' Check repos consistency ' + '=' * 20)
     openeuler_repos = get_openeuler_repos()  # api获取的openeuler所有仓库
     src_openeuler_repos = get_src_openeuler_repos()  # api获取的src-openeuler所有仓库
+    print(len(openeuler_repos), len(src_openeuler_repos))
 
     openeuler_yaml_repos = []  # openeuler.yaml中的所有仓库
     openueler_rename_repos = []  # openeuler.yaml中被重命名的所有仓库
@@ -166,7 +178,7 @@ def check_euler_branches(openeuler_repo):
     yaml_branches = convert_branch_name_string(yaml_branches)
     try:
         repo_branches, repo_protected_branches = get_repo_branches(repo_full_name)
-    except OSError:
+    except:
         return branches_issues
     for branch in yaml_branches:
         if branch not in repo_branches:
@@ -203,7 +215,7 @@ def check_src_euler_branches(src_openeuler_repo):
     yaml_branches = convert_branch_name_string(yaml_branches)
     try:
         repo_branches, repo_protected_branches = get_repo_branches(repo_full_name)
-    except OSError:
+    except:
         return branches_issues
     for branch in yaml_branches:
         if branch not in repo_branches:
@@ -268,25 +280,38 @@ def get_repository_members(repository):
     """获取一个仓库所有成员的gitee_id列表"""
     members = []
     page = 1
-    url = 'https://gitee.com/api/v5/repos/{}/collaborators'.format(repository)
     while True:
-        params = {
-            'access_token': access_token,
-            'page': page,
-            'per_page': 100
-        }
+        members_by_page = get_members_by_page(repository, page)
+        if not members_by_page:
+            return members
+        for member in members_by_page:
+            if member.lower() not in members:
+                members.append(member.lower())
+        page += 1
+
+
+def get_members_by_page(repository, page):
+    res = []
+    url = 'https://gitee.com/api/v5/repos/{}/collaborators'.format(repository)
+    params = {
+        'access_token': access_token,
+        'page': page,
+        'per_page': 100
+    }
+    try:
         r = requests.get(url, params=params)
         if r.status_code != 200:
-            print('ERROR! Fail to get members of repo {}'.format(repository))
-            print(r.status_code, r.json())
-            return members
+            time.sleep(10)
+            get_members_by_page(repository, page)
         if not r.json():
-            break
+            return res
         for member in r.json():
             gitee_id = member['login']
-            members.append(gitee_id)
-        page += 1
-    return [member.lower() for member in members]
+            res.append(gitee_id)
+        return res
+    except:
+        time.sleep(10)
+        get_members_by_page(repository, page)
 
 
 def check_members():
@@ -441,4 +466,3 @@ if __name__ == '__main__':
     t2 = time.time()
     print('Prepare wasted time: {}\n'.format(t2 - t1))
     main()
-
