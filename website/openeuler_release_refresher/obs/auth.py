@@ -15,8 +15,7 @@
 import hashlib
 import hmac
 import binascii
-from obs import util
-from obs import const
+from obs import util,const
 
 class Authentication(object):
 
