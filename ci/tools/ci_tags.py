@@ -14,8 +14,9 @@ class Check():
                                                                                             self.repo,
                                                                                             self.number,
                                                                                             self.access_token)
+        headers = {'Content-Type': 'Application/json'}
         data = "[\"ci_processing\"]"
-        r = requests.post(url, data)
+        r = requests.post(url, data, headers=headers)
         if r.status_code != 201:
             print('ERROR! Unexpected failure, status_code: {}'.format(r.status_code))
             sys.exit(1)
@@ -25,8 +26,9 @@ class Check():
                                                                                                 self.repo,
                                                                                                 self.number,
                                                                                                 self.access_token)
+        headers = {'Content-Type': 'Application/json'}
         data = "[\"ci_successful\"]"
-        r = requests.post(url, data)
+        r = requests.post(url, data, headers=headers)
         if r.status_code != 201:
             print('ERROR! Unexpected failure, status_code: {}'.format(r.status_code))
             sys.exit(1)
@@ -36,8 +38,9 @@ class Check():
                                                                                                 self.repo,
                                                                                                 self.number,
                                                                                                 self.access_token)
+        headers = {'Content-Type': 'Application/json'}
         data = "[\"ci_failed\"]"
-        r = requests.post(url, data)
+        r = requests.post(url, data, headers=headers)
         if r.status_code != 201:
             print('ERROR! Unexpected failure, status_code: {}'.format(r.status_code))
             sys.exit(1)
