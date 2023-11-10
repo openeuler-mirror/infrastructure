@@ -1,12 +1,12 @@
 Name: Institute-of-Software-CAS
 HttpURL: https://mirror.iscas.ac.cn/openeuler/
-RsyncURL: ""
+RsyncURL: rsync://mirror.iscas.ac.cn/openeuler
 FtpURL: ""
 SponsorName: Institute-of-Software-CAS
 SponsorURL: https://isrc.iscas.ac.cn/
 SponsorLogoURL: https://openeuler-website.obs.ap-southeast-1.myhuaweicloud.com/mirrors/Institute-of-Software-CAS.jpg
 AdminName: ISRC
-AdminEmail: isrc@iscas.ac.cn
+AdminEmail: opensource@isrc.iscas.ac.cn
 ContinentOnly: false
 CountryOnly: false
 ASOnly: false
