@@ -22,7 +22,7 @@ MAILING_LIST = []
 
 
 def load_configuration():
-    with open('/home/patches/repositories_branches_map.yaml', "r", encoding="utf-8") as f:
+    with open('/home/patchwork/patchwork/repositories_branches_map.yaml', "r", encoding="utf-8") as f:
         d = yaml.safe_load(f.read())
 
     for k, v in d.get("mapping").items():
