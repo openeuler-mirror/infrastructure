@@ -1,6 +1,6 @@
 mapping:
   cooperopen/kernel:
-    mailing-list: "kernel@openeuler.org"
+    mailing-list: "patch2pr@openeuler.org"
     env:
       host: "OPENEULER_KERNEL_HOST"
       pass: "OPENEULER_KERNEL_PASS"
