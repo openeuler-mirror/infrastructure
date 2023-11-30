@@ -411,7 +411,7 @@ def send_mail_to_notice_developers(content, email_address, cc_address, subject, 
     im_server = imaplib.IMAP4_SSL(imap_server, 993)
     im_server.login(useraccount, password)
 
-    sm_server = smtplib.SMTP(os.getenv("SEND_EMAIL_HOST", "smtp.gmail.com"), os.getenv("SEND_EMAIL_PORT", 587))
+    sm_server = smtplib.SMTP_SSL(os.getenv("SEND_EMAIL_HOST", "smtp.gmail.com"), os.getenv("SEND_EMAIL_PORT", 587))
     sm_server.ehlo()
     sm_server.starttls()
     sm_server.login(useraccount, password)
