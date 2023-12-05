@@ -407,11 +407,11 @@ def send_mail_to_notice_developers(content, email_address, cc_address, subject, 
             env_host_pass = v.get("pass")
     useraccount = os.getenv("%s" % env_host_user, "")
     password = os.getenv("%s" % env_host_pass, "")
-    imap_server = 'imap.gmail.com'
+    imap_server = 'outlook.office365.com'
     im_server = imaplib.IMAP4_SSL(imap_server, 993)
     im_server.login(useraccount, password)
 
-    sm_server = smtplib.SMTP_SSL(os.getenv("SEND_EMAIL_HOST", "smtp.gmail.com"), os.getenv("SEND_EMAIL_PORT", 587))
+    sm_server = smtplib.SMTP_SSL(os.getenv("SEND_EMAIL_HOST", "smtp-mail.outlook.com"), os.getenv("SEND_EMAIL_PORT", 587))
     sm_server.ehlo()
     sm_server.starttls()
     sm_server.login(useraccount, password)
@@ -764,7 +764,7 @@ def change_email_status_to_answered(host_pass_dict):
     """
     useraccount = os.getenv("%s" % host_pass_dict.get("host"), "")
     password = os.getenv("%s" % host_pass_dict.get("pass"), "")
-    imap_server = 'imap.gmail.com'
+    imap_server = 'outlook.office365.com'
     im_server = imaplib.IMAP4_SSL(imap_server, 993)
     im_server.login(useraccount, password)
 
