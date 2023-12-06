@@ -22,7 +22,7 @@ MAILING_LIST = []
 
 
 def load_configuration():
-    with open('/home/patchwork/patchwork/repositories_branches_map.yaml', "r", encoding="utf-8") as f:
+    with open('/home/patches/repositories_branches_map.yaml', "r", encoding="utf-8") as f:
         d = yaml.safe_load(f.read())
 
     for k, v in d.get("mapping").items():
@@ -252,12 +252,12 @@ def make_branch_and_apply_patch(user, token, origin_branch, ser_id, repository_p
                     os.popen(
                         "git clone https://{}:{}@gitee.com/src-op/{}.git".format(user, token, repo_name)).readlines()
             os.chdir("/home/patches/{}".format(repository_path))
-        elif org == "cooperopen":
-            r = os.popen("git clone https://{}:{}@gitee.com/LeeMingRan/{}.git".format(user, token, repo_name)).readlines()
+        elif org == "openeuler":
+            r = os.popen("git clone https://{}:{}@gitee.com/ci-robot/{}.git".format(user, token, repo_name)).readlines()
             for res in r:
                 if "error:" in res or "fatal:" in res:
                     os.popen(
-                        "git clone https://{}:{}@gitee.com/LeeMingRan/{}.git".format(user, token, repo_name)).readlines()
+                        "git clone https://{}:{}@gitee.com/ci-robot/{}.git".format(user, token, repo_name)).readlines()
             os.chdir("/home/patches/{}".format(repository_path))
     else:
         os.chdir("/home/patches/{}".format(repository_path))
@@ -335,7 +335,7 @@ def make_pr_to_summit_commit(org, repo_name, source_branch, base_branch, token, 
 
     data = {
         "access_token": token,
-        "head": "LeeMingRan:" + source_branch,
+        "head": "ci-robot:" + source_branch,
         "base": base_branch,
         "title": title,
         "body": body,
