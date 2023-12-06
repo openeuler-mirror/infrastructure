@@ -407,11 +407,12 @@ def send_mail_to_notice_developers(content, email_address, cc_address, subject, 
             env_host_pass = v.get("pass")
     useraccount = os.getenv("%s" % env_host_user, "")
     password = os.getenv("%s" % env_host_pass, "")
-    imap_server = 'outlook.office365.com'
-    im_server = imaplib.IMAP4_SSL(imap_server, 993)
+    imap_server = os.getenv("IMAP_SERVER")
+    imap_port =  os.getenv("IMAP_PORT")
+    im_server = imaplib.IMAP4_SSL(imap_server, imap_port)
     im_server.login(useraccount, password)
 
-    sm_server = smtplib.SMTP(os.getenv("SEND_EMAIL_HOST", "smtp-mail.outlook.com"), timeout=30, port=os.getenv("SEND_EMAIL_PORT", 587))
+    sm_server = smtplib.SMTP(os.getenv("SEND_EMAIL_HOST"), timeout=30, port=os.getenv("SEND_EMAIL_PORT"))
     sm_server.ehlo()
     sm_server.starttls()
     sm_server.login(useraccount, password)
