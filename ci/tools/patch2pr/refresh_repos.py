@@ -14,7 +14,7 @@ def load_configuration():
 
 def list_repos(maps: dict):
     openeuler_repos = []
-    r1 = os.popen("ls /home/patches/cooperopen").readlines()
+    r1 = os.popen("ls /home/patches/openeuler").readlines()
     for i in r1:
         openeuler_repos.append(i.split("\n")[0])
     src_openeuler_repos = []
@@ -23,13 +23,13 @@ def list_repos(maps: dict):
         src_openeuler_repos.append(i.split("\n")[0])
 
     for rp in openeuler_repos:
-        os.chdir("/home/patches/cooperopen/%s" % rp)
+        os.chdir("/home/patches/openeuler/%s" % rp)
         exists_branches = []
         cmd_res = os.popen("git branch -a").readlines()
         for i in cmd_res:
             exists_branches.append(i.strip(" ").strip("\n"))
         
-        for branch in maps.get("cooperopen/%s" % rp):
+        for branch in maps.get("openeuler/%s" % rp):
             if branch not in exists_branches and "remotes/origin/%s" % branch not in exists_branches and \
                     "remotes/upstream/%s" % branch not in exists_branches:
                 os.popen("git fetch upstream %s" % branch).readlines()
