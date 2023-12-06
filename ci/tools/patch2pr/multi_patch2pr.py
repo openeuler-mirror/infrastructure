@@ -765,8 +765,9 @@ def change_email_status_to_answered(host_pass_dict):
     """
     useraccount = os.getenv("%s" % host_pass_dict.get("host"), "")
     password = os.getenv("%s" % host_pass_dict.get("pass"), "")
-    imap_server = 'outlook.office365.com'
-    im_server = imaplib.IMAP4_SSL(imap_server, 993)
+    imap_server = os.getenv("IMAP_SERVER")
+    imap_port =  os.getenv("IMAP_PORT")
+    im_server = imaplib.IMAP4_SSL(imap_server, imap_port)
     im_server.login(useraccount, password)
 
     imaplib.Commands['ID'] = ('AUTH')
