@@ -704,12 +704,7 @@ def get_email_content_sender_and_covert_to_pr_body(ser_id, path_of_repo):
         if ct.__contains__("(+)") or ct.__contains__("(-)") or "mode" in ct or "| " in ct:
             continue
         else:
-            cur.execute("select name from patchwork_patch where series_id={}".format(ser_id))
-            patch_number = cur.fetchall()
-            if len(patch_number) == 1:
-                body = ""
-            else:
-                body += ct + "\n"
+            body += ct + "\n"
 
     # config git
     config_git(patch_sender_email, patch_send_name)
