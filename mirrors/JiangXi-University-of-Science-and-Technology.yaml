@@ -1,0 +1,19 @@
+Name: JiangXi-University-of-Science-and-Technology
+HttpURL: https://mirrors.jxust.edu.cn/openeuler/
+RsyncURL: ""
+FtpURL: ""
+SponsorName: JiangXi University of Science and Technology
+SponsorURL: https://www.jxust.edu.cn/
+SponsorLogoURL: https://openeuler-website.obs.ap-southeast-1.myhuaweicloud.com/mirrors/JiangXi-University-of-Science-and-Technology.ico
+AdminName: JiangXi University of Science and Technology
+AdminEmail: mirrors@jxust.edu.cn
+ContinentOnly: false
+CountryOnly: false
+ASOnly: false
+Score: 100
+Enabled: true
+AllowRedirects: null
+NetworkBandwidth: 20000
+Latitude: 31.2243	
+Longitude: 121.4689
+Country: China
