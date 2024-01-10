@@ -3,6 +3,7 @@ import yaml
 import sys
 import json
 import re
+from difflib import SequenceMatcher
 
 
 def load_yaml(file_path):
@@ -153,6 +154,61 @@ def get_pr_issue_title(issue_url, token):
     return r.json()[0]["title"]
 
 
+def get_diff_content(owner, repo, number):
+    url = 'https://gitee.com/{}/{}/pulls/{}.diff'.format(owner, repo, number)
+    r = requests.get(url)
+    return r.content.decode()
+
+
+def get_diff_list(content_str):
+    pieces = content_str.split('diff --git')
+    deleted_strs = ''
+    inserted_strs = ''
+    for piece in pieces:
+        start = False
+        for line in piece.splitlines():
+            if line.startswith('@@'):
+                start = True
+                continue
+            if not start:
+                continue
+            if line.startswith('-'):
+                if len(line) == 1:
+                    deleted_strs += '\n'
+                else:
+                    deleted_strs += line[1:]
+            elif line.startswith('+'):
+                if len(line) == 1:
+                    inserted_strs += '\n'
+                else:
+                    inserted_strs += line[1:]
+    return deleted_strs, inserted_strs
+
+
+def is_only_marks_changed(a, b, check_list):
+    s = SequenceMatcher(None, a, b)
+    for tag, i1, i2, j1, j2 in s.get_opcodes():
+        if tag == 'equal':
+            continue
+        elif tag in ['delete', 'insert']:
+            return False
+        elif tag == 'replace':
+            deleted = ''.join(a[i1:i2]).strip()
+            inserted = ''.join(b[j1:j2]).strip()
+            if deleted not in check_list or inserted not in check_list:
+                return False
+    return True
+
+
+def check_only_marks_changed(owner, repo, number, check_list):
+    content_str = get_diff_content(owner, repo, number)
+    deleted_strs, inserted_strs = get_diff_list(content_str)
+    if is_only_marks_changed(deleted_strs, inserted_strs, check_list):
+        print('Only marks changed, skip the following steps')
+        sys.exit(1)
+    print('Not just only marks changed, continue creating issue')
+
+
 def main(owner, repo, token, number):
     """
     main function
@@ -163,7 +219,6 @@ def main(owner, repo, token, number):
     :return:
     """
     content = load_yaml("translation2.yaml")
-    results = check_issue_exits(token, owner, repo)
     issue_related_pr_number = {}
     current_assignee = {}
     current_file_extension = {}
@@ -184,6 +239,13 @@ def main(owner, repo, token, number):
         sys.exit(1)
     for repository in repositories:
         if owner == repository["owner"] and repo == repository["repo"] and repository["auto_create_issue"]:
+            exclude = repository.get('exclude')
+            if not exclude:
+                continue
+            for item in exclude:
+                if item.get('condition') == 'only_marks_change':
+                    check_list = item.get('check_list')
+                    check_only_marks_changed(owner, repo, number, check_list)
             file_count = 0
             diff_files, pr_url = get_diff_files(owner, repo, number, token)
             for issue_trigger in repository["issue_triggers"]:
@@ -224,6 +286,7 @@ def main(owner, repo, token, number):
                 else:
                     changed_same_files = False
             if file_count > 0 and not changed_same_files:
+                results = check_issue_exits(token, owner, repo)
                 if results:
                     for result in results:
                         issue_number = result.get("title").split('.')[-1].replace('[', '').replace(']', '')
@@ -323,3 +386,4 @@ if __name__ == '__main__':
     access_token = sys.argv[3]
     pr_number = sys.argv[4]
     main(pr_owner, pr_repo, access_token, pr_number)
+
