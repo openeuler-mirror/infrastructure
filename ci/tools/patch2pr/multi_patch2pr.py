@@ -410,43 +410,24 @@ def send_mail_to_notice_developers(content, email_address, cc_address, subject, 
     imap_server = os.getenv("IMAP_SERVER")
     imap_port =  os.getenv("IMAP_PORT")
     im_server = imaplib.IMAP4_SSL(imap_server, imap_port)
-    im_server.login(useraccount, password)
-
     sm_server = smtplib.SMTP(os.getenv("SEND_EMAIL_HOST"), timeout=30, port=os.getenv("SEND_EMAIL_PORT"))
-    sm_server.ehlo()
-    sm_server.starttls()
-    sm_server.login(useraccount, password)
 
-    imaplib.Commands['ID'] = ('AUTH')
-    args = ("name", "{}".format(useraccount), "contact",
-            "{}".format(useraccount), "version", "1.0.0", "vendor", "myclient")
-    im_server._simple_command('ID', '("' + '" "'.join(args) + '")')
-    im_server.select()
-    _, unseen = im_server.search(None, "UNANSWERED")
-    unseen_list = unseen[0].split()
+    try:
+        im_server.login(useraccount, password)
+        sm_server.ehlo()
+        sm_server.starttls()
+        sm_server.login(useraccount, password)
 
-    found_in_unanswered = False
-    for number in unseen_list:
-        _, data = im_server.fetch(number, '(RFC822)')
-        original = email.message_from_bytes(data[0][1])
-        from_email = original["From"]
-        if "<" in from_email and ">" in from_email:
-            from_email = original["From"].split("<")[1].split(">")[0]
-        else:
-            from_email = from_email.strip(" ")
-        if from_email == email_address[0] and original['Message-ID'] == message_id:
-            found_in_unanswered = True
-            sm_server.sendmail(useraccount, email_address + cc_address,
-                               create_auto_reply(useraccount, email_address, content, cc_address, original).as_bytes())
-            log = 'Replied to “%s” for the mail “%s”' % (original['From'],
-                                                         original['Subject'])
-            print(log)
-            im_server.store(number, '+FLAGS', '\\Answered')
+        imaplib.Commands['ID'] = ('AUTH')
+        args = ("name", "{}".format(useraccount), "contact",
+                "{}".format(useraccount), "version", "1.0.0", "vendor", "myclient")
+        im_server._simple_command('ID', '("' + '" "'.join(args) + '")')
+        im_server.select()
+        _, unseen = im_server.search(None, "UNANSWERED")
+        unseen_list = unseen[0].split()
 
-    if not found_in_unanswered:
-        _, answered = im_server.search(None, "ANSWERED")
-        answered_list = answered[0].split()
-        for number in answered_list:
+        found_in_unanswered = False
+        for number in unseen_list:
             _, data = im_server.fetch(number, '(RFC822)')
             original = email.message_from_bytes(data[0][1])
             from_email = original["From"]
@@ -455,13 +436,35 @@ def send_mail_to_notice_developers(content, email_address, cc_address, subject, 
             else:
                 from_email = from_email.strip(" ")
             if from_email == email_address[0] and original['Message-ID'] == message_id:
+                found_in_unanswered = True
                 sm_server.sendmail(useraccount, email_address + cc_address,
-                                   create_auto_reply(useraccount, email_address, content, cc_address,
-                                                     original).as_bytes())
+                                   create_auto_reply(useraccount, email_address, content, cc_address, original).as_bytes())
                 log = 'Replied to “%s” for the mail “%s”' % (original['From'],
                                                              original['Subject'])
                 print(log)
                 im_server.store(number, '+FLAGS', '\\Answered')
+
+        if not found_in_unanswered:
+            _, answered = im_server.search(None, "ANSWERED")
+            answered_list = answered[0].split()
+            for number in answered_list:
+                _, data = im_server.fetch(number, '(RFC822)')
+                original = email.message_from_bytes(data[0][1])
+                from_email = original["From"]
+                if "<" in from_email and ">" in from_email:
+                    from_email = original["From"].split("<")[1].split(">")[0]
+                else:
+                    from_email = from_email.strip(" ")
+                if from_email == email_address[0] and original['Message-ID'] == message_id:
+                    sm_server.sendmail(useraccount, email_address + cc_address,
+                                       create_auto_reply(useraccount, email_address, content, cc_address,
+                                                         original).as_bytes())
+                    log = 'Replied to “%s” for the mail “%s”' % (original['From'],
+                                                                 original['Subject'])
+                    print(log)
+                    im_server.store(number, '+FLAGS', '\\Answered')
+    except Exception as e:
+        print("Error occurred while connecting to the email server:", str(e))
 
     sm_server.quit()
     sm_server.close()
