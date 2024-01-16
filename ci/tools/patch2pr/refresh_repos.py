@@ -4,7 +4,7 @@ import yaml
 
 def load_configuration():
     m = {}
-    with open('./repositories_branches_map.yaml', "r", encoding="utf-8") as f:
+    with open('/home/patchwork/repositories_branches_map.yaml', "r", encoding="utf-8") as f:
         d = yaml.safe_load(f.read())
 
     for k, v in d.get("mapping").items():
