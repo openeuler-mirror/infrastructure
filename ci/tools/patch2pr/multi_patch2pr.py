@@ -1,3 +1,5 @@
+import subprocess
+import logging
 import yaml
 import json
 import re
@@ -19,6 +21,20 @@ BRANCHES_MAP = {}
 RCFile_MAP = {}
 
 MAILING_LIST = []
+
+logger = logging.getLogger("multi_patch2pr_log")
+logger.setLevel(logging.DEBUG)
+
+info_handler = logging.FileHandler('/home/patches/task.log')
+info_handler.setLevel(logging.INFO)
+
+formatter = logging.Formatter("%(asctime)s - %(levelname)s - %(message)s")
+info_handler.setFormatter(formatter)
+
+logger.addHandler(info_handler)
+
+USR_BIN = "/usr/bin"
+SHIMS = "/opt/pyenv/shims"
 
 
 def load_configuration():
@@ -61,9 +77,10 @@ def make_fork_same_with_origin(branch_name, o, r):
     :return:
     """
 
-    remotes = os.popen("git remote -v").readlines()
+    remotes = subprocess.run([f"{USR_BIN}/git", "remote", "-v"],
+                             stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True)
     remote_flag = False
-    for remote in remotes:
+    for remote in remotes.stdout.splitlines():
         if remote.startswith("upstream "):
             remote_flag = False
         else:
@@ -71,12 +88,13 @@ def make_fork_same_with_origin(branch_name, o, r):
 
     same_flag = True
     if remote_flag:
-        os.popen("git remote add upstream https://gitee.com/{}/{}.git".format(o, r))
+        subprocess.run([f"{USR_BIN}/git", "remote", "add", "upstream", f"https://gitee.com/{o}/{r}.git"])
 
     # list git branches by git branch -a
-    fork_branches_list = os.popen("git branch -a").readlines()
+    fork_branches_list = subprocess.run([f"{USR_BIN}/git", "branch", "-a"],
+                                        stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True)
     create_to_fork = False
-    for fb in fork_branches_list:
+    for fb in fork_branches_list.stdout:
         fb = fb.strip("\n").strip(" ").replace("* ", "")
         if fb != ("remotes/origin/" + branch_name) and fb != branch_name:
             create_to_fork = True
@@ -86,29 +104,40 @@ def make_fork_same_with_origin(branch_name, o, r):
 
     if create_to_fork:
         # create branch to fork repo
-        os.popen("git fetch upstream %s" % branch_name).readlines()
-        os.popen("git checkout -f -b %s upstream/%s" % (branch_name, branch_name)).readlines()
-        os.popen("git push -u origin %s" % branch_name).readlines()
+        subprocess.run([f"{USR_BIN}/git", "fetch", "upstream", branch_name])
+
+        subprocess.run([f"{USR_BIN}/git", "checkout", "-f", "-b", branch_name, "upstream/" + branch_name])
+
+        subprocess.run([f"{USR_BIN}/git", "push", "-u", "origin", branch_name])
 
         same_flag = True
         return same_flag
 
-    os.popen("git checkout -f origin/{}".format(branch_name)).readlines()
-    fetch_res = os.popen("git fetch upstream {}".format(branch_name)).readlines()
-    for p in fetch_res:
+    checkout_res = subprocess.run([f"{USR_BIN}/git", "checkout", "-f", "origin/" + branch_name],
+                                  stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True)
+    logger.info(checkout_res.stdout)
+
+    fetch_res = subprocess.run([f"{USR_BIN}/git", "fetch", "upstream", branch_name],
+                               stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True)
+    for p in fetch_res.stdout.splitlines():
         if "error:" in p or "fatal:" in p:
-            print("fetch upstream error %s" % p)
-            same_flag = False
-    merge = os.popen("git merge upstream/{}".format(branch_name)).readlines()
-    for m in merge:
-        if "error:" in m or "fatal:" in m:
-            print("merge upstream error %s" % m)
+            logger.error(f"fetch upstream error {p}")
             same_flag = False
 
-    push_res = os.popen("git push origin HEAD:{}".format(branch_name)).readlines()
-    for s in push_res:
+    merge_res = subprocess.run([f"{USR_BIN}/git", "merge", "upstream/" + branch_name],
+                               stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True)
+    logger.info(merge_res.stdout)
+    for m in merge_res.stdout.splitlines():
+        if "error:" in m or "fatal:" in m:
+            logger.error(f"merge upstream error {m}")
+            same_flag = False
+
+    push_res = subprocess.run([f"{USR_BIN}/git", "push", "origin", "HEAD:" + branch_name],
+                              stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True)
+    logger.info(push_res.stdout)
+    for s in push_res.stdout.splitlines():
         if "error:" in s or "fatal:" in s:
-            print("push error %s" % s)
+            logger.error(f"push error {s}")
             same_flag = False
 
     return same_flag
@@ -122,7 +151,7 @@ def get_mail_step():
     # 兼容多仓库
     for k, v in RCFile_MAP.items():
         os.environ["GET_EMAIL"] = os.getenv(v.get("host"))
-        os.popen('getmail --getmaildir="{}" --idle INBOX'.format(k)).readlines()
+        subprocess.run([f"{SHIMS}/getmail", f"--getmaildir={k}", "--idle", "INBOX"])
         time.sleep(1)
 
 
@@ -132,12 +161,14 @@ def download_patches_by_using_git_pw(ser_id):
     :param ser_id: the id of a series which some patches belong to
     :return:
     """
-    if not os.path.exists("/home/patches/{}".format(ser_id)):
-        os.popen("mkdir -p /home/patches/{}".format(ser_id))
+    if not os.path.exists(f"/home/patches/{ser_id}"):
+        subprocess.run([f"{USR_BIN}/mkdir", "-p", f"/home/patches/{ser_id}"])
     retry = 0
     while True:
         if retry < 3:
-            os.popen("git-pw series download {} /home/patches/{}/".format(ser_id, ser_id)).readlines()
+            result = subprocess.run([f"{SHIMS}/git-pw", "series", "download", ser_id, f"/home/patches/{ser_id}/"],
+                                    stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True)
+            logger.info(result.stdout)
             retry += 1
         else:
             break
@@ -163,7 +194,8 @@ def config_git(git_email, git_name):
     :param git_name:  committer name
     :return:
     """
-    os.popen("git config --global user.email {};git config --global user.name '{}'".format(git_email, git_name))
+    subprocess.run([f"{USR_BIN}/git", "config", "--global", "user.email", git_email])
+    subprocess.run([f"{USR_BIN}/git", "config", "--global", "user.name", git_name])
 
 
 def un_config_git():
@@ -172,8 +204,8 @@ def un_config_git():
     :return:
     """
     # make sure not push code to git by using the before one's information while git config not work
-    os.popen("git config --global --unset user.name")
-    os.popen("git config --global --unset user.email")
+    subprocess.run([f"{USR_BIN}/git", "config", "--global", "--unset", "user.name"])
+    subprocess.run([f"{USR_BIN}/git", "config", "--global", "--unset", "user.email"])
 
 
 def config_get_mail(rc_path, u_name, u_pass, email_server, path_of_sh):
@@ -186,30 +218,43 @@ def config_get_mail(rc_path, u_name, u_pass, email_server, path_of_sh):
     :param path_of_sh: the path of a shell script which is used to parse the patch email
     :return:
     """
-    file_path = "{}/getmailrc".format(rc_path)
+    file_path = f"{rc_path}/getmailrc"
     if os.path.exists(file_path):
-        with open("{}/getmailrc".format(rc_path), "r", encoding="utf-8") as ff:
+        with open(f"{rc_path}/getmailrc", "r", encoding="utf-8") as ff:
             content = ff.readlines()
             if len(content) == 0:
-                os.popen("rm -f {}/getmailrc".format(rc_path)).readlines()
-                os.popen("touch {}/getmailrc".format(rc_path)).readlines()
+                subprocess.run([f"{USR_BIN}/rm", "-f", f"{rc_path}/getmailrc"])
+                subprocess.run([f"{USR_BIN}/touch", f"{rc_path}/getmailrc"])
             else:
                 return
     else:
-        os.popen("mkdir -p %s" % rc_path).readlines()
-        os.popen("touch {}".format(file_path)).readlines()
+        subprocess.run([f"{USR_BIN}/mkdir", "-p", rc_path])
+        subprocess.run([f"{USR_BIN}/touch", file_path])
 
-    retriever = ["[retriever]", "type = SimplePOP3SSLRetriever",
-                 "server = {}".format(email_server),
-                 "username = {}".format(os.getenv(u_name, "")),
-                 "password = {}".format(os.getenv(u_pass, "")),
-                 "port = {}".format(os.getenv("EMAIL_PORT"))
-                 ]
+    retriever = [
+        "[retriever]", "type = SimplePOP3SSLRetriever",
+        f"server = {email_server}",
+        f"username = {os.getenv(u_name, '')}",
+        f"password = {os.getenv(u_pass, '')}",
+        f"port = {os.getenv('EMAIL_PORT')}"
+    ]
 
-    destination = ["[destination]", "type = MDA_external", "path = {}".format(path_of_sh), "ignore_stderr = true"]
+    destination = [
+        "[destination]",
+        "type = MDA_external",
+        f"path = {path_of_sh}",
+        "ignore_stderr = true"
+    ]
 
-    options = ["[options]", "delete = false", "message_log = {}/getmail.log".format(rc_path),
-               "message_log_verbose = true", "read_all = false", "received = false", "delivered_to = false"]
+    options = [
+        "[options]",
+        "delete = false",
+        f"message_log = {rc_path}/getmail.log",
+        "message_log_verbose = true",
+        "read_all = false",
+        "received = false",
+        "delivered_to = false"
+    ]
 
     with open(file_path, "a", encoding="utf-8") as f:
         f.writelines([r + "\n" for r in retriever])
@@ -225,8 +270,11 @@ def config_git_pw(project_name, server_link, token):
     :param token: patchwork administrator's token
     :return:
     """
-    os.popen("git config --global pw.server {};git config --global pw.token {};git config --global pw.project {}"
-             .format(server_link, token, project_name)).readlines()
+    config = "config"
+    glo = "--global"
+    subprocess.run([f"{USR_BIN}/git", config, glo, "pw.server", server_link])
+    subprocess.run([f"{USR_BIN}/git", config, glo, "pw.token", token])
+    subprocess.run([f"{USR_BIN}/git", config, glo, "pw.project", project_name])
 
 
 # if use the patchwork, we can make it by the following codes
@@ -243,24 +291,34 @@ def make_branch_and_apply_patch(user, token, origin_branch, ser_id, repository_p
     """
     org = repository_path.split("/")[0]
     repo_name = repository_path.split("/")[1]
-    if not os.path.exists("/home/patches/{}".format(repository_path)):
-        os.chdir("/home/patches/{}".format(org))
+    if not os.path.exists(f"/home/patches/{repository_path}"):
+        os.chdir(f"/home/patches/{org}")
         if org == "src-openeuler":
-            r = os.popen("git clone https://{}:{}@gitee.com/src-op/{}.git".format(user, token, repo_name)).readlines()
-            for res in r:
+            r = subprocess.run([f"{USR_BIN}/git",
+                                "clone", f"https://{user}:{token}@gitee.com/src-op/{repo_name}.git"],
+                               stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True)
+            logger.info(r.stdout)
+            for res in r.stdout:
                 if "error:" in res or "fatal:" in res:
-                    os.popen(
-                        "git clone https://{}:{}@gitee.com/src-op/{}.git".format(user, token, repo_name)).readlines()
-            os.chdir("/home/patches/{}".format(repository_path))
+                    result = subprocess.run([f"{USR_BIN}/git", "clone",
+                                             f"https://{user}:{token}@gitee.com/src-op/{repo_name}.git"],
+                                            stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True)
+                    logger.info(result.stdout)
+            os.chdir(f"/home/patches/{repository_path}")
         elif org == "openeuler":
-            r = os.popen("git clone https://{}:{}@gitee.com/ci-robot/{}.git".format(user, token, repo_name)).readlines()
-            for res in r:
+            r = subprocess.run([f"{USR_BIN}/git", "clone",
+                                f"https://{user}:{token}@gitee.com/ci-robot/{repo_name}.git"],
+                               stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True)
+            logger.info(r.stdout)
+            for res in r.stdout:
                 if "error:" in res or "fatal:" in res:
-                    os.popen(
-                        "git clone https://{}:{}@gitee.com/ci-robot/{}.git".format(user, token, repo_name)).readlines()
-            os.chdir("/home/patches/{}".format(repository_path))
+                    result = subprocess.run([f"{USR_BIN}/git", "clone",
+                                             f"https://{user}:{token}@gitee.com/ci-robot/{repo_name}.git"],
+                                            stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True)
+                    logger.info(result.stdout)
+            os.chdir(f"/home/patches/{repository_path}")
     else:
-        os.chdir("/home/patches/{}".format(repository_path))
+        os.chdir(f"/home/patches/{repository_path}")
 
     # if the codes in fork repository can not be the same with the origin, so skip it
     same = make_fork_same_with_origin(origin_branch, org, repo_name)
@@ -268,11 +326,13 @@ def make_branch_and_apply_patch(user, token, origin_branch, ser_id, repository_p
         return "", "", "", ""
 
     new_branch = "patch-%s" % int(time.time())
-    os.popen("git checkout -b %s origin/%s" % (new_branch, origin_branch)).readlines()
-
+    res = subprocess.run([f"{USR_BIN}/git", "checkout", "-b", new_branch, f"origin/{origin_branch}"],
+                         stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True)
+    logger.info(res.stdout)
     # git am
-    patches_dir = "/home/patches/{}/".format(ser_id)
+    patches_dir = f"/home/patches/{ser_id}/"
     am_res = os.popen("git am --abort;git am %s*.patch" % patches_dir).readlines()
+    logger.info(am_res)
     am_success = False
     am_failed_reason = ""
 
@@ -280,23 +340,29 @@ def make_branch_and_apply_patch(user, token, origin_branch, ser_id, repository_p
         if am_r.__contains__("Patch failed at"):
             am_success = False
             am_failed_reason = am_r
-            print("failed to apply patch, reason is %s" % am_r)
+            logger.error(f"failed to apply patch, reason is {am_r}")
             break
         else:
             am_success = True
 
     if am_success:
         retry_flag = False
-        push_res = os.popen("git push origin %s" % new_branch).readlines()
-        for p in push_res:
+        push_res = subprocess.run([f"{USR_BIN}/git", "push", "origin", new_branch],
+                                  stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True)
+        logger.info(push_res.stdout)
+        for p in push_res.stdout.splitlines():
             if "error:" in p or "fatal:" in p:
                 time.sleep(3)
-                print("git push failed, %s, try again" % p)
-                os.popen("git push origin %s" % new_branch).readlines()
+                logger.error(f"git push failed, {p}, try again")
+                push_again_res = subprocess.run([f"{USR_BIN}/git", "push", "origin", new_branch],
+                                                stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True)
+                logger.info(push_again_res.stdout)
                 retry_flag = True
 
         if retry_flag:
-            os.popen("git push origin %s" % new_branch).readlines()
+            res = subprocess.run([f"{USR_BIN}/git", "push", "origin", new_branch],
+                                 stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True)
+            logger.info(res.stdout)
         # un_config_git()
         return new_branch, org, repo_name, am_failed_reason
     else:
@@ -327,11 +393,11 @@ def make_pr_to_summit_commit(org, repo_name, source_branch, base_branch, token, 
     """
     title = pr_title
     if pr_url_in_email_list or cover_letter:
-        body = "PR sync from: {}\n{} \n{} \n{}".format(commit, pr_url_in_email_list, cover_letter, bugzilla)
+        body = f"PR sync from: {commit}\n{pr_url_in_email_list} \n{cover_letter} \n{bugzilla}"
     else:
         body = ""
 
-    create_pr_url = "https://gitee.com/api/v5/repos/{}/{}/pulls".format(org, repo_name)
+    create_pr_url = f"https://gitee.com/api/v5/repos/{org}/{repo_name}/pulls"
 
     data = {
         "access_token": token,
@@ -370,8 +436,7 @@ def make_pr_to_summit_commit(org, repo_name, source_branch, base_branch, token, 
             "access_token": token,
             "body": "/check-cla",
         }
-        comment_url = "https://gitee.com/api/v5/repos/{}/{}/pulls/{}/comments". \
-            format(org, repo_name, res.json().get("number"))
+        comment_url = f"https://gitee.com/api/v5/repos/{org}/{repo_name}/pulls/{res.json().get('number')}/comments"
 
         rsp = requests.post(url=comment_url, data=comment_data)
 
@@ -408,11 +473,10 @@ def send_mail_to_notice_developers(content, email_address, cc_address, subject, 
     useraccount = os.getenv("%s" % env_host_user, "")
     password = os.getenv("%s" % env_host_pass, "")
     imap_server = os.getenv("IMAP_SERVER")
-    imap_port =  os.getenv("IMAP_PORT")
-    im_server = imaplib.IMAP4_SSL(imap_server, imap_port)
-    sm_server = smtplib.SMTP(os.getenv("SEND_EMAIL_HOST"), timeout=30, port=os.getenv("SEND_EMAIL_PORT"))
-
+    imap_port = os.getenv("IMAP_PORT")
     try:
+        im_server = imaplib.IMAP4_SSL(imap_server, imap_port)
+        sm_server = smtplib.SMTP(os.getenv("SEND_EMAIL_HOST"), timeout=30, port=os.getenv("SEND_EMAIL_PORT"))
         im_server.login(useraccount, password)
         sm_server.ehlo()
         sm_server.starttls()
@@ -438,10 +502,11 @@ def send_mail_to_notice_developers(content, email_address, cc_address, subject, 
             if from_email == email_address[0] and original['Message-ID'] == message_id:
                 found_in_unanswered = True
                 sm_server.sendmail(useraccount, email_address + cc_address,
-                                   create_auto_reply(useraccount, email_address, content, cc_address, original).as_bytes())
+                                   create_auto_reply(useraccount, email_address, content, cc_address,
+                                                     original).as_bytes())
                 log = 'Replied to “%s” for the mail “%s”' % (original['From'],
                                                              original['Subject'])
-                print(log)
+                logger.info(log)
                 im_server.store(number, '+FLAGS', '\\Answered')
 
         if not found_in_unanswered:
@@ -461,10 +526,10 @@ def send_mail_to_notice_developers(content, email_address, cc_address, subject, 
                                                          original).as_bytes())
                     log = 'Replied to “%s” for the mail “%s”' % (original['From'],
                                                                  original['Subject'])
-                    print(log)
+                    logger.info(log)
                     im_server.store(number, '+FLAGS', '\\Answered')
     except Exception as e:
-        print("Error occurred while connecting to the email server:", str(e))
+        logger.error(f"Error occurred while connecting to the email server: {str(e)}")
 
     sm_server.quit()
     sm_server.close()
@@ -495,10 +560,11 @@ def find_bugzilla_link(ser_id):
     :return: content of bugzilla address
     """
     bugzilla_set = set()
-    bugzillas = os.popen('grep -rn "bugzilla:" /home/patches/{}/*'.format(ser_id)).readlines()
+    bugzillas = subprocess.run([f"{USR_BIN}/grep", "-rn", "bugzilla:", f"/home/patches/{ser_id}/*"],
+                               stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True)
 
     https_re = re.compile(r'http[s]?://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*\(\),]|(?:%[0-9a-fA-F][0-9a-fA-F]))+')
-    for b in bugzillas:
+    for b in bugzillas.stdout.splitlines():
         res = https_re.findall(b)
         if res:
             bugzilla_set.add(res[0])
@@ -510,7 +576,7 @@ def get_email_content_sender_and_covert_to_pr_body(ser_id, path_of_repo):
     """
     get patch's or cover's data from DB
     :param ser_id: series id
-    :param path_of_repo: path of repo, ex: openeuer/kernel
+    :param path_of_repo: path of repo, ex: openeuler/kernel
     :return:
     """
     user = os.getenv("DATABASE_USER")
@@ -525,9 +591,12 @@ def get_email_content_sender_and_covert_to_pr_body(ser_id, path_of_repo):
     cur.execute("SELECT * from patchwork_series where id={}".format(ser_id))
     series_rows = cur.fetchall()
     cover_letter_id = 0
+    version = ""
     # all_patches_in_series = 0
     for row in series_rows:
         cover_letter_id = row[-1]
+        if row[3] != 1:
+            version = str(row[3])
         # all_patches_in_series = row[4]
 
     # no cover
@@ -547,7 +616,11 @@ def get_email_content_sender_and_covert_to_pr_body(ser_id, path_of_repo):
         first_path_mail_name = ""
         if len(patches_names_rows) == 1:
             first_path_mail_name = patches_names_rows[0][0]
-            title_for_pr = first_path_mail_name.split("]")[1]
+            if version == "":
+                title_for_pr = first_path_mail_name.split("]")[1]
+            else:
+                title_for_pr = f"v{version} {first_path_mail_name.split(']')[1]}"
+
             sub = first_path_mail_name
         else:
             for row in patches_names_rows:
@@ -611,7 +684,7 @@ def get_email_content_sender_and_covert_to_pr_body(ser_id, path_of_repo):
         msg_id = email_msg.get("Message-ID") or email_msg.get("Message-Id")
 
         # deal with Archived-at
-        email_list_link_of_patch = email_msg.get("Archived-At").replace(" ", "").\
+        email_list_link_of_patch = email_msg.get("Archived-At").replace(" ", ""). \
             replace("\n", "").replace("<", "").replace(">", "")
         cc.append(who_is_email_list)
 
@@ -649,7 +722,10 @@ def get_email_content_sender_and_covert_to_pr_body(ser_id, path_of_repo):
         conn.close()
         return "", "", "", "", "", "", "", ""
     sub = cover_name
-    title_for_pr = cover_name.split("]")[1]
+    if version == "":
+        title_for_pr = cover_name.split("]")[1]
+    else:
+        title_for_pr = f"v{version} {cover_name.split(']')[1]}"
 
     cover_who_is_email_list = ""
     # new code using email
@@ -699,7 +775,7 @@ def get_email_content_sender_and_covert_to_pr_body(ser_id, path_of_repo):
     msg_id = email_msg.get("Message-ID") or email_msg.get("Message-Id")
 
     # deal with Archived-at
-    email_list_link_of_patch = email_msg.get("Archived-At").replace(" ", "")\
+    email_list_link_of_patch = email_msg.get("Archived-At").replace(" ", "") \
         .replace("\n", "").replace("<", "").replace(">", "")
     cc.append(cover_who_is_email_list)
 
@@ -764,13 +840,14 @@ def change_email_status_to_answered(host_pass_dict):
     useraccount = os.getenv("%s" % host_pass_dict.get("host"), "")
     password = os.getenv("%s" % host_pass_dict.get("pass"), "")
     imap_server = os.getenv("IMAP_SERVER")
-    imap_port =  os.getenv("IMAP_PORT")
+    imap_port = os.getenv("IMAP_PORT")
     im_server = imaplib.IMAP4_SSL(imap_server, imap_port)
     im_server.login(useraccount, password)
 
     imaplib.Commands['ID'] = ('AUTH')
     args = (
-    "name", "{}".format(useraccount), "contact", "{}".format(useraccount), "version", "1.0.0", "vendor", "myclient")
+        "name", "{}".format(useraccount), "contact", "{}".format(useraccount), "version", "1.0.0", "vendor", "myclient"
+    )
     im_server._simple_command('ID', '("' + '" "'.join(args) + '")')
     im_server.select()
     _, unseen = im_server.search(None, "UNANSWERED")
@@ -845,7 +922,7 @@ def check_retry_times(information: list):
     """
     patch_to_retry_list = []
     if not os.path.exists("/home/patches/check.json"):
-        os.popen("touch /home/patches/check.json")
+        subprocess.run([f"{USR_BIN}/touch", "/home/patches/check.json"])
 
     with open("/home/patches/check.json", "r", encoding="utf-8") as f:
         d = f.readlines()
@@ -884,8 +961,8 @@ def check_retry_times(information: list):
                                 try:
                                     notice_dropped_patches_sender(i)
                                 except Exception as e:
-                                    print("notice developer the action of dropping patch(es) "
-                                          "from %s failed, reason: %s" % (i, e))
+                                    logger.error(f"notice developer the action of dropping patch(es) from {i} failed, "
+                                                 f"reason: {e}")
                                     continue
                         else:
                             write_to_json_dic[i] = 0
@@ -902,12 +979,13 @@ def remove_index_lock():
     make sure index.lock has been removed
     :return:
     """
+    f = "-f"
     for repo in BRANCHES_MAP.keys():
-        os.popen("rm -f /home/patches/%s/.git/index.lock" % repo).readlines()
-        os.popen("rm -f /home/patches/%s/.git/HEAD.lock" % repo).readlines()
-        os.popen("rm -f /home/patches/%s/.git/logs/HEAD.lock" % repo).readlines()
-        os.popen("rm -f /home/patches/%s/.git/logs/refs/heads/*.lock" % repo).readlines()
-        os.popen("rm -f /home/patches/%s/.git/refs/heads/*.lock" % repo).readlines()
+        subprocess.run([f"{USR_BIN}/rm", f, f"/home/patches/{repo}/.git/index.lock"])
+        subprocess.run([f"{USR_BIN}/rm", f, f"/home/patches/{repo}/.git/HEAD.lock"])
+        subprocess.run([f"{USR_BIN}/rm", f, f"/home/patches/{repo}/.git/logs/HEAD.lock"])
+        subprocess.run([f"{USR_BIN}/rm", f, f"/home/patches/{repo}/.git/logs/refs/heads/*.lock"])
+        subprocess.run([f"{USR_BIN}/rm", f, f"/home/patches/{repo}/.git/refs/heads/*.lock"])
 
 
 def main():
@@ -918,7 +996,7 @@ def main():
     mail_server = os.getenv("EMAIL_HOST", "")
 
     if server == "" or server_token == "" or repo_user == "" or not_cibot_gitee_token == "" or mail_server == "":
-        print("args can not be empty")
+        logger.warning("args can not be empty")
         return
 
     load_configuration()
@@ -934,9 +1012,8 @@ def main():
 
     information = get_project_and_series_information()
     if len(information) == 0:
-        print("not a new series of patches which received by get-mail tool has been write to file")
+        logger.info("not a new series of patches which received by get-mail tool has been write to file")
         return
-
     infor_data = []
     for i in information:
         list_id = i.split(":")[0]
@@ -957,14 +1034,14 @@ def main():
             tag = i.split(":")[3].split("[")[1].split("]")[0]
         except Exception as e:
             if e:
-                print("execute {} failed, error: {}".format(i, e))
+                logger.error(f"execute {i} failed, error: {e}")
                 continue
 
         # check if we have the same number of patches in db, if not, skip
         same_in_db = check_patches_number_same_with_subject(series_id, tag)
         if not same_in_db:
             infor_data.append(i)
-            print("getmail did not pull all emails from %s, so skip" % i)
+            logger.warning(f"getmail did not pull all emails from {i}, so skip")
             continue
 
         branch = ""
@@ -998,7 +1075,8 @@ def main():
         bugzilla_content = find_bugzilla_link(series_id)
 
         if sender_email == "" and letter_body == "" and sync_pr == "" and title_pr == "":
-            print("can not get useful information for ", project_name, ", series id is ", series_id, ", repo is ", repo)
+            logger.warning(
+                f"can not get useful information for {project_name}, series id is {series_id}, repo is {repo}")
             continue
 
         emails_to_notify = [sender_email]
@@ -1011,7 +1089,7 @@ def main():
             branch_not_match = True
 
         if branch_not_match:
-            print("branch is ", branch, "can not match any branches")
+            logger.warning(f"branch is {branch}, can not match any branches")
             zh_reason = "补丁/补丁集的标题分支与仓库分支列表不匹配"
             zh_suggest = "请确认补丁标题中的分支是否正确，若有误则修改，无则忽略"
             en_reason = "branch in patch(es)'s title can not match any branches in repository's branch list"
@@ -1089,3 +1167,4 @@ def main():
 
 if __name__ == '__main__':
     main()
+
