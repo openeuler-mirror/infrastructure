@@ -1,0 +1,19 @@
+Name: RWTH-Aachen-University
+HttpURL: https://ftp.halifax.rwth-aachen.de/openeuler/
+RsyncURL: rsync://ftp.halifax.rwth-aachen.de/openeuler/
+FtpURL: ftp://ftp.halifax.rwth-aachen.de/openeuler/
+SponsorName: RWTH Aachen University
+SponsorURL: https://www.rwth-aachen.de/
+SponsorLogoURL: https://openeuler-website.obs.ap-southeast-1.myhuaweicloud.com/mirrors/RWTH-Aachen-University.png
+AdminName: Dr. Carsten Otto
+AdminEmail: carsten@c-otto.de
+ContinentOnly: false
+CountryOnly: false
+ASOnly: false
+Score: 100
+Enabled: true
+AllowRedirects: null
+NetworkBandwidth: 20000
+Latitude: 50.1109
+Longitude: 8.6820
+Country: Germany
