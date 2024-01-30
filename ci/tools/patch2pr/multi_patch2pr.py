@@ -560,11 +560,10 @@ def find_bugzilla_link(ser_id):
     :return: content of bugzilla address
     """
     bugzilla_set = set()
-    bugzillas = subprocess.run([f"{USR_BIN}/grep", "-rn", "bugzilla:", f"/home/patches/{ser_id}/*"],
-                               stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True)
+    bugzillas = os.popen('grep -rn "bugzilla:" /home/patches/{}/*'.format(ser_id)).readlines()
 
     https_re = re.compile(r'http[s]?://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*\(\),]|(?:%[0-9a-fA-F][0-9a-fA-F]))+')
-    for b in bugzillas.stdout.splitlines():
+    for b in bugzillas:
         res = https_re.findall(b)
         if res:
             bugzilla_set.add(res[0])
