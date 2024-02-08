@@ -1,10 +1,10 @@
-Name: openEuler-Paris
-HttpURL: https://fr-repo.openeuler.org/
+Name: openEuler-Frankurt
+HttpURL: https://de-repo.openeuler.org/
 RsyncURL: ""
 FtpURL: ""
 SponsorName: openEuler
 SponsorURL: https://www.openeuler.org
-SponsorLogoURL: https://openeuler-website.obs.ap-southeast-1.myhuaweicloud.com/mirrors/openEuler-Paris.png
+SponsorLogoURL: https://openeuler-website.obs.ap-southeast-1.myhuaweicloud.com/mirrors/openEuler-Frankurt.png
 AdminName: Infrastructure
 AdminEmail: contact@openeuler.io
 ContinentOnly: false
@@ -14,6 +14,6 @@ Score: 100
 Enabled: true
 AllowRedirects: null
 NetworkBandwidth: 100
-Latitude: 48.8583
-Longitude: 2.2945
-Country: France
+Latitude: 50.1109
+Longitude: 8.6820
+Country: Germany
