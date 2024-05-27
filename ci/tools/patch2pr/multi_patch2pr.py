@@ -470,21 +470,28 @@ def send_mail_to_notice_developers(content, email_address, cc_address, subject, 
         if repo_path in k:
             env_host_user = v.get("host")
             env_host_pass = v.get("pass")
-    useraccount = os.getenv("%s" % env_host_user, "")
-    password = os.getenv("%s" % env_host_pass, "")
+    im_useraccount = os.getenv("%s" % env_host_user, "")
+    im_password = os.getenv("%s" % env_host_pass, "")
     imap_server = os.getenv("IMAP_SERVER")
     imap_port = os.getenv("IMAP_PORT")
+
+    sm_useraccount = os.getenv("SEND_EMAIL_HOST_USER")
+    sm_password = os.getenv("SEND_EMAIL_HOST_PASSWORD")
+    sm_host = os.getenv("SEND_EMAIL_HOST")
+    sm_port = os.getenv("SEND_EMAIL_PORT")
+    sm_domain = os.getenv("SEND_EMAIL_DOMAIN")
+    su = sm_useraccount + "@" + sm_domain
     try:
-        im_server = imaplib.IMAP4_SSL(imap_server, imap_port)
-        sm_server = smtplib.SMTP(os.getenv("SEND_EMAIL_HOST"), timeout=30, port=os.getenv("SEND_EMAIL_PORT"))
-        im_server.login(useraccount, password)
+        im_server = imaplib.IMAP4(imap_server, imap_port)
+        im_server.login(im_useraccount, im_password)
+
+        sm_server = smtplib.SMTP(sm_host, timeout=30, port=sm_port)
         sm_server.ehlo()
-        sm_server.starttls()
-        sm_server.login(useraccount, password)
+        sm_server.login(sm_useraccount, sm_password)
 
         imaplib.Commands['ID'] = ('AUTH')
-        args = ("name", "{}".format(useraccount), "contact",
-                "{}".format(useraccount), "version", "1.0.0", "vendor", "myclient")
+        args = ("name", "{}".format(im_useraccount), "contact",
+                "{}".format(im_useraccount), "version", "1.0.0", "vendor", "myclient")
         im_server._simple_command('ID', '("' + '" "'.join(args) + '")')
         im_server.select()
         _, unseen = im_server.search(None, "UNANSWERED")
@@ -499,10 +506,10 @@ def send_mail_to_notice_developers(content, email_address, cc_address, subject, 
                 from_email = original["From"].split("<")[1].split(">")[0]
             else:
                 from_email = from_email.strip(" ")
-            if from_email == email_address[0] and original['Message-ID'] == message_id:
+            if from_email == email_address[0] and original['Message-ID'].strip() == message_id.strip():
                 found_in_unanswered = True
-                sm_server.sendmail(useraccount, email_address + cc_address,
-                                   create_auto_reply(useraccount, email_address, content, cc_address,
+                sm_server.sendmail(su, email_address + cc_address,
+                                   create_auto_reply(su, email_address, content, cc_address,
                                                      original).as_bytes())
                 log = 'Replied to “%s” for the mail “%s”' % (original['From'],
                                                              original['Subject'])
@@ -520,9 +527,9 @@ def send_mail_to_notice_developers(content, email_address, cc_address, subject, 
                     from_email = original["From"].split("<")[1].split(">")[0]
                 else:
                     from_email = from_email.strip(" ")
-                if from_email == email_address[0] and original['Message-ID'] == message_id:
-                    sm_server.sendmail(useraccount, email_address + cc_address,
-                                       create_auto_reply(useraccount, email_address, content, cc_address,
+                if from_email == email_address[0] and original['Message-ID'].strip() == message_id.strip():
+                    sm_server.sendmail(su, email_address + cc_address,
+                                       create_auto_reply(su, email_address, content, cc_address,
                                                          original).as_bytes())
                     log = 'Replied to “%s” for the mail “%s”' % (original['From'],
                                                                  original['Subject'])
@@ -544,7 +551,7 @@ def create_auto_reply(from_address, to_address, body, cc_address, original):
 
     mail = MIMEMultipart('alternative')
     mail['Message-ID'] = make_msgid()
-    mail['References'] = mail['In-Reply-To'] = original['Message-ID']
+    mail['References'] = mail['In-Reply-To'] = original['Message-ID'].strip()
     mail['Subject'] = 'Re: ' + original['Subject']
     mail['From'] = "patchwork bot <{}>".format(from_address)
     mail['To'] = ",".join(to_address)
@@ -1160,10 +1167,10 @@ def main():
         rewrite_to_project_series_file(infor_data)
     else:
         os.remove("/home/patches/project_series.txt")
-        # for v in RCFile_MAP.values():
-        #     change_email_status_to_answered(v)
 
 
 if __name__ == '__main__':
     main()
+
+
 
