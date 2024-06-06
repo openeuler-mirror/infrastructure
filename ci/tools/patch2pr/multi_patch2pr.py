@@ -232,7 +232,7 @@ def config_get_mail(rc_path, u_name, u_pass, email_server, path_of_sh):
         subprocess.run([f"{USR_BIN}/touch", file_path])
 
     retriever = [
-        "[retriever]", "type = SimplePOP3SSLRetriever",
+        "[retriever]", "type = SimplePOP3Retriever",
         f"server = {email_server}",
         f"username = {os.getenv(u_name, '')}",
         f"password = {os.getenv(u_pass, '')}",
