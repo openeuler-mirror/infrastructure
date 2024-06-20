@@ -81,7 +81,7 @@ def make_fork_same_with_origin(branch_name, o, r):
                              stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True)
     remote_flag = False
     for remote in remotes.stdout.splitlines():
-        if remote.startswith("upstream "):
+        if remote.startswith("upstream"):
             remote_flag = False
         else:
             remote_flag = True
@@ -94,7 +94,7 @@ def make_fork_same_with_origin(branch_name, o, r):
     fork_branches_list = subprocess.run([f"{USR_BIN}/git", "branch", "-a"],
                                         stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True)
     create_to_fork = False
-    for fb in fork_branches_list.stdout:
+    for fb in fork_branches_list.stdout.splitlines():
         fb = fb.strip("\n").strip(" ").replace("* ", "")
         if fb != ("remotes/origin/" + branch_name) and fb != branch_name:
             create_to_fork = True
