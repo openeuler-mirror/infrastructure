@@ -2,6 +2,7 @@ import oyaml as yaml
 import os
 import sys
 
+
 def transferyaml(oldyamlname, newyamlname):
     file_path = os.path.split(os.path.realpath(__file__))[0]
 
