@@ -4,12 +4,6 @@
 #@File:     changeBranchProtected2Readonly.py
 
 import math
-
-import yaml
-import os
-import sys
-import math
-
 import yaml
 import os
 import sys
