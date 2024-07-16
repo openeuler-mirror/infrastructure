@@ -143,7 +143,7 @@ CI未及时触发通常有两种情况：
 **git push origin :refs/tags/v2.0**
 
 ---
-13.  **请问PR什么不能关联上Issue ？**
+13.  **请问PR为什么不能关联上Issue ？**
 		
 PR关联ISSUE的时候找不到相关的Issue的原因一般有两个：
 
