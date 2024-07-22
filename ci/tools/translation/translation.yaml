@@ -65,3 +65,6 @@ repositories:
     assign_issue:
     - title: "[Auto] This is an English translation issue."
     - sign_to: lux1
+  exclude:
+    - condition: only_marks_change
+      check_list: [',', '，', '.', '。', ';', '；', ':', '：', '"', '“', '”', '、']
