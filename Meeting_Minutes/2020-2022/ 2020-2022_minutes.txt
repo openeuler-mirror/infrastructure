@@ -6,6 +6,7 @@ openEuler infra sig 例会：
 议题：
 1. OBS构建系统WORKER容器化讨论——陈曾
 
+
 2. Intel arch sig组在kernel仓库上开发问题 
 从kernel fork到intel-arch 仓库
 3.OBP与OEPKGS交流(包对接，构建二进制对接) 
