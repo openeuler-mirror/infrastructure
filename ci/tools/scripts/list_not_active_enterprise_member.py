@@ -1,0 +1,209 @@
+# coding: utf-8
+# 版权所有（c）华为技术有限公司 2012-2024
+"""
+在 openEuler 企业成员的活跃度
+
+数据范围：针对 openEuler 企业成员从某个时间点到当前时间点的每个月的活跃度
+过滤条件：1. 每个月取个人的10条动态
+        2. 10条动态中含有一条有效动态，即记录下来
+
+执行：python list_not_active_enterprise_member.py 企业名称(eg. open_euler) 个人GiteeToken 企业GiteeToken 开始日期(eg. 2024-01-01 必须是1号)
+输出结果：在当前文件夹下 ./dist/list_not_active_enterprise_member/result_*.csv
+        存储统计的企业成员信息与动态数据，数据格式：成员名称, 用户id, 用户的gitee-id, 用户动态记录
+
+对于输出的 csv 文件，需要手动导入 excel 处理
+"""
+import json
+import os
+import csv
+import sys
+import time
+import urllib.request
+import datetime
+from urllib import error
+
+_gitee_developer_api_uri = 'https://gitee.com/api/v5/'
+_gitee_enterprise_api_uri = 'https://api.gitee.com/enterprises/'
+_req_method_get = 'GET'
+_headers = {
+    'Content-type': 'application-json',
+    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)'
+}
+
+_gitee_org_repos = ['' for _ in range(1024 * 100)]
+_gitee_org_repos_size = 0
+_gitee_developer_token = ''
+_gitee_enterprise_token = ''
+_enterprise_path = ''
+_enterprise_id = 0
+_release_version_name = ''
+_storge_file_path = ''
+
+
+def get_enterprise_id():
+    query = '?access_token=' + _gitee_developer_token
+    req_url = _gitee_developer_api_uri + 'enterprises/' + _enterprise_path + query
+    req = urllib.request.Request(url=req_url, headers=_headers, method=_req_method_get)
+    try:
+        with urllib.request.urlopen(req) as res:
+            data = res.read().decode('utf-8')  # str
+            enterprise_info = json.loads(data)  # dict
+    except error.HTTPError:
+        ans_enterprise_id = 0
+    except error.URLError:
+        ans_enterprise_id = 0
+    else:
+        ans_enterprise_id = enterprise_info['id']
+    return ans_enterprise_id
+
+
+_enterprise_member_list = [['', '', '', '', ''] for _ in range(1024 * 10)]
+_enterprise_member_list_size = 0
+_start_data = ''
+
+
+def get_all_enterprise_members():
+    page_no = 1
+
+    global _enterprise_member_list, _enterprise_member_list_size
+    flag = True
+    while flag:
+        query = '?access_token=' + _gitee_developer_token + '&page=' + str(page_no) + '&per_page=100'
+        req_url = _gitee_developer_api_uri + 'enterprises/' + _enterprise_path + '/members' + query
+        req = urllib.request.Request(url=req_url, headers=_headers, method=_req_method_get)
+        with urllib.request.urlopen(req) as res:
+            data = res.read().decode('utf-8')  # str
+            members = json.loads(data)  # list [dict...]
+            members_size = len(members)
+            for i in range(members_size):
+                _enterprise_member_list[_enterprise_member_list_size][0] = members[i]['remark']
+                _enterprise_member_list[_enterprise_member_list_size][1] = members[i]['user']['id']
+                _enterprise_member_list[_enterprise_member_list_size][2] = members[i]['user']['login']
+                _enterprise_member_list[_enterprise_member_list_size][3] = members[i]['role']
+                _enterprise_member_list_size = _enterprise_member_list_size + 1
+            flag = data != '[]'
+            print('正在收集成员，每次请求收集 100 个，当前成员数: ' + str(_enterprise_member_list_size))
+            page_no = page_no + 1
+            # flag = page_no < 1 # test
+
+
+_date_range = (
+    '2020-01-01', '2020-02-01', '2020-03-01', '2020-04-01', '2020-05-01', '2020-06-01',
+    '2020-07-01', '2020-08-01', '2020-09-01', '2020-10-01', '2020-11-01', '2020-12-01',
+    '2021-01-01', '2021-02-01', '2021-03-01', '2021-04-01', '2021-05-01', '2021-06-01',
+    '2021-07-01', '2021-08-01', '2021-09-01', '2021-10-01', '2021-11-01', '2021-12-01',
+    '2022-01-01', '2022-02-01', '2022-03-01', '2022-04-01', '2022-05-01', '2022-06-01',
+    '2022-07-01', '2022-08-01', '2022-09-01', '2022-10-01', '2022-11-01', '2022-12-01',
+    '2023-01-01', '2023-02-01', '2023-03-01', '2023-04-01', '2023-05-01', '2023-06-01',
+    '2023-07-01', '2023-08-01', '2023-09-01', '2023-10-01', '2023-11-01', '2023-12-01',
+    '2024-01-01', '2024-02-01', '2024-03-01', '2024-04-01', '2024-05-01', '2024-06-01',
+    '2024-07-01', '2024-08-01', '2024-09-01', '2024-10-01', '2024-11-01', '2024-12-01',
+    '2025-01-01', '2025-02-01', '2025-03-01', '2025-04-01', '2025-05-01', '2025-06-01',
+    '2025-07-01', '2025-08-01', '2025-09-01', '2025-10-01', '2025-11-01', '2025-12-01',
+    '2026-01-01', '2026-02-01', '2026-03-01', '2026-04-01', '2026-05-01', '2026-06-01',
+    '2026-07-01', '2026-08-01', '2026-09-01', '2026-10-01', '2026-11-01', '2026-12-01',
+    '2027-01-01', '2027-02-01', '2027-03-01', '2027-04-01', '2027-05-01', '2027-06-01',
+    '2027-07-01', '2027-08-01', '2027-09-01', '2027-10-01', '2027-11-01', '2027-12-01',
+    '2028-01-01', '2028-02-01', '2028-03-01', '2028-04-01', '2028-05-01', '2028-06-01',
+    '2028-07-01', '2028-08-01', '2028-09-01', '2028-10-01', '2028-11-01', '2028-12-01',
+    '2029-01-01', '2029-02-01', '2029-03-01', '2029-04-01', '2029-05-01', '2029-06-01',
+    '2029-07-01', '2029-08-01', '2029-09-01', '2029-10-01', '2029-11-01', '2029-12-01',
+    '2030-01-01', '2030-02-01', '2030-03-01', '2030-04-01', '2030-05-01', '2030-06-01',
+    '2030-07-01', '2030-08-01', '2030-09-01', '2030-10-01', '2030-11-01', '2030-12-01',
+)
+_start_date_index = 0
+_end_date_index = 0
+
+
+def check_members_activity():
+    global _enterprise_member_list, _enterprise_member_list_size
+    for i in range(_enterprise_member_list_size):
+
+        j = _start_date_index
+        event_record = ''
+        while j < _end_date_index:
+            query = ('?access_token=' + _gitee_enterprise_token + '&page=1&per_page=10&limit=10&start_date='
+                     + _date_range[j] + '&end_date=' + _date_range[j + 1])
+            req_url = (_gitee_enterprise_api_uri + str(_enterprise_id) + '/members/'
+                       + str(_enterprise_member_list[i][1]) + '/events' + query)
+            req = urllib.request.Request(url=req_url, headers=_headers, method=_req_method_get)
+            with urllib.request.urlopen(req) as res:
+                data = res.read().decode('utf-8')  # str
+
+                if data == '[]':
+                    j = _end_date_index
+                else:
+                    user_events = json.loads(data)['data']  # list [dict...]
+                    user_events_size = len(user_events)
+                    for k in range(user_events_size):
+                        if user_events[k]['action'] not in ['kick_out', 'left', 'be_left']:
+                            event_record += _date_range[j][:7] + ','
+                            break
+                    j += 1
+        _enterprise_member_list[i][4] = event_record
+        i += 1
+        print('正在收集第 ' + str(i) + ' 个成员动态')
+
+
+if __name__ == '__main__':
+    args_len = len(sys.argv)
+
+    if args_len != 5:
+        sys.exit('请输入正确的参数: python list_not_active_enterprise_member.py 企业名称 个人GiteeToken 企业GiteeToken 开始日期')
+
+    exec_py = sys.argv[0]
+    dir_path = './dist/'
+    _storge_file_path = dir_path + exec_py[:-3].split(os.sep)[-1]
+    print('文件输出Dir: ' + _storge_file_path)
+    if not os.path.exists(_storge_file_path):
+        os.mkdir(_storge_file_path)
+
+    _enterprise_path = sys.argv[1]
+    if len(_enterprise_path) == 0:
+        sys.exit('请输入正确的企业Path，如：open_euler')
+    print('企业Path: ' + _enterprise_path)
+
+    _gitee_developer_token = sys.argv[2]
+    if len(_gitee_developer_token) == 0:
+        sys.exit('请输入正确的个人 Gitee Token')
+    print('个人 Gitee Token: ' + _gitee_developer_token)
+
+    _gitee_enterprise_token = sys.argv[3]
+    if len(_gitee_enterprise_token) == 0:
+        sys.exit('请输入正确的企业 Gitee Token')
+    print('企业 Gitee Token: ' + _gitee_enterprise_token)
+
+    start_date = sys.argv[4]
+    if len(start_date) == 0:
+        sys.exit('请输入正确的开始日期，如 2023-01-01')
+    print('开始日期: ' + start_date)
+    end_date = datetime.date.today().replace(day=1)
+    for idx in range(len(_date_range)):
+        if _date_range[idx] == str(start_date):
+            _start_date_index = idx
+        if _date_range[idx] == str(end_date):
+            _end_date_index = idx + 1
+
+    start_time = time.time()
+    _enterprise_id = get_enterprise_id()
+    if _enterprise_id == 0:
+        print('企业ID: ' + _enterprise_id)
+        sys.exit('企业ID错误')
+
+    print('收集企业成员 =====> 开始')
+    get_all_enterprise_members()
+    print('收集企业成员 =====> 完成')
+
+    print('收集企业成员动态 =====> 开始')
+    check_members_activity()
+    print('收集企业成员动态 =====> 完成')
+
+    result = _storge_file_path + os.sep + 'result_' + time.strftime('%Y%m%d-%H%M%S', time.localtime()) + '.csv'
+    if os.path.isfile(result):
+        os.remove(result)
+    with open(result, 'w+', encoding='utf-8', newline='') as result_out:
+        result_writer = csv.writer(result_out)
+        result_writer.writerow(['remark', 'user-id', 'gitee-id', 'role', 'event-record'])
+        result_writer.writerows(_enterprise_member_list[:_enterprise_member_list_size])
+
+    print(f'cost:{time.time() - start_time:.4f}s')
