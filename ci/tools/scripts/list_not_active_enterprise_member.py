@@ -68,23 +68,23 @@ def get_all_enterprise_members():
     global _enterprise_member_list, _enterprise_member_list_size
     flag = True
     while flag:
-        query = '?access_token=' + _gitee_developer_token + '&page=' + str(page_no) + '&per_page=100'
-        req_url = _gitee_developer_api_uri + 'enterprises/' + _enterprise_path + '/members' + query
+        query = '?access_token=' + _gitee_enterprise_token + '&page=' + str(page_no) + '&per_page=100'
+        req_url = _gitee_enterprise_api_uri + str(_enterprise_id) + '/members' + query
         req = urllib.request.Request(url=req_url, headers=_headers, method=_req_method_get)
         with urllib.request.urlopen(req) as res:
             data = res.read().decode('utf-8')  # str
-            members = json.loads(data)  # list [dict...]
+            members = json.loads(data)['data']  # list [dict...]
             members_size = len(members)
-            for i in range(members_size):
-                _enterprise_member_list[_enterprise_member_list_size][0] = members[i]['remark']
-                _enterprise_member_list[_enterprise_member_list_size][1] = members[i]['user']['id']
-                _enterprise_member_list[_enterprise_member_list_size][2] = members[i]['user']['login']
-                _enterprise_member_list[_enterprise_member_list_size][3] = members[i]['role']
+            for members_i in range(members_size):
+                _enterprise_member_list[_enterprise_member_list_size][0] = members[members_i]['remark']
+                _enterprise_member_list[_enterprise_member_list_size][1] = members[members_i]['user']['id']
+                _enterprise_member_list[_enterprise_member_list_size][2] = members[members_i]['user']['login']
+                _enterprise_member_list[_enterprise_member_list_size][3] = members[members_i]['created_at'][:10]
                 _enterprise_member_list_size = _enterprise_member_list_size + 1
-            flag = data != '[]'
+            flag = members_size != 0
             print('正在收集成员，每次请求收集 100 个，当前成员数: ' + str(_enterprise_member_list_size))
             page_no = page_no + 1
-            # flag = page_no < 1 # test
+            # flag = page_no < 1  # test
 
 
 _date_range = (
@@ -111,48 +111,60 @@ _date_range = (
     '2030-01-01', '2030-02-01', '2030-03-01', '2030-04-01', '2030-05-01', '2030-06-01',
     '2030-07-01', '2030-08-01', '2030-09-01', '2030-10-01', '2030-11-01', '2030-12-01',
 )
-_start_date_index = 0
+_start_date_index = -1
 _end_date_index = 0
 
 
-def check_members_activity():
+def check_members_all_activity(members_all_activity_i: int):
+    query = ('?access_token=' + _gitee_enterprise_token + '&page=1&per_page=10&limit=10&start_date='
+             + _date_range[_start_date_index])
+    req_url = (_gitee_enterprise_api_uri + str(_enterprise_id) + '/members/'
+               + str(_enterprise_member_list[members_all_activity_i][1]) + '/events' + query)
+    req = urllib.request.Request(url=req_url, headers=_headers, method=_req_method_get)
+    with urllib.request.urlopen(req) as res:
+        data = res.read().decode('utf-8')  # str
+        return data != '{"data":[]}'
+
+
+def check_members_month_activity(members_month_activity_i: int):
     global _enterprise_member_list, _enterprise_member_list_size
-    for i in range(_enterprise_member_list_size):
-
-        j = _start_date_index
-        event_record = ''
-        while j < _end_date_index:
-            query = ('?access_token=' + _gitee_enterprise_token + '&page=1&per_page=10&limit=10&start_date='
-                     + _date_range[j] + '&end_date=' + _date_range[j + 1])
-            req_url = (_gitee_enterprise_api_uri + str(_enterprise_id) + '/members/'
-                       + str(_enterprise_member_list[i][1]) + '/events' + query)
-            req = urllib.request.Request(url=req_url, headers=_headers, method=_req_method_get)
-            with urllib.request.urlopen(req) as res:
-                data = res.read().decode('utf-8')  # str
-
-                if data == '[]':
-                    j = _end_date_index
-                else:
-                    user_events = json.loads(data)['data']  # list [dict...]
-                    user_events_size = len(user_events)
-                    for k in range(user_events_size):
-                        if user_events[k]['action'] not in ['kick_out', 'left', 'be_left']:
-                            event_record += _date_range[j][:7] + ','
-                            break
-                    j += 1
-        _enterprise_member_list[i][4] = event_record
-        i += 1
-        print('正在收集第 ' + str(i) + ' 个成员动态')
+    j = _start_date_index
+    event_record = ''
+    while j < _end_date_index:
+        query = ('?access_token=' + _gitee_enterprise_token + '&page=1&per_page=10&limit=10&start_date='
+                 + _date_range[j] + '&end_date=' + _date_range[j + 1])
+        req_url = (_gitee_enterprise_api_uri + str(_enterprise_id) + '/members/'
+                   + str(_enterprise_member_list[members_month_activity_i][1]) + '/events' + query)
+        req = urllib.request.Request(url=req_url, headers=_headers, method=_req_method_get)
+        with urllib.request.urlopen(req) as res:
+            data = res.read().decode('utf-8')  # str
+            month_active = 'no,'
+            if data == '{"data":[]}':
+                event_record += month_active
+            else:
+                user_events = json.loads(data)['data']  # list [dict...]
+                user_events_size = len(user_events)
+                for k in range(user_events_size):
+                    if user_events[k]['action'] not in ['kick_out', 'left', 'be_left']:
+                        month_active = _date_range[j][:7] + ','
+                        break
+                event_record += month_active
+            j += 1
+    _enterprise_member_list[members_month_activity_i][4] = event_record
+    print('正在收集第 ' + str(members_month_activity_i) + ' 个成员动态')
 
 
 if __name__ == '__main__':
     args_len = len(sys.argv)
 
     if args_len != 5:
-        sys.exit('请输入正确的参数: python list_not_active_enterprise_member.py 企业名称 个人GiteeToken 企业GiteeToken 开始日期')
+        sys.exit(
+            '请输入正确的参数: python list_not_active_enterprise_member.py 企业名称 个人GiteeToken 企业GiteeToken 开始日期')
 
     exec_py = sys.argv[0]
-    dir_path = './dist/'
+    dir_path = '.' + os.sep + 'dist' + os.sep
+    if not os.path.exists(dir_path):
+        os.mkdir(dir_path)
     _storge_file_path = dir_path + exec_py[:-3].split(os.sep)[-1]
     print('文件输出Dir: ' + _storge_file_path)
     if not os.path.exists(_storge_file_path):
@@ -178,11 +190,13 @@ if __name__ == '__main__':
         sys.exit('请输入正确的开始日期，如 2023-01-01')
     print('开始日期: ' + start_date)
     end_date = datetime.date.today().replace(day=1)
-    for idx in range(len(_date_range)):
-        if _date_range[idx] == str(start_date):
-            _start_date_index = idx
-        if _date_range[idx] == str(end_date):
-            _end_date_index = idx + 1
+    for date_i in range(len(_date_range)):
+        if _date_range[date_i] == str(start_date):
+            _start_date_index = date_i
+        if _date_range[date_i] == str(end_date):
+            _end_date_index = date_i + 1
+    if _start_date_index == -1:
+        sys.exit('请输入正确的开始日期，必须是某年某月1号，如 2023-01-01')
 
     start_time = time.time()
     _enterprise_id = get_enterprise_id()
@@ -190,20 +204,43 @@ if __name__ == '__main__':
         print('企业ID: ' + _enterprise_id)
         sys.exit('企业ID错误')
 
-    print('收集企业成员 =====> 开始')
-    get_all_enterprise_members()
-    print('收集企业成员 =====> 完成')
+    enterprise_member_file_path = (_storge_file_path + os.sep + _enterprise_path + '_member_' +
+                                   time.strftime('%Y%m%d', time.localtime()) + '.txt')
+    if not os.path.isfile(enterprise_member_file_path):
+        print('收集企业成员 =====> 开始')
+        get_all_enterprise_members()
+        with open(enterprise_member_file_path, 'w+') as enterprise_member_file_path_out:
+            enterprise_member_file_path_out.write(
+                json.dumps(_enterprise_member_list[:_enterprise_member_list_size], indent=2))
+        print('收集企业成员 =====> 完成，输出文件：' + enterprise_member_file_path)
+    else:
+        print(
+            '当前已经收集过企业成员，不必重复收集。如果要再次收集，请删除文件：' + enterprise_member_file_path + ' 后，再重新执行')
 
     print('收集企业成员动态 =====> 开始')
-    check_members_activity()
+    with (open(enterprise_member_file_path, 'r') as enterprise_member_file_path_in):
+        _enterprise_member_list = json.load(enterprise_member_file_path_in)
+        _enterprise_member_list_size = len(_enterprise_member_list)
+        print('正在收集企业成员动态，成员总共 ' + str(_enterprise_member_list_size) + ' 个')
+        i = 0
+        page = 10
+        while i < _enterprise_member_list_size:
+            result = (_storge_file_path + os.sep + 'result_' + str(i + 10) + '.csv')
+            if os.path.isfile(result):
+                i += page
+            else:
+                break
+        write_i = i
+        while i < _enterprise_member_list_size:
+            if check_members_all_activity(i):
+                check_members_month_activity(i)
+            if (i + 1) % page == 0:
+                result = (_storge_file_path + os.sep + 'result_' + str(i + 1) + '.csv')
+                with open(result, 'w+', encoding='utf-8', newline='') as result_out:
+                    result_writer = csv.writer(result_out)
+                    result_writer.writerows(_enterprise_member_list[write_i + 1 - page:write_i + 1])
+            i += 1
+            write_i = i
     print('收集企业成员动态 =====> 完成')
-
-    result = _storge_file_path + os.sep + 'result_' + time.strftime('%Y%m%d-%H%M%S', time.localtime()) + '.csv'
-    if os.path.isfile(result):
-        os.remove(result)
-    with open(result, 'w+', encoding='utf-8', newline='') as result_out:
-        result_writer = csv.writer(result_out)
-        result_writer.writerow(['remark', 'user-id', 'gitee-id', 'role', 'event-record'])
-        result_writer.writerows(_enterprise_member_list[:_enterprise_member_list_size])
 
     print(f'cost:{time.time() - start_time:.4f}s')
