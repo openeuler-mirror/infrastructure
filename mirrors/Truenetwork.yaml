@@ -1,5 +1,5 @@
 Name: Truenetwork
-HttpURL: http://mirror.truenetwork.ru/openeuler/
+HttpURL: https://mirror.truenetwork.ru/openeuler/
 RsyncURL: rsync://mirror.truenetwork.ru/openeuler
 FtpURL: ""
 SponsorName: Truenetwork
