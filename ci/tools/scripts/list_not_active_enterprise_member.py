@@ -26,7 +26,7 @@ _gitee_developer_api_uri = 'https://gitee.com/api/v5/'
 _gitee_enterprise_api_uri = 'https://api.gitee.com/enterprises/'
 _req_method_get = 'GET'
 _headers = {
-    'Content-type': 'application-json',
+    'Content-Type': 'application/json',
     'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)'
 }
 
