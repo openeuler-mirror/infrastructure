@@ -169,7 +169,7 @@ def check_base(project):
             repo_file=os.path.join(repo_ppath,rpm)
             shutil.copy(repo_file,build_path)
             check_flag = 1
-            logger.info( "check: shoud add %s" % rpm )
+            logger.info( "check: should add %s" % rpm )
 
     if check_flag == 1:
         return False
