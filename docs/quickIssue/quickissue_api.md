@@ -1,6 +1,6 @@
 ### API参考
 
-**endpoint**: https://ipb.osinfra.cn
+**endpoint**: https://quickissue.openeuler.org
 
 - issue列表
   - 功能介绍
@@ -8,7 +8,7 @@
     获取issue列表
   - URI
 
-    GET /issues
+    GET /api-issues/issues
   - 请求参数
     | 参数 | 是否必选 | 参数类型 | 描述
     | :---: | :---: | :---: | :---
@@ -34,7 +34,7 @@
 
     输入示例
     ```
-    GET https://ipb.osinfra.cn/issues?number=I5LKZQ
+    GET https://quickissue.openeuler.org/api-issues/issues?number=I5LKZQ
     ```
 
     输出示例
@@ -74,7 +74,7 @@
     获取issue所有指派者的列表
   - URI
 
-    GET /issues/assignees
+    GET /api-issues/issues/assignees
   - 请求参数
     | 参数 | 是否必选 | 参数类型 | 描述
     | :---: | :---: | :---: | :---
@@ -85,7 +85,7 @@
 
     输入示例
     ```
-    GET https://ipb.osinfra.cn/issues/assignees?keyword=al
+    GET https://quickissue.openeuler.org/api-issues/issues/assignees?keyword=all
     ```
 
     输出示例
@@ -117,7 +117,7 @@
     获取issue所有提交人的列表
   - URI
 
-    GET /issues/authors
+    GET /api-issues/issues/authors
   - 请求参数
     | 参数 | 是否必选 | 参数类型 | 描述
     | :---: | :---: | :---: | :---
@@ -128,7 +128,7 @@
 
     输入示例
     ```
-    GET https://ipb.osinfra.cn/issues/authors?keyword=469
+    GET https://quickissue.openeuler.org/api-issues/issues/authors?keyword=469
     ```
 
     输出示例
@@ -150,7 +150,7 @@
     获取issue所有指定分支的列表
   - URI
 
-    GET /issues/branches
+    GET /api-issues/issues/branches
   - 请求参数
     | 参数 | 是否必选 | 参数类型 | 描述
     | :---: | :---: | :---: | :---
@@ -161,7 +161,7 @@
 
     输入示例
     ```
-    GET https://ipb.osinfra.cn/issues/branches?keyword=22.03
+    GET https://quickissue.openeuler.org/api-issues/issues/branches?keyword=22.03
     ```
 
     输出示例
@@ -185,7 +185,7 @@
     获取issue所有标签的列表
   - URI
 
-    GET /issues/labels
+    GET /api-issues/issues/labels
   - 请求参数
     | 参数 | 是否必选 | 参数类型 | 描述
     | :---: | :---: | :---: | :---
@@ -196,7 +196,7 @@
 
     输入示例
     ```
-    GET https://ipb.osinfra.cn/issues/labels?page=2&per_page=10
+    GET https://quickissue.openeuler.org/api-issues/issues/labels?page=2&per_page=10
     ```
 
     输出示例
@@ -226,7 +226,7 @@
     获取issue所有类型的列表
   - URI
 
-    GET /issues/types
+    GET /api-issues/issues/types
   - 请求参数
 
     无
@@ -234,7 +234,7 @@
 
     输入示例
     ```
-    GET https://ipb.osinfra.cn/issues/types
+    GET https://quickissue.openeuler.org/api-issues/issues/types
     ```
 
     输出示例
@@ -268,7 +268,7 @@
     获取所有openeuler/src-openeuler组织下仓库的列表
   - URI
 
-    GET /repos
+    GET /api-issues/repos
   - 请求参数
     | 参数 | 是否必选 | 参数类型 | 描述
     | :---: | :---: | :---: | :---
@@ -281,7 +281,7 @@
 
     输入示例
     ```
-    GET https://ipb.osinfra.cn/repos?sig=Infrastructure
+    GET https://quickissue.openeuler.org/api-issues/repos?sig=Infrastructure
     ```
 
     输出示例
@@ -320,7 +320,7 @@
     获取所有openeuler/src-openeuler组织下仓库的Pull Request列表
   - URI
 
-    GET /pulls
+    GET /api-issues/pulls
   - 请求参数
     | 参数 | 是否必选 | 参数类型 | 描述
     | :---: | :---: | :---: | :---
@@ -342,7 +342,7 @@
 
     输入示例
     ```
-    GET https://ipb.osinfra.cn/pulls?state=open&ref=openEuler-22.09
+    GET https://quickissue.openeuler.org/api-issues/pulls?state=open&ref=openEuler-22.09
     ```
 
     输出示例
@@ -395,7 +395,7 @@
     获取所有Pull Request指派者的列表
   - URI
 
-    GET /pulls/assignees
+    GET /api-issues/pulls/assignees
   - 请求参数
     | 参数 | 是否必选 | 参数类型 | 描述
     | :---: | :---: | :---: | :---
@@ -406,7 +406,7 @@
 
     输入示例
     ```
-    GET https://ipb.osinfra.cn/pulls/assignees?keyword=alex
+    GET https://quickissue.openeuler.org/api-issues/pulls/assignees?keyword=alex
     ```
 
     输出示例
@@ -428,7 +428,7 @@
     获取所有Pull Request提交人的列表
   - URI
 
-    GET /pulls/authors
+    GET /api-issues/pulls/authors
   - 请求参数
     | 参数 | 是否必选 | 参数类型 | 描述
     | :---: | :---: | :---: | :---
@@ -439,7 +439,7 @@
 
     输入示例
     ```
-    GET https://ipb.osinfra.cn/pulls/authors?keyword=al
+    GET https://quickissue.openeuler.org/api-issues/pulls/authors?keyword=al
     ```
 
     输出示例
@@ -479,7 +479,7 @@
     获取所有Pull Request的分支列表
   - URI
 
-    GET /pulls/refs
+    GET /api-issues/pulls/refs
   - 请求参数
     | 参数 | 是否必选 | 参数类型 | 描述
     | :---: | :---: | :---: | :---
@@ -490,7 +490,7 @@
 
     输入示例
     ```
-    GET https://ipb.osinfra.cn/pulls/refs?keyword=openeuler-22.09
+    GET https://quickissue.openeuler.org/api-issues/pulls/refs?keyword=openeuler-22.09
     ```
 
     输出示例
@@ -515,7 +515,7 @@
     获取所有Pull Request的标签列表
   - URI
 
-    GET /pulls/labels
+    GET /api-issues/pulls/labels
   - 请求参数
     | 参数 | 是否必选 | 参数类型 | 描述
     | :---: | :---: | :---: | :---
@@ -526,7 +526,7 @@
 
     输入示例
     ```
-    GET https://ipb.osinfra.cn/pulls/labels?keyword=kind
+    GET https://quickissue.openeuler.org/api-issues/pulls/labels?keyword=kind
     ```
 
     输出示例
@@ -554,7 +554,7 @@
     获取所有Pull Request的仓库列表
   - URI
 
-    GET /pulls/repos
+    GET /api-issues/pulls/repos
   - 请求参数
     | 参数 | 是否必选 | 参数类型 | 描述
     | :---: | :---: | :---: | :---
@@ -566,7 +566,7 @@
 
     输入示例
     ```
-    GET https://ipb.osinfra.cn/pulls/repos?sig=tc
+    GET https://quickissue.openeuler.org/api-issues/pulls/repos?sig=tc
     ```
 
     输出示例
@@ -588,7 +588,7 @@
     获取所有SIG的列表
   - URI
 
-    GET /pulls/sigs
+    GET /api-issues/pulls/sigs
   - 请求参数
     | 参数 | 是否必选 | 参数类型 | 描述
     | :---: | :---: | :---: | :---
@@ -597,7 +597,7 @@
 
     输入示例
     ```
-    GET https://ipb.osinfra.cn/pulls/sigs?keyword=com
+    GET https://quickissue.openeuler.org/api-issues/pulls/sigs?keyword=com
     ```
 
     输出示例
