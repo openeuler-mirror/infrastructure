@@ -1,6 +1,6 @@
 Name: ACCUM
 HttpURL: https://mirror.accum.se/mirror/openeuler.org/
-RsyncURL: ""
+RsyncURL: rsync://mirror.accum.se/mirror/openeuler.org/
 FtpURL: ""
 SponsorName: Academic Computer Club in Umeå, Sweden
 SponsorURL: https://mirror.accum.se/

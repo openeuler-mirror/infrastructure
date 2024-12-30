@@ -10,7 +10,7 @@ AdminEmail: info@nevacloud.com
 ContinentOnly: false
 CountryOnly: false
 ASOnly: false
-Score: 100
+Score: 30
 Enabled: true
 AllowRedirects: null
 NetworkBandwidth: 500

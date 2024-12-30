@@ -10,7 +10,7 @@ AdminEmail: 21746399(dingtalk)
 ContinentOnly: false
 CountryOnly: false
 ASOnly: false
-Score: 100
+Score: 10
 Enabled: true
 AllowRedirects: null
 NetworkBandwidth: 1000

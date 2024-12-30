@@ -11,7 +11,7 @@ ContinentOnly: false
 CountryOnly: false
 ASOnly: false
 Score: 100
-Enabled: true
+Enabled: false
 AllowRedirects: null
 NetworkBandwidth: 10000
 Latitude: 30.5478
