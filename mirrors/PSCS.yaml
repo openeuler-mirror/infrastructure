@@ -10,7 +10,7 @@ AdminEmail: support@ps.kz
 ContinentOnly: false
 CountryOnly: false
 ASOnly: false
-Score: 100
+Score: 60
 Enabled: true
 AllowRedirects: null
 NetworkBandwidth: 1000
