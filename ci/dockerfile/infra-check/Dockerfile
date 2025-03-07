@@ -44,9 +44,10 @@ RUN chmod +x /usr/local/bin/jenkins-agent &&\
 # Setting up env
 USER ${user}
 ENV AGENT_WORKDIR=${AGENT_WORKDIR}
-RUN mkdir /home/${user}/.jenkins && mkdir -p ${AGENT_WORKDIR}
+RUN mkdir /home/${user}/.jenkins && mkdir -p ${AGENT_WORKDIR} && python3 -m venv ~/.venv
+ENV PATH $PATH:~/.venv/bin
 COPY . /home/${user}
-RUN pip install -r /home/${user}/requirements.txt
+RUN pip3 install -r /home/${user}/requirements.txt
 
 VOLUME /home/${user}/.jenkins
 VOLUME ${AGENT_WORKDIR}
