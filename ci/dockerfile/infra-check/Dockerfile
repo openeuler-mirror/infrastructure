@@ -4,7 +4,7 @@ FROM openeuler/openeuler:24.03-lts-sp1
 USER root
 ENV USER root
 
-RUN dnf update \
+RUN dnf -y update \
     && dnf install -y java-17-openjdk \
 	&& dnf install -y wget \
 	&& dnf install -y curl \

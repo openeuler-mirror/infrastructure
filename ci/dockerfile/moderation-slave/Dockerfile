@@ -4,7 +4,7 @@ FROM python:3.8-buster
 USER root
 ENV USER root
 
-RUN apt -y update \
+RUN apt update \
 	&& apt install -y wget \
 	&& apt install -y curl \
 	&& apt install -y git \
