@@ -1,0 +1,19 @@
+Name: ZANOG
+HttpURL: http://openeuler.mirror.nog.net.za/
+RsyncURL: ""
+FtpURL: ""
+SponsorName: ZANOG
+SponsorURL: https://nog.net.za/
+SponsorLogoURL: https://openeuler-website.obs.ap-southeast-1.myhuaweicloud.com/mirrors/ZANOG.png
+AdminName: Graham Beneke
+AdminEmail: gb@nog.net.za
+ContinentOnly: false
+CountryOnly: false
+ASOnly: false
+Score: 100
+Enabled: false
+AllowRedirects: null
+NetworkBandwidth: 10000
+Latitude: -28.9984
+Longitude: 23.9888
+Country: "South Africa"
