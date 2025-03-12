@@ -1,11 +1,3 @@
-# Example of customized regular expression matching:
-# regex: (?:Alluxio\s+)?v(\d+\.\d+\.\d+)
-
-# Explanation:
-# 1. (?:Alluxio\s+)?：这是一个非捕获组（由于前面的?:），并且它是可选的（由于后面的?）。这意味着括号内的内容可以出现0次或1次。在这个例子中，它用于匹配可能存在的“Alluxio ”前缀（注意后面有一个空格）。由于是非捕获组，所以即使匹配成功，这部分内容也不会被单独捕获或保存。
-# 2. Alluxio\s+：这是非捕获组内的内容。Alluxio是字面量字符串，表示要匹配的文本中包含“Alluxio”。\s+匹配一个或多个空白字符（如空格、制表符等），确保“Alluxio”和后面的“v”版本标识符之间有空格分隔
-# 3. (\d+\.\d+\.\d+): 这是一个捕获组，用于匹配并捕获具体的版本号。\d+匹配一个或多个数字字符，.在这里是字面量点字符（表示版本号中的分隔符），由于.在正则表达式中有特殊含义（匹配任意单个字符），所以需要使用\进行转义以表示其字面量意义。因此，\d+\.\d+\.\d+匹配形如1.2.3的版本号，其中每个数字部分至少有一位数字
-# 这段正则表达式用于匹配形如“Alluxio 1.2.3”或“v1.2.3”的字符串，并捕获其中的版本号“1.2.3”。如果字符串包含“Alluxio ”前缀，该前缀将被忽略，只有版本号部分被捕获。
 - name: perl-match-simple-XS
   upstream_url: https://metacpan.org/dist/match-simple-XS
   regex: default
@@ -3105,7 +3097,7 @@
 - name: perl-Business-ISBN-Data
   upstream_url: https://metacpan.org/dist/Business-ISBN-Data
   regex: default
-  autoupgrade_enable: enable
+  autoupgrade_enable: disable
 - name: perl-Business-ISBN
   upstream_url: https://metacpan.org/dist/Business-ISBN
   regex: default
