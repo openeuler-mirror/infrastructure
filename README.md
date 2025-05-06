@@ -35,14 +35,9 @@ and [inifum](https://github.com/infinum/exim4-docker). Most of our Docker files 
 
 - Meeting archive
 
-    You can find the archive at http://meetings.openeuler.org/openeuler-meeting/.
+    You can find the archive at https://www.openeuler.org/zh/sig/Infrastructure.
 
 ### License
 All codes are under the Apache v2.0 license.
 
-
-### Reference
-
-test 2202-10-09
-test 2202-10-09 23:59
 
