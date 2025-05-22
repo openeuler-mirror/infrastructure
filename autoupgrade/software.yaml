@@ -8240,7 +8240,7 @@
   upstream_url: https://github.com/iterative/shtab/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/iterative/shtab/blob/master/None
 
 - name: python-scikit-learn
   upstream_url: https://scikit-learn.org/stable/
@@ -8252,7 +8252,7 @@
   upstream_url: https://github.com/googleapis/google-auth-library-python/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/googleapis/google-auth-library-python/blob/main/CHANGELOG.md
 
 - name: python-django-appconf
   upstream_url: https://django-appconf.readthedocs.io/
@@ -8270,13 +8270,13 @@
   upstream_url: https://github.com/repoze/repoze.who/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/repoze/repoze.who/blob/master/CHANGES.rst
 
 - name: python-fsspec
   upstream_url: http://github.com/fsspec/filesystem_spec/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: http://github.com/fsspec/filesystem_spec/blob/master/docs/source/changelog.rst
 
 - name: python-tox
   upstream_url: https://tox.readthedocs.io
@@ -8288,7 +8288,7 @@
   upstream_url: https://github.com/matplotlib/cycler.git/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/matplotlib/cycler.git/blob/master/None
 
 - name: python-xlrd
   upstream_url: http://www.python-excel.org/
@@ -8300,55 +8300,55 @@
   upstream_url: https://github.com/indygreg/python-zstandard/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/indygreg/python-zstandard/blob/main/debian/changelog
 
 - name: python-cachez
   upstream_url: http://github.com/jealous/cachez/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: http://github.com/jealous/cachez/blob/master/None
 
 - name: python-cfgv
   upstream_url: https://github.com/asottile/cfgv/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/asottile/cfgv/blob/master/None
 
 - name: python-isodate
   upstream_url: https://github.com/gweis/isodate/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/gweis/isodate/blob/master/CHANGES.txt
 
 - name: python-pytzdata
   upstream_url: https://github.com/sdispater/pytzdata/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/sdispater/pytzdata/blob/master/None
 
 - name: python-pdm-pep517
   upstream_url: https://github.com/pdm-project/pdm-backend/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/pdm-project/pdm-backend/blob/main/changelogithub.config.json
 
 - name: python-zope-interface
   upstream_url: https://github.com/zopefoundation/zope.interface/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/zopefoundation/zope.interface/blob/master/CHANGES.rst
 
 - name: python-zeroconf
   upstream_url: https://github.com/jstasiak/python-zeroconf/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/jstasiak/python-zeroconf/blob/master/CHANGELOG.md
 
 - name: python-pyhcl
   upstream_url: https://github.com/virtuald/pyhcl/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/virtuald/pyhcl/blob/main/CHANGELOG.md
 
 - name: python-jaraco-functools
   upstream_url: https://pypi.org/project/jaraco.functools/
@@ -8366,13 +8366,13 @@
   upstream_url: https://github.com/avocado-framework/aexpect/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/avocado-framework/aexpect/blob/main/debian/changelog
 
 - name: python-pecan
   upstream_url: https://github.com/pecan/pecan/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/pecan/pecan/blob/master/docs/source/changes.rst
 
 - name: python-doit
   upstream_url: http://pydoit.org
@@ -8384,31 +8384,31 @@
   upstream_url: https://github.com/python-visualization/branca/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/python-visualization/branca/blob/main/CHANGES.txt
 
 - name: python-gflags
   upstream_url: https://github.com/google/python-gflags/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/google/python-gflags/blob/master/ChangeLog
 
 - name: python-ptyprocess
   upstream_url: https://github.com/pexpect/ptyprocess/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/pexpect/ptyprocess/blob/master/None
 
 - name: python-pybeam
   upstream_url: https://github.com/matwey/pybeam/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/matwey/pybeam/blob/master/None
 
 - name: python-fastavro
   upstream_url: https://github.com/fastavro/fastavro/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/fastavro/fastavro/blob/master/ChangeLog
 
 - name: python-sphinxcontrib-serializinghtml
   upstream_url: http://sphinx-doc.org/
@@ -8420,19 +8420,19 @@
   upstream_url: https://github.com/latchset/jwcrypto/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/latchset/jwcrypto/blob/master/None
 
 - name: python-sphinxcontrib-blockdiag
   upstream_url: https://github.com/blockdiag/sphinxcontrib-blockdiag/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/blockdiag/sphinxcontrib-blockdiag/blob/master/None
 
 - name: python-pathspec
   upstream_url: https://github.com/cpburnz/python-pathspec/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/cpburnz/python-pathspec/blob/master/CHANGES.rst
 
 - name: python-yarg
   upstream_url: https://yarg.readthedocs.org/
@@ -8444,7 +8444,7 @@
   upstream_url: https://github.com/ashb/sphinx-argparse/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/ashb/sphinx-argparse/blob/main/docs/changelog.rst
 
 - name: python-invoke
   upstream_url: http://docs.pyinvoke.org
@@ -8474,7 +8474,7 @@
   upstream_url: https://github.com/ValiMail/authentication-headers/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/ValiMail/authentication-headers/blob/master/CHANGES
 
 - name: python-littleutils
   upstream_url: https://pypi.org/pypi/%{pypi_name}
@@ -8486,25 +8486,25 @@
   upstream_url: https://github.com/pydot/pydot/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/pydot/pydot/blob/main/ChangeLog
 
 - name: python-ez_setup
   upstream_url: http://github.com/ActiveState/ez_setup/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: http://github.com/ActiveState/ez_setup/blob/master/None
 
 - name: python-outcome
   upstream_url: https://github.com/python-trio/outcome/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/python-trio/outcome/blob/master/None
 
 - name: python-monotonic
   upstream_url: https://github.com/atdt/monotonic/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/atdt/monotonic/blob/master/None
 
 - name: python-flufl.i18n
   upstream_url: https://pypi.org/project/flufl.i18n
@@ -8522,13 +8522,13 @@
   upstream_url: https://github.com/pypa/pep517/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/pypa/pep517/blob/main/docs/changelog.rst
 
 - name: python-terminaltables
   upstream_url: https://github.com/Robpol86/terminaltables/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/Robpol86/terminaltables/blob/master/docs/changelog.rst
 
 - name: python-pyinstaller
   upstream_url: http://www.pyinstaller.org
@@ -8540,25 +8540,25 @@
   upstream_url: https://github.com/gitpython-developers/gitdb/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/gitpython-developers/gitdb/blob/master/doc/source/changes.rst
 
 - name: python-gitlab
   upstream_url: https://github.com/python-gitlab/python-gitlab/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/python-gitlab/python-gitlab/blob/main/CHANGELOG.md
 
 - name: python-zope-schema
   upstream_url: https://github.com/zopefoundation/zope.schema/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/zopefoundation/zope.schema/blob/master/CHANGES.rst
 
 - name: python-flexmock
   upstream_url: https://github.com/bkabrda/flexmock/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/bkabrda/flexmock/blob/master/CHANGELOG.md
 
 - name: python-evdev
   upstream_url: https://python-evdev.readthedocs.io
@@ -8570,19 +8570,19 @@
   upstream_url: https://github.com/celery/kombu/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/celery/kombu/blob/main/Changelog.rst
 
 - name: python-django-pyscss
   upstream_url: https://github.com/fusionbox/django-pyscss/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/fusionbox/django-pyscss/blob/master/CHANGELOG.rst
 
 - name: python-zope-deprecation
   upstream_url: https://github.com/zopefoundation/zope.deprecation/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/zopefoundation/zope.deprecation/blob/master/CHANGES.rst
 
 - name: python-pyfakefs
   upstream_url: http://pyfakefs.org
@@ -8594,49 +8594,49 @@
   upstream_url: https://github.com/pytest-dev/pytest-asyncio/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/pytest-dev/pytest-asyncio/blob/main/changelog.d/.gitkeep
 
 - name: python-websocket-client
   upstream_url: https://github.com/websocket-client/websocket-client/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/websocket-client/websocket-client/blob/master/ChangeLog
 
 - name: python-mypy
   upstream_url: https://github.com/python/mypy/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/python/mypy/blob/master/CHANGELOG.md
 
 - name: python-yubico
   upstream_url: https://github.com/Yubico/python-yubico/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/Yubico/python-yubico/blob/master/None
 
 - name: python-varlink
   upstream_url: https://github.com/varlink/%{name}/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/varlink/%{name}/blob/master/None
 
 - name: python-hpack
   upstream_url: https://github.com/python-hyper/hpack/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/python-hyper/hpack/blob/master/CHANGELOG.rst
 
 - name: python-statsd
   upstream_url: https://github.com/jsocol/pystatsd/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/jsocol/pystatsd/blob/main/CHANGELOG.md
 
 - name: python-hwdata
   upstream_url: https://github.com/xsuchy/python-hwdata/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/xsuchy/python-hwdata/blob/master/None
 
 - name: python-testresources
   upstream_url: https://launchpad.net/testresources
@@ -8648,7 +8648,7 @@
   upstream_url: https://github.com/python-hyper/priority/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/python-hyper/priority/blob/master/CHANGELOG.rst
 
 - name: python-pycryptodomex
   upstream_url: https://www.pycryptodome.org
@@ -8660,13 +8660,13 @@
   upstream_url: http://github.com/ahupp/python-magic/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: http://github.com/ahupp/python-magic/blob/master/CHANGELOG
 
 - name: python-pytest-forked
   upstream_url: https://github.com/pytest-dev/pytest-forked/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/pytest-dev/pytest-forked/blob/master/CHANGELOG.rst
 
 - name: python-pandas
   upstream_url: https://pandas.pydata.org/
@@ -8678,7 +8678,7 @@
   upstream_url: https://github.com/matplotlib/matplotlib/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/matplotlib/matplotlib/blob/main/doc/api/next_api_changes.rst
 
 - name: python-hypothesis-fspaths
   upstream_url: https://pypi.org/project/%{pypi_name}
@@ -8696,31 +8696,31 @@
   upstream_url: https://github.com/pytest-dev/pytest-metadata/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/pytest-dev/pytest-metadata/blob/master/CHANGES.rst
 
 - name: python-wrapt-1.10
   upstream_url: https://github.com/GrahamDumpleton/wrapt/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/GrahamDumpleton/wrapt/blob/develop/docs/changes.rst
 
 - name: python-argh
   upstream_url: http://github.com/neithere/argh/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: http://github.com/neithere/argh/blob/master/CHANGELOG.rst
 
 - name: python-httptools
   upstream_url: https://github.com/MagicStack/httptools/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/MagicStack/httptools/blob/master/None
 
 - name: python-schema
   upstream_url: https://github.com/keleshev/schema/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/keleshev/schema/blob/master/CHANGELOG.md
 
 - name: python-flake8
   upstream_url: https://gitlab.com/pycqa/flake8
@@ -8732,19 +8732,19 @@
   upstream_url: https://github.com/jaraco/zipp/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/jaraco/zipp/blob/master/None
 
 - name: python-nose2
   upstream_url: https://github.com/nose-devs/nose2/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/nose-devs/nose2/blob/main/changelog.rst
 
 - name: python-dateparser
   upstream_url: https://github.com/scrapinghub/dateparser/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/scrapinghub/dateparser/blob/master/None
 
 - name: python-rsa
   upstream_url: https://stuvel.eu/rsa
@@ -8756,37 +8756,37 @@
   upstream_url: https://github.com/missinglinkelectronics/sphinxcontrib-svg2pdfconverter/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/missinglinkelectronics/sphinxcontrib-svg2pdfconverter/blob/master/None
 
 - name: python-tabulate
   upstream_url: https://github.com/astanin/python-tabulate/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/astanin/python-tabulate/blob/master/CHANGELOG
 
 - name: python-pysaml2
   upstream_url: https://github.com/IdentityPython/pysaml2/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/IdentityPython/pysaml2/blob/master/CHANGELOG.md
 
 - name: python-google-auth-oauthlib
   upstream_url: https://github.com/GoogleCloudPlatform/google-auth-library-python-oauthlib/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/GoogleCloudPlatform/google-auth-library-python-oauthlib/blob/main/CHANGELOG.md
 
 - name: python-websockets
   upstream_url: https://github.com/aaugustin/websockets/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/aaugustin/websockets/blob/main/docs/project/changelog.rst
 
 - name: python-constantly
   upstream_url: https://github.com/twisted/constantly/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/twisted/constantly/blob/master/None
 
 - name: python-sphinx-gallery
   upstream_url: https://sphinx-gallery.github.io
@@ -8798,37 +8798,37 @@
   upstream_url: https://github.com/bbangert/routes/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/bbangert/routes/blob/main/CHANGELOG.rst
 
 - name: python-xvfbwrapper
   upstream_url: https://github.com/cgoldberg/xvfbwrapper/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/cgoldberg/xvfbwrapper/blob/master/None
 
 - name: python-iniconfig
   upstream_url: http://github.com/RonnyPfannschmidt/iniconfig/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: http://github.com/RonnyPfannschmidt/iniconfig/blob/main/CHANGELOG
 
 - name: python-pyasn1-modules
   upstream_url: https://github.com/etingof/pyasn1-modules/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/etingof/pyasn1-modules/blob/master/CHANGES.txt
 
 - name: python-threadpoolctl
   upstream_url: https://github.com/joblib/threadpoolctl/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/joblib/threadpoolctl/blob/master/CHANGES.md
 
 - name: python-daiquiri
   upstream_url: https://github.com/Mergifyio/daiquiri/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/Mergifyio/daiquiri/blob/master/None
 
 - name: python-Logbook
   upstream_url: http://logbook.pocoo.org/
@@ -8840,7 +8840,7 @@
   upstream_url: https://github.com/jazzband/pathlib2/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/jazzband/pathlib2/blob/develop/CHANGELOG.rst
 
 - name: python-alembic
   upstream_url: https://alembic.sqlalchemy.org
@@ -8858,13 +8858,13 @@
   upstream_url: https://github.com/hvac/hvac/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/hvac/hvac/blob/main/CHANGELOG.md
 
 - name: python-Flask-HTTPAuth
   upstream_url: https://github.com/miguelgrinberg/flask-httpauth/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/miguelgrinberg/flask-httpauth/blob/main/CHANGES.md
 
 - name: python-abclient
   upstream_url: https://global.eisoo.com/
@@ -8882,37 +8882,37 @@
   upstream_url: https://github.com/d11wtq/dockerpty/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/d11wtq/dockerpty/blob/master/None
 
 - name: python-ifcfg
   upstream_url: https://github.com/ftao/python-ifcfg/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/ftao/python-ifcfg/blob/master/None
 
 - name: python-Flask-SQLAlchemy
   upstream_url: https://github.com/pallets/flask-sqlalchemy/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/pallets/flask-sqlalchemy/blob/main/CHANGES.rst
 
 - name: python-jaraco-classes
   upstream_url: https://github.com/jaraco/jaraco.classes/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/jaraco/jaraco.classes/blob/master/None
 
 - name: python-pyngus
   upstream_url: https://github.com/kgiusti/pyngus/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/kgiusti/pyngus/blob/master/None
 
 - name: python-async-timeout
   upstream_url: https://github.com/aio-libs/async_timeout/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/aio-libs/async_timeout/blob/master/CHANGES.rst
 
 - name: python-blockdiag
   upstream_url: http://blockdiag.com/
@@ -8930,61 +8930,61 @@
   upstream_url: https://github.com/kislyuk/argcomplete/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/kislyuk/argcomplete/blob/main/Changes.rst
 
 - name: python-scandir
   upstream_url: https://github.com/benhoyt/scandir/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/benhoyt/scandir/blob/master/None
 
 - name: python-SQLAlchemy-Utils
   upstream_url: https://github.com/kvesteri/sqlalchemy-utils/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/kvesteri/sqlalchemy-utils/blob/master/CHANGES.rst
 
 - name: python-scrypt
   upstream_url: https://github.com/holgern/py-scrypt/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/holgern/py-scrypt/blob/master/None
 
 - name: python-twine
   upstream_url: https://github.com/pypa/twine/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/pypa/twine/blob/main/changelog/.gitignore
 
 - name: python-webcolors
   upstream_url: https://github.com/ubernostrum/webcolors/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/ubernostrum/webcolors/blob/trunk/docs/changelog.rst
 
 - name: python-prometheus_client
   upstream_url: https://github.com/prometheus/client_python/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/prometheus/client_python/blob/master/None
 
 - name: python-pytest-subtests
   upstream_url: https://github.com/pytest-dev/pytest-subtests/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/pytest-dev/pytest-subtests/blob/main/CHANGELOG.rst
 
 - name: python-should_dsl
   upstream_url: https://github.com/nsi-iff/should-dsl/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/nsi-iff/should-dsl/blob/master/should_dsl/doctests/change.txt
 
 - name: python-prompt-toolkit
   upstream_url: https://github.com/prompt-toolkit/python-prompt-toolkit/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/prompt-toolkit/python-prompt-toolkit/blob/main/CHANGELOG
 
 - name: python-stuf
   upstream_url: https://bitbucket.org/lcrees/stuf
@@ -8996,73 +8996,73 @@
   upstream_url: https://github.com/testing-cabal/testrepository/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/testing-cabal/testrepository/blob/master/None
 
 - name: python-args
   upstream_url: https://github.com/kennethreitz/args/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/kennethreitz/args/blob/master/None
 
 - name: python-flask-restful
   upstream_url: https://www.github.com/flask-restful/flask-restful/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://www.github.com/flask-restful/flask-restful/blob/master/CHANGES.md
 
 - name: python-sphinx-issues
   upstream_url: https://github.com/sloria/sphinx-issues/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/sloria/sphinx-issues/blob/master/None
 
 - name: python-beniget
   upstream_url: https://github.com/serge-sans-paille/beniget/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/serge-sans-paille/beniget/blob/master/None
 
 - name: python-astral
   upstream_url: https://github.com/sffjunkie/astral/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/sffjunkie/astral/blob/master/ChangeLog.md
 
 - name: python-astroid
   upstream_url: https://github.com/pylint-dev/astroid/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/pylint-dev/astroid/blob/main/ChangeLog
 
 - name: python-WSGIProxy2
   upstream_url: https://github.com/gawel/WSGIProxy2/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/gawel/WSGIProxy2/blob/master/CHANGES.rst
 
 - name: python-parse_type
   upstream_url: https://github.com/jenisys/parse_type/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/jenisys/parse_type/blob/main/CHANGES.txt
 
 - name: python-tqdm
   upstream_url: https://github.com/tqdm/tqdm/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/tqdm/tqdm/blob/master/None
 
 - name: python-flask-session
   upstream_url: https://github.com/fengsp/flask-session/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/fengsp/flask-session/blob/development/CHANGES.rst
 
 - name: python-incremental
   upstream_url: https://github.com/twisted/incremental/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/twisted/incremental/blob/master/None
 
 - name: python-flufl.bounce
   upstream_url: https://pypi.org/project/flufl.bounce
@@ -9074,85 +9074,85 @@
   upstream_url: https://github.com/python-hyper/hyperframe/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/python-hyper/hyperframe/blob/master/CHANGELOG.rst
 
 - name: python-sniffio
   upstream_url: https://github.com/python-trio/sniffio/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/python-trio/sniffio/blob/master/None
 
 - name: python-Automat
   upstream_url: https://github.com/glyph/Automat/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/glyph/Automat/blob/master/None
 
 - name: python-sphinxcontrib-actdiag
   upstream_url: https://github.com/blockdiag/sphinxcontrib-actdiag/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/blockdiag/sphinxcontrib-actdiag/blob/master/None
 
 - name: python-requests-oauthlib
   upstream_url: https://github.com/requests/requests-oauthlib/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/requests/requests-oauthlib/blob/master/None
 
 - name: python-watchdog
   upstream_url: https://github.com/gorakhargosh/watchdog/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/gorakhargosh/watchdog/blob/master/changelog.rst
 
 - name: python-pytest-runner
   upstream_url: https://github.com/pytest-dev/pytest-runner/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/pytest-dev/pytest-runner/blob/main/CHANGES.rst
 
 - name: python-fastimport
   upstream_url: https://github.com/jelmer/python-fastimport/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/jelmer/python-fastimport/blob/master/None
 
 - name: python-scp
   upstream_url: https://github.com/jbardin/scp.py/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/jbardin/scp.py/blob/master/CHANGELOG.md
 
 - name: python-wsproto
   upstream_url: https://github.com/python-hyper/wsproto/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/python-hyper/wsproto/blob/main/CHANGELOG.rst
 
 - name: python-XStatic
   upstream_url: https://github.com/xstatic-py/xstatic/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/xstatic-py/xstatic/blob/master/None
 
 - name: python-aiodns
   upstream_url: https://github.com/saghul/aiodns/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/saghul/aiodns/blob/master/ChangeLog
 
 - name: python-josepy
   upstream_url: https://github.com/certbot/josepy/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/certbot/josepy/blob/main/CHANGELOG.rst
 
 - name: python-speg
   upstream_url: https://github.com/avakar/speg/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/avakar/speg/blob/master/None
 
 - name: python-setuptools_git
   upstream_url: https://pypi.python.org/project/setuptools-git/%{version}/
@@ -9164,31 +9164,31 @@
   upstream_url: https://github.com/gitpython-developers/GitPython/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/gitpython-developers/GitPython/blob/main/CHANGES
 
 - name: python-publicsuffix2
   upstream_url: https://github.com/nexb/python-publicsuffix2/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/nexb/python-publicsuffix2/blob/develop/CHANGELOG.rst
 
 - name: python-semver
   upstream_url: https://github.com/python-semver/python-semver/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/python-semver/python-semver/blob/master/CHANGELOG.rst
 
 - name: python-retryz
   upstream_url: http://github.com/jealous/retryz/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: http://github.com/jealous/retryz/blob/master/None
 
 - name: python-testpath
   upstream_url: https://github.com/jupyter/testpath/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/jupyter/testpath/blob/master/None
 
 - name: python-sphinx-bootstrap-theme
   upstream_url: http://ryan-roemer.github.com/%{srcname}/releases
@@ -9200,37 +9200,37 @@
   upstream_url: https://github.com/tiran/defusedxml/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/tiran/defusedxml/blob/main/CHANGES.txt
 
 - name: python-persist-queue
   upstream_url: http://github.com/peter-wangxu/persist-queue/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: http://github.com/peter-wangxu/persist-queue/blob/master/None
 
 - name: python-semantic_version
   upstream_url: https://github.com/rbarrois/python-semanticversion/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/rbarrois/python-semanticversion/blob/master/ChangeLog
 
 - name: python-Flask-APScheduler
   upstream_url: https://github.com/viniciuschiele/flask-apscheduler/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/viniciuschiele/flask-apscheduler/blob/master/CHANGELOG.md
 
 - name: python-suds2
   upstream_url: https://github.com/suds-community/suds/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/suds-community/suds/blob/master/CHANGELOG.md
 
 - name: python-docker-pycreds
   upstream_url: https://github.com/shin-/dockerpy-creds/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/shin-/dockerpy-creds/blob/master/None
 
 - name: python-ntlm-auth
   upstream_url: https://pypi.python.org/pypi/%{pypi_name}
@@ -9242,13 +9242,13 @@
   upstream_url: http://github.com/celery/vine/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: http://github.com/celery/vine/blob/master/Changelog
 
 - name: python-ecdsa
   upstream_url: http://github.com/tlsfuzzer/python-ecdsa/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: http://github.com/tlsfuzzer/python-ecdsa/blob/master/None
 
 - name: python-olefile
   upstream_url: https://pypi.python.org/pypi/olefile/
@@ -9266,13 +9266,13 @@
   upstream_url: https://github.com/bear/parsedatetime/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/bear/parsedatetime/blob/master/CHANGES.txt
 
 - name: python-django-cache-url
   upstream_url: https://github.com/epicserve/django-cache-url/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/epicserve/django-cache-url/blob/master/CHANGELOG.rst
 
 - name: python-atpublic
   upstream_url: http://public.readthedocs.io/
@@ -9284,19 +9284,19 @@
   upstream_url: https://github.com/kurtmckee/feedparser/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/kurtmckee/feedparser/blob/develop/CHANGELOG.rst
 
 - name: python-tenacity
   upstream_url: https://github.com/jd/tenacity/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/jd/tenacity/blob/main/doc/source/changelog.rst
 
 - name: python-fastnumbers
   upstream_url: https://github.com/SethMMorton/fastnumbers/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/SethMMorton/fastnumbers/blob/main/CHANGELOG.md
 
 - name: python-XStatic-Patternfly-Bootstrap-Treeview
   upstream_url: https://www.patternfly.org/
@@ -9314,25 +9314,25 @@
   upstream_url: https://github.com/lextudio/pysmi/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/lextudio/pysmi/blob/main/CHANGES.rst
 
 - name: python-betamax
   upstream_url: https://github.com/sigmavirus24/betamax/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/sigmavirus24/betamax/blob/master/None
 
 - name: python-phonenumbers
   upstream_url: https://github.com/daviddrysdale/python-phonenumbers/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/daviddrysdale/python-phonenumbers/blob/dev/debian/changelog
 
 - name: python-tempora
   upstream_url: https://github.com/jaraco/tempora/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/jaraco/tempora/blob/master/None
 
 - name: python-nss
   upstream_url: https://developer.mozilla.org/en-US/docs/Mozilla/Projects/NSS/Python_binding_for_NSS
@@ -9344,13 +9344,13 @@
   upstream_url: https://github.com/thp/minidb/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/thp/minidb/blob/master/None
 
 - name: python-zope-configuration
   upstream_url: https://github.com/zopefoundation/zope.configuration/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/zopefoundation/zope.configuration/blob/master/CHANGES.rst
 
 - name: python-kitchen
   upstream_url: https://pypi.python.org/pypi/kitchen/
@@ -9362,13 +9362,13 @@
   upstream_url: https://github.com/zopefoundation/zope.component/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/zopefoundation/zope.component/blob/master/CHANGES.rst
 
 - name: python-cligj
   upstream_url: https://github.com/mapbox/cligj/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/mapbox/cligj/blob/master/CHANGES.txt
 
 - name: python-pytest-shutil
   upstream_url: https://pypi.python.org/pypi/pytest-shutil
@@ -9380,7 +9380,7 @@
   upstream_url: https://github.com/python-restx/flask-restx/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/python-restx/flask-restx/blob/master/CHANGELOG.rst
 
 - name: python-aniso8601
   upstream_url: https://bitbucket.org/nielsenb/aniso8601
@@ -9392,31 +9392,31 @@
   upstream_url: https://github.com/pre-commit/identify/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/pre-commit/identify/blob/master/None
 
 - name: python-yarl
   upstream_url: https://github.com/aio-libs/yarl/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/aio-libs/yarl/blob/master/CHANGES.rst
 
 - name: python-memcached
   upstream_url: https://github.com/linsomniac/python-memcached/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/linsomniac/python-memcached/blob/master/ChangeLog
 
 - name: python-ifaddr
   upstream_url: https://github.com/pydron/ifaddr/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/pydron/ifaddr/blob/master/docs/changelog.rst
 
 - name: python-apipkg
   upstream_url: https://github.com/pytest-dev/apipkg/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/pytest-dev/apipkg/blob/main/CHANGELOG
 
 - name: python-sphinxcontrib-qthelp
   upstream_url: http://sphinx-doc.org/
@@ -9428,37 +9428,37 @@
   upstream_url: https://github.com/lepture/mistune/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/lepture/mistune/blob/main/docs/changes.rst
 
 - name: python-portalocker
   upstream_url: https://github.com/WoLpH/portalocker/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/WoLpH/portalocker/blob/develop/CHANGELOG.rst
 
 - name: python-css-parser
   upstream_url: https://github.com/ebook-utils/css-parser/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/ebook-utils/css-parser/blob/master/None
 
 - name: python-xcffib
   upstream_url: https://github.com/tych0/xcffib/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/tych0/xcffib/blob/master/None
 
 - name: python-notario
   upstream_url: https://github.com/alfredodeza/notario/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/alfredodeza/notario/blob/master/CHANGELOG.rst
 
 - name: python-mitmproxy
   upstream_url: https://github.com/mitmproxy/mitmproxy/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/mitmproxy/mitmproxy/blob/main/CHANGELOG.md
 
 - name: python-pyquery
   upstream_url: http://pypi.python.org/pypi/pyquery
@@ -9476,7 +9476,7 @@
   upstream_url: https://github.com/zopefoundation/zope.proxy/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/zopefoundation/zope.proxy/blob/master/CHANGES.rst
 
 - name: python-aenum
   upstream_url: https://bitbucket.org/stoneleaf/aenum
@@ -9506,13 +9506,13 @@
   upstream_url: https://github.com/arsenetar/send2trash/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/arsenetar/send2trash/blob/master/CHANGES.rst
 
 - name: python-yappi
   upstream_url: https://github.com/sumerc/yappi/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/sumerc/yappi/blob/master/CHANGELOG
 
 - name: python-limits
   upstream_url: https://limits.readthedocs.org
@@ -9524,37 +9524,37 @@
   upstream_url: https://github.com/aio-libs/aiosmtpd/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/aio-libs/aiosmtpd/blob/master/None
 
 - name: python-lexicon
   upstream_url: https://github.com/bitprophet/lexicon/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/bitprophet/lexicon/blob/main/docs/changelog.rst
 
 - name: python-livereload
   upstream_url: https://github.com/lepture/python-livereload/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/lepture/python-livereload/blob/master/CHANGES.rst
 
 - name: python-docker
   upstream_url: https://github.com/docker/docker-py/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/docker/docker-py/blob/main/docs/change-log.md
 
 - name: python-xmltodict
   upstream_url: https://github.com/martinblech/xmltodict/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/martinblech/xmltodict/blob/master/CHANGELOG.md
 
 - name: python-sqlparse
   upstream_url: https://github.com/andialbrecht/sqlparse/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/andialbrecht/sqlparse/blob/master/CHANGELOG
 
 - name: python-dnspython
   upstream_url: https://www.dnspython.org
@@ -9572,19 +9572,19 @@
   upstream_url: https://github.com/miyakogi/m2r/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/miyakogi/m2r/blob/dev/CHANGES.md
 
 - name: python-yaspin
   upstream_url: https://github.com/pavdmyt/yaspin/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/pavdmyt/yaspin/blob/master/None
 
 - name: python-Cython
   upstream_url: https://github.com/cython/cython/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/cython/cython/blob/master/CHANGES.rst
 
 - name: python-simplegeneric
   upstream_url: http://cheeseshop.python.org/pypi/simplegeneric
@@ -9596,7 +9596,7 @@
   upstream_url: https://github.com/litl/backoff/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/litl/backoff/blob/master/CHANGELOG.md
 
 - name: python-ruamel-yaml-clib
   upstream_url: https://bitbucket.org/ruamel/yaml.clib
@@ -9608,19 +9608,19 @@
   upstream_url: https://github.com/vmware/pyvmomi/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/vmware/pyvmomi/blob/master/CHANGELOG.md
 
 - name: python-deprecated
   upstream_url: https://github.com/tantale/%{pkgname}/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/tantale/%{pkgname}/blob/master/None
 
 - name: python-astunparse
   upstream_url: https://github.com/simonpercivall/astunparse/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/simonpercivall/astunparse/blob/master/None
 
 - name: python-lazr.delegates
   upstream_url: https://pypi.org/project/lazr.delegates
@@ -9632,7 +9632,7 @@
   upstream_url: http://github.com/matthew-brett/sphinxtesters/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: http://github.com/matthew-brett/sphinxtesters/blob/main/Changelog
 
 - name: python-qt5
   upstream_url: null
@@ -9644,31 +9644,31 @@
   upstream_url: https://github.com/sergey-dryabzhinsky/python-zstd/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/sergey-dryabzhinsky/python-zstd/blob/master/None
 
 - name: python-migrate
   upstream_url: https://github.com/kofrasa/migrate/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/kofrasa/migrate/blob/master/None
 
 - name: python-rdflib
   upstream_url: https://github.com/RDFLib/rdflib/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/RDFLib/rdflib/blob/main/CHANGELOG.md
 
 - name: python-bitmath
   upstream_url: https://github.com/tbielawa/bitmath/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/tbielawa/bitmath/blob/master/debian/changelog
 
 - name: python-tzlocal
   upstream_url: https://github.com/regebro/tzlocal/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/regebro/tzlocal/blob/master/CHANGES.txt
 
 - name: python-behave
   upstream_url: http://pypi.python.org/pypi/behave
@@ -9680,13 +9680,13 @@
   upstream_url: http://github.com/benhodgson/baluhn/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: http://github.com/benhodgson/baluhn/blob/master/None
 
 - name: python-anyjson
   upstream_url: https://github.com/catalyst/anyjson/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/catalyst/anyjson/blob/master/CHANGELOG
 
 - name: python-cairocffi
   upstream_url: https://pypi.python.org/pypi/cairocffi/
@@ -9698,25 +9698,25 @@
   upstream_url: https://github.com/pyca/pynacl/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/pyca/pynacl/blob/main/CHANGELOG.rst
 
 - name: python-cached_property
   upstream_url: https://github.com/pydanny/cached-property/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/pydanny/cached-property/blob/master/None
 
 - name: python-warlock
   upstream_url: http://github.com/bcwaldon/warlock/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: http://github.com/bcwaldon/warlock/blob/master/CHANGELOG.md
 
 - name: python-pyperclip
   upstream_url: https://github.com/asweigart/pyperclip/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/asweigart/pyperclip/blob/master/CHANGES.txt
 
 - name: python-paste-deploy
   upstream_url: https://pylonsproject.org/
@@ -9728,19 +9728,19 @@
   upstream_url: https://github.com/hgrecco/pint/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/hgrecco/pint/blob/master/CHANGES
 
 - name: python-backports-unittest_mock
   upstream_url: https://github.com/jaraco/backports.unittest_mock/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/jaraco/backports.unittest_mock/blob/master/None
 
 - name: python-distlib
   upstream_url: https://github.com/pypa/distlib/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/pypa/distlib/blob/master/CHANGES.rst
 
 - name: python-uritemplate
   upstream_url: https://uritemplate.readthedocs.org
@@ -9752,25 +9752,25 @@
   upstream_url: https://github.com/davidhalter/parso/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/davidhalter/parso/blob/master/CHANGELOG.rst
 
 - name: python-humanize
   upstream_url: https://github.com/python-humanize/humanize/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/python-humanize/humanize/blob/master/None
 
 - name: python-aiomysql
   upstream_url: https://github.com/aio-libs/aiomysql/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/aio-libs/aiomysql/blob/master/CHANGES.txt
 
 - name: python-boto
   upstream_url: https://github.com/boto/boto/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/boto/boto/blob/master/None
 
 - name: python-cherrypy
   upstream_url: https://www.cherrypy.org
@@ -9782,31 +9782,31 @@
   upstream_url: http://github.com/thobbs/pure-sasl/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: http://github.com/thobbs/pure-sasl/blob/master/CHANGES.rst
 
 - name: python-Arpeggio
   upstream_url: https://github.com/textX/Arpeggio/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/textX/Arpeggio/blob/master/CHANGELOG.md
 
 - name: python-kiwisolver
   upstream_url: https://github.com/nucleic/kiwi/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/nucleic/kiwi/blob/master/None
 
 - name: python-botocore
   upstream_url: https://github.com/boto/botocore/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/boto/botocore/blob/develop/.changes/1.10.0.json
 
 - name: python-cmd2
   upstream_url: https://github.com/python-cmd2/cmd2/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/python-cmd2/cmd2/blob/master/CHANGELOG.md
 
 - name: python-PyMySQL
   upstream_url: https://pypi.python.org/pypi/PyMySQL/
@@ -9818,37 +9818,37 @@
   upstream_url: https://github.com/bkircher/%{repo_name}/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/bkircher/%{repo_name}/blob/master/None
 
 - name: python-prometheus-api-client
   upstream_url: https://github.com/4n4nd/prometheus-api-client-python/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/4n4nd/prometheus-api-client-python/blob/master/CHANGELOG.md
 
 - name: python-wcwidth
   upstream_url: https://github.com/jquast/wcwidth/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/jquast/wcwidth/blob/master/None
 
 - name: python-curio
   upstream_url: https://github.com/dabeaz/curio/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/dabeaz/curio/blob/master/CHANGES
 
 - name: python-asciitree
   upstream_url: http://github.com/mbr/asciitree/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: http://github.com/mbr/asciitree/blob/master/None
 
 - name: python-toolz
   upstream_url: https://github.com/pytoolz/toolz/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/pytoolz/toolz/blob/master/None
 
 - name: python-zmq
   upstream_url: http://www.zeromq.org/bindings:python
@@ -9860,19 +9860,19 @@
   upstream_url: http://github.com/jonathaneunice/colors/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: http://github.com/jonathaneunice/colors/blob/master/CHANGES.yml
 
 - name: python-colorama
   upstream_url: https://github.com/tartley/colorama/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/tartley/colorama/blob/master/CHANGELOG.rst
 
 - name: python-certbot
   upstream_url: https://github.com/certbot/certbot/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/certbot/certbot/blob/main/CHANGELOG.md
 
 - name: python-pycryptodome
   upstream_url: https://www.pycryptodome.org
@@ -9884,7 +9884,7 @@
   upstream_url: https://github.com/harlowja/fasteners/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/harlowja/fasteners/blob/main/CHANGELOG.md
 
 - name: python-zope-event
   upstream_url: http://pypi.python.org/pypi/zope.event/
@@ -9896,7 +9896,7 @@
   upstream_url: https://github.com/Knio/dominate/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/Knio/dominate/blob/master/None
 
 - name: python-kaitaistruct
   upstream_url: https://kaitai.io
@@ -9920,19 +9920,19 @@
   upstream_url: https://github.com/celery/billiard/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/celery/billiard/blob/main/CHANGES.txt
 
 - name: python-toml
   upstream_url: https://github.com/uiri/toml/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/uiri/toml/blob/master/None
 
 - name: python-catkin-sphinx
   upstream_url: https://github.com/ros-infrastructure/%{pyname}/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/ros-infrastructure/%{pyname}/blob/master/None
 
 - name: python-actdiag
   upstream_url: http://blockdiag.com/
@@ -9944,7 +9944,7 @@
   upstream_url: https://github.com/mbr/tinyrpc/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/mbr/tinyrpc/blob/master/None
 
 - name: python-argon2-cffi
   upstream_url: https://argon2-cffi.readthedocs.io/
@@ -9956,13 +9956,13 @@
   upstream_url: https://github.com/kennknowles/python-jsonpath-rw/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/kennknowles/python-jsonpath-rw/blob/master/None
 
 - name: python-celery
   upstream_url: https://github.com/celery/celery/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/celery/celery/blob/main/Changelog.rst
 
 - name: python-pkginfo
   upstream_url: https://code.launchpad.net/~tseaver/pkginfo/trunk
@@ -9974,55 +9974,55 @@
   upstream_url: https://github.com/schlamar/cov-core/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/schlamar/cov-core/blob/master/None
 
 - name: python-mysqlclient
   upstream_url: https://github.com/PyMySQL/mysqlclient-python/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/PyMySQL/mysqlclient-python/blob/master/None
 
 - name: python-parse
   upstream_url: https://github.com/r1chardj0n3s/parse/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/r1chardj0n3s/parse/blob/master/None
 
 - name: python-isort
   upstream_url: https://github.com/timothycrosley/isort/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/timothycrosley/isort/blob/main/CHANGELOG.md
 
 - name: python-service-identity
   upstream_url: https://github.com/pyca/service_identity/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/pyca/service_identity/blob/main/CHANGELOG.md
 
 - name: python-jsonpath-rw-ext
   upstream_url: https://github.com/sileht/python-jsonpath-rw-ext/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/sileht/python-jsonpath-rw-ext/blob/master/None
 
 - name: python-cssselect
   upstream_url: https://github.com/scrapy/cssselect/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/scrapy/cssselect/blob/master/CHANGES
 
 - name: python-s3transfer
   upstream_url: https://github.com/boto/s3transfer/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/boto/s3transfer/blob/develop/.changes/0.0.1.json
 
 - name: python-breathe
   upstream_url: https://github.com/breathe-doc/breathe/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/breathe-doc/breathe/blob/main/CHANGELOG.rst
 
 - name: python-dulwich
   upstream_url: https://www.dulwich.io/
@@ -10034,7 +10034,7 @@
   upstream_url: https://github.com/jmcnamara/XlsxWriter/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/jmcnamara/XlsxWriter/blob/main/Changes
 
 - name: python-rjsmin
   upstream_url: http://opensource.perlig.de/rjsmin/
@@ -10046,7 +10046,7 @@
   upstream_url: https://github.com/dpranke/pyjson5/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/dpranke/pyjson5/blob/master/None
 
 - name: python-colorclass
   upstream_url: https://pypi.python.org/pypi/%{srcname}
@@ -10064,13 +10064,13 @@
   upstream_url: https://github.com/lmfit/asteval/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/lmfit/asteval/blob/master/None
 
 - name: python-argparse-manpage
   upstream_url: https://github.com/praiskup/argparse-manpage/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/praiskup/argparse-manpage/blob/master/None
 
 - name: python-lazy-object-proxy
   upstream_url: null
@@ -10088,7 +10088,7 @@
   upstream_url: https://github.com/google/%{srcname}/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/google/%{srcname}/blob/master/None
 
 - name: python-pbkdf2
   upstream_url: null
@@ -10100,43 +10100,43 @@
   upstream_url: https://github.com/pympler/pympler/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/pympler/pympler/blob/master/CHANGELOG.md
 
 - name: python-cmdln
   upstream_url: http://github.com/trentm/cmdln/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: http://github.com/trentm/cmdln/blob/master/CHANGES.md
 
 - name: python-rope
   upstream_url: https://github.com/python-rope/rope/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/python-rope/rope/blob/master/CHANGELOG.md
 
 - name: python-trustme
   upstream_url: https://github.com/python-trio/trustme/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/python-trio/trustme/blob/master/None
 
 - name: python-codecov
   upstream_url: https://github.com/codecov/codecov-python/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/codecov/codecov-python/blob/master/CHANGELOG.md
 
 - name: python-statsmodels
   upstream_url: https://github.com/statsmodels/statsmodels/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/statsmodels/statsmodels/blob/main/CHANGES.md
 
 - name: python-blurb
   upstream_url: https://github.com/python/blurb/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/python/blurb/blob/main/CHANGELOG.md
 
 - name: python-wsgi-intercept
   upstream_url: http://pypi.python.org/pypi/wsgi_intercept
@@ -10148,7 +10148,7 @@
   upstream_url: https://github.com/fmoo/python-editor/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/fmoo/python-editor/blob/master/None
 
 - name: python-joblib
   upstream_url: https://joblib.readthedocs.io/en/latest/
@@ -10160,7 +10160,7 @@
   upstream_url: https://github.com/PyCQA/bandit/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/PyCQA/bandit/blob/master/None
 
 - name: python-seqdiag
   upstream_url: http://blockdiag.com/
@@ -10172,13 +10172,13 @@
   upstream_url: https://github.com/hamcrest/PyHamcrest/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/hamcrest/PyHamcrest/blob/main/CHANGELOG.rst
 
 - name: python-mpmath
   upstream_url: http://github.com/fredrik-johansson/mpmath/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: http://github.com/fredrik-johansson/mpmath/blob/master/CHANGES
 
 - name: python-sphinxcontrib-applehelp
   upstream_url: http://sphinx-doc.org/
@@ -10196,31 +10196,31 @@
   upstream_url: https://github.com/bw2/ConfigArgParse/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/bw2/ConfigArgParse/blob/master/None
 
 - name: python-pymemcache
   upstream_url: https://github.com/pinterest/pymemcache/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/pinterest/pymemcache/blob/master/ChangeLog.rst
 
 - name: python-xlib
   upstream_url: https://github.com/python-xlib/python-xlib/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/python-xlib/python-xlib/blob/master/CHANGELOG.md
 
 - name: python-PyNLPl
   upstream_url: https://github.com/proycon/pynlpl/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/proycon/pynlpl/blob/master/None
 
 - name: python-patsy
   upstream_url: https://github.com/pydata/patsy/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/pydata/patsy/blob/master/doc/changes.rst
 
 - name: python-pyusb
   upstream_url: https://pyusb.github.io/pyusb
@@ -10244,19 +10244,19 @@
   upstream_url: https://github.com/pytest-dev/pytest-xdist/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/pytest-dev/pytest-xdist/blob/master/CHANGELOG.rst
 
 - name: python-texext
   upstream_url: http://github.com/matthew-brett/texext/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: http://github.com/matthew-brett/texext/blob/main/Changelog
 
 - name: python-altgraph
   upstream_url: https://github.com/ronaldoussoren/altgraph/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/ronaldoussoren/altgraph/blob/master/doc/changelog.rst
 
 - name: python-exif
   upstream_url: https://gitlab.com/TNThieding/exif
@@ -10268,25 +10268,25 @@
   upstream_url: https://github.com/Pylons/webtest/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/Pylons/webtest/blob/main/CHANGELOG.rst
 
 - name: python-pandocfilters
   upstream_url: http://github.com/jgm/pandocfilters/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: http://github.com/jgm/pandocfilters/blob/master/CHANGELOG.md
 
 - name: python-path
   upstream_url: https://github.com/jaraco/path/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/jaraco/path/blob/master/None
 
 - name: python-pytest-timeout
   upstream_url: http://github.com/pytest-dev/pytest-timeout/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: http://github.com/pytest-dev/pytest-timeout/blob/master/None
 
 - name: python-parameterized
   upstream_url: https://pypi.python.org/pypi/parameterized
@@ -10298,43 +10298,43 @@
   upstream_url: https://github.com/rec/xmod/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/rec/xmod/blob/main/CHANGELOG
 
 - name: python-wrapt
   upstream_url: https://github.com/GrahamDumpleton/wrapt/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/GrahamDumpleton/wrapt/blob/develop/docs/changes.rst
 
 - name: python-filelock
   upstream_url: https://github.com/benediktschmitt/py-filelock/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/benediktschmitt/py-filelock/blob/main/docs/changelog.rst
 
 - name: python-sphinxcontrib-seqdiag
   upstream_url: https://github.com/blockdiag/sphinxcontrib-seqdiag/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/blockdiag/sphinxcontrib-seqdiag/blob/master/None
 
 - name: python-appdirs
   upstream_url: https://github.com/ActiveState/appdirs/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/ActiveState/appdirs/blob/master/CHANGES.rst
 
 - name: python-remoto
   upstream_url: https://github.com/alfredodeza/remoto/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/alfredodeza/remoto/blob/master/CHANGELOG.rst
 
 - name: python-zope-deferredimport
   upstream_url: https://github.com/zopefoundation/zope.deferredimport/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/zopefoundation/zope.deferredimport/blob/master/CHANGES.rst
 
 - name: python-httpie
   upstream_url: https://httpie.io/
@@ -10346,55 +10346,55 @@
   upstream_url: https://github.com/geomet/geomet/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/geomet/geomet/blob/master/None
 
 - name: python-cachelib
   upstream_url: https://github.com/pallets-eco/cachelib/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/pallets-eco/cachelib/blob/main/CHANGES.rst
 
 - name: python-texttable
   upstream_url: https://github.com/foutaise/texttable/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/foutaise/texttable/blob/master/CHANGELOG.md
 
 - name: python-bleach
   upstream_url: https://github.com/mozilla/bleach/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/mozilla/bleach/blob/main/CHANGES
 
 - name: python-httmock
   upstream_url: https://github.com/patrys/httmock/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/patrys/httmock/blob/master/None
 
 - name: python-gabbi
   upstream_url: https://github.com/cdent/gabbi/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/cdent/gabbi/blob/master/None
 
 - name: python-setproctitle
   upstream_url: https://github.com/dvarrazzo/py-setproctitle/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/dvarrazzo/py-setproctitle/blob/master/None
 
 - name: python-munch
   upstream_url: https://github.com/Infinidat/munch/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/Infinidat/munch/blob/develop/CHANGELOG.md
 
 - name: python-backlash
   upstream_url: https://github.com/TurboGears/backlash/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/TurboGears/backlash/blob/master/None
 
 - name: python-execnet
   upstream_url: http://codespeak.net/execnet
@@ -10406,37 +10406,37 @@
   upstream_url: https://github.com/lesscpy/lesscpy/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/lesscpy/lesscpy/blob/master/None
 
 - name: python-asgiref
   upstream_url: https://github.com/django/asgiref/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/django/asgiref/blob/main/CHANGELOG.txt
 
 - name: python-requests-toolbelt
   upstream_url: https://github.com/requests/toolbelt/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/requests/toolbelt/blob/master/None
 
 - name: python-h11
   upstream_url: https://github.com/python-hyper/h11/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/python-hyper/h11/blob/master/docs/source/changes.rst
 
 - name: python-enmerkar
   upstream_url: https://github.com/Zegocover/enmerkar/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/Zegocover/enmerkar/blob/master/CHANGELOG.rst
 
 - name: python-ddt
   upstream_url: https://github.com/datadriventests/ddt/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/datadriventests/ddt/blob/master/None
 
 - name: python-authres
   upstream_url: https://pypi.org/projects/authres
@@ -10454,31 +10454,31 @@
   upstream_url: https://github.com/grantjenks/python-sortedcontainers/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/grantjenks/python-sortedcontainers/blob/master/None
 
 - name: python-marshmallow
   upstream_url: https://github.com/marshmallow-code/marshmallow/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/marshmallow-code/marshmallow/blob/dev/CHANGELOG.rst
 
 - name: python-pytest-xprocess
   upstream_url: https://github.com/pytest-dev/pytest-xprocess/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/pytest-dev/pytest-xprocess/blob/master/CHANGELOG.rst
 
 - name: python-msgpack
   upstream_url: https://github.com/msgpack/msgpack-python/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/msgpack/msgpack-python/blob/main/ChangeLog.rst
 
 - name: python-async_generator
   upstream_url: https://github.com/python-trio/async_generator/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/python-trio/async_generator/blob/master/None
 
 - name: python-rcssmin
   upstream_url: http://opensource.perlig.de/rcssmin
@@ -10490,67 +10490,67 @@
   upstream_url: https://github.com/aio-libs/multidict/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/aio-libs/multidict/blob/master/CHANGES.rst
 
 - name: python-readme-renderer
   upstream_url: https://github.com/pypa/readme_renderer/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/pypa/readme_renderer/blob/main/CHANGES.rst
 
 - name: python-zope.i18nmessageid
   upstream_url: https://github.com/zopefoundation/zope.i18nmessageid/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/zopefoundation/zope.i18nmessageid/blob/master/CHANGES.rst
 
 - name: python-cachetools
   upstream_url: https://github.com/tkem/cachetools/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/tkem/cachetools/blob/master/CHANGELOG.rst
 
 - name: python-cloudpickle
   upstream_url: https://github.com/cloudpipe/cloudpickle/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/cloudpipe/cloudpickle/blob/master/CHANGES.md
 
 - name: python-gast
   upstream_url: https://github.com/serge-sans-paille/gast/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/serge-sans-paille/gast/blob/master/None
 
 - name: python-django-debreach
   upstream_url: http://github.com/lpomfrey/django-debreach/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: http://github.com/lpomfrey/django-debreach/blob/master/None
 
 - name: python-pydocstyle
   upstream_url: https://github.com/PyCQA/pydocstyle/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/PyCQA/pydocstyle/blob/master/None
 
 - name: python-AWSIoTPythonSDK
   upstream_url: https://github.com/aws/aws-iot-device-sdk-python.git/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/aws/aws-iot-device-sdk-python.git/blob/master/None
 
 - name: python-waitress
   upstream_url: https://github.com/Pylons/waitress/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/Pylons/waitress/blob/main/CHANGES.txt
 
 - name: python-flaky
   upstream_url: https://github.com/box/flaky/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/box/flaky/blob/master/None
 
 - name: python-eventlet
   upstream_url: http://eventlet.net
@@ -10562,37 +10562,37 @@
   upstream_url: https://github.com/python/importlib_metadata/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/python/importlib_metadata/blob/master/None
 
 - name: python-lark-parser
   upstream_url: https://github.com/lark-parser/lark/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/lark-parser/lark/blob/master/CHANGELOG.md
 
 - name: python-boto3
   upstream_url: https://github.com/boto/boto3/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/boto/boto3/blob/develop/.changes/0.0.1.json
 
 - name: python-dict2xml
   upstream_url: http://github.com/delfick/python-dict2xml/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: http://github.com/delfick/python-dict2xml/blob/master/None
 
 - name: python-pytimeparse
   upstream_url: https://github.com/wroberts/pytimeparse/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/wroberts/pytimeparse/blob/master/None
 
 - name: python-cson
   upstream_url: https://github.com/avakar/pycson/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/avakar/pycson/blob/master/None
 
 - name: python-rfc3986
   upstream_url: http://rfc3986.readthedocs.io
@@ -10616,7 +10616,7 @@
   upstream_url: https://github.com/ironfroggy/straight.plugin/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/ironfroggy/straight.plugin/blob/master/None
 
 - name: python-supervisor
   upstream_url: http://supervisord.org/
@@ -10628,13 +10628,13 @@
   upstream_url: https://github.com/takluyver/backcall/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/takluyver/backcall/blob/master/None
 
 - name: python-funcparserlib
   upstream_url: https://github.com/vlasovskikh/funcparserlib/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/vlasovskikh/funcparserlib/blob/master/docs/changes.md
 
 - name: python-yaql
   upstream_url: http://yaql.readthedocs.io
@@ -10646,25 +10646,25 @@
   upstream_url: https://github.com/jmespath/jmespath.py/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/jmespath/jmespath.py/blob/develop/CHANGELOG.rst
 
 - name: python-sphinxcontrib-httpdomain
   upstream_url: https://github.com/sphinx-contrib/httpdomain/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/sphinx-contrib/httpdomain/blob/main/doc/changelog.rst
 
 - name: python-dill
   upstream_url: https://github.com/uqfoundation/dill/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/uqfoundation/dill/blob/master/None
 
 - name: python-cchardet
   upstream_url: https://github.com/PyYoshi/cChardet/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/PyYoshi/cChardet/blob/master/CHANGES.md
 
 - name: python-jaraco-text
   upstream_url: https://pypi.org/project/jaraco.text
@@ -10676,7 +10676,7 @@
   upstream_url: https://github.com/PyCQA/flake8-import-order/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/PyCQA/flake8-import-order/blob/master/CHANGELOG.rst
 
 - name: python-ruamel-yaml
   upstream_url: https://sourceforge.net/projects/ruamel-yaml
@@ -10694,25 +10694,25 @@
   upstream_url: https://github.com/apple/ccs-pykerberos/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/apple/ccs-pykerberos/blob/master/None
 
 - name: python-simplejson
   upstream_url: https://github.com/simplejson/simplejson/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/simplejson/simplejson/blob/master/CHANGES.txt
 
 - name: python-typogrify
   upstream_url: https://github.com/mintchaos/typogrify/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/mintchaos/typogrify/blob/master/CHANGELOG.rst
 
 - name: python-graphviz
   upstream_url: https://github.com/xflr6/graphviz/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/xflr6/graphviz/blob/master/CHANGES.rst
 
 - name: python-pycollada
   upstream_url: http://pycollada.readthedocs.org/
@@ -10724,19 +10724,19 @@
   upstream_url: https://github.com/bskinn/sphobjinv/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/bskinn/sphobjinv/blob/main/CHANGELOG.md
 
 - name: python-smmap
   upstream_url: https://github.com/gitpython-developers/smmap/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/gitpython-developers/smmap/blob/master/doc/source/changes.rst
 
 - name: python-dotenv
   upstream_url: https://github.com/theskumar/python-dotenv/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/theskumar/python-dotenv/blob/main/CHANGELOG.md
 
 - name: python-pendulum
   upstream_url: https://pendulum.eustace.io
@@ -10748,19 +10748,19 @@
   upstream_url: https://github.com/pydata/xarray/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/pydata/xarray/blob/master/None
 
 - name: python-jaraco-collections
   upstream_url: https://github.com/jaraco/jaraco.collections/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/jaraco/jaraco.collections/blob/master/None
 
 - name: python-pyserial
   upstream_url: https://github.com/pyserial/pyserial/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/pyserial/pyserial/blob/master/CHANGES.rst
 
 - name: python-flufl.testing
   upstream_url: https://pypi.org/project/flufl.testing
@@ -10772,25 +10772,25 @@
   upstream_url: https://github.com/ipython/traitlets/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/ipython/traitlets/blob/main/CHANGELOG.md
 
 - name: python-voluptuous
   upstream_url: https://github.com/alecthomas/voluptuous/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/alecthomas/voluptuous/blob/master/CHANGELOG.md
 
 - name: python-xgboost
   upstream_url: https://github.com/dmlc/xgboost/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/dmlc/xgboost/blob/master/doc/changes/index.rst
 
 - name: python-pytest-relaxed
   upstream_url: https://github.com/bitprophet/pytest-relaxed/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/bitprophet/pytest-relaxed/blob/main/docs/changelog.rst
 
 - name: python-passlib
   upstream_url: https://pypi.org/project/passlib
@@ -10802,13 +10802,13 @@
   upstream_url: https://github.com/npmccallum/%{realname}/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/npmccallum/%{realname}/blob/master/None
 
 - name: python-sphinxcontrib-apidoc
   upstream_url: https://github.com/sphinx-contrib/apidoc/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/sphinx-contrib/apidoc/blob/master/None
 
 - name: python-pillow
   upstream_url: http://python-pillow.github.io
@@ -10826,13 +10826,13 @@
   upstream_url: https://github.com/frawau/aiozeroconf/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/frawau/aiozeroconf/blob/master/None
 
 - name: python-django-pipeline
   upstream_url: https://github.com/jazzband/django-pipeline/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/jazzband/django-pipeline/blob/master/None
 
 - name: python-bashate
   upstream_url: https://docs.openstack.org/bashate/latest/
@@ -10844,25 +10844,25 @@
   upstream_url: https://github.com/c-w/ghp-import/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/c-w/ghp-import/blob/master/None
 
 - name: python-pallets-sphinx-themes
   upstream_url: https://github.com/pallets/pallets-sphinx-themes/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/pallets/pallets-sphinx-themes/blob/main/CHANGES.rst
 
 - name: python-scikit-optimize
   upstream_url: https://github.com/holgern/scikit-optimize/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/holgern/scikit-optimize/blob/main/CHANGELOG.md
 
 - name: python-concurrent-log-handler
   upstream_url: https://github.com/Preston-Landers/concurrent-log-handler/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/Preston-Landers/concurrent-log-handler/blob/master/CHANGELOG.md
 
 - name: python-django
   upstream_url: https://www.djangoproject.com/
@@ -10874,7 +10874,7 @@
   upstream_url: https://github.com/rholder/retrying/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/rholder/retrying/blob/master/None
 
 - name: python-reportlab
   upstream_url: https://www.reportlab.com/
@@ -10886,31 +10886,31 @@
   upstream_url: http://github.com/saghul/pycares/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: http://github.com/saghul/pycares/blob/master/ChangeLog
 
 - name: python-cppy
   upstream_url: https://github.com/nucleic/cppy/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/nucleic/cppy/blob/master/None
 
 - name: python-colorlog
   upstream_url: https://github.com/borntyping/python-colorlog/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/borntyping/python-colorlog/blob/master/None
 
 - name: python-sphinxcontrib-pecanwsme
   upstream_url: https://github.com/sphinx-contrib/pecanwsme/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/sphinx-contrib/pecanwsme/blob/master/None
 
 - name: python-PyLaTeX
   upstream_url: https://github.com/JelteF/PyLaTeX/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/JelteF/PyLaTeX/blob/master/docs/source/changelog.rst
 
 - name: python-contextlib2
   upstream_url: https://pypi.io/project/contextlib2
@@ -10922,37 +10922,37 @@
   upstream_url: https://github.com/Kozea/cssselect2/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/Kozea/cssselect2/blob/main/docs/changelog.rst
 
 - name: python-importlib-resources
   upstream_url: https://github.com/python/importlib_resources/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/python/importlib_resources/blob/master/None
 
 - name: python-dataclasses
   upstream_url: https://github.com/ericvsmith/dataclasses/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/ericvsmith/dataclasses/blob/master/None
 
 - name: python-json_logger
   upstream_url: http://github.com/madzak/python-json-logger/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: http://github.com/madzak/python-json-logger/blob/master/CHANGELOG.md
 
 - name: python-requests-gssapi
   upstream_url: https://github.com/pythongssapi/%{sname}/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/pythongssapi/%{sname}/blob/master/None
 
 - name: python-typing
   upstream_url: https://github.com/python/typing/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/python/typing/blob/master/None
 
 - name: python-copr
   upstream_url: https://pagure.io/copr/copr
@@ -10964,7 +10964,7 @@
   upstream_url: https://github.com/pyca/bcrypt/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/pyca/bcrypt/blob/master/None
 
 - name: python-sphinxcontrib-devhelp
   upstream_url: http://sphinx-doc.org/
@@ -10982,31 +10982,31 @@
   upstream_url: https://github.com/etingof/pysnmp/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/etingof/pysnmp/blob/master/CHANGES.txt
 
 - name: python-progressbar2
   upstream_url: https://github.com/WoLpH/python-progressbar/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/WoLpH/python-progressbar/blob/develop/CHANGES.rst
 
 - name: python-pytest-rerunfailures
   upstream_url: https://github.com/pytest-dev/pytest-rerunfailures/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/pytest-dev/pytest-rerunfailures/blob/master/CHANGES.rst
 
 - name: python-httpx
   upstream_url: https://github.com/encode/httpx/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/encode/httpx/blob/master/CHANGELOG.md
 
 - name: python-zope.testing
   upstream_url: https://github.com/zopefoundation/zope.testing/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/zopefoundation/zope.testing/blob/master/CHANGES.rst
 
 - name: python-portend
   upstream_url: https://pypi.org/project/portend
@@ -11018,7 +11018,7 @@
   upstream_url: https://github.com/requests/requests-kerberos/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/requests/requests-kerberos/blob/master/None
 
 - name: python-zc-lockfile
   upstream_url: https://pypi.org/project/zc.lockfile
@@ -11030,43 +11030,43 @@
   upstream_url: https://github.com/click-contrib/click-didyoumean/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/click-contrib/click-didyoumean/blob/master/None
 
 - name: python-click-plugins
   upstream_url: https://github.com/click-contrib/click-plugins/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/click-contrib/click-plugins/blob/main/CHANGES.md
 
 - name: python-click-repl
   upstream_url: https://github.com/untitaker/click-repl/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/untitaker/click-repl/blob/master/Changelog.rst
 
 - name: python-fastecdsa
   upstream_url: https://github.com/AntonKueltz/fastecdsa/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/AntonKueltz/fastecdsa/blob/main/CHANGELOG.md
 
 - name: python-tomli-w
   upstream_url: https://github.com/hukkin/tomli-w/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/hukkin/tomli-w/blob/master/CHANGELOG.md
 
 - name: python-rich
   upstream_url: https://github.com/willmcgugan/rich/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/willmcgugan/rich/blob/master/CHANGELOG.md
 
 - name: python-editables
   upstream_url: https://github.com/pfmoore/editables/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/pfmoore/editables/blob/main/CHANGELOG.md
 
 - name: python-hatchling
   upstream_url: https://pypi.org/project/hatchling
@@ -11084,19 +11084,19 @@
   upstream_url: https://github.com/pganssle/pytz-deprecation-shim/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/pganssle/pytz-deprecation-shim/blob/master/CHANGELOG.rst
 
 - name: python-mitmproxy-wireguard
   upstream_url: https://github.com/decathorpe/mitmproxy_wireguard/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/decathorpe/mitmproxy_wireguard/blob/main/CHANGELOG.md
 
 - name: python-autocommand
   upstream_url: https://github.com/Lucretiel/autocommand/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/Lucretiel/autocommand/blob/master/None
 
 - name: python-inflect
   upstream_url: https://pypi.org/project/inflect/
@@ -11114,13 +11114,13 @@
   upstream_url: https://github.com/contourpy/contourpy/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/contourpy/contourpy/blob/main/docs/changelog.rst
 
 - name: python-maturin
   upstream_url: https://github.com/PyO3/maturin/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/PyO3/maturin/blob/main/Changelog.md
 
 - name: python-pyinstaller-hooks-contrib
   upstream_url: https://pypi.org/project/pyinstaller-hooks-contrib
@@ -11132,31 +11132,31 @@
   upstream_url: https://github.com/hynek/argon2-cffi-bindings/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/hynek/argon2-cffi-bindings/blob/main/CHANGELOG.md
 
 - name: python-meson-python
   upstream_url: https://github.com/mesonbuild/meson-python/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/mesonbuild/meson-python/blob/main/CHANGELOG.rst
 
 - name: python-tzdata
   upstream_url: https://github.com/python/tzdata/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/python/tzdata/blob/master/None
 
 - name: python-aiohttp
   upstream_url: https://github.com/aio-libs/aiohttp/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/aio-libs/aiohttp/blob/master/CHANGES.rst
 
 - name: python-atomicwrites
   upstream_url: https://github.com/untitaker/%{name}/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/untitaker/%{name}/blob/master/None
 
 - name: python-attrs
   upstream_url: https://www.attrs.org/
@@ -11186,7 +11186,7 @@
   upstream_url: https://github.com/bottlepy/bottle/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/bottlepy/bottle/blob/master/docs/_locale/_pot/changelog.pot
 
 - name: python-click
   upstream_url: https://palletsprojects.com/p/click/
@@ -11204,7 +11204,7 @@
   upstream_url: https://github.com/open-iscsi/configshell-fb/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/open-iscsi/configshell-fb/blob/master/None
 
 - name: python-construct
   upstream_url: http://construct.readthedocs.org
@@ -11228,7 +11228,7 @@
   upstream_url: https://github.com/nir0s/distro/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/nir0s/distro/blob/master/CHANGELOG.md
 
 - name: python-dns
   upstream_url: http://www.dnspython.org/
@@ -11246,7 +11246,7 @@
   upstream_url: https://pyenchant.github.io/pyenchant//releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://pyenchant.github.io/pyenchant//blob/master/None
 
 - name: python-entrypoints
   upstream_url: https://entrypoints.readthedocs.io/
@@ -11258,7 +11258,7 @@
   upstream_url: https://github.com/testing-cabal/extras/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/testing-cabal/extras/blob/master/None
 
 - name: python-faust
   upstream_url: http://faust.readthedocs.io/
@@ -11276,7 +11276,7 @@
   upstream_url: https://github.com/pallets/flask/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/pallets/flask/blob/main/CHANGES.rst
 
 - name: python-flit
   upstream_url: https://flit.readthedocs.io/en/latest/
@@ -11288,7 +11288,7 @@
   upstream_url: https://github.com/fonttools/fonttools//releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/fonttools/fonttools//blob/master/None
 
 - name: python-freezegun
   upstream_url: https://pypi.io/project/freezegun
@@ -11306,7 +11306,7 @@
   upstream_url: https://github.com/agronholm/pythonfutures/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/agronholm/pythonfutures/blob/master/CHANGES.rst
 
 - name: python-genshi
   upstream_url: http://genshi.edgewall.org/
@@ -11324,7 +11324,7 @@
   upstream_url: https://github.com/python-greenlet/greenlet/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/python-greenlet/greenlet/blob/master/CHANGES.rst
 
 - name: python-httpretty
   upstream_url: https://pypi.org/project/httpretty/
@@ -11336,13 +11336,13 @@
   upstream_url: https://github.com/HypothesisWorks/hypothesis/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/HypothesisWorks/hypothesis/blob/master/conjecture-rust/CHANGELOG.md
 
 - name: python-imagesize
   upstream_url: https://github.com/shibukawa/imagesize_py/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/shibukawa/imagesize_py/blob/master/None
 
 - name: python-iso8601
   upstream_url: https://pypi.org/project/iso8601/
@@ -11360,13 +11360,13 @@
   upstream_url: https://github.com/jaraco/keyring/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/jaraco/keyring/blob/master/None
 
 - name: python-linecache2
   upstream_url: https://github.com/testing-cabal/linecache2/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/testing-cabal/linecache2/blob/master/None
 
 - name: python-lit
   upstream_url: https://pypi.python.org/pypi/lit
@@ -11384,7 +11384,7 @@
   upstream_url: https://github.com/dbtsai/python-mimeparse/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/dbtsai/python-mimeparse/blob/master/None
 
 - name: python-mock
   upstream_url: http://www.voidspace.org.uk/python/mock/
@@ -11396,31 +11396,31 @@
   upstream_url: https://github.com/ask/mode/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/ask/mode/blob/master/Changelog
 
 - name: python-more-itertools
   upstream_url: https://github.com/more-itertools/more-itertools/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/more-itertools/more-itertools/blob/master/None
 
 - name: python-netaddr
   upstream_url: http://github.com/drkjam/netaddr/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: http://github.com/drkjam/netaddr/blob/master/CHANGELOG.rst
 
 - name: python-packaging
   upstream_url: https://github.com/pypa/packaging/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/pypa/packaging/blob/main/CHANGELOG.rst
 
 - name: python-paramiko
   upstream_url: https://github.com/paramiko/paramiko/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/paramiko/paramiko/blob/main/sites/www/changelog.rst
 
 - name: python-pbr
   upstream_url: https://docs.openstack.org/pbr/latest/
@@ -11432,19 +11432,19 @@
   upstream_url: https://github.com/pytest-dev/pluggy/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/pytest-dev/pluggy/blob/main/CHANGELOG.rst
 
 - name: python-pretend
   upstream_url: https://github.com/alex/pretend/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/alex/pretend/blob/master/None
 
 - name: python-psutil
   upstream_url: https://github.com/giampaolo/psutil/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/giampaolo/psutil/blob/master/None
 
 - name: python-py
   upstream_url: http://pylib.readthedocs.io/en/stable/
@@ -11468,19 +11468,19 @@
   upstream_url: https://github.com/mongodb/mongo-python-driver/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/mongodb/mongo-python-driver/blob/master/doc/api/pymongo/asynchronous/change_stream.rst
 
 - name: python-pytoml
   upstream_url: https://github.com/avakar/%{github_name}/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/avakar/%{github_name}/blob/master/None
 
 - name: python-rst2txt
   upstream_url: https://github.com/stephenfin/rst2txt/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/stephenfin/rst2txt/blob/master/None
 
 - name: python-scons
   upstream_url: http://www.scons.org
@@ -11510,7 +11510,7 @@
   upstream_url: https://github.com/sphinx-doc/sphinx/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/sphinx-doc/sphinx/blob/master/CHANGES.rst
 
 - name: python-sphinx_theme_alabaster
   upstream_url: null
@@ -11522,7 +11522,7 @@
   upstream_url: https://github.com/snide/sphinx_rtd_theme/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/snide/sphinx_rtd_theme/blob/master/docs/changelog.rst
 
 - name: python-sphinxcontrib_log_cabinet
   upstream_url: null
@@ -11540,7 +11540,7 @@
   upstream_url: https://github.com/gabrielfalcao/sure/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/gabrielfalcao/sure/blob/master/CHANGELOG.md
 
 - name: python-testscenarios
   upstream_url: https://launchpad.net/testscenarios
@@ -11564,7 +11564,7 @@
   upstream_url: https://github.com/testing-cabal/traceback2/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/testing-cabal/traceback2/blob/master/None
 
 - name: python-unittest2
   upstream_url: http://pypi.python.org/pypi/unittest2
@@ -11594,13 +11594,13 @@
   upstream_url: https://github.com/pallets/werkzeug/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/pallets/werkzeug/blob/main/CHANGES.rst
 
 - name: python-wheel
   upstream_url: https://github.com/pypa/wheel/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/pypa/wheel/blob/master/None
 
 - name: python-whoosh
   upstream_url: https://whoosh.readthedocs.io/en/latest/
@@ -12357,4 +12357,3 @@
   regex: default
   auto_upgrade: enable
   changelog: default
-
