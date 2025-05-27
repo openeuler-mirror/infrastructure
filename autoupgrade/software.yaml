@@ -10220,19 +10220,19 @@
   upstream_url: http://github.com/rails/activemodel-serializers-xml/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: http://github.com/rails/activemodel-serializers-xml/blob/master/None
 
 - name: rubygem-addressable
   upstream_url: https://github.com/sporkmonger/addressable/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/sporkmonger/addressable/blob/master/CHANGELOG.md
 
 - name: rubygem-afm
   upstream_url: http://github.com/halfbyte/afm/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: http://github.com/halfbyte/afm/blob/master/None
 
 - name: rubygem-ansi
   upstream_url: http://rubyworks.github.com/ansi/releases
@@ -10244,37 +10244,37 @@
   upstream_url: https://github.com/rails/arel/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/rails/arel/blob/master/None
 
 - name: rubygem-Ascii85
   upstream_url: https://github.com/DataWraith/ascii85gem/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/DataWraith/ascii85gem/blob/master/CHANGELOG.md
 
 - name: rubygem-bacon
   upstream_url: http://github.com/chneukirchen/bacon/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: http://github.com/chneukirchen/bacon/blob/master/None
 
 - name: rubygem-bcrypt
   upstream_url: https://github.com/codahale/bcrypt-ruby/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/codahale/bcrypt-ruby/blob/master/CHANGELOG
 
 - name: rubygem-bindex
   upstream_url: https://github.com/gsamokovarov/bindex/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/gsamokovarov/bindex/blob/master/None
 
 - name: rubygem-bootsnap
   upstream_url: https://github.com/Shopify/bootsnap/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/Shopify/bootsnap/blob/main/CHANGELOG.md
 
 - name: rubygem-bundler
   upstream_url: http://bundler.io
@@ -10286,19 +10286,19 @@
   upstream_url: http://github.com/deivid-rodriguez/byebug/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: http://github.com/deivid-rodriguez/byebug/blob/master/CHANGELOG.md
 
 - name: rubygem-capybara
   upstream_url: https://github.com/teamcapybara/capybara/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/teamcapybara/capybara/blob/master/History.md
 
 - name: rubygem-chronic
   upstream_url: http://github.com/mojombo/chronic/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: http://github.com/mojombo/chronic/blob/master/None
 
 - name: rubygem-coderay
   upstream_url: http://coderay.rubychan.de
@@ -10322,7 +10322,7 @@
   upstream_url: https://github.com/rgrove/crass/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/rgrove/crass/blob/master/None
 
 - name: rubygem-cucumber-core
   upstream_url: https://cucumber.io
@@ -10334,7 +10334,7 @@
   upstream_url: https://github.com/cucumber/cucumber-expressions-ruby/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/cucumber/cucumber-expressions-ruby/blob/master/None
 
 - name: rubygem-cucumber-tag_expressions
   upstream_url: https://cucumber.io/docs/cucumber/api/#tag-expressions
@@ -10352,25 +10352,25 @@
   upstream_url: https://github.com/taf2/curb/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/taf2/curb/blob/master/None
 
 - name: rubygem-delorean
   upstream_url: https://github.com/bebanjo/delorean/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/bebanjo/delorean/blob/master/None
 
 - name: rubygem-diff-lcs
   upstream_url: https://github.com/halostatue/diff-lcs/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/halostatue/diff-lcs/blob/main/CHANGELOG.md
 
 - name: rubygem-dig_rb
   upstream_url: https://github.com/jrochkind/dig_rb/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/jrochkind/dig_rb/blob/master/None
 
 - name: rubygem-docile
   upstream_url: https://ms-ati.github.com/docile/releases
@@ -10382,67 +10382,67 @@
   upstream_url: https://github.com/knu/ruby-domain_name/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/knu/ruby-domain_name/blob/master/CHANGELOG.md
 
 - name: rubygem-ejs
   upstream_url: https://github.com/sstephenson/ruby-ejs/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/sstephenson/ruby-ejs/blob/master/None
 
 - name: rubygem-erubi
   upstream_url: https://github.com/jeremyevans/erubi/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/jeremyevans/erubi/blob/master/CHANGELOG
 
 - name: rubygem-excon
   upstream_url: https://github.com/excon/excon/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/excon/excon/blob/master/changelog.txt
 
 - name: rubygem-fakefs
   upstream_url: https://github.com/fakefs/fakefs/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/fakefs/fakefs/blob/master/CHANGELOG.md
 
 - name: rubygem-faraday
   upstream_url: https://github.com/lostisland/faraday/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/lostisland/faraday/blob/main/CHANGELOG.md
 
 - name: rubygem-fattr
   upstream_url: https://github.com/ahoward/fattr/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/ahoward/fattr/blob/master/None
 
 - name: rubygem-capng_c
   upstream_url: https://github.com/fluent-plugins-nursery/capng_c/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/fluent-plugins-nursery/capng_c/blob/master/None
 
 - name: rubygem-formatador
   upstream_url: http://github.com/geemus/formatador/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: http://github.com/geemus/formatador/blob/master/changelog.txt
 
 - name: rubygem-globalid
   upstream_url: https://github.com/rails/%{gem_name}/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/rails/%{gem_name}/blob/master/None
 
 - name: rubygem-hashdiff
   upstream_url: https://github.com/liufengyun/hashdiff/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/liufengyun/hashdiff/blob/master/changelog.md
 
 - name: rubygem-hashery
   upstream_url: http://rubyworks.github.com/hashery/releases
@@ -10454,19 +10454,19 @@
   upstream_url: https://github.com/nahi/httpclient/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/nahi/httpclient/blob/master/CHANGELOG.md
 
 - name: rubygem-http-cookie
   upstream_url: https://github.com/sparklemotion/http-cookie/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/sparklemotion/http-cookie/blob/master/CHANGELOG.md
 
 - name: rubygem-http_parser
   upstream_url: https://github.com/tmm1/http_parser.rb/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/tmm1/http_parser.rb/blob/master/None
 
 - name: rubygem-idn
   upstream_url: https://rubygems.org/gems/idn
@@ -10484,7 +10484,7 @@
   upstream_url: https://github.com/rails/jquery-rails/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/rails/jquery-rails/blob/master/CHANGELOG.md
 
 - name: rubygem-json_pure
   upstream_url: http://flori.github.com/json/releases
@@ -10496,25 +10496,25 @@
   upstream_url: https://github.com/kramdown/parser-gfm/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/kramdown/parser-gfm/blob/master/CHANGELOG.md
 
 - name: rubygem-launchy
   upstream_url: http://github.com/copiousfreetime/launchy/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: http://github.com/copiousfreetime/launchy/blob/master/None
 
 - name: rubygem-mail
   upstream_url: https://github.com/mikel/mail/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/mikel/mail/blob/master/CHANGELOG.rdoc
 
 - name: rubygem-metaclass
   upstream_url: http://github.com/floehopper/metaclass/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: http://github.com/floehopper/metaclass/blob/master/None
 
 - name: rubygem-method_source
   upstream_url: https://banisterfiend.wordpress.com
@@ -10526,25 +10526,25 @@
   upstream_url: https://github.com/minad/mimemagic/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/minad/mimemagic/blob/master/CHANGELOG.md
 
 - name: rubygem-mini_magick
   upstream_url: https://github.com/minimagick/minimagick/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/minimagick/minimagick/blob/master/CHANGELOG.md
 
 - name: rubygem-minitest-reporters
   upstream_url: https://github.com/CapnKernul/minitest-reporters/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/CapnKernul/minitest-reporters/blob/master/CHANGELOG.md
 
 - name: rubygem-mocha
   upstream_url: https://github.com/freerange/mocha/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/freerange/mocha/blob/main/lib/mocha/change_state_side_effect.rb
 
 - name: rubygem-msgpack
   upstream_url: http://msgpack.org/
@@ -10556,49 +10556,49 @@
   upstream_url: https://github.com/intridea/multi_json/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/intridea/multi_json/blob/master/CHANGELOG.md
 
 - name: rubygem-multipart-post
   upstream_url: http://github.com/nicksieger/multipart-post/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: http://github.com/nicksieger/multipart-post/blob/master/None
 
 - name: rubygem-nio4r
   upstream_url: https://github.com/socketry/nio4r/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/socketry/nio4r/blob/main/ext/libev/Changes
 
 - name: rubygem-pdf-inspector
   upstream_url: https://github.com/prawnpdf/pdf-inspector/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/prawnpdf/pdf-inspector/blob/master/CHANGELOG.md
 
 - name: rubygem-pkg-config
   upstream_url: http://github.com/rcairo/pkg-config/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: http://github.com/rcairo/pkg-config/blob/master/None
 
 - name: rubygem-power_assert
   upstream_url: https://github.com/k-tsj/power_assert/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/k-tsj/power_assert/blob/master/None
 
 - name: rubygem-prawn-table
   upstream_url: https://github.com/prawnpdf/prawn-table/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/prawnpdf/prawn-table/blob/master/CHANGELOG.md
 
 - name: rubygem-pry-nav
   upstream_url: https://github.com/nixme/pry-nav/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/nixme/pry-nav/blob/master/CHANGELOG.md
 
 - name: rubygem-pry
   upstream_url: https://rubygems.org/gems/pry
@@ -10622,31 +10622,31 @@
   upstream_url: https://github.com/rack/rack-cache/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/rack/rack-cache/blob/main/CHANGES
 
 - name: rubygem-rake-compiler
   upstream_url: http://github.com/rake-compiler/rake-compiler/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: http://github.com/rake-compiler/rake-compiler/blob/master/History.md
 
 - name: rubygem-rb-inotify
   upstream_url: https://github.com/guard/rb-inotify/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/guard/rb-inotify/blob/master/None
 
 - name: rubygem-regexp_parser
   upstream_url: https://github.com/ammar/regexp_parser/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/ammar/regexp_parser/blob/master/CHANGELOG.md
 
 - name: rubygem-regexp_property_values
   upstream_url: https://github.com/jaynetics/regexp_property_values/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/jaynetics/regexp_property_values/blob/master/None
 
 - name: rubygem-rouge
   upstream_url: http://rouge.jneen.net/
@@ -10658,37 +10658,37 @@
   upstream_url: http://github.com/rspec/rspec-mocks/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: http://github.com/rspec/rspec-mocks/blob/master/Changelog.md
 
 - name: rubygem-rspec-rails
   upstream_url: https://github.com/rspec/rspec-rails/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/rspec/rspec-rails/blob/master/None
 
 - name: rubygem-rspec-support
   upstream_url: https://github.com/rspec/rspec-support/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/rspec/rspec-support/blob/master/None
 
 - name: rubygem-ruby-progressbar
   upstream_url: https://github.com/jfelchner/ruby-progressbar/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/jfelchner/ruby-progressbar/blob/master/None
 
 - name: rubygem-ruby-shadow
   upstream_url: https://github.com/apalmblad/ruby-shadow/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/apalmblad/ruby-shadow/blob/master/None
 
 - name: rubygem-rubyzip
   upstream_url: http://github.com/rubyzip/rubyzip/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: http://github.com/rubyzip/rubyzip/blob/master/None
 
 - name: rubygem-safe_yaml
   upstream_url: http://dtao.github.com/safe_yaml/releases
@@ -10700,7 +10700,7 @@
   upstream_url: https://github.com/zzak/sdoc/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/zzak/sdoc/blob/main/CHANGELOG.md
 
 - name: rubygem-selenium-webdriver
   upstream_url: https://www.selenium.dev
@@ -10712,115 +10712,115 @@
   upstream_url: https://github.com/fluent/serverengine/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/fluent/serverengine/blob/master/Changelog
 
 - name: rubygem-shindo
   upstream_url: http://github.com/geemus/shindo/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: http://github.com/geemus/shindo/blob/master/None
 
 - name: rubygem-shoulda-context
   upstream_url: https://github.com/thoughtbot/shoulda-context/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/thoughtbot/shoulda-context/blob/main/CHANGELOG.md
 
 - name: rubygem-shoulda-matchers
   upstream_url: https://github.com/thoughtbot/shoulda-matchers/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/thoughtbot/shoulda-matchers/blob/main/CHANGELOG.md
 
 - name: rubygem-shoulda
   upstream_url: https://github.com/thoughtbot/shoulda/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/thoughtbot/shoulda/blob/main/CHANGELOG.md
 
 - name: rubygem-sigdump
   upstream_url: https://github.com/frsyuki/sigdump/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/frsyuki/sigdump/blob/master/ChangeLog
 
 - name: rubygem-simplecov-html
   upstream_url: https://github.com/colszowka/simplecov-html/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/colszowka/simplecov-html/blob/main/CHANGELOG.md
 
 - name: rubygem-simplecov
   upstream_url: http://github.com/colszowka/simplecov/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: http://github.com/colszowka/simplecov/blob/main/CHANGELOG.md
 
 - name: rubygem-slop
   upstream_url: http://github.com/leejarvis/slop/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: http://github.com/leejarvis/slop/blob/master/CHANGELOG.md
 
 - name: rubygem-spring
   upstream_url: https://github.com/rails/spring/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/rails/spring/blob/main/CHANGELOG.md
 
 - name: rubygem-sprockets-rails
   upstream_url: https://github.com/rails/sprockets-rails/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/rails/sprockets-rails/blob/master/None
 
 - name: rubygem-sprockets
   upstream_url: https://github.com/rails/sprockets/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/rails/sprockets/blob/main/CHANGELOG.md
 
 - name: rubygem-strptime
   upstream_url: https://github.com/nurse/strptime/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/nurse/strptime/blob/master/None
 
 - name: rubygem-test_declarative
   upstream_url: http://github.com/svenfuchs/test_declarative/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: http://github.com/svenfuchs/test_declarative/blob/master/None
 
 - name: rubygem-thread_order
   upstream_url: https://github.com/JoshCheek/thread_order/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/JoshCheek/thread_order/blob/master/None
 
 - name: rubygem-thread_safe
   upstream_url: https://github.com/ruby-concurrency/thread_safe/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/ruby-concurrency/thread_safe/blob/master/None
 
 - name: rubygem-turbolinks-source
   upstream_url: https://github.com/turbolinks/turbolinks-source-gem/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/turbolinks/turbolinks-source-gem/blob/master/None
 
 - name: rubygem-turbolinks
   upstream_url: https://github.com/turbolinks/turbolinks/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/turbolinks/turbolinks/blob/master/CHANGELOG.md
 
 - name: rubygem-typhoeus
   upstream_url: https://github.com/typhoeus/typhoeus/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/typhoeus/typhoeus/blob/master/CHANGELOG.md
 
 - name: rubygem-tzinfo-data
   upstream_url: https://tzinfo.github.io
@@ -10832,55 +10832,55 @@
   upstream_url: http://github.com/lautis/uglifier/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: http://github.com/lautis/uglifier/blob/master/CHANGELOG.md
 
 - name: rubygem-unf_ext
   upstream_url: https://github.com/knu/ruby-unf_ext/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/knu/ruby-unf_ext/blob/master/CHANGELOG.md
 
 - name: rubygem-unf
   upstream_url: https://github.com/knu/ruby-unf/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/knu/ruby-unf/blob/master/CHANGELOG.md
 
 - name: rubygem-webmock
   upstream_url: http://github.com/bblimke/webmock/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: http://github.com/bblimke/webmock/blob/master/CHANGELOG.md
 
 - name: rubygem-websocket-driver
   upstream_url: http://github.com/faye/websocket-driver-ruby/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: http://github.com/faye/websocket-driver-ruby/blob/main/CHANGELOG.md
 
 - name: rubygem-websocket-extensions
   upstream_url: http://github.com/faye/websocket-extensions-ruby/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: http://github.com/faye/websocket-extensions-ruby/blob/main/CHANGELOG.md
 
 - name: rubygem-websocket
   upstream_url: http://github.com/imanel/websocket-ruby/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: http://github.com/imanel/websocket-ruby/blob/master/CHANGELOG.md
 
 - name: rubygem-xpath
   upstream_url: https://github.com/teamcapybara/xpath/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/teamcapybara/xpath/blob/master/CHANGELOG.md
 
 - name: rubygem-yajl-ruby
   upstream_url: http://github.com/brianmario/yajl-ruby/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: http://github.com/brianmario/yajl-ruby/blob/master/CHANGELOG.md
 
 - name: rubygem-yard
   upstream_url: http://yardoc.org
@@ -10892,367 +10892,367 @@
   upstream_url: https://github.com/redis/hiredis-rb/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/redis/hiredis-rb/blob/master/CHANGELOG.md
 
 - name: rubygem-temple
   upstream_url: https://github.com/judofyr/temple/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/judofyr/temple/blob/master/CHANGES
 
 - name: rubygem-execjs
   upstream_url: https://github.com/sstephenson/execjs/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/sstephenson/execjs/blob/master/None
 
 - name: rubygem-actioncable
   upstream_url: https://github.com/rails/rails/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/rails/rails/blob/main/actioncable/CHANGELOG.md
 
 - name: rubygem-mustermann
   upstream_url: https://github.com/sinatra/mustermann/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/sinatra/mustermann/blob/master/None
 
 - name: rubygem-sass-rails
   upstream_url: https://github.com/rails/sass-rails/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/rails/sass-rails/blob/master/None
 
 - name: rubygem-redis
   upstream_url: https://github.com/redis/redis-rb/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/redis/redis-rb/blob/master/CHANGELOG.md
 
 - name: rubygem-memcache-client
   upstream_url: https://github.com/mperham/memcache-client/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/mperham/memcache-client/blob/master/None
 
 - name: rubygem-mini_mime
   upstream_url: https://github.com/discourse/mini_mime/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/discourse/mini_mime/blob/main/CHANGELOG
 
 - name: rubygem-pdf-core
   upstream_url: https://github.com/prawnpdf/pdf-core/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/prawnpdf/pdf-core/blob/master/CHANGELOG.md
 
 - name: rubygem-tilt
   upstream_url: https://github.com/rtomayko/tilt/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/rtomayko/tilt/blob/master/CHANGELOG.md
 
 - name: rubygem-ttfunk
   upstream_url: https://github.com/prawnpdf/ttfunk/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/prawnpdf/ttfunk/blob/master/CHANGELOG.md
 
 - name: rubygem-actionmailbox
   upstream_url: https://github.com/rails/rails/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/rails/rails/blob/main/actioncable/CHANGELOG.md
 
 - name: rubygem-activejob
   upstream_url: https://github.com/rails/rails/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/rails/rails/blob/main/actioncable/CHANGELOG.md
 
 - name: rubygem-builder
   upstream_url: https://github.com/jimweirich/builder/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/jimweirich/builder/blob/master/CHANGES
 
 - name: rubygem-faraday-net_http
   upstream_url: https://github.com/lostisland/faraday-net_http/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/lostisland/faraday-net_http/blob/master/None
 
 - name: rubygem-backports
   upstream_url: https://github.com/marcandre/backports/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/marcandre/backports/blob/master/CHANGELOG.md
 
 - name: rubygem-mime-types-data
   upstream_url: https://github.com/mime-types/mime-types-data/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/mime-types/mime-types-data/blob/main/CHANGELOG.md
 
 - name: rubygem-childprocess
   upstream_url: https://github.com/enkessler/childprocess/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/enkessler/childprocess/blob/master/CHANGELOG.md
 
 - name: rubygem-rack-protection
   upstream_url: https://github.com/sinatra/sinatra/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/sinatra/sinatra/blob/main/CHANGELOG.md
 
 - name: rubygem-rails
   upstream_url: https://github.com/rails/rails/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/rails/rails/blob/main/actioncable/CHANGELOG.md
 
 - name: rubygem-daemons
   upstream_url: https://github.com/thuehlinger/daemons/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/thuehlinger/daemons/blob/master/lib/daemons/change_privilege.rb
 
 - name: rubygem-multi_test
   upstream_url: https://github.com/cucumber/multi_test/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/cucumber/multi_test/blob/main/CHANGELOG.md
 
 - name: rubygem-mime-types
   upstream_url: https://github.com/mime-types/ruby-mime-types/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/mime-types/ruby-mime-types/blob/main/CHANGELOG.md
 
 - name: rubygem-minitest4
   upstream_url: https://github.com/minitest/minitest/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/minitest/minitest/blob/master/None
 
 - name: rubygem-ruby2_keywords
   upstream_url: https://github.com/ruby/ruby2_keywords/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/ruby/ruby2_keywords/blob/master/rakelib/changelogs.rake
 
 - name: rubygem-rails-controller-testing
   upstream_url: https://github.com/rails/rails-controller-testing/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/rails/rails-controller-testing/blob/master/None
 
 - name: rubygem-maruku
   upstream_url: https://github.com/bhollis/maruku/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/bhollis/maruku/blob/master/CHANGELOG.md
 
 - name: rubygem-sassc-rails
   upstream_url: https://github.com/sass/sassc-rails/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/sass/sassc-rails/blob/master/None
 
 - name: rubygem-concurrent-ruby
   upstream_url: https://github.com/ruby-concurrency/concurrent-ruby/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/ruby-concurrency/concurrent-ruby/blob/master/CHANGELOG.md
 
 - name: rubygem-activerecord
   upstream_url: https://github.com/rails/rails/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/rails/rails/blob/main/actioncable/CHANGELOG.md
 
 - name: rubygem-faraday-em_synchrony
   upstream_url: https://github.com/lostisland/faraday-em_synchrony/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/lostisland/faraday-em_synchrony/blob/master/None
 
 - name: rubygem-timecop
   upstream_url: https://github.com/travisjeffery/timecop/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/travisjeffery/timecop/blob/master/History.md
 
 - name: rubygem-thin
   upstream_url: https://github.com/macournoyer/thin/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/macournoyer/thin/blob/master/CHANGELOG
 
 - name: rubygem-fluentd
   upstream_url: https://github.com/fluent/fluentd/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/fluent/fluentd/blob/master/CHANGELOG.md
 
 - name: rubygem-importmap-rails
   upstream_url: https://github.com/rails/importmap-rails/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/rails/importmap-rails/blob/master/None
 
 - name: rubygem-fluent-plugin-elasticsearch
   upstream_url: https://github.com/uken/fluent-plugin-elasticsearch/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/uken/fluent-plugin-elasticsearch/blob/master/History.md
 
 - name: rubygem-creole
   upstream_url: https://github.com/larsch/creole/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/larsch/creole/blob/master/CHANGES
 
 - name: rubygem-jbuilder
   upstream_url: https://github.com/rails/jbuilder/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/rails/jbuilder/blob/master/None
 
 - name: rubygem-faraday-net_http_persistent
   upstream_url: https://github.com/lostisland/faraday-net_http_persistent/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/lostisland/faraday-net_http_persistent/blob/master/None
 
 - name: rubygem-benchmark-ips
   upstream_url: https://github.com/evanphx/benchmark-ips/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/evanphx/benchmark-ips/blob/master/History.md
 
 - name: rubygem-gherkin
   upstream_url: https://github.com/codegram/gherkin-ruby/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/codegram/gherkin-ruby/blob/master/None
 
 - name: rubygem-rspec-core
   upstream_url: https://github.com/rspec/rspec-core/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/rspec/rspec-core/blob/main/Changelog.md
 
 - name: rubygem-rspec2
   upstream_url: https://github.com/rspec/rspec/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/rspec/rspec/blob/main/rspec-core/Changelog.md
 
 - name: rubygem-ethon
   upstream_url: https://github.com/typhoeus/ethon/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/typhoeus/ethon/blob/master/CHANGELOG.md
 
 - name: rubygem-cucumber
   upstream_url: https://github.com/cucumber/cucumber-ruby/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/cucumber/cucumber-ruby/blob/main/CHANGELOG.md
 
 - name: rubygem-rails-html-sanitizer
   upstream_url: https://github.com/rails/rails-html-sanitizer/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/rails/rails-html-sanitizer/blob/main/CHANGELOG.md
 
 - name: rubygem-faraday-patron
   upstream_url: https://github.com/lostisland/faraday-patron/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/lostisland/faraday-patron/blob/master/None
 
 - name: rubygem-hoe
   upstream_url: https://github.com/seattlerb/hoe/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/seattlerb/hoe/blob/master/None
 
 - name: rubygem-RedCloth
   upstream_url: https://github.com/jgarber/redcloth/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/jgarber/redcloth/blob/master/CHANGELOG
 
 - name: rubygem-connection_pool
   upstream_url: https://github.com/mperham/connection_pool/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/mperham/connection_pool/blob/main/Changes.md
 
 - name: rubygem-test-unit-rr
   upstream_url: https://github.com/test-unit/test-unit-rr/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/test-unit/test-unit-rr/blob/master/None
 
 - name: rubygem-coffee-script-source
   upstream_url: https://github.com/jessedoyle/coffee-script-source/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
-  
+  changelog: https://github.com/jessedoyle/coffee-script-source/blob/master/None
+
 - name: rubygem-coffee-script
   upstream_url: https://github.com/rails/ruby-coffee-script/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/rails/ruby-coffee-script/blob/master/None
 
 - name: rubygem-activeresource
   upstream_url: https://github.com/rails/activeresource/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/rails/activeresource/blob/master/None
 
 - name: rubygem-elasticsearch-ruby
   upstream_url: https://github.com/elastic/elasticsearch-ruby/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/elastic/elasticsearch-ruby/blob/main/CHANGELOG.md
 
 - name: rubygem-mustache
   upstream_url: https://github.com/mustache/mustache/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/mustache/mustache/blob/master/None
 
 - name: rubygem-actionview
   upstream_url: https://github.com/rails/rails/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/rails/rails/blob/main/actioncable/CHANGELOG.md
 
 - name: rubygem-prawn
   upstream_url: https://github.com/prawnpdf/prawn/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/prawnpdf/prawn/blob/master/CHANGELOG.md
 
 - name: rubygem-faraday-httpclient
   upstream_url: https://github.com/lostisland/faraday-httpclient/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/lostisland/faraday-httpclient/blob/master/None
 
 - name: rubygem-faraday-excon
   upstream_url: https://github.com/excon/faraday-excon/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/excon/faraday-excon/blob/master/None
 
 - name: rubygem-rspec2-mocks
   upstream_url: https://gitee.com/src-openeuler/rubygem-rspec2-mocks
@@ -11264,454 +11264,454 @@
   upstream_url: https://github.com/caiges/Ruby-RC4/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/caiges/Ruby-RC4/blob/master/None
 
 - name: rubygem-listen
   upstream_url: https://github.com/guard/listen/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/guard/listen/blob/master/CHANGELOG.md
 
 - name: rubygem-rails-dom-testing
   upstream_url: https://github.com/rails/rails-dom-testing/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/rails/rails-dom-testing/blob/master/None
 
 - name: rubygem-faraday-rack
   upstream_url: https://github.com/lostisland/faraday-rack/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/lostisland/faraday-rack/blob/master/None
 
 - name: rubygem-zeitwerk
   upstream_url: https://github.com/fxn/zeitwerk/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/fxn/zeitwerk/blob/main/CHANGELOG.md
 
 - name: rubygem-sys-uname
   upstream_url: https://github.com/djberg96/sys-uname/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/djberg96/sys-uname/blob/main/CHANGES.md
 
 - name: rubygem-activemodel
   upstream_url: https://github.com/rails/rails/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/rails/rails/blob/main/actioncable/CHANGELOG.md
 
 - name: rubygem-asciidoctor
   upstream_url: https://github.com/asciidoctor/asciidoctor/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/asciidoctor/asciidoctor/blob/main/CHANGELOG.adoc
 
 - name: rubygem-sqlite3
   upstream_url: https://github.com/sparklemotion/sqlite3-ruby/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/sparklemotion/sqlite3-ruby/blob/main/CHANGELOG.md
 
 - name: rubygem-i18n
   upstream_url: https://github.com/ruby-i18n/i18n/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/ruby-i18n/i18n/blob/master/CHANGELOG.md
 
 - name: rubygem-kramdown
   upstream_url: https://github.com/gettalong/kramdown/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/gettalong/kramdown/blob/master/None
 
 - name: rubygem-rr
   upstream_url: https://github.com/rr/rr/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/rr/rr/blob/main/CHANGES.md
 
 - name: rubygem-liquid
   upstream_url: https://github.com/Shopify/liquid/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/Shopify/liquid/blob/main/History.md
 
 - name: rubygem-thor
   upstream_url: https://github.com/rails/thor/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/rails/thor/blob/master/None
 
 - name: rubygem-rspec
   upstream_url: https://github.com/rspec/rspec/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/rspec/rspec/blob/main/rspec-core/Changelog.md
 
 - name: rubygem-actiontext
   upstream_url: https://github.com/rails/rails/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/rails/rails/blob/main/actioncable/CHANGELOG.md
 
 - name: rubygem-haml
   upstream_url: https://github.com/haml/haml/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/haml/haml/blob/main/CHANGELOG.md
 
 - name: rubygem-pdf-reader
   upstream_url: https://github.com/yob/pdf-reader/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/yob/pdf-reader/blob/main/CHANGELOG
 
 - name: rubygem-tzinfo
   upstream_url: https://github.com/tzinfo/tzinfo/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/tzinfo/tzinfo/blob/master/CHANGES.md
 
 - name: rubygem-eventmachine
   upstream_url: https://github.com/eventmachine/eventmachine/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/eventmachine/eventmachine/blob/master/CHANGELOG.md
 
 - name: rubygem-sd_notify
   upstream_url: https://github.com/agis/ruby-sdnotify/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/agis/ruby-sdnotify/blob/master/CHANGELOG.md
 
 - name: rubygem-redcarpet
   upstream_url: https://github.com/vmg/redcarpet/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/vmg/redcarpet/blob/master/CHANGELOG.md
 
 - name: rubygem-expression_parser
   upstream_url: https://github.com/FLOIP/expression-parser/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/FLOIP/expression-parser/blob/master/None
 
 - name: rubygem-faraday-em_http
   upstream_url: https://github.com/lostisland/faraday-em_http/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/lostisland/faraday-em_http/blob/master/None
 
 - name: rubygem-cucumber-messages
   upstream_url: https://github.com/cucumber/messages/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/cucumber/messages/blob/main/CHANGELOG.md
 
 - name: rubygem-rack-test
   upstream_url: https://github.com/rack/rack-test/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/rack/rack-test/blob/main/History.md
 
 - name: rubygem-nokogiri
   upstream_url: https://github.com/sparklemotion/nokogiri/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/sparklemotion/nokogiri/blob/main/CHANGELOG.md
 
 - name: rubygem-ox
   upstream_url: https://github.com/softwaremill/ox/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/softwaremill/ox/blob/master/None
 
 - name: rubygem-sexp_processor
   upstream_url: https://github.com/seattlerb/sexp_processor/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/seattlerb/sexp_processor/blob/master/None
 
 - name: rubygem-autoprefixer-rails
   upstream_url: https://github.com/ai/autoprefixer-rails/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/ai/autoprefixer-rails/blob/master/CHANGELOG.md
 
 - name: rubygem-minitest
   upstream_url: https://github.com/minitest/minitest/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/minitest/minitest/blob/master/None
 
 - name: rubygem-ronn
   upstream_url: https://github.com/rtomayko/ronn/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/rtomayko/ronn/blob/master/CHANGES
 
 - name: rubygem-erubis
   upstream_url: https://github.com/jeremyevans/erubis/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/jeremyevans/erubis/blob/master/CHANGES.txt
 
 - name: rubygem-webpack-rails
   upstream_url: https://github.com/rails/webpacker/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/rails/webpacker/blob/master/CHANGELOG.md
 
 - name: rubygem-jquery-ui-rails
   upstream_url: https://github.com/jquery-ui-rails/jquery-ui-rails/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/jquery-ui-rails/jquery-ui-rails/blob/master/History.md
 
 - name: rubygem-deacon
   upstream_url: https://github.com/davidrea/Deacon/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/davidrea/Deacon/blob/master/None
 
 - name: rubygem-coffee-rails
   upstream_url: https://github.com/rails/coffee-rails/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/rails/coffee-rails/blob/master/CHANGELOG.md
 
 - name: rubygem-bundler_ext
   upstream_url: https://github.com/bundlerext/bundler_ext/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/bundlerext/bundler_ext/blob/master/CHANGELOG
 
 - name: rubygem-netrc
   upstream_url: https://github.com/heroku/netrc/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/heroku/netrc/blob/master/changelog.txt
 
 - name: rubygem-get_process_mem
   upstream_url: https://github.com/zombocom/get_process_mem/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/zombocom/get_process_mem/blob/main/CHANGELOG.md
 
 - name: rubygem-ancestry
   upstream_url: https://github.com/stefankroes/ancestry/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/stefankroes/ancestry/blob/master/CHANGELOG.md
 
 - name: rubygem-apipie-dsl
   upstream_url: https://github.com/Apipie/apipie-dsl/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/Apipie/apipie-dsl/blob/master/None
 
 - name: rubygem-record_tag_helper
   upstream_url: https://github.com/rails/record_tag_helper/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/rails/record_tag_helper/blob/master/None
 
 - name: rubygem-rack-cors
   upstream_url: https://github.com/cyu/rack-cors/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/cyu/rack-cors/blob/master/CHANGELOG.md
 
 - name: rubygem-rabl
   upstream_url: https://github.com/nesquena/rabl/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/nesquena/rabl/blob/master/CHANGELOG.md
 
 - name: rubygem-oj
   upstream_url: https://github.com/ohler55/oj/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/ohler55/oj/blob/develop/CHANGELOG.md
 
 - name: rubygem-oauth
   upstream_url: https://github.com/pelle/oauth/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/pelle/oauth/blob/master/None
 
 - name: rubygem-net-ssh
   upstream_url: https://github.com/net-ssh/net-ssh/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/net-ssh/net-ssh/blob/master/CHANGES.txt
 
 - name: rubygem-net-scp
   upstream_url: https://github.com/net-ssh/net-scp/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/net-ssh/net-scp/blob/master/CHANGES.txt
 
 - name: rubygem-net-ldap
   upstream_url: https://github.com/ruby-ldap/ruby-net-ldap/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/ruby-ldap/ruby-net-ldap/blob/master/script/changelog
 
 - name: rubygem-ldap_fluff
   upstream_url: https://github.com/theforeman/ldap_fluff/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/theforeman/ldap_fluff/blob/master/None
 
 - name: rubygem-jwt
   upstream_url: https://github.com/jwt/ruby-jwt/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/jwt/ruby-jwt/blob/main/CHANGELOG.md
 
 - name: rubygem-graphql
   upstream_url: https://github.com/rmosolgo/graphql-ruby/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/rmosolgo/graphql-ruby/blob/master/CHANGELOG.md
 
 - name: rubygem-facter
   upstream_url: https://github.com/puppetlabs/facter/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/puppetlabs/facter/blob/main/CHANGELOG.md
 
 - name: rubygem-friendly_id
   upstream_url: https://github.com/norman/friendly_id/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/norman/friendly_id/blob/master/Changelog.md
 
 - name: rubygem-fog-core
   upstream_url: https://github.com/fog/fog-core/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/fog/fog-core/blob/master/changelog.md
 
 - name: rubygem-fast_gettext
   upstream_url: https://github.com/grosser/fast_gettext/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/grosser/fast_gettext/blob/master/CHANGELOG
 
 - name: rubygem-sshkey
   upstream_url: https://github.com/bensie/sshkey/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/bensie/sshkey/blob/master/None
 
 - name: rubygem-responders
   upstream_url: https://github.com/heartcombo/responders/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/heartcombo/responders/blob/main/CHANGELOG.md
 
 - name: rubygem-ovirt-engine-sdk4
-  upstream_url: hhttps://github.com/oVirt/ovirt-engine-sdk-ruby/releases
+  upstream_url: https://github.com/oVirt/ovirt-engine-sdk-ruby/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/oVirt/ovirt-engine-sdk-ruby/blob/master/sdk/CHANGES.adoc
 
 - name: rubygem-atomic
   upstream_url: https://github.com/ruby-concurrency/atomic/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/ruby-concurrency/atomic/blob/master/None
 
 - name: rubygem-deep_cloneable
   upstream_url: https://github.com/moiristo/deep_cloneable/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/moiristo/deep_cloneable/blob/master/CHANGELOG.md
 
 - name: rubygem-audited
   upstream_url: https://github.com/collectiveidea/audited/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/collectiveidea/audited/blob/main/CHANGELOG.md
 
 - name: rubygem-activerecord-session_store
   upstream_url: https://github.com/rails/activerecord-session_store/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/rails/activerecord-session_store/blob/master/CHANGELOG.md
 
 - name: rubygem-activerecord-nulldb-adapter
   upstream_url: https://github.com/avdi/nulldb/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/avdi/nulldb/blob/master/None
 
 - name: rubygem-apipie-rails
   upstream_url: https://github.com/Apipie/apipie-rails/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/Apipie/apipie-rails/blob/master/CHANGELOG.md
 
 - name: rubygem-dynflow
   upstream_url: https://github.com/Dynflow/dynflow/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/Dynflow/dynflow/blob/master/None
 
 - name: rubygem-gettext_i18n_rails_js
   upstream_url: https://github.com/webhippie/gettext_i18n_rails_js/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/webhippie/gettext_i18n_rails_js/blob/master/CHANGELOG.md
 
 - name: rubygem-patternfly-sass
   upstream_url: https://github.com/patternfly/patternfly-sass/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/patternfly/patternfly-sass/blob/master/None
 
 - name: rubygem-safemode
   upstream_url: https://github.com/theforeman/safemode/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/theforeman/safemode/blob/master/None
 
 - name: rubygem-graphql-batch
   upstream_url: https://github.com/Shopify/graphql-batch/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/Shopify/graphql-batch/blob/master/None
 
 - name: rubygem-kafo
   upstream_url: https://github.com/theforeman/kafo/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/theforeman/kafo/blob/master/None
 
 - name: rubygem-logging
   upstream_url: https://github.com/TwP/logging/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/TwP/logging/blob/master/None
 
 - name: rubygem-rails-i18n
   upstream_url: https://github.com/svenfuchs/rails-i18n/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/svenfuchs/rails-i18n/blob/master/CHANGELOG.md
 
 - name: rubygem-rest-client
   upstream_url: https://github.com/rest-client/rest-client/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
-  
+  changelog: https://github.com/rest-client/rest-client/blob/master/None
+
 - name: rubygem-abrt
   upstream_url: https://github.com/voxik/abrt-ruby/releases
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/voxik/abrt-ruby/blob/master/None
