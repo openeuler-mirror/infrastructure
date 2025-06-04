@@ -5419,7 +5419,7 @@
 - name: perl-Business-ISBN-Data
   upstream_url: https://metacpan.org/dist/Business-ISBN-Data
   regex: default
-  auto_upgrade: disable
+  auto_upgrade: enable
   changelog: default
 
 - name: perl-Business-ISBN
