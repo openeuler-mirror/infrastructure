@@ -10616,7 +10616,7 @@
   upstream_url: http://puma.io
   regex: default
   auto_upgrade: enable
-  changelog: default
+  changelog: https://github.com/puma/puma/blob/master/History.md
 
 - name: rubygem-rack-cache
   upstream_url: https://github.com/rack/rack-cache/releases
