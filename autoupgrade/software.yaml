@@ -127,7 +127,7 @@
 - name: erlang
   upstream_url: https://www.erlang.org
   regex: default
-  auto_upgrade: enable
+  auto_upgrade: disable
   changelog: default
 
 - name: fakeroot
@@ -151,7 +151,7 @@
 - name: gperf
   upstream_url: http://www.gnu.org/software/gperf/
   regex: default
-  auto_upgrade: enable
+  auto_upgrade: disable
   changelog: default
 
 - name: gssdp
@@ -217,7 +217,7 @@
 - name: lapack
   upstream_url: http://www.netlib.org/lapack/
   regex: default
-  auto_upgrade: enable
+  auto_upgrade: disable
   changelog: default
 
 - name: libXScrnSaver
@@ -247,7 +247,7 @@
 - name: libdwarf
   upstream_url: https://www.prevanders.net/dwarf.html
   regex: default
-  auto_upgrade: enable
+  auto_upgrade: disable
   changelog: default
 
 - name: libell
@@ -289,7 +289,7 @@
 - name: librdkafka
   upstream_url: https://github.com/edenhill/librdkafka/releases
   regex: default
-  auto_upgrade: enable
+  auto_upgrade: disable
   changelog: default
 
 - name: librelp
@@ -421,19 +421,19 @@
 - name: ocaml
   upstream_url: https://www.ocaml.org
   regex: default
-  auto_upgrade: enable
+  auto_upgrade: disable
   changelog: default
 
 - name: openblas
   upstream_url: http://www.openmathlib.org/OpenBLAS/
   regex: default
-  auto_upgrade: enable
+  auto_upgrade: disable
   changelog: default
 
 - name: openscap
   upstream_url: https://www.open-scap.org
   regex: default
-  auto_upgrade: enable
+  auto_upgrade: disable
   changelog: default
 
 - name: pangomm
@@ -451,7 +451,7 @@
 - name: php
   upstream_url: https://www.php.net/
   regex: default
-  auto_upgrade: enable
+  auto_upgrade: disable
   changelog: default
 
 - name: phpy
@@ -493,7 +493,7 @@
 - name: qpdf
   upstream_url: https://qpdf.sourceforge.io/
   regex: default
-  auto_upgrade: enable
+  auto_upgrade: disable
   changelog: default
 
 - name: rhnlib
@@ -535,7 +535,7 @@
 - name: swig
   upstream_url: https://swig.sourceforge.net/
   regex: default
-  auto_upgrade: enable
+  auto_upgrade: disable
   changelog: default
 
 - name: swoole
@@ -547,7 +547,7 @@
 - name: tbb
   upstream_url: http://threadingbuildingblocks.org/
   regex: default
-  auto_upgrade: enable
+  auto_upgrade: disable
   changelog: default
 
 - name: tinyxml2
@@ -571,7 +571,7 @@
 - name: valgrind
   upstream_url: https://www.valgrind.org/
   regex: default
-  auto_upgrade: enable
+  auto_upgrade: disable
   changelog: default
 
 - name: waf
@@ -7207,7 +7207,7 @@
 - name: python-matplotlib
   upstream_url: https://github.com/matplotlib/matplotlib/releases
   regex: default
-  auto_upgrade: enable
+  auto_upgrade: disable
   changelog: https://github.com/matplotlib/matplotlib/blob/main/doc/api/next_api_changes.rst
 
 - name: python-hypothesis-fspaths
@@ -9397,7 +9397,7 @@
 - name: python-django
   upstream_url: https://www.djangoproject.com/
   regex: default
-  auto_upgrade: enable
+  auto_upgrade: disable
   changelog: default
 
 - name: python-retrying
