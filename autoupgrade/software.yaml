@@ -361,7 +361,7 @@
 - name: meson
   upstream_url: https://mesonbuild.com/
   regex: default
-  auto_upgrade: enable
+  auto_upgrade: disable
   changelog: default
 
 - name: mockito
