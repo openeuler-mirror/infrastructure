@@ -121,7 +121,7 @@
 - name: enchant2
   upstream_url: https://rrthomas.github.io/enchant//releases
   regex: default
-  auto_upgrade: enable
+  auto_upgrade: disable
   changelog: https://rrthomas.github.io/enchant//blob/master/None
 
 - name: erlang
@@ -139,7 +139,7 @@
 - name: flatpak
   upstream_url: https://flatpak.org/
   regex: default
-  auto_upgrade: enable
+  auto_upgrade: disable
   changelog: default
 
 - name: gflags
@@ -157,7 +157,7 @@
 - name: gssdp
   upstream_url: http://www.gupnp.org/
   regex: default
-  auto_upgrade: enable
+  auto_upgrade: disable
   changelog: default
 
 - name: gtest
@@ -169,7 +169,7 @@
 - name: gupnp
   upstream_url: https://www.gupnp.org/
   regex: default
-  auto_upgrade: enable
+  auto_upgrade: disable
   changelog: default
 
 - name: help2man
@@ -199,7 +199,7 @@
 - name: jimtcl
   upstream_url: http://jim.tcl.tk
   regex: default
-  auto_upgrade: enable
+  auto_upgrade: disable
   changelog: default
 
 - name: jsoncpp
@@ -409,7 +409,7 @@
 - name: numpy
   upstream_url: http://www.numpy.org/
   regex: default
-  auto_upgrade: enable
+  auto_upgrade: disable
   changelog: default
 
 - name: nvml
@@ -463,7 +463,7 @@
 - name: pyelftools
   upstream_url: https://github.com/eliben/pyelftools/releases
   regex: default
-  auto_upgrade: enable
+  auto_upgrade: disable
   changelog: https://github.com/eliben/pyelftools/blob/main/CHANGES
 
 - name: pyflakes
@@ -6145,7 +6145,7 @@
 - name: perl-Math-BigInt
   upstream_url: https://metacpan.org/dist/Math-BigInt
   regex: default
-  auto_upgrade: enable
+  auto_upgrade: disable
   changelog: default
 
 - name: perl-Locale-Maketext
@@ -11809,7 +11809,7 @@
 - name: assimp
   upstream_url: http://www.assimp.org/
   regex: default
-  auto_upgrade: enable
+  auto_upgrade: disable
   changelog: default
 
 - name: atf
@@ -11821,7 +11821,7 @@
 - name: autofdo
   upstream_url: https://github.com/google/autofdo/releases
   regex: default
-  auto_upgrade: enable
+  auto_upgrade: disable
   changelog: https://github.com/google/autofdo/blob/master/None
 
 - name: autofs
@@ -12019,7 +12019,7 @@
 - name: double-conversion
   upstream_url: https://github.com/google/double-conversion/releases
   regex: default
-  auto_upgrade: enable
+  auto_upgrade: disable
   changelog: https://github.com/google/double-conversion/blob/master/Changelog
 
 - name: dovecot
@@ -12133,7 +12133,7 @@
 - name: ffmpeg
   upstream_url: https://ffmpeg.org/
   regex: default
-  auto_upgrade: enable
+  auto_upgrade: disable
   changelog: default
 
 - name: figlet
@@ -12151,7 +12151,7 @@
 - name: firebird
   upstream_url: https://www.firebirdsql.org/
   regex: default
-  auto_upgrade: enable
+  auto_upgrade: disable
   changelog: default
 
 - name: flite
@@ -12187,13 +12187,13 @@
 - name: freeipmi
   upstream_url: https://www.gnu.org/software/freeipmi/
   regex: default
-  auto_upgrade: enable
+  auto_upgrade: disable
   changelog: default
 
 - name: freetds
   upstream_url: https://www.freetds.org/
   regex: default
-  auto_upgrade: enable
+  auto_upgrade: disable
   changelog: default
 
 - name: freexl
@@ -12331,7 +12331,7 @@
 - name: gupnp-av
   upstream_url: https://wiki.gnome.org/Projects/GUPnP
   regex: default
-  auto_upgrade: enable
+  auto_upgrade: disable
   changelog: default
 
 - name: hexedit
@@ -12481,7 +12481,7 @@
 - name: jq
   upstream_url: https://jqlang.org/
   regex: default
-  auto_upgrade: enable
+  auto_upgrade: disable
   changelog: default
 
 - name: jss
@@ -12649,7 +12649,7 @@
 - name: libhangul
   upstream_url: https://github.com/libhangul/libhangul/releases
   regex: default
-  auto_upgrade: enable
+  auto_upgrade: disable
   changelog: https://github.com/libhangul/libhangul/blob/master/None
 
 - name: libhbaapi
@@ -12799,7 +12799,7 @@
 - name: libpinyin
   upstream_url: https://github.com/libpinyin/libpinyin/releases
   regex: default
-  auto_upgrade: enable
+  auto_upgrade: disable
   changelog: https://github.com/libpinyin/libpinyin/blob/main/ChangeLog
 
 - name: libqb
@@ -12847,7 +12847,7 @@
 - name: libspatialite
   upstream_url: https://www.gaia-gis.it/fossil/libspatialite
   regex: default
-  auto_upgrade: enable
+  auto_upgrade: disable
   changelog: default
 
 - name: libspiro
@@ -12955,7 +12955,7 @@
 - name: llvm-bolt
   upstream_url: https://github.com/llvm/llvm-project/tree/main/bolt/releases
   regex: default
-  auto_upgrade: enable
+  auto_upgrade: disable
   changelog: default
 
 - name: lmbench
@@ -13021,7 +13021,7 @@
 - name: m17n-db
   upstream_url: http://www.nongnu.org/m17n
   regex: default
-  auto_upgrade: enable
+  auto_upgrade: disable
   changelog: default
 
 - name: m17n-lib
@@ -13075,7 +13075,7 @@
 - name: microcode_ctl
   upstream_url: https://github.com/intel/Intel-Linux-Processor-Microcode-Data-Files/releases
   regex: default
-  auto_upgrade: enable
+  auto_upgrade: disable
   changelog: https://github.com/intel/Intel-Linux-Processor-Microcode-Data-Files/blob/master/None
 
 - name: mikmod
@@ -13183,7 +13183,7 @@
 - name: nilfs-utils
   upstream_url: http://nilfs.sourceforge.net
   regex: default
-  auto_upgrade: enable
+  auto_upgrade: disable
   changelog: default
 
 - name: nmon
@@ -13225,7 +13225,7 @@
 - name: oath-toolkit
   upstream_url: https://www.nongnu.org/oath-toolkit/
   regex: default
-  auto_upgrade: enable
+  auto_upgrade: disable
   changelog: default
 
 - name: oec-hardware
@@ -13273,7 +13273,7 @@
 - name: opengauss-server
   upstream_url: https://gitee.com/opengauss/openGauss-server
   regex: default
-  auto_upgrade: enable
+  auto_upgrade: disable
   changelog: default
 
 - name: openhpi
@@ -13357,7 +13357,7 @@
 - name: pdfpc
   upstream_url: https://%{name}.github.io//releases
   regex: default
-  auto_upgrade: enable
+  auto_upgrade: disable
   changelog: default
 
 - name: phonon
@@ -13435,7 +13435,7 @@
 - name: proj
   upstream_url: https://proj.org
   regex: default
-  auto_upgrade: enable
+  auto_upgrade: disable
   changelog: default
 
 - name: pstoedit
@@ -13501,7 +13501,7 @@
 - name: redis
   upstream_url: https://redis.io
   regex: default
-  auto_upgrade: enable
+  auto_upgrade: disable
   changelog: default
 
 - name: redis5
@@ -13543,7 +13543,7 @@
 - name: rust
   upstream_url: https://www.rust-lang.org
   regex: default
-  auto_upgrade: enable
+  auto_upgrade: disable
   changelog: default
 
 - name: samtools
@@ -13891,7 +13891,7 @@
 - name: vorbis-tools
   upstream_url: https://www.xiph.org/
   regex: default
-  auto_upgrade: enable
+  auto_upgrade: disable
   changelog: default
 
 - name: vte
@@ -13939,7 +13939,7 @@
 - name: wxGTK3
   upstream_url: https://www.wxwidgets.org/
   regex: default
-  auto_upgrade: enable
+  auto_upgrade: disable
   changelog: default
 
 - name: x264
@@ -13957,7 +13957,7 @@
 - name: xapian-core
   upstream_url: https://www.xapian.org/
   regex: default
-  auto_upgrade: enable
+  auto_upgrade: disable
   changelog: default
 
 - name: xerces-c
@@ -14161,7 +14161,7 @@
 - name: netcdf
   upstream_url: https://github.com/Unidata/netcdf-c/releases
   regex: default
-  auto_upgrade: enable
+  auto_upgrade: disable
   changelog: https://github.com/Unidata/netcdf-c/blob/master/None
 
 - name: CharLS
@@ -14185,7 +14185,7 @@
 - name: libmysofa
   upstream_url: https://github.com/hoene/libmysofa/releases
   regex: default
-  auto_upgrade: enable
+  auto_upgrade: disable
   changelog: https://github.com/hoene/libmysofa/blob/master/None
 
 - name: virtCCA_sdk
@@ -14197,7 +14197,7 @@
 - name: aws-sdk-cpp
   upstream_url: https://github.com/aws/aws-sdk-cpp/releases
   regex: default
-  auto_upgrade: enable
+  auto_upgrade: disable
   changelog: https://github.com/aws/aws-sdk-cpp/blob/main/CHANGELOG.md
 
 - name: shaderc
@@ -14215,7 +14215,7 @@
 - name: git-lfs
   upstream_url: https://git-lfs.github.io//releases
   regex: default
-  auto_upgrade: enable
+  auto_upgrade: disable
   changelog: default
 
 - name: gtk-doc
@@ -15913,7 +15913,7 @@
 - name: javaparser
   upstream_url: http://javaparser.org
   regex: default
-  auto_upgrade: enable
+  auto_upgrade: disable
   changelog: default
 
 - name: javapoet
@@ -18253,7 +18253,7 @@
 - name: libguestfs
   upstream_url: https://libguestfs.org/
   regex: default
-  auto_upgrade: enable
+  auto_upgrade: disable
   changelog: default
 
 - name: libnetfilter_cthelper
@@ -18313,7 +18313,7 @@
 - name: OpenEXR
   upstream_url: http://www.openexr.com/
   regex: default
-  auto_upgrade: enable
+  auto_upgrade: disable
   changelog: default
 
 - name: libdeflate
@@ -18343,7 +18343,7 @@
 - name: abrt
   upstream_url: https://github.com/abrt/abrt//releases
   regex: default
-  auto_upgrade: enable
+  auto_upgrade: disable
   changelog: default
 
 - name: afflib
@@ -18409,7 +18409,7 @@
 - name: bacula
   upstream_url: http://www.bacula.org
   regex: default
-  auto_upgrade: enable
+  auto_upgrade: disable
   changelog: default
 
 - name: bcc
@@ -18463,7 +18463,7 @@
 - name: cfitsio
   upstream_url: https://heasarc.gsfc.nasa.gov/fitsio/
   regex: default
-  auto_upgrade: enable
+  auto_upgrade: disable
   changelog: default
 
 - name: cjkuni-uming-fonts
@@ -18475,7 +18475,7 @@
 - name: clamav
   upstream_url: https://www.clamav.net/
   regex: default
-  auto_upgrade: enable
+  auto_upgrade: disable
   changelog: default
 
 - name: cloud-utils
@@ -18595,7 +18595,7 @@
 - name: elixir
   upstream_url: http://elixir-lang.org/
   regex: default
-  auto_upgrade: enable
+  auto_upgrade: disable
   changelog: default
 
 - name: etcd
@@ -18643,7 +18643,7 @@
 - name: firefox
   upstream_url: https://www.mozilla.org/firefox/
   regex: default
-  auto_upgrade: enable
+  auto_upgrade: disable
   changelog: default
 
 - name: fmpp
@@ -18685,13 +18685,13 @@
 - name: gegl04
   upstream_url: https://gegl.org/
   regex: default
-  auto_upgrade: enable
+  auto_upgrade: disable
   changelog: default
 
 - name: gimp
   upstream_url: https://www.gimp.org/
   regex: default
-  auto_upgrade: enable
+  auto_upgrade: disable
   changelog: default
 
 - name: glade
@@ -18709,7 +18709,7 @@
 - name: glibmm24
   upstream_url: https://www.gtkmm.org/
   regex: default
-  auto_upgrade: enable
+  auto_upgrade: disable
   changelog: default
 
 - name: glslang
@@ -18733,7 +18733,7 @@
 - name: gnulib
   upstream_url: https://www.gnu.org/software/gnulib
   regex: default
-  auto_upgrade: enable
+  auto_upgrade: disable
   changelog: default
 
 - name: gom
@@ -18955,7 +18955,7 @@
 - name: hunspell-es
   upstream_url: https://github.com/sbosio/rla-es//releases
   regex: default
-  auto_upgrade: enable
+  auto_upgrade: disable
   changelog: default
 
 - name: hunspell-et
@@ -18991,7 +18991,7 @@
 - name: hunspell-fr
   upstream_url: http://www.dicollecte.org/home.php?prj=fr
   regex: default
-  auto_upgrade: enable
+  auto_upgrade: disable
   changelog: default
 
 - name: hunspell-fur
@@ -19717,7 +19717,7 @@
 - name: ibus-typing-booster
   upstream_url: https://mike-fabian.github.io/ibus-typing-booster//releases
   regex: default
-  auto_upgrade: enable
+  auto_upgrade: disable
   changelog: default
 
 - name: icedtea-web
@@ -19873,7 +19873,7 @@
 - name: libabigail
   upstream_url: https://sourceware.org/libabigail/
   regex: default
-  auto_upgrade: enable
+  auto_upgrade: disable
   changelog: default
 
 - name: libbluray
@@ -19927,7 +19927,7 @@
 - name: liblouis
   upstream_url: https://liblouis.io/
   regex: default
-  auto_upgrade: enable
+  auto_upgrade: disable
   changelog: default
 
 - name: libraqm
@@ -20137,7 +20137,7 @@
 - name: mongo-c-driver
   upstream_url: https://github.com/mongodb/mongo-c-driver/releases
   regex: default
-  auto_upgrade: enable
+  auto_upgrade: disable
   changelog: default
 
 - name: motif
@@ -20155,7 +20155,7 @@
 - name: mutt
   upstream_url: http://www.mutt.org
   regex: default
-  auto_upgrade: enable
+  auto_upgrade: disable
   changelog: default
 
 - name: nagios
@@ -20365,7 +20365,7 @@
 - name: openmpi
   upstream_url: https://www.open-mpi.org/
   regex: default
-  auto_upgrade: enable
+  auto_upgrade: disable
   changelog: default
 
 - name: openoffice-lv
@@ -20749,7 +20749,7 @@
 - name: pmix
   upstream_url: https://openpmix.github.io//releases
   regex: default
-  auto_upgrade: enable
+  auto_upgrade: disable
   changelog: default
 
 - name: podman
@@ -20767,7 +20767,7 @@
 - name: proftpd
   upstream_url: http://www.proftpd.org/
   regex: default
-  auto_upgrade: enable
+  auto_upgrade: disable
   changelog: default
 
 - name: protobuf2
@@ -20947,7 +20947,7 @@
 - name: speech-dispatcher
   upstream_url: https://devel.freebsoft.org/speechd
   regex: default
-  auto_upgrade: enable
+  auto_upgrade: disable
   changelog: default
 
 - name: spirv-headers
@@ -21073,7 +21073,7 @@
 - name: uboot-tools
   upstream_url: http://www.denx.de/wiki/U-Boot
   regex: default
-  auto_upgrade: enable
+  auto_upgrade: disable
   changelog: default
 
 - name: ucs-miscfixed-fonts
@@ -21307,7 +21307,7 @@
 - name: greatsql
   upstream_url: https://greatsql.cn
   regex: default
-  auto_upgrade: enable
+  auto_upgrade: disable
   changelog: default
 
 - name: crun
@@ -21343,7 +21343,7 @@
 - name: gtk4
   upstream_url: https://www.gtk.org
   regex: default
-  auto_upgrade: enable
+  auto_upgrade: disable
   changelog: default
 
 - name: latexmk
@@ -21535,7 +21535,7 @@
 - name: mozjs102
   upstream_url: https://hg.mozilla.org/releases/mozilla-esr102
   regex: default
-  auto_upgrade: enable
+  auto_upgrade: disable
   changelog: default
 
 - name: uhttpmock
@@ -21589,7 +21589,7 @@
 - name: moby
   upstream_url: https://www.docker.com
   regex: default
-  auto_upgrade: enable
+  auto_upgrade: disable
   changelog: default
 
 - name: R-R.oo
@@ -21763,7 +21763,7 @@
 - name: R-maps
   upstream_url: https://CRAN.R-project.org/package=%{packname}
   regex: default
-  auto_upgrade: enable
+  auto_upgrade: disable
   changelog: default
 
 - name: R-desc
@@ -22267,7 +22267,7 @@
 - name: R-stringi
   upstream_url: https://CRAN.R-project.org/package=%{packname}
   regex: default
-  auto_upgrade: enable
+  auto_upgrade: disable
   changelog: default
 
 - name: R-pkgbuild
@@ -22525,7 +22525,7 @@
 - name: parallel
   upstream_url: https://www.gnu.org/software/parallel/
   regex: default
-  auto_upgrade: enable
+  auto_upgrade: disable
   changelog: default
 
 - name: bats
@@ -22723,7 +22723,7 @@
 - name: perl-Image-ExifTool
   upstream_url: https://exiftool.org/
   regex: default
-  auto_upgrade: enable
+  auto_upgrade: disable
   changelog: default
 
 - name: powerpc-utils
@@ -22831,7 +22831,7 @@
 - name: mold
   upstream_url: https://github.com/rui314/mold/releases
   regex: default
-  auto_upgrade: enable
+  auto_upgrade: disable
   changelog: default
 
 - name: isula-rust-extensions
@@ -22885,7 +22885,7 @@
 - name: openvino
   upstream_url: https://github.com/openvinotoolkit/openvino/releases
   regex: default
-  auto_upgrade: enable
+  auto_upgrade: disable
   changelog: default
 
 - name: biber
@@ -23023,7 +23023,7 @@
 - name: nodejs
   upstream_url: http://nodejs.org/
   regex: default
-  auto_upgrade: enable
+  auto_upgrade: disable
   changelog: default
 
 - name: ocaml-findlib
@@ -23071,7 +23071,7 @@
 - name: gdal
   upstream_url: https://www.gdal.org
   regex: default
-  auto_upgrade: enable
+  auto_upgrade: disable
   changelog: default
 
 - name: lld
@@ -23083,7 +23083,7 @@
 - name: gpsbabel
   upstream_url: https://www.gpsbabel.org
   regex: default
-  auto_upgrade: enable
+  auto_upgrade: disable
   changelog: default
 
 - name: coffee-script
@@ -24589,7 +24589,7 @@
 - name: python-sqlalchemy
   upstream_url: https://www.sqlalchemy.org/
   regex: default
-  auto_upgrade: enable
+  auto_upgrade: disable
   changelog: default
 
 - name: python-jupytext
@@ -25117,19 +25117,19 @@
 - name: qt5-qtwebkit
   upstream_url: https://github.com/qtwebkit/qtwebkit/releases
   regex: default
-  auto_upgrade: enable
+  auto_upgrade: disable
   changelog: default
 
 - name: qt5-qtwebengine
   upstream_url: https://www.qt.io
   regex: default
-  auto_upgrade: enable
+  auto_upgrade: disable
   changelog: default
 
 - name: qt6-qt5compat
   upstream_url: https://www.qt.io
   regex: default
-  auto_upgrade: enable
+  auto_upgrade: disable
   changelog: default
 
 - name: qt6-qtlanguageserver
@@ -25153,7 +25153,7 @@
 - name: qt6-qtquick3dphysics
   upstream_url: https://www.qt.io
   regex: default
-  auto_upgrade: enable
+  auto_upgrade: disable
   changelog: default
 
 - name: qt6-qtquickeffectmaker
@@ -25327,7 +25327,7 @@
 - name: llvm-toolset-17
   upstream_url: http://libcxx.llvm.org/
   regex: default
-  auto_upgrade: enable
+  auto_upgrade: disable
   changelog: default
 
 - name: llvm-toolset-18
@@ -25351,7 +25351,7 @@
 - name: qt6-qtwebengine
   upstream_url: https://www.qt.io
   regex: default
-  auto_upgrade: enable
+  auto_upgrade: disable
   changelog: default
 
 - name: sysboost
