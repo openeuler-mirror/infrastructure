@@ -289,7 +289,7 @@
 - name: librdkafka
   upstream_url: https://github.com/edenhill/librdkafka/releases
   regex: default
-  auto_upgrade: disable
+  auto_upgrade: enable
   changelog: https://github.com/edenhill/librdkafka/blob/master/CHANGELOG.md
 
 - name: librelp
