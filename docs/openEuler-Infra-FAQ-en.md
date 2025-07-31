@@ -1,6 +1,6 @@
 1. **How do I apply for joining the openEuler organization on Gitee?**
 
-    Click this [link](https://gitee.com/open_euler?invite=10c2a5093d0832fb0d0e3e0b0d62ad2e71bf1d043b36faed8e7cde0b62298f898e2a5d1b1b807987439bc1f65eaa027860f010c409ba4a18108234d13d970cb1), fill in related information, and submit you application.
+    Click this [link](https://gitee.com/open_euler?invite=10c2a5093d0832fbaf8862a6c44d853101a14adb52d6a8a68e7cde0b62298f898e2a5d1b1b807987439bc1f65eaa027860f010c409ba4a18108234d13d970cb1), fill in related information, and submit you application.
 
     Applications are usually reviewed and approved within three working days. If your application is not approved in time, send an email to [infra@openeuler.sh](mailto:infra@openeuler.sh).
 
