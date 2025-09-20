@@ -1,0 +1,38 @@
+# Comment Agent Configuration
+comment_agent:
+  # Backend Configuration
+  backend:
+    type: "siliconflow"  # Options: "ollama" or "siliconflow"
+    # siliconflow配置现在通过命令行参数传入
+
+  # Model Configuration
+  model:
+    name: "Qwen/Qwen3-8B"
+    temperature: 0.1
+    max_retry: 5  # For siliconflow backend
+
+  # Processing Configuration
+  processing:
+    max_workers: 8  # Number of parallel workers for file processing
+    single_file_timeout: 180  # Timeout for single file analysis (seconds)
+    total_comment_timeout: 300  # Timeout for total PR analysis (seconds)
+  
+  # Logging Configuration
+  logging:
+    level: "INFO"
+
+# PR Comment Configuration
+orgs:
+  - org_name: openeuler
+    comment_target_owner: openeuler
+    comment_target_repo: docs
+    auto_comment_enabled: true
+    text_check_enabled: true   # 是否启用文本变更检测
+    grammar_check_enabled: true  # 是否启用语法错误检测
+
+  - org_name: src-openeuler
+    comment_target_owner: openeuler
+    comment_target_repo: globalization
+    auto_comment_enabled: true
+    text_check_enabled: true
+    grammar_check_enabled: true
