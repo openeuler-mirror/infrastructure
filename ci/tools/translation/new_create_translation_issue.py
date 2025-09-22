@@ -6,7 +6,6 @@ import sys
 from dataclasses import dataclass, field
 from difflib import SequenceMatcher
 from typing import TypeVar, Generic
-from translation_agent import get_agent_summary
 
 import requests
 import yaml
@@ -41,26 +40,14 @@ class Org:
 
 
 @dataclass
-class TranslationAgentConfig:
-    backend: dict = field(default_factory=dict)
-    model: dict = field(default_factory=dict)
-    processing: dict = field(default_factory=dict)
-    logging: dict = field(default_factory=dict)
-
-
-@dataclass
 class Config:
     orgs: list[dict | Org]
-    translation_agent: dict | TranslationAgentConfig = field(default_factory=dict)
 
     def __post_init__(self):
         tmp_orgs: list[Org] = []
         for item in self.orgs:
             tmp_orgs.append(Org(**item))
         self.orgs = tmp_orgs
-        
-        if isinstance(self.translation_agent, dict) and self.translation_agent:
-            self.translation_agent = TranslationAgentConfig(**self.translation_agent)
 
 
 @dataclass
@@ -244,8 +231,6 @@ class Args:
     pr_owner: str
     pr_repo: str
     pr_number: int
-    siliconflow_api_key: str = ""
-    siliconflow_api_base: str = "https://api.siliconflow.cn/v1"
 
     def validate(self):
         valid = self.gitee_token and self.pr_owner and self.pr_repo and self.pr_number
@@ -264,15 +249,14 @@ def load_config_yaml(yaml_path):
 
 
 def create_issue_based_on_pr_diff_and_config(conf: Config, cli: GiteeClient, pr_owner: str, pr_repo: str,
-                                             pr_number: int, siliconflow_api_key: str, siliconflow_api_base: str):
+                                             pr_number: int):
     pr__html_url = "https://gitee.com/{}/{}/pulls/{}".format(pr_owner, pr_repo, pr_number)
     for org_item in conf.orgs:
         issue_title_pr_mark = "{}/{}/pulls/{}".format(pr_owner, pr_repo, pr_number)
         if org_item.org_name != pr_owner:
             continue
-        # 旧标点符号判断逻辑，已弃用
-        # if org_item.auto_create_issue:
-        #     cli.check_only_marks_changed(pr_owner, pr_repo, pr_number, org_item.change_content_exclude)
+        if org_item.auto_create_issue:
+            cli.check_only_marks_changed(pr_owner, pr_repo, pr_number, org_item.change_content_exclude)
         file_count = 0
         diff_content = cli.get_diff_content(pr_owner, pr_repo, pr_number)
         if diff_content is None:
@@ -316,60 +300,18 @@ def create_issue_based_on_pr_diff_and_config(conf: Config, cli: GiteeClient, pr_
             need_create_issue_titles.append(need_create_issue[issue_item][1])
             need_create_issue_template[need_create_issue[issue_item][1]] = need_create_issue[issue_item][0]
         if need_create_issue_titles:
-
             need_create_issue_list, existed_issue_list = cli.check_issue_exists(org_item.issue_of_owner,
                                                                                 org_item.issue_of_repo,
                                                                                 need_create_issue_titles)
-
             if not need_create_issue_list:
                 feedback_comment = "issue has already created, please go to check issue: {}".format(
                     existed_issue_list)
                 logger.info("Warning: " + feedback_comment)
                 cli.add_pr_comment(pr_owner, pr_repo, pr_number, feedback_comment)
             for need_create_issue_item in need_create_issue_list:
-                
-                issue_summary = get_agent_summary(diff_content, siliconflow_api_key, siliconflow_api_base)
-                issue_body = ""
-                if issue_summary and not issue_summary.error:
-                    issue_body += f"## 📊 变更统计\n\n"
-                    issue_body += f"- **总文件数**: {issue_summary.total_files}\n"
-                    issue_body += f"- **成功处理文件数**: {issue_summary.processed_files}\n"
-                    if issue_summary.total_files != issue_summary.processed_files:
-                        # 注意人工审查提醒
-                        issue_body += f"- **未处理文件数**: {issue_summary.total_files - issue_summary.processed_files}\n"
-                        issue_body += f"- **提醒：机器人未能及时自动生成所有改动的摘要，请注意人工审查！**\n"
-                    if issue_summary.total_summary:
-                        total = issue_summary.total_summary
-                        issue_body += f"- **总改动行数**: {total.total_lines_changed}\n"
-                        issue_body += f"- **改动类型**: {', '.join(total.change_type_list)}\n\n"
-                        issue_body += f"## 🔍 整体变更摘要\n\n"
-                        issue_body += f"{total.overall_summary}\n\n"
-                        issue_body += f"## ⚠️ 整体潜在影响\n\n"
-                        issue_body += f"{total.overall_potential_impact}\n\n"
-                    if issue_summary.file_summaries:
-                        issue_body += f"## 📝 单文件变更详情\n\n"
-                        for summary in issue_summary.file_summaries:
-                            issue_body += f"### 📁 {summary.file_path}\n\n"
-                            issue_body += f"- **改动类型**: {summary.change_type}\n"
-                            issue_body += f"- **新增行数**: {summary.lines_added}\n"
-                            issue_body += f"- **删除行数**: {summary.lines_deleted}\n"
-                            issue_body += f"- **潜在影响**: {summary.potential_impact}\n"
-                            issue_body += f"- **详细摘要**: {summary.summary}\n\n"
-                            issue_body += "---\n\n"
-                else:
-                    issue_body += f"## ⚠️ 翻译变更检测\n\n"
-                    issue_body += f"检测到需要翻译的文件变更，但无法获取详细摘要信息。\n\n"
-                    issue_body += f"**变更文件数量**: {len(diff_files)}\n"
-                    issue_body += f"**相关PR**: {pr__html_url}\n\n"
-                
-                issue_body += f"## ❗️ 本Issue的摘要内容基于AI Agent技术自动生成，仅供参考，请以实际更改为准。\n\n" 
-                issue_body += f"## 🔗 相关PR链接\n\n"
-                issue_body += f"- {pr__html_url}\n"
-                
                 cli.create_issue(org_item.issue_of_owner, org_item.issue_of_repo, need_create_issue_item,
                                  need_create_issue_template[need_create_issue_item],
-                                 issue_body)          
-
+                                 "### Related PR link \n - {}".format(pr__html_url))
 
 
 def main():
@@ -378,8 +320,6 @@ def main():
     parser.add_argument('--pr_owner', type=str, required=True, help='the PR of owner')
     parser.add_argument('--pr_repo', type=str, required=True, help='the PR of repo')
     parser.add_argument('--pr_number', type=str, required=True, help='the PR number')
-    parser.add_argument('--siliconflow_api_key', type=str, default="", help='the API key of siliconflow')
-    parser.add_argument('--siliconflow_api_base', type=str, default="https://api.siliconflow.cn/v1", help='the base URL of siliconflow')
     args = Args()
     parser.parse_args(args=sys.argv[1:], namespace=args)
     args.validate()
@@ -393,9 +333,7 @@ def main():
     pr_owner = args.pr_owner
     pr_repo = args.pr_repo
     pr_number = args.pr_number
-    siliconflow_api_key = args.siliconflow_api_key
-    siliconflow_api_base = args.siliconflow_api_base
-    create_issue_based_on_pr_diff_and_config(conf, cli, pr_owner, pr_repo, pr_number, siliconflow_api_key, siliconflow_api_base)
+    create_issue_based_on_pr_diff_and_config(conf, cli, pr_owner, pr_repo, pr_number)
 
 
 if __name__ == '__main__':
