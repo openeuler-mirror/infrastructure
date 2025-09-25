@@ -47,7 +47,8 @@ logger = logging.getLogger(__name__)
 class SingleFileSummary(BaseModel):
     """单个文件摘要的结构化输出"""
     file_path: str = Field(description="文件路径", default="")
-    change_type: Literal["仅涉及标点符号的修改", "涉及到中英文文本内容的修改", "涉及到代码内容的修改", "涉及到其他内容的修改"] = Field(description="改动类型")
+    change_type: Literal["仅涉及标点符号的修改", "涉及到中英文文本内容的修改", 
+                        "涉及到代码内容的修改", "涉及到其他内容的修改"] = Field(description="改动类型")
     potential_impact: str = Field(description="改动对其他文件潜在的影响")
     summary: str = Field(description="改动的详细摘要")
     lines_added: int = Field(description="新增行数", default=0)
@@ -56,7 +57,8 @@ class SingleFileSummary(BaseModel):
 class FileChangeInfo(BaseModel):
     """文件改动信息"""
     file_path: str = Field(description="文件路径")
-    change_type: Literal["仅涉及标点符号的修改", "涉及到中英文文本内容的修改", "涉及到代码内容的修改", "涉及到其他内容的修改"] = Field(description="改动类型")
+    change_type: Literal["仅涉及标点符号的修改", "涉及到中英文文本内容的修改", 
+                        "涉及到代码内容的修改", "涉及到其他内容的修改"] = Field(description="改动类型")
     lines_changed: int = Field(description="改动行数")
 
 class TotalSummary(BaseModel):
@@ -418,7 +420,8 @@ class LLMFactory:
     
     @staticmethod
     def create_chat_llm(model_name: str = None, base_url: str = None, backend_type: str = None, 
-                       temperature: float = None, siliconflow_api_key: str = "", siliconflow_api_base: str = ""):
+                       temperature: float = None, siliconflow_api_key: str = "", 
+                       siliconflow_api_base: str = ""):
         """创建LLM实例"""
         if model_name is None:
             model_name = DEFAULT_MODEL_NAME
@@ -447,7 +450,8 @@ class LLMFactory:
     
     @staticmethod
     def create_llm(model_name: str = None, base_url: str = None, backend_type: str = None,
-                   temperature: float = None, siliconflow_api_key: str = "", siliconflow_api_base: str = ""):
+                   temperature: float = None, siliconflow_api_key: str = "", 
+                   siliconflow_api_base: str = ""):
         """创建LLM实例"""
         if model_name is None:
             model_name = DEFAULT_MODEL_NAME
@@ -664,7 +668,8 @@ Git Diff 内容:
 class SingleFileAnalysisChain:
     """单文件分析任务链"""
     
-    def __init__(self, llm: ChatOllama | ChatOpenAI, token_counter: TokenCounter, backend_type: str = DEFAULT_BACKEND_TYPE):
+    def __init__(self, llm: ChatOllama | ChatOpenAI, token_counter: TokenCounter, 
+                 backend_type: str = DEFAULT_BACKEND_TYPE):
         self.llm = llm
         self.token_counter = token_counter
         self.backend_type = backend_type
@@ -805,7 +810,8 @@ Git Diff 内容:
             ])
             self.chain = self.prompt | self.llm | self.output_parser
     
-    def analyze(self, diff_file_info: DiffFileInfo, max_retry_ollama: int = DEFAULT_MODEL_MAX_RETRY_OLLAMA, 
+    def analyze(self, diff_file_info: DiffFileInfo, 
+                max_retry_ollama: int = DEFAULT_MODEL_MAX_RETRY_OLLAMA, 
                 max_retry: int = DEFAULT_MODEL_MAX_RETRY) -> Optional[SingleFileSummary]:
         """分析单个文件的改动"""
         max_retry_count = max_retry_ollama if self.backend_type == BACKEND_TYPE_OLLAMA else max_retry
@@ -877,10 +883,12 @@ Git Diff 内容:
                     if code in err_str:
                         is_http_error = True
                         break
-                if ("status code" in err_str or "HTTP" in err_str or "response" in err_str) and any(code in err_str for code in ["404", "500", "502", "503", "504"]):
+                if ("status code" in err_str or "HTTP" in err_str or "response" in err_str) and \
+                   any(code in err_str for code in ["404", "500", "502", "503", "504"]):
                     is_http_error = True
                 if is_http_error:
-                    logger.error(f"分析文件 {diff_file_info.file_path} 时发生HTTP错误: {e}，第{attempt}次尝试，10秒后重试...")
+                    logger.error(f"分析文件 {diff_file_info.file_path} 时发生HTTP错误: {e}，"
+                                f"第{attempt}次尝试，10秒后重试...")
                     if attempt < max_retry_count:
                         time.sleep(10)
                         continue
@@ -889,13 +897,15 @@ Git Diff 内容:
                 # 其它异常直接进入下一次重试
                 if attempt < max_retry_count:
                     logger.info(f"第{attempt}次尝试失败，准备重试...")
-        logger.error(f"分析文件 {diff_file_info.file_path} 连续{max_retry_count}次均未获得结构化输出，放弃。")
+        logger.error(f"分析文件 {diff_file_info.file_path} 连续{max_retry_count}次均未获得结构化输出，"
+                    f"放弃。")
         return None
 
 class TotalSummaryChain:
     """总摘要生成任务链"""
     
-    def __init__(self, llm: ChatOllama | ChatOpenAI, token_counter: TokenCounter, backend_type: str = DEFAULT_BACKEND_TYPE):
+    def __init__(self, llm: ChatOllama | ChatOpenAI, token_counter: TokenCounter, 
+                 backend_type: str = DEFAULT_BACKEND_TYPE):
         self.llm = llm
         self.token_counter = token_counter
         self.backend_type = backend_type
@@ -983,7 +993,8 @@ class TotalSummaryChain:
             ])
             self.chain = self.prompt | self.llm | self.output_parser
     
-    def generate(self, file_summaries: List[SingleFileSummary], total_summary_timeout: int = DEFAULT_TOTAL_SUMMARY_TIMEOUT) -> Optional[TotalSummary]:
+    def generate(self, file_summaries: List[SingleFileSummary], 
+                 total_summary_timeout: int = DEFAULT_TOTAL_SUMMARY_TIMEOUT) -> Optional[TotalSummary]:
         """生成总摘要"""
         try:
             total_files = len(file_summaries)
@@ -1034,7 +1045,8 @@ class TotalSummaryChain:
                 try:
                     result = future.result(timeout=total_summary_timeout)
                 except (FutureTimeoutError, TimeoutError) as e:
-                    logger.error(f"生成总摘要超时（{total_summary_timeout}秒），放弃生成总摘要: {type(e).__name__}")
+                    logger.error(f"生成总摘要超时（{total_summary_timeout}秒），放弃生成总摘要: "
+                                f"{type(e).__name__}")
                     try:
                         future.cancel()  # 尝试取消超时的任务
                     except Exception as cancel_e:
@@ -1089,10 +1101,12 @@ class TotalSummaryChain:
 class GitDiffSummarizer:
     """Git Diff 摘要生成器"""
     
-    def __init__(self, siliconflow_api_key: str = "", siliconflow_api_base: str = "https://api.siliconflow.cn/v1", 
+    def __init__(self, siliconflow_api_key: str = "", 
+                 siliconflow_api_base: str = "https://api.siliconflow.cn/v1", 
                  model_name: str = None, base_url: str = None, backend_type: str = None, 
-                 temperature: float = None, max_workers: int = None, single_file_timeout: int = None,
-                 total_summary_timeout: int = None, max_retry: int = None, max_retry_ollama: int = None):
+                 temperature: float = None, max_workers: int = None, 
+                 single_file_timeout: int = None, total_summary_timeout: int = None, 
+                 max_retry: int = None, max_retry_ollama: int = None):
         if model_name is None:
             model_name = DEFAULT_MODEL_NAME
         if base_url is None:
@@ -1120,7 +1134,8 @@ class GitDiffSummarizer:
         self.max_retry_ollama = max_retry_ollama
             
         self.token_counter = TokenCounter(model_name)
-        self.llm = LLMFactory.create_chat_llm(model_name, base_url, backend_type, temperature, siliconflow_api_key, siliconflow_api_base)
+        self.llm = LLMFactory.create_chat_llm(model_name, base_url, backend_type, temperature, 
+                                             siliconflow_api_key, siliconflow_api_base)
         self.single_file_chain = SingleFileAnalysisChain(self.llm, self.token_counter, backend_type)
         self.total_summary_chain = TotalSummaryChain(self.llm, self.token_counter, backend_type)
     
@@ -1187,11 +1202,14 @@ class GitDiffSummarizer:
                         summary = future.result(timeout=5)  # 短暂缓冲时间，因为任务已经完成
                         if summary:
                             file_summaries.append(summary)
-                            logger.info(f"完成文件 {file_path} 的摘要生成 ({completed_count}/{total_count})")
+                            logger.info(f"完成文件 {file_path} 的摘要生成 "
+                                   f"({completed_count}/{total_count})")
                         else:
-                            logger.warning(f"文件 {file_path} 的摘要生成失败 ({completed_count}/{total_count})")
+                            logger.warning(f"文件 {file_path} 的摘要生成失败 "
+                                      f"({completed_count}/{total_count})")
                     except (FutureTimeoutError, TimeoutError) as e:
-                        logger.error(f"文件 {file_path} 的摘要获取超时，跳过该文件: {type(e).__name__} ({completed_count}/{total_count})")
+                        logger.error(f"文件 {file_path} 的摘要获取超时，跳过该文件: "
+                                    f"{type(e).__name__} ({completed_count}/{total_count})")
                         try:
                             future.cancel()
                         except Exception as cancel_e:
@@ -1199,7 +1217,8 @@ class GitDiffSummarizer:
                     except Exception as e:
                         logger.error(f"处理文件 {file_path} 时发生异常: {e} ({completed_count}/{total_count})")
             except (FutureTimeoutError, TimeoutError) as overall_e:
-                logger.error(f"整体处理超时({overall_timeout}秒)，已完成{completed_count}/{total_count}个文件")
+                logger.error(f"整体处理超时({overall_timeout}秒)，"
+                            f"已完成{completed_count}/{total_count}个文件")
                 # 取消所有未完成的任务
                 for future in future_to_file:
                     if not future.done():
@@ -1238,7 +1257,8 @@ class GitDiffSummarizer:
 
 # ==================== 主函数 ====================
 
-def get_agent_summary(sample_diff, siliconflow_api_key="", siliconflow_api_base="https://api.siliconflow.cn/v1",
+def get_agent_summary(sample_diff, siliconflow_api_key="", 
+                     siliconflow_api_base="https://api.siliconflow.cn/v1",
                      model_name=None, base_url=None, backend_type=None, temperature=None, 
                      max_workers=None, single_file_timeout=None, total_summary_timeout=None,
                      max_retry=None, max_retry_ollama=None):
