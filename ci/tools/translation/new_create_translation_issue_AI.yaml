@@ -9,7 +9,7 @@ translation_agent:
   
   # Model Configuration
   model:
-    name: "Qwen/Qwen3-32B" # Options: "llama3" "Qwen/Qwen3-8B"  "THUDM/GLM-4-32B-0414" or others
+    name: "Qwen/Qwen3-32B" # Options: "llama3" "Qwen/Qwen3-8B" "THUDM/GLM-4-32B-0414" or others
     temperature: 0.1
     max_retry: 5  # For siliconflow backend
     max_retry_ollama: 1  # For ollama backend
@@ -35,7 +35,7 @@ orgs:
         issue_title: "[Auto] This is an English translation issue for the PR"
         issue_assignee: judithsq
         file_extension: [ doc, md, json ]
-    change_content_exclude: [ ',', '，', '.', '。', ';', '；', ':', '：', '"', '“', '”', '、' ]
+    change_content_exclude: [ ',', '，', '.', '。', ';', '；', ':', '：', '"', '"', '"', '、' ]
 
   - org_name: src-openeuler
     issue_of_owner: openeuler
@@ -46,4 +46,4 @@ orgs:
         issue_title: "[Auto] This is an English translation issue for the PR"
         issue_assignee: judithsq
         file_extension: [ doc, md, json ]
-    change_content_exclude: [ ',', '，', '.', '。', ';', '；', ':', '：', '"', '“', '”', '、' ]
+    change_content_exclude: [ ',', '，', '.', '。', ';', '；', ':', '：', '"', '"', '"', '、' ]
