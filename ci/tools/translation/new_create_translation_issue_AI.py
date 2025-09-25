@@ -1,3 +1,10 @@
+# ==================== 常量定义 ====================
+
+# Issue类型常量
+ISSUE_TYPE_TRANSLATION = "翻译"
+
+# ==================== 数据模型定义 ====================
+
 import argparse
 import json
 import logging
@@ -156,7 +163,7 @@ class GiteeClient:
         req_body = {
             "repo": repo,
             "title": title,
-            "issue_type": "翻译",
+            "issue_type": ISSUE_TYPE_TRANSLATION,
             "body": body,
             "assignee": assignee,
             "push_events": False,
@@ -263,112 +270,192 @@ def load_config_yaml(yaml_path):
     return Config(**data)
 
 
+def analyze_diff_files(diff_files: list[str], issue_triggers: list[IssueTrigger], issue_title_pr_mark: str) -> tuple[int, list[str], list[str], dict]:
+    """
+    分析diff文件，识别需要创建issue的文件
+    返回: (文件计数, 中文文件列表, 英文文件列表, 需要创建的issue字典)
+    """
+    file_count = 0
+    zh_file = []
+    en_file = []
+    need_create_issue = {}
+    
+    for trigger in issue_triggers:
+        for diff_file in diff_files:
+            if diff_file.startswith(trigger.trigger_pr_path) and diff_file.split('.')[-1] in trigger.file_extension:
+                logger.info("file {} has been changed".format(diff_file))
+                file_count += 1
+                if "/zh" in trigger.trigger_pr_path:
+                    need_create_issue["zh"] = [trigger.issue_assignee,
+                                               "{}({}).".format(trigger.issue_title, issue_title_pr_mark)]
+                    zh_file.append(diff_file.replace("zh/", ""))
+                elif "/en" in trigger.trigger_pr_path:
+                    need_create_issue["en"] = [trigger.issue_assignee,
+                                               "{}({}).".format(trigger.issue_title, issue_title_pr_mark)]
+                    en_file.append(diff_file.replace("en/", ""))
+                else:
+                    logger.warning("not a range")
+    
+    return file_count, zh_file, en_file, need_create_issue
+
+
+def check_same_files_changed(zh_file: list[str], en_file: list[str]) -> bool:
+    """
+    检查中英文路径下是否修改了相同的文件
+    """
+    for z in zh_file:
+        if z in en_file:
+            return True
+    return False
+
+
+def prepare_issue_templates(need_create_issue: dict) -> tuple[dict, list[str]]:
+    """
+    准备issue模板和标题列表
+    """
+    need_create_issue_template = {}
+    need_create_issue_titles = []
+    for issue_item in need_create_issue:
+        need_create_issue_titles.append(need_create_issue[issue_item][1])
+        need_create_issue_template[need_create_issue[issue_item][1]] = need_create_issue[issue_item][0]
+    return need_create_issue_template, need_create_issue_titles
+
+
+def generate_issue_body(issue_summary, diff_files: list[str], pr_html_url: str) -> str:
+    """
+    生成issue的正文内容
+    """
+    issue_body = ""
+    if issue_summary and not issue_summary.error:
+        issue_body += f"## 📊 变更统计\n\n"
+        issue_body += f"- **总文件数**: {issue_summary.total_files}\n"
+        issue_body += f"- **成功处理文件数**: {issue_summary.processed_files}\n"
+        if issue_summary.total_files != issue_summary.processed_files:
+            # 注意人工审查提醒
+            issue_body += f"- **未处理文件数**: {issue_summary.total_files - issue_summary.processed_files}\n"
+            issue_body += f"- **提醒：机器人未能及时自动生成所有改动的摘要，请注意人工审查！**\n"
+        if issue_summary.total_summary:
+            total = issue_summary.total_summary
+            issue_body += f"- **总改动行数**: {total.total_lines_changed}\n"
+            issue_body += f"- **改动类型**: {', '.join(total.change_type_list)}\n\n"
+            issue_body += f"## 🔍 整体变更摘要\n\n"
+            issue_body += f"{total.overall_summary}\n\n"
+            issue_body += f"## ⚠️ 整体潜在影响\n\n"
+            issue_body += f"{total.overall_potential_impact}\n\n"
+        if issue_summary.file_summaries:
+            issue_body += f"## 📝 单文件变更详情\n\n"
+            for summary in issue_summary.file_summaries:
+                issue_body += f"### 📁 {summary.file_path}\n\n"
+                issue_body += f"- **改动类型**: {summary.change_type}\n"
+                issue_body += f"- **新增行数**: {summary.lines_added}\n"
+                issue_body += f"- **删除行数**: {summary.lines_deleted}\n"
+                issue_body += f"- **潜在影响**: {summary.potential_impact}\n"
+                issue_body += f"- **详细摘要**: {summary.summary}\n\n"
+                issue_body += "---\n\n"
+    else:
+        issue_body += f"## ⚠️ 翻译变更检测\n\n"
+        issue_body += f"检测到需要翻译的文件变更，但无法获取详细摘要信息。\n\n"
+        issue_body += f"**变更文件数量**: {len(diff_files)}\n"
+        issue_body += f"**相关PR**: {pr_html_url}\n\n"
+    
+    issue_body += f"## ❗️ 本Issue的摘要内容基于AI Agent技术自动生成，仅供参考，请以实际更改为准。\n\n" 
+    issue_body += f"## 🔗 相关PR链接\n\n"
+    issue_body += f"- {pr_html_url}\n"
+    
+    return issue_body
+
+
+def process_org_item(org_item: Org, cli: GiteeClient, pr_owner: str, pr_repo: str, pr_number: int, 
+                    siliconflow_api_key: str, siliconflow_api_base: str, pr_html_url: str, issue_title_pr_mark: str,
+                    translation_agent_config: TranslationAgentConfig = None):
+    """
+    处理单个组织配置项
+    """
+    # 获取diff内容
+    diff_content = cli.get_diff_content(pr_owner, pr_repo, pr_number)
+    if diff_content is None:
+        sys.exit(1)
+    
+    diff_files = get_diff_file_list(diff_content)
+    
+    # 分析diff文件
+    file_count, zh_file, en_file, need_create_issue = analyze_diff_files(
+        diff_files, org_item.issue_triggers, issue_title_pr_mark)
+    
+    # 检查是否修改了相同文件
+    changed_same_files = check_same_files_changed(zh_file, en_file)
+    
+    # 验证是否需要创建issue
+    if file_count == 0:
+        logger.warning(
+            "NOTE: https://gitee.com/{}/files change files out of translate range".format(issue_title_pr_mark))
+        return
+    
+    if changed_same_files:
+        logger.info("changed the same files in en and zh path, no need to create issue")
+        return
+    
+    # 准备issue模板
+    need_create_issue_template, need_create_issue_titles = prepare_issue_templates(need_create_issue)
+    
+    if not need_create_issue_titles:
+        return
+    
+    # 检查issue是否已存在
+    need_create_issue_list, existed_issue_list = cli.check_issue_exists(
+        org_item.issue_of_owner, org_item.issue_of_repo, need_create_issue_titles)
+    
+    if not need_create_issue_list:
+        feedback_comment = "issue has already created, please go to check issue: {}".format(existed_issue_list)
+        logger.info("Warning: " + feedback_comment)
+        cli.add_pr_comment(pr_owner, pr_repo, pr_number, feedback_comment)
+        return
+    
+    # 创建issue
+    for need_create_issue_item in need_create_issue_list:
+        # 从配置中提取参数
+        backend_config = translation_agent_config.backend if translation_agent_config else {}
+        model_config = translation_agent_config.model if translation_agent_config else {}
+        processing_config = translation_agent_config.processing if translation_agent_config else {}
+        
+        # 提取具体配置值
+        backend_type = backend_config.get('type', 'siliconflow')
+        model_name = model_config.get('name', 'Qwen/Qwen3-8B')
+        temperature = model_config.get('temperature', 0.1)
+        max_workers = processing_config.get('max_workers', 8)
+        single_file_timeout = processing_config.get('single_file_timeout', 180)
+        total_summary_timeout = processing_config.get('total_summary_timeout', 300)
+        max_retry = model_config.get('max_retry', 5)
+        max_retry_ollama = model_config.get('max_retry_ollama', 1)
+        
+        issue_summary = get_agent_summary(
+            diff_content, siliconflow_api_key, siliconflow_api_base,
+            model_name=model_name, backend_type=backend_type, temperature=temperature,
+            max_workers=max_workers, single_file_timeout=single_file_timeout,
+            total_summary_timeout=total_summary_timeout, max_retry=max_retry,
+            max_retry_ollama=max_retry_ollama
+        )
+        issue_body = generate_issue_body(issue_summary, diff_files, pr_html_url)
+        
+        cli.create_issue(org_item.issue_of_owner, org_item.issue_of_repo, need_create_issue_item,
+                         need_create_issue_template[need_create_issue_item], issue_body)
+
+
 def create_issue_based_on_pr_diff_and_config(conf: Config, cli: GiteeClient, pr_owner: str, pr_repo: str,
                                              pr_number: int, siliconflow_api_key: str, siliconflow_api_base: str):
-    pr__html_url = "https://gitee.com/{}/{}/pulls/{}".format(pr_owner, pr_repo, pr_number)
+    """
+    基于PR diff和配置创建issue的主函数
+    """
+    pr_html_url = "https://gitee.com/{}/{}/pulls/{}".format(pr_owner, pr_repo, pr_number)
+    issue_title_pr_mark = "{}/{}/pulls/{}".format(pr_owner, pr_repo, pr_number)
+    
     for org_item in conf.orgs:
-        issue_title_pr_mark = "{}/{}/pulls/{}".format(pr_owner, pr_repo, pr_number)
         if org_item.org_name != pr_owner:
             continue
-        # 旧标点符号判断逻辑，已弃用
-        # if org_item.auto_create_issue:
-        #     cli.check_only_marks_changed(pr_owner, pr_repo, pr_number, org_item.change_content_exclude)
-        file_count = 0
-        diff_content = cli.get_diff_content(pr_owner, pr_repo, pr_number)
-        if diff_content is None:
-            sys.exit(1)
-        diff_files = get_diff_file_list(diff_content)
-        zh_file = []
-        en_file = []
-        need_create_issue = {}
-        for trigger in org_item.issue_triggers:
-            for diff_file in diff_files:
-                if diff_file.startswith(trigger.trigger_pr_path) and diff_file.split('.')[-1] in trigger.file_extension:
-                    logger.info("file {} has been changed".format(diff_file))
-                    file_count += 1
-                    if "/zh" in trigger.trigger_pr_path:
-                        need_create_issue["zh"] = [trigger.issue_assignee,
-                                                   "{}({}).".format(trigger.issue_title, issue_title_pr_mark)]
-                        zh_file.append(diff_file.replace("zh/", ""))
-                    elif "/en" in trigger.trigger_pr_path:
-                        need_create_issue["en"] = [trigger.issue_assignee,
-                                                   "{}({}).".format(trigger.issue_title, issue_title_pr_mark)]
-                        en_file.append(diff_file.replace("en/", ""))
-                    else:
-                        logger.warning("not a range")
-        changed_same_files = False
-        for z in zh_file:
-            if z in en_file:
-                changed_same_files = True
-            else:
-                changed_same_files = False
-        if file_count == 0:
-            logger.warning(
-                "NOTE: https://gitee.com/{}/files change files out of translate range".format(issue_title_pr_mark))
-            return
-        if changed_same_files:
-            logger.info("changed the same files in en and zh path, no need to create issue")
-            return
-
-        need_create_issue_template = {}
-        need_create_issue_titles = []
-        for issue_item in need_create_issue:
-            need_create_issue_titles.append(need_create_issue[issue_item][1])
-            need_create_issue_template[need_create_issue[issue_item][1]] = need_create_issue[issue_item][0]
-        if need_create_issue_titles:
-
-            need_create_issue_list, existed_issue_list = cli.check_issue_exists(org_item.issue_of_owner,
-                                                                                org_item.issue_of_repo,
-                                                                                need_create_issue_titles)
-
-            if not need_create_issue_list:
-                feedback_comment = "issue has already created, please go to check issue: {}".format(
-                    existed_issue_list)
-                logger.info("Warning: " + feedback_comment)
-                cli.add_pr_comment(pr_owner, pr_repo, pr_number, feedback_comment)
-            for need_create_issue_item in need_create_issue_list:
-                
-                issue_summary = get_agent_summary(diff_content, siliconflow_api_key, siliconflow_api_base)
-                issue_body = ""
-                if issue_summary and not issue_summary.error:
-                    issue_body += f"## 📊 变更统计\n\n"
-                    issue_body += f"- **总文件数**: {issue_summary.total_files}\n"
-                    issue_body += f"- **成功处理文件数**: {issue_summary.processed_files}\n"
-                    if issue_summary.total_files != issue_summary.processed_files:
-                        # 注意人工审查提醒
-                        issue_body += f"- **未处理文件数**: {issue_summary.total_files - issue_summary.processed_files}\n"
-                        issue_body += f"- **提醒：机器人未能及时自动生成所有改动的摘要，请注意人工审查！**\n"
-                    if issue_summary.total_summary:
-                        total = issue_summary.total_summary
-                        issue_body += f"- **总改动行数**: {total.total_lines_changed}\n"
-                        issue_body += f"- **改动类型**: {', '.join(total.change_type_list)}\n\n"
-                        issue_body += f"## 🔍 整体变更摘要\n\n"
-                        issue_body += f"{total.overall_summary}\n\n"
-                        issue_body += f"## ⚠️ 整体潜在影响\n\n"
-                        issue_body += f"{total.overall_potential_impact}\n\n"
-                    if issue_summary.file_summaries:
-                        issue_body += f"## 📝 单文件变更详情\n\n"
-                        for summary in issue_summary.file_summaries:
-                            issue_body += f"### 📁 {summary.file_path}\n\n"
-                            issue_body += f"- **改动类型**: {summary.change_type}\n"
-                            issue_body += f"- **新增行数**: {summary.lines_added}\n"
-                            issue_body += f"- **删除行数**: {summary.lines_deleted}\n"
-                            issue_body += f"- **潜在影响**: {summary.potential_impact}\n"
-                            issue_body += f"- **详细摘要**: {summary.summary}\n\n"
-                            issue_body += "---\n\n"
-                else:
-                    issue_body += f"## ⚠️ 翻译变更检测\n\n"
-                    issue_body += f"检测到需要翻译的文件变更，但无法获取详细摘要信息。\n\n"
-                    issue_body += f"**变更文件数量**: {len(diff_files)}\n"
-                    issue_body += f"**相关PR**: {pr__html_url}\n\n"
-                
-                issue_body += f"## ❗️ 本Issue的摘要内容基于AI Agent技术自动生成，仅供参考，请以实际更改为准。\n\n" 
-                issue_body += f"## 🔗 相关PR链接\n\n"
-                issue_body += f"- {pr__html_url}\n"
-                
-                cli.create_issue(org_item.issue_of_owner, org_item.issue_of_repo, need_create_issue_item,
-                                 need_create_issue_template[need_create_issue_item],
-                                 issue_body)          
+        
+        process_org_item(org_item, cli, pr_owner, pr_repo, pr_number, 
+                        siliconflow_api_key, siliconflow_api_base, pr_html_url, issue_title_pr_mark,
+                        conf.translation_agent)          
 
 
 
