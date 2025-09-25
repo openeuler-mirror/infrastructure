@@ -20,41 +20,26 @@ from langchain_core.output_parsers import JsonOutputParser
 from langchain_openai import ChatOpenAI
 import yaml
 
-# ==================== 配置加载 ====================
-
-def load_config(config_file="new_create_translation_issue.yaml"):
-    """从YAML文件加载配置"""
-    try:
-        with open(config_file, 'r', encoding='utf-8') as f:
-            config = yaml.safe_load(f)
-        return config.get('translation_agent', {})
-    except FileNotFoundError:
-        print(f"配置文件 {config_file} 不存在")
-        raise
-    except yaml.YAMLError as e:
-        print(f"解析配置文件时发生错误: {e}")
-        raise
-
-# 加载配置
-_config = load_config()
-
 # ==================== 配置常量 ====================
 
-BACKEND_TYPE = _config.get('backend', {}).get('type', 'siliconflow')
-OLLAMA_BASE_URL = _config.get('backend', {}).get('ollama', {}).get('base_url', 'http://localhost:11434')
-MODEL_NAME = _config.get('model', {}).get('name', 'Qwen/Qwen3-8B')
-MODEL_TEMPERATURE = _config.get('model', {}).get('temperature', 0.1)
-MODEL_MAX_RETRY = _config.get('model', {}).get('max_retry', 5)
-MODEL_MAX_RETRY_OLLAMA = _config.get('model', {}).get('max_retry_ollama', 1)
-PROCESSING_MAX_WORKERS = _config.get('processing', {}).get('max_workers', 8)
-SINGLE_FILE_TIMEOUT = _config.get('processing', {}).get('single_file_timeout', 180)
-TOTAL_SUMMARY_TIMEOUT = _config.get('processing', {}).get('total_summary_timeout', 300)
-LOGGING_LEVEL = _config.get('logging', {}).get('level', 'INFO')
-SILICONFLOW_API_KEY = ''
-SILICONFLOW_API_BASE =''
+# 后端类型常量
+BACKEND_TYPE_OLLAMA = "ollama"
+BACKEND_TYPE_SILICONFLOW = "siliconflow"
+
+# 默认配置值
+DEFAULT_BACKEND_TYPE = BACKEND_TYPE_SILICONFLOW
+DEFAULT_OLLAMA_BASE_URL = 'http://localhost:11434'
+DEFAULT_MODEL_NAME = 'Qwen/Qwen3-8B'
+DEFAULT_MODEL_TEMPERATURE = 0.1
+DEFAULT_MODEL_MAX_RETRY = 5
+DEFAULT_MODEL_MAX_RETRY_OLLAMA = 1
+DEFAULT_PROCESSING_MAX_WORKERS = 8
+DEFAULT_SINGLE_FILE_TIMEOUT = 180
+DEFAULT_TOTAL_SUMMARY_TIMEOUT = 300
+DEFAULT_LOGGING_LEVEL = 'INFO'
 
 # 配置日志
-logging.basicConfig(level=getattr(logging, LOGGING_LEVEL.upper()))
+logging.basicConfig(level=getattr(logging, DEFAULT_LOGGING_LEVEL.upper()))
 logger = logging.getLogger(__name__)
 
 # ==================== 数据模型定义 ====================
@@ -103,7 +88,7 @@ class ProcessingResult:
 # ==================== Token 统计工具 ====================
 
 class TokenCounter:
-    def __init__(self, model_name=MODEL_NAME):
+    def __init__(self, model_name=DEFAULT_MODEL_NAME):
         self.model_name = model_name
         self.prompt_tokens = 0
         self.completion_tokens = 0
@@ -432,52 +417,62 @@ class LLMFactory:
     """LLM工厂类"""
     
     @staticmethod
-    def create_chat_llm(model_name: str = None, base_url: str = None):
+    def create_chat_llm(model_name: str = None, base_url: str = None, backend_type: str = None, 
+                       temperature: float = None, siliconflow_api_key: str = "", siliconflow_api_base: str = ""):
         """创建LLM实例"""
         if model_name is None:
-            model_name = MODEL_NAME
+            model_name = DEFAULT_MODEL_NAME
         if base_url is None:
-            base_url = OLLAMA_BASE_URL
+            base_url = DEFAULT_OLLAMA_BASE_URL
+        if backend_type is None:
+            backend_type = DEFAULT_BACKEND_TYPE
+        if temperature is None:
+            temperature = DEFAULT_MODEL_TEMPERATURE
             
-        if BACKEND_TYPE == "ollama":
+        if backend_type == BACKEND_TYPE_OLLAMA:
             return ChatOllama(
                 model=model_name,
                 base_url=base_url,
-                temperature=MODEL_TEMPERATURE
+                temperature=temperature
             )
-        elif BACKEND_TYPE == "siliconflow":
+        elif backend_type == BACKEND_TYPE_SILICONFLOW:
             return ChatOpenAI(
                 model=model_name,
-                api_key=SecretStr(SILICONFLOW_API_KEY),
-                base_url=SILICONFLOW_API_BASE,
-                temperature=MODEL_TEMPERATURE
+                api_key=SecretStr(siliconflow_api_key),
+                base_url=siliconflow_api_base,
+                temperature=temperature
             )
         else:
-            raise ValueError(f"不支持的后端类型: {BACKEND_TYPE}")
+            raise ValueError(f"不支持的后端类型: {backend_type}")
     
     @staticmethod
-    def create_llm(model_name: str = None, base_url: str = None):
+    def create_llm(model_name: str = None, base_url: str = None, backend_type: str = None,
+                   temperature: float = None, siliconflow_api_key: str = "", siliconflow_api_base: str = ""):
         """创建LLM实例"""
         if model_name is None:
-            model_name = MODEL_NAME
+            model_name = DEFAULT_MODEL_NAME
         if base_url is None:
-            base_url = OLLAMA_BASE_URL
+            base_url = DEFAULT_OLLAMA_BASE_URL
+        if backend_type is None:
+            backend_type = DEFAULT_BACKEND_TYPE
+        if temperature is None:
+            temperature = DEFAULT_MODEL_TEMPERATURE
             
-        if BACKEND_TYPE == "ollama":
+        if backend_type == BACKEND_TYPE_OLLAMA:
             return Ollama(
                 model=model_name,
                 base_url=base_url,
-                temperature=MODEL_TEMPERATURE
+                temperature=temperature
             )
-        elif BACKEND_TYPE == "siliconflow":
+        elif backend_type == BACKEND_TYPE_SILICONFLOW:
             return ChatOpenAI(
                 model=model_name,
-                api_key=SecretStr(SILICONFLOW_API_KEY),
-                base_url=SILICONFLOW_API_BASE,
-                temperature=MODEL_TEMPERATURE
+                api_key=SecretStr(siliconflow_api_key),
+                base_url=siliconflow_api_base,
+                temperature=temperature
             )
         else:
-            raise ValueError(f"不支持的后端类型: {BACKEND_TYPE}")
+            raise ValueError(f"不支持的后端类型: {backend_type}")
 
 class PromptTemplates:
     """提示模板集合"""
@@ -669,15 +664,16 @@ Git Diff 内容:
 class SingleFileAnalysisChain:
     """单文件分析任务链"""
     
-    def __init__(self, llm: ChatOllama | ChatOpenAI, token_counter: TokenCounter):
+    def __init__(self, llm: ChatOllama | ChatOpenAI, token_counter: TokenCounter, backend_type: str = DEFAULT_BACKEND_TYPE):
         self.llm = llm
         self.token_counter = token_counter
+        self.backend_type = backend_type
         
         # 创建输出解析器
         self.output_parser = JsonOutputParser(pydantic_object=SingleFileSummary)
         
         # 根据后端类型选择不同的链构建方式
-        if BACKEND_TYPE == "ollama":
+        if backend_type == BACKEND_TYPE_OLLAMA:
             self.prompt = PromptTemplates.get_single_file_prompt()
             self.chain = self.prompt | self.llm.with_structured_output(SingleFileSummary)
         else:
@@ -809,10 +805,11 @@ Git Diff 内容:
             ])
             self.chain = self.prompt | self.llm | self.output_parser
     
-    def analyze(self, diff_file_info: DiffFileInfo) -> Optional[SingleFileSummary]:
+    def analyze(self, diff_file_info: DiffFileInfo, max_retry_ollama: int = DEFAULT_MODEL_MAX_RETRY_OLLAMA, 
+                max_retry: int = DEFAULT_MODEL_MAX_RETRY) -> Optional[SingleFileSummary]:
         """分析单个文件的改动"""
-        max_retry = MODEL_MAX_RETRY_OLLAMA if BACKEND_TYPE == "ollama" else MODEL_MAX_RETRY
-        for attempt in range(1, max_retry + 1):
+        max_retry_count = max_retry_ollama if self.backend_type == BACKEND_TYPE_OLLAMA else max_retry
+        for attempt in range(1, max_retry_count + 1):
             # 如果不是第一次尝试，等待一段时间再重试，避免连续失败
             if attempt > 1:
                 delay = min(attempt * 2, 10)  # 递增延迟，最多10秒
@@ -843,7 +840,7 @@ Git Diff 内容:
                     "lines_added": diff_file_info.lines_added,
                     "lines_deleted": diff_file_info.lines_deleted
                 }
-                if BACKEND_TYPE != "ollama":
+                if self.backend_type != BACKEND_TYPE_OLLAMA:
                     invoke_args["response_format"] = {"type": "json_object"}
                 
                 result = self.chain.invoke(invoke_args)
@@ -870,7 +867,7 @@ Git Diff 内容:
                 
                 # 结果无效，记录并重试
                 logger.warning(f"分析文件 {diff_file_info.file_path} 返回无效结果，第{attempt}次尝试")
-                if attempt < max_retry:
+                if attempt < max_retry_count:
                     continue
             except Exception as e:
                 err_str = str(e)
@@ -884,29 +881,30 @@ Git Diff 内容:
                     is_http_error = True
                 if is_http_error:
                     logger.error(f"分析文件 {diff_file_info.file_path} 时发生HTTP错误: {e}，第{attempt}次尝试，10秒后重试...")
-                    if attempt < max_retry:
+                    if attempt < max_retry_count:
                         time.sleep(10)
                         continue
                 else:
                     logger.error(f"分析文件 {diff_file_info.file_path} 时发生错误: {e}，第{attempt}次尝试")
                 # 其它异常直接进入下一次重试
-                if attempt < max_retry:
+                if attempt < max_retry_count:
                     logger.info(f"第{attempt}次尝试失败，准备重试...")
-        logger.error(f"分析文件 {diff_file_info.file_path} 连续{max_retry}次均未获得结构化输出，放弃。")
+        logger.error(f"分析文件 {diff_file_info.file_path} 连续{max_retry_count}次均未获得结构化输出，放弃。")
         return None
 
 class TotalSummaryChain:
     """总摘要生成任务链"""
     
-    def __init__(self, llm: ChatOllama | ChatOpenAI, token_counter: TokenCounter):
+    def __init__(self, llm: ChatOllama | ChatOpenAI, token_counter: TokenCounter, backend_type: str = DEFAULT_BACKEND_TYPE):
         self.llm = llm
         self.token_counter = token_counter
+        self.backend_type = backend_type
         
         # 创建输出解析器
         self.output_parser = JsonOutputParser(pydantic_object=TotalSummary)
         
         # 根据后端类型选择不同的链构建方式
-        if BACKEND_TYPE == "ollama":
+        if backend_type == BACKEND_TYPE_OLLAMA:
             self.prompt = PromptTemplates.get_total_summary_prompt()
             self.chain = self.prompt | self.llm.with_structured_output(TotalSummary)
         else:
@@ -985,7 +983,7 @@ class TotalSummaryChain:
             ])
             self.chain = self.prompt | self.llm | self.output_parser
     
-    def generate(self, file_summaries: List[SingleFileSummary]) -> Optional[TotalSummary]:
+    def generate(self, file_summaries: List[SingleFileSummary], total_summary_timeout: int = DEFAULT_TOTAL_SUMMARY_TIMEOUT) -> Optional[TotalSummary]:
         """生成总摘要"""
         try:
             total_files = len(file_summaries)
@@ -1027,16 +1025,16 @@ class TotalSummaryChain:
                     "total_files": total_files,
                     "total_lines": total_lines
                 }
-                if BACKEND_TYPE != "ollama":
+                if self.backend_type != BACKEND_TYPE_OLLAMA:
                     # 为 SiliconFlow 添加 response_format 参数
                     invoke_args["response_format"] = {"type": "json_object"}
                 
                 # 提交任务并设置超时
                 future = timeout_executor.submit(self.chain.invoke, invoke_args)
                 try:
-                    result = future.result(timeout=TOTAL_SUMMARY_TIMEOUT)
+                    result = future.result(timeout=total_summary_timeout)
                 except (FutureTimeoutError, TimeoutError) as e:
-                    logger.error(f"生成总摘要超时（{TOTAL_SUMMARY_TIMEOUT}秒），放弃生成总摘要: {type(e).__name__}")
+                    logger.error(f"生成总摘要超时（{total_summary_timeout}秒），放弃生成总摘要: {type(e).__name__}")
                     try:
                         future.cancel()  # 尝试取消超时的任务
                     except Exception as cancel_e:
@@ -1091,23 +1089,40 @@ class TotalSummaryChain:
 class GitDiffSummarizer:
     """Git Diff 摘要生成器"""
     
-    def __init__(self, siliconflow_api_key: str = "", siliconflow_api_base: str = "https://api.siliconflow.cn/v1", model_name: str = None, base_url: str = None):
+    def __init__(self, siliconflow_api_key: str = "", siliconflow_api_base: str = "https://api.siliconflow.cn/v1", 
+                 model_name: str = None, base_url: str = None, backend_type: str = None, 
+                 temperature: float = None, max_workers: int = None, single_file_timeout: int = None,
+                 total_summary_timeout: int = None, max_retry: int = None, max_retry_ollama: int = None):
         if model_name is None:
-            model_name = MODEL_NAME
+            model_name = DEFAULT_MODEL_NAME
         if base_url is None:
-            base_url = OLLAMA_BASE_URL
-        
-        # 设置siliconflow API配置
-        global SILICONFLOW_API_KEY, SILICONFLOW_API_BASE
-        if siliconflow_api_key:
-            SILICONFLOW_API_KEY = siliconflow_api_key
-        if siliconflow_api_base:
-            SILICONFLOW_API_BASE = siliconflow_api_base
+            base_url = DEFAULT_OLLAMA_BASE_URL
+        if backend_type is None:
+            backend_type = DEFAULT_BACKEND_TYPE
+        if temperature is None:
+            temperature = DEFAULT_MODEL_TEMPERATURE
+        if max_workers is None:
+            max_workers = DEFAULT_PROCESSING_MAX_WORKERS
+        if single_file_timeout is None:
+            single_file_timeout = DEFAULT_SINGLE_FILE_TIMEOUT
+        if total_summary_timeout is None:
+            total_summary_timeout = DEFAULT_TOTAL_SUMMARY_TIMEOUT
+        if max_retry is None:
+            max_retry = DEFAULT_MODEL_MAX_RETRY
+        if max_retry_ollama is None:
+            max_retry_ollama = DEFAULT_MODEL_MAX_RETRY_OLLAMA
+            
+        self.backend_type = backend_type
+        self.max_workers = max_workers
+        self.single_file_timeout = single_file_timeout
+        self.total_summary_timeout = total_summary_timeout
+        self.max_retry = max_retry
+        self.max_retry_ollama = max_retry_ollama
             
         self.token_counter = TokenCounter(model_name)
-        self.llm = LLMFactory.create_chat_llm(model_name, base_url)
-        self.single_file_chain = SingleFileAnalysisChain(self.llm, self.token_counter)
-        self.total_summary_chain = TotalSummaryChain(self.llm, self.token_counter)
+        self.llm = LLMFactory.create_chat_llm(model_name, base_url, backend_type, temperature, siliconflow_api_key, siliconflow_api_base)
+        self.single_file_chain = SingleFileAnalysisChain(self.llm, self.token_counter, backend_type)
+        self.total_summary_chain = TotalSummaryChain(self.llm, self.token_counter, backend_type)
     
     def cleanup(self):
         """清理资源，确保程序能正确退出"""
@@ -1119,7 +1134,7 @@ class GitDiffSummarizer:
                 self.llm._client.close()
             
             # 如果是 ChatOpenAI，尝试关闭底层的 HTTP 客户端
-            if BACKEND_TYPE == "siliconflow" and hasattr(self.llm, 'client'):
+            if self.backend_type == BACKEND_TYPE_SILICONFLOW and hasattr(self.llm, 'client'):
                 try:
                     # 强制关闭 httpx 客户端
                     if hasattr(self.llm.client, '_client'):
@@ -1133,7 +1148,7 @@ class GitDiffSummarizer:
     
     def process_git_diff(self, diff_content: str, max_workers: int = None) -> ProcessingResult:
         if max_workers is None:
-            max_workers = PROCESSING_MAX_WORKERS
+            max_workers = self.max_workers
             
         logger.info("开始解析git diff...")
         files = DiffParser.parse_git_diff(diff_content)
@@ -1154,12 +1169,12 @@ class GitDiffSummarizer:
         try:
             executor = ThreadPoolExecutor(max_workers=max_workers)
             future_to_file = {
-                executor.submit(self.single_file_chain.analyze, file_info): file_info.file_path
+                executor.submit(self.single_file_chain.analyze, file_info, self.max_retry_ollama, self.max_retry): file_info.file_path
                 for file_info in files
             }
             
             # 设置更长的整体超时时间，避免与单个文件超时冲突
-            overall_timeout = SINGLE_FILE_TIMEOUT * len(files) + 600  # 给每个文件的时间 + 额外缓冲
+            overall_timeout = self.single_file_timeout * len(files) + 600  # 给每个文件的时间 + 额外缓冲
             
             completed_count = 0
             total_count = len(future_to_file)
@@ -1205,7 +1220,7 @@ class GitDiffSummarizer:
         if file_summaries:
             logger.info(f"基于 {len(file_summaries)} 个成功处理的文件生成总摘要...")
             try:
-                total_summary = self.total_summary_chain.generate(file_summaries)
+                total_summary = self.total_summary_chain.generate(file_summaries, self.total_summary_timeout)
                 if total_summary:
                     logger.info("总摘要生成成功")
                 else:
@@ -1223,9 +1238,14 @@ class GitDiffSummarizer:
 
 # ==================== 主函数 ====================
 
-def get_agent_summary(sample_diff, siliconflow_api_key="", siliconflow_api_base="https://api.siliconflow.cn/v1"):
+def get_agent_summary(sample_diff, siliconflow_api_key="", siliconflow_api_base="https://api.siliconflow.cn/v1",
+                     model_name=None, base_url=None, backend_type=None, temperature=None, 
+                     max_workers=None, single_file_timeout=None, total_summary_timeout=None,
+                     max_retry=None, max_retry_ollama=None):
 
-    summarizer = GitDiffSummarizer(siliconflow_api_key, siliconflow_api_base)
+    summarizer = GitDiffSummarizer(siliconflow_api_key, siliconflow_api_base, model_name, base_url, 
+                                 backend_type, temperature, max_workers, single_file_timeout,
+                                 total_summary_timeout, max_retry, max_retry_ollama)
     result = None
     try:
         result = summarizer.process_git_diff(sample_diff)
@@ -1269,7 +1289,6 @@ def get_agent_summary(sample_diff, siliconflow_api_key="", siliconflow_api_base=
     print(f"Prompt tokens: {stats['prompt_tokens']}")
     print(f"Completion tokens: {stats['completion_tokens']}")
     print(f"Total tokens: {stats['total_tokens']}")
-    # exit()
     return result
 
 if __name__ == "__main__":
