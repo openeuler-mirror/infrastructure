@@ -173,7 +173,7 @@ class GiteeClient:
         }
         req_args = ReqArgs(method="POST", url=req_url, headers=self.headers, data=json.dumps(req_body))
         result: dict | None = send_request(req_args, {})
-        return result is None
+        return result is not None
 
     def add_pr_comment(self, owner, repo, number, body):
         req_url = 'https://gitee.com/api/v5/repos/{}/{}/pulls/{}/comments'.format(owner, repo, number)
@@ -375,6 +375,78 @@ def generate_issue_body(issue_summary, diff_files: list[str], pr_html_url: str) 
     return issue_body
 
 
+def generate_issue_body_without_ai_summary(diff_files: list[str], pr_html_url: str) -> str:
+    """
+    生成不包含AI摘要的issue正文内容
+    """
+    issue_body = f"## ⚠️ 翻译变更检测\n\n"
+    issue_body += f"检测到需要翻译的文件变更，但本次变更不包含docs/zh路径下的文件，因此未生成AI摘要。\n\n"
+    issue_body += f"**变更文件数量**: {len(diff_files)}\n"
+    issue_body += f"**相关PR**: {pr_html_url}\n\n"
+    issue_body += f"## 📝 变更文件列表\n\n"
+    
+    # 只显示docs/zh路径下的文件
+    docs_zh_files = [f for f in diff_files if f.startswith('docs/zh/')]
+    if docs_zh_files:
+        for file_path in docs_zh_files:
+            issue_body += f"- {file_path}\n"
+    else:
+        issue_body += f"本次变更未包含docs/zh路径下的文件。\n"
+    
+    issue_body += f"\n## 🔗 相关PR链接\n\n"
+    issue_body += f"- {pr_html_url}\n"
+    
+    return issue_body
+
+
+def filter_docs_zh_files(diff_content: str) -> str:
+    """
+    过滤diff内容，只保留docs/zh路径下的文件变更
+    """
+    if not diff_content:
+        return ""
+    
+    lines = diff_content.split('\n')
+    filtered_lines = []
+    current_file_section = []
+    in_docs_zh_file = False
+    
+    for line in lines:
+        if line.startswith('diff --git'):
+            # 处理前一个文件
+            if in_docs_zh_file and current_file_section:
+                filtered_lines.extend(current_file_section)
+            
+            # 检查新文件是否在docs/zh路径下
+            current_file_section = [line]
+            in_docs_zh_file = False
+            
+            # 提取文件路径
+            if ' a/' in line and ' b/' in line:
+                # 找到 a/ 和 b/ 的位置
+                a_pos = line.find(' a/')
+                b_pos = line.find(' b/')
+                
+                if a_pos != -1 and b_pos != -1 and a_pos < b_pos:
+                    # 提取a/和b/之间的路径
+                    a_start = a_pos + 3  # 跳过 ' a/'
+                    file_path = line[a_start:b_pos]
+                    
+                    # 检查是否在docs/zh路径下
+                    if file_path.startswith('docs/zh/'):
+                        in_docs_zh_file = True
+                        logger.info(f"包含docs/zh路径下的文件: {file_path}")
+        else:
+            # 继续当前文件的内容
+            current_file_section.append(line)
+    
+    # 处理最后一个文件
+    if in_docs_zh_file and current_file_section:
+        filtered_lines.extend(current_file_section)
+    
+    return '\n'.join(filtered_lines)
+
+
 def process_org_item(org_item: Org, cli: GiteeClient, pr_owner: str, pr_repo: str, 
                     pr_number: int, siliconflow_api_key: str, siliconflow_api_base: str, 
                     pr_html_url: str, issue_title_pr_mark: str,
@@ -386,6 +458,55 @@ def process_org_item(org_item: Org, cli: GiteeClient, pr_owner: str, pr_repo: st
     diff_content = cli.get_diff_content(pr_owner, pr_repo, pr_number)
     if diff_content is None:
         sys.exit(1)
+    
+    # 过滤只保留docs/zh路径下的文件
+    filtered_diff_content = filter_docs_zh_files(diff_content)
+    
+    # 检查是否有docs/zh路径下的文件变更
+    if not filtered_diff_content.strip():
+        logger.info("没有docs/zh路径下的文件变更，跳过AI摘要生成")
+        # 创建简单的issue，不包含AI摘要
+        diff_files = get_diff_file_list(diff_content)
+        file_count, zh_file, en_file, need_create_issue = analyze_diff_files(
+            diff_files, org_item.issue_triggers, issue_title_pr_mark)
+        
+        if file_count == 0:
+            logger.warning(
+                "NOTE: https://gitee.com/{}/files change files out of translate range"
+                .format(issue_title_pr_mark))
+            return
+        
+        if check_same_files_changed(zh_file, en_file):
+            logger.info("changed the same files in en and zh path, no need to create issue")
+            return
+        
+        need_create_issue_template, need_create_issue_titles = prepare_issue_templates(need_create_issue)
+        if not need_create_issue_titles:
+            return
+        
+        need_create_issue_list, existed_issue_list = cli.check_issue_exists(
+            org_item.issue_of_owner, org_item.issue_of_repo, need_create_issue_titles)
+        
+        if not need_create_issue_list:
+            feedback_comment = "所有相关的翻译issue已经存在，请检查: {}".format(
+                ", ".join(existed_issue_list))
+            logger.info("Warning: " + feedback_comment)
+            cli.add_pr_comment(pr_owner, pr_repo, pr_number, feedback_comment)
+            return
+        
+        # 创建不包含AI摘要的简单issue
+        for need_create_issue_item in need_create_issue_list:
+            issue_body = generate_issue_body_without_ai_summary(diff_files, pr_html_url)
+            success = cli.create_issue(org_item.issue_of_owner, org_item.issue_of_repo, 
+                                       need_create_issue_item,
+                                       need_create_issue_template[need_create_issue_item], issue_body)
+            if success:
+                logger.info(f"成功创建issue: {need_create_issue_item}")
+            else:
+                logger.error(f"创建issue失败: {need_create_issue_item}")
+                error_comment = f"创建翻译issue失败: {need_create_issue_item}，请手动创建"
+                cli.add_pr_comment(pr_owner, pr_repo, pr_number, error_comment)
+        return
     
     diff_files = get_diff_file_list(diff_content)
     
@@ -418,8 +539,8 @@ def process_org_item(org_item: Org, cli: GiteeClient, pr_owner: str, pr_repo: st
         org_item.issue_of_owner, org_item.issue_of_repo, need_create_issue_titles)
     
     if not need_create_issue_list:
-        feedback_comment = "issue has already created, please go to check issue: {}".format(
-            existed_issue_list)
+        feedback_comment = "所有相关的翻译issue已经存在，请检查: {}".format(
+            ", ".join(existed_issue_list))
         logger.info("Warning: " + feedback_comment)
         cli.add_pr_comment(pr_owner, pr_repo, pr_number, feedback_comment)
         return
@@ -442,23 +563,32 @@ def process_org_item(org_item: Org, cli: GiteeClient, pr_owner: str, pr_repo: st
         max_retry_ollama = model_config.get('max_retry_ollama', 1)
         
         try:
+            # 使用过滤后的diff内容生成AI摘要
             issue_summary = get_agent_summary(
-                diff_content, siliconflow_api_key, siliconflow_api_base,
+                filtered_diff_content, siliconflow_api_key, siliconflow_api_base,
                 model_name=model_name, backend_type=backend_type, temperature=temperature,
                 max_workers=max_workers, single_file_timeout=single_file_timeout,
                 total_summary_timeout=total_summary_timeout, max_retry=max_retry,
                 max_retry_ollama=max_retry_ollama
             )
             issue_body = generate_issue_body(issue_summary, diff_files, pr_html_url)
+            logger.info("AI Agent成功生成issue内容")
         except Exception as e:
             logger.error(f"AI Agent调用失败: {e}")
             logger.info("回退到传统方式创建issue")
             # 使用传统方式的简单issue body格式
             issue_body = "### Related PR link \n - {}".format(pr_html_url)
         
-        cli.create_issue(org_item.issue_of_owner, org_item.issue_of_repo, 
-                         need_create_issue_item,
-                         need_create_issue_template[need_create_issue_item], issue_body)
+        success = cli.create_issue(org_item.issue_of_owner, org_item.issue_of_repo, 
+                                   need_create_issue_item,
+                                   need_create_issue_template[need_create_issue_item], issue_body)
+        if success:
+            logger.info(f"成功创建issue: {need_create_issue_item}")
+        else:
+            logger.error(f"创建issue失败: {need_create_issue_item}")
+            # 添加PR评论说明创建失败
+            error_comment = f"创建翻译issue失败: {need_create_issue_item}，请手动创建"
+            cli.add_pr_comment(pr_owner, pr_repo, pr_number, error_comment)
 
 
 def create_issue_based_on_pr_diff_and_config(conf: Config, cli: GiteeClient, 
@@ -503,7 +633,7 @@ def main():
 
     pr_owner = args.pr_owner
     pr_repo = args.pr_repo
-    pr_number = args.pr_number
+    pr_number = int(args.pr_number)
     siliconflow_api_key = args.siliconflow_api_key
     siliconflow_api_base = args.siliconflow_api_base
     create_issue_based_on_pr_diff_and_config(conf, cli, pr_owner, pr_repo, pr_number, 
