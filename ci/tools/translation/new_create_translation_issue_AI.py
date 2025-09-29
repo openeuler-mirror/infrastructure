@@ -81,9 +81,6 @@ class ReqArgs:
 
 
 T = TypeVar('T')
-content_type_is_text = "text/plain"
-content_type_is_json_dict = {}
-content_type_is_json_list = []
 
 
 def send_request(args: ReqArgs, t: Generic[T]) -> T:
@@ -186,11 +183,21 @@ class GiteeClient:
 
     def check_only_marks_changed(self, owner, repo, number, check_list):
         diff_content = self.get_diff_content(owner, repo, number)
-        deleted_strs, inserted_strs = get_diff_content_list(diff_content)
+
+        # 检查docs/en路径下是否有对应的文件变更
+        zh_files_in_en = check_zh_files_also_modified_in_en(diff_content)
+
+        # 只检查docs/zh路径下的变更，过滤掉同时在en下修改的文件
+        filtered_diff_content = filter_docs_zh_files(diff_content, zh_files_in_en)
+        if not filtered_diff_content.strip():
+            logger.info('No docs/zh changes found, skip mark change check')
+            return
+
+        deleted_strs, inserted_strs = get_diff_content_list(filtered_diff_content)
         if is_only_marks_changed(deleted_strs, inserted_strs, check_list):
-            logger.warning('Only marks changed, skip the following steps')
+            logger.warning('Only marks changed in docs/zh files, skip the following steps')
             sys.exit(1)
-        logger.info('Not just only marks changed, continue creating issue')
+        logger.info('Not just only marks changed in docs/zh files, continue creating issue')
 
 
 def get_diff_file_list(diff_content: str) -> list[str]:
@@ -271,19 +278,22 @@ def load_config_yaml(yaml_path):
     return Config(**data)
 
 
-def analyze_diff_files(diff_files: list[str], issue_triggers: list[IssueTrigger], 
-                       issue_title_pr_mark: str) -> tuple[int, list[str], list[str], dict]:
+def analyze_diff_files(diff_files: list[str], issue_triggers: list[IssueTrigger],
+                       issue_title_pr_mark: str) -> tuple[int, list[str], dict]:
     """
-    分析diff文件，识别需要创建issue的文件
-    返回: (文件计数, 中文文件列表, 英文文件列表, 需要创建的issue字典)
+    分析diff文件，识别需要创建issue的文件（只处理docs/zh路径下的文件，不包括同时在docs/en下修改的文件）
+    返回: (文件计数, 中文文件列表, 需要创建的issue字典)
     """
     file_count = 0
     zh_file = []
-    en_file = []
     need_create_issue = {}
-    
+
     for trigger in issue_triggers:
         for diff_file in diff_files:
+            # 只处理docs/zh路径下的文件
+            if not diff_file.startswith('docs/zh/'):
+                continue
+
             if diff_file.startswith(trigger.trigger_pr_path) and \
                diff_file.split('.')[-1] in trigger.file_extension:
                 logger.info("file {} has been changed".format(diff_file))
@@ -293,27 +303,36 @@ def analyze_diff_files(diff_files: list[str], issue_triggers: list[IssueTrigger]
                         trigger.issue_assignee,
                         "{}({}).".format(trigger.issue_title, issue_title_pr_mark)
                     ]
-                    zh_file.append(diff_file.replace("zh/", ""))
-                elif "/en" in trigger.trigger_pr_path:
-                    need_create_issue["en"] = [
-                        trigger.issue_assignee,
-                        "{}({}).".format(trigger.issue_title, issue_title_pr_mark)
-                    ]
-                    en_file.append(diff_file.replace("en/", ""))
-                else:
-                    logger.warning("not a range")
-    
-    return file_count, zh_file, en_file, need_create_issue
+                    # 提取相对于docs/zh/的路径
+                    relative_path = diff_file.replace("docs/zh/", "")
+                    zh_file.append(relative_path)
+
+    return file_count, zh_file, need_create_issue
 
 
-def check_same_files_changed(zh_file: list[str], en_file: list[str]) -> bool:
+def check_zh_files_also_modified_in_en(diff_content: str) -> list[str]:
     """
-    检查中英文路径下是否修改了相同的文件
+    检查哪些docs/zh文件在docs/en下也有修改
+    返回：同时在docs/zh和docs/en下修改的文件列表（相对于docs/zh/的路径）
     """
-    for z in zh_file:
-        if z in en_file:
-            return True
-    return False
+    if not diff_content:
+        return []
+
+    # 获取所有diff文件
+    all_diff_files = get_diff_file_list(diff_content)
+
+    # 获取docs/zh和docs/en下的文件
+    zh_files = [f.replace("docs/zh/", "") for f in all_diff_files if f.startswith("docs/zh/")]
+    en_files = [f.replace("docs/en/", "") for f in all_diff_files if f.startswith("docs/en/")]
+
+    # 找出同时在zh和en下修改的文件
+    zh_files_in_en = []
+    for zh_file in zh_files:
+        if zh_file in en_files:
+            zh_files_in_en.append(zh_file)
+            logger.info(f"文件 {zh_file} 在docs/zh和docs/en下都有修改，将跳过摘要生成")
+
+    return zh_files_in_en
 
 
 def prepare_issue_templates(need_create_issue: dict) -> tuple[dict, list[str]]:
@@ -366,84 +385,81 @@ def generate_issue_body(issue_summary, diff_files: list[str], pr_html_url: str) 
         issue_body += f"检测到需要翻译的文件变更，但无法获取详细摘要信息。\n\n"
         issue_body += f"**变更文件数量**: {len(diff_files)}\n"
         issue_body += f"**相关PR**: {pr_html_url}\n\n"
-    
+        issue_body += f"## 📝 变更文件列表\n\n"
+        for file_path in diff_files:
+            issue_body += f"- {file_path}\n"
+        issue_body += f"\n"
+
     issue_body += f"## ❗️ 本Issue的摘要内容基于AI Agent技术自动生成，" \
-                 f"仅供参考，请以实际更改为准。\n\n" 
+                 f"仅供参考，请以实际更改为准。\n\n"
     issue_body += f"## 🔗 相关PR链接\n\n"
     issue_body += f"- {pr_html_url}\n"
     
     return issue_body
 
 
-def generate_issue_body_without_ai_summary(diff_files: list[str], pr_html_url: str) -> str:
-    """
-    生成不包含AI摘要的issue正文内容
-    """
-    issue_body = f"## ⚠️ 翻译变更检测\n\n"
-    issue_body += f"检测到需要翻译的文件变更，但本次变更不包含docs/zh路径下的文件，因此未生成AI摘要。\n\n"
-    issue_body += f"**变更文件数量**: {len(diff_files)}\n"
-    issue_body += f"**相关PR**: {pr_html_url}\n\n"
-    issue_body += f"## 📝 变更文件列表\n\n"
-    
-    # 只显示docs/zh路径下的文件
-    docs_zh_files = [f for f in diff_files if f.startswith('docs/zh/')]
-    if docs_zh_files:
-        for file_path in docs_zh_files:
-            issue_body += f"- {file_path}\n"
-    else:
-        issue_body += f"本次变更未包含docs/zh路径下的文件。\n"
-    
-    issue_body += f"\n## 🔗 相关PR链接\n\n"
-    issue_body += f"- {pr_html_url}\n"
-    
-    return issue_body
-
-
-def filter_docs_zh_files(diff_content: str) -> str:
+def filter_docs_zh_files(diff_content: str, exclude_files: list[str] = None) -> str:
     """
     过滤diff内容，只保留docs/zh路径下的文件变更
+    :param exclude_files: 需要排除的文件列表（相对于docs/zh/的路径）
     """
+    if exclude_files is None:
+        exclude_files = []
+
     if not diff_content:
         return ""
-    
+
     lines = diff_content.split('\n')
     filtered_lines = []
     current_file_section = []
     in_docs_zh_file = False
-    
+    current_file_path = ""
+
     for line in lines:
         if line.startswith('diff --git'):
             # 处理前一个文件
             if in_docs_zh_file and current_file_section:
-                filtered_lines.extend(current_file_section)
-            
+                # 检查当前文件是否需要排除
+                relative_path = current_file_path.replace("docs/zh/", "")
+                if relative_path not in exclude_files:
+                    filtered_lines.extend(current_file_section)
+                    logger.info(f"包含docs/zh路径下的文件: {current_file_path}")
+                else:
+                    logger.info(f"排除docs/zh路径下的文件（因为在en下也有修改）: {current_file_path}")
+
             # 检查新文件是否在docs/zh路径下
             current_file_section = [line]
             in_docs_zh_file = False
-            
+            current_file_path = ""
+
             # 提取文件路径
             if ' a/' in line and ' b/' in line:
                 # 找到 a/ 和 b/ 的位置
                 a_pos = line.find(' a/')
                 b_pos = line.find(' b/')
-                
+
                 if a_pos != -1 and b_pos != -1 and a_pos < b_pos:
                     # 提取a/和b/之间的路径
                     a_start = a_pos + 3  # 跳过 ' a/'
-                    file_path = line[a_start:b_pos]
-                    
+                    current_file_path = line[a_start:b_pos]
+
                     # 检查是否在docs/zh路径下
-                    if file_path.startswith('docs/zh/'):
+                    if current_file_path.startswith('docs/zh/'):
                         in_docs_zh_file = True
-                        logger.info(f"包含docs/zh路径下的文件: {file_path}")
         else:
             # 继续当前文件的内容
             current_file_section.append(line)
-    
+
     # 处理最后一个文件
     if in_docs_zh_file and current_file_section:
-        filtered_lines.extend(current_file_section)
-    
+        # 检查当前文件是否需要排除
+        relative_path = current_file_path.replace("docs/zh/", "")
+        if relative_path not in exclude_files:
+            filtered_lines.extend(current_file_section)
+            logger.info(f"包含docs/zh路径下的文件: {current_file_path}")
+        else:
+            logger.info(f"排除docs/zh路径下的文件（因为在en下也有修改）: {current_file_path}")
+
     return '\n'.join(filtered_lines)
 
 
@@ -458,74 +474,41 @@ def process_org_item(org_item: Org, cli: GiteeClient, pr_owner: str, pr_repo: st
     diff_content = cli.get_diff_content(pr_owner, pr_repo, pr_number)
     if diff_content is None:
         sys.exit(1)
-    
-    # 过滤只保留docs/zh路径下的文件
-    filtered_diff_content = filter_docs_zh_files(diff_content)
-    
-    # 检查是否有docs/zh路径下的文件变更
-    if not filtered_diff_content.strip():
-        logger.info("没有docs/zh路径下的文件变更，跳过AI摘要生成")
-        # 创建简单的issue，不包含AI摘要
-        diff_files = get_diff_file_list(diff_content)
-        file_count, zh_file, en_file, need_create_issue = analyze_diff_files(
-            diff_files, org_item.issue_triggers, issue_title_pr_mark)
-        
-        if file_count == 0:
-            logger.warning(
-                "NOTE: https://gitee.com/{}/files change files out of translate range"
-                .format(issue_title_pr_mark))
-            return
-        
-        if check_same_files_changed(zh_file, en_file):
-            logger.info("changed the same files in en and zh path, no need to create issue")
-            return
-        
-        need_create_issue_template, need_create_issue_titles = prepare_issue_templates(need_create_issue)
-        if not need_create_issue_titles:
-            return
-        
-        need_create_issue_list, existed_issue_list = cli.check_issue_exists(
-            org_item.issue_of_owner, org_item.issue_of_repo, need_create_issue_titles)
-        
-        if not need_create_issue_list:
-            feedback_comment = "所有相关的翻译issue已经存在，请检查: {}".format(
-                ", ".join(existed_issue_list))
-            logger.info("Warning: " + feedback_comment)
-            cli.add_pr_comment(pr_owner, pr_repo, pr_number, feedback_comment)
-            return
-        
-        # 创建不包含AI摘要的简单issue
-        for need_create_issue_item in need_create_issue_list:
-            issue_body = generate_issue_body_without_ai_summary(diff_files, pr_html_url)
-            success = cli.create_issue(org_item.issue_of_owner, org_item.issue_of_repo, 
-                                       need_create_issue_item,
-                                       need_create_issue_template[need_create_issue_item], issue_body)
-            if success:
-                logger.info(f"成功创建issue: {need_create_issue_item}")
-            else:
-                logger.error(f"创建issue失败: {need_create_issue_item}")
-                error_comment = f"创建翻译issue失败: {need_create_issue_item}，请手动创建"
-                cli.add_pr_comment(pr_owner, pr_repo, pr_number, error_comment)
+
+    # 早期检查：查看diff中是否包含docs/zh路径下的文件变更
+    if 'docs/zh/' not in diff_content:
+        logger.info("diff内容中不包含docs/zh路径下的文件变更，无需创建翻译issue")
         return
-    
-    diff_files = get_diff_file_list(diff_content)
-    
+
+    # 检查docs/en路径下是否有对应的文件变更
+    zh_files_in_en = check_zh_files_also_modified_in_en(diff_content)
+    if zh_files_in_en:
+        logger.info(f"发现 {len(zh_files_in_en)} 个在docs/zh和docs/en下同时修改的文件：{zh_files_in_en}")
+    else:
+        logger.info("没有发现同时在docs/zh和docs/en下修改的文件")
+
+    # 过滤只保留docs/zh路径下的文件，排除同时在docs/en下修改的文件
+    filtered_diff_content = filter_docs_zh_files(diff_content, zh_files_in_en)
+
+    # 检查是否有需要处理的docs/zh路径下的文件变更
+    if not filtered_diff_content.strip():
+        logger.info("没有需要处理的docs/zh路径下的文件变更，无需创建翻译issue")
+        return
+
+    diff_files = get_diff_file_list(filtered_diff_content)
+    logger.info(f"解析出 {len(diff_files)} 个变更文件：{diff_files}")
+
     # 分析diff文件
-    file_count, zh_file, en_file, need_create_issue = analyze_diff_files(
+    file_count, zh_file, need_create_issue = analyze_diff_files(
         diff_files, org_item.issue_triggers, issue_title_pr_mark)
-    
-    # 检查是否修改了相同文件
-    changed_same_files = check_same_files_changed(zh_file, en_file)
-    
+
+    logger.info(f"分析完成：共找到 {file_count} 个需要处理的文件")
+
     # 验证是否需要创建issue
     if file_count == 0:
         logger.warning(
             "NOTE: https://gitee.com/{}/files change files out of translate range"
             .format(issue_title_pr_mark))
-        return
-    
-    if changed_same_files:
-        logger.info("changed the same files in en and zh path, no need to create issue")
         return
     
     # 准备issue模板
