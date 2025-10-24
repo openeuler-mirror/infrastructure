@@ -1,6 +1,6 @@
 1.  **请问我如何在Gitee平台申请加入openEuler企业，成为组织成员？**
 		
-请点击[链接](https://gitee.com/open_euler?invite=10c2a5093d0832fb7d534e92c6c3890cac678d9ee65e83e88e7cde0b62298f898e2a5d1b1b807987439bc1f65eaa027860f010c409ba4a18108234d13d970cb1)填写相关内容后申请加入即可；
+请点击[链接](https://gitee.com/open_euler?invite=10c2a5093d0832fb895d3f9e2ac22dca8c173d8858dcde0a8e7cde0b62298f898e2a5d1b1b807987439bc1f65eaa027860f010c409ba4a18108234d13d970cb1)填写相关内容后申请加入即可；
 
 申请通常会在三个工作日内审核生效；如未及时生效可邮件通知 [infra@openeuler.sh](mailto:infra@openeuler.sh) 。
 
@@ -160,4 +160,24 @@ PR关联ISSUE的时候找不到相关的Issue的原因一般有两个：
 - 去除welcome成员信息<br>
 (1)在[基础设施仓库](https://gitee.com/openeuler/infrastructure) 提起issue，表明需要对哪个仓库进行去除welcome成员信息处理<br>
 (2)基础设施团队进行配置更新<br>
+---
+
+---
+15. **很多开发者不清楚gitee.com/openeuler和gitee.com/src-openeuler两个组织是什么差别？**
+- 要搞懂这个问题必须要解释清楚linux操作系统社区主要的功能和管理模式是什么？
+
+linux操作系统社区都是以一些列rpm包/deb包的组合来发布OS的，所以这个linux操作系统的管理可以拆解为软件包的管理。  
+这些包通常的产生通常需要有以下内容：
+（1）src源码包（比如gcc-12.3.0.tar.xz）  
+（2）对应源码版本的patch补丁（比如0395-update-ai-model.patch）  
+（3）编译生产软件发布包的SPEC文件（比如gcc.spec）  
+上述的三个内容放在一个叫制品仓的地方就可以用来生产软件包啦。 
+openEuler社区将所有制品仓集中在 gitee.com/src-openeuler的组织下管理，这就是gitee.com/src-openeuler的作用。
+比如可以在 gitee.com/src-openeuler/gcc下找到上述的三部分内容，用这些内容就能在openEuler社区的构建系统里面生产出gcc.rpm。  
+
+那么gitee.com/openeuler是干什么的呢？
+是用来存放在openEuler社区孵化的原生项目，或者对上游原始项目（如gcc）有诸多自主修改的项目的源码。
+可以直接理解为上述【src源码包】的上游地址，比如 gitee.com/openeuler/gcc用来管理gcc的不同版本的原始代码，
+版本成熟后就打包放到src-openeuler组织下和openEuler社区版本一起发布。
+
 ---
