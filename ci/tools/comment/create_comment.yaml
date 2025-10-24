@@ -7,7 +7,7 @@ comment_agent:
 
   # Model Configuration
   model:
-    name: "Qwen/Qwen3-8B"
+    name: "Qwen/Qwen3-32B"
     temperature: 0.1
     max_retry: 5  # For siliconflow backend
 
