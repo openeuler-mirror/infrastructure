@@ -22,7 +22,6 @@ class Org:
     comment_target_owner: str
     comment_target_repo: str
     auto_comment_enabled: bool = field(default=True)
-    confidence_threshold: float = field(default=0.7)
     text_check_enabled: bool = field(default=True)
     grammar_check_enabled: bool = field(default=True)
 
@@ -142,94 +141,33 @@ def generate_comment_content(comment_result, pr_url: str, analysis_status: str =
     comment_body = ""
     
     # 根据分析状态添加不同的状态标识
-    if analysis_status == "error":
-        comment_body += "### 分析状态：处理失败\n"
-        comment_body += "**分析过程中发生错误，无法生成详细反馈。请手动审查文本变更。**\n\n"
-    elif analysis_status == "low_confidence":
-        comment_body += "### 分析状态：置信度较低\n"
-        comment_body += "**当前分析置信度较低，结果仅供参考。建议进行人工审查。**\n\n"
-    elif analysis_status == "no_text_changes":
+    if analysis_status in ["no_text_changes", "no_grammar_errors"]:
+        # 统一的默认评论内容
         comment_body += "### 分析状态：无文本问题\n"
         comment_body += "**AI分析结果显示本次PR未发现明显的文本变更或语法问题。无需改动。**\n\n"
-    elif analysis_status == "no_grammar_errors":
-        comment_body += "### 分析状态：文本质量良好\n"
-        comment_body += "**检测到文本变更，但未发现明显的语法错误，文本质量良好。无需改动。**\n\n"
     else:  # success with issues
         comment_body += "### 分析状态：发现需要关注的问题\n"
         comment_body += "**AI分析发现了一些文本变更或语法问题，请查看下方详细信息。**\n\n"
     
-    # 如果有分析结果，添加详细信息
-    if comment_result and not comment_result.error:
-        # 如果有PR整体分析
-        if comment_result.pr_analysis:
-            pr_analysis = comment_result.pr_analysis
-            
-            # 添加整体评估摘要
-            comment_body += "## 整体评估\n"
-            comment_body += f"- 涉及文本变更: {'是' if pr_analysis.has_text_changes else '否'}\n"
-            comment_body += f"- 文本变更类型: {pr_analysis.text_change_type}\n"
-            comment_body += f"- 存在语法错误: {'是' if pr_analysis.has_grammar_errors else '否'}\n\n"
-            
-            # 添加详细分析
-            if pr_analysis.detailed_analysis:
-                comment_body += "## 详细分析\n"
-                comment_body += f"{pr_analysis.detailed_analysis}\n\n"
-            
-            # 添加语法错误列表
-            if pr_analysis.grammar_errors:
-                comment_body += "## 语法问题\n"
-                for i, error in enumerate(pr_analysis.grammar_errors, 1):
-                    comment_body += f"{i}. {error}\n"
-                comment_body += "\n"
-            
-            # 添加改进建议
-            if pr_analysis.suggestions:
-                comment_body += "## 改进建议\n"
-                for i, suggestion in enumerate(pr_analysis.suggestions, 1):
-                    comment_body += f"{i}. {suggestion}\n"
-                comment_body += "\n"
-        
-        # 添加文件级别的分析结果
+    # 如果有分析结果，添加文件级别的分析结果（仅输出有语法问题的文件）
+    if comment_result and analysis_status not in ["no_text_changes", "no_grammar_errors"]:
         if comment_result.file_analyses:
-            # comment_body += "## 文件分析\n"
-            
-            # 统计有问题的文件
-            files_with_issues = [f for f in comment_result.file_analyses if f.has_text_changes or f.grammar_issues]
-            files_without_issues = [f for f in comment_result.file_analyses if not f.has_text_changes and not f.grammar_issues]
+            # 只统计有语法问题的文件
+            files_with_issues = [f for f in comment_result.file_analyses 
+                               if f.grammar_issues and len(f.grammar_issues) > 0]
             
             if files_with_issues:
                 comment_body += f"### 需要关注的文件 ({len(files_with_issues)} 个)\n"
                 for i, file_analysis in enumerate(files_with_issues, 1):
                     comment_body += f"\n**{i}. {file_analysis.file_path}**\n"
-                    
-                    if file_analysis.has_text_changes:
-                        comment_body += f"- 文本变更: 检测到英文文本改动\n"
-                        if file_analysis.text_lines:
-                            comment_body += f"- 涉及行数: {len(file_analysis.text_lines)} 行\n"
-                    
-                    if file_analysis.grammar_issues:
-                        comment_body += f"- 语法问题: 发现 {len(file_analysis.grammar_issues)} 个问题\n"
-                        for j, issue in enumerate(file_analysis.grammar_issues, 1):
-                            comment_body += f"  {j}. {issue}\n"
-                    
-                    if file_analysis.analysis_details:
-                        comment_body += f"- 分析详情: {file_analysis.analysis_details}\n"
-            
-            if files_without_issues:
-                comment_body += f"\n### 无问题的文件 ({len(files_without_issues)} 个)\n"
-                for file_analysis in files_without_issues:
-                    comment_body += f"- {file_analysis.file_path}\n"
-            
-            # 添加处理统计
-            # comment_body += f"\n### 处理统计\n"
-            # comment_body += f"- 总文件数: {comment_result.total_files}\n"
-            # comment_body += f"- 成功分析: {comment_result.processed_files}\n"
-            # comment_body += f"- 有文本变更: {len([f for f in comment_result.file_analyses if f.has_text_changes])}\n"
-            # comment_body += f"- 有语法问题: {len([f for f in comment_result.file_analyses if f.grammar_issues])}\n"
+                    comment_body += f"- 语法问题: 发现 {len(file_analysis.grammar_issues)} 个问题\n"
+                    for j, issue in enumerate(file_analysis.grammar_issues, 1):
+                        comment_body += f"  {j}. {issue}\n"
 
     # 添加免责声明
     comment_body += "## 免责声明\n"
     comment_body += "本评论内容基于AI Agent技术自动生成，仅供参考。请开发者根据实际情况进行判断和修改。\n"
+    comment_body += "**注意：语法检查仅针对 docs/en/ 路径下的文件进行。**\n"
     
     return comment_body
 
@@ -270,38 +208,53 @@ def create_comment_based_on_pr_diff_and_config(conf: Config, cli: GiteeClient, p
             logger.info(f"组织 {org_item.org_name} 未启用自动评论功能")
             continue
         
-        # 移除文件筛选逻辑，对所有PR平等处理
-        logger.info("开始对PR进行全面文本分析（不限制文件类型和路径）")
-        
         # 获取diff内容
         diff_content = cli.get_diff_content(pr_owner, pr_repo, pr_number)
         if diff_content is None:
             logger.error("无法获取PR的diff内容")
             sys.exit(1)
         
+        # 早期检查：查看diff中是否包含docs/en路径下的文件变更
+        if 'docs/en/' not in diff_content:
+            logger.info("diff内容中不包含docs/en路径下的文件变更，发布默认评论")
+            # 发布默认评论
+            comment_content = generate_comment_content(
+                comment_result=None, 
+                pr_url=pr_html_url, 
+                analysis_status="no_text_changes"
+            )
+            success = cli.add_pr_comment(pr_owner, pr_repo, pr_number, comment_content)
+            if success:
+                logger.info("默认评论发布成功（无docs/en路径变更）")
+            else:
+                logger.error("默认评论发布失败（无docs/en路径变更）")
+            continue
+        
+        logger.info("检测到docs/en路径下的文件变更，开始进行英文语法检查分析...")
+        
         # 调用AI Agent进行分析
         logger.info("开始进行AI代码审查分析...")
-        comment_result = get_comment_analysis(diff_content, siliconflow_api_key, siliconflow_api_base)
+        comment_result = None
+        
+        try:
+            comment_result = get_comment_analysis(diff_content, siliconflow_api_key, siliconflow_api_base)
+        except Exception as e:
+            logger.error(f"AI分析过程发生异常: {e}")
+            logger.error("AI分析失败，跳过评论发布")
+            continue  # 跳过本次评论，不发布任何内容
         
         if not comment_result:
-            logger.error("AI分析失败，将发布错误状态评论")
-            # 创建一个错误结果对象，确保能发布评论
-            from comment_agent import CommentResult
-            comment_result = CommentResult(
-                pr_analysis=None,
-                file_analyses=[],
-                processed_files=0,
-                total_files=0,
-                error="AI分析过程失败"
-            )
+            logger.error("AI分析失败，未返回结果，跳过评论发布")
+            continue  # 跳过本次评论，不发布任何内容
+        
+        if comment_result.error:
+            logger.error(f"AI分析返回错误: {comment_result.error}，跳过评论发布")
+            continue  # 跳过本次评论，不发布任何内容
         
         # 确定分析状态和评论内容
         analysis_status = "success"
         
-        if comment_result.error:
-            analysis_status = "error"
-            logger.info("AI分析过程出错，将发布错误状态评论")
-        elif comment_result.pr_analysis:
+        if comment_result.pr_analysis:
             pr_analysis = comment_result.pr_analysis
             
             # 检查是否有文本变更或语法错误
@@ -318,14 +271,17 @@ def create_comment_based_on_pr_diff_and_config(conf: Config, cli: GiteeClient, p
                 analysis_status = "success"
                 logger.info("检测到需要关注的问题，将发布详细分析评论")
         else:
-            # 如果没有整体分析，检查是否有文件级别的问题
-            files_with_issues = [f for f in comment_result.file_analyses if f.has_text_changes or f.grammar_issues]
+            # 如果没有整体分析，检查是否有文件级别的语法问题
+            files_with_issues = [
+                f for f in comment_result.file_analyses 
+                if f.grammar_issues and len(f.grammar_issues) > 0
+            ]
             if files_with_issues:
                 analysis_status = "success"
-                logger.info(f"检测到 {len(files_with_issues)} 个文件有文本问题，将发布文件级别问题评论")
+                logger.info(f"检测到 {len(files_with_issues)} 个文件有语法问题，将发布文件级别问题评论")
             else:
                 analysis_status = "no_text_changes"
-                logger.info("未检测到文件级别问题，将发布无问题评论")
+                logger.info("未检测到文件级别语法问题，将发布无问题评论")
         
         # 总是生成和发布评论
         comment_content = generate_comment_content(
@@ -349,7 +305,9 @@ def main():
     parser.add_argument('--pr_repo', type=str, required=True, help='the PR of repo')
     parser.add_argument('--pr_number', type=str, required=True, help='the PR number')
     parser.add_argument('--siliconflow_api_key', type=str, default="", help='the API key of siliconflow')
-    parser.add_argument('--siliconflow_api_base', type=str, default="https://api.siliconflow.cn/v1", help='the base URL of siliconflow')
+    parser.add_argument('--siliconflow_api_base', type=str, 
+                        default="https://api.siliconflow.cn/v1", 
+                        help='the base URL of siliconflow')
     args = Args()
     parser.parse_args(args=sys.argv[1:], namespace=args)
     args.validate()
@@ -365,7 +323,9 @@ def main():
     pr_number = args.pr_number
     siliconflow_api_key = args.siliconflow_api_key
     siliconflow_api_base = args.siliconflow_api_base
-    create_comment_based_on_pr_diff_and_config(conf, cli, pr_owner, pr_repo, pr_number, siliconflow_api_key, siliconflow_api_base)
+    create_comment_based_on_pr_diff_and_config(
+        conf, cli, pr_owner, pr_repo, pr_number, siliconflow_api_key, siliconflow_api_base
+    )
 
 
 if __name__ == '__main__':

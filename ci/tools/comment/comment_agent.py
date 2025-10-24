@@ -58,18 +58,16 @@ logger = logging.getLogger(__name__)
 
 class PRAnalysisResult(BaseModel):
     """PR分析结果的结构化输出"""
-    has_text_changes: bool = Field(description="是否涉及英文文本改动", default=False)
-    text_change_type: Literal["无文本改动", "仅标点符号改动", "英文内容改动", "代码注释改动", "混合改动"] = Field(description="文本改动类型")
-    has_grammar_errors: bool = Field(description="是否存在语法语病错误", default=False)
-    grammar_errors: List[str] = Field(description="具体的语法语病错误列表", default=[])
+    has_text_changes: bool = Field(description="是否有文本变更", default=True)
+    text_change_type: str = Field(description="文本变更类型", default="")
+    has_grammar_errors: bool = Field(description="是否存在语法错误", default=False)
+    grammar_errors: List[str] = Field(description="语法错误列表", default=[])
     detailed_analysis: str = Field(description="详细分析说明")
     suggestions: List[str] = Field(description="改进建议列表", default=[])
 
 class FileTextAnalysis(BaseModel):
     """单个文件的文本分析"""
     file_path: str = Field(description="文件路径", default="")
-    has_text_changes: bool = Field(description="是否涉及英文文本改动", default=False)
-    text_lines: List[str] = Field(description="涉及文本改动的行", default=[])
     grammar_issues: List[str] = Field(description="语法问题列表", default=[])
     analysis_details: str = Field(description="分析详情")
 
@@ -90,13 +88,62 @@ class CommentResult:
     total_files: int
     error: Optional[str] = None
 
-# ==================== Token 统计工具 ====================
-
 
 # ==================== 工具函数 ====================
 
 class DiffParser:
     """Git Diff 解析器"""
+    
+    @staticmethod
+    def filter_docs_en_files(diff_content: str) -> str:
+        """
+        过滤diff内容，只保留docs/en路径下的文件变更
+        """
+        if not diff_content:
+            return ""
+        
+        lines = diff_content.split('\n')
+        filtered_lines = []
+        current_file_section = []
+        in_docs_en_file = False
+        current_file_path = ""
+        
+        for line in lines:
+            if line.startswith('diff --git'):
+                # 处理前一个文件
+                if in_docs_en_file and current_file_section:
+                    filtered_lines.extend(current_file_section)
+                    logger.info(f"包含docs/en路径下的文件: {current_file_path}")
+                
+                # 检查新文件是否在docs/en路径下
+                current_file_section = [line]
+                in_docs_en_file = False
+                current_file_path = ""
+                
+                # 提取文件路径
+                if ' a/' in line and ' b/' in line:
+                    # 找到 a/ 和 b/ 的位置
+                    a_pos = line.find(' a/')
+                    b_pos = line.find(' b/')
+                    
+                    if a_pos != -1 and b_pos != -1 and a_pos < b_pos:
+                        # 提取a/和b/之间的路径
+                        a_start = a_pos + 3  # 跳过 ' a/'
+                        current_file_path = line[a_start:b_pos]
+                        
+                        # 检查是否在docs/en路径下
+                        if current_file_path.startswith('docs/en/'):
+                            in_docs_en_file = True
+            else:
+                # 继续当前文件的内容
+                current_file_section.append(line)
+        
+        # 处理最后一个文件
+        if in_docs_en_file and current_file_section:
+            filtered_lines.extend(current_file_section)
+            logger.info(f"包含docs/en路径下的文件: {current_file_path}")
+        
+        return '\n'.join(filtered_lines)
     
     @staticmethod
     def parse_git_diff(diff_content: str) -> List[DiffFileInfo]:
@@ -358,6 +405,69 @@ class DiffParser:
 
         return lines_added, lines_deleted
 
+    @staticmethod
+    def is_punctuation_only_change(diff_content: str) -> bool:
+        """判断一个 diff 是否仅包含标点/空白改动（不包含英文字母数字层面的实质变化）
+
+        核心逻辑：
+        - 提取added_text和removed_text
+        - 只保留英文字母数字和下划线进行对比
+        - 如果这部分相同，说明英文内容没变，只是标点/空白/中文改了
+        - 如果这部分不同，说明有英文内容变更，不是"仅标点改动"
+        
+        注意：此函数主要用于过滤纯标点/空白改动，避免对这类改动进行语法检查
+        """
+        try:
+            added_parts = []
+            removed_parts = []
+            for raw_line in diff_content.strip().split('\n'):
+                if raw_line.startswith('+++') or raw_line.startswith('---'):
+                    continue
+                if raw_line.startswith('+'):
+                    added_parts.append(raw_line[1:])
+                elif raw_line.startswith('-'):
+                    removed_parts.append(raw_line[1:])
+
+            added_text = '\n'.join(added_parts)
+            removed_text = '\n'.join(removed_parts)
+            
+            # 如果没有改动，返回False
+            if added_text == removed_text:
+                return False
+
+            # 只保留英文字母数字和下划线
+            def keep_word_chars(s: str) -> str:
+                return re.sub(r'[^A-Za-z0-9_]', '', s)
+
+            added_word_chars = keep_word_chars(added_text)
+            removed_word_chars = keep_word_chars(removed_text)
+            
+            # 核心判断：如果英文字母数字部分完全相同，才认为是"仅标点改动"
+            # 
+            # 会被识别为"仅标点改动"（返回True，跳过语法检查）：
+            # 1. 纯标点改动（如逗号改句号）
+            # 2. 空白改动（如空格、换行）
+            # 3. 中文标点改动
+            # 
+            # 不会被识别为"仅标点改动"（返回False，进入语法检查）：
+            # 1. 新增/删除英文字母
+            # 2. 英文单词拼写改动
+            # 3. 英文内容的任何实质性改动
+            if added_word_chars == removed_word_chars and added_text != removed_text:
+                # 额外检查：如果两者都没有英文字母数字（纯中文/标点改动）
+                # 并且原始文本长度差异很大，可能不只是标点改动
+                if not added_word_chars and not removed_word_chars:
+                    # 如果都是纯中文/标点，检查长度差异
+                    # 长度差异超过10个字符，可能是中文内容的实质性改动
+                    if abs(len(added_text) - len(removed_text)) > 10:
+                        return False
+                return True
+
+            return False
+        except Exception as e:
+            logger.debug(f"判定仅标点改动时发生错误: {e}")
+            return False
+
 # ==================== LangChain 组件 ====================
 
 class LLMFactory:
@@ -374,107 +484,10 @@ class LLMFactory:
                 model=model_name,
                 api_key=SecretStr(SILICONFLOW_API_KEY),
                 base_url=SILICONFLOW_API_BASE,
-                temperature=MODEL_TEMPERATURE
+                temperature=0  # 使用0温度确保最大确定性和一致性
             )
         else:
             raise ValueError(f"不支持的后端类型: {BACKEND_TYPE}")
-
-class PromptTemplates:
-    """提示模板集合"""
-    
-    @staticmethod
-    def get_file_text_analysis_prompt() -> ChatPromptTemplate:
-        """获取单文件文本分析提示模板"""
-        return ChatPromptTemplate.from_messages([
-            ("system", f"""
-你是一个专业的代码审查和语言专家，专注于分析Gitee文档仓库的翻译PR中的英文文本内容。每条PR都是人工生成的文档改动。请忽略中文、格式和代码的审计，专注于识别英文文本变更。
-
-注意：请忽略中文、格式和代码的审计，专注于识别英文文本变更。如果文档的变更不涉及英文文本，你只需要输出“不涉及英文改动”即可，不需要额外输出任何分析结果。
-同时：对于专有名词，例如openEuler、GitHub等，你不能将其纳入英文文本变更的纠错范围内，而是应该自动识别专有名词。对于代码的相关变更，也不应该纳入分析内容范围。
-
-你需要遵循**能不提修改意见就不提修改意见**的原则进行审查！！！
-
-请仔细分析这个文件的改动，并按照以下要求进行分析：
-
-**分析重点：**
-
-1. 英文文本变更识别：
-   - 检查是否涉及英文文本内容的改动
-   - 区分代码逻辑变更和英文文本内容变更
-   - 识别注释、文档字符串、用户显示文本等英文文本内容
-   - 标识出具体的英文文本变更行
-
-2. 语法错误检测：
-   - 检查英文文本的语法、拼写错误
-
-**分析类型判断：**
-- 如果改动不涉及任何英文文本内容，标记为"无英文文本改动"
-- 如果涉及代码注释的英文文本变更，标记为"代码注释改动"
-- 如果涉及文档、界面文本等英文内容变更，标记为"英文内容改动"
-
-**语法检查重点：**
-- 英文：主谓一致、时态、拼写、标点、语序
-
-**输出要求：**
-- 如果存在英文文本变更但变更不存在语法问题，则直接输出“不存在语法问题”，不需要任何额外输出
-- 详细列出发现的语法错误（如果有）
-- 不能超过100个汉字字符
-
-            """),
-            ("human", """
-文件路径: {file_path}
-
-Git Diff 内容:
-{diff_content}
-
-            """)
-        ])
-    
-    @staticmethod
-    def get_pr_analysis_prompt() -> ChatPromptTemplate:
-        """获取整体PR分析提示模板"""
-        return ChatPromptTemplate.from_messages([
-            ("system", """
-你是一个专业的PR审查专家，专门分析Gitee文档仓库的翻译PR中的英文文本变更和语法问题。每条PR都是人工生成的文档改动。
-
-请分析所有文件的改动，并生成一个综合评估，要求：
-
-1. 整体文本变更评估：
-   - 统计涉及文本变更的文件数量
-   - 分析文本变更的类型分布
-   - 评估变更的重要性和影响范围
-   - 如果文本变更不涉及英文，或涉及英文但使用正确不需要改动，则**直接忽略**，无需对其进行总结
-
-2. 语法错误汇总：
-   - **仅汇总改动中的硬伤，如单词拼写错误、英语语法（时态语态）错误等**
-   - **对于一些可以优化但称不上错误的点，以最小化改动为原则，选择忽略**
-   - 提高报错阈值，忽略可优化翻译的点
-   - 提供优先修复建议
-
-3. 质量评估：
-   - 对整个PR的文本质量给出评分
-   - 分析文本变更的一致性
-   - 评估对用户体验的影响
-
-4. 改进建议：
-   - 提供具体的修改建议
-   - 推荐最佳实践
-   - 建议后续的质量控制措施
-
-**输出格式要求：**
-- 提供清晰的分析结论
-- 按优先级排列发现的问题
-- 给出可操作的改进建议
-
-            """),
-            ("human", """
-各个文件的分析结果:
-{file_analyses}
-
-总文件数: {total_files}
-涉及文本变更的文件数: {text_changed_files}
-            """)
-        ])
 
 class FileTextAnalysisChain:
     """单文件文本分析任务链"""
@@ -485,47 +498,85 @@ class FileTextAnalysisChain:
         # 创建输出解析器
         self.output_parser = JsonOutputParser(pydantic_object=FileTextAnalysis)
         
-        # 为硅基流动平台添加输出格式说明
+        # 输出格式说明
         format_instructions = """
 请以JSON格式输出，包含以下字段：
 {{
-    "has_text_changes": "是否涉及英文文本改动（布尔值）",
-    "text_lines": "涉及文本改动的行（字符串列表）",
-    "grammar_issues": "语法问题列表（字符串列表）",
+    "grammar_issues": "语法问题列表（字符串列表，如无问题则为空列表）",
     "analysis_details": "分析详情（字符串）"
 }}
 """
         # 创建新的prompt模板
         system_template = """
-你是一个专业的代码审查和语言专家，专注于分析Gitee文档仓库的翻译PR中的英文文本内容。每条PR都是人工生成的文档改动。
+你是英文语法检查专家，专门审查文档中英文文本的明显拼写和语法错误。
 
-**核心原则：只关注必然存在明显错误的地方，其他文件都不需要关注！**
+【核心原则：严格、一致、客观】
+必须对所有文件使用完全相同的判断标准！对同类错误必须给出一致的结论！
 
-**严格过滤条件：**
-1. 如果文档的变更不涉及英文文本，直接标记为"无英文文本改动"，无需任何分析
-2. 如果涉及英文文本但语法完全正确，直接标记为"语法正确，无需关注"
-3. 如果仅涉及标点符号的微小调整，直接标记为"仅标点符号改动，无需关注"
-4. 对于专有名词（如openEuler、GitHub等），自动识别并忽略，不纳入纠错范围
-5. 对于代码相关变更，不纳入分析内容范围
+【必须检查的错误类型】
+严格按照以下标准判断，不得有任何主观性：
 
-**只关注以下明显错误：**
-- 明显的单词拼写错误（如：recieve -> receive）
-- 严重的语法错误（如：主谓不一致、时态错误）
-- 明显的标点符号错误（如：缺少句号、逗号使用错误）
-- 明显的语序错误
+1. 明显的拼写错误：
+   - 常见单词拼写错误（如：recieve → receive, teh → the, seperate → separate）
+   - 随机字符串/无意义字符序列（如：awfawfwafaw, asvasvasv, xyzabc等）
+   - 判断标准：如果一个英文字符串不是：
+     * 技术文库中正确拼写的英文单词
+     * 技术术语（如：JSON, API, HTTP）
+     * 专有名词（如：GitHub, openEuler）
+     * 缩写词（如：PR, CI, CD）
+     * 文件名/路径/命令等
+     则认定为拼写错误
 
-**忽略以下情况：**
-- 语法正确但可以优化的表达
-- 风格偏好问题
-- 轻微的标点符号调整
-- 术语选择的差异
-- 表达方式的个人偏好
+2. 明显的时态错误：
+   - He go yesterday → He went yesterday
+   - She don't went → She didn't go
+   - 必须是显而易见的时态不匹配
 
-**输出要求：**
-- 如果不存在明显错误，直接输出"语法正确，无需关注"
-- 只有发现明显错误时才详细列出
-- 不能超过100个汉字字符
-- 遵循"能不提修改意见就不提修改意见"的原则
+3. 严重的主谓不一致：
+   - They is → They are
+   - He are → He is
+   - It is sings → It sings/It is singing
+   - 必须是显而易见的主谓不匹配
+
+4. 其他明显的语法错误：
+   - 动词形式错误（如：He can goes → He can go）
+   - 名词单复数错误（如：many book → many books）
+   - 介词使用错误（如：depend in → depend on）
+   - 冠词使用错误（如：a apple → an apple）
+   - 语态使用错误（如：主动语态和被动语态混淆）
+
+【完全忽略以下内容，直接输出"无需关注"】
+- 任何中文文本（包括中文列表项、中文注释、中文文档）
+- 所有格式问题：链接格式、大小写格式、标点符号、空格、缩进、换行
+- 代码/命令/文件名/路径/配置/脚本/Shell命令（如：/etc/yum.conf, npm install）
+- Markdown语法：标题、列表、表格、链接、图片
+- 专有名词：GitHub、openEuler、Gitee、GVP、CVE、CWE等
+- 口语化表达或技术文档中的简化表达
+- 缺少冠词的表达（口语化和技术文档中常见且可接受）
+- 句子结构简化（技术文档中常见且可接受）
+
+【判定流程 - 严格执行】
+对于每个新增的英文文本：
+1. 是否在代码/配置/路径/命令中？→ 是 → "无需关注"
+2. 是否是专有名词/技术术语/缩写？→ 是 → "无需关注"
+3. 是否是标准英文单词？→ 否 → 检查是否为随机字符串
+4. 如果是随机无意义字符串（无法识别字符串的含义）→ 报告为拼写错误
+5. 如果是完整句子 → 检查时态、主谓一致性、动词形式、名词单复数、介词、冠词等
+6. 其他情况 → "无需关注"
+
+【一致性要求】
+对于以下情况必须一致判断：
+- awfawfwafaw, asvasvasv, xyzabc 等无意义的随机字符串 → 必须全部识别
+- recieve, teh, seperate 等常见拼写错误 → 必须全部识别
+- 同样的语法错误在不同文件中 → 必须得出相同结论
+
+【输出要求】
+- 必须使用中文输出所有分析内容
+- analysis_details字段必须用中文解释问题
+- grammar_issues列表中的每一项都必须用中文描述
+- 对于随机字符串，明确指出"随机无意义字符串"或"拼写错误"
+- 保持判断的一致性和可重复性
+- 确保准确完整地识别所有问题类型，不遗漏任何明显的错误
 
 {format_instructions}
 """
@@ -543,77 +594,51 @@ Git Diff 内容:
     
     def analyze(self, diff_file_info: DiffFileInfo) -> Optional[FileTextAnalysis]:
         """分析单个文件的文本变更"""
+        logger.info(f"开始分析文件: {diff_file_info.file_path}")
         max_retry = MODEL_MAX_RETRY
+        
         for attempt in range(1, max_retry + 1):
-            # 如果不是第一次尝试，等待一段时间再重试，避免连续失败
+            # 重试时采用指数退避策略
             if attempt > 1:
-                delay = min(attempt * 2, 10)  # 递增延迟，最多10秒
-                logger.info(f"第{attempt}次尝试分析文件 {diff_file_info.file_path}，等待{delay}秒...")
+                delay = min(2 ** (attempt - 1), 10)  # 2, 4, 8, 10, 10...
+                logger.info(f"第{attempt}次尝试，等待{delay}秒...")
                 time.sleep(delay)
             
             try:
-                # 构造prompt字符串
-                prompt_args = {
-                    "file_path": diff_file_info.file_path,
-                    "diff_content": diff_file_info.diff_content
-                }
-                
-                # 直接调用，简化超时控制
+                # 调用LLM分析
                 invoke_args = {
                     "file_path": diff_file_info.file_path,
                     "diff_content": diff_file_info.diff_content
                 }
                 result = self.chain.invoke(invoke_args)
-                # 验证结果有效性
-                if isinstance(result, (dict, FileTextAnalysis)):
-                    if isinstance(result, dict):
-                        result = FileTextAnalysis(**result)
-                    
-                    # 检查结果完整性
-                    if result and hasattr(result, 'analysis_details') and result.analysis_details:
-                        
-                        # 设置准确值
-                        result.file_path = diff_file_info.file_path
-                        
-                        # 检查是否只关注明显错误
-                        analysis_text = result.analysis_details.lower()
-                        if any(phrase in analysis_text for phrase in [
-                            "语法正确，无需关注", 
-                            "无英文文本改动", 
-                            "仅标点符号改动，无需关注",
-                            "不存在语法问题"
-                        ]):
-                            # 如果无问题，设置has_text_changes为False
-                            result.has_text_changes = False
-                            result.grammar_issues = []
-                        
-                        return result
                 
-                # 结果无效，记录并重试
-                logger.warning(f"分析文件 {diff_file_info.file_path} 返回无效结果，第{attempt}次尝试")
-                if attempt < max_retry:
-                    continue
+                # 验证结果有效性
+                if isinstance(result, dict):
+                    result = FileTextAnalysis(**result)
+                
+                if isinstance(result, FileTextAnalysis) and result.analysis_details:
+                    result.file_path = diff_file_info.file_path
+                    # 确保grammar_issues为列表
+                    if not result.grammar_issues:
+                        result.grammar_issues = []
+                    return result
+                
+                # 结果无效，重试
+                logger.warning(f"分析返回无效结果，第{attempt}/{max_retry}次尝试")
+                
             except Exception as e:
                 err_str = str(e)
-                # 检查是否为HTTP错误（如404、5xx），常见关键字有status code、HTTP、response等
-                is_http_error = False
-                for code in ["404", "500", "502", "503", "504"]:
-                    if code in err_str:
-                        is_http_error = True
-                        break
-                if ("status code" in err_str or "HTTP" in err_str or "response" in err_str) and any(code in err_str for code in ["404", "500", "502", "503", "504"]):
-                    is_http_error = True
+                # 判断是否为HTTP错误
+                is_http_error = any(code in err_str for code in ["404", "500", "502", "503", "504"])
+                
                 if is_http_error:
-                    logger.error(f"分析文件 {diff_file_info.file_path} 时发生HTTP错误: {e}，第{attempt}次尝试，10秒后重试...")
+                    logger.error(f"HTTP错误: {e}，第{attempt}/{max_retry}次尝试")
                     if attempt < max_retry:
-                        time.sleep(10)
-                        continue
+                        time.sleep(10)  # HTTP错误等待更长时间
                 else:
-                    logger.error(f"分析文件 {diff_file_info.file_path} 时发生错误: {e}，第{attempt}次尝试")
-                # 其它异常直接进入下一次重试
-                if attempt < max_retry:
-                    logger.info(f"第{attempt}次尝试失败，准备重试...")
-        logger.error(f"分析文件 {diff_file_info.file_path} 连续{max_retry}次均未获得结构化输出，放弃。")
+                    logger.error(f"分析错误: {e}，第{attempt}/{max_retry}次尝试")
+        
+        logger.error(f"分析文件 {diff_file_info.file_path} 失败，已重试{max_retry}次")
         return None
 
 class PRAnalysisChain:
@@ -625,51 +650,36 @@ class PRAnalysisChain:
         # 创建输出解析器
         self.output_parser = JsonOutputParser(pydantic_object=PRAnalysisResult)
         
-        # 为硅基流动平台添加输出格式说明
+        # 输出格式说明
         format_instructions = """
 请以JSON格式输出，包含以下字段：
 {{
-    "has_text_changes": "是否涉及英文文本改动（布尔值）",
-    "text_change_type": "文本改动类型（字符串）",
-    "has_grammar_errors": "是否存在语法语病错误（布尔值）",
-    "grammar_errors": "具体的语法语病错误列表（字符串列表）",
+    "has_text_changes": "是否有文本变更（布尔值）",
+    "text_change_type": "文本变更类型（字符串）",
+    "has_grammar_errors": "是否存在语法错误（布尔值）",
+    "grammar_errors": "语法错误列表（字符串列表）",
     "detailed_analysis": "详细分析说明（字符串）",
     "suggestions": "改进建议列表（字符串列表）"
 }}
 """
-        # 创建新的prompt模板
+        # 创建prompt模板
         system_template = """
-你是一个专业的PR审查专家，专门分析Pull Request中的文本变更和语法问题。
+你是PR审查专家，汇总各文件的英文拼写和语法检查结果。
 
-**核心原则：只关注必然存在明显错误的地方，其他文件都不需要关注！**
+【核心任务】
+汇总所有存在语法问题的文件，包括：
+- 拼写错误（随机字符串、单词拼写错误）
+- 时态错误
+- 主谓不一致
+- 其他明显的语法错误
 
-请基于各个文件的分析结果，生成整个PR的综合评估，要求：
-
-1. 严格过滤文件：
-   - 只统计存在明显错误的文件
-   - 忽略"语法正确，无需关注"的文件
-   - 忽略"无英文文本改动"的文件
-   - 忽略"仅标点符号改动，无需关注"的文件
-
-2. 只汇总明显错误：
-   - 仅汇总硬伤：明显的单词拼写错误、严重的语法错误
-   - 忽略可优化但称不上错误的点
-   - 忽略风格偏好问题
-   - 忽略轻微的标点符号调整
-
-3. 质量评估：
-   - 只对存在明显错误的文件进行质量评估
-   - 如果所有文件都无问题，直接标记为"无问题文件"
-
-4. 改进建议：
-   - 只对存在明显错误的文件提供修改建议
-   - 建议优先修复明显的拼写和语法错误
-
-**输出格式要求：**
-- 如果所有文件都无问题，直接输出"所有文件语法正确，无需关注"
-- 只列出存在明显错误的文件
-- 按优先级排列发现的问题
-- 给出可操作的改进建议
+【输出要求】
+- has_text_changes: 如果有任何文本变更则为true，否则为false
+- text_change_type: 描述变更类型（如"文本变更且有语法错误"、"文本变更但无语法错误"等）
+- has_grammar_errors: 如果存在语法错误则为true，否则为false
+- grammar_errors: 所有语法错误的列表（用中文描述）
+- detailed_analysis: 简洁明了的分析说明（不超过200字，使用中文）
+- suggestions: 改进建议列表（如有问题则提供建议，无问题则为空列表）
 
 {format_instructions}
 """
@@ -686,83 +696,57 @@ class PRAnalysisChain:
         ])
         self.chain = self.prompt | self.llm | self.output_parser
     
-    def generate(self, file_analyses: List[FileTextAnalysis]) -> Optional[PRAnalysisResult]:
+    def generate(self, file_analyses: List[FileTextAnalysis], 
+                 total_comment_timeout: int = TOTAL_COMMENT_TIMEOUT) -> Optional[PRAnalysisResult]:
         """生成PR整体分析"""
         try:
             total_files = len(file_analyses)
             
-            # 过滤出只关注存在明显错误的文件
-            problematic_files = []
-            for analysis in file_analyses:
-                # 检查是否存在明显错误
-                has_obvious_errors = (
-                    analysis.has_text_changes and 
-                    analysis.grammar_issues and 
-                    len(analysis.grammar_issues) > 0 and
-                    analysis.analysis_details and
-                    not any(phrase in analysis.analysis_details for phrase in [
-                        "语法正确，无需关注", 
-                        "无英文文本改动", 
-                        "仅标点符号改动，无需关注",
-                        "不存在语法问题"
-                    ])
-                )
-                
-                if has_obvious_errors:
-                    problematic_files.append(analysis)
+            # 只保留有语法问题的文件
+            problematic_files = [f for f in file_analyses if f.grammar_issues]
             
-            # 如果所有文件都无问题，直接返回无问题结果
+            # 如果所有文件都无问题，直接返回
             if not problematic_files:
                 return PRAnalysisResult(
-                    has_text_changes=False,
-                    text_change_type="无文本改动",
+                    has_text_changes=True,
+                    text_change_type="文本变更但无语法错误",
                     has_grammar_errors=False,
                     grammar_errors=[],
-                    detailed_analysis="所有文件语法正确，无需关注",
+                    detailed_analysis="所有文件无问题",
                     suggestions=[]
                 )
             
-            text_changed_files = len(problematic_files)
+            # 构造分析信息
+            file_analyses_info = [
+                {
+                    'file_path': f.file_path,
+                    'grammar_issues': f.grammar_issues,
+                    'analysis_details': f.analysis_details
+                }
+                for f in problematic_files
+            ]
             
-            file_analyses_info = []
-            for analysis in problematic_files:
-                file_analyses_info.append({
-                    'file_path': analysis.file_path,
-                    'has_text_changes': analysis.has_text_changes,
-                    'text_lines': analysis.text_lines,
-                    'grammar_issues': analysis.grammar_issues,
-                    'analysis_details': analysis.analysis_details
-                })
-            
-            # 构造prompt字符串
-            prompt_args = {
-                "file_analyses": json.dumps(file_analyses_info, ensure_ascii=False, indent=2),
-                "total_files": total_files,
-                "text_changed_files": text_changed_files
-            }
-            
-            # 使用线程池执行器为PR分析添加超时控制
-            timeout_executor = None
-            try:
-                timeout_executor = ThreadPoolExecutor(max_workers=1)
+            # 使用线程池添加超时控制
+            with ThreadPoolExecutor(max_workers=1) as executor:
                 invoke_args = {
                     "file_analyses": json.dumps(file_analyses_info, ensure_ascii=False, indent=2),
                     "total_files": total_files,
-                    "text_changed_files": text_changed_files
+                    "text_changed_files": len(problematic_files)
                 }
-                result = self.chain.invoke(invoke_args)
-                # 验证结果有效性
-                if isinstance(result, (dict, PRAnalysisResult)):
-                    # 如果是dict（来自JsonOutputParser），转换为PRAnalysisResult
-                    if isinstance(result, dict):
-                        result = PRAnalysisResult(**result)
-                    return result
-                else:
-                    logger.error(f"生成PR分析时返回类型错误: {type(result)}")
+                
+                future = executor.submit(self.chain.invoke, invoke_args)
+                try:
+                    result = future.result(timeout=total_comment_timeout)
+                except (FutureTimeoutError, TimeoutError):
+                    logger.error(f"生成PR分析超时（{total_comment_timeout}秒）")
+                    future.cancel()
                     return None
-            except Exception as e:
-                logger.error(f"生成PR分析时发生错误: {e}")
-                return None
+            
+            # 处理结果
+            if isinstance(result, dict):
+                result = PRAnalysisResult(**result)
+            return result if isinstance(result, PRAnalysisResult) else None
+                
         except Exception as e:
             logger.error(f"生成PR分析时发生错误: {e}")
             return None
@@ -772,7 +756,9 @@ class PRAnalysisChain:
 class PRCommentAnalyzer:
     """PR评论分析器"""
     
-    def __init__(self, siliconflow_api_key: str = "", siliconflow_api_base: str = "https://api.siliconflow.cn/v1", model_name: str = None, base_url: str = None):
+    def __init__(self, siliconflow_api_key: str = "", 
+                 siliconflow_api_base: str = "https://api.siliconflow.cn/v1", 
+                 model_name: str = None, base_url: str = None):
         if model_name is None:
             model_name = MODEL_NAME
         
@@ -813,9 +799,60 @@ class PRCommentAnalyzer:
         if max_workers is None:
             max_workers = PROCESSING_MAX_WORKERS
             
-        logger.info("开始解析PR diff...")
-        files = DiffParser.parse_git_diff(diff_content)
-        logger.info(f"解析到 {len(files)} 个文件的改动")
+        # 早期检查：查看diff中是否包含docs/en路径下的文件变更
+        if 'docs/en/' not in diff_content:
+            logger.info("diff内容中不包含docs/en路径下的文件变更，无需进行语法检查")
+            return CommentResult(
+                pr_analysis=PRAnalysisResult(
+                    has_text_changes=False,
+                    text_change_type="无docs/en路径下的文件变更",
+                    has_grammar_errors=False,
+                    grammar_errors=[],
+                    detailed_analysis="本次改动不涉及docs/en路径下的文件，无需语法检查",
+                    suggestions=[]
+                ),
+                file_analyses=[],
+                processed_files=0,
+                total_files=0
+            )
+        
+        # 过滤只保留docs/en路径下的文件
+        logger.info("过滤diff内容，只保留docs/en路径下的文件...")
+        filtered_diff_content = DiffParser.filter_docs_en_files(diff_content)
+        
+        # 检查是否有需要处理的docs/en路径下的文件变更
+        if not filtered_diff_content.strip():
+            logger.info("没有需要处理的docs/en路径下的文件变更，无需进行语法检查")
+            return CommentResult(
+                pr_analysis=PRAnalysisResult(
+                    has_text_changes=False,
+                    text_change_type="无文本改动",
+                    has_grammar_errors=False,
+                    grammar_errors=[],
+                    detailed_analysis="过滤后没有docs/en路径下的文件需要检查",
+                    suggestions=[]
+                ),
+                file_analyses=[],
+                processed_files=0,
+                total_files=0
+            )
+        
+        logger.info("开始解析过滤后的PR diff...")
+        files = DiffParser.parse_git_diff(filtered_diff_content)
+        logger.info(f"解析到 {len(files)} 个docs/en路径下的文件改动")
+        # 预过滤：仅标点/空白改动的文件不视为英文改动，跳过后续LLM分析
+        filtered_files = []
+        skipped_punct_files = 0
+        for f in files:
+            if DiffParser.is_punctuation_only_change(f.diff_content):
+                skipped_punct_files += 1
+                logger.info(f"跳过仅标点/空白改动的文件: {f.file_path}")
+                continue
+            filtered_files.append(f)
+        if skipped_punct_files:
+            logger.info(f"共有 {skipped_punct_files} 个文件因仅标点/空白改动被忽略")
+        
+        # 检查是否有文件需要分析
         if not files:
             logger.warning("未找到任何文件改动")
             return CommentResult(
@@ -826,19 +863,37 @@ class PRCommentAnalyzer:
                 error='未找到任何文件改动'
             )
         
-        logger.info("开始并行处理各个文件的文本分析...")
+        # 如果所有文件都被过滤掉了（都是标点/空白改动）
+        if not filtered_files:
+            logger.info("所有文件都是标点/空白改动，无需进行语法检查")
+            return CommentResult(
+                pr_analysis=PRAnalysisResult(
+                    has_text_changes=False,
+                    text_change_type="无文本改动",
+                    has_grammar_errors=False,
+                    grammar_errors=[],
+                    detailed_analysis="所有改动都是标点或空白改动，无需语法检查",
+                    suggestions=[]
+                ),
+                file_analyses=[],
+                processed_files=0,
+                total_files=len(files)
+            )
+        
+        logger.info(f"开始并行处理文件分析 (共{len(filtered_files)}个，并发数{max_workers})")
         file_analyses = []
-        # 使用更健壮的并发处理机制
-        executor = None
-        try:
-            executor = ThreadPoolExecutor(max_workers=max_workers)
+        
+        # 计算整体超时时间
+        batches = (len(filtered_files) + max_workers - 1) // max_workers
+        overall_timeout = SINGLE_FILE_TIMEOUT * batches + 60
+        logger.info(f"整体超时: {overall_timeout}秒")
+        
+        with ThreadPoolExecutor(max_workers=max_workers) as executor:
+            # 提交所有任务
             future_to_file = {
                 executor.submit(self.file_analysis_chain.analyze, file_info): file_info.file_path
-                for file_info in files
+                for file_info in filtered_files
             }
-            
-            # 设置更长的整体超时时间，避免与单个文件超时冲突
-            overall_timeout = SINGLE_FILE_TIMEOUT * len(files) + 600  # 给每个文件的时间 + 额外缓冲
             
             completed_count = 0
             total_count = len(future_to_file)
@@ -847,37 +902,26 @@ class PRCommentAnalyzer:
                 for future in as_completed(future_to_file, timeout=overall_timeout):
                     file_path = future_to_file[future]
                     completed_count += 1
+                    
                     try:
-                        analysis = future.result(timeout=5)  # 短暂缓冲时间，因为任务已经完成
+                        analysis = future.result(timeout=SINGLE_FILE_TIMEOUT)
                         if analysis:
                             file_analyses.append(analysis)
-                            logger.info(f"完成文件 {file_path} 的文本分析 ({completed_count}/{total_count})")
+                            logger.info(f"完成 {file_path} ({completed_count}/{total_count})")
                         else:
-                            logger.warning(f"文件 {file_path} 的文本分析失败 ({completed_count}/{total_count})")
-                    except (FutureTimeoutError, TimeoutError) as e:
-                        logger.error(f"文件 {file_path} 的文本分析获取超时，跳过该文件: {type(e).__name__} ({completed_count}/{total_count})")
-                        try:
-                            future.cancel()
-                        except Exception as cancel_e:
-                            logger.warning(f"取消任务时发生错误: {cancel_e}")
+                            logger.warning(f"失败 {file_path} ({completed_count}/{total_count})")
+                    except (FutureTimeoutError, TimeoutError):
+                        logger.error(f"超时 {file_path} ({completed_count}/{total_count})")
+                        future.cancel()
                     except Exception as e:
-                        logger.error(f"处理文件 {file_path} 时发生异常: {e} ({completed_count}/{total_count})")
-            except (FutureTimeoutError, TimeoutError) as overall_e:
-                logger.error(f"整体处理超时({overall_timeout}秒)，已完成{completed_count}/{total_count}个文件")
-                # 取消所有未完成的任务
+                        logger.error(f"异常 {file_path}: {e} ({completed_count}/{total_count})")
+                        
+            except (FutureTimeoutError, TimeoutError):
+                logger.error(f"整体超时({overall_timeout}秒)，已完成{completed_count}/{total_count}")
+                # 取消未完成的任务
                 for future in future_to_file:
                     if not future.done():
-                        try:
-                            future.cancel()
-                        except Exception as cancel_e:
-                            logger.warning(f"取消未完成任务时发生错误: {cancel_e}")
-        finally:
-            # 确保线程池被正确关闭
-            if executor:
-                try:
-                    executor.shutdown(wait=True)
-                except Exception as shutdown_e:
-                    logger.warning(f"关闭主线程池时发生错误: {shutdown_e}")
+                        future.cancel()
         
         logger.info(f"成功生成 {len(file_analyses)} 个文件的文本分析")
         logger.info("开始生成PR整体分析...")
@@ -885,7 +929,7 @@ class PRCommentAnalyzer:
         if file_analyses:
             logger.info(f"基于 {len(file_analyses)} 个成功处理的文件生成PR分析...")
             try:
-                pr_analysis = self.pr_analysis_chain.generate(file_analyses)
+                pr_analysis = self.pr_analysis_chain.generate(file_analyses, TOTAL_COMMENT_TIMEOUT)
                 if pr_analysis:
                     logger.info("PR整体分析生成成功")
                 else:
@@ -922,12 +966,12 @@ def get_comment_analysis(sample_diff, siliconflow_api_key="", siliconflow_api_ba
         print(f"错误: {result.error}")
     
     print("\n=== 单文件文本分析 ===")
-    problematic_files = [f for f in result.file_analyses if f.has_text_changes and f.grammar_issues]
+    # 只输出有语法问题的文件
+    problematic_files = [f for f in result.file_analyses 
+                        if f.grammar_issues and len(f.grammar_issues) > 0]
     if problematic_files:
         for analysis in problematic_files:
             print(f"文件: {analysis.file_path}")
-            print(f"涉及文本变更: {analysis.has_text_changes}")
-            print(f"文本变更行: {analysis.text_lines}")
             print(f"语法问题: {analysis.grammar_issues}")
             print(f"分析详情: {analysis.analysis_details}")
             print("-" * 50)
