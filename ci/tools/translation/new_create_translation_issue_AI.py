@@ -354,6 +354,8 @@ def generate_issue_body(issue_summary, diff_files: list[str], pr_html_url: str) 
     """
     issue_body = ""
     if issue_summary and not issue_summary.error:
+        issue_body += f"## 🔗 相关PR链接\n\n"
+        issue_body += f"- {pr_html_url}\n"
         issue_body += f"## 📊 变更统计\n\n"
         issue_body += f"- **总文件数**: {issue_summary.total_files}\n"
         issue_body += f"- **成功处理文件数**: {issue_summary.processed_files}\n"
@@ -377,7 +379,7 @@ def generate_issue_body(issue_summary, diff_files: list[str], pr_html_url: str) 
                 issue_body += f"- **改动类型**: {summary.change_type}\n"
                 issue_body += f"- **新增行数**: {summary.lines_added}\n"
                 issue_body += f"- **删除行数**: {summary.lines_deleted}\n"
-                issue_body += f"- **潜在影响**: {summary.potential_impact}\n"
+                # issue_body += f"- **潜在影响**: {summary.potential_impact}\n"
                 issue_body += f"- **详细摘要**: {summary.summary}\n\n"
                 issue_body += "---\n\n"
     else:
@@ -392,8 +394,7 @@ def generate_issue_body(issue_summary, diff_files: list[str], pr_html_url: str) 
 
     issue_body += f"## ❗️ 本Issue的摘要内容基于AI Agent技术自动生成，" \
                  f"仅供参考，请以实际更改为准。\n\n"
-    issue_body += f"## 🔗 相关PR链接\n\n"
-    issue_body += f"- {pr_html_url}\n"
+
     
     return issue_body
 

@@ -47,7 +47,7 @@ logger = logging.getLogger(__name__)
 class SingleFileSummary(BaseModel):
     """单个文件摘要的结构化输出"""
     file_path: str = Field(description="文件路径", default="")
-    change_type: Literal["仅涉及标点符号的修改", "涉及到中英文文本内容的修改", 
+    change_type: Literal["仅涉及标点符号的修改", "仅涉及增删空行", "涉及到中英文文本内容的修改", 
                         "涉及到代码内容的修改", "涉及到其他内容的修改"] = Field(description="改动类型")
     potential_impact: str = Field(description="改动对其他文件潜在的影响")
     summary: str = Field(description="改动的详细摘要")
@@ -57,7 +57,7 @@ class SingleFileSummary(BaseModel):
 class FileChangeInfo(BaseModel):
     """文件改动信息"""
     file_path: str = Field(description="文件路径")
-    change_type: Literal["仅涉及标点符号的修改", "涉及到中英文文本内容的修改", 
+    change_type: Literal["仅涉及标点符号的修改", "仅涉及增删空行", "涉及到中英文文本内容的修改", 
                         "涉及到代码内容的修改", "涉及到其他内容的修改"] = Field(description="改动类型")
     lines_changed: int = Field(description="改动行数")
 
@@ -77,6 +77,7 @@ class DiffFileInfo:
     diff_content: str
     lines_added: int
     lines_deleted: int
+    content_analysis: Optional[Dict[str, Any]] = None  # 新增：内容类型分析
 
 @dataclass
 class ProcessingResult:
@@ -389,12 +390,14 @@ class DiffParser:
         """创建DiffFileInfo对象"""
         diff_content = '\n'.join(diff_lines)
         lines_added, lines_deleted = DiffParser._count_lines_changed(diff_content)
+        content_analysis = DiffParser._analyze_diff_content_type(diff_content)
         
         return DiffFileInfo(
             file_path=file_path,
             diff_content=diff_content,
             lines_added=lines_added,
-            lines_deleted=lines_deleted
+            lines_deleted=lines_deleted,
+            content_analysis=content_analysis
         )
     
     @staticmethod
@@ -412,6 +415,174 @@ class DiffParser:
                 lines_deleted += 1
 
         return lines_added, lines_deleted
+    
+    @staticmethod
+    def _analyze_diff_content_type(diff_content: str) -> Dict[str, Any]:
+        """
+        分析diff内容的类型，判断是否仅涉及空行、空白字符或格式变化
+        
+        Returns:
+            Dict包含分析结果：
+            - is_only_whitespace_changes: 是否仅涉及空白字符变化
+            - is_only_empty_lines: 是否仅涉及空行变化
+            - has_content_changes: 是否有实际内容变化
+            - whitespace_only_lines: 仅包含空白字符的行数
+            - empty_lines: 空行数
+            - content_lines: 有实际内容的行数
+            - added_empty_lines: 新增的空行数
+            - deleted_empty_lines: 删除的空行数
+            - added_whitespace_lines: 新增的空白字符行数
+            - deleted_whitespace_lines: 删除的空白字符行数
+            - added_content_lines: 新增的内容行数
+            - deleted_content_lines: 删除的内容行数
+        """
+        lines = diff_content.strip().split('\n')
+        
+        # 分别统计新增和删除的行数
+        added_empty_lines = 0
+        deleted_empty_lines = 0
+        added_whitespace_lines = 0
+        deleted_whitespace_lines = 0
+        added_content_lines = 0
+        deleted_content_lines = 0
+        
+        # 总体统计
+        whitespace_only_lines = 0
+        empty_lines = 0
+        content_lines = 0
+        
+        for line in lines:
+            if line.startswith('+') and not line.startswith('+++'):
+                # 新增行
+                content = line[1:]  # 去掉+号
+                if not content.strip():  # 空行
+                    empty_lines += 1
+                    added_empty_lines += 1
+                elif content.strip() == '' or content.isspace():  # 仅空白字符
+                    whitespace_only_lines += 1
+                    added_whitespace_lines += 1
+                else:
+                    content_lines += 1
+                    added_content_lines += 1
+            elif line.startswith('-') and not line.startswith('---'):
+                # 删除行
+                content = line[1:]  # 去掉-号
+                if not content.strip():  # 空行
+                    empty_lines += 1
+                    deleted_empty_lines += 1
+                elif content.strip() == '' or content.isspace():  # 仅空白字符
+                    whitespace_only_lines += 1
+                    deleted_whitespace_lines += 1
+                else:
+                    content_lines += 1
+                    deleted_content_lines += 1
+        
+        total_changed_lines = whitespace_only_lines + empty_lines + content_lines
+        
+        # 判断是否仅涉及空行变化（新增或删除空行，没有其他变化）
+        is_only_empty_lines = (total_changed_lines > 0 and 
+                              content_lines == 0 and 
+                              whitespace_only_lines == 0 and
+                              empty_lines > 0)
+        
+        # 判断是否仅涉及空白字符变化（包括空行和空白字符，但没有实际内容）
+        is_only_whitespace_changes = (total_changed_lines > 0 and 
+                                    content_lines == 0 and
+                                    (empty_lines > 0 or whitespace_only_lines > 0))
+        
+        # 是否有实际内容变化
+        has_content_changes = content_lines > 0
+        
+        return {
+            'is_only_whitespace_changes': is_only_whitespace_changes,
+            'is_only_empty_lines': is_only_empty_lines,
+            'has_content_changes': has_content_changes,
+            'whitespace_only_lines': whitespace_only_lines,
+            'empty_lines': empty_lines,
+            'content_lines': content_lines,
+            'added_empty_lines': added_empty_lines,
+            'deleted_empty_lines': deleted_empty_lines,
+            'added_whitespace_lines': added_whitespace_lines,
+            'deleted_whitespace_lines': deleted_whitespace_lines,
+            'added_content_lines': added_content_lines,
+            'deleted_content_lines': deleted_content_lines,
+            'total_changed_lines': total_changed_lines
+        }
+    
+    @staticmethod
+    def _generate_content_analysis_hint(content_analysis: Optional[Dict[str, Any]]) -> str:
+        """
+        根据内容分析结果生成提示信息
+        
+        Args:
+            content_analysis: 内容分析结果
+            
+        Returns:
+            提示信息字符串
+        """
+        if not content_analysis:
+            return ""
+        
+        # 获取详细统计信息
+        added_empty_lines = content_analysis.get('added_empty_lines', 0)
+        deleted_empty_lines = content_analysis.get('deleted_empty_lines', 0)
+        added_whitespace_lines = content_analysis.get('added_whitespace_lines', 0)
+        deleted_whitespace_lines = content_analysis.get('deleted_whitespace_lines', 0)
+        added_content_lines = content_analysis.get('added_content_lines', 0)
+        deleted_content_lines = content_analysis.get('deleted_content_lines', 0)
+        total_changed_lines = content_analysis.get('total_changed_lines', 0)
+        
+        if content_analysis.get('is_only_empty_lines', False):
+            # 仅涉及空行变化
+            hint = f"【重要提示】此文件的改动仅涉及空行的添加/删除"
+            if added_empty_lines > 0 and deleted_empty_lines > 0:
+                hint += f"（新增{added_empty_lines}行空行，删除{deleted_empty_lines}行空行）"
+            elif added_empty_lines > 0:
+                hint += f"（新增{added_empty_lines}行空行）"
+            elif deleted_empty_lines > 0:
+                hint += f"（删除{deleted_empty_lines}行空行）"
+            hint += "，没有实际内容变化，应归类为'仅涉及增删空行'。"
+            return hint
+            
+        elif content_analysis.get('is_only_whitespace_changes', False):
+            # 仅涉及空白字符变化（包括空行和空白字符）
+            hint = f"【重要提示】此文件的改动仅涉及空白字符的变化"
+            details = []
+            if added_empty_lines > 0 or deleted_empty_lines > 0:
+                empty_detail = f"空行（新增{added_empty_lines}行，删除{deleted_empty_lines}行）"
+                details.append(empty_detail)
+            if added_whitespace_lines > 0 or deleted_whitespace_lines > 0:
+                whitespace_detail = f"空白字符行（新增{added_whitespace_lines}行，删除{deleted_whitespace_lines}行）"
+                details.append(whitespace_detail)
+            
+            if details:
+                hint += f"（{', '.join(details)}）"
+            hint += "，没有实际内容变化，应归类为'仅涉及标点符号的修改'。"
+            return hint
+            
+        elif not content_analysis.get('has_content_changes', True):
+            # 没有实际内容变化（理论上不应该到达这里，但作为保险）
+            hint = f"【重要提示】此文件的改动没有实际内容变化，应归类为'仅涉及标点符号的修改'。"
+            return hint
+            
+        else:
+            # 包含实际内容变化
+            hint = f"【分析信息】此文件包含实际内容变化"
+            details = []
+            if added_content_lines > 0 or deleted_content_lines > 0:
+                content_detail = f"内容行（新增{added_content_lines}行，删除{deleted_content_lines}行）"
+                details.append(content_detail)
+            if added_empty_lines > 0 or deleted_empty_lines > 0:
+                empty_detail = f"空行（新增{added_empty_lines}行，删除{deleted_empty_lines}行）"
+                details.append(empty_detail)
+            if added_whitespace_lines > 0 or deleted_whitespace_lines > 0:
+                whitespace_detail = f"空白字符行（新增{added_whitespace_lines}行，删除{deleted_whitespace_lines}行）"
+                details.append(whitespace_detail)
+            
+            if details:
+                hint += f"（{', '.join(details)}）"
+            hint += "。"
+            return hint
 
 # ==================== LangChain 组件 ====================
 
@@ -492,17 +663,22 @@ class PromptTemplates:
 
 **务必注意：当你对单个文件的所有变更内容从头到尾进行过完整的分析之后，再生成你最终的结论！不要仅根据其中几行的增删改就给出你的结论！**
 
-1. 改动类型判断（必须选择以下四种之一，请严格按照示例进行判断）：
+1. 改动类型判断（必须选择以下五种之一，请严格按照示例进行判断）：
 
    - "涉及到其他内容的修改"：新增二进制文件、新增依赖库等其他内容
-   - "仅涉及标点符号的修改"：仅修改了标点符号的增减、删除、变动，几乎不影响理解
+   - "仅涉及增删空行"：仅添加或删除了空行，没有其他任何内容变化。空行是指完全为空的行（不包含任何字符，包括空格、制表符等）
+   - "仅涉及标点符号的修改"：仅修改了标点符号的增减、删除、变动，或仅涉及空白字符的变化，几乎不影响理解
    - "涉及到代码内容的修改"：修改了代码逻辑、函数定义、配置结构、命令行内容、脚本实现等
    - "涉及到中英文文本内容的修改"：修改了文档内容、命令或代码注释、字符串等文本，需要对内容进行翻译或调整以使得所有语种的人都可以理解
    
-**其中，你需要重点对后三种类型的修改进行区分。越靠后，修改类型判定的优先级越高。**
+**其中，你需要重点对后四种类型的修改进行区分。越靠后，修改类型判定的优先级越高。**
 如果修改的内容仅仅为新增了二进制文件、新增了依赖库等其他内容，绝大部分情况都可以归类为"涉及到其他内容的修改"。
-如果修改的内容不涉及中文或英文字符且不涉及代码改动，绝大部分情况都可以归类为"仅涉及标点符号的修改"，但一旦存在除了标点符号或文档格式以外的改动，则优先归为其他类别。
-如果修改的内容涉及代码逻辑、函数定义、配置结构、脚本实现等可能产生现实影响的变更，或者对环境部署命令行、内容配置进行了更改或调整，但不需要对内容进行翻译或调整以使得所有语种的人都可以理解，则归类为"涉及到代码内容的修改"。
+如果修改的内容不涉及中文或英文字符且不涉及代码改动，绝大部分情况都可以归类为"仅涉及标点符号的修改"，
+但一旦存在除了标点符号、空行、空白字符或文档格式以外的改动，则优先归为其他类别。
+特别地，如果修改仅涉及空行的添加或删除（空行是指完全为空的行，不包含任何字符），则应归类为"仅涉及增删空行"。
+如果修改的内容涉及代码逻辑、函数定义、配置结构、脚本实现等可能产生现实影响的变更，
+或者对环境部署命令行、内容配置进行了更改或调整，但不需要对内容进行翻译或调整以使得所有语种的人都可以理解，
+则归类为"涉及到代码内容的修改"。
 如果修改的内容涉及中文或英文字符，且需要对内容进行翻译或调整以使得所有语种的人都可以理解，可以归类为"涉及到中英文文本内容的修改"。
 一个区分"涉及到代码内容的修改"和"涉及到中英文文本内容的修改"的标准是：如果当前的改动属于某一语言，如果使用者不理解该语言，则必须要对改动进行翻译才能理解，则归类为"涉及到中英文文本内容的修改"，否则归类为"涉及到代码内容的修改"。
 
@@ -521,7 +697,40 @@ class PromptTemplates:
 ```
 分析：只涉及中文句号和感叹号的增删改，不涉及中文字符和英文字符的改动，且不涉及代码改动，属于"仅涉及标点符号的修改"
 
-示例2 - 涉及到代码内容的修改：
+或者仅涉及空白字符变化：
+```diff
+- 这是一个测试文档，用于演示功能。
++ 这是一个测试文档，用于演示功能。  
+```
+分析：只在行尾添加了空格，属于"仅涉及标点符号的修改"
+
+或者仅添加空行：
+```diff
++ 
++ ![图片说明](pictures/image.png)
++ 
+```
+分析：仅添加了空行，没有实际内容变化，属于"仅涉及增删空行"
+
+或者删除空行：
+```diff
+- 这是一个测试文档，用于演示功能。
+- 
++ 这是一个测试文档，用于演示功能。
+```
+分析：仅删除了空行，没有实际内容变化，属于"仅涉及增删空行"
+
+或者同时增删空行：
+```diff
+- 这是一个测试文档，用于演示功能。
+- 
++ 这是一个测试文档，用于演示功能。
++ 
++ 
+```
+分析：删除了一个空行，新增了两个空行，但都是空行操作，没有实际内容变化，属于"仅涉及增删空行"
+
+示例4 - 涉及到代码内容的修改：
 ```diff
 - function getUserInfo() 
 + function getUserProfile() 
@@ -547,7 +756,7 @@ class PromptTemplates:
 ```
 分析：修改了函数名、逻辑或文档文本中的代码块等，但是不涉及需要翻译的内容，属于"涉及到代码内容的修改"
 
-示例3 - 涉及到中英文文本内容的修改：
+示例5 - 涉及到中英文文本内容的修改：
 ```diff
 - // 这是一个注释说明
 + // 这是一个更详细的注释说明
@@ -559,7 +768,7 @@ class PromptTemplates:
 ```
 分析：修改了注释或文档文本内容，影响用户的阅读理解，需要对内容进行翻译或调整以使得所有语种的人都可以理解，属于"涉及到中英文文本内容的修改"
 
-示例4 - 涉及到其他内容的修改：
+示例6 - 涉及到其他内容的修改：
 ```diff
 + Binary file image.png added
 ```
@@ -596,6 +805,8 @@ class PromptTemplates:
 Git Diff 内容:
 {diff_content}
 
+内容分析提示: {content_analysis_hint}
+
             """)
         ])
     
@@ -610,7 +821,8 @@ Git Diff 内容:
 
 1. 整体改动类型统计：
    - 统计所有文件涉及到的改动类型，取并集
-   - 四种改动类型说明：
+   - 五种改动类型说明：
+     * "仅涉及增删空行"：仅添加或删除了空行，没有其他任何内容变化。空行是指完全为空的行（不包含任何字符，包括空格、制表符等）
      * "仅涉及标点符号的修改"：只修改了标点符号的增减、删除、变动
      * "涉及到中英文文本内容的修改"：修改了文档内容、注释等文本，但未涉及代码逻辑
      * "涉及到代码内容的修改"：修改了代码逻辑、函数定义、配置结构、命令行内容、脚本实现等
@@ -620,14 +832,14 @@ Git Diff 内容:
 统计示例：
 
 示例1 - 单一类型：
-文件A：仅涉及标点符号的修改
-文件B：仅涉及标点符号的修改
-→ 整体改动类型：["仅涉及标点符号的修改"]
+文件A：仅涉及增删空行
+文件B：仅涉及增删空行
+→ 整体改动类型：["仅涉及增删空行"]
 
 示例2 - 多种类型：
-文件A：仅涉及标点符号的修改
+文件A：仅涉及增删空行
 文件B：涉及到中英文文本内容的修改
-→ 整体改动类型：["仅涉及标点符号的修改", "涉及到中英文文本内容的修改"]
+→ 整体改动类型：["仅涉及增删空行", "涉及到中英文文本内容的修改"]
 
 示例3 - 复杂混合：
 文件A：涉及到中英文文本内容的修改
@@ -686,7 +898,7 @@ class SingleFileAnalysisChain:
             format_instructions = """
 请以JSON格式输出，包含以下字段：
 {{
-    "change_type": "改动类型（必须是以下之一：仅涉及标点符号的修改、涉及到中英文文本内容的修改、涉及到代码内容的修改、涉及到其他内容的修改）",
+    "change_type": "改动类型（必须是以下之一：仅涉及增删空行、仅涉及标点符号的修改、涉及到中英文文本内容的修改、涉及到代码内容的修改、涉及到其他内容的修改）",
     "potential_impact": "改动对其他文件潜在的影响",
     "summary": "改动的详细摘要"
 }}
@@ -699,17 +911,22 @@ class SingleFileAnalysisChain:
 
 **务必注意：当你对单个文件的所有变更内容从头到尾进行过完整的分析之后，再生成你最终的结论！不要仅根据其中几行的增删改就给出你的结论！**
 
-1. 改动类型判断（必须选择以下四种之一，请严格按照示例进行判断）：
+1. 改动类型判断（必须选择以下五种之一，请严格按照示例进行判断）：
 
    - "涉及到其他内容的修改"：新增二进制文件、新增依赖库等其他内容
-   - "仅涉及标点符号的修改"：仅修改了标点符号的增减、删除、变动，几乎不影响理解
+   - "仅涉及增删空行"：仅添加或删除了空行，没有其他任何内容变化。空行是指完全为空的行（不包含任何字符，包括空格、制表符等）
+   - "仅涉及标点符号的修改"：仅修改了标点符号的增减、删除、变动，或仅涉及空白字符的变化，几乎不影响理解
    - "涉及到代码内容的修改"：修改了代码逻辑、函数定义、配置结构、命令行内容、脚本实现等
    - "涉及到中英文文本内容的修改"：修改了文档内容、命令或代码注释、字符串等文本，需要对内容进行翻译或调整以使得所有语种的人都可以理解
    
-**其中，你需要重点对后三种类型的修改进行区分。越靠后，修改类型判定的优先级越高。**
+**其中，你需要重点对后四种类型的修改进行区分。越靠后，修改类型判定的优先级越高。**
 如果修改的内容仅仅为新增了二进制文件、新增了依赖库等其他内容，绝大部分情况都可以归类为"涉及到其他内容的修改"。
-如果修改的内容不涉及中文或英文字符且不涉及代码改动，绝大部分情况都可以归类为"仅涉及标点符号的修改"，但一旦存在除了标点符号或文档格式以外的改动，则优先归为其他类别。
-如果修改的内容涉及代码逻辑、函数定义、配置结构、脚本实现等可能产生现实影响的变更，或者对环境部署命令行、内容配置进行了更改或调整，但不需要对内容进行翻译或调整以使得所有语种的人都可以理解，则归类为"涉及到代码内容的修改"。
+如果修改的内容不涉及中文或英文字符且不涉及代码改动，绝大部分情况都可以归类为"仅涉及标点符号的修改"，
+但一旦存在除了标点符号、空行、空白字符或文档格式以外的改动，则优先归为其他类别。
+特别地，如果修改仅涉及空行的添加或删除（空行是指完全为空的行，不包含任何字符），则应归类为"仅涉及增删空行"。
+如果修改的内容涉及代码逻辑、函数定义、配置结构、脚本实现等可能产生现实影响的变更，
+或者对环境部署命令行、内容配置进行了更改或调整，但不需要对内容进行翻译或调整以使得所有语种的人都可以理解，
+则归类为"涉及到代码内容的修改"。
 如果修改的内容涉及中文或英文字符，且需要对内容进行翻译或调整以使得所有语种的人都可以理解，可以归类为"涉及到中英文文本内容的修改"。
 一个区分"涉及到代码内容的修改"和"涉及到中英文文本内容的修改"的标准是：如果当前的改动属于某一语言，如果使用者不理解该语言，则必须要对改动进行翻译才能理解，则归类为"涉及到中英文文本内容的修改"，否则归类为"涉及到代码内容的修改"。
 
@@ -728,7 +945,40 @@ class SingleFileAnalysisChain:
 ```
 分析：只涉及中文句号和感叹号的增删改，不涉及中文字符和英文字符的改动，且不涉及代码改动，属于"仅涉及标点符号的修改"
 
-示例2 - 涉及到代码内容的修改：
+或者仅涉及空白字符变化：
+```diff
+- 这是一个测试文档，用于演示功能。
++ 这是一个测试文档，用于演示功能。  
+```
+分析：只在行尾添加了空格，属于"仅涉及标点符号的修改"
+
+或者仅添加空行：
+```diff
++ 
++ ![图片说明](pictures/image.png)
++ 
+```
+分析：仅添加了空行，没有实际内容变化，属于"仅涉及增删空行"
+
+或者删除空行：
+```diff
+- 这是一个测试文档，用于演示功能。
+- 
++ 这是一个测试文档，用于演示功能。
+```
+分析：仅删除了空行，没有实际内容变化，属于"仅涉及增删空行"
+
+或者同时增删空行：
+```diff
+- 这是一个测试文档，用于演示功能。
+- 
++ 这是一个测试文档，用于演示功能。
++ 
++ 
+```
+分析：删除了一个空行，新增了两个空行，但都是空行操作，没有实际内容变化，属于"仅涉及增删空行"
+
+示例4 - 涉及到代码内容的修改：
 ```diff
 - function getUserInfo() 
 + function getUserProfile() 
@@ -754,7 +1004,7 @@ class SingleFileAnalysisChain:
 ```
 分析：修改了函数名、逻辑或文档文本中的代码块等，但是不涉及需要翻译的内容，属于"涉及到代码内容的修改"
 
-示例3 - 涉及到中英文文本内容的修改：
+示例5 - 涉及到中英文文本内容的修改：
 ```diff
 - // 这是一个注释说明
 + // 这是一个更详细的注释说明
@@ -766,7 +1016,7 @@ class SingleFileAnalysisChain:
 ```
 分析：修改了注释或文档文本内容，影响用户的阅读理解，需要对内容进行翻译或调整以使得所有语种的人都可以理解，属于"涉及到中英文文本内容的修改"
 
-示例4 - 涉及到其他内容的修改：
+示例6 - 涉及到其他内容的修改：
 ```diff
 + Binary file image.png added
 ```
@@ -803,6 +1053,8 @@ class SingleFileAnalysisChain:
 
 Git Diff 内容:
 {diff_content}
+
+内容分析提示: {content_analysis_hint}
 """
             self.prompt = ChatPromptTemplate.from_messages([
                 ("system", system_template.format(format_instructions=format_instructions)),
@@ -826,7 +1078,8 @@ Git Diff 内容:
                 # 构造prompt字符串
                 prompt_args = {
                     "file_path": diff_file_info.file_path,
-                    "diff_content": diff_file_info.diff_content
+                    "diff_content": diff_file_info.diff_content,
+                    "content_analysis_hint": DiffParser._generate_content_analysis_hint(diff_file_info.content_analysis)
                 }
                 try:
                     messages = self.prompt.format_messages(**prompt_args)
@@ -843,6 +1096,9 @@ Git Diff 内容:
                 invoke_args = {
                     "file_path": diff_file_info.file_path,
                     "diff_content": diff_file_info.diff_content,
+                    "content_analysis_hint": DiffParser._generate_content_analysis_hint(
+                        diff_file_info.content_analysis
+                    ),
                     "lines_added": diff_file_info.lines_added,
                     "lines_deleted": diff_file_info.lines_deleted
                 }
@@ -934,7 +1190,8 @@ class TotalSummaryChain:
 
 1. 整体改动类型统计：
    - 统计所有文件涉及到的改动类型，取并集
-   - 四种改动类型说明：
+   - 五种改动类型说明：
+     * "仅涉及增删空行"：仅添加或删除了空行，没有其他任何内容变化。空行是指完全为空的行（不包含任何字符，包括空格、制表符等）
      * "仅涉及标点符号的修改"：只修改了标点符号的增减、删除、变动
      * "涉及到中英文文本内容的修改"：修改了文档内容、注释等文本，但未涉及代码逻辑
      * "涉及到代码内容的修改"：修改了代码逻辑、函数定义、配置结构、命令行内容、脚本实现等
@@ -944,14 +1201,14 @@ class TotalSummaryChain:
 统计示例：
 
 示例1 - 单一类型：
-文件A：仅涉及标点符号的修改
-文件B：仅涉及标点符号的修改
-→ 整体改动类型：["仅涉及标点符号的修改"]
+文件A：仅涉及增删空行
+文件B：仅涉及增删空行
+→ 整体改动类型：["仅涉及增删空行"]
 
 示例2 - 多种类型：
-文件A：仅涉及标点符号的修改
+文件A：仅涉及增删空行
 文件B：涉及到中英文文本内容的修改
-→ 整体改动类型：["仅涉及标点符号的修改", "涉及到中英文文本内容的修改"]
+→ 整体改动类型：["仅涉及增删空行", "涉及到中英文文本内容的修改"]
 
 示例3 - 复杂混合：
 文件A：涉及到中英文文本内容的修改
@@ -1184,7 +1441,9 @@ class GitDiffSummarizer:
         try:
             executor = ThreadPoolExecutor(max_workers=max_workers)
             future_to_file = {
-                executor.submit(self.single_file_chain.analyze, file_info, self.max_retry_ollama, self.max_retry): file_info.file_path
+                executor.submit(
+                    self.single_file_chain.analyze, file_info, self.max_retry_ollama, self.max_retry
+                ): file_info.file_path
                 for file_info in files
             }
             
