@@ -10,7 +10,7 @@ AdminEmail: contact@openeuler.io
 ContinentOnly: false
 CountryOnly: false
 ASOnly: false
-Score: 50
+Score: 5000
 Enabled: true
 AllowRedirects: null
 NetworkBandwidth: 300
