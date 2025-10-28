@@ -10,8 +10,8 @@ AdminEmail: mirror_support@hust.edu.cn
 ContinentOnly: false
 CountryOnly: false
 ASOnly: false
-Score: 100
-Enabled: true
+Score: 1
+Enabled: false
 AllowRedirects: null
 NetworkBandwidth: 1000
 Latitude: 31.2222
