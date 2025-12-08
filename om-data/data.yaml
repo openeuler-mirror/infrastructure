@@ -5751,6 +5751,14 @@ users:
         end_date: ''
     user_name: ''
     emails: []
+  - gitee_id: lyxlyforever
+    github_id: ''
+    companies:
+      - company_name: '天翼云科技有限公司'
+        organization_name: ''
+        end_date: ''
+    user_name: ''
+    emails: []
   - gitee_id: lzb-James
     github_id: ''
     companies:
