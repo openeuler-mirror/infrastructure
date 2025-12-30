@@ -10,7 +10,7 @@ class Check():
         self.access_token = access_token
 
     def add_processing_tag(self):
-        url = 'https://gitee.com/api/v5/repos/{}/{}/pulls/{}/labels?access_token={}'.format(self.owner,
+        url = 'https://api.gitcode.com/api/v5/repos/{}/{}/pulls/{}/labels?access_token={}'.format(self.owner,
                                                                                             self.repo,
                                                                                             self.number,
                                                                                             self.access_token)
@@ -22,7 +22,7 @@ class Check():
             sys.exit(1)
 
     def add_successful_tag(self):
-        url = 'https://gitee.com/api/v5/repos/{0}/{1}/pulls/{2}/labels?access_token={3}'.format(self.owner,
+        url = 'https://api.gitcode.com/api/v5/repos/{0}/{1}/pulls/{2}/labels?access_token={3}'.format(self.owner,
                                                                                                 self.repo,
                                                                                                 self.number,
                                                                                                 self.access_token)
@@ -34,7 +34,7 @@ class Check():
             sys.exit(1)
 
     def add_docs_successful_tag(self):
-        url = 'https://gitee.com/api/v5/repos/{0}/{1}/pulls/{2}/labels?access_token={3}'.format(self.owner,
+        url = 'https://api.gitcode.com/api/v5/repos/{0}/{1}/pulls/{2}/labels?access_token={3}'.format(self.owner,
                                                                                                 self.repo,
                                                                                                 self.number,
                                                                                                 self.access_token)
@@ -46,7 +46,7 @@ class Check():
             sys.exit(1)
 
     def add_failed_tag(self):
-        url = 'https://gitee.com/api/v5/repos/{0}/{1}/pulls/{2}/labels?access_token={3}'.format(self.owner,
+        url = 'https://api.gitcode.com/api/v5/repos/{0}/{1}/pulls/{2}/labels?access_token={3}'.format(self.owner,
                                                                                                 self.repo,
                                                                                                 self.number,
                                                                                                 self.access_token)
@@ -58,7 +58,7 @@ class Check():
             sys.exit(1)
     
     def add_docs_failed_tag(self):
-        url = 'https://gitee.com/api/v5/repos/{0}/{1}/pulls/{2}/labels?access_token={3}'.format(self.owner,
+        url = 'https://api.gitcode.com/api/v5/repos/{0}/{1}/pulls/{2}/labels?access_token={3}'.format(self.owner,
                                                                                                 self.repo,
                                                                                                 self.number,
                                                                                                 self.access_token)
@@ -70,7 +70,7 @@ class Check():
             sys.exit(1)
 
     def remove_processing_tag(self):
-        url = 'https://gitee.com/api/v5/repos/{0}/{1}/pulls/{2}/labels/ci_processing/?access_token={3}'.format(
+        url = 'https://api.gitcode.com/api/v5/repos/{0}/{1}/pulls/{2}/labels/ci_processing/?access_token={3}'.format(
             self.owner,
             self.repo,
             self.number,
@@ -87,7 +87,7 @@ class Check():
                 sys.exit(1)
 
     def remove_successful_tag(self):
-        url = 'https://gitee.com/api/v5/repos/{0}/{1}/pulls/{2}/labels/ci_successful/?access_token={3}'.format(
+        url = 'https://api.gitcode.com/api/v5/repos/{0}/{1}/pulls/{2}/labels/ci_successful/?access_token={3}'.format(
             self.owner,
             self.repo,
             self.number,
@@ -104,7 +104,7 @@ class Check():
                 sys.exit(1)
 
     def remove_docs_successful_tag(self):
-        url = 'https://gitee.com/api/v5/repos/{0}/{1}/pulls/{2}/labels/docs_ci_successful/?access_token={3}'.format(
+        url = 'https://api.gitcode.com/api/v5/repos/{0}/{1}/pulls/{2}/labels/docs_ci_successful/?access_token={3}'.format(
             self.owner,
             self.repo,
             self.number,
@@ -121,7 +121,7 @@ class Check():
                 sys.exit(1)
 
     def remove_docs_failed_tag(self):
-        url = 'https://gitee.com/api/v5/repos/{0}/{1}/pulls/{2}/labels/docs_ci_failed/?access_token={3}'.format(
+        url = 'https://api.gitcode.com/api/v5/repos/{0}/{1}/pulls/{2}/labels/docs_ci_failed/?access_token={3}'.format(
             self.owner,
             self.repo,
             self.number,
@@ -138,7 +138,7 @@ class Check():
                 sys.exit(1)
 
     def remove_failed_tag(self):
-        url = 'https://gitee.com/api/v5/repos/{0}/{1}/pulls/{2}/labels/ci_failed/?access_token={3}'.format(
+        url = 'https://api.gitcode.com/api/v5/repos/{0}/{1}/pulls/{2}/labels/ci_failed/?access_token={3}'.format(
             self.owner,
             self.repo,
             self.number,
@@ -155,7 +155,7 @@ class Check():
                 sys.exit(1)
 
     def remove_conflict_tag(self):
-        url = 'https://gitee.com/api/v5/repos/{0}/{1}/pulls/{2}/labels/conflicted/?access_token={3}'.format(
+        url = 'https://api.gitcode.com/api/v5/repos/{0}/{1}/pulls/{2}/labels/conflicted/?access_token={3}'.format(
             self.owner,
             self.repo,
             self.number,
