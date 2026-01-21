@@ -88,7 +88,7 @@ def make_fork_same_with_origin(branch_name, o, r):
 
     same_flag = True
     if remote_flag:
-        subprocess.run([f"{USR_BIN}/git", "remote", "add", "upstream", f"https://gitee.com/{o}/{r}.git"])
+        subprocess.run([f"{USR_BIN}/git", "remote", "add", "upstream", f"https://atomgit.com/{o}/{r}.git"])
 
     # list git branches by git branch -a
     fork_branches_list = subprocess.run([f"{USR_BIN}/git", "branch", "-a"],
@@ -295,25 +295,25 @@ def make_branch_and_apply_patch(user, token, origin_branch, ser_id, repository_p
         os.chdir(f"/home/patches/{org}")
         if org == "src-openeuler":
             r = subprocess.run([f"{USR_BIN}/git",
-                                "clone", f"https://{user}:{token}@gitee.com/src-op/{repo_name}.git"],
+                                "clone", f"https://{user}:{token}@atomgit.com/src-op/{repo_name}.git"],
                                stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True)
             logger.info(r.stdout)
             for res in r.stdout:
                 if "error:" in res or "fatal:" in res:
                     result = subprocess.run([f"{USR_BIN}/git", "clone",
-                                             f"https://{user}:{token}@gitee.com/src-op/{repo_name}.git"],
+                                             f"https://{user}:{token}@atomgit.com/src-op/{repo_name}.git"],
                                             stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True)
                     logger.info(result.stdout)
             os.chdir(f"/home/patches/{repository_path}")
         elif org == "openeuler":
             r = subprocess.run([f"{USR_BIN}/git", "clone",
-                                f"https://{user}:{token}@gitee.com/ci-robot/{repo_name}.git"],
+                                f"https://{user}:{token}@atomgit.com/openeuler-infra-bot/{repo_name}.git"],
                                stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True)
             logger.info(r.stdout)
             for res in r.stdout:
                 if "error:" in res or "fatal:" in res:
                     result = subprocess.run([f"{USR_BIN}/git", "clone",
-                                             f"https://{user}:{token}@gitee.com/ci-robot/{repo_name}.git"],
+                                             f"https://{user}:{token}@atomgit.com/openeuler-infra-bot/{repo_name}.git"],
                                             stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True)
                     logger.info(result.stdout)
             os.chdir(f"/home/patches/{repository_path}")
@@ -374,7 +374,7 @@ def make_branch_and_apply_patch(user, token, origin_branch, ser_id, repository_p
 def make_pr_to_summit_commit(org, repo_name, source_branch, base_branch, token, pr_url_in_email_list, cover_letter,
                              receiver_email, pr_title, commit, cc_email, sub, msg_id, bugzilla):
     """
-    summit a pull request and add a "/check-cla" comment to it
+    summit a pull request
     :param org: org
     :param repo_name: repo name
     :param source_branch:
@@ -397,11 +397,11 @@ def make_pr_to_summit_commit(org, repo_name, source_branch, base_branch, token, 
     else:
         body = ""
 
-    create_pr_url = f"https://gitee.com/api/v5/repos/{org}/{repo_name}/pulls"
+    create_pr_url = f"https://api.atomgit.com/api/v5/repos/{org}/{repo_name}/pulls"
 
     data = {
         "access_token": token,
-        "head": "ci-robot:" + source_branch,
+        "head": "openeuler-infra-bot:" + source_branch,
         "base": base_branch,
         "title": title,
         "body": body,
@@ -414,7 +414,7 @@ def make_pr_to_summit_commit(org, repo_name, source_branch, base_branch, token, 
 
     try_times = 0
     while True:
-        if res.status_code != 201:
+        if res.status_code != 200:
             if try_times >= 2:
                 break
             res = requests.post(url=create_pr_url, data=data)
@@ -423,30 +423,17 @@ def make_pr_to_summit_commit(org, repo_name, source_branch, base_branch, token, 
             break
 
     pr_failed_reason = ""
-    if res.status_code == 201:
-        pull_link = res.json().get("html_url")
+    if res.status_code == 200:
+        pull_link = res.json().get("web_url")
         content = PR_SUCCESS.format(cc_email[0], pull_link, pr_url_in_email_list,
                                     cc_email[0], pull_link, pr_url_in_email_list)
-        send_mail_to_notice_developers(
-            content, receiver_email, cc_email, sub, msg_id, org + "/" + repo_name
-        )
-
-        # add /check-cla comment to pr
-        comment_data = {
-            "access_token": token,
-            "body": "/check-cla",
-        }
-        comment_url = f"https://gitee.com/api/v5/repos/{org}/{repo_name}/pulls/{res.json().get('number')}/comments"
-
-        rsp = requests.post(url=comment_url, data=comment_data)
-
-        if rsp.status_code != 201:
-            requests.post(url=comment_url, data=comment_data)
+        if org == "openeuler" :
+            send_mail_to_notice_developers(content, receiver_email, cc_email, sub, msg_id, org + "/" + repo_name)
 
         return True, pr_failed_reason
     else:
         if len(res.json()) != 0:
-            pr_failed_reason = res.json().get("message")
+            pr_failed_reason = res.json().get("error_message")
         else:
             pr_failed_reason = "Unknown error"
         return False, pr_failed_reason
@@ -998,10 +985,10 @@ def main():
     server = os.getenv("PATCHWORK_SERVER", "")
     server_token = os.getenv("PATCHWORK_TOKEN", "")
     repo_user = os.getenv("REPO_OWNER", "")
-    not_cibot_gitee_token = os.getenv("GITEE_TOKEN_NOT_CI_BOT", "")
+    robot_gitcode_token = os.getenv("ROBOT_GITCODE_TOKEN", "")
     mail_server = os.getenv("EMAIL_HOST", "")
 
-    if server == "" or server_token == "" or repo_user == "" or not_cibot_gitee_token == "" or mail_server == "":
+    if server == "" or server_token == "" or repo_user == "" or robot_gitcode_token == "" or mail_server == "":
         logger.warning("args can not be empty")
         return
 
@@ -1110,7 +1097,7 @@ def main():
             continue
 
         source_branch, organization, rp, failed_reason = make_branch_and_apply_patch(
-            repo_user, not_cibot_gitee_token, target_branch, series_id, repo)
+            repo_user, robot_gitcode_token, target_branch, series_id, repo)
 
         if failed_reason != "":
             zh_reason = "应用补丁/补丁集失败，%s" % failed_reason.strip("\n")
@@ -1143,22 +1130,22 @@ def main():
 
         # make pr
         pr_success, reason = make_pr_to_summit_commit(organization, rp, source_branch, target_branch,
-                                                      not_cibot_gitee_token,
+                                                      robot_gitcode_token,
                                                       sync_pr, letter_body, emails_to_notify, title_pr, comm, cc_list,
                                                       subject_str, message_id, bugzilla_content)
 
         if not pr_success and reason:
             infor_data.append(i)
 
-            zh_reason = "调用gitee api创建PR失败， 失败原因如下： %s" % reason
+            zh_reason = "调用atomgit api创建PR失败， 失败原因如下： %s" % reason
             zh_suggest = "请稍等，机器人会在下一次任务重新执行"
-            en_reason = "create PR failed when call gitee's api, failed reason is as follows: %s" % reason
+            en_reason = "create PR failed when call atomgit's api, failed reason is as follows: %s" % reason
             en_suggest = "please wait, the bot will retry in the next interval"
             content = PR_FAILED.format(
                 cc[0], sync_pr, zh_reason, zh_suggest, cc[0], sync_pr, en_reason, en_suggest
             )
 
-            # call gitee api to create PR failed, so send mail to tell developers what happened and take easy
+            # call atomgit api to create PR failed, so send mail to tell developers what happened and take easy
             send_mail_to_notice_developers(content, emails_to_notify, cc, subject_str, message_id, repo)
             continue
 
@@ -1171,6 +1158,10 @@ def main():
 
 if __name__ == '__main__':
     main()
+
+
+
+
 
 
 
