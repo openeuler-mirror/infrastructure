@@ -13,7 +13,7 @@ description: |
 
 - 机器人是通过检查PullRequest中**所有commit**作者的邮箱是否都签署了CLA来判定PR是否完成了CLA签署
 
-- 如下图所示的一个PR
+- 如下图所示的一个PR  
   <img src="./pr_all_commits.png" style="width: 75%; max-width: 1000px; height: auto; border: 1px solid #333; padding: 4px;" />
 
 ## 怎么查看PR所有commit的作者的邮箱
@@ -21,10 +21,10 @@ description: |
   - OpenAPI: [获取某Pull Request的所有Commit信息](https://docs.atomgit.com/docs/apis/get-api-v-5-repos-owner-repo-pulls-number-commits)
   
 - 使用方法如下：
-  - 点击上方API链接打开页面，如下图输入请求参数，然后发送请求
+  - 点击上方API链接打开页面，如下图输入请求参数，然后发送请求  
     <img src="./pr_commits_api_req.png" style="width: 75%; max-width: 1000px; height: auto; border: 1px solid #333; padding: 4px;" />
     
-  - 获取请求结果，如下所示
+  - 获取请求结果，如下所示  
     <img src="./pr_commits_api_res.png" style="width: 75%; max-width: 1000px; height: auto; border: 1px solid #333; padding: 4px;" />
 
 
@@ -61,15 +61,15 @@ description: |
 - 如果是通过 git 提交的PR，可以通过以下终端命令查看配置的邮箱
   - windows: `git config --global --list | findstr email`
   - linux: `git config --global --list | grep email`
-- 如果是通过 GitCode 平台页面提交的PR，可以在 https://gitcode.com/setting/email 中查看配置的邮箱（需要登录）
+- 如果是通过 GitCode 平台页面提交的PR，可以在 https://gitcode.com/setting/email 中查看配置的邮箱（需要登录）  
   <img src="./gitcode_email.png" style="width: 75%; max-width: 1000px; height: auto; border: 1px solid #333; padding: 4px;" />
 
 
 #### 第二步： 重置 commit 提交
 - 如果是通过 ***平台轻量级PR提交代码*** 或者 ***平台fork仓页面提交代码*** 的方式创建的PR，***<font color=red>需要关闭PR，再次提交代码后，重新创建PR</font>***。
-  - fork仓页面提交代码
+  - fork仓页面提交代码  
     <img src="./fork_pr.png" style="width: 75%; max-width: 1000px; height: auto; border: 1px solid #333; padding: 4px;" />
-  - 平台轻量级PR提交代码
+  - 平台轻量级PR提交代码  
     <img src="./lite_pr.png" style="width: 75%; max-width: 1000px; height: auto; border: 1px solid #333; padding: 4px;" />
 
 - 如果是通过 git 工具提交代码，然后创建的PR的话，***<font color=red>只需要使用 git 工具重新提交即可</font>***。<br>
