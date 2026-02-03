@@ -47,13 +47,13 @@ class GitConfig(Enum):
     clone_cmd = "git clone {} {}"
     merge_cmd = "git merge --no-edit pr_{n}"
     checkout_cmd = "git checkout -b working_pr_{n}"
-    fetch_cmd = "git fetch {gitee_url} pull/{n}/head:pr_{n}"
+    fetch_cmd = "git fetch {atomgit_url} merge-requests/{n}/head:pr_{n}"
     checkout_branch_cmd = "git checkout {}"
     pull_cmd = "git pull"
 
 
 class GlobalConfig(Enum):
-    pr_info_url = "https://gitee.com/{}/{}/pulls/{}.diff"
+    pr_info_url = "https://atomgit.com/{}/{}/pulls/{}.diff"
     header = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:83.0) Gecko/20100101 Firefox/83.0"}
     relative_index_path = "oEEP/oEEP-0000 oEEP  索引.md"
     header_type = ["特性变更", "信息整理", "流程设计"]
@@ -237,13 +237,13 @@ def prepare_env(work_dir, group, repo_name, pull_id, local_path, branch="master"
     if not os.path.exists(work_dir):
         os.makedirs(work_dir)
     repo = group + "/" + repo_name
-    gitee_url = "https://gitee.com/{repo}.git".format(repo=repo)
+    atomgit_url = "https://atomgit.com/{repo}.git".format(repo=repo)
     if os.path.exists(local_path):
         print("WARNING: %s already exist, delete it." % local_path)
         shutil.rmtree(local_path)
-    ret, out, err = execute_cmd3(GitConfig.clone_cmd.value.format(gitee_url, local_path))
+    ret, out, err = execute_cmd3(GitConfig.clone_cmd.value.format(atomgit_url, local_path))
     if ret != 0:
-        print("Failed to git clone {}, err:{}, out:{}".format(gitee_url, err, out))
+        print("Failed to git clone {}, err:{}, out:{}".format(atomgit_url, err, out))
         return 1
     os.chdir(local_path)
     ret, _, _ = execute_cmd3(GitConfig.checkout_branch_cmd.value.format(branch))
@@ -254,7 +254,7 @@ def prepare_env(work_dir, group, repo_name, pull_id, local_path, branch="master"
     if ret != 0:
         print("Failed to update to latest commit in %s branch" % branch)
         return 1
-    ret, _, _ = execute_cmd3(GitConfig.fetch_cmd.value.format(gitee_url=gitee_url, n=pull_id))
+    ret, _, _ = execute_cmd3(GitConfig.fetch_cmd.value.format(atomgit_url=atomgit_url, n=pull_id))
     if ret != 0:
         print("Failed to fetch PR:{n}".format(n=pull_id))
         return 1
@@ -294,4 +294,3 @@ def main(pr_id, work_dir):
 
 if __name__ == '__main__':
     main()
-
