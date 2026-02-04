@@ -44,7 +44,7 @@ def transferyaml(oldyamlname, newyamlname):
 
 if __name__ == '__main__':
     if len(sys.argv) != 3:
-        print("Param error, you should like this: \n python transferrepoyaml.py oldfile.yaml newfile.yaml")
+        print("Param error,  you should like this: \n python transferrepoyaml.py oldfile.yaml newfile.yaml")
         sys.exit()
     oldyamlname = sys.argv[1]
     newyamlname = sys.argv[2]
