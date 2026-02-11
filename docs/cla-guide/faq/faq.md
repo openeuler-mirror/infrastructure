@@ -33,7 +33,7 @@ description: |
 
 ## 如何查询一个邮箱是否签署了CLA
 
-请访问这个[网页链接](https://clasign.osinfra.cn/api/v1/individual-signing/6946817fe1b3f3e542b4e2d9?email=)，在链接后拼接要查询的邮箱，返回数据：
+请访问这个[网页链接](https://clasign.osinfra.cn/api/v1/individual-signing/6983225bdcbb19710248ccf0?email=)，在链接后拼接要查询的邮箱，返回数据：
 ```
 {
     "data": {

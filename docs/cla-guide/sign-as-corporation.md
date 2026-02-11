@@ -6,7 +6,7 @@
 
 ### 如何完成企业CLA文件签署
 - 从[openEuler官方网站](https://openeuler.org)首页社区版块进入[贡献攻略](https://openeuler.org/zh/community/contribution/)
-<img src='./img/1.png' width=600 height=350 alt='openEuler官方网站'/>
+<img src='./img/01.png' width=600 height=350 alt='openEuler官方网站'/>
 
 - 通过[贡献攻略](https://openeuler.org/zh/community/contribution/)点击**签署CLA**进入[CLA签署](https://clasign.osinfra.cn/sign/Z2l0ZWUlMkZvcGVuZXVsZXI=)页面
 <img src='./img/2_new.png' width=600 height=547 alt='openEuler贡献攻略'/>

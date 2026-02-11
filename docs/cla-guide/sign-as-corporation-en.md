@@ -5,9 +5,9 @@
  2.  **You need to specify an authorized administrator for the enterprise.**
 
 ### How Do I Sign an Enterprise CLA?
-1. Go to the Community section on the homepage of the [openEuler official website](https://gitee.com/link?target=https%3A%2F%2Fopeneuler.org%2Fen%2F) and click [Contribution](https://gitee.com/link?target=https%3A%2F%2Fopeneuler.org%2Fen%2Fcommunity%2Fcontribution%2F).
+1. Go to the Develop section on the homepage of the [openEuler official website](https://gitee.com/link?target=https%3A%2F%2Fopeneuler.org%2Fen%2F) and click [Contribution](https://gitee.com/link?target=https%3A%2F%2Fopeneuler.org%2Fen%2Fcommunity%2Fcontribution%2F).
 
-	<img src="./img/1-en.png" width="600" height="350" alt="openEuler official website">
+	<img src="./img/01-en.png" width="600" height="350" alt="openEuler official website">
 
 2. Click **Sign CLA** to go to the [CLA signing page](https://gitee.com/link?target=https%3A%2F%2Fclasign.osinfra.cn%2Fsign%2FZ2l0ZWUlMkZvcGVuZXVsZXI%3D) .
 
