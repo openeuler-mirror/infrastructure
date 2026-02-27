@@ -11,6 +11,9 @@ RUN dnf -y update \
 	&& dnf install -y git \
 	&& dnf install -y subversion
 
+RUN wget -O /usr/bin/dumb-init https://github.com/Yelp/dumb-init/releases/download/v1.2.2/dumb-init_1.2.2_amd64
+RUN chmod +x /usr/bin/dumb-init
+
 # Setup java path
 ENV JAVA_HOME /usr/lib/jvm/java-17-openjdk-17.0.13.11-6.oe2403sp1.x86_64
 ENV PATH $PATH:$JAVA_HOME/bin
