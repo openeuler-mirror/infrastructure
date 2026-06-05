@@ -370,6 +370,25 @@ def make_branch_and_apply_patch(user, token, origin_branch, ser_id, repository_p
         return new_branch, org, repo_name, am_failed_reason
 
 
+def get_open_pr_for_branch(org, repo_name, source_branch, token):
+    """
+    查询指定 source branch 是否已有 open PR，返回 web_url，没有则返回空字符串
+    """
+    url = f"https://api.atomgit.com/api/v5/repos/{org}/{repo_name}/pulls"
+    params = {
+        "access_token": token,
+        "state": "open",
+        "per_page": 100,
+    }
+    res = requests.get(url=url, params=params)
+    if res.status_code != 200:
+        return ""
+    for pr in res.json():
+        if pr.get("source_branch") == source_branch and pr.get("state") == "open":
+            return pr.get("web_url", "")
+    return ""
+
+
 # summit a pr
 def make_pr_to_summit_commit(org, repo_name, source_branch, base_branch, token, pr_url_in_email_list, cover_letter,
                              receiver_email, pr_title, commit, cc_email, sub, msg_id, bugzilla):
@@ -413,8 +432,14 @@ def make_pr_to_summit_commit(org, repo_name, source_branch, base_branch, token, 
     res = requests.post(url=create_pr_url, data=data)
 
     try_times = 0
+    pull_link = ""
     while True:
         if res.status_code != 200:
+            existing_pr_url = get_open_pr_for_branch(org, repo_name, source_branch, token)
+            if existing_pr_url:
+                pull_link = existing_pr_url
+                res.status_code = 200
+                break
             if try_times >= 2:
                 break
             res = requests.post(url=create_pr_url, data=data)
@@ -424,7 +449,8 @@ def make_pr_to_summit_commit(org, repo_name, source_branch, base_branch, token, 
 
     pr_failed_reason = ""
     if res.status_code == 200:
-        pull_link = res.json().get("web_url")
+        if not pull_link:
+            pull_link = res.json().get("web_url")
         content = PR_SUCCESS.format(cc_email[0], pull_link, pr_url_in_email_list,
                                     cc_email[0], pull_link, pr_url_in_email_list)
         if org == "openeuler" :
