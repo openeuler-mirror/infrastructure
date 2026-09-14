@@ -636,9 +636,9 @@ def get_email_content_sender_and_covert_to_pr_body(ser_id, path_of_repo):
         if len(patches_names_rows) == 1:
             first_path_mail_name = patches_names_rows[0][0]
             if version == "":
-                title_for_pr = first_path_mail_name.split("]")[1]
+                title_for_pr = first_path_mail_name.split("]")[1].strip()
             else:
-                title_for_pr = f"v{version} {first_path_mail_name.split(']')[1]}"
+                title_for_pr = f"v{version} {first_path_mail_name.split(']')[1].strip()}"
 
             sub = first_path_mail_name
         else:
@@ -742,9 +742,9 @@ def get_email_content_sender_and_covert_to_pr_body(ser_id, path_of_repo):
         return "", "", "", "", "", "", "", ""
     sub = cover_name
     if version == "":
-        title_for_pr = cover_name.split("]")[1]
+        title_for_pr = cover_name.split("]")[1].strip()
     else:
-        title_for_pr = f"v{version} {cover_name.split(']')[1]}"
+        title_for_pr = f"v{version} {cover_name.split(']')[1].strip()}"
 
     cover_who_is_email_list = ""
     # new code using email
